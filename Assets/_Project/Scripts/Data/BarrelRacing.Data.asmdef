@@ -1,10 +1,7 @@
 {
     "name": "BarrelRacing.Data",
-    "references": [
-        "BarrelRacing.Core",
-        "Unity.Addressables",
-        "Unity.ResourceManager"
-    ],
+    "rootNamespace": "BarrelRacing.Data",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

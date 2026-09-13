@@ -1,0 +1,21 @@
+{
+    "name": "BarrelRacing.Runtime",
+    "rootNamespace": "BarrelRacing.Runtime.Race",
+    "references": [
+        "BarrelRacing.Data",
+        "Unity.TextMeshPro",
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Fusion.Runtime",
+        "Fusion.Realtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
