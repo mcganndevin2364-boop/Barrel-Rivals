@@ -1,35 +1,27 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace BarrelRacing.Runtime.Race
 {
-    public enum RaceVFXType { HoofDustStep, DriftSparksBlue, DriftSparksOrange, DriftSparksPurple, DriftBoostBurst, WhipCrackBurst, BarrelKnockDebris, PocketNearMissSparkle, GateLaunchSmoke }
-
-    [DisallowMultipleComponent]
     public sealed class VFXDirector : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem _driftBoostBurstPrefab;
-        [SerializeField] private ParticleSystem _whipCrackBurstPrefab;
-        [SerializeField] private ParticleSystem _barrelKnockDebrisPrefab;
+        [SerializeField] private ParticleSystem _driftSparkBlue;
+        [SerializeField] private ParticleSystem _driftSparkOrange;
+        [SerializeField] private ParticleSystem _driftSparkPurple;
+        [SerializeField] private ParticleSystem _barrelExplosion;
 
-        private DriftTier _activeTier = DriftTier.None;
-
-        public void UpdateHorseSpeed(float speedRatio) { }
-        public void SetDriftSparkTier(DriftTier tier, Vector3 pos, Quaternion rot) => _activeTier = tier;
-        public void StopDriftSparks() => _activeTier = DriftTier.None;
-
-        public void PlayDriftBoostReleaseBurst(Vector3 pos, Quaternion rot) => SpawnEffect(_driftBoostBurstPrefab, pos, rot);
-        public void PlayWhipCrackBurst(Vector3 pos, Quaternion rot) => SpawnEffect(_whipCrackBurstPrefab, pos, rot);
-        public void PlayBarrelKnockDebris(Vector3 pos) => SpawnEffect(_barrelKnockDebrisPrefab, pos, Quaternion.identity);
-
-        private void SpawnEffect(ParticleSystem prefab, Vector3 pos, Quaternion rot)
+        public void SetDriftVFX(DriftTier tier)
         {
-            if (prefab != null)
+            if (_driftSparkBlue) _driftSparkBlue.gameObject.SetActive(tier == DriftTier.Blue);
+            if (_driftSparkOrange) _driftSparkOrange.gameObject.SetActive(tier == DriftTier.Orange);
+            if (_driftSparkPurple) _driftSparkPurple.gameObject.SetActive(tier == DriftTier.Purple);
+        }
+
+        public void PlayBarrelKnock(Vector3 pos)
+        {
+            if (_barrelExplosion != null)
             {
-                ParticleSystem ps = Instantiate(prefab, pos, rot);
-                ps.Play();
-                Destroy(ps.gameObject, 2.0f);
+                _barrelExplosion.transform.position = pos;
+                _barrelExplosion.Play();
             }
         }
     }
