@@ -5,7 +5,7 @@ namespace BarrelRacing.Runtime.Race
 {
     public sealed class BarrelCollisionResolver
     {
-        public const int KNOCK_PENALTY_POINTS = -500;
+        public const float KNOCK_PENALTY_SECONDS = 5.0f;
         public int TotalKnocks { get; private set; }
         public readonly bool[] KnockedBarrels = new bool[3];
 
@@ -28,6 +28,6 @@ namespace BarrelRacing.Runtime.Race
             return true;
         }
 
-        public int CalculateTotalPenalty() => TotalKnocks * KNOCK_PENALTY_POINTS;
+        public float CalculateTotalPenaltySeconds() => TotalKnocks * KNOCK_PENALTY_SECONDS;
     }
 }

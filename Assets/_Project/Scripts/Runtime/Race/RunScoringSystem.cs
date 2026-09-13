@@ -5,47 +5,53 @@ namespace BarrelRacing.Runtime.Race
 {
     public sealed class RunScoringSystem
     {
-        public struct RunScoreBreakdown
+        public struct RunResult
         {
-            public int TimeScore;
-            public int AccuracyScore;
-            public int StyleScore;
-            public int PenaltyScore;
-            public float Multiplier;
-            public int FinalScore;
+            public float RawTime;
+            public int KnockedBarrelsCount;
+            public float PenaltySeconds;
+            public float FinalRoundTime; // RawTime + PenaltySeconds
         }
 
-        public static int CalculateTimeScore(float runTime, float parTime)
+        public struct MatchAverageSummary
         {
-            float diff = runTime - parTime;
-            if (diff <= -2.0f) return 1000;
-            if (diff <= -1.0f) return 900;
-            if (diff <= 0.0f)  return 750;
-            if (diff <= 2.0f)  return 500;
-            if (diff <= 5.0f)  return 250;
-            return 100;
+            public float[] RoundTimes;
+            public float AverageTime;
+            public int TotalKnockedBarrels;
         }
 
-        public static RunScoreBreakdown CalculateTotalRunScore(
-            float runTime,
-            float parTime,
-            int accuracyPoints,
-            int stylePoints,
-            int penalties,
-            float multiplier = 1.0f)
+        public static RunResult CalculateRoundResult(float rawElapsedSeconds, int knockedBarrels)
         {
-            int timeScore = CalculateTimeScore(runTime, parTime);
-            int rawTotal = Mathf.Max(0, timeScore + accuracyPoints + stylePoints + penalties);
-            int finalScore = Mathf.RoundToInt(rawTotal * Mathf.Max(1.0f, multiplier));
+            float penalty = knockedBarrels * BarrelCollisionResolver.KNOCK_PENALTY_SECONDS;
+            float finalTime = Mathf.Max(0.1f, rawElapsedSeconds + penalty);
 
-            return new RunScoreBreakdown
+            return new RunResult
             {
-                TimeScore = timeScore,
-                AccuracyScore = accuracyPoints,
-                StyleScore = stylePoints,
-                PenaltyScore = penalties,
-                Multiplier = multiplier,
-                FinalScore = finalScore
+                RawTime = rawElapsedSeconds,
+                KnockedBarrelsCount = knockedBarrels,
+                PenaltySeconds = penalty,
+                FinalRoundTime = finalTime
+            };
+        }
+
+        public static MatchAverageSummary CalculateMatchAverage(float[] roundTimes, int totalKnocks)
+        {
+            if (roundTimes == null || roundTimes.Length == 0)
+            {
+                return new MatchAverageSummary { RoundTimes = Array.Empty<float>(), AverageTime = 0f, TotalKnockedBarrels = 0 };
+            }
+
+            float sum = 0f;
+            for (int i = 0; i < roundTimes.Length; i++)
+            {
+                sum += roundTimes[i];
+            }
+
+            return new MatchAverageSummary
+            {
+                RoundTimes = (float[])roundTimes.Clone(),
+                AverageTime = sum / roundTimes.Length,
+                TotalKnockedBarrels = totalKnocks
             };
         }
     }
