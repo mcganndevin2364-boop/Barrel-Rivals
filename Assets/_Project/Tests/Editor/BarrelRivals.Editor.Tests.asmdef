@@ -1,0 +1,6 @@
+{
+  "name": "BarrelRivals.Editor.Tests",
+  "references": ["BarrelRivals.Core", "BarrelRivals.Editor", "BarrelRivals.Foundation", "UnityEngine.UI"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "BarrelRivals.Foundation",
+  "rootNamespace": "BarrelRivals.Foundation",
+  "references": ["BarrelRivals.Core", "UnityEngine.UI", "Unity.InputSystem"]
+}

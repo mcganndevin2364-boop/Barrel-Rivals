@@ -1,39 +1,22 @@
-# Barrel Rivals — 1v1 Competitive Barrel Racing
+# Barrel Rivals
 
-**Barrel Rivals** is a turn-based 1v1 competitive rodeo barrel racing game built in **Unity 2022.3 LTS (URP)** with **Photon Fusion 2 Host Mode**, engineered for locked 60 FPS on mobile (<150 draw calls).
+An iOS/Android arcade barrel-racing game in development. The planned experience combines automatic first-person riding with launch timing, remembered drawing challenges, barrel-exit timing and a sprint challenge. Live turns with spectating, recorded challenges and simultaneous duels remain in scope, alongside ten horses, progression and a trusted economy.
 
----
+## Current build
 
-## 🏆 Match Structure & Winner Rules
+**M0 foundation:** Unity 6000.6.0f1, a saved URP arena, prototype horse, first-barrel approach and reset controls. Compilation, scene/reference checks and the recorded Editor tests pass. The complete race and multiplayer are still to be implemented; mobile performance has not been measured.
 
-Matches are structured into **3 Rodeo Rounds**. In each round, **both players get 1 run** (6 total runs per match):
-1. **Round 1:** Player A runs $\to$ Player B runs.
-2. **Round 2:** Player A runs $\to$ Player B runs.
-3. **Round 3:** Player A runs $\to$ Player B runs.
+- [Open the project and reproduce checks](README-M0.md)
+- [Implementation results and platform limits](Docs/Plan/Barrel-Rivals-M0-Report.md)
+- [Master status: eight categories and 53 sections](Docs/Plan/Barrel-Rivals-Master-Build-Status.md)
+- [Full build plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md)
+- [Gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md)
+- [Engineering stack and section contracts](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md)
 
-### ⏱️ Scoring & Penalties
-- **Run Time Calculation:**
-  $$\text{Round Time} = \text{Raw Elapsed Seconds} + \Big(\text{Knocked Barrels} \times 5.0\text{s}\Big)$$
-- **Knocking a Barrel:** Adds a **$+5.0\text{s}$ penalty** to that round's time.
-- **Winner Determination:** At the end of 3 rounds, each player's 3 round times are averaged:
-  $$\text{Average Time} = \frac{\text{Round 1 Time} + \text{Round 2 Time} + \text{Round 3 Time}}{3}$$
-- **The player with the fastest (lowest) average time wins the match prize purse and trophies!**
+The next gameplay increment is M1: one connected launch/draw/turn/exit loop. M1N then verifies two-client clocks and trusted results before content expansion. Physical Android checks and a compatible iOS build environment remain open platform requirements.
 
----
+## Development context
 
-## ⚡ Arcade Feel & Performance Aids
-Drift charging and whip rhythm boosts are performance aids used to shave seconds off your raw time:
-- **Mario Kart 3-Tier Drift Turbo:** Blue ($+6\%$), Orange ($+12\%$), Purple ($+20\%$) speed boosts coming out of barrel apexes.
-- **Rhythm Whip Bursts:** Up to 3 timed whips per run to accelerate your horse down the home stretch.
+Read [AGENTS.md](AGENTS.md) and the relevant engineering card before implementation. Preserve Unity metadata and the pinned package lockfile. Generated M0 assets have explicit ownership; future hand-authored production art belongs outside the generated directory.
 
----
-
-## 🏟️ Arena Tier & Economy Progression
-
-| Tier | Arena Name | Entry Fee | Win Prize | Par Time | Trophy Win / Loss | Max Trophy Cap |
-|:---:|---|:---:|:---:|:---:|:---:|:---:|
-| **0** | Bronze Arena (Oak Ridge) | 500 🪙 | 900 🪙 | 16.0s | +20 / -5 | 200 🏆 |
-| **1** | Silver Arena (Dusty Gulch) | 2,000 🪙 | 3,600 🪙 | 15.0s | +22 / -12 | 500 🏆 |
-| **2** | Gold Arena (Lone Star) | 8,000 🪙 | 14,400 🪙 | 14.0s | +24 / -18 | 1,000 🏆 |
-| **3** | Diamond Arena (Royal Stampede) | 25,000 🪙 | 45,000 🪙 | 13.0s | +25 / -22 | 2,000 🏆 |
-| **4** | Champion Arena (Triple Crown) | 75,000 🪙 | 135,000 🪙 | 12.5s | +25 / -25 | ∞ (Uncapped) |
+Earlier documents are retained in [Docs/Archive/Before-M0](Docs/Archive/Before-M0). Their old completion grades, Unity 2022.3 baseline, course dimensions and alternate section numbering do not describe this branch’s current implementation.

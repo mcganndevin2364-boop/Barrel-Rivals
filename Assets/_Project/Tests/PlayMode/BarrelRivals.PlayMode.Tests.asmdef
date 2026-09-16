@@ -1,0 +1,11 @@
+{
+  "name": "BarrelRivals.PlayMode.Tests",
+  "references": [
+    "BarrelRivals.Foundation",
+    "UnityEngine.UI",
+    "Unity.InputSystem"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}

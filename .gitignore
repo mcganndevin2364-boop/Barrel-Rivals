@@ -32,3 +32,11 @@ sysinfo.txt
 *.aab
 *.unitypackage
 .DS_Store
+!Tools/**/*.csproj
+Tools/**/bin/
+Tools/**/obj/
+.dotnet/
+Evidence/*.log
+/Assets/Resources/PerformanceTestRun*.json*
+/.utmp/
+/Assets/InitTestScene*.unity*

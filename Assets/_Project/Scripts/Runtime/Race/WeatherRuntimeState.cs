@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using BarrelRacing.Data;
+using BarrelRivals.Core;
 
 namespace BarrelRacing.Runtime.Race
 {
@@ -28,6 +29,9 @@ namespace BarrelRacing.Runtime.Race
 
         public void StepWeather(float deltaTime, DeterministicRng rng)
         {
+            if (rng == null) throw new ArgumentNullException(nameof(rng));
+            if (float.IsNaN(deltaTime) || float.IsInfinity(deltaTime) || deltaTime < 0f)
+                throw new ArgumentOutOfRangeException(nameof(deltaTime));
             if (ActiveCondition == null) return;
             float targetWind = ActiveCondition.BaseWindSpeedMps + rng.Range(-ActiveCondition.WindGustinessMps, ActiveCondition.WindGustinessMps);
             CurrentWindSpeedMps = Mathf.MoveTowards(CurrentWindSpeedMps, Mathf.Max(0f, targetWind), deltaTime * 2f);

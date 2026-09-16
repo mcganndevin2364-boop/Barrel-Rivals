@@ -1,12 +1,5 @@
-# BARREL RIVALS — PROJECT BIBLE & SYSTEM SPECIFICATIONS
+# Barrel Rivals product specifications
 
-## Core Game Loop & Architecture
-- **Multiplayer Architecture:** Photon Fusion 2 Live 1v1 turn-based / spectator tension loop (Hunting Sniper style).
-- **Core Timing Mechanics:**
-  - **Gate Launch:** 3 beeps, 3rd beep randomized 0.5-2.0s after 2nd. ±0.1s Perfect (+15% boost), Early tap = +5s penalty.
-  - **Alley Acceleration:** Auto-motion 15-20mph ramp-up to gallop (30-35mph).
-  - **Rate Tap:** Expanding/shrinking ring sweet-spot at 0.8 normalized.
-  - **Pattern Draw:** 7 drawing shapes with gesture recognition.
-  - **Sprint Rhythm:** 6-10 taps/second rhythm meter to photo finish.
-- **WPRA Dimensions:** 60ft between B1-B2, 90ft to B3, 30ft start line, 15ft fence clearance.
-- **Target Framerate:** 60 FPS locked on iPhone 12, <150 draw calls.
+Use [the current gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md) for the complete game and [the design decision register](Docs/Plan/Barrel-Rivals-Design-Decisions.md) for choices and experiments. The [eight-category build plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md) and [engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md) connect those outcomes to implementation.
+
+The prior short specification is preserved in [the historical archive](Docs/Archive/Before-M0/PROJECT_BIBLE.md). Its course dimensions, tap-rate values and performance claims are superseded. The standard-pattern foundation now uses 90 feet between the first two barrel centers, 105 feet from each to the third, and 60 feet from the score line to the first-barrel baseline. This geometry is tested; legal route/scoring and final tuning remain separate work.
