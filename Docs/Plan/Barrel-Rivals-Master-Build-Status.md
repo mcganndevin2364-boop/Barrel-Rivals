@@ -1,11 +1,11 @@
 **Barrel Rivals — master build status**  
 September 16, 2026 · Engineering plan revision 4 · Eight categories / 53 sections
 
-**Current position: M0 — foundation verified in the Editor and Android APK built; physical-device/iOS qualification remains open. Next gameplay increment: M1.**
+**Current position: M1 — first-barrel practice implemented; 33 Editor/Play Mode tests passed and the Android APK built and passed artifact checks. Phone and iOS qualification remain open.**
 
-The isolated `Barrel-Rivals-M0` project now imports, compiles, opens a saved arena, renders through URP and runs a first-barrel approach/reset preview. Ten Edit Mode tests and two Play Mode tests passed. The shared core also compiles separately without Unity references, and an Android development APK built and passed artifact checks. [M0 implementation report](Barrel-Rivals-M0-Report.md) records the exact checks and Android build status.
+The same recovered `Barrel-Rivals-M0` working copy now connects launch → remember/draw → graded turn → exit timing → practice result/retry. The pure C# rules and Unity adapter are separate. [M1 implementation report](Barrel-Rivals-M1-Report.md) records the checks, artifact and limits; [M0 report](Barrel-Rivals-M0-Report.md) preserves the foundation evidence.
 
-No original full section has passed all its integration/device acceptance requirements: **0 of 53 full sections verified complete**. Individual foundation checks have now passed; this is a section-acceptance count, not a percentage of effort. The project is still a development foundation, with placeholder geometry and no complete competitive race.
+No original full section has passed all its integration/device acceptance requirements: **0 of 53 full sections verified complete**. Individual foundation and practice checks have now passed; this is a section-acceptance count, not a percentage of effort. The project is a playable one-barrel prototype with placeholder geometry; the full competitive race remains ahead.
 
 **Work completed in this collaboration.**
 
@@ -16,10 +16,10 @@ No original full section has passed all its integration/device acceptance requir
 | Source recovery | Fetched GitHub main `b77f4e5`, preserved local files, and reconciled them in isolated branch `codex/m0-foundation`. Original project folders remain unchanged. |
 | Compilation repair | Fixed the missing result type and seeded RNG dependency; repaired package and assembly references. Unity and independent core compilation passed. |
 | Rendering and scene | Saved valid pipeline/renderer/material assets, a measured three-barrel course, proxy horse, fences and UI. Unity rendered the new scene without pink materials. The separate sample project remains unchanged. |
-| Runtime proof | Preview movement/arrival/reset and simulated touch dispatch passed in Play Mode. Physical touch on a phone has not been tested. |
+| Runtime proof | M1 adds phase-owned launch/draw/exit input, graded riding, fixed slow motion, one knock penalty and immutable practice results/retry. Editor touch and visual checks are recorded in the M1 report; physical touch remains pending. |
 | Reproduction tools | Added Unity batch entry points, pinned packages/metadata, test reports and development guidance. |
 
-**Implementation baseline.** The original racing checkout remains at `b156a70` with its local work preserved. The repaired copy is based on the freshly fetched GitHub commit `b77f4e5`. It adds a saved foundation scene, persistent prefabs/materials and shared core/test assemblies. Horse art/animation and complete race/multiplayer systems remain to be built. No changes have been pushed to GitHub.
+**Implementation baseline.** The original racing checkout remains at `b156a70` with its local work preserved. The repaired copy is based on the freshly fetched GitHub commit `b77f4e5`. It adds a saved foundation scene, persistent prefabs/materials and shared core/test assemblies. Horse art/animation and complete race/multiplayer systems remain to be built. M1 continues on local branch `codex/m1-skill-loop` from the M0 commit `feabb99`; it is the same repository and remote. No changes have been pushed to GitHub.
 
 **How to read the list.** “Early code,” “helper” or “prototype” means a starting point exists but the section is not implemented and verified end to end. “Not built” means no implementation of the required system was found in the reviewed game project. All sections have a planning/engineering specification; none is release-ready.
 
@@ -28,8 +28,8 @@ No original full section has passed all its integration/device acceptance requir
 | # | Section | Current implementation status |
 |---|---|---|
 | 1 | Project Setup & Architecture | M0 repair implemented; clean import/core compilation/scene reopen passed; full architecture/platform acceptance pending |
-| 2 | Input System Foundation | Input System and preview UI wired; race gestures and physical touch checks pending |
-| 3 | Game State Machine | Early phase-switching code; complete flow not wired |
+| 2 | Input System Foundation | M1 single-pointer launch/draw/exit adapter wired; cancellation/retry tested; real-phone sampling and latency pending |
+| 3 | Game State Machine | M1 pure practice state machine and immutable result tested; full run/match/DNF/reconnect states pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
 | 5 | Save/Load & Cloud Sync | Not built |
 | 6 | iOS & Android Platform Layer | Android development APK built/verified; physical phones, iOS build/signing and platform integration pending |
@@ -42,7 +42,7 @@ No original full section has passed all its integration/device acceptance requir
 | 8 | Horse Data Model & Breeds | Breed/stat definitions only; ten-horse roster not built |
 | 9 | Horse Stats & Leveling | Stat helpers exist; leveling not built |
 | 10 | Horse Animation State Machine | Animation-parameter code only; rigs/controllers absent |
-| 11 | Horse Physics & Movement Controller | Movement helper exists; playable controller not wired |
+| 11 | Horse Physics & Movement Controller | M1 automatic one-barrel path responds to skill grades; complete course, stats and rig integration pending |
 | 12 | Horse Gait System | Not built |
 | 13 | Horse Visual Customization (Colors/Markings) | Coat definitions only; customization not built |
 | 14 | Horse Aging & Career System | Not built |
@@ -55,7 +55,7 @@ No original full section has passed all its integration/device acceptance requir
 | 16 | Arena Geometry & WPRA Standards | Standard-pattern center distances implemented and tested; route legality and production arena pending |
 | 17 | Arena Lighting System | URP foundation lighting renders; mobile/production lighting pending |
 | 18 | Arena Ground Surface (Dirt/Footing) | Surface definitions and helper code |
-| 19 | Arena Props (Barrels, Fences, Gates, Chutes) | Saved prototype barrels/horse and scene fences/gate markers; production props/knock behavior pending |
+| 19 | Arena Props (Barrels, Fences, Gates, Chutes) | Saved prototype props; M1 visible knock and penalty share one event; final art/animation pending |
 | 20 | Crowd System (Stands, Fans, Animation) | Crowd definitions/calculations only |
 | 21 | Arena Themes & Variants | Tier names only; racing arenas not built |
 | 22 | Weather & Time-of-Day System | Missing RNG fixed with reproducibility tests; authored weather/runtime integration pending |
@@ -64,7 +64,7 @@ No original full section has passed all its integration/device acceptance requir
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 23 | Bodycam Camera Controller | Temporary first-person approach camera works; production rider camera/comfort/intro pending |
+| 23 | Bodycam Camera Controller | M1 third-person intro blends into bodycam; phone comfort and final rider framing pending |
 | 24 | Post-Processing Shader Pipeline | New racing URP assets render correctly; production effects/mobile validation pending; separate sample unchanged |
 | 25 | Lens Effects (Fisheye, Chromatic, Flare) | Not integrated into a racing scene |
 | 26 | Motion Effects (Blur, Speed Lines) | Not integrated into a racing scene |
@@ -75,14 +75,14 @@ No original full section has passed all its integration/device acceptance requir
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 29 | Phase 1 — Beep Gate System | Not built |
-| 30 | Phase 2 — Alley Run | Movement helper only; alley phase not wired |
-| 31 | Phase 3 — Barrel Turn Pattern System | Accuracy helper only; drawing/turn loop not built |
-| 32 | Pattern Library & Generation | Not built |
-| 33 | Touch Input & Path Scoring Algorithm | Not built |
+| 29 | Phase 1 — Beep Gate System | M1 seeded three-beep hold/release, early/late/missed rules and scheduled tones; device latency/authority pending |
+| 30 | Phase 2 — Alley Run | M1 graded automatic alley and single preview transition; full-course/stat integration pending |
+| 31 | Phase 3 — Barrel Turn Pattern System | M1 preview/draw/turn/exit loop wired with knock and retry; human playtesting and animation pending |
+| 32 | Pattern Library & Generation | M1 circle/triangle/square catalogue with versioned local seed; tier library/private server reveals pending |
+| 33 | Touch Input & Path Scoring Algorithm | M1 normalized/resampled closed-shape grader with quality-gated speed; synthetic edge cases pass; human-phone calibration pending |
 | 34 | Phase 4 — Home Sprint | Boost helper only; sprint challenge not built |
-| 35 | Slow Motion System | Not built |
-| 36 | Run Timer & Penalty Calculator | Result type fixed and compiled; full timing/penalty rules remain unverified |
+| 35 | Slow Motion System | M1 fixed response window and separate integer simulation clock tested; independent network clocks pending |
+| 36 | Run Timer & Penalty Calculator | M1 immutable one-barrel time plus one 5-second penalty tested; full-run/DNF/tie/server result pending |
 
 **CATEGORY F: MULTIPLAYER & COMPETITION (Sections 37–41)**
 
@@ -109,9 +109,9 @@ No original full section has passed all its integration/device acceptance requir
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 48 | Adaptive Audio Engine | Basic sound methods only |
+| 48 | Adaptive Audio Engine | M1 scheduled launch tone cues; audio latency, licensed sound and adaptive mix pending |
 | 49 | Haptics & Feedback System | Not built |
-| 50 | UI/UX Design System | Foundation preview/reset HUD wired; full game UI not built |
+| 50 | UI/UX Design System | M1 phase HUD, drawing/countdown, grade/result comparison and retry; full player journey pending |
 | 51 | Tutorial & Onboarding Flow | Not built |
 | 52 | Replay System & Highlights | Position-recording/material helpers; replay playback absent |
 | 53 | Analytics & Telemetry | Not built |
@@ -121,7 +121,7 @@ No original full section has passed all its integration/device acceptance requir
 | Milestone | Result to deliver | Current position |
 |---|---|---|
 | M0 | Reconciled source, compilation/package/URP repair, saved arena and first build checks | Foundation/Editor checks and Android APK passed; physical-device/iOS qualification still open |
-| M1 | One playable launch → draw → turn → exit-boost loop | Planned |
+| M1 | One playable launch → draw → turn → exit-boost loop | Implemented; 33 tests and Android artifact checks passed; physical-phone acceptance pending |
 | M1N | Early two-client timing/authority and independent-clock proof | Planned |
 | M2 | Complete representative race with one finished horse/arena | Planned |
 | M3 | Live duels/Championships and saved progression | Planned |
@@ -130,7 +130,7 @@ No original full section has passed all its integration/device acceptance requir
 | M6 | Full content/economy beta | Planned |
 | M7 | Release qualification and store launch | Planned |
 
-**Next concrete work.** M1 connects phase-owned touch input, randomized launch timing, one remembered drawing challenge, a graded automatic barrel turn and retry into this project. Keep rule/timing code in the engine-independent core, with Unity presentation adapters. In parallel with gameplay progress, qualify physical Android input/performance and establish a compatible Mac/Xcode/iPhone build path before closing M0's platform gate. Then run M1N's two-client clock/authority experiment before content expansion.
+**Next concrete work.** Playtest M1 on physical phones and calibrate timing/drawing/comfort, while preparing the M1N two-client authority/clock proof. Establish a compatible iOS build path before closing the platform gate. Then M2 expands to the complete three-barrel race, sprint and representative final art.
 
 **Companion documents.**
 
@@ -139,4 +139,4 @@ No original full section has passed all its integration/device acceptance requir
 - [Gameplay blueprint](Barrel-Rivals-Gameplay-Blueprint.md)
 - [Technical review and evidence](Barrel-Rivals-Technical-Review.md)
 
-This snapshot incorporates the M0 Unity import, render, automated tests and independent core compilation. Device gameplay, performance and multiplayer checks remain pending. Update each section only when its evidence changes.
+This snapshot incorporates M0 recovery and the M1 first-barrel implementation and recorded evidence. Device gameplay, performance and multiplayer checks remain pending. Update each section only when its evidence changes.

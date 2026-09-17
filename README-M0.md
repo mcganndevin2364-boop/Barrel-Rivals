@@ -1,5 +1,7 @@
 # Barrel Rivals — recovered Unity foundation
 
+Historical M0 instructions. The current playable skill loop is documented in [README-M1.md](README-M1.md).
+
 Open this project with **Unity 6000.6.0f1**. It is an isolated repair branch based on GitHub `b77f4e5`, with the original local Unity assets/settings preserved and reconciled. Your original project folders remain unchanged.
 
 ## Open and try the scene

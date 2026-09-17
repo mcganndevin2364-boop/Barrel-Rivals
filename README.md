@@ -4,16 +4,16 @@ An iOS/Android arcade barrel-racing game in development. The planned experience 
 
 ## Current build
 
-**M0 foundation:** Unity 6000.6.0f1, a saved URP arena, prototype horse, first-barrel approach and reset controls. Compilation, scene/reference checks and the recorded Editor tests pass. The complete race and multiplayer are still to be implemented; mobile performance has not been measured.
+**M1 first-barrel practice:** Unity 6000.6.0f1, a saved URP arena and proxy horse, hold/release launch, remembered drawing, graded turn/knock, separate exit timing and result/retry. Shared rules and Unity input/rendering checks are recorded in the M1 report. A full race, final art and multiplayer remain ahead; mobile performance has not been measured.
 
-- [Open the project and reproduce checks](README-M0.md)
-- [Implementation results and platform limits](Docs/Plan/Barrel-Rivals-M0-Report.md)
+- [Play the current scene and reproduce checks](README-M1.md)
+- [M1 implementation results and limits](Docs/Plan/Barrel-Rivals-M1-Report.md)
 - [Master status: eight categories and 53 sections](Docs/Plan/Barrel-Rivals-Master-Build-Status.md)
 - [Full build plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md)
 - [Gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md)
 - [Engineering stack and section contracts](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md)
 
-The next gameplay increment is M1: one connected launch/draw/turn/exit loop. M1N then verifies two-client clocks and trusted results before content expansion. Physical Android checks and a compatible iOS build environment remain open platform requirements.
+The next work is physical-phone calibration and M1N two-client timing/authority proof, before M2 full-course gameplay and content expansion. A compatible iOS build environment remains an open platform requirement. [README-M0.md](README-M0.md) preserves the foundation preview instructions; open `Arena_Practice` to try the new gameplay.
 
 ## Development context
 

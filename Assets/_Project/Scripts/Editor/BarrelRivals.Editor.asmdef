@@ -1,6 +1,17 @@
 {
   "name": "BarrelRivals.Editor",
   "rootNamespace": "BarrelRivals.Editor",
-  "references": ["BarrelRivals.Core", "BarrelRivals.Foundation", "BarrelRacing.Runtime", "UnityEngine.UI", "Unity.InputSystem", "Unity.RenderPipelines.Core.Runtime", "Unity.RenderPipelines.Universal.Runtime"],
-  "includePlatforms": ["Editor"]
+  "references": [
+    "BarrelRivals.Core",
+    "BarrelRivals.Foundation",
+    "BarrelRacing.Runtime",
+    "UnityEngine.UI",
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Core.Runtime",
+    "Unity.RenderPipelines.Universal.Runtime",
+    "BarrelRivals.Practice"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ]
 }

@@ -1,7 +1,7 @@
 # Barrel Rivals development onboarding
 
-1. Read [AGENTS.md](AGENTS.md), [README-M0.md](README-M0.md) and the [M0 decision record](Docs/Decisions/M0-Foundation.md).
-2. Check [the current master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md) and [verification report](Docs/Plan/Barrel-Rivals-M0-Report.md).
+1. Read [AGENTS.md](AGENTS.md), [README-M1.md](README-M1.md), the [M1 decision record](Docs/Decisions/M1-Practice.md) and the historical [M0 decision record](Docs/Decisions/M0-Foundation.md).
+2. Check [the current master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md) and [verification report](Docs/Plan/Barrel-Rivals-M1-Report.md).
 3. Use the exact S01–S53 contract in [the engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md), alongside the [gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md).
 4. Build a connected increment, verify its affected boundaries and update evidence. Do not turn existing scaffolding or future stack recommendations into claims of completed systems.
 

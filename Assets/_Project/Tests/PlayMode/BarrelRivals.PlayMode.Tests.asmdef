@@ -3,7 +3,9 @@
   "references": [
     "BarrelRivals.Foundation",
     "UnityEngine.UI",
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "BarrelRivals.Practice",
+    "BarrelRivals.Core"
   ],
   "optionalUnityReferences": [
     "TestAssemblies"

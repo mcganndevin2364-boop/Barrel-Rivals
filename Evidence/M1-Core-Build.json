@@ -1,0 +1,11 @@
+{
+  "target": ".NET Standard 2.1",
+  "languageVersion": "C# 9",
+  "project": "Tools/CoreCheck/BarrelRivals.Core.csproj",
+  "sdk": "8.0.318 (Unity-bundled)",
+  "result": "Build succeeded",
+  "warnings": 0,
+  "errors": 0,
+  "unityReferences": false,
+  "scope": "Independent build of the same engine-independent core sources; not a backend or mobile performance test."
+}

@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 import hashlib
 import json
 import os
@@ -9,7 +10,11 @@ import zipfile
 project = Path(__file__).resolve().parents[1]
 android = Path(os.environ.get('BARREL_ANDROID_TOOLCHAIN', '/Applications/Unity/Hub/Editor/6000.6.0f1/PlaybackEngines/AndroidPlayer'))
 build_tools = android / 'SDK/build-tools/36.0.0'
-apk = project / 'Builds/Android/BarrelRivals-Foundation.apk'
+parser = argparse.ArgumentParser(description='Inspect a local Barrel Rivals development APK.')
+parser.add_argument('--apk', default='Builds/Android/BarrelRivals-Foundation.apk')
+parser.add_argument('--output', default='Evidence/Android-Artifact.json')
+args = parser.parse_args()
+apk = project / args.apk
 assert apk.is_file(), 'The APK has not been produced.'
 env = dict(os.environ)
 env['JAVA_HOME'] = str(android / 'OpenJDK')
@@ -49,7 +54,7 @@ with zipfile.ZipFile(apk) as archive:
         libraries.append({'name': name, 'loadSegmentAlignments': alignments})
 assert libraries, 'Expected native IL2CPP libraries.'
 record = {
-    'artifact': 'Builds/Android/BarrelRivals-Foundation.apk',
+    'artifact': str(apk.relative_to(project)) if apk.is_relative_to(project) else str(apk),
     'bytes': apk.stat().st_size,
     'sha256': hashlib.sha256(apk.read_bytes()).hexdigest(),
     'metadata': metadata,
@@ -59,5 +64,7 @@ record = {
     'deviceInstalledOrRun': False,
     'distribution': 'local development APK; debug signing; not store-ready'
 }
-(project/'Evidence/Android-Artifact.json').write_text(json.dumps(record, indent=2)+'\n')
+output = project / args.output
+output.parent.mkdir(parents=True, exist_ok=True)
+output.write_text(json.dumps(record, indent=2)+'\n')
 print(json.dumps(record, indent=2))
