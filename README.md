@@ -7,6 +7,7 @@ An iOS/Android arcade barrel-racing game in development. The planned experience 
 **M1 first-barrel practice:** Unity 6000.6.0f1, a saved URP arena and proxy horse, hold/release launch, remembered drawing, graded turn/knock, separate exit timing and result/retry. Shared rules and Unity input/rendering checks are recorded in the M1 report. A full race, final art and multiplayer remain ahead; mobile performance has not been measured.
 
 - [Play the current scene and reproduce checks](README-M1.md)
+- [iPhone export and test setup](README-iPhone.md)
 - [M1 implementation results and limits](Docs/Plan/Barrel-Rivals-M1-Report.md)
 - [Master status: eight categories and 53 sections](Docs/Plan/Barrel-Rivals-Master-Build-Status.md)
 - [Full build plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md)

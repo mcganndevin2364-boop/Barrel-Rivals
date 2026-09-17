@@ -41,3 +41,5 @@ Evidence is stored inside the project under `Evidence/`: M1-Core-Build.json, M1-
 3. Build M2: one complete three-barrel race with sprint, a finished animated horse/rider, representative arena and measured mobile presentation.
 
 No full original section is release-verified solely by this increment. The eight-category/53-section plan and the complete game remain the destination. Changes are local; no GitHub push or store upload has occurred.
+
+**iPhone preparation follow-up.** The Unity iOS source export now succeeds with zero reported errors and passes the export inspector. Xcode native compilation, signing and iPhone installation remain unfinished. The available 2017/Ventura Mac needs an experimental Xcode 15.2 personal-device attempt; Apple sign-in is pending for that download. See [the iPhone setup guide](../../README-iPhone.md).

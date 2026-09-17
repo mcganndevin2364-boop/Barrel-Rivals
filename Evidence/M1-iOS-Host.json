@@ -1,0 +1,18 @@
+{
+  "host": {
+    "macModelIdentifier": "MacBookPro14,1",
+    "macOS": "13.7.8",
+    "architecture": "Intel x86_64",
+    "fullXcodeInstalled": false,
+    "iOSBuildSupportInstalled": true
+  },
+  "targetDevice": {
+    "model": "iPhone 17 Pro",
+    "iOS": "26.6.2",
+    "source": "user-reported; not independently verified"
+  },
+  "exportResult": {
+    "result": "Succeeded",
+    "reportedErrors": 0
+  }
+}

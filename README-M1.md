@@ -13,6 +13,10 @@ Touch and mouse use the same UI path. App interruption cancels this offline prac
 
 The existing `Arena_Foundation` scene remains the M0 approach/reset preview. Use `Arena_Practice` for the new gameplay.
 
+## iPhone testing
+
+Use [the iPhone setup guide](README-iPhone.md) for the Xcode export and the free Personal Team testing attempt. The Android APK cannot install on iOS. Native compilation, signing and the phone run remain separate validation gates.
+
 ## Reproduce checks and the Android build
 
 Close other Editors using this same project before running these commands from the repository root:

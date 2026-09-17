@@ -32,7 +32,7 @@ No original full section has passed all its integration/device acceptance requir
 | 3 | Game State Machine | M1 pure practice state machine and immutable result tested; full run/match/DNF/reconnect states pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
 | 5 | Save/Load & Cloud Sync | Not built |
-| 6 | iOS & Android Platform Layer | Android development APK built/verified; physical phones, iOS build/signing and platform integration pending |
+| 6 | iOS & Android Platform Layer | Android APK verified; iOS Xcode source export succeeded/inspected; Xcode installation, native compile/signing and physical phones pending |
 | 7 | Performance Budget & Quality Tiers | Targets proposed; device performance unmeasured |
 
 **CATEGORY B: HORSE SYSTEM (Sections 8–15)**
@@ -129,6 +129,8 @@ No original full section has passed all its integration/device acceptance requir
 | M5 | Simultaneous racing | Planned |
 | M6 | Full content/economy beta | Planned |
 | M7 | Release qualification and store launch | Planned |
+
+**iPhone preparation.** The user’s phone is an iPhone 17 Pro (reported iOS 26.6.2). Unity exported an unsigned Xcode project successfully, and its structural checks passed. The available Mac has no full Xcode; a free Personal Team/Xcode 15.2 attempt is pending Apple sign-in and compatibility testing. No signed iPhone app or phone run is claimed. [iPhone setup guide](../../README-iPhone.md).
 
 **Next concrete work.** Playtest M1 on physical phones and calibrate timing/drawing/comfort, while preparing the M1N two-client authority/clock proof. Establish a compatible iOS build path before closing the platform gate. Then M2 expands to the complete three-barrel race, sprint and representative final art.
 

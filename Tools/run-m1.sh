@@ -11,7 +11,8 @@ case "$ACTION" in
   editmode) ARGS+=(-nographics -runTests -testPlatform EditMode -testResults "$PROJECT_DIR/Evidence/M1-EditMode.xml") ;;
   playmode) ARGS+=(-runTests -testPlatform PlayMode -testResults "$PROJECT_DIR/Evidence/M1-PlayMode.xml") ;;
   android) ARGS+=(-nographics -quit -buildTarget Android -executeMethod BarrelRivals.Editor.PracticeBuilder.BuildAndroid) ;;
-  *) echo 'Usage: Tools/run-m1.sh {generate|validate|editmode|playmode|android}' >&2; exit 2 ;;
+  ios) ARGS+=(-nographics -quit -buildTarget iOS -executeMethod BarrelRivals.Editor.IPhonePracticeBuilder.Export) ;;
+  *) echo 'Usage: Tools/run-m1.sh {generate|validate|editmode|playmode|android|ios}' >&2; exit 2 ;;
 esac
 cd "$PROJECT_DIR"
 "$EDITOR" "${ARGS[@]}"
