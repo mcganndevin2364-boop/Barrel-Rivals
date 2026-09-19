@@ -15,7 +15,18 @@ namespace BarrelRivals.Practice
         [SerializeField] private CanvasGroup actionGroup, drawingGroup, resultGroup;
         [SerializeField] private Image progress, drawingProgress;
         [SerializeField] private PatternGraphic pattern;
-        [SerializeField] private Button retry;
+        [SerializeField] private Button retry, newChallenge, soundButton, hapticsButton, ghostButton;
+        [SerializeField] private Text soundLabel, hapticsLabel, ghostLabel, bestLabel, skillLabel;
+        [SerializeField] private CanvasGroup skillGroup;
+        [SerializeField] private PracticeFeedback feedback;
+        [SerializeField] private PracticeGhost ghost;
+        [SerializeField] private PracticeDust dust;
+        private PracticeRecordStore _records;
+        private PracticeReplayRecorder _recorder;
+        private long _skillShownAt;
+        private bool _exitShown;
+        private const string GhostPreference="BarrelRivals.Practice.Ghost";
+        private const string ChallengePreference="BarrelRivals.Practice.Challenge";
         private PracticeRun _run;
         private double _origin;
         private uint _seed=104;
@@ -27,17 +38,22 @@ namespace BarrelRivals.Practice
         private AudioSource[] _beeps;
         private AudioClip[] _tones;
         public PracticeRun Run => _run;
-        public bool HasBindings => horse && barrel && rideCamera && safeArea && phaseLabel && instruction && timer && actionLabel && shapeLabel && resultLabel && actionGroup && drawingGroup && resultGroup && progress && drawingProgress && pattern && retry;
+        public bool HasBindings => horse && barrel && rideCamera && safeArea && phaseLabel && instruction && timer && actionLabel && shapeLabel && resultLabel && actionGroup && drawingGroup && resultGroup && progress && drawingProgress && pattern && retry && newChallenge && soundButton && hapticsButton && ghostButton && soundLabel && hapticsLabel && ghostLabel && bestLabel && skillLabel && skillGroup && feedback && ghost && dust;
         private long ClockMs => Math.Max(_run?.NowMs??0,(long)((Time.realtimeSinceStartupAsDouble-_origin)*1000));
 
         public void Configure(Transform horseRoot,Transform firstBarrel,Camera camera,RectTransform safe,
             Text phase,Text hint,Text clock,Text action,Text shape,Text result,CanvasGroup actionPanel,
-            CanvasGroup drawingPanel,CanvasGroup resultPanel,Image bar,Image drawBar,PatternGraphic graphic,Button reset)
+            CanvasGroup drawingPanel,CanvasGroup resultPanel,Image bar,Image drawBar,PatternGraphic graphic,Button reset,
+            Button next, Button sound, Button haptics, Button ghostToggle, Text soundText, Text hapticsText,
+            Text ghostText, Text personalBest, Text skillText, CanvasGroup skillPanel, PracticeFeedback effects, PracticeGhost replay, PracticeDust dirt)
         {
             horse=horseRoot; barrel=firstBarrel; rideCamera=camera; safeArea=safe;
             phaseLabel=phase; instruction=hint; timer=clock; actionLabel=action; shapeLabel=shape; resultLabel=result;
             actionGroup=actionPanel; drawingGroup=drawingPanel; resultGroup=resultPanel;
             progress=bar; drawingProgress=drawBar; pattern=graphic; retry=reset;
+            newChallenge=next; soundButton=sound; hapticsButton=haptics; ghostButton=ghostToggle;
+            soundLabel=soundText; hapticsLabel=hapticsText; ghostLabel=ghostText; bestLabel=personalBest;
+            skillLabel=skillText; skillGroup=skillPanel; feedback=effects; ghost=replay; dust=dirt;
         }
         private void Awake()
         {
@@ -49,14 +65,53 @@ namespace BarrelRivals.Practice
                 _beeps[i]=gameObject.AddComponent<AudioSource>(); _beeps[i].playOnAwake=false; _beeps[i].spatialBlend=0;
                 _tones[i]=Tone(i==2?1100:650); _beeps[i].clip=_tones[i];
             }
-            retry.onClick.AddListener(Retry); ResetRun();
+            _records=new PracticeRecordStore();
+            if(uint.TryParse(PlayerPrefs.GetString(ChallengePreference,"104"),out uint savedSeed)) _seed=savedSeed;
+            ghost.VisibleEnabled=PlayerPrefs.GetInt(GhostPreference,1)!=0;
+            retry.onClick.AddListener(Retry); newChallenge.onClick.AddListener(NewChallenge);
+            soundButton.onClick.AddListener(ToggleSound); hapticsButton.onClick.AddListener(ToggleHaptics);
+            ghostButton.onClick.AddListener(ToggleGhost);
+            ResetRun(); RefreshSettings();
         }
-        public void Retry() { _seed++; ResetRun(); }
+        public void Retry() { ResetRun(); }
+        public void NewChallenge()
+        {
+            _seed++;
+            try { PlayerPrefs.SetString(ChallengePreference,_seed.ToString(System.Globalization.CultureInfo.InvariantCulture)); PlayerPrefs.Save(); }
+            catch(PlayerPrefsException) { }
+            ResetRun();
+        }
+        private void ToggleSound()
+        {
+            feedback.SoundEnabled=!feedback.SoundEnabled;
+            foreach(var source in _beeps) source.mute=!feedback.SoundEnabled;
+            RefreshSettings();
+        }
+        private void ToggleHaptics() { feedback.HapticsEnabled=!feedback.HapticsEnabled; RefreshSettings(); }
+        private void ToggleGhost()
+        {
+            ghost.VisibleEnabled=!ghost.VisibleEnabled;
+            try { PlayerPrefs.SetInt(GhostPreference,ghost.VisibleEnabled?1:0); PlayerPrefs.Save(); }
+            catch(PlayerPrefsException) { }
+            RefreshSettings();
+        }
+        private void RefreshSettings()
+        {
+            soundLabel.text="SOUND "+(feedback.SoundEnabled?"ON":"OFF");
+            hapticsLabel.text="HAPTICS "+(feedback.HapticsEnabled?"ON":"OFF");
+            ghostLabel.text="GHOST "+(ghost.VisibleEnabled?"ON":"OFF");
+        }
         private void ResetRun()
         {
-            foreach(var source in _beeps) source.Stop();
+            foreach(var source in _beeps) { source.Stop(); source.mute=!feedback.SoundEnabled; }
+            feedback.ResetFeedback();
             _origin=Time.realtimeSinceStartupAsDouble; _run=new PracticeRun(_seed); _pointer=null;
-            _shownPhase=(PracticePhase)(-1); _lastTextAt=-1000;
+            _shownPhase=(PracticePhase)(-1); _lastTextAt=-1000; _exitShown=false;
+            _recorder=new PracticeReplayRecorder(_seed);
+            _records.Records.TryGetBest(_seed,out PracticeRecord best);
+            ghost.SetBest(best?.Replay);
+            bestLabel.text=best==null ? $"CHALLENGE {_seed}  ·  SET YOUR FIRST BEST" : $"CHALLENGE {_seed}  ·  BEST {best.FinalTimeMs/1000.0:0.00}s";
+            skillGroup.alpha=0; skillGroup.blocksRaycasts=false; skillGroup.interactable=false;
             barrel.rotation=_barrelRotation; rideCamera.transform.SetPositionAndRotation(_cameraStart,_cameraRotation);
             pattern.Configure(_run.Pattern,_run.Trace); Present();
         }
@@ -73,32 +128,60 @@ namespace BarrelRivals.Practice
         {
             if(_pointer.HasValue) return;
             long now=ClockMs; _run.AdvanceTo(now); bool accepted=false;
-            if(drawing && _run.Phase==PracticePhase.Drawing) accepted=_run.BeginTrace(now,point);
+            if(drawing && _run.Phase==PracticePhase.Drawing)
+            {
+                accepted=_run.BeginTrace(now,point);
+                RecordInput(PracticeInputKind.BeginTrace,now,point);
+            }
             else if(!drawing && _run.Phase==PracticePhase.Ready)
             {
                 accepted=_run.StartHold(now);
                 if(accepted)
                 {
+                    RecordInput(PracticeInputKind.StartHold,now); ghost.StartAt(now);
                     long[] cues={_run.FirstBeepMs,_run.SecondBeepMs,_run.LaunchCueMs};
                     for(int i=0;i<3;i++) _beeps[i].PlayScheduled(AudioSettings.dspTime+(cues[i]-now)/1000.0);
                 }
             }
-            else if(!drawing && _run.Phase==PracticePhase.Exit) accepted=_run.TapExit(now);
+            else if(!drawing && _run.Phase==PracticePhase.Exit)
+            {
+                accepted=_run.TapExit(now);
+                RecordInput(PracticeInputKind.TapExit,now);
+            }
             if(accepted) { _pointer=id; _pointerPhase=_run.Phase; }
             pattern.Refresh(_run.Phase==PracticePhase.Preview); Present();
         }
         public void PointerMove(int id,TracePoint point)
         {
             if(_pointer!=id || _pointerPhase!=PracticePhase.Drawing) return;
-            _run.AddTrace(ClockMs,point); pattern.Refresh(_run.Phase==PracticePhase.Complete);
+            long now=ClockMs; _run.AddTrace(now,point);
+            RecordInput(PracticeInputKind.AddTrace,now,point); pattern.Refresh(_run.Phase==PracticePhase.Complete);
         }
         public void PointerUp(int id,TracePoint point)
         {
             if(_pointer!=id) return;
             long now=ClockMs;
-            if(_pointerPhase==PracticePhase.Gate) _run.ReleaseHold(now);
-            if(_pointerPhase==PracticePhase.Drawing) { _run.AddTrace(now,point); _run.SubmitTrace(now); pattern.Refresh(_run.Phase==PracticePhase.Complete); }
+            if(_pointerPhase==PracticePhase.Gate)
+            {
+                _run.ReleaseHold(now); RecordInput(PracticeInputKind.ReleaseHold,now);
+            }
+            if(_pointerPhase==PracticePhase.Drawing)
+            {
+                _run.AddTrace(now,point); RecordInput(PracticeInputKind.AddTrace,now,point);
+                _run.SubmitTrace(now); RecordInput(PracticeInputKind.SubmitTrace,now);
+                pattern.Refresh(_run.Phase==PracticePhase.Complete);
+            }
             _pointer=null; Present();
+        }
+        private void RecordInput(PracticeInputKind kind,long now,TracePoint point=default)
+        {
+            // A routed touch may advance to the finish before returning. Its terminal no-op is not part of the run.
+            if(_run.Phase!=PracticePhase.Complete && _run.Phase!=PracticePhase.Cancelled)
+                _recorder.Record(kind,now,point);
+        }
+        internal void SetRecordStore(PracticeRecordStore store)
+        {
+            _records=store ?? throw new ArgumentNullException(nameof(store)); ResetRun();
         }
         public void CancelPractice()
         {
@@ -110,6 +193,10 @@ namespace BarrelRivals.Practice
         private void OnDestroy()
         {
             if(retry) retry.onClick.RemoveListener(Retry);
+            if(newChallenge) newChallenge.onClick.RemoveListener(NewChallenge);
+            if(soundButton) soundButton.onClick.RemoveListener(ToggleSound);
+            if(hapticsButton) hapticsButton.onClick.RemoveListener(ToggleHaptics);
+            if(ghostButton) ghostButton.onClick.RemoveListener(ToggleGhost);
             if(_tones!=null) foreach(var clip in _tones) if(clip) Destroy(clip);
         }
         private void Present()
@@ -134,10 +221,15 @@ namespace BarrelRivals.Practice
                 Show(resultGroup,_run.Phase==PracticePhase.Complete || _run.Phase==PracticePhase.Cancelled);
                 pattern.Refresh(_run.Phase==PracticePhase.Preview || _run.Phase==PracticePhase.Complete);
                 phaseLabel.text=PhaseTitle(_run.Phase);
-                if(_run.Phase==PracticePhase.Complete)
-                    resultLabel.text=$"{_run.Result.FinalTimeMs/1000.0:0.00}s\nRaw {_run.Result.RawTimeMs/1000.0:0.00}s  +  {_run.KnockCount*5}s penalty\n\nLaunch: {_run.LaunchGrade}\nDrawing: {_run.DrawingGrade.Score}/100 — {_run.DrawingGrade.Grade}\nExit: {_run.ExitGrade}\n\nOne barrel complete. Try again to improve.";
+                if(_run.Phase==PracticePhase.Complete) PresentResult();
+                if(_run.Phase==PracticePhase.Alley) ShowSkill("LAUNCH",_run.LaunchGrade);
+                if(_run.Phase==PracticePhase.Turn) ShowSkill("TURN",_run.DrawingGrade.Grade);
                 if(_run.Phase==PracticePhase.Cancelled) resultLabel.text="Practice interrupted\n\nRetry when you are ready.\nNo result was recorded.";
             }
+            if(_run.ExitAccepted && !_exitShown) { _exitShown=true; ShowSkill("EXIT",_run.ExitGrade); }
+            if(_run.Phase==PracticePhase.Complete || _run.Phase==PracticePhase.Cancelled) skillGroup.alpha=0;
+            else if(skillGroup.alpha>0) skillGroup.alpha=1-Mathf.Clamp01((_run.NowMs-_skillShownAt-1100)/500f);
+            feedback.Observe(_run); ghost.Observe(_run); dust.Observe(_run);
             progress.fillAmount=_run.Phase==PracticePhase.Exit ? (float)_run.PhaseProgress : 1-(float)_run.PhaseProgress;
             // Size the solid image directly; Image.fillAmount requires an assigned sprite.
             progress.rectTransform.anchorMax=new Vector2(progress.fillAmount,1);
@@ -148,7 +240,7 @@ namespace BarrelRivals.Practice
             shapeLabel.text=_run.Phase==PracticePhase.Preview ? "MEMORIZE · "+_run.Pattern.ToString().ToUpperInvariant() : _run.Phase==PracticePhase.Complete ? "GOLD: TARGET   MINT: YOUR TRACE" : $"{(_run.TraceSubmitted?"TRACE LOCKED":"DRAW FROM MEMORY")} · {Math.Max(0,_run.DrawingClosesMs-_run.NowMs)/1000.0:0.0}s";
             switch(_run.Phase)
             {
-                case PracticePhase.Ready: instruction.text="One barrel. Three skills. Hold through the beeps, then release on GO."; actionLabel.text="HOLD TO BEGIN"; break;
+                case PracticePhase.Ready: instruction.text=ghost.Available && ghost.VisibleEnabled ? "Hold through the beeps; release on GO. The mint horse replays your personal best." : "One barrel. Three skills. Hold through the beeps, then release on GO."; actionLabel.text="HOLD TO BEGIN"; break;
                 case PracticePhase.Gate:
                     instruction.text=_run.LaunchErrorMs<0 ? "Early release — wait for your launch." : "Keep holding. Release on the third beep.";
                     actionLabel.text=_run.NowMs>=_run.LaunchCueMs ? "GO! RELEASE" : _run.NowMs>=_run.SecondBeepMs ? "2 · HOLD" : _run.NowMs>=_run.FirstBeepMs ? "1 · HOLD" : "READY… HOLD"; break;
@@ -158,9 +250,31 @@ namespace BarrelRivals.Practice
                 case PracticePhase.Turn: instruction.text="Drawing: "+_run.DrawingGrade.Grade+". "+TraceHint(_run.DrawingGrade.Reason)+(_run.DrawingGrade.Quality<35 ? " Barrel contact: +5s." : " Get ready for the exit cue."); break;
                 case PracticePhase.Exit: instruction.text="Use a NEW tap when the bar reaches the center mark."; actionLabel.text=_run.ExitAccepted ? "EXIT: "+_run.ExitGrade.ToString().ToUpperInvariant() : "TAP AT CENTER"; break;
                 case PracticePhase.RunOut: instruction.text="Exit: "+_run.ExitGrade+". Finishing the practice section…"; break;
-                case PracticePhase.Complete: instruction.text="Compare your trace with the target. Retry brings a new challenge."; break;
-                case PracticePhase.Cancelled: instruction.text="Select Retry to start a fresh practice run."; break;
+                case PracticePhase.Complete: instruction.text="Try the same challenge to beat your best, or choose a new one."; break;
+                case PracticePhase.Cancelled: instruction.text="Retry keeps the same challenge. Your personal best is safe."; break;
             }
+        }
+        private void ShowSkill(string label,SkillGrade grade)
+        {
+            skillLabel.text=label+"  ·  "+grade.ToString().ToUpperInvariant();
+            skillLabel.color=grade==SkillGrade.Perfect ? new Color(.32f,1,.82f) : grade==SkillGrade.Bad ? new Color(1,.65f,.47f) : new Color(1,.8f,.48f);
+            _skillShownAt=_run.NowMs; skillGroup.alpha=1;
+        }
+        private void PresentResult()
+        {
+            var update=_records.Record(_run,_recorder.Finish(_run));
+            string headline=update.Outcome==PracticeRecordOutcome.Improved ? "NEW PERSONAL BEST" :
+                update.Outcome==PracticeRecordOutcome.FirstBest ? "FIRST PERSONAL BEST" :
+                update.Outcome==PracticeRecordOutcome.Tied ? "PERSONAL BEST MATCHED" : "ONE BARREL COMPLETE";
+            string difference=update.PreviousBestTimeMs.HasValue ?
+                $"  ·  {Math.Abs(_run.Result.FinalTimeMs-update.PreviousBestTimeMs.Value)/1000.0:0.00}s "+
+                (_run.Result.FinalTimeMs<update.PreviousBestTimeMs.Value?"faster":_run.Result.FinalTimeMs>update.PreviousBestTimeMs.Value?"off best":"difference") : "";
+            resultLabel.text=$"<color=#F7CA80>{headline}</color>\n<size=40>{_run.Result.FinalTimeMs/1000.0:0.00}s</size>"+
+                $"<size=17>{difference}\nRaw {_run.Result.RawTimeMs/1000.0:0.00}s  +  {_run.KnockCount*5}s penalty</size>\n\n"+
+                $"<size=20>Launch  {_run.LaunchGrade}    ·    Turn  {_run.DrawingGrade.Score}/100    ·    Exit  {_run.ExitGrade}</size>\n\n"+
+                $"<size=19><color=#8CDFC7>NEXT RUN</color>  {PracticeCoaching.ForRun(_run).Message}</size>";
+            if(update.Best!=null) bestLabel.text=$"CHALLENGE {_seed}  ·  BEST {update.Best.FinalTimeMs/1000.0:0.00}s";
+            if(!_records.LastSaveSucceeded) bestLabel.text+="  ·  SESSION ONLY";
         }
         private static void Show(CanvasGroup group,bool visible) { group.alpha=visible?1:0; group.blocksRaycasts=visible; group.interactable=visible; }
         private static string TraceHint(TraceReason reason)

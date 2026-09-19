@@ -1,0 +1,28 @@
+# Reins Lab contracts — version 1
+
+`verify-request.v1.schema.json` and `verify-response.v1.schema.json` describe `POST /lab/reins/verify`. The companion ASP.NET adapter lives in `Tools/ReinsServerCheck`. This is an **offline consistency experiment**, not a production trust boundary or an award contract.
+
+The local manifest contains rules version 1, an unsigned 32-bit seed (including zero), the exact surface enum, zero-based round index 0–2, and four bounded temperament values in permille. These are caller-supplied and therefore untrusted. In production a verified assignment must resolve to a server-issued immutable manifest, course/footing versions and frozen participant loadouts. That issuance/authentication path is not implemented here.
+
+The adapter constructs `ReinsManifest`/`ReinsRun`, calls `Start()` once and applies one `ReinsInput` per frame. `tick:1` is the first `Step`, `tick:2` the second, and so on. Each step is exactly 20 ms regardless of render framerate. Frames begin at 1 and cannot have gaps, duplicates or extra frames after Complete/Cancelled/TimedOut. Preview and gate frames are retained. Taps are events for that frame; left/right rein pressure and wrap are current state. The client must record the exact quantized frames consumed by its simulation instead of reconstructing them from render snapshots.
+
+Every declared property is required; unknown and repeated JSON names fail. Enum strings are case-sensitive names, never ordinals or flag combinations. Integer fields use integer tokens without decimal/exponent notation. Input JSON cannot contain a final time, position, result, score, wallet value or reward request. Non-finite JSON numbers and numeric overflow fail. Maximum request: 2,097,152 bytes and 7,500 frames, corresponding to at most 150 seconds including preview/gate.
+
+`accepted:true` means the shared local simulation reached Complete from those inputs. It does not mean the inputs came from a human or an authorized match. Only Complete includes `result`; other states include `result:null`. The response carries `authority:false` and `scope:"offline-consistency"`. Times, penalties, style points and final state are recomputed. The shared core owns the five-second knock penalty.
+
+Health and all verification responses also report the nonblank `ruleFingerprint` from the compiled shared core. It identifies the canonical source bytes of `ReinsContracts.cs`, `ReinsCourseJudge.cs`, `ReinsRun.cs`, and `ReinsReplay.cs`, in that order: each UTF-8 filename followed by a NUL byte and then that file's bytes, with SHA-256 over the concatenation. The smoke suite independently recomputes this fingerprint from source. Consumers must compare it with their saved/local rules fingerprint before treating playback as compatible; it is response metadata, not a caller-supplied request field or an authentication signature. Regenerate the shared fingerprint after legitimate rule edits, and advance the rules/save namespace version when existing saved inputs are no longer compatible. Course/content compatibility and the complete core assembly are separate provenance concerns.
+
+Canonical hashing uses UTF-8 JSON without whitespace, property order below, integer decimal tokens, lowercase booleans and the displayed enum strings. No BOM or trailing newline is included. No user-provided JSON text is hashed directly; duplicate names are rejected first. SHA-256 is lowercase hexadecimal. This canonicalization is deliberately narrow and is not a general JSON canonicalization standard.
+
+1. Manifest order: `rulesVersion`, `seed`, `surface`, `roundIndex`, `horse`.
+2. Horse order: `nervePermille`, `firePermille`, `biddabilityPermille`, `heartPermille`.
+3. Frame order: `tick`, `leftPermille`, `rightPermille`, `cadenceTap`, `gateTap`, `wrap`, `drive`.
+4. Replay order: `contractVersion`, `manifest`, `frames`.
+
+`manifestSha256` hashes the canonical manifest object; `replaySha256` hashes the canonical request object. Digests identify equal content; they do not authenticate the manifest or prevent replay attacks.
+
+`preview-request.v1.json` is a three-frame incomplete request. `complete-request.v1.json` records a real complete shared-core route with 2,156 frames, including preview, three gate taps and alternating home-drive taps. `complete-response.v1.json` records its expected .NET 8 result: 35,120 ms raw/final time, zero knocks and 300 style points. The fixture uses a conservative development steering policy; it is neither player telemetry nor proof of human input. The generator only sends valid inputs and never sets positions or bypasses course judgement. `fixture-provenance.v1.json` records the tested runtime and file hashes. Cross-runtime comparisons must use the same request file, not independently regenerated steering inputs.
+
+To deliberately regenerate the request and expected response after reviewing a rules change, build the adapter then run `bash Tools/ReinsServerCheck/run.sh generate-fixture`. Review the diff and refresh the provenance evidence before accepting a new baseline. Smoke verification consumes the saved fixture and never regenerates its expected answer. Canonical request digests were independently reproduced with Python. The same saved fixture passed Unity Editor playback at 35,120 ms, zero knocks and 300 style points; native iOS/Android IL2CPP playback parity remains a separate outstanding check.
+
+The PostgreSQL design under `Backend/Schema` has separate future trusted manifest, replay, settlement and progression responsibilities. The local endpoint has no connection to it. No paid asset, insurance mechanic, wallet authority or deployed persistence is implied by these contracts.

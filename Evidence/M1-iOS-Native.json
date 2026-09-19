@@ -1,0 +1,98 @@
+{
+  "checkedDate": "2026-09-18",
+  "xcodeVersion": "15.2 (15C500b)",
+  "configuration": "ReleaseForRunning",
+  "nativeFrameworkCompiled": true,
+  "nativeCompilationVerified": true,
+  "signedAppProduced": true,
+  "iPhoneInstalledOrRun": true,
+  "initialFailure": "Launch screen compiler requires iOS 17.2 platform runtime.",
+  "requiredPlatform": "iOS 17.2 Simulator (21C62)",
+  "buildLog": "Logs/m1/ios-native.log",
+  "stage": "launched-user-confirmed",
+  "updatedAt": "2026-09-19T02:58:48.100399+00:00",
+  "installedRuntime": "iOS 17.2",
+  "exitCode": 0,
+  "appPath": "/Users/devinmcgann/Documents/Codex/2026-09-16/fix-x20/work/ios-native-target/Products/ReleaseForRunning-iphoneos/BarrelRivals.app",
+  "version": "0.2.0",
+  "buildNumber": "2",
+  "bundleIdentifier": "com.barrelrivals.foundation",
+  "binaries": {
+    "app": {
+      "architecture": "arm64",
+      "bytes": 87072,
+      "sha256": "3ba80a131184d469d4ddfc9351b48b22897c7341e54de8472f83d6f25a568047"
+    },
+    "unityFramework": {
+      "architecture": "arm64",
+      "bytes": 127055856,
+      "sha256": "ec5ccf6f42b63543b9ab625f1bcbbb51bb56e536b5540db9ba783e9635fa1aac"
+    }
+  },
+  "embeddedProvisioningProfilePresent": true,
+  "limitation": "Native build, development signing and installation verified; app launch confirmed by user. Detailed gameplay, latency, sustained performance and Xcode debugger compatibility remain unverified.",
+  "unsignedBinaries": {
+    "app": {
+      "architecture": "arm64",
+      "bytes": 67360,
+      "sha256": "315a7d66d32794585ee17d46e3c503317ea090a71ace67eebc3e9aa2fb102f39"
+    },
+    "unityFramework": {
+      "architecture": "arm64",
+      "bytes": 105644192,
+      "sha256": "9648aff7e27a7d43194615129f80fab52d87af40ee198f2a415d44565354c289"
+    }
+  },
+  "signedVerification": {
+    "verifiedAt": "2026-09-19T02:44:51.711379+00:00",
+    "signatureValid": true,
+    "profileIncludesPhone": true,
+    "developmentProfile": true,
+    "profileExpiresAt": "2026-09-26T02:40:02+00:00",
+    "version": "0.2.0",
+    "buildNumber": "2",
+    "bundleIdentifier": "com.barrelrivals.foundation",
+    "binaries": {
+      "app": {
+        "architecture": "arm64",
+        "bytes": 87072,
+        "sha256": "3ba80a131184d469d4ddfc9351b48b22897c7341e54de8472f83d6f25a568047"
+      },
+      "unityFramework": {
+        "architecture": "arm64",
+        "bytes": 127055856,
+        "sha256": "ec5ccf6f42b63543b9ab625f1bcbbb51bb56e536b5540db9ba783e9635fa1aac"
+      }
+    }
+  },
+  "iPhoneInstallationVerified": true,
+  "physicalLaunchVerified": true,
+  "installation": {
+    "verifiedAt": "2026-09-19T02:55:09.708965+00:00",
+    "method": "pymobiledevice3 11.15.5 USB installation_proxy",
+    "installerExitCode": 0,
+    "targetedDeviceQueryPassed": true,
+    "bundleIdentifier": "com.barrelrivals.foundation",
+    "displayName": "Barrel Rivals",
+    "version": "0.2.0",
+    "buildNumber": "2",
+    "physicalLaunchVerified": true,
+    "userReportedLaunchResult": "Okay it works and the app works",
+    "previousUserReportedLaunchResult": "Untrusted Developer or verification message; trust instructions provided.",
+    "physicalLaunchEvidenceSource": "user report"
+  },
+  "xcodeDeviceDeploymentError": {
+    "code": 12040,
+    "underlyingCode": -402652913,
+    "reason": "Xcode 15.2 developer disk image lacks the requested iPhone 17 Pro variant."
+  },
+  "launchConfirmation": {
+    "reportedAt": "2026-09-19T02:58:48.100399+00:00",
+    "source": "user report in conversation",
+    "statement": "Okay it works and the app works",
+    "appLaunchConfirmed": true,
+    "instrumentedLaunchObserved": false,
+    "scope": "App opens and works per user; detailed practice-flow, latency, performance and comfort acceptance remain pending."
+  },
+  "physicalLaunchEvidenceSource": "user report"
+}

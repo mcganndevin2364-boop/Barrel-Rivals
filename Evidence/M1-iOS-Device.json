@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-09-18T21:41:38.274312-05:00",
+  "deviceSettingsChanged": false,
+  "credentialsCreatedOrChanged": false,
+  "activeXcodebuildProcessCountAtProbeStart": 0,
+  "devicectlExitCode": 0,
+  "devices": [
+    {
+      "model": "iPhone 17 Pro",
+      "osVersion": "26.6.2",
+      "osBuild": "23G90",
+      "bootState": "booted",
+      "developerModeStatus": "enabled",
+      "ddiServicesAvailable": false,
+      "transportType": "wired",
+      "pairingState": "paired",
+      "tunnelState": "connected",
+      "developerModeLiveVerificationPending": false
+    }
+  ],
+  "xcdeviceExitCode": 0,
+  "xcdevicePhysicalIOSDeviceCount": 1,
+  "xcdeviceAvailablePhysicalIOSDeviceCount": 1,
+  "xcdeviceDevices": [
+    {
+      "available": true,
+      "interface": "usb",
+      "modelName": "iPhone 17 Pro",
+      "operatingSystemVersion": "26.6.2 (23G90)",
+      "errorCode": null,
+      "errorDomain": null,
+      "hasError": false
+    }
+  ],
+  "signingIdentityCheckExitCode": 0,
+  "validCodeSigningIdentityCount": 1,
+  "developmentSigningIdentityCount": 1,
+  "provisioningProfileCount": 1,
+  "provisioningProfiles": [
+    {
+      "decoded": true,
+      "selectedTeamMatches": true,
+      "applicationIdentifierMatchesRequested": true,
+      "applicationIdentifierIsWildcard": false,
+      "connectedPhoneIncluded": true,
+      "provisionedDeviceCount": 1,
+      "developmentDebuggingAllowed": true,
+      "expiresAtUTC": "2026-09-26T02:40:02+00:00",
+      "expired": false
+    }
+  ],
+  "xcodeAccountConfigured": true,
+  "projectDevelopmentTeamSelected": true,
+  "installation": {
+    "verifiedAt": "2026-09-19T02:55:09.708965+00:00",
+    "method": "pymobiledevice3 11.15.5 USB installation_proxy",
+    "installerExitCode": 0,
+    "targetedDeviceQueryPassed": true,
+    "bundleIdentifier": "com.barrelrivals.foundation",
+    "displayName": "Barrel Rivals",
+    "version": "0.2.0",
+    "buildNumber": "2",
+    "physicalLaunchVerified": true,
+    "userReportedLaunchResult": "Okay it works and the app works",
+    "previousUserReportedLaunchResult": "Untrusted Developer or verification message; trust instructions provided.",
+    "physicalLaunchEvidenceSource": "user report"
+  },
+  "launchConfirmation": {
+    "reportedAt": "2026-09-19T02:58:48.100399+00:00",
+    "source": "user report in conversation",
+    "statement": "Okay it works and the app works",
+    "appLaunchConfirmed": true,
+    "instrumentedLaunchObserved": false,
+    "scope": "App opens and works per user; detailed practice-flow, latency, performance and comfort acceptance remain pending."
+  },
+  "physicalLaunchVerified": true,
+  "physicalLaunchEvidenceSource": "user report"
+}

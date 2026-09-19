@@ -24,6 +24,10 @@ namespace BarrelRivals.Tests
             yield return null;
             var controller=Object.FindFirstObjectByType<PracticeController>();
             Assert.IsTrue(controller.HasBindings);
+            string records=Path.Combine(Application.temporaryCachePath,"practice-polish-"+System.Guid.NewGuid().ToString("N")+".json");
+            controller.SetRecordStore(new PracticeRecordStore(records));
+            bool hadChallenge=PlayerPrefs.HasKey("BarrelRivals.Practice.Challenge");
+            string savedChallenge=PlayerPrefs.GetString("BarrelRivals.Practice.Challenge","");
             var settings=InputSystem.settings;
             var background=settings.backgroundBehavior;
             var routing=settings.editorInputBehaviorInPlayMode;
@@ -75,11 +79,17 @@ namespace BarrelRivals.Tests
                 Queue(touch,4,TouchPhase.Began,retry); yield return null; yield return null;
                 Queue(touch,4,TouchPhase.Ended,retry); yield return null; yield return null;
                 Assert.AreEqual(PracticePhase.Ready,controller.Run.Phase);
-                Assert.IsNull(controller.Run.Result); Assert.AreNotEqual(seed,controller.Run.Seed);
+                Assert.IsNull(controller.Run.Result); Assert.AreEqual(seed,controller.Run.Seed,"Retry keeps the exact challenge.");
+                Assert.IsTrue(Object.FindFirstObjectByType<PracticeGhost>().Available,"Completed personal best should replay on the equivalent challenge.");
+                controller.NewChallenge(); Assert.AreNotEqual(seed,controller.Run.Seed);
                 LogAssert.NoUnexpectedReceived();
             }
             finally
             {
+                if(File.Exists(records)) File.Delete(records);
+                if(hadChallenge) PlayerPrefs.SetString("BarrelRivals.Practice.Challenge",savedChallenge);
+                else PlayerPrefs.DeleteKey("BarrelRivals.Practice.Challenge");
+                PlayerPrefs.Save();
                 InputSystem.RemoveDevice(touch);
                 settings.backgroundBehavior=background; settings.editorInputBehaviorInPlayMode=routing;
             }
@@ -107,6 +117,57 @@ namespace BarrelRivals.Tests
             LogAssert.NoUnexpectedReceived();
         }
 
+        [UnityTest]
+        public IEnumerator HeldTouchPastFinishKeepsReplayAndNewChallengeClearsIt()
+        {
+            yield return SceneManager.LoadSceneAsync("Arena_Practice",LoadSceneMode.Single);
+            yield return null;
+            var controller=Object.FindFirstObjectByType<PracticeController>();
+            string path=Path.Combine(Application.temporaryCachePath,"practice-edge-"+System.Guid.NewGuid().ToString("N")+".json");
+            var store=new PracticeRecordStore(path); controller.SetRecordStore(store);
+            bool hadChallenge=PlayerPrefs.HasKey("BarrelRivals.Practice.Challenge");
+            string preference=PlayerPrefs.GetString("BarrelRivals.Practice.Challenge","");
+            try
+            {
+                // Ready waiting is deliberately outside the replay's hold-relative clock.
+                yield return new WaitForSecondsRealtime(.2f);
+                controller.PointerDown(1,false,new TracePoint(.5,.5));
+                var run=controller.Run;
+                run.AdvanceTo(run.LaunchCueMs+PracticeRun.AutoLaunchGraceMs);
+                controller.PointerUp(1,new TracePoint(.5,.5));
+                while(run.Phase!=PracticePhase.Drawing) run.AdvanceTo(run.PhaseStartedMs+run.PhaseDurationMs);
+                controller.PointerDown(2,true,new TracePoint(.3,.3));
+                run.AdvanceTo(run.NowMs+30000);
+                Assert.AreEqual(PracticePhase.Complete,run.Phase);
+                // This terminal release must not append a post-finish event and discard the otherwise valid ghost.
+                controller.PointerUp(2,new TracePoint(.4,.4));
+                Assert.IsTrue(store.Records.TryGetBest(run.Seed,out PracticeRecord best));
+                Assert.NotNull(best.Replay);
+                Assert.IsTrue(best.Replay.Matches(run));
+                var reloaded=new PracticeRecordStore(path);
+                Assert.IsTrue(reloaded.Records.TryGetBest(run.Seed,out PracticeRecord persisted));
+                Assert.NotNull(persisted.Replay);
+                controller.Retry();
+                var ghost=Object.FindFirstObjectByType<PracticeGhost>();
+                Assert.IsTrue(ghost.Available);
+                controller.PointerDown(3,false,new TracePoint(.5,.5));
+                controller.CancelPractice();
+                foreach(var renderer in GameObject.Find("Your personal-best ghost").GetComponentsInChildren<Renderer>())
+                    Assert.IsFalse(renderer.enabled,"Cancelled practice must hide its replay.");
+                controller.NewChallenge();
+                Assert.IsFalse(ghost.Available,"An unrelated challenge must not show the previous seed's replay.");
+                Assert.AreEqual(PracticePhase.Ready,controller.Run.Phase);
+                LogAssert.NoUnexpectedReceived();
+            }
+            finally
+            {
+                if(File.Exists(path)) File.Delete(path);
+                if(hadChallenge) PlayerPrefs.SetString("BarrelRivals.Practice.Challenge",preference);
+                else PlayerPrefs.DeleteKey("BarrelRivals.Practice.Challenge");
+                PlayerPrefs.Save();
+            }
+        }
+
         private static IEnumerator WaitFor(PracticeController controller,PracticePhase phase,double seconds)
         {
             double timeout=Time.realtimeSinceStartupAsDouble+seconds;
@@ -130,7 +191,8 @@ namespace BarrelRivals.Tests
             try
             {
                 camera.targetTexture=target; canvas.renderMode=RenderMode.ScreenSpaceCamera;
-                canvas.worldCamera=camera; canvas.planeDistance=1; Canvas.ForceUpdateCanvases();
+                // Match the live overlay: keep capture UI ahead of all world geometry.
+                canvas.worldCamera=camera; canvas.planeDistance=camera.nearClipPlane+.01f; Canvas.ForceUpdateCanvases();
                 camera.Render(); RenderTexture.active=target;
                 image.ReadPixels(new Rect(0,0,1280,720),0,0); image.Apply();
                 if(gold || mint)

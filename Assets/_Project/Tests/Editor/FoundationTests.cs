@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using BarrelRivals.Core;
 using BarrelRivals.Editor;
 using NUnit.Framework;
@@ -68,7 +69,9 @@ namespace BarrelRivals.Tests
         [Test] public void SavedSceneHasValidBindingsAndPersistentMaterials() => FoundationBuilder.Validate();
         [Test] public void EveryQualityTierUsesTheSavedPipeline()
         {
-            var pipeline=AssetDatabase.LoadAssetAtPath<RenderPipelineAsset>(FoundationBuilder.PipelinePath);
+            bool practiceEnabled=EditorBuildSettings.scenes.Any(s=>s.enabled && s.path==PracticeBuilder.ScenePath);
+            string expectedPath=practiceEnabled ? PracticePresentationBuilder.Root+"/Practice mobile pipeline.asset" : FoundationBuilder.PipelinePath;
+            var pipeline=AssetDatabase.LoadAssetAtPath<RenderPipelineAsset>(expectedPath);
             Assert.IsNotNull(pipeline); Assert.AreEqual(pipeline,GraphicsSettings.defaultRenderPipeline);
             int previous=QualitySettings.GetQualityLevel();
             try { for(int i=0;i<QualitySettings.names.Length;i++) { QualitySettings.SetQualityLevel(i,false); Assert.AreEqual(pipeline,QualitySettings.renderPipeline); } }

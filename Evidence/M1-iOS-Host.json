@@ -3,16 +3,61 @@
     "macModelIdentifier": "MacBookPro14,1",
     "macOS": "13.7.8",
     "architecture": "Intel x86_64",
-    "fullXcodeInstalled": false,
+    "fullXcodeInstalled": true,
     "iOSBuildSupportInstalled": true
+  },
+  "xcodeSetup": {
+    "checkedDate": "2026-09-18",
+    "path": "/Applications/Xcode.app",
+    "version": "15.2",
+    "buildVersion": "15C500b",
+    "archiveBytes": 3355129366,
+    "archiveSignature": "signed Apple Software",
+    "applicationDeepSignatureCheckPassed": true,
+    "iPhoneOSSDKPresent": "17.2",
+    "licenseAccepted": true,
+    "licenseCheckExitCode": 0,
+    "firstLaunchComplete": true,
+    "signedAppProduced": true,
+    "iPhoneInstalledOrRun": true,
+    "nativeFrameworkCompiled": true,
+    "requiredPlatformComponent": "iOS 17.2 Simulator (21C62)",
+    "platformComponentInstallation": "completed; iOS 17.2 runtime verified available",
+    "nativeBuildStatusFile": "M1-iOS-Native.json",
+    "nativeCompilationVerified": true,
+    "unsignedAppVersion": "0.2.0 (2)",
+    "iPhoneInstallationVerified": true,
+    "physicalLaunchVerified": true,
+    "physicalLaunchEvidenceSource": "user report"
   },
   "targetDevice": {
     "model": "iPhone 17 Pro",
     "iOS": "26.6.2",
-    "source": "user-reported; not independently verified"
+    "build": "23G90",
+    "source": "verified by Xcode CoreDevice and xcdevice over wired connection",
+    "checkedAt": "2026-09-18T21:38:37.938997-05:00",
+    "paired": true,
+    "developerMode": "enabled; live verified",
+    "validCodeSigningIdentities": 1,
+    "readinessEvidence": "M1-iOS-Device.json",
+    "connection": "wired, paired, CoreDevice tunnel connected, xcdevice available",
+    "xcodeAccountConfigured": true,
+    "projectDevelopmentTeamSelected": true,
+    "appInstallationVerified": true,
+    "appLaunchConfirmedByUser": true
   },
   "exportResult": {
     "result": "Succeeded",
     "reportedErrors": 0
-  }
+  },
+  "launchConfirmation": {
+    "reportedAt": "2026-09-19T02:58:48.100399+00:00",
+    "source": "user report in conversation",
+    "statement": "Okay it works and the app works",
+    "appLaunchConfirmed": true,
+    "instrumentedLaunchObserved": false,
+    "scope": "App opens and works per user; detailed practice-flow, latency, performance and comfort acceptance remain pending."
+  },
+  "physicalLaunchVerified": true,
+  "physicalLaunchEvidenceSource": "user report"
 }

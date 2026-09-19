@@ -1,0 +1,214 @@
+{
+  "scope": "offline-consistency",
+  "suitePassed": true,
+  "checks": [
+    {
+      "name": "health_is_offline_and_bounded",
+      "passed": true
+    },
+    {
+      "name": "health_fingerprint_matches_canonical_rule_sources",
+      "passed": true
+    },
+    {
+      "name": "incomplete_replay_cannot_be_accepted",
+      "passed": true
+    },
+    {
+      "name": "exact_tick_count_recomputed",
+      "passed": true
+    },
+    {
+      "name": "response_fingerprint_matches_health_and_sources",
+      "passed": true
+    },
+    {
+      "name": "canonical_hash_ignores_json_whitespace_and_key_order",
+      "passed": true
+    },
+    {
+      "name": "canonical_digests_match_independent_python_serialization",
+      "passed": true
+    },
+    {
+      "name": "unknown_ruleset",
+      "passed": true
+    },
+    {
+      "name": "string_ruleset",
+      "passed": true
+    },
+    {
+      "name": "unknown_contract",
+      "passed": true
+    },
+    {
+      "name": "negative_seed",
+      "passed": true
+    },
+    {
+      "name": "seed_overflow",
+      "passed": true
+    },
+    {
+      "name": "invalid_surface",
+      "passed": true
+    },
+    {
+      "name": "numeric_enum_name",
+      "passed": true
+    },
+    {
+      "name": "invalid_round",
+      "passed": true
+    },
+    {
+      "name": "invalid_horse_stat",
+      "passed": true
+    },
+    {
+      "name": "reins_out_of_range",
+      "passed": true
+    },
+    {
+      "name": "fractional_rein",
+      "passed": true
+    },
+    {
+      "name": "decimal_integer_token",
+      "passed": true
+    },
+    {
+      "name": "numeric_boolean",
+      "passed": true
+    },
+    {
+      "name": "invalid_drive",
+      "passed": true
+    },
+    {
+      "name": "tick_gap",
+      "passed": true
+    },
+    {
+      "name": "tick_repeat",
+      "passed": true
+    },
+    {
+      "name": "missing_field",
+      "passed": true
+    },
+    {
+      "name": "uploaded_final_time_rejected",
+      "passed": true
+    },
+    {
+      "name": "uploaded_position_rejected",
+      "passed": true
+    },
+    {
+      "name": "empty_frames",
+      "passed": true
+    },
+    {
+      "name": "too_many_frames",
+      "passed": true
+    },
+    {
+      "name": "duplicate_property",
+      "passed": true
+    },
+    {
+      "name": "nan_rejected",
+      "passed": true
+    },
+    {
+      "name": "overflow_number_rejected",
+      "passed": true
+    },
+    {
+      "name": "oversized_declared_body_rejected_before_upload",
+      "passed": true
+    },
+    {
+      "name": "compressed_body_rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong_content_type",
+      "passed": true
+    },
+    {
+      "name": "browser_origin_rejected",
+      "passed": true
+    },
+    {
+      "name": "foreign_host_rejected",
+      "passed": true
+    },
+    {
+      "name": "maximum_length_incomplete_run_times_out_without_result",
+      "passed": true
+    },
+    {
+      "name": "two_verification_slots_are_enforced",
+      "passed": true
+    },
+    {
+      "name": "slow_body_deadline_1",
+      "passed": true
+    },
+    {
+      "name": "slow_body_deadline_2",
+      "passed": true
+    },
+    {
+      "name": "verification_slots_recovered_after_deadline",
+      "passed": true
+    },
+    {
+      "name": "complete_replay_recomputes_result",
+      "passed": true
+    },
+    {
+      "name": "complete_fixture_matches_reviewed_expected_response",
+      "passed": true
+    },
+    {
+      "name": "complete_digest_matches_python_serialization",
+      "passed": true
+    },
+    {
+      "name": "complete_replay_is_repeatable",
+      "passed": true
+    },
+    {
+      "name": "post_terminal_frame_rejected",
+      "passed": true
+    }
+  ],
+  "verifiedAtUtc": "2026-09-19T04:36:49.968060+00:00",
+  "runtime": {
+    "sdk": "8.0.318",
+    "aspNetRuntime": "8.0.21",
+    "target": "net8.0",
+    "productionTargetUnchanged": "net10.0 planned"
+  },
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "ruleFingerprint": "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837",
+  "compiledCoreAssemblySha256": "295e858f839ac8e2dbc4fd88e8ad7cc82509b38a5350479bcb42a109ba11d09e",
+  "requestSha256": "e228135f27f5488c838d316601eda10861a1df5bfc65a01c5784625fa978cf0f",
+  "completeResult": {
+    "raceTimeMs": 35120,
+    "finalTimeMs": 35120,
+    "knockCount": 0,
+    "stylePoints": 300
+  },
+  "database": "Unapplied draft; not executed",
+  "jsonSchemaValidation": "JSON parsed; independent schema validator not run",
+  "serverLifecycle": "Temporary loopback process terminated by smoke finally block"
+}

@@ -23,8 +23,8 @@ namespace BarrelRivals.Editor
                 throw new InvalidOperationException("Install iOS Build Support for this Unity Editor before exporting.");
 
             PracticeBuilder.Validate();
-            PlayerSettings.bundleVersion = "0.2.0";
-            PlayerSettings.iOS.buildNumber = "2";
+            PlayerSettings.bundleVersion = "0.3.0";
+            PlayerSettings.iOS.buildNumber = "3";
             PlayerSettings.iOS.sdkVersion = iOSSdkVersion.DeviceSDK;
             PlayerSettings.iOS.targetOSVersionString = "15.0";
             PlayerSettings.iOS.appleEnableAutomaticSigning = true;

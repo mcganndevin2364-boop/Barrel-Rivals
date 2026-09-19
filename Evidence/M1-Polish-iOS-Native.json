@@ -1,0 +1,57 @@
+{
+  "version": "0.3.0",
+  "buildNumber": "3",
+  "bundleIdentifier": "com.barrelrivals.foundation",
+  "xcodeVersion": "15.2 (15C500b)",
+  "configuration": "ReleaseForRunning",
+  "stage": "installed-launch-pending",
+  "nativeCompilationVerified": true,
+  "signedAppProduced": true,
+  "signedVerification": {
+    "verifiedAt": "2026-09-19T03:56:23.420714+00:00",
+    "signatureValid": true,
+    "profileIncludesPhone": true,
+    "developmentProfile": true,
+    "profileExpiresAt": "2026-09-26T02:40:02+00:00",
+    "version": "0.3.0",
+    "buildNumber": "3",
+    "bundleIdentifier": "com.barrelrivals.foundation",
+    "binaries": {
+      "app": {
+        "architecture": "arm64",
+        "bytes": 87072,
+        "sha256": "644e38092fe4170c07c133e316cda2ee4c2cba1d911e37702ee810785240275f"
+      },
+      "unityFramework": {
+        "architecture": "arm64",
+        "bytes": 127362512,
+        "sha256": "455e4430fc80c36fb81408b1c391d7b8a138d3a05627244e8054ba30d8d23447"
+      }
+    }
+  },
+  "binaries": {
+    "app": {
+      "architecture": "arm64",
+      "bytes": 87072,
+      "sha256": "644e38092fe4170c07c133e316cda2ee4c2cba1d911e37702ee810785240275f"
+    },
+    "unityFramework": {
+      "architecture": "arm64",
+      "bytes": 127362512,
+      "sha256": "455e4430fc80c36fb81408b1c391d7b8a138d3a05627244e8054ba30d8d23447"
+    }
+  },
+  "embeddedProvisioningProfilePresent": true,
+  "iPhoneInstallationVerified": true,
+  "physicalLaunchVerified": false,
+  "updatedAt": "2026-09-19T03:57:03.039005+00:00",
+  "limitation": "0.3.0 installed and version queried on iPhone; manual launch and on-phone visual/audio/haptic checks remain pending.",
+  "installation": {
+    "method": "pymobiledevice3 USB installation_proxy",
+    "verifiedAt": "2026-09-19T03:57:03.039005+00:00",
+    "installerExitCode": 0,
+    "targetedQueryPassed": true,
+    "version": "0.3.0",
+    "buildNumber": "3"
+  }
+}

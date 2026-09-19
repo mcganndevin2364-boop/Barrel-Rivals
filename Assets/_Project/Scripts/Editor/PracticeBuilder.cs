@@ -30,7 +30,20 @@ namespace BarrelRivals.Editor
             Camera camera=Camera.main;
             camera.transform.position=new Vector3(3,2.9f,-14.5f);
             camera.transform.LookAt(new Vector3(0,1.5f,-9)); camera.fieldOfView=65;
+            if(PrefabUtility.IsPartOfPrefabInstance(horse.gameObject))
+                PrefabUtility.UnpackPrefabInstance(horse.gameObject,PrefabUnpackMode.Completely,InteractionMode.AutomatedAction);
+            for(int i=1;i<=3;i++)
+            {
+                var barrelObject=GameObject.Find("Barrel "+i);
+                if(barrelObject && PrefabUtility.IsPartOfPrefabInstance(barrelObject))
+                    PrefabUtility.UnpackPrefabInstance(barrelObject,PrefabUnpackMode.Completely,InteractionMode.AutomatedAction);
+            }
+            PracticePresentationBuilder.Build(horse,barrel,camera);
             var owner=new GameObject("Skill practice").AddComponent<PracticeController>();
+            var feedback=owner.gameObject.AddComponent<PracticeFeedback>();
+            var ghost=owner.gameObject.AddComponent<PracticeGhost>();
+            ghost.Configure(horse,GhostMaterial());
+            var dust=CreateDust(owner.transform,horse);
 
             var canvas=new GameObject("Skill HUD",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
             canvas.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;
@@ -46,8 +59,14 @@ namespace BarrelRivals.Editor
             Text timer=Label(header,"Timer","0.00s · +0s",new Vector2(1,1),new Vector2(-165,-22),new Vector2(240,43),26,Color.white,TextAnchor.MiddleRight);
             var retryPanel=Panel(header,"Retry",new Vector2(1,1),new Vector2(1,1),new Vector2(-22,-20),new Vector2(124,52),new Color(.14f,.24f,.26f));
             var retry=retryPanel.gameObject.AddComponent<Button>(); retry.targetGraphic=retryPanel.GetComponent<Image>();
-            Label(retryPanel,"Retry label","RETRY",new Vector2(.5f,.5f),Vector2.zero,new Vector2(120,46),19,Color.white,TextAnchor.MiddleCenter);
+            Label(retryPanel,"Retry label","RETRY SAME",new Vector2(.5f,.5f),Vector2.zero,new Vector2(120,46),16,Color.white,TextAnchor.MiddleCenter);
 
+            Text best=Label(header,"Personal best","",new Vector2(1,1),new Vector2(-26,-69),new Vector2(430,26),15,new Color(.64f,.88f,.81f),TextAnchor.MiddleRight);
+
+            var skillPanel=Panel(safe,"Skill confirmation",Vector2.zero,Vector2.zero,new Vector2(26,220),new Vector2(470,68),new Color(.025f,.065f,.08f,.86f));
+            skillPanel.GetComponent<Image>().raycastTarget=false;
+            var skillGroup=skillPanel.gameObject.AddComponent<CanvasGroup>();
+            Text skill=Label(skillPanel,"Skill text","",new Vector2(.5f,.5f),Vector2.zero,new Vector2(432,62),28,Color.white,TextAnchor.MiddleLeft);
             var action=Panel(safe,"Practice action",new Vector2(0,0),new Vector2(0,0),new Vector2(26,42),new Vector2(650,126),new Color(.04f,.15f,.17f,.96f));
             var actionGroup=action.gameObject.AddComponent<CanvasGroup>();
             action.gameObject.AddComponent<PracticeInputSurface>().Configure(owner,false);
@@ -56,7 +75,7 @@ namespace BarrelRivals.Editor
             track.GetComponent<Image>().raycastTarget=false;
             var fill=Panel(track,"Timing fill",Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,new Color(1,.73f,.32f));
             Stretch(fill); var progress=fill.GetComponent<Image>(); progress.raycastTarget=false;
-            progress.type=Image.Type.Filled; progress.fillMethod=Image.FillMethod.Horizontal;
+            progress.sprite=ReinsLabBuilder.MeterSprite(); progress.type=Image.Type.Filled; progress.fillMethod=Image.FillMethod.Horizontal;
             var mark=Panel(track,"Center mark",new Vector2(.5f,.5f),new Vector2(.5f,.5f),Vector2.zero,new Vector2(3,22),Color.white);
             mark.GetComponent<Image>().raycastTarget=false;
 
@@ -67,15 +86,24 @@ namespace BarrelRivals.Editor
             drawTrack.GetComponent<Image>().raycastTarget=false;
             var drawFill=Panel(drawTrack,"Drawing time left",Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,new Color(.3f,1,.8f));
             Stretch(drawFill); var drawProgress=drawFill.GetComponent<Image>(); drawProgress.raycastTarget=false;
+            drawProgress.sprite=ReinsLabBuilder.MeterSprite(); drawProgress.type=Image.Type.Filled; drawProgress.fillMethod=Image.FillMethod.Horizontal;
             var pad=Panel(draw,"Drawing pad",new Vector2(.5f,0),new Vector2(.5f,0),new Vector2(0,18),new Vector2(356,356),new Color(.045f,.14f,.16f));
             pad.gameObject.AddComponent<PracticeInputSurface>().Configure(owner,true);
             var plot=new GameObject("Pattern plot",typeof(RectTransform),typeof(PatternGraphic)).GetComponent<RectTransform>();
             plot.SetParent(pad,false); Stretch(plot); var pattern=plot.GetComponent<PatternGraphic>(); pattern.raycastTarget=false;
-            var result=Panel(safe,"Practice result",new Vector2(0,.5f),new Vector2(0,.5f),new Vector2(26,-36),new Vector2(660,340),new Color(.025f,.095f,.12f,.97f));
+            var result=Panel(safe,"Practice result",new Vector2(0,.5f),new Vector2(0,.5f),new Vector2(26,-26),new Vector2(660,360),new Color(.025f,.095f,.12f,.97f));
             var resultGroup=result.gameObject.AddComponent<CanvasGroup>();
-            Text resultText=Label(result,"Result text","",new Vector2(.5f,.5f),Vector2.zero,new Vector2(612,310),24,Color.white,TextAnchor.MiddleLeft);
-            Label(safe,"Footer","ONE-BARREL PRACTICE  /  NO RANKED REWARDS",new Vector2(0,0),new Vector2(28,9),new Vector2(700,25),14,new Color(.86f,.9f,.88f));
-            owner.Configure(horse,barrel,camera,safe,phase,hint,timer,actionText,shape,resultText,actionGroup,drawingGroup,resultGroup,progress,drawProgress,pattern,retry);
+            Text resultText=Label(result,"Result text","",new Vector2(0,1),new Vector2(24,-14),new Vector2(612,268),22,Color.white,TextAnchor.UpperLeft);
+            var retryResult=MakeButton(result,"Retry same challenge","RETRY SAME CHALLENGE",new Vector2(0,0),new Vector2(24,18),new Vector2(294,54),18,new Color(.13f,.32f,.30f),out _);
+            // All retry buttons share the controller's explicit same-challenge method.
+            UnityEditor.Events.UnityEventTools.AddPersistentListener(retryResult.onClick,owner.Retry);
+            var next=MakeButton(result,"New challenge","NEW CHALLENGE",new Vector2(0,0),new Vector2(342,18),new Vector2(294,54),18,new Color(.27f,.22f,.15f),out _);
+            var sound=MakeButton(safe,"Sound preference","SOUND ON",new Vector2(1,0),new Vector2(-276,8),new Vector2(118,36),13,new Color(.025f,.065f,.08f,.8f),out Text soundText);
+            var haptics=MakeButton(safe,"Haptics preference","HAPTICS ON",new Vector2(1,0),new Vector2(-150,8),new Vector2(138,36),13,new Color(.025f,.065f,.08f,.8f),out Text hapticsText);
+            var ghostToggle=MakeButton(safe,"Ghost preference","GHOST ON",new Vector2(1,0),new Vector2(-24,8),new Vector2(118,36),13,new Color(.025f,.065f,.08f,.8f),out Text ghostText);
+            Label(safe,"Footer","ONE-BARREL PRACTICE  /  NO RANKED REWARDS",new Vector2(0,0),new Vector2(28,9),new Vector2(620,25),13,new Color(.86f,.9f,.88f));
+            owner.Configure(horse,barrel,camera,safe,phase,hint,timer,actionText,shape,resultText,actionGroup,drawingGroup,resultGroup,progress,drawProgress,pattern,retry,
+                next,sound,haptics,ghostToggle,soundText,hapticsText,ghostText,best,skill,skillGroup,feedback,ghost,dust);
             EditorBuildSettings.scenes=new[] { new EditorBuildSettingsScene(ScenePath,true),new EditorBuildSettingsScene(FoundationBuilder.ScenePath,true) };
             AssetDatabase.SaveAssets(); EditorSceneManager.SaveScene(scene); EditorSceneManager.OpenScene(ScenePath); Validate();
             Debug.Log("BARREL_M1: practice scene generated and reopened.");
@@ -98,13 +126,66 @@ namespace BarrelRivals.Editor
         public static void BuildAndroid()
         {
             Validate(); Directory.CreateDirectory("Builds/Android"); EditorUserBuildSettings.buildAppBundle=false;
-            PlayerSettings.bundleVersion="0.2.0"; PlayerSettings.Android.bundleVersionCode=2;
+            PlayerSettings.bundleVersion="0.3.0"; PlayerSettings.Android.bundleVersionCode=3;
             PlayerSettings.Android.targetSdkVersion=(AndroidSdkVersions)36; PlayerSettings.Android.useCustomKeystore=false;
             PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;
             PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
             var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions { scenes=new[]{ScenePath},locationPathName="Builds/Android/BarrelRivals-Practice.apk",target=BuildTarget.Android,options=BuildOptions.Development });
             Debug.Log($"BARREL_M1: Android build {report.summary.result}; errors={report.summary.totalErrors}.");
             if(report.summary.result!=BuildResult.Succeeded) throw new InvalidOperationException("Practice Android build failed.");
+        }
+        private static PracticeDust CreateDust(Transform parent,Transform horse)
+        {
+            const string root="Assets/_Project/Generated/Practice/";
+            const int size=32;
+            var mask=AssetDatabase.LoadAssetAtPath<Texture2D>(root+"DustMask.asset");
+            if(!mask) { mask=new Texture2D(size,size,TextureFormat.RGBA32,true); AssetDatabase.CreateAsset(mask,root+"DustMask.asset"); }
+            var pixels=new Color[size*size];
+            for(int y=0;y<size;y++) for(int x=0;x<size;x++)
+            {
+                float r=(new Vector2(x+.5f,y+.5f)/size-Vector2.one*.5f).sqrMagnitude*4;
+                pixels[y*size+x]=new Color(1,1,1,Mathf.Exp(-r*5)*Mathf.Clamp01(1-r));
+            }
+            mask.SetPixels(pixels); mask.wrapMode=TextureWrapMode.Clamp; mask.Apply(); EditorUtility.SetDirty(mask);
+            var material=AssetDatabase.LoadAssetAtPath<Material>(root+"Dust.mat");
+            if(!material) { material=new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit")); AssetDatabase.CreateAsset(material,root+"Dust.mat"); }
+            material.SetTexture("_BaseMap",mask); material.SetColor("_BaseColor",Color.white);
+            material.SetFloat("_Surface",1); material.SetFloat("_ZWrite",0);
+            material.SetFloat("_SrcBlend",(float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetFloat("_DstBlend",(float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT"); material.SetOverrideTag("RenderType","Transparent"); material.renderQueue=3000; EditorUtility.SetDirty(material);
+            var system=new GameObject("Hoof dirt").AddComponent<ParticleSystem>(); system.transform.SetParent(parent,false);
+            system.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
+            var main=system.main; main.playOnAwake=false; main.loop=true; main.simulationSpace=ParticleSystemSimulationSpace.World;
+            main.maxParticles=48; main.startSpeed=0; main.startLifetime=.85f;
+            var emission=system.emission; emission.enabled=false;
+            var shape=system.shape; shape.enabled=false;
+            var fade=system.colorOverLifetime; fade.enabled=true;
+            var gradient=new Gradient(); gradient.SetKeys(new[]{new GradientColorKey(Color.white,0),new GradientColorKey(Color.white,1)},new[]{new GradientAlphaKey(0,0),new GradientAlphaKey(1,.1f),new GradientAlphaKey(0,1)}); fade.color=gradient;
+            var sizeOverLife=system.sizeOverLifetime; sizeOverLife.enabled=true; sizeOverLife.size=new ParticleSystem.MinMaxCurve(1,AnimationCurve.Linear(0,.45f,1,1.9f));
+            var renderer=system.GetComponent<ParticleSystemRenderer>(); renderer.sharedMaterial=material;
+            renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off; renderer.receiveShadows=false;
+            var dust=parent.gameObject.AddComponent<PracticeDust>(); dust.Configure(horse,system); return dust;
+        }
+        private static Material GhostMaterial()
+        {
+            const string path="Assets/_Project/Generated/Practice/PersonalBestGhost.mat";
+            var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+            if(!material) { material=new Material(Shader.Find("Universal Render Pipeline/Unlit")); AssetDatabase.CreateAsset(material,path); }
+            material.SetColor("_BaseColor",new Color(.35f,.88f,.77f,.28f));
+            material.SetFloat("_Surface",1); material.SetFloat("_ZWrite",0);
+            material.SetFloat("_SrcBlend",(float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+            material.SetFloat("_DstBlend",(float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            material.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            material.SetOverrideTag("RenderType","Transparent"); material.renderQueue=3000;
+            EditorUtility.SetDirty(material); return material;
+        }
+        private static Button MakeButton(Transform parent,string name,string title,Vector2 anchor,Vector2 offset,Vector2 size,int fontSize,Color tint,out Text label)
+        {
+            var panel=Panel(parent,name,anchor,anchor,offset,size,tint);
+            var button=panel.gameObject.AddComponent<Button>(); button.targetGraphic=panel.GetComponent<Image>();
+            label=Label(panel,name+" label",title,new Vector2(.5f,.5f),Vector2.zero,size-new Vector2(8,4),fontSize,Color.white,TextAnchor.MiddleCenter);
+            return button;
         }
         private static RectTransform Panel(Transform parent,string name,Vector2 anchor,Vector2 pivot,Vector2 offset,Vector2 size,Color tint)
         {

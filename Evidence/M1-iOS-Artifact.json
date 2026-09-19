@@ -1,0 +1,37 @@
+{
+  "verifiedAt": "2026-09-19T02:48:10.977717+00:00",
+  "artifact": "BarrelRivals-iPhone-Practice.ipa",
+  "bytes": 41779986,
+  "sha256": "a9bf834df84965f7caa224bf23d9153e060d8f43de0393b7c1e8654f2938cfe9",
+  "zipIntegrityPassed": true,
+  "bundleIdentifier": "com.barrelrivals.foundation",
+  "version": "0.2.0",
+  "buildNumber": "2",
+  "developmentSigned": true,
+  "storeSubmission": false,
+  "deviceInstallationVerified": true,
+  "physicalLaunchVerified": true,
+  "installation": {
+    "verifiedAt": "2026-09-19T02:55:09.708965+00:00",
+    "method": "pymobiledevice3 11.15.5 USB installation_proxy",
+    "installerExitCode": 0,
+    "targetedDeviceQueryPassed": true,
+    "bundleIdentifier": "com.barrelrivals.foundation",
+    "displayName": "Barrel Rivals",
+    "version": "0.2.0",
+    "buildNumber": "2",
+    "physicalLaunchVerified": true,
+    "userReportedLaunchResult": "Okay it works and the app works",
+    "previousUserReportedLaunchResult": "Untrusted Developer or verification message; trust instructions provided.",
+    "physicalLaunchEvidenceSource": "user report"
+  },
+  "launchConfirmation": {
+    "reportedAt": "2026-09-19T02:58:48.100399+00:00",
+    "source": "user report in conversation",
+    "statement": "Okay it works and the app works",
+    "appLaunchConfirmed": true,
+    "instrumentedLaunchObserved": false,
+    "scope": "App opens and works per user; detailed practice-flow, latency, performance and comfort acceptance remain pending."
+  },
+  "physicalLaunchEvidenceSource": "user report"
+}

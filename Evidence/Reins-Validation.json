@@ -1,0 +1,64 @@
+{
+  "recordedAt": "2026-09-19T12:12:42.141257+00:00",
+  "targetVersion": "0.4.0",
+  "buildNumber": "4",
+  "unityVersion": "6000.6.0f1",
+  "ruleset": "reins-lab-v1",
+  "classicRulesVersion": 1,
+  "sceneGenerationAndReopen": "passed",
+  "tests": {
+    "editor": {
+      "result": "Passed",
+      "total": "77",
+      "passed": "77",
+      "failed": "0",
+      "duration": "1.2046904"
+    },
+    "playMode": {
+      "result": "Passed",
+      "total": "8",
+      "passed": "8",
+      "failed": "0",
+      "duration": "24.2189421"
+    }
+  },
+  "backendEvidence": "Tools/ReinsServerCheck/verification-evidence.json",
+  "crossRuntimeFixture": {
+    "request": "Contracts/Reins/complete-request.v1.json",
+    "sha256": "e228135f27f5488c838d316601eda10861a1df5bfc65a01c5784625fa978cf0f",
+    "unityEditorAndDotnetFinalTimeMs": 35120,
+    "knocks": 0,
+    "stylePoints": 300,
+    "il2cppReplayParityMeasured": false
+  },
+  "sourceSha256": {
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsReplay.cs": "f133efb39ecd66f65b0528782813b5f43d02b31340120ba84c196b5305daedca",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRun.cs": "53e4ccbc2e770ad5f5ae1112c52162ff63f7ca7f61aef433bd9e483818355ccb",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsCourseJudge.cs": "e2c4c0841859dd5d139999f964af1f1823496de43eefb9e0e5b2b3ac8b7612fd",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRuleFingerprint.cs": "f2071f97f9075eae21aca9937c5a87bbe799ebd04250a3a11a53039c3f09fba0",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsContracts.cs": "0d9608796691520b68fd085924b81302d87d52af0a5f356e31b54c1572a69af7",
+    "Assets/_Project/Scripts/Practice/ReinsLab/PracticeModeLink.cs": "91ff9b8b6b46ac95a999454a58f0a0dfd8f4b37b07eef7f5198e9064fc1eb50f",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsMapGraphic.cs": "d54d28e1f6b8924a9f08665636f494d6d391881ea09edb39e3010cfcbca88935",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsInputSurface.cs": "a91019889e500b67ecd415c6673483a17786e4976fc1fdc867f0e7722ebcce32",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsLabController.cs": "6fe147bcae57939b30f98798b41dca13510ffec118e16cc57291c1d8b10d2639",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsFootingVisual.cs": "3250d49a4fa48ce6e7331038333b65deb8bab3cc879fa102ff40aa7e01b346cf",
+    "Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs": "be72894f3029e3925dec77a2f7909cc3543c42318b78decece637ec6e4465d5b"
+  },
+  "reviewedUnityRenders": {
+    "Reins-Ready.png": "f1b03f3bc90238459fe25ba3500f4c86f27fd9199c351ccc9199fd2965363487",
+    "Reins-Mixed-Footing.png": "92e9241380be4ae08f6a5fa31d096a32ad9ef6d22c9ec07509360f49172a252c",
+    "Reins-Riding.png": "7465cc1130512a26ce18614707b9c21f65e5d3e346a415c57a2c6a8f283b8a42",
+    "Reins-Result.png": "6db8bc070a541f8a1ef0fcb528b17404b53f34783dfaf9221d88bbb8e5f4f8ca"
+  },
+  "phonePlaytestVerified": false,
+  "onlineServicesDeployed": false,
+  "databaseExecuted": false,
+  "purchasesEnabled": false,
+  "fullReleaseSectionsCompleted": 0,
+  "limitations": [
+    "Experimental offline controls and prototype art.",
+    "Horse learning/bond UI, rival matchmaking/gaps and streak reward UI are planned.",
+    "Local verifier checks consistency, not competitive authority.",
+    "Native artifact/installation evidence is separate from actual device playtest and performance."
+  ]
+}

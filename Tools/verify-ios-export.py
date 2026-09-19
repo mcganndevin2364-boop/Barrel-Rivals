@@ -1,11 +1,17 @@
 """Inspect Unity's Xcode export without claiming a compiled or signed iPhone app."""
 import hashlib
+import argparse
 import json
 import plistlib
 import subprocess
 from pathlib import Path
 
 project = Path(__file__).resolve().parents[1]
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--version',default='0.3.0')
+parser.add_argument('--build',default='3')
+parser.add_argument('--output',default='Evidence/M1-iOS-Export.json')
+args=parser.parse_args()
 export = project / 'Builds/iOS/BarrelRivals-Practice'
 pbx = export / 'Unity-iPhone.xcodeproj/project.pbxproj'
 info = export / 'Info.plist'
@@ -35,8 +41,8 @@ for owner in objects.values():
 
 with info.open('rb') as handle:
     plist = plistlib.load(handle)
-assert plist.get('CFBundleShortVersionString') == '0.2.0', 'Unexpected app version'
-assert str(plist.get('CFBundleVersion')) == '2', 'Unexpected build number'
+assert plist.get('CFBundleShortVersionString') == args.version, 'Unexpected app version'
+assert str(plist.get('CFBundleVersion')) == args.build, 'Unexpected build number'
 assert any(row['settings'].get('SDKROOT') == 'iphoneos' for row in configuration), 'Not a device export'
 app_configurations = [row for row in configuration if row['owner'] == 'Unity-iPhone']
 assert app_configurations, 'Missing app build configurations'
@@ -60,6 +66,6 @@ record = {
     'iPhoneInstalledOrRun': False,
     'limitation': 'Requires Xcode native compilation, Apple signing and a physical-device run.'
 }
-destination = project / 'Evidence/M1-iOS-Export.json'
+destination = project / args.output
 destination.write_text(json.dumps(record, indent=2) + '\n')
 print(json.dumps(record, indent=2))

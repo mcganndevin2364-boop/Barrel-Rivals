@@ -1,42 +1,53 @@
-# Barrel Rivals — iPhone test setup
+# Barrel Rivals — iPhone practice build
 
-The Android APK does not run on an iPhone. The iPhone path is Unity export → Xcode native build → Apple development signing → install/run on the connected phone. An Xcode project is source for that process, not an installable app.
+**Installed on the user's iPhone 17 Pro:** Barrel Rivals **0.4.0, build 4**, containing Classic Practice and the new Reins Lab. Native compilation, signature/profile, IPA integrity and installed version were verified on September 19. The user previously confirmed 0.2.0 opens and has good touch feel. Manual launch/control acceptance for 0.4.0 and measured device performance remain pending; the earlier confirmation is not reused.
 
-**Verified so far:** Unity Xcode export succeeded with zero reported errors; the export inspector passed. Native compilation, signing and the phone installation remain unfinished. Apple sign-in is needed to download Xcode.
+## Open the installed app
 
-## Current device and Mac
+The initial trust step is complete for this installation. If a future test build needs developer verification, open **Settings → General → VPN & Device Management**, select your Apple Account under **Developer App**, and follow **Trust / Verify App** and any additional prompts. Keep an internet connection available for verification, then open **Barrel Rivals** again. [Apple verification guidance](https://support.apple.com/en-us/118254).
 
-- User-reported phone: iPhone 17 Pro, iOS 26.6.2. Device connection and OS have not been independently verified.
-- Available Mac: MacBookPro14,1, Intel, 8 GB RAM, macOS Ventura 13.7.8. Full Xcode is not installed; Command Line Tools are present.
-- Unity 6000.6.0f1 and its iOS Build Support module are installed.
-- The user has no paid Apple Developer membership and no newer Mac available.
+For the new mode, select **TRY REINS RACING → BEGIN RUN**. Pull the side pads down to steer, tap the center pad to the beat, and hold center near a barrel for Leg Wrap. Follow the map through three legal turns, alternate side taps for Drive, then cross the finish. See [the full control guide](README-Reins.md). **CLASSIC PRACTICE** returns to drawing practice.
 
-Apple identifies this Mac as the 2017 model with Ventura as its latest compatible system. Xcode 15.2 is the last Xcode release listed for Ventura; Xcode 16 requires a newer macOS. Unity 6000.6 recommends Xcode 16+, rather than stating a hard minimum. A local Xcode 15.2 build is therefore an experiment: native compilation, phone pairing, signing and launch must all be tested before claiming compatibility. The iOS SDK version alone is not a complete statement of physical-device support. [Apple Mac identification](https://support.apple.com/en-us/108052), [Xcode compatibility](https://developer.apple.com/xcode/system-requirements), [Unity iOS requirements](https://docs.unity3d.com/6000.6/Documentation/Manual/ios-requirements-and-compatibility.html).
+In Classic Practice, hold **HOLD TO BEGIN**, release on the third beep/GO, remember and draw the gold shape, lift your finger, then make a fresh tap when the exit bar reaches its center. Retry repeats the same challenge; New Challenge advances the seed. This is offline one-barrel practice with placeholder art; multiplayer, purchases and ranked rewards are not enabled.
 
-## Export the current practice scene
+The current development profile expires **September 26, 2026 at 02:40 UTC** (September 25 at 9:40 PM Central). A refreshed development profile and reinstall will be needed for testing beyond its validity. The signed IPA is `../BarrelRivals-iPhone-Practice-0.4.0.ipa`; it is a personal-device test artifact, not a store submission.
 
-With other Editors for this project closed, run from this repository:
+## Verified host and device
+
+- MacBookPro14,1 (2017 Intel), 8 GB RAM, macOS Ventura 13.7.8.
+- Unity 6000.6.0f1 with Android, iOS and Mac support retained after storage cleanup.
+- Xcode 15.2 (15C500b), with license, first-launch setup and iOS 17.2 runtime installation complete.
+- iPhone 17 Pro, iOS 26.6.2 (23G90), wired, paired, available and Developer Mode enabled.
+- The user's Personal Team is selected in the generated Unity-iPhone target. One valid development identity and an exact app-ID profile including this phone were verified.
+
+## Build and installation evidence
+
+1. Unity exported the saved `Arena_Practice` and `Arena_ReinsLab` scenes with IL2CPP, ARM64, Metal, device SDK, iOS 15+ deployment target and the existing development bundle ID `com.barrelrivals.foundation`.
+2. Installing Apple's iOS 17.2 runtime resolved the storyboard/asset compiler failure. The complete unsigned app then compiled successfully.
+3. An actual-device Xcode scheme build timed out during device preparation. The supported target-build path successfully signed the app using the user's selected team and existing valid profile.
+4. `codesign --verify --deep --strict` passed. App/framework ARM64 binaries, signed entitlements, profile expiry, exact application ID and phone inclusion were checked. The IPA archive passed its integrity check.
+5. Xcode's `devicectl` installation failed because its developer image lacks the requested variant for this iPhone. This is a measured limitation of the local Xcode device tools, not a failure of the game compiler or provisioning profile.
+6. **pymobiledevice3 11.15.5** installed the same signed IPA through the ordinary USB installation service. The targeted phone query confirmed bundle ID and version 0.4.0/build 4. No developer-image mount, jailbreak, firmware change or signing bypass was used. [Maintainer's installation-service explanation](https://github.com/doronz88/pymobiledevice3/discussions/821), [CLI reference](https://doronz88.github.io/pymobiledevice3/cli/apps/).
+
+The current evidence is `Evidence/Reins-iOS-Export.json`, `Reins-iOS-Native.json` and `Reins-iOS-Artifact.json`. Version-prefixed M1-Polish files preserve the 0.3.0 checkpoint; the unprefixed M1 native/device/artifact files preserve historical 0.2.0 checks. Private device identifiers, provisioning data and raw tool logs remain outside tracked source.
+
+For 0.4.0, Xcode initially waited on a coordinated read of the project under Documents. An identical export copy in a task-owned temporary directory cleared that wait. Native compilation then exposed numbered duplicate generated sources. Only 119 byte-identical copies were quarantined from that temporary export; all 1,122 canonical runtime source/header files matched installed Unity. The repaired temporary build compiled, signed and installed successfully. Project `Assets`/`Packages`, the installed engine and original export were not changed by this repair. The PBX input hash and repair are recorded in the native evidence. A repeated export should be checked for these duplicates before native compilation.
+
+## Rebuild the Unity export
+
+With other Editors for this project closed, run from the repository root:
 
 ```bash
-Tools/run-m1.sh ios
-python3 Tools/verify-ios-export.py
+Tools/run-reins.sh ios
+python3 Tools/verify-ios-export.py --version 0.4.0 --build 4 --output Evidence/Reins-iOS-Export.json
 ```
 
-The menu equivalent is **Barrel Rivals → Build iPhone Practice (Xcode Export)**. Output belongs in `Builds/iOS/BarrelRivals-Practice/Unity-iPhone.xcodeproj`. The build uses the saved `Arena_Practice` scene, IL2CPP, Metal, device SDK and iOS 15+ deployment target. App version is 0.2.0/build 2. The existing development bundle ID is retained and automatic signing is enabled without inventing an Apple team.
+The generated project is `Builds/iOS/BarrelRivals-Practice/Unity-iPhone.xcodeproj`. Regeneration can replace manual signing settings, so reselect the user's Personal Team afterward. Do not invent another account/team or commit certificates/profiles.
 
-Generated Xcode content stays under ignored `Builds/`; do not commit certificates, provisioning profiles or account credentials. The export inspector writes `Evidence/M1-iOS-Export.json` and explicitly distinguishes export checks from native compilation, signing and a phone run. Regenerating the export can replace manual changes inside the generated project; keep lasting Unity changes in source/build tooling.
+`Tools/build-ios-native.sh` reproduces the **unsigned compiler check only**. For a signed target build, use `Unity-iPhone`, `ReleaseForRunning`, `iphoneos`, automatic signing and the selected development team. Allow Xcode to update the development profile as needed. Do not pass the unsigned runner's `CODE_SIGNING_ALLOWED=NO` overrides for an installable app. Reuse the existing native build output where appropriate.
 
-## Free personal-device attempt
+The proven USB install command is `python -m pymobiledevice3 apps install --udid <connected-phone-UDID> --developer <signed-IPA>`. Follow it with `apps query --udid <connected-phone-UDID> com.barrelrivals.foundation` to verify the installed version. The task-local Python environment contains pymobiledevice3 11.15.5 and uses the existing compatible cryptography 48.0.1 library; this tool is not embedded in the game.
 
-1. Sign in directly to [Apple's Xcode 15.2 download listing](https://developer.apple.com/download/all/?q=Xcode%2015.2). Download from Apple, confirm there is enough free storage for the archive and expanded app, and install full Xcode. The regular App Store listing offers newer Xcode that this Mac cannot run.
-2. Complete Xcode's first launch, license/setup steps and Apple Account sign-in. A free Personal Team can sign an app for personal device testing; free provisioning expires after seven days. [Apple account options](https://developer.apple.com/help/account/basics/about-your-developer-account).
-3. Open the exported `Unity-iPhone.xcodeproj`, select the **Unity-iPhone** scheme, connect/unlock the phone by USB and complete the phone's Trust prompts. Enable Developer Mode on the phone when required. [Apple device-run guide](https://help.apple.com/xcode/mac/current/en.lproj/dev5a825a1ca.html).
-4. Select your Personal Team in Signing & Capabilities with automatic signing. If Apple reports that the development bundle ID is unavailable, choose a unique development ID in Unity and regenerate rather than assuming ownership of that ID.
-5. Select the actual iPhone as the run destination and build/run. Preserve the first precise compiler, signing or device-preparation error if this older toolchain cannot complete the process. A successful Unity export alone does not pass this step.
-6. On the phone, test cold launch, launch audio timing, drawing, exit taps, retry, background/foreground behavior and screen safe areas. Record observations before changing tuning.
+## Remaining acceptance work
 
-The app currently uses prototype art and stops after one barrel. No multiplayer, purchases or ranked rewards are enabled.
-
-## If the older local toolchain cannot run it
-
-Use a compatible newer Mac/build host with an appropriate Xcode version. TestFlight also needs paid Apple Developer Program membership and current App Store Connect upload requirements; since April 28, 2026, those require Xcode 26+ and the iOS 26 SDK+. That route has not been purchased or provisioned. A browser-only gameplay preview is a separate optional build, not a signed iPhone app. [Apple membership](https://developer.apple.com/programs/), [upload requirements](https://developer.apple.com/news/upcoming-requirements/).
+First launch was confirmed for 0.2.0; the currently installed 0.4.0 needs its own manual launch/playtest in both modes. Verify a complete practice attempt, retry, app interruption, touch ownership, cue timing, safe areas, comfort and sustained performance on the phone. Xcode debugger/device-image compatibility remains unresolved on this old toolchain. This successful compile/sign/install path does not establish App Store readiness. Store publishing needs its own membership, supported build host and current upload requirements. [Apple upload requirements](https://developer.apple.com/news/upcoming-requirements/).

@@ -1,0 +1,15 @@
+{
+  "contractVersion": 1,
+  "manifest": {
+    "rulesVersion": 1,
+    "seed": 104,
+    "surface": "HardPack",
+    "roundIndex": 0,
+    "horse": { "nervePermille": 500, "firePermille": 500, "biddabilityPermille": 500, "heartPermille": 500 }
+  },
+  "frames": [
+    { "tick": 1, "leftPermille": 0, "rightPermille": 0, "cadenceTap": false, "gateTap": false, "wrap": false, "drive": "None" },
+    { "tick": 2, "leftPermille": 0, "rightPermille": 0, "cadenceTap": false, "gateTap": false, "wrap": false, "drive": "None" },
+    { "tick": 3, "leftPermille": 0, "rightPermille": 0, "cadenceTap": false, "gateTap": false, "wrap": false, "drive": "None" }
+  ]
+}

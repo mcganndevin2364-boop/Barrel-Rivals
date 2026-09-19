@@ -13,6 +13,8 @@ build_tools = android / 'SDK/build-tools/36.0.0'
 parser = argparse.ArgumentParser(description='Inspect a local Barrel Rivals development APK.')
 parser.add_argument('--apk', default='Builds/Android/BarrelRivals-Foundation.apk')
 parser.add_argument('--output', default='Evidence/Android-Artifact.json')
+parser.add_argument('--version', help='Expected versionName for this build')
+parser.add_argument('--code', help='Expected versionCode for this build')
 args = parser.parse_args()
 apk = project / args.apk
 assert apk.is_file(), 'The APK has not been produced.'
@@ -28,6 +30,10 @@ def run(args):
 badging = run([build_tools/'aapt', 'dump', 'badging', apk])
 metadata = [line for line in badging.splitlines() if line.startswith(('package:', 'sdkVersion:', 'targetSdkVersion:', 'native-code:'))]
 assert any("name='com.barrelrivals.foundation'" in line for line in metadata)
+if args.version:
+    assert any("versionName='"+args.version+"'" in line for line in metadata), 'Unexpected APK versionName'
+if args.code:
+    assert any("versionCode='"+args.code+"'" in line for line in metadata), 'Unexpected APK versionCode'
 assert "sdkVersion:'26'" in metadata
 assert "targetSdkVersion:'36'" in metadata
 assert "native-code: 'arm64-v8a'" in metadata
