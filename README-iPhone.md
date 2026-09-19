@@ -1,6 +1,6 @@
 # Barrel Rivals — iPhone practice build
 
-**Installed on the user's iPhone 17 Pro:** Barrel Rivals **0.4.0, build 4**, containing Classic Practice and the new Reins Lab. Native compilation, signature/profile, IPA integrity and installed version were verified on September 19. The user previously confirmed 0.2.0 opens and has good touch feel. Manual launch/control acceptance for 0.4.0 and measured device performance remain pending; the earlier confirmation is not reused.
+**Installed on the user's iPhone 17 Pro:** Barrel Rivals **0.4.0, build 4**, containing Classic Practice and the new Reins Lab. Native compilation, signature/profile, IPA integrity and installed version were verified on September 19. The user previously confirmed 0.2.0 opens and has good touch feel. The user has since played and prefers Reins; that qualitative report is recorded separately in `Evidence/Reins-User-Feedback-2026-09-19.json`. Formal control acceptance and measured device performance remain pending; older automated evidence retains its original timestamps and limits.
 
 ## Open the installed app
 
@@ -50,4 +50,4 @@ The proven USB install command is `python -m pymobiledevice3 apps install --udid
 
 ## Remaining acceptance work
 
-First launch was confirmed for 0.2.0; the currently installed 0.4.0 needs its own manual launch/playtest in both modes. Verify a complete practice attempt, retry, app interruption, touch ownership, cue timing, safe areas, comfort and sustained performance on the phone. Xcode debugger/device-image compatibility remains unresolved on this old toolchain. This successful compile/sign/install path does not establish App Store readiness. Store publishing needs its own membership, supported build host and current upload requirements. [Apple upload requirements](https://developer.apple.com/news/upcoming-requirements/).
+The user confirmed earlier 0.2.0 play and now reports playing/preferring the Reins prototype after the 0.4.0 installation. That supports the product choice, but is not a complete acceptance matrix. The approved 0.5 plan makes Reins primary; Classic comparison is no longer the next product gate. Verify a complete practice attempt, retry, app interruption, touch ownership, cue timing, safe areas, comfort and sustained performance on the phone. Xcode debugger/device-image compatibility remains unresolved on this old toolchain. This successful compile/sign/install path does not establish App Store readiness. Store publishing needs its own membership, supported build host and current upload requirements. [Apple upload requirements](https://developer.apple.com/news/upcoming-requirements/).

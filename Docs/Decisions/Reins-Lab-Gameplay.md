@@ -1,4 +1,6 @@
-# Reins Lab gameplay decision
+# Reins Lab gameplay decision — historical 0.4 contract
+
+**Superseded product defaults, September 19, 2026:** the user selected Reins as the main game, first-person throughout, realistic arcade visuals and forgiving controls. [The approved 0.5 plan](../Plan/Reins-Racing-0.5-Implementation.md) now governs implementation (gameplay revision 5 / engineering revision 6). Its moving alley and single hold/release replace the three-tap gate described below. Classic remains historical source/saves and leaves the next player build. This record preserves why the implemented 0.4 prototype was built; its pending-choice/additive-Lab clauses are no longer active instructions.
 
 Gameplay revision 4 / engineering revision 5. This decision applies the user's attached **Barrel Rivals — Reimagined Gameplay Mechanics** document to the complete-game plan. The attachment supplies ten requested mechanics and illustrative tuning. Its claims about addiction, gambling psychology and commercial success are proposals, not evidence or instructions to maximize compulsive play.
 

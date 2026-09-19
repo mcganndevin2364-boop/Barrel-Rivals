@@ -1,11 +1,14 @@
 # Barrel Rivals
 
-An iOS/Android arcade barrel-racing game in development. The new Reins Lab explores continuous rein steering, cadence, close barrel turns, changing footing and a final drive. Classic Practice preserves the earlier automatic riding/drawing controls for comparison. Live turns with spectating, recorded challenges and simultaneous duels remain in scope, alongside ten horses, progression and a trusted economy.
+An iOS/Android arcade barrel-racing game in development. The user has selected Reins Racing: continuous rein steering, cadence, close barrel turns, changing footing and a final drive. Classic is preserved as historical code/evidence; its player-facing route will be removed in the approved 0.5 update. Live turns with spectating, recorded challenges and simultaneous duels remain in scope, alongside ten horses, progression and a trusted economy.
 
 ## Current build
 
-**Classic Practice + Reins Lab development build 0.4.0:** Unity 6000.6.0f1, saved URP scenes, original prototype art, isolated rules/saves and a local shared-Core replay verifier. Reins adds a legal three-barrel course; it is an experimental offline game mode. Final horse/rider art, trusted online play, progression/economy and measured mobile qualification remain ahead. The 0.4.0 iPhone build is installed with its version verified; the Android APK passed artifact checks. New-build phone gameplay and performance remain unverified. Version-labelled evidence distinguishes those stages.
+**Classic Practice + Reins Lab development build 0.4.0:** Unity 6000.6.0f1, saved URP scenes, original prototype art, isolated rules/saves and a local shared-Core replay verifier. Reins adds a legal three-barrel course; it is an experimental offline game mode. Final horse/rider art, trusted online play, progression/economy and measured mobile qualification remain ahead. The 0.4.0 iPhone build is installed with its version verified; the Android APK passed artifact checks. The user has played and prefers Reins, while requesting substantially better graphics. This qualitative report does not establish measured performance or full device qualification. Version-labelled evidence distinguishes those stages. The new alley launch and visual rebuild are approved next work, not implemented in 0.4.
 
+- [Start here: AI continuation handoff](Barrel-Rivals-AI-Handoff.md)
+- [Copyable message for another AI](CONTINUE-WITH-ANOTHER-AI.md)
+- [Approved Reins 0.5 launch and visual rebuild](Docs/Plan/Reins-Racing-0.5-Implementation.md)
 - [Classic controls and historical checkpoint](README-M1.md)
 - [Play Reins Lab and inspect the cross-stack prototype](README-Reins.md)
 - [All ten mechanics: stack contracts and delivery gates](Docs/Plan/Reins-Mechanics-Integration.md)
@@ -16,7 +19,7 @@ An iOS/Android arcade barrel-racing game in development. The new Reins Lab explo
 - [Gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md)
 - [Engineering stack and section contracts](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md)
 
-The next work is physical-phone comparison of both controls and R2 representative art/full-course polish, then the adapted M1N continuous-input authority proof. The existing Mac can compile/sign/install personal iPhone test builds; debugger compatibility and release toolchain qualification remain open. [README-M0.md](README-M0.md) preserves the foundation preview; `Arena_Practice` and `Arena_ReinsLab` are the playable development scenes. Original folders remain preserved; no changes have been pushed or submitted to a store.
+The next work is R2/0.5: a first-person moving-alley hold/release start, forgiving controls and one properly rigged horse/rider/arena, followed by phone qualification and then M1N continuous-input authority proof. The existing Mac can compile/sign/install personal iPhone test builds; debugger compatibility and release toolchain qualification remain open. [README-M0.md](README-M0.md) preserves the foundation preview; `Arena_Practice` and `Arena_ReinsLab` are the playable development scenes. Original folders remain preserved. Continue the `codex/m1-skill-loop` branch; `main` is an older checkpoint. This is development work, with no store submission.
 
 ## Development context
 

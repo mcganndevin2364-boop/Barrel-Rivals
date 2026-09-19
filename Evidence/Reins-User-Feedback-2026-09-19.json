@@ -1,0 +1,21 @@
+{
+  "recordedDate": "2026-09-19",
+  "source": "User feedback in the development conversation after the recorded Reins installation",
+  "associatedInstalledBuild": "0.4.0/build 4",
+  "associationBasis": "Latest verified installed version; no new on-device version query accompanied the feedback",
+  "userReportedPlayedReins": true,
+  "userPrefersReinsOverClassic": true,
+  "userSatisfiedWithCurrentGraphics": false,
+  "selectedDirection": {
+    "camera": "First-person throughout",
+    "visualStyle": "Realistic arcade",
+    "handling": "Responsive and forgiving",
+    "missedLaunch": "Grade and continue",
+    "assets": "Free or original; paid purchases deferred"
+  },
+  "requestedNextLaunch": "Rider-view slow alley approach; three beeps; release near the invisible starting line on the third beep; then heartbeat taps and steering",
+  "formalFullCourseAcceptanceComplete": false,
+  "measuredDevicePerformanceVerified": false,
+  "androidHandsetTestVerified": false,
+  "limitations": "Qualitative user report supports the Reins product choice. It is not instrumented launch evidence, measured latency, a full device test matrix or confirmation of the planned 0.5 features. Earlier native/device JSON files retain their original observation times and limits."
+}

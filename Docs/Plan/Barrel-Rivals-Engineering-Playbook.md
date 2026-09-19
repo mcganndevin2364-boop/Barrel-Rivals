@@ -1,13 +1,13 @@
 **Barrel Rivals — engineering playbook and stack contracts**  
-Engineering revision 5 · Gameplay revision 4 · Original eight-category, 53-section build plan
+Engineering revision 6 · Gameplay revision 5 · Original eight-category, 53-section build plan
 
-**Purpose.** This is the coding guide for the complete game: Classic bodycam practice and the opt-in ten-mechanic Reins Lab, three multiplayer experiences, ten horses, progression, purchases and publishable iOS/Android builds. Each section below names the expertise, stack, dependencies, concrete deliverables, integration obligations and evidence needed to contribute to that outcome. Read its card with the matching build-plan row and gameplay blueprint before implementing it.
+**Purpose.** This is the coding guide for the complete game: Reins Racing, three multiplayer experiences, ten horses, progression, purchases and publishable iOS/Android builds. The user has chosen Reins; Classic remains historical source/saves rather than a required player-facing mode. Every section names specialist skills, stack, dependencies, deliverables and evidence. Read its card with the matching build-plan row, gameplay blueprint and [approved 0.5 implementation plan](Reins-Racing-0.5-Implementation.md).
 
-These are proposed engineering contracts. The named components, service stack and folders are implementation targets, not claims that they already exist. M0 repaired compilation and added a verified URP arena preview; M1 adds shared practice rules and a connected Unity skill loop in the same project; [M0 implementation report](Barrel-Rivals-M0-Report.md) records foundation evidence; [M1 implementation report](Barrel-Rivals-M1-Report.md) records the current practice increment. The iPhone practice app is now built, signed and installed, with first launch confirmed by the user. Original full-section acceptance checks and detailed physical-device qualification remain open. Revision 5 adopts [the Reins decision](../Decisions/Reins-Lab-Gameplay.md) and [ten-mechanic integration specification](Reins-Mechanics-Integration.md). These supersede drawing-only requirements for the Lab while preserving Classic rules version 1. Reins implementation/test/deployment status is not inferred from the Classic milestone evidence.
+These are engineering contracts, not claims that named systems already exist. M0 repaired compilation/URP; M1 delivered Classic practice; [Reins v1](Reins-Lab-Implementation.md) added the offline three-barrel 0.4.0/build 4 checkpoint. Its historical evidence records 77 Editor, 8 Play Mode and 46 local HTTP checks, iPhone build/sign/install/version and Android artifact verification. The user has played Reins and selected its mechanics. No measured full-device acceptance, final rigged art or online service is established. Revision 6 governs the approved but unimplemented 0.5 launch/control/art/v2 changes; older integration and decision records are context only where this revision has not superseded them.
 
-**Current execution sequence.** R0 checkpoints Classic 0.3.0; R1 builds the additive `reins-lab-v1` mechanical Lab; R2 validates two-thumb controls/art and the full three-barrel course/Drive on phones; M1N proves continuous-input authority/footing/ghost fairness; M3–M7 deliver online progression, content and release. The earlier M2 representative-course scope is carried by R2. All 53 card titles/IDs remain aliases; S29–35 now explicitly describe both rule families where needed. Defaults pending user preference: separate Lab and fixed-base capped earned streak bonuses, with no loss of existing winnings or premium insurance. Free-only development art remains in force.
+**Current execution sequence.** R0/M1 Classic and R1 `reins-lab-v1` are historical checkpoints. Next is R2 / 0.5: Reins-only startup, first-person four-second moving alley and single-release launch, forgiving inputs, one authored horse/rider/arena and rules/contracts v2 with shared replay verification. Then complete measured phone acceptance and M1N continuous-input authority/footing/ghost fairness before online economy/content/release. The former M2 representative-course scope is carried by R2. Keep all 53 card titles/IDs unchanged. Free/original-only art and fixed-base capped earned streak defaults remain in force; no paid acquisition/service or lost-wallet insurance is authorized.
 
-**Current adapter limits.** Side rein pads plus an active center cadence/Gate/Wrap pad are the implemented layout; the two-zone gesture classifier is only a comparison option. Bounded Core horse parameters and local own-best playback exist, but a horse picker, learned behavior, bond/streak preview UI, rival-gap display and online settlement do not. Prototype circle/Kiss dimensions and cadence values in the integration specification remain provisional. The cards below are required work and evidence, not a completion checklist already satisfied by this source.
+**Current adapter limits.** Implemented 0.4 uses LEFT/RIGHT rein pads and CENTER cadence/three-tap Gate/Wrap, v1 records and procedural art. V2 changes center launch to an armed hold/release with a deliberate heartbeat handoff; it is not yet implemented. Bounded horse parameters and own-best playback do not implement horse selection, learned behavior, bond/streak UI, rival gaps or settlement. Prototype collision dimensions need reconciliation with the authored horse. Cards define work and acceptance, not completion.
 
 **Standing development standard.** For every future section, inspect the actual code and pinned package APIs first; refine its contract; implement a complete connected increment; run relevant checks; review the result against the whole-game requirements; record evidence and remaining work. Source files, Unity assets, editor tooling, backend code, database migrations and native bridges are all deliverables when the section needs them. A component is complete only when its callers, data, assets and failure behavior work together.
 
@@ -18,7 +18,7 @@ These are proposed engineering contracts. The named components, service stack an
 | CLIENT | Unity 6, C#, Input System, uGUI/TextMeshPro, Animator and explicit application/presentation adapters. Cinemachine for camera behavior where useful. | M0 clean import; M1 touch/bodycam proof. Pin packages together and use their installed API versions. |
 | CORE | Engine-independent C# rules/contracts with a .NET Standard 2.1 API target and a language subset supported by the pinned Unity compiler. Integer time/IDs and reproducible course/scoring rules. | Lab uses a 20 ms fixed-step Core experiment and explicit quantization/event ordering; compile the same source for Unity and the later backend and compare fixtures on both runtimes. [Unity API compatibility](https://docs.unity3d.com/6000.0/Documentation/Manual/dotnet-profile-support.html). |
 | CONTENT | ScriptableObject authoring, editor validators, immutable exported rules and Addressables for managed asset groups. Begin with local content. | Validate identities/references and loading lifetime; introduce remote content only with version, download-failure and rollback tests. |
-| ART | Blender or equivalent licensed modeling/rigging tools; editable source meshes, quadruped/rider rigs, FBX exports, textures and animation clips. | Use original/free assets only; approve one representative horse/rider/arena on a phone before scaling; track source, commercial rights, attribution and import settings. No art tool is presumed installed. |
+| ART | Blender 4.5 LTS planned for the current Mac; editable source meshes, quadruped/rider rigs, FBX exports, textures and in-place animation clips. | Use original/free assets only; approve one representative horse/rider/arena on a phone before scaling; track source, commercial rights, attribution and import settings. No art tool is presumed installed. |
 | RENDER | URP, lighting/volumes, Shader Graph, budgeted Particle System effects; HLSL/Render Graph passes only for required effects. | M0 restores pipeline assets; R2 verifies actual mobile appearance, comfort and GPU cost. [Render Graph](https://docs.unity3d.com/6000.0/Documentation/Manual/urp/render-graph.html). |
 | NET | Photon Fusion 2 behind a transport adapter for live sessions, replicated public state and spectating. | M1N proves topology, private reveals, reconnect and independent clocks; no second multiplayer framework is added casually. [Photon topology guidance](https://doc.photonengine.com/fusion/v2/fusion-choose). |
 | API | C# ASP.NET Core on .NET 10 LTS, initially one service with internal modules for profiles, matchmaking, run verification and economy. HTTPS for commands; evaluate a persistent channel for scheduled challenge/input delivery in M1N. | Working backend target, subject to the early feasibility/cost proof. A managed replacement requires a documented decision and equivalent contracts. [.NET support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core). |
@@ -71,13 +71,13 @@ Use one intentional construction point to wire dependencies. Do not create one g
 
 | Contract | Required meaning / owner |
 |---|---|
-| Rules and content version | Ruleset namespace, schema version, rules/config/course hashes, input-mode ID and compatible client range. Classic Practice rules 1 and reins-lab-v1 are distinct; S04 owns export/validation. |
+| Rules and content version | Ruleset namespace, schema version, rules/config/course hashes, input-mode ID and compatible client range. Classic rules 1, reins-lab-v1 and new Reins v2 are distinct; the 0.5 upgrade changes fingerprints and strict schemas together. S04 owns export/validation. |
 | Match assignment | Match/run/participant IDs, format, class, frozen horse/loadout and round footing/stamina schedule. Same-round conditions and reference information are equal regardless of rider order; S38/S40 own authorization. |
-| Accepted input | Run/phase identity, ordered sequence, bounded timestamp, normalized left/right tension, center cadence/Gate edges, held Wrap state and side Drive/cancel events. Define exclusive pointer-to-pad ownership, quantization, same-tick ordering, event/rate bounds and stale-control timeout; S02 captures, S40 validates. |
-| Skill outcome | Challenge/phase ID, grade components and one accepted boost/knock decision; S29/S33/S34 compute. |
+| Accepted input | Run/phase identity, ordered sequence, bounded timestamp, normalized left/right tension, v2 launchHeld plus cadence edges, held Wrap and side Drive/cancel events. Launch is one armed falling edge; cancellation is not a release grade. Define exclusive pointer-to-pad ownership, quantization, same-tick ordering, event/rate bounds and stale-control timeout; S02 captures, S40 validates. |
+| Skill outcome | Challenge/phase ID, signed launch-release timing, launch grade, grade components and one accepted boost/knock decision; S29/S33/S34 compute. |
 | Run result | Validated elapsed time, legal course progress/finish, unique geometric knocks, explicit fouls and terminal status; style is separate and boosts affect motion. S36 owns calculation; trusted service accepts it. |
 | Settlement | Match/purchase/streak-cycle/milestone keys, reservations, fixed-base capped bonus, bond grant and correction status. S42 applies one transaction; local Lab previews cannot mutate wallets/ownership. |
-| Replay | Ruleset/config/course/footing/horse-class/input-mode identity, accepted inputs/events and legal progress crossings. Reject Classic/Lab mismatch; S52 owns bounded playback, disclosure, gap validity and lifetime. |
+| Replay | Ruleset/config/course/footing/horse-class/input-mode identity, accepted inputs/events and legal progress crossings. Reject Classic/v1/v2 mismatch; S52 owns bounded playback, disclosure, gap validity and lifetime. |
 
 **How to execute a section.** Record the card's scope, affected whole-game requirement IDs R01–R08, actual file/API names and pinned references before coding. Distinguish prerequisites needed now from interfaces agreed with later sections: numbering is ownership, not a demand to finish 1–53 serially. First milestone below means the first usable pass; the original build plan defines full completion.
 
@@ -90,25 +90,25 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CLIENT, CORE, BUILD · M0.
 - **Expertise and resources:** Unity assembly/package management, C# boundaries, Git recovery; DOC01, DOC02, DOC15.
 - **Inputs / dependencies:** The technical audit, both local projects and the newer GitHub commit; preserve local changes before reconciliation.
-- **Build:** One canonical Unity project, pinned package/assembly references, bootstrap scene, shared-core build and repeatable import/build commands.
+- **Build:** One canonical Unity project with pinned packages, shared-core build and repeatable commands. For 0.5 open Reins directly and remove player-facing Classic navigation; preserve legacy source/saves/history.
 - **Connect:** A composition root explicitly connects input, rules, presentation and service adapters; scene creation persists assets and metadata.
 - **Proof:** Clean-checkout import, core/client compilation and reopened startup scene pass; document the actual Android/iOS build path.
 
 **S02 — Input System Foundation**
 
-- **Stack / first pass:** CLIENT, CORE · R1
+- **Stack / first pass:** CLIENT, CORE · R1 → R2
 - **Expertise and resources:** Two-thumb pad ownership, timestamps and mobile lifecycle; DOC03.
 - **Inputs / dependencies:** Reins phase/input schema; side/center safe areas and a declared input-mode ID.
-- **Build:** LEFT/RIGHT drag reins plus CENTER cadence/Gate press and eligible 300 ms hold for Wrap; Drive uses alternating side presses. Initial center cadence and later held Wrap are separate events, with no hold-generated repeated cadence. Keep Classic isolated.
-- **Connect:** S11 consumes normalized reins; S29/30/31/34 consume discrete edges. Menu/lost touches cannot leave held steering or count twice.
-- **Proof:** Two-thumb phone play with no third required touch; center reach, cancel/slide-off/hand swap and 30/60/120 Hz capture. No drag release becomes an extra cadence/Drive tap.
+- **Build:** LEFT/RIGHT drags reach full rein pull at 50% pad-height travel. CENTER down in Ready starts approach; first intentional release grades launch. Preserve held steering at GO; the launch pointer cannot become cadence or Wrap. Fresh racing presses supply cadence, then eligible 300 ms holds request Wrap; Drive alternates sides.
+- **Connect:** S11 consumes reins; S29 derives one launch release from launchHeld. Cancellation/lost focus cancels, rather than scores release. Clear stale inputs/audio on retry; do not blanket-clear legitimate steering at GO.
+- **Proof:** Two-thumb phone play, exact timing boundaries, quick taps, re-hold spam, cancel/slide-off/hand swap and 30/60/120 Hz capture; no launch release becomes cadence, Wrap or Drive.
 
 **S03 — Game State Machine**
 
 - **Stack / first pass:** CORE, CLIENT, API · R1 → M1N
 - **Expertise and resources:** Explicit fixed-step run/match states and immutable outcomes; DOC01, DOC09.
 - **Inputs / dependencies:** Lab gate/course/barrel/Drive/finish contracts and ruleset namespace.
-- **Build:** One Reins run state owner with legal route, missed/foul/cancel/timeout/finish outcomes; preserve the separate Classic state machine.
+- **Build:** One Reins v2 run owner with Ready/approach/race/Drive and legal route/cancel/timeout/finish outcomes. Third beep is the fixed GO boundary; preserve Classic/v1 evidence without exposing the old mode.
 - **Connect:** S29–36 publish accepted event identities; S37–41 later admit/settle each run once.
 - **Proof:** Invalid phase/input order, duplicate finish, skips, restart and stale controls never create extra boost, result or reward.
 
@@ -116,8 +116,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CONTENT, CORE, CLIENT · R1
 - **Expertise and resources:** Authoring/export schemas and bounded configuration; DOC04.
-- **Inputs / dependencies:** Ruleset, course, collision bounds, beat/gate/Drive, footing and horse IDs.
-- **Build:** Versioned ScriptableObject authoring to immutable Core manifests/hashes; all attachment percentages remain provisional until configured and tested.
+- **Inputs / dependencies:** V2 ruleset/launch/course/collision/beat/Drive/footing/horse IDs and the approved 0.5 values.
+- **Build:** Versioned authored manifests/hashes, strict input/result schemas and fingerprint generation. Freeze approved launch/cadence defaults in v2; retain historical v1 definitions and reject ambiguous cross-version data.
 - **Connect:** Unity/verifier consume identical public conditions; private future data stays protected. Classic/Lab decoders never infer compatibility from version number alone.
 - **Proof:** Reject duplicate IDs, NaN/out-of-range curves, impossible dimensions and mismatched hashes; export round-trip is stable.
 
@@ -125,8 +125,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CLIENT, CORE, API, DB · R1 → M3
 - **Expertise and resources:** Namespaced saves/replays, migrations, concurrency and account recovery; DOC09–11.
-- **Inputs / dependencies:** Classic checkpoint and reins-lab-v1 schema/hash/record identity; future trusted profile contracts.
-- **Build:** Isolated Lab settings/local records; later server profiles and transactional bond/streak grants. Do not migrate Classic bests into Lab rivals.
+- **Inputs / dependencies:** Classic/v1 historical schema/hash identities and new v2 identity; future trusted profile contracts.
+- **Build:** Separate v2 settings/bests/replays with safe session fallback; preserve old bytes and never rescore them under v2. Later server profiles and transactional bond/streak grants remain independent work.
 - **Connect:** S52 validates playback; S42 owns later wallet/bond writes. Offline previews never claim cloud sync or authority.
 - **Proof:** Corrupt/old/cross-ruleset data cannot block play; restore/restart/duplicate settlement/concurrent account writes preserve ownership.
 
@@ -135,7 +135,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** PLATFORM, BUILD, CLIENT · M0.
 - **Expertise and resources:** IL2CPP/AOT, signing, lifecycle and native integration; DOC16 and the technical review.
 - **Inputs / dependencies:** Named supported phones, engine/package lock and a compatible Mac/Xcode build environment.
-- **Build:** Android/iOS build configurations, safe-area/lifecycle adapters and documented signing/release procedures.
+- **Build:** Both mobile build routes produce 0.5/build 5 with Reins startup after implementation. Preserve prior development artifacts; use a clean unsynced native export and verified compiler/runtime inputs. Document lifecycle, signing and future release-host requirements.
 - **Connect:** Pause/background notifications enter S02/S41; platform identity and purchase adapters remain outside race rules.
 - **Proof:** Install signed development builds on both platforms; test backgrounding, stripping/native-plugin behavior and cold start.
 
@@ -144,9 +144,9 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** RENDER, CLIENT, BUILD · R0 → R2.
 - **Expertise and resources:** CPU/GPU profiling, memory ownership and thermal testing; DOC06.
 - **Inputs / dependencies:** Named device tiers and the representative horse/arena from R2.
-- **Build:** Per-device frame, memory, download and thermal budgets; quality assets and recorded profiling captures.
+- **Build:** Start R2 with 60k character triangles, 2K maximum character textures, 150 visible batches and 650 MB peak application memory. Target sustained 60 FPS on iPhone with a 30 FPS profile; these budgets are not current measured results.
 - **Connect:** Art, crowd, particles, cameras and UI receive measured budgets; presets alter presentation only.
-- **Proof:** Run the build-plan 20-minute device benchmark; retain traces and identify CPU/GPU bottlenecks before adding complexity.
+- **Proof:** Record named device/build and a 20-minute session with CPU/GPU frame times, memory and thermal behavior; verify quality profiles preserve simulation rules and readable controls.
 - **Reins integration:** R2 measures rein/cadence/Drive latency, two-thumb fatigue and temperature alongside frame time. No quality tier alters horse collision bounds, timing windows or ghost gap meaning.
 
 **S08 — Horse Data Model & Breeds**
@@ -172,9 +172,9 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** ART, CLIENT · R1 → R2.
 - **Expertise and resources:** Quadruped/rider rigging, blend trees and procedural alignment; DOC05.
 - **Inputs / dependencies:** A licensed rigged horse/rider, locomotion reference and S11 movement/turn events.
-- **Build:** Animator controller, clips/blends and a presentation adapter for clean, wide, knock, sprint and finish behavior.
-- **Connect:** Validated movement drives animation; horse/rider root motion cannot independently change official speed or collisions.
-- **Proof:** Inspect feet, saddle/reins, bodycam clipping and contact timing at speed extremes; final pass covers the complete roster.
+- **Build:** One properly skinned horse/rider with western tack, visible hands/reins and in-place idle/walk/canter/gallop/sprint/braking/turn/contact clips. Evaluate the free candidate before accepting its anatomy/rig; repair or replace with original art.
+- **Connect:** Core pose/speed/turn drives Animator and rider synchronization. Keep source/exported production art outside generated folders; root motion never moves the race simulation.
+- **Proof:** Review first-person walk-to-gallop and full-race captures on phone: reins/hands align, no obvious foot sliding or clipping, and gait transitions are coherent. Further primitive-only polish does not complete this card.
 - **Reins integration:** Reins adds leg/hip wrap, rein/brake contact and capped Drive effort. Imported animation/controller assets observe the Core pose; they cannot auto-steer, move the race root or determine knocks.
 
 **S11 — Horse Physics & Movement Controller**
@@ -182,7 +182,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, CLIENT · R1 → R2
 - **Expertise and resources:** Kinematic steering, swept collision and fixed-step numerical rules; DOC01.
 - **Inputs / dependencies:** 20 ms step, two rein tensions, horse/barrel bounds, legal course and footing/trait manifest.
-- **Build:** Differential steering, combined braking, bounded grip/slip/counter-rein, cadence/wrap/Drive boosts and legal geometric course progression. Classic keeps its automatic path.
+- **Build:** Preserve bounded differential steering/braking/footing/cadence/Wrap/Drive. Add the deterministic six-metre/four-second approach, graded positive acceleration and new start anchor. Match alley-wall and barrel geometry between Core and visuals.
 - **Connect:** S19/S31/S36 consume the same contact IDs; S10/12/23 interpolate presentation, never decide collision/time.
 - **Proof:** Symmetric left/right controls, finite bounds, high-speed tunnelling, legal turns/finish, render-rate replay and later IL2CPP/verifier equality.
 
@@ -191,7 +191,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** ART, CLIENT · R1 → R2.
 - **Expertise and resources:** Stride phase, gait transitions and sound synchronization; DOC05, DOC13.
 - **Inputs / dependencies:** Validated movement speed and the animation/hoof-contact specification.
-- **Build:** Gait blending and stride-phase outputs for walk/trot/canter/gallop with smooth acceleration transitions.
+- **Build:** Blend in-place gait/stride and synchronize rider/hooves/reins from accepted speed/turn/effort; author walk-to-gallop and sprint/braking transitions without moving the simulation root.
 - **Connect:** S10 animation, S23 camera and S48 hoof audio share locomotion phase; gait presentation never adds race time.
 - **Proof:** Check foot sliding, blended contacts, duplicate hoof sounds and camera jolts across all legal speed ranges.
 - **Reins integration:** Lab cadence/Drive sound and movement gait share accepted speed/phase, with explicit hoof-contact coordination. A rhythmic tap does not directly teleport animation phase or change the simulation clock.
@@ -202,7 +202,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Expertise and resources:** Material variants, UV/mask authoring and entitlement checks; DOC04, DOC07.
 - **Inputs / dependencies:** Horse meshes, approved coat/marking catalogue and ownership records.
 - **Build:** Reusable material/mask setup, customization preview and versioned saved cosmetic selections.
-- **Connect:** Stable, introduction, spectator and replay resolve the same cosmetic IDs with a safe missing-asset fallback.
+- **Connect:** Stable, first-person riding, spectator and replay resolve the same cosmetic IDs with a safe missing-asset fallback.
 - **Proof:** Unauthorized selections fail; owned appearances persist after reinstall; measure memory/material batching across the roster.
 
 **S14 — Horse Aging & Career System**
@@ -230,7 +230,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, CONTENT, ART · R1 → R2.
 - **Expertise and resources:** Course geometry, units and level-authoring tools; DOC17.
 - **Inputs / dependencies:** Verified WPRA reference, deliberate arcade variants and start/finish convention.
-- **Build:** Arena authoring tool/data, center-distance checks, baked legal course and visual/debug checkpoint overlays.
+- **Build:** Retain measured three-barrel course; author the six-metre approach from z=-6 to invisible z=0. Update first-barrel progress anchor; match alley collision to visible rails, including backward approaches and homestretch return.
 - **Connect:** S11/S36 consume a versioned geometry export; visual arena variants cannot silently move scoring boundaries.
 - **Proof:** Validate dimensions, clearance, barrel order, turn completion and legal finish; compare rendered course with baked rules.
 
@@ -239,7 +239,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** RENDER, ART · R0 → R2.
 - **Expertise and resources:** URP lighting, lightmaps, probes and shadow budgets; DOC06, DOC07.
 - **Inputs / dependencies:** Correct pipeline assets, representative arena and phone GPU budgets.
-- **Build:** Lighting profiles, baked assets where appropriate and bounded real-time lights/shadows.
+- **Build:** Linear color, URP Forward, one shadowed sun, baked ambient lighting and coherent warm arena materials; keep stable reduced-cost quality profiles. Preserve cue/barrel visibility from first person.
 - **Connect:** S21/S22 select approved profiles; gameplay prompts remain readable in every supported quality mode.
 - **Proof:** Check materials and shadows in actual mobile builds, including transitions; record GPU cost and shader compatibility.
 
@@ -257,7 +257,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, CONTENT, CLIENT, ART · R1 → R2
 - **Expertise and resources:** Collider bounds, swept contact, reset and event identity; DOC01, DOC06.
 - **Inputs / dependencies:** Versioned horse/barrel geometry and clean-pass/contact thresholds.
-- **Build:** Saved props and one authoritative knock event per barrel; presentation wobble/contact restores reliably.
+- **Build:** Author detailed foreground alley fencing, barrels and gates outside builder-owned output, with shared wall/barrel collision bounds. Reset and animate accepted contacts once; preserve the finish route.
 - **Connect:** S31 measures surface clearance; S36 adds one five-second penalty; physics decoration cannot reroll accepted outcomes.
 - **Proof:** Different visual/LOD scales retain legal collision bounds; near-pass/contact, tunnelling, duplicate callbacks and reset agree with replay.
 
@@ -292,10 +292,10 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CLIENT, ART · M1.
 - **Expertise and resources:** First-person framing, camera damping and comfort; DOC12.
-- **Inputs / dependencies:** Horse/rider rig, stable drawing overlay and legal movement snapshots.
-- **Build:** Bodycam rig and short introduction transition, clipping controls and reduced-motion settings; use Cinemachine only for needed camera behavior.
-- **Connect:** S11/12 supply motion cues; S50 drawing UI remains stable; spectator/replay cameras use explicit ownership.
-- **Proof:** Real-phone comfort tests cover corners, knocks and slow motion; switching cameras never moves the horse or alters deadlines.
+- **Inputs / dependencies:** Authored horse/rider seat target, interpolated accepted poses and compact rein/heartbeat UI.
+- **Build:** First-person from idle through finish with steady horizon and restrained seat bob. Reduced motion disables bob/roll/speed-FOV changes. Avoid a third-person introduction or overhead course-preview cut.
+- **Connect:** S11/12 supply pose/gait cues without animation authority; S50 controls remain stable. Spectator/replay cameras have separate ownership.
+- **Proof:** Phone comfort and visibility across walking, acceleration, tight turns, knocks and sprint; no hands/mane/rein clipping or camera ownership changes that alter timing.
 - **Reins integration:** Reins HUD must remain steady/readable while looking into turns; ghost pressure/clutch effects cannot obscure cadence or force active split-screen. Reduced motion changes presentation only.
 
 **S24 — Post-Processing Shader Pipeline**
@@ -303,7 +303,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** RENDER, BUILD · R0 → R2.
 - **Expertise and resources:** URP configuration, shader variants and render-pass compatibility; DOC07.
 - **Inputs / dependencies:** Pinned engine/URP versions, renderer assets and named device profiles.
-- **Build:** Valid Graphics/Quality pipeline assignments, volume profiles and only necessary Render Graph-compatible custom passes.
+- **Build:** Linear-space URP Forward assignments, deliberate lighting/grading volumes and necessary shader variants only. Inspect imported horse/tack/materials on Metal and Android; no new rendering framework without need.
 - **Connect:** S25–28 extend this one rendering pipeline; include required shader variants in mobile builds.
 - **Proof:** No missing GUIDs or magenta materials; verify Metal and Android graphics paths, build stripping and measured pass costs.
 
@@ -348,28 +348,28 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 **S29 — Phase 1 — Beep Gate System**
 
-- **Stack / first pass:** CORE, CLIENT, AUDIO · R1
-- **Expertise and resources:** Three-wave timestamp grading, false-break bounds and audio scheduling; DOC03, DOC13.
-- **Inputs / dependencies:** Lab wave/peak configuration and official clock origin; Classic hold/release contract remains separate.
-- **Build:** Gate Break center-pad taps with one acceptance per peak, explicit wrong/dip/miss outcome and capped false-break standstill/recovery.
-- **Connect:** S02 owns input, S35 time, S11 physical acceleration boost and S36 elapsed result. No negative time credits or double-counted standstill.
-- **Proof:** Peak/deadline/duplicate/spam cases and missed cues; actual device audio/visual latency. Do not adopt the attachment heading over its three-tap action.
+- **Stack / first pass:** CORE, CLIENT, AUDIO · R1 → R2
+- **Expertise and resources:** Fixed-step hold/release grading, motion/timing synchronization and scheduled audio; DOC03, DOC13.
+- **Inputs / dependencies:** V2 launchHeld state, first-release timestamp, four-second approach, fixed GO origin and exact accepted windows.
+- **Build:** CENTER hold starts 6 m/4 s walk; beeps at 2/3/4 s. First release Perfect ±120 ms, Good ±240 ms, otherwise normal. Positive acceleration ×1.35/×1.15/default until GO+1.2 s; late release gets remaining duration. Holding past GO+400 ms gives normal launch.
+- **Connect:** Third beep coincides with invisible z=0 and clock/steering activation. Early release cannot leave approach early. No standstill/time credits or cadence/Wrap from launch release; scheduled audio cancels on retry.
+- **Proof:** Exact window boundaries, never held/released, very short touch, duplicate/re-hold spam, early/late/deadline, lifecycle cancellation, fixed clock and actual phone audio/visual latency.
 
 **S30 — Phase 2 — Alley Run**
 
-- **Stack / first pass:** CORE, CLIENT, AUDIO · R1
+- **Stack / first pass:** CORE, CLIENT, AUDIO · R1 → R2
 - **Expertise and resources:** Cadence schedules, capped acceleration and transition geometry; DOC01, DOC13.
-- **Inputs / dependencies:** Accepted gate outcome, rein/horse/footing state and cadence windows.
-- **Build:** Player-steered alley and cadence grading with one opportunity acceptance, bounded Hot/Blazing gain/duration and miss recovery.
+- **Inputs / dependencies:** Accepted v2 launch, fixed GO origin, held steering, fresh center pointer and cadence schedule.
+- **Build:** First heartbeat at GO+600 ms, then 360–500 ms periods; grade ±60/100/140 ms. Preserve bounded streak gain/recovery and direct steering; no launch-owned hold becomes Wrap.
 - **Connect:** S11 remains motion owner; S31 receives legal barrel approach; S48/50 render equal readable rhythm.
-- **Proof:** No speed stacking from duplicate taps or pause; current provisional 300–500 ms (2–3.33 Hz) periods and timing windows require phone precision/fatigue tests.
+- **Proof:** Smooth launch-to-steering/heartbeat handoff, held rein continuity, no same-release cadence, bounded repeat-input gain and phone timing/recovery/fatigue.
 
 **S31 — Phase 3 — Barrel Turn Pattern System**
 
 - **Stack / first pass:** CORE, CLIENT, ART · R1 → R2
 - **Expertise and resources:** Geometric pockets, contextual wrap and single exit outcomes; DOC01, DOC03.
 - **Inputs / dependencies:** Horse/barrel surface clearance, legal progress/direction and exclusive hold ownership.
-- **Build:** Lab Pocket/Kiss plus Leg/Flash Wrap with bounded control/speed tradeoff. Classic maintains its drawing/exit flow separately.
+- **Build:** Retain geometric Pocket/Kiss and contextual Wrap with bounded control/speed tradeoff; require racing-owned input. Legacy drawing/exit code remains historical, not part of the new player flow.
 - **Connect:** S33 evaluates path/contact; S11 applies physical exit boost; S19/S36 share knock identity; S10/27 animate accepted events.
 - **Proof:** No hidden RNG, center-only kiss band, collision immunity or repeated exit gain. Two-thumb wrapped/unwrapped turns and skipped/re-entered barrel fixtures.
 
@@ -377,8 +377,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CORE, CONTENT, API · R1 → M1N
 - **Expertise and resources:** Versioned challenge generation and symmetric disclosure; DOC04, DOC18.
-- **Inputs / dependencies:** Lab course/beat/gate/footing/round/config manifest; Classic template catalogue remains distinct.
-- **Build:** Immutable equivalent round assignments; explicit Lab ruleset/hash/input-mode identity and public/private split.
+- **Inputs / dependencies:** V2 course/launch/beat/footing/round/horse/config manifest; historical Classic/v1 catalogues remain distinct.
+- **Build:** Immutable v2 assignments and explicit hash/input-mode identity; regenerate canonical fixtures/fingerprint and update Unity/.NET decoders with the same field contract.
 - **Connect:** S33/35 consume assigned config; S39/S52 receive only permitted compatible rival data; both riders get equal preview/reference access.
 - **Proof:** Reproducible valid manifests, shared footing and no order-based information leak or Classic replay import.
 
@@ -386,8 +386,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CORE, CLIENT, API · R1 → M1N
 - **Expertise and resources:** Continuous/discrete input admission, computational geometry and timing; DOC01, DOC03. DOC18 remains a Classic recognizer reference only.
-- **Inputs / dependencies:** Normalized rein stream, center cadence/Gate and held Wrap, side Drive events, quantization/sequence/time bounds and collider envelopes.
-- **Build:** Exclusive pointer-to-pad ownership plus cadence/Drive grading, the declared center press-then-hold timeline, swept clearance/contact and canonical accepted input. Classic retains trace normalization/shape scoring.
+- **Inputs / dependencies:** Normalized reins, launchHeld and signed release timing, fresh cadence/held Wrap, side Drive, timestamp/sequence/quantization bounds and collider envelopes.
+- **Build:** Exclusive pointer ownership and one armed launch-release edge, cadence/Drive grading, declared fresh-press-to-Wrap timeline and swept clearance/contact. Preserve historical trace/v1 validation records.
 - **Connect:** Shared Core supplies diagnostic events to UI and future verifier. No purchase/rival lead changes the grading definition.
 - **Proof:** Boundary/NaN/spam/duplicate/reorder tests; no third touch required; real-phone intent/error samples and cross-runtime fixtures.
 
@@ -406,7 +406,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Expertise and resources:** Fixed-step clocks, input timestamp policy and network admission; DOC01, DOC19.
 - **Inputs / dependencies:** Lab 20 ms simulation step, canonical ordering/quantization, deadlines and stale-input timeout.
 - **Build:** Separate capture, simulation and presentation timelines. Lab does not inherit Classic drawing slowdown; any configured slow motion is per-rider/versioned/equal.
-- **Connect:** All graders/S36 use explicit time; Unity render interpolation and network transport never author elapsed result.
+- **Connect:** Third beep is the common race origin for all graders/S36. Capture timestamps apply to first subsequent 20 ms boundary; presentation interpolation, audio and network transport cannot move the result clock.
 - **Proof:** Same accepted sequence under variable render steps; later IL2CPP/verifier equality, independent riders, delay/reorder/pause/reconnect with no deadline rewind.
 
 **S36 — Run Timer & Penalty Calculator**
@@ -414,9 +414,9 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, API, CLIENT · R1 → M1N
 - **Expertise and resources:** Legal finish, immutable result, integer time and deduplication; DOC01, DOC09.
 - **Inputs / dependencies:** Official start cue, legal three-barrel progress, unique contacts and explicit foul policy.
-- **Build:** Elapsed simulation plus one five-second penalty per knocked barrel, explicit DNF/tie and separate style fields. Boosts change movement, not arbitrary time credits.
+- **Build:** Elapsed simulation from fixed third beep to legal finish plus once-per-barrel five-second knock, explicit terminal statuses and separate style. Approach is outside clock; release never resets it or adds a standstill.
 - **Connect:** S11/19/31/34 supply accepted events; trusted verifier accepts result; S42 settles once later.
-- **Proof:** Skips/wrong direction/tunnelling, duplicate knocks/finish, standstill double-count, overflow, rounding, DNF/tie and replay agreement.
+- **Proof:** Start/finish anchoring, early/late/missing release, skips/wrong direction/tunnelling, duplicate knocks/finish, overflow, rounding, DNF/tie and replay agreement.
 
 **S37 — Multiplayer Networking (Photon Fusion 2)**
 
@@ -433,7 +433,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Expertise and resources:** Eligibility, compatible rulesets, information fairness and rating updates; DOC09–10, DOC19.
 - **Inputs / dependencies:** Frozen event/class/horse/config/input-mode and per-round footing/stamina schedule.
 - **Build:** Eligible Quick Duel/Championship assignment with common comparison contract and equal rival-reference policy.
-- **Connect:** S37 admits only assigned players; S42 grants trusted result/bond/streak once. Lab/Classic/recorded/live are explicitly identified.
+- **Connect:** S37 admits only assigned players; S42 grants trusted result/bond/streak once. Reins rules version and recorded/live modes are explicitly identified; legacy formats cannot enter new queues.
 - **Proof:** Order swap, low population, stale tickets, version/input-mode mismatch, extreme legal traits and concurrent matches do not create unfair admission or reward.
 
 **S39 — Spectator Mode**
@@ -450,7 +450,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, API, DB · M1N → M3
 - **Expertise and resources:** Input admission, independent simulation verification and abuse diagnostics; DOC09–10.
 - **Inputs / dependencies:** Authenticated run/manifest/config identity, bounded rein samples/tap/hold rates, sequence and timestamp limits.
-- **Build:** Verify continuous movement/contact/route/finish from accepted input; reject stale/future/replayed/forged data before settlement.
+- **Build:** Update local verification to strict v2 inputs/results and matching Core fingerprint; regenerate Unity/.NET canonical conformance fixtures. Update the unapplied database draft compatibility constraint only; no DB migration/deployment or trusted reward authority is established by loopback tests.
 - **Connect:** S42 accepts only one verified result; local style/bond/streak/stopwatch claims have no authority. Fixed stepping is not sufficient cross-runtime proof.
 - **Proof:** Malformed/NaN, spoofed config, impossible/spam samples, physics disagreement, rollback/reconnect and duplicate settlement cases; document macro/collusion limits.
 
@@ -525,10 +525,10 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** AUDIO, CLIENT, CONTENT · R1 → R2
 - **Expertise and resources:** Rhythm cue latency, contact/gait mix and bounded voices; DOC13.
-- **Inputs / dependencies:** Canonical beat/gate/contact/wrap/Drive events and actual speed/surface identity.
-- **Build:** Scheduled readable cadence/gate cues, hoof/footing sound and restrained accepted-outcome feedback with persisted controls.
+- **Inputs / dependencies:** Shared approach tick/DSP origin, three launch beeps, first heartbeat GO+600 ms and accepted gait/contact/Wrap/Drive events.
+- **Build:** Preschedule all three beep voices from a common origin and use separate heartbeat audio. Sync hoof contacts and restrained feedback; cancellation/retry stops every future cue.
 - **Connect:** S12 movement/animation phase and S18 footing drive presentation; ghost pressure may change cosmetic music, never mask skill cues.
-- **Proof:** Phone latency/volume/fatigue, duplicate events, voice leaks and sound-off usability. Do not add a crowd roar on every rapid tap.
+- **Proof:** Phone timing/volume/fatigue, repeated starts and backgrounding leave no duplicate/stale voices; sound-off timing cues stay usable.
 
 **S49 — Haptics & Feedback System**
 
@@ -543,8 +543,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CLIENT, CONTENT, API · R1 → M6
 - **Expertise and resources:** Two-thumb HUD, honest comparison and accessible feedback; DOC03, DOC12.
-- **Inputs / dependencies:** Lab/Classic entry, per-phase gesture ownership, equivalent ghost and local/trusted result labels.
-- **Build:** Stable side rein pads plus active center cadence/Gate/Wrap, side Drive, one coaching action, local own-best and later honest rival-gap/streak/bond UI. Current Lab has no rival-gap or bond/streak presentation.
+- **Inputs / dependencies:** Reins-only startup, first-person approach, per-phase ownership, local/trusted result labels and future compatible ghost.
+- **Build:** Compact side reins and center heartbeat/Wrap, hold-to-approach prompt, brief launch grades and one coaching tip. No visible start line, Classic navigation or oversized panels obscuring horse/alley/first barrel. Rival-gap/bond/streak UI remains future work.
 - **Connect:** S02 assigns pointer ownership and captures phase-specific edges; S36/39/42 provide displayable truths. Reduced motion/ghost off never changes competitive rules.
 - **Proof:** Uncoached phone tasks with no third touch; input occlusion, color-independent zones, unavailable gap and no noisy behind-state UI.
 
@@ -553,7 +553,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** CORE, CLIENT, CONTENT · R1 → R2
 - **Expertise and resources:** Progressive skill teaching and observed learning; DOC03.
 - **Inputs / dependencies:** All ten mechanics and the current side-rein/center-action layout; no three simultaneous touches. The alternative two-zone classifier is not implemented.
-- **Build:** Lab lessons for center Gate taps, side reins/braking, center cadence/held Wrap tradeoff, clearance/knock, Dirt Read, attainable side Drive, traits, own best and later honest rival/reward-preview labels. Preserve Classic tutorial separately.
+- **Build:** Teach hold→walking beeps→release→fresh heartbeat taps and steering, then pockets/Wrap/footing/Drive. Mistimed starts keep moving. Explain own-best versus future trusted rivals/rewards; no Classic tutorial in main flow.
 - **Connect:** S50 gives one useful correction; controls/settings and reduced-effects teaching use identical rules.
 - **Proof:** Fresh testers complete legal three-barrel practice and explain knock/boost/footing effects; record misclassification, strain and confusion rather than assumed addiction.
 
@@ -561,8 +561,8 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 - **Stack / first pass:** CORE, CLIENT, CONTENT, API · R1 → M4
 - **Expertise and resources:** Versioned continuous-input replay, bounded storage and progress gaps; DOC01, DOC19.
-- **Inputs / dependencies:** reins-lab-v1 schema/config/course/footing/horse-class/input-mode plus accepted sequence and legal progress crossings.
-- **Build:** Isolated Lab local replay; later authorized recorded rivals/highlights. Reject Classic replay even if seed/integer version happen to match.
+- **Inputs / dependencies:** V2 schema/config/course/footing/horse/input-mode plus launchHeld, release result and accepted sequence; historical namespaces remain separate.
+- **Build:** Isolated v2 replay and local bests with strict hash/version parsing; preserve existing Classic/v1 files without playback under v2. Update recorder/decoder/fixtures/verifier together; authorized rivals remain later work.
 - **Connect:** S39 displays validated compatible ghost/gap; S40 owns trusted acceptance/disclosure; S05 bounds/migrates storage.
 - **Proof:** Corrupt/old/mismatched data, hold-origin ordering, deterministic playback, missing progress, penalties and equal reference information. No silent rescore or invented gap.
 
@@ -571,7 +571,7 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 - **Stack / first pass:** OPS, API, CLIENT, QA, BUILD · R1 → M7
 - **Expertise and resources:** Minimal diagnostics, fairness/skill analysis and release operations; DOC06, DOC09, DOC15.
 - **Inputs / dependencies:** Rules/config/build identity and declared data/retention policy.
-- **Build:** Schema-versioned pointer/phase-input errors, cadence/wrap/contact/Drive summaries, replay mismatch, fairness and settlement diagnostics.
+- **Build:** Versioned minimal launch release/grade/handoff diagnostics plus cadence/Wrap/contact/Drive and replay/fairness/settlement faults. Record real device evidence separately from builds and subjective preference.
 - **Connect:** S02/40/42 emit bounded causes, not unrestricted raw touch/identity collections. Observe voluntary retries, clarity and fatigue alongside engagement.
 - **Proof:** Correct events, opt-out/retention where applicable, diagnosable failures and controlled comparisons. Longer sessions alone do not prove enjoyment or addiction.
 
@@ -603,6 +603,6 @@ The section cards below make these obligations specific. Resource IDs DOC01–DO
 
 **Review and release gates.** Before a section is called verified, inspect correctness, integration, maintainability and the specific risk it introduces. Before release, also check real-device performance, asset quality/rights, operational recovery and the relevant store/account requirements. Meaningful tests cover rules and failure modes; visual review covers final animation, comfort, sound and readability. Store test outputs, captures and decisions with the section evidence. Do not substitute coverage percentages, a compiler pass or a premium-quality label for those outcomes.
 
-**The next connected implementation.** Preserve the existing Classic 0.3.0 checkpoint as R0, then build R1 Reins mechanical controls/state with separate records/replay. R2 proves the full three-barrel course/Drive, two-thumb usability and one original/free art benchmark on phones. M1N then exercises the continuous-input/config/contact/progress contracts through two clients and an independent verifier before deploying competition, bond/streak economy or expanding the roster. Classic's passing tests and user launch confirmation do not verify the new ruleset. The master status and versioned reports determine actual progress.
+**The next connected implementation.** Follow [Reins Racing 0.5](Reins-Racing-0.5-Implementation.md): launch/input/v2 contracts first, then one properly rigged horse/rider/arena benchmark, then complete presentation and mobile qualification. User selection of Reins supersedes the earlier additive default; preserve Classic and v1 data/history, not their player-facing menus. Only measured evidence completes R2. M1N then proves the continuous-input/network/authority boundary before competitive economy or roster expansion. The root [AI handoff](../../Barrel-Rivals-AI-Handoff.md) and master status define the exact checkpoint.
 
 This playbook changes design/acceptance contracts only; it does not provision a service, migrate a database, activate IAP or claim implementation/tests complete.

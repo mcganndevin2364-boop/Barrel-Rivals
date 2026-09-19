@@ -1,8 +1,12 @@
 # Barrel Rivals — Reins Lab
 
-This is the additive, offline experiment for the user's ten-mechanic redesign. Classic Practice remains available with its original drawing rules and saves. The combined mobile build is **0.4.0 / build 4**. The iPhone app compiled, signed and installed with its version verified; the Android APK compiled and passed artifact checks. Manual iPhone controls/performance and Android handset testing remain pending. See [the implementation evidence](Docs/Plan/Reins-Lab-Implementation.md) for the exact limits.
+This page documents the implemented 0.4 offline Reins prototype. The user has now selected Reins as the main game. Classic is still available in this binary, but the approved 0.5 update removes its player-facing route while preserving historical code and saves. The combined mobile build is **0.4.0 / build 4**. The iPhone app compiled, signed and installed with its version verified; the Android APK compiled and passed artifact checks. The user has played and prefers Reins. Formal iPhone controls/performance qualification and Android handset testing remain pending. See [the implementation evidence](Docs/Plan/Reins-Lab-Implementation.md) for the exact limits.
 
-## Play
+## Approved next work (not implemented)
+
+[Reins Racing 0.5](Docs/Plan/Reins-Racing-0.5-Implementation.md) replaces the stationary preview/three-tap gate with a four-second rider-view alley approach and one release at the third beep, keeps first-person racing, loosens cadence/rein demands and rebuilds one horse/rider/arena. Current controls below remain accurate for 0.4. See [the AI handoff](Barrel-Rivals-AI-Handoff.md) before continuing development.
+
+## Play the current 0.4 build
 
 From Classic Practice, select **TRY REINS RACING**. In Unity, open `Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity`.
 

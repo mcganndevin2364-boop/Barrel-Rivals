@@ -1,5 +1,8 @@
 # Reins Lab implementation — 0.4.0 / build 4
 
+**Historical implementation evidence for 0.4:** later qualitative user feedback selects Reins as the main game; see `Evidence/Reins-User-Feedback-2026-09-19.json`. [The approved 0.5 plan](Reins-Racing-0.5-Implementation.md) is next work, not part of the results below. This report retains the original test/build observation limits.
+
+
 The user's ten-mechanic brief is now represented in the current blueprint, all 53 engineering section cards and the cross-stack integration plan. An additive offline Reins Lab implements the first connected gameplay experiment, while Classic Practice preserves its drawing rules and record namespace. The optional additive-mode/economy questions have not been answered; additive Lab and no paid loss insurance remain working defaults.
 
 ## Connected implementation
