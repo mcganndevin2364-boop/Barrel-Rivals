@@ -60,5 +60,17 @@
     "Horse learning/bond UI, rival matchmaking/gaps and streak reward UI are planned.",
     "Local verifier checks consistency, not competitive authority.",
     "Native artifact/installation evidence is separate from actual device playtest and performance."
-  ]
+  ],
+  "implementationCommit": "5cee8e7d43b59a22be78aa8bdfb3ea6bd6d7016e",
+  "platformVerification": {
+    "iOS": "Reins-iOS-Native.json",
+    "iOSArtifact": "Reins-iOS-Artifact.json",
+    "iOSDeviceObservation": "Reins-iOS-Device.json",
+    "androidArtifact": "Reins-Android-Artifact.json",
+    "iPhoneInstalledVersion": "0.4.0 (4)",
+    "androidVersion": "0.4.0 (4)",
+    "manualPhoneGameplayVerified": false,
+    "androidDeviceRunVerified": false
+  },
+  "platformDependencyRepair": "Enabled installed built-in Android JNI 1.0.0 after Android compile identified missing JNI types. No Reins simulation/input source changed."
 }

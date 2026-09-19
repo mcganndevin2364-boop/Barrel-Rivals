@@ -1,6 +1,6 @@
 # Barrel Rivals — Reins Lab
 
-This is the additive, offline experiment for the user's ten-mechanic redesign. Classic Practice remains available with its original drawing rules and saves. The combined mobile build targets **0.4.0 / build 4**. See the version-labelled evidence before assuming a build has been installed or played.
+This is the additive, offline experiment for the user's ten-mechanic redesign. Classic Practice remains available with its original drawing rules and saves. The combined mobile build is **0.4.0 / build 4**. The iPhone app compiled, signed and installed with its version verified; the Android APK compiled and passed artifact checks. Manual iPhone controls/performance and Android handset testing remain pending. See [the implementation evidence](Docs/Plan/Reins-Lab-Implementation.md) for the exact limits.
 
 ## Play
 

@@ -1,0 +1,94 @@
+{
+  "artifact": "Builds/Android/BarrelRivals-ReinsLab.apk",
+  "bytes": 45065361,
+  "sha256": "701ba5cbf40dd5077f35a517c685402c1e93e42f1e2deda48e4c733b60c66232",
+  "metadata": [
+    "package: name='com.barrelrivals.foundation' versionCode='4' versionName='0.4.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "sdkVersion:'26'",
+    "targetSdkVersion:'36'",
+    "native-code: 'arm64-v8a'"
+  ],
+  "signingVerification": [
+    "Verifies",
+    "Verified using v1 scheme (JAR signing): false",
+    "Verified using v2 scheme (APK Signature Scheme v2): true",
+    "Verified using v3 scheme (APK Signature Scheme v3): false",
+    "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+    "Verified using v4 scheme (APK Signature Scheme v4): false",
+    "Verified for SourceStamp: false",
+    "Number of signers: 1"
+  ],
+  "apk16KiBAlignmentCheck": "passed",
+  "nativeLibraries": [
+    {
+      "name": "lib/arm64-v8a/lib_burst_generated.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libc++_shared.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libgame.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libil2cpp.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libmain.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libswappywrapper.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libunity.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    }
+  ],
+  "deviceInstalledOrRun": false,
+  "distribution": "local development APK; debug signing; not store-ready",
+  "verifiedAt": "2026-09-19T13:08:43.783423+00:00",
+  "version": "0.4.0",
+  "buildNumber": "4",
+  "userFacingArtifact": "../BarrelRivals-Android-Practice-0.4.0.apk",
+  "archiveIntegrityVerified": true,
+  "androidHapticBridgeClassPresent": true,
+  "androidJniModuleVersion": "1.0.0"
+}

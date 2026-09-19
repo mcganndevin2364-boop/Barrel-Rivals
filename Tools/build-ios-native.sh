@@ -20,7 +20,7 @@ if [[ ! -x "$XCODEBUILD" ]]; then
   exit 2
 fi
 if [[ ! -f "$XCODE_PROJECT/project.pbxproj" ]]; then
-  echo 'Missing iOS export. Run Tools/run-m1.sh ios first.' >&2
+  echo 'Missing iOS export. Run Tools/run-reins.sh ios for the current combined build first.' >&2
   exit 2
 fi
 

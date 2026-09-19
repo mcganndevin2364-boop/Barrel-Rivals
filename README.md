@@ -4,9 +4,9 @@ An iOS/Android arcade barrel-racing game in development. The new Reins Lab explo
 
 ## Current build
 
-**Classic 0.3.0 checkpoint + Reins Lab source targeting 0.4.0:** Unity 6000.6.0f1, saved URP scenes, original prototype art, isolated rules/saves and a local shared-Core replay verifier. Reins adds a legal three-barrel course; it is an experimental offline game mode. Final horse/rider art, trusted online play, progression/economy and measured mobile qualification remain ahead. Version-labelled evidence distinguishes source/tests, builds, installation and actual phone confirmation.
+**Classic Practice + Reins Lab development build 0.4.0:** Unity 6000.6.0f1, saved URP scenes, original prototype art, isolated rules/saves and a local shared-Core replay verifier. Reins adds a legal three-barrel course; it is an experimental offline game mode. Final horse/rider art, trusted online play, progression/economy and measured mobile qualification remain ahead. The 0.4.0 iPhone build is installed with its version verified; the Android APK passed artifact checks. New-build phone gameplay and performance remain unverified. Version-labelled evidence distinguishes those stages.
 
-- [Play the current scene and reproduce checks](README-M1.md)
+- [Classic controls and historical checkpoint](README-M1.md)
 - [Play Reins Lab and inspect the cross-stack prototype](README-Reins.md)
 - [All ten mechanics: stack contracts and delivery gates](Docs/Plan/Reins-Mechanics-Integration.md)
 - [iPhone export and test setup](README-iPhone.md)
@@ -16,7 +16,7 @@ An iOS/Android arcade barrel-racing game in development. The new Reins Lab explo
 - [Gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md)
 - [Engineering stack and section contracts](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md)
 
-The next work is physical-phone comparison of both controls, then the adapted M1N continuous-input authority proof. The existing Mac can compile/sign/install personal iPhone test builds; debugger compatibility and release toolchain qualification remain open. [README-M0.md](README-M0.md) preserves the foundation preview; `Arena_Practice` and `Arena_ReinsLab` are the playable development scenes. Original folders remain preserved; no changes have been pushed or submitted to a store.
+The next work is physical-phone comparison of both controls and R2 representative art/full-course polish, then the adapted M1N continuous-input authority proof. The existing Mac can compile/sign/install personal iPhone test builds; debugger compatibility and release toolchain qualification remain open. [README-M0.md](README-M0.md) preserves the foundation preview; `Arena_Practice` and `Arena_ReinsLab` are the playable development scenes. Original folders remain preserved; no changes have been pushed or submitted to a store.
 
 ## Development context
 

@@ -1,0 +1,11 @@
+{
+  "version": "0.4.0",
+  "buildNumber": "4",
+  "checkedAt": "2026-09-19T13:03:55.381356+00:00",
+  "installedAt": "2026-09-19T12:38:11.773945+00:00",
+  "method": "Scoped USB app-specific crash-report listing; no flush, delete or unrelated report download",
+  "matchingReportsSinceInstall": 0,
+  "physicalLaunchVerified": false,
+  "phoneGameplayOrPerformanceVerified": false,
+  "limitation": "No existing BarrelRivals crash report was available. Absence of a report does not prove launch or gameplay success."
+}

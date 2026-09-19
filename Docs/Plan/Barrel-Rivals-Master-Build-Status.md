@@ -1,7 +1,7 @@
 **Barrel Rivals — master build status**  
 September 19, 2026 · Engineering plan revision 5 · Eight categories / 53 sections
 
-**Current position: the classic-practice 0.3.0/build 3 checkpoint passed 55 Editor tests, 5 Play Mode tests, native compilation/signing and iPhone installation/version verification. Its manual phone playtest is pending. The user then requested the ten Reins mechanics: a separate three-barrel Reins Lab has passed 77 Editor and 8 Play Mode checks, with a 46-check loopback verifier proof, cross-stack contracts and updated section cards. iPhone 0.4.0/build 4 has compiled, signed and installed with its version verified; Android artifact qualification and new-build phone playtesting are recorded separately. No online services or ranked economy are live.**
+**Current position: Barrel Rivals 0.4.0/build 4 includes Classic Practice and the additive three-barrel Reins Lab. The iPhone build compiled, signed and installed, with the installed version verified. The Android APK compiled and passed artifact checks. Shared rules, scene/input and local replay verification passed 77 Editor, 8 Play Mode and 46 HTTP checks. New-build phone gameplay/performance acceptance remains pending; no online services or ranked economy are live.**
 
 The same recovered `Barrel-Rivals-M0` working copy preserves Classic's launch → remember/draw → graded turn → exit timing → practice result/retry loop. The pure C# rules and Unity adapter are separate. The 0.3.0 update added same-seed Retry, New Challenge, persisted local personal bests, a validated own-best ghost, one coaching tip, optional audio/haptics and improved prototype art. The liked launch/draw/exit controls and timing/scoring rules remain unchanged. The additive Reins Lab now connects gate taps → rein/cadence riding → three legal barrel turns → Drive → physical finish and local result/replay. [Reins implementation report](Reins-Lab-Implementation.md) records its separate evidence and limits; [M1 implementation report](Barrel-Rivals-M1-Report.md) and [M0 report](Barrel-Rivals-M0-Report.md) preserve the earlier milestones.
 
@@ -33,7 +33,7 @@ No original full section has passed all its integration/device acceptance requir
 | 3 | Game State Machine | Classic practice state tested; Reins preview/gate/race/Drive/finish/cancel/timeout state tested; online match/reconnect states pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
 | 5 | Save/Load & Cloud Sync | Classic64-best records plus five isolated Reins surface bests with replay fingerprint, corrupt-data rejection and tested session fallback; phone restart proof and cloud sync pending |
-| 6 | iOS & Android Platform Layer | 0.4.0 iOS build/sign/IPA/install/version verified; new-build manual playtest pending. Only 0.2.0 phone play is user-confirmed. 0.4.0 Android artifact qualification is in progress; no Android phone test |
+| 6 | iOS & Android Platform Layer | 0.4.0 iOS build/sign/IPA/install/version verified; Android APK version/signature/ARM64/16 KB alignment verified. New iPhone manual playtest and Android handset test pending; only 0.2.0 phone play is user-confirmed |
 | 7 | Performance Budget & Quality Tiers | Targets proposed; device performance unmeasured |
 
 **CATEGORY B: HORSE SYSTEM (Sections 8–15)**
@@ -123,7 +123,7 @@ No original full section has passed all its integration/device acceptance requir
 |---|---|---|
 | M0 | Reconciled source, compilation/package/URP repair, saved arena and first build checks | Foundation/Editor/Android checks passed; later 0.2.0 iPhone build/install/launch confirmed; detailed platform qualification remains open |
 | M1 | One playable launch → draw → turn → exit-boost loop | 0.2.0: 33 tests/artifact checks and user-confirmed iPhone play. 0.3.0 polish: 55 Editor tests passed; Play Mode passed 5/5 tests; native build/install verified; phone acceptance pending |
-| R1 | Additive Reins Lab and shared replay-verifier prototype | Core, saved scene, desktop replay and local verifier checks passed; 0.4.0 iOS build/install/version verified; Android artifact and phone acceptance pending |
+| R1 | Additive Reins Lab and shared replay-verifier prototype | Core, saved scene, desktop replay and local verifier checks passed; 0.4.0 iOS build/install/version and Android APK checks passed; actual phone control acceptance pending |
 | R2 | Reins phone controls, production representative art/full-course polish | Planned |
 | M1N | Continuous-input two-client timing/authority proof | Local verifier component tested; transport, authenticated authority and service persistence pending |
 | M2 | Complete representative race with one finished horse/arena | Planned |
@@ -144,4 +144,4 @@ No original full section has passed all its integration/device acceptance requir
 - [Gameplay blueprint](Barrel-Rivals-Gameplay-Blueprint.md)
 - [Technical review and evidence](Barrel-Rivals-Technical-Review.md)
 
-This snapshot incorporates M0 recovery, the 0.2.0 M1 evidence, the 0.3.0 Classic checkpoint and the R1 Reins desktop/loopback checks. iPhone 0.4.0 build/sign/install/version checks passed; Android artifact qualification and new-build device gameplay, sustained performance and multiplayer checks remain pending. Update each section only when its evidence changes.
+This snapshot incorporates M0 recovery, the 0.2.0 M1 evidence, the 0.3.0 Classic checkpoint and the 0.4.0 Reins implementation. Reins desktop/loopback checks, iOS build/sign/install/version and Android APK verification passed. New-build device gameplay, sustained performance and multiplayer checks remain pending. Update each section only when its evidence changes.
