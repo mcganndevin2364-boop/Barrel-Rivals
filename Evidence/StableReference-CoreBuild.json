@@ -1,0 +1,25 @@
+{
+  "checkedAtUtc": "2026-09-20T13:15:44.511369+00:00",
+  "target": ".NET Standard 2.1",
+  "configuration": "Release",
+  "warnings": 0,
+  "errors": 0,
+  "engineDependencies": false,
+  "sourceSha256": {
+    "Packages/com.barrelrivals.core/Runtime/DeterministicRng.cs": "2948602900ad5bf00b3972baad0e7ad6713cdc3631f1d5440be91650fce56291",
+    "Packages/com.barrelrivals.core/Runtime/PatternScoring.cs": "fba63f92674ef52848c04dd0265b8614786815535f5d64f6fcda2d091fdc9dce",
+    "Packages/com.barrelrivals.core/Runtime/PracticeCoaching.cs": "dfc984513359f394a243f29fefcc6b80180bac3ed030f063f8438f7b3599ed1d",
+    "Packages/com.barrelrivals.core/Runtime/PracticePath.cs": "58fb5c6ce009208c07cb96ca134816f7013dfd6cb1575d46b044a3eff562fff2",
+    "Packages/com.barrelrivals.core/Runtime/PracticeRecords.cs": "821cdca523ebe1adf3403824c6448b1d427ae498e6df97149a73636236475b5f",
+    "Packages/com.barrelrivals.core/Runtime/PracticeReplay.cs": "db7bd676782434804d4ed10252f22d2c9657076e82a03bcfa862fbf8bdc55a19",
+    "Packages/com.barrelrivals.core/Runtime/PracticeRun.cs": "4e45b92cbd7724dfe574c19fb421a16223f0b35a90e36267c730b56592b7de41",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsContracts.cs": "0d9608796691520b68fd085924b81302d87d52af0a5f356e31b54c1572a69af7",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsCourseJudge.cs": "e2c4c0841859dd5d139999f964af1f1823496de43eefb9e0e5b2b3ac8b7612fd",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsReplay.cs": "f133efb39ecd66f65b0528782813b5f43d02b31340120ba84c196b5305daedca",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRuleFingerprint.cs": "f2071f97f9075eae21aca9937c5a87bbe799ebd04250a3a11a53039c3f09fba0",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRun.cs": "53e4ccbc2e770ad5f5ae1112c52162ff63f7ca7f61aef433bd9e483818355ccb",
+    "Packages/com.barrelrivals.core/Runtime/Stable/StableCatalog.cs": "b342ba4684ffeb1590d0f1143ce2eafcfc2443540cb17e3a0ab941bc4e57b8e2",
+    "Packages/com.barrelrivals.core/Runtime/StandardCourse.cs": "da0057bf512a8b284932eccf1c781128c19749a1c4193e0d91537670953f459d"
+  },
+  "command": "dotnet build Tools/CoreCheck/BarrelRivals.Core.csproj --no-restore -c Release -m:1 -p:UseSharedCompilation=false"
+}

@@ -35,20 +35,54 @@ namespace BarrelRivals.Tests
             var appearance=GameObject.Find("Copper").GetComponent<StableAppearance>();
             Assert.AreEqual("pad-desert",stable.Equipped.padId);
             Click("Gear tab");yield return null;Assert.IsTrue(stable.IsGearOpen);
+            Assert.IsNull(GameObject.Find("Select pad-turquoise"),"Other slot cards must stay filtered out.");
+            Click("Filter Pad");
             Click("Select pad-turquoise");yield return null;
             Assert.AreEqual("pad-turquoise",appearance.Applied.padId);Assert.AreEqual("pad-desert",stable.Equipped.padId);
             Click("MyStable tab");Assert.AreEqual("pad-desert",appearance.Applied.padId);
-            Click("Gear tab");Click("Select pad-turquoise");Click("Equip selected");
+            Click("Gear tab");Click("Filter Pad");Click("Select pad-turquoise");Click("Equip selected");
+            Click("Filter Reins");
             Click("Select reins-crimson");Click("Equip selected");
             Assert.AreEqual("pad-turquoise",stable.Equipped.padId);Assert.AreEqual("reins-crimson",stable.Equipped.reinsId);
+
+            // Inspecting headstall/gloves must neither save them nor keep a preview
+            // when changing screens. Only the explicit equip button commits a choice.
+            string saved=File.ReadAllText(Path.Combine(directory,StableProfileStore.FileName));
+            Click("Filter Headstall");Click("Select headstall-midnight");
+            Assert.AreEqual("headstall-midnight",appearance.Applied.headstallId);
+            Assert.AreEqual("headstall-ranch",stable.Equipped.headstallId);
+            AssertMaterial(appearance.gameObject,"Fitted leather headstall","Midnight headstall",1);
+            Assert.AreEqual(saved,File.ReadAllText(Path.Combine(directory,StableProfileStore.FileName)));
+            Click("Cancel tack preview");Assert.AreEqual("headstall-ranch",appearance.Applied.headstallId);
+            AssertMaterial(appearance.gameObject,"Fitted leather headstall","Oiled bridle leather",1);
+            Click("Gear tab");Click("Filter Headstall");Click("Select headstall-midnight");Click("Equip selected");
+            saved=File.ReadAllText(Path.Combine(directory,StableProfileStore.FileName));
+            Click("Rider gear tab");Assert.IsTrue(stable.IsRiderGearOpen);
+            var rider=GameObject.Find("Rider glove preview").GetComponent<StableAppearance>();
+            Click("Select gloves-rodeo-red");
+            Assert.AreEqual("gloves-rodeo-red",rider.Applied.glovesId);Assert.AreEqual("gloves-classic",stable.Equipped.glovesId);
+            AssertMaterial(rider.gameObject,"Inspect glove shell","Rodeo red gloves",1);
+            Assert.AreEqual(saved,File.ReadAllText(Path.Combine(directory,StableProfileStore.FileName)));
+            Click("Cancel rider preview");Assert.AreEqual("gloves-classic",rider.Applied.glovesId);
+            AssertMaterial(rider.gameObject,"Inspect glove shell","Worn chestnut gloves",1);
+            Click("Rider gear tab");Click("Select gloves-rodeo-red");Click("Equip rider selected");
+            Assert.AreEqual("gloves-rodeo-red",stable.Equipped.glovesId);
+            Assert.IsFalse(GameObject.Find("Equip rider selected").GetComponent<Button>().interactable);
             // Simulate a process restart: the next scene must resolve disk state, not a surviving object.
             StableSession.UseForTests(new StableProfileStore(directory));
             yield return SceneManager.LoadSceneAsync(StableController.SceneName);yield return null;
             stable=Object.FindFirstObjectByType<StableController>();Assert.AreEqual("pad-turquoise",stable.Equipped.padId);
-            stable.Race();yield return null;yield return null;
+            Assert.AreEqual("headstall-midnight",stable.Equipped.headstallId);Assert.AreEqual("gloves-rodeo-red",stable.Equipped.glovesId);
+            Click("Rider gear tab");Click("Select gloves-blackout");
+            Click("Race");yield return null;yield return null;
             var race=Object.FindFirstObjectByType<ReinsLabController>();Assert.IsNotNull(race);race.enabled=false;
             var horse=GameObject.Find("Horse proxy");appearance=horse.GetComponent<StableAppearance>();
             Assert.AreEqual("reins-crimson",appearance.Applied.reinsId);Assert.AreEqual("pad-turquoise",appearance.Applied.padId);
+            Assert.AreEqual("headstall-midnight",appearance.Applied.headstallId);
+            Assert.AreEqual("gloves-rodeo-red",appearance.Applied.glovesId,"Riding must discard an unequipped glove preview.");
+            AssertMaterial(horse,"Fitted leather headstall","Midnight headstall",1);
+            AssertMaterial(horse,"Glove shell","Rodeo red gloves",2);
+            AssertMaterial(horse,"Glove grip panels","Rodeo red gloves",2);
             var rein=horse.GetComponentsInChildren<Renderer>().First(r=>r.name=="Left braided rein");
             Assert.AreEqual("Crimson rein braid",rein.sharedMaterials[1].name);
             Assert.AreEqual(500,race.Run.Manifest.Horse.FirePermille);
@@ -58,6 +92,9 @@ namespace BarrelRivals.Tests
             Assert.AreEqual(UnityEngine.Rendering.ShadowCastingMode.Off,ghost.GetComponentsInChildren<Renderer>(true).First(r=>r.name=="Contoured western leather").shadowCastingMode,"Ghost retains visible tack independently of the rider camera.");
             Assert.IsTrue(race.CanOpenStable);race.Begin();Assert.IsFalse(race.CanOpenStable);race.OpenStable();
             Assert.AreEqual(ReinsLabController.SceneName,SceneManager.GetActiveScene().name,"Stable navigation must not abandon an active attempt.");
+            Assert.IsTrue(StableSession.Store.Equip(StableSlot.Gloves,"gloves-whiskey"));
+            Assert.AreEqual("gloves-rodeo-red",appearance.Applied.glovesId,"Race appearance freezes on scene initialization.");
+            AssertMaterial(horse,"Glove shell","Rodeo red gloves",2);
             race.ResetRun();race.OpenStable();yield return null;yield return null;
             Assert.IsNotNull(Object.FindFirstObjectByType<StableController>());LogAssert.NoUnexpectedReceived();
         }
@@ -71,32 +108,70 @@ namespace BarrelRivals.Tests
             var orbit=GameObject.Find("Drag horse to rotate");
             ExecuteEvents.Execute<IDragHandler>(orbit,new PointerEventData(EventSystem.current){delta=new Vector2(60,0)},ExecuteEvents.dragHandler);
             Assert.Greater(Quaternion.Angle(savedRotation,horse.transform.rotation),1);stable.ResetView();
-            yield return null;Capture("StableGear-MyStable");
+            yield return null;Capture("StableReference-MyStable");
+            Click("Riding traits");Assert.IsTrue(stable.IsSkillsOpen);Click("Close riding traits");Assert.IsFalse(stable.IsSkillsOpen);
             Click("Gear tab");yield return null;
-            Click("Select reins-crimson");yield return null;
+            Assert.AreEqual(8,VisibleCards().Length);
+            Click("Select saddle-rodeo-gold");yield return null;AssertReachable("Select saddle-rodeo-gold");
+            Capture("StableReference-SaddlesPreview");Click("Equip selected");Capture("StableReference-SaddlesEquipped");
+            Click("Filter Headstall");Assert.AreEqual(2,VisibleCards().Length);
+            Click("Select headstall-midnight");yield return null;AssertReachable("Select headstall-midnight");
+            Capture("StableReference-HeadstallPreview");
+            Click("Filter Reins");Click("Select reins-crimson");yield return null;
             // Verify the transparent orbit region does not steal touches intended for gear cards.
-            var card=GameObject.Find("Select reins-crimson").GetComponent<RectTransform>();
-            var results=new List<RaycastResult>();var point=RectTransformUtility.WorldToScreenPoint(null,card.TransformPoint(card.rect.center));
-            EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=point},results);
-            Assert.IsNotEmpty(results);Assert.AreEqual(card.GetComponent<Button>(),results[0].gameObject.GetComponentInParent<Button>());
-            Capture("StableGear-GearPreview");Click("Equip selected");Capture("StableGear-GearEquipped");
+            AssertReachable("Select reins-crimson");
+            Click("Rider gear tab");yield return null;
+            Assert.AreEqual(6,VisibleCards().Length);Assert.IsTrue(stable.IsRiderGearOpen);Assert.IsFalse(horse.activeSelf);
+            var rider=GameObject.Find("Rider glove preview");var riderRotation=rider.transform.rotation;
+            ExecuteEvents.Execute<IDragHandler>(GameObject.Find("Drag glove to rotate"),new PointerEventData(EventSystem.current){delta=new Vector2(60,0)},ExecuteEvents.dragHandler);
+            Assert.Greater(Quaternion.Angle(riderRotation,rider.transform.rotation),1);stable.ResetView();
+            Assert.Less(Quaternion.Angle(riderRotation,rider.transform.rotation),.01f);
+            Click("Select gloves-rodeo-red");yield return null;
+            AssertReachable("Select gloves-rodeo-red");AssertReachable("Equip rider selected");
+            Capture("StableReference-RiderPreview");Click("Equip rider selected");Capture("StableReference-RiderEquipped");
+            Capture("StableReference-RiderTablet",1024,768);
+            Click("MyStable tab");yield return null;Assert.IsTrue(horse.activeSelf);Assert.IsFalse(rider.activeSelf);
             foreach(var renderer in horse.GetComponentsInChildren<Renderer>(true))foreach(var m in renderer.sharedMaterials){Assert.IsNotNull(m);Assert.IsTrue(m.shader.isSupported);}
             LogAssert.NoUnexpectedReceived();
         }
+        private static Button[] VisibleCards()=>Object.FindObjectsByType<Button>(FindObjectsSortMode.None).Where(b=>b.name.StartsWith("Select ",StringComparison.Ordinal)).ToArray();
+        private static void AssertMaterial(GameObject root,string rendererName,string materialName,int expectedCount)
+        {
+            var renderers=root.GetComponentsInChildren<Renderer>(true).Where(r=>r.name==rendererName).ToArray();
+            Assert.AreEqual(expectedCount,renderers.Length,rendererName+" binding count");
+            foreach(var renderer in renderers)Assert.AreEqual(materialName,renderer.sharedMaterials[0].name,rendererName);
+        }
+        private static void AssertReachable(string name)
+        {
+            Canvas.ForceUpdateCanvases();var card=GameObject.Find(name).GetComponent<RectTransform>();
+            var results=new List<RaycastResult>();var point=RectTransformUtility.WorldToScreenPoint(null,card.TransformPoint(card.rect.center));
+            EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=point},results);
+            Assert.IsNotEmpty(results,name);Assert.AreEqual(card.GetComponent<Button>(),results[0].gameObject.GetComponentInParent<Button>(),name);
+        }
         private static void Click(string name)
         {var go=GameObject.Find(name);Assert.IsNotNull(go,name);var button=go.GetComponent<Button>();Assert.IsTrue(button.interactable,name);button.onClick.Invoke();}
-        private static void Capture(string name)
+        private static void Capture(string name,int width=1280,int height=720)
         {
             var camera=Camera.main;var canvas=GameObject.Find("Stable HUD").GetComponent<Canvas>();
             var mode=canvas.renderMode;var priorCamera=canvas.worldCamera;float distance=canvas.planeDistance;var priorTarget=camera.targetTexture;var active=RenderTexture.active;
-            var target=new RenderTexture(1280,720,24);var image=new Texture2D(1280,720,TextureFormat.RGB24,false);
+            var target=new RenderTexture(width,height,24);var image=new Texture2D(width,height,TextureFormat.RGB24,false);
+            var stable=Object.FindFirstObjectByType<StableController>();
             try {
                 camera.targetTexture=target;canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=camera.nearClipPlane+.01f;
-                Canvas.ForceUpdateCanvases();foreach(var label in canvas.GetComponentsInChildren<Text>(true)){label.cachedTextGenerator.Invalidate();label.SetAllDirty();}
-                Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();
+                Canvas.ForceUpdateCanvases();stable.RefreshLayout();Canvas.ForceUpdateCanvases();foreach(var label in canvas.GetComponentsInChildren<Text>(true)){label.cachedTextGenerator.Invalidate();label.SetAllDirty();}
+                Canvas.ForceUpdateCanvases();
+                if(stable.IsRiderGearOpen) {
+                    var glove=GameObject.Find("Inspect glove shell").GetComponent<Renderer>();
+                    var center=camera.WorldToViewportPoint(glove.bounds.center);
+                    Assert.That(center.x,Is.InRange(.10f,.39f),"Glove must be in the left inspection area, not hidden behind the collection.");
+                    Assert.That(center.y,Is.InRange(.28f,.72f),"Glove must remain above the footer and below the header.");
+                }
+                var brand=canvas.GetComponentsInChildren<Text>(true).First(t=>t.name=="Brand");
+                Assert.Greater(brand.cachedTextGenerator.characterCountVisible,0,"Brand text must not be truncated by its rect.");
+                camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,width,height),0,0);image.Apply();
                 string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../Evidence/"+name+".png"));File.WriteAllBytes(path,image.EncodeToPNG());
             }
-            finally {canvas.renderMode=mode;canvas.worldCamera=priorCamera;canvas.planeDistance=distance;camera.targetTexture=priorTarget;RenderTexture.active=active;Object.Destroy(target);Object.Destroy(image);Canvas.ForceUpdateCanvases();}
+            finally {canvas.renderMode=mode;canvas.worldCamera=priorCamera;canvas.planeDistance=distance;camera.targetTexture=priorTarget;RenderTexture.active=active;Object.Destroy(target);Object.Destroy(image);Canvas.ForceUpdateCanvases();stable.RefreshLayout();Canvas.ForceUpdateCanvases();}
         }
     }
 }

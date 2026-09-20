@@ -1,7 +1,7 @@
 **Barrel Rivals — master build status**  
 September 20, 2026 · Engineering plan revision 6 · Eight categories / 53 sections
 
-The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](../Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+The current source includes reference-driven **MyStable, Tack and Rider Gear**: the user has supplied the warm barn/roster, saddle-grid and glove-inspection reference. The implementation adds an enclosed 3D showroom, rendered item cards, 20 free local cosmetics across five slots, preview/equip/cancel, and cosmetic save version 2 with preserved v1 migration. Cosmetic v2 is separate from the still-unimplemented Reins gameplay v2. Read [the feature checkpoint](../Features/MyStable-and-Gear.md). It records current verification status and remaining gaps; the reference is a target, not achieved photographic quality. Paid ownership, earned progression, the ten-horse roster and a new phone installation remain pending.
 
 **Current position: the last native/device artifact is Barrel Rivals 0.4.0/build 4: Classic plus Reins Lab using rules v1. Its iPhone installation and Android artifact checks remain historical evidence (77 Editor / 8 Play Mode / 46 local HTTP checks at that checkpoint). Newer graphics SOURCE adds the imported free horse/three basic clips, all-phase rider camera, photographic CC0 PBR maps/dusk sky, modeled arena structures/barrels/terrain, gloves/bridle/braided reins and a compact licensed-font HUD. Scene generation/save/reopen passed; see the [graphics checkpoint](../Art/Reins-Premium-Graphics-Checkpoint.md) for dated tests. It retains 0.4 identity, v1 rules/saves and Classic navigation and has no new native build/install evidence. The approved 0.5/v2 moving alley remains unimplemented; full visual/device acceptance and online services remain outstanding.**
 
@@ -20,7 +20,7 @@ No original full section has passed all its integration/device acceptance requir
 | Rendering and scene | Saved valid pipeline/renderer/material assets, a measured three-barrel course, proxy horse, fences and UI. Unity rendered the new scene without pink materials. The separate sample project remains unchanged. |
 | Runtime proof | M1 adds phase-owned launch/draw/exit input, graded riding, fixed slow motion, one knock penalty and immutable practice results/retry. The user confirmed 0.2.0 works on iPhone and liked its touch feel. 0.3.0 adds local bests/ghost/coaching and feedback; its Editor/Play Mode and iPhone build/install checks passed. The user subsequently played 0.4.0 Reins and selected its mechanics; this is qualitative feedback, not a complete measured device acceptance pass. |
 | Practice presentation | Historical procedural arena/horse and sound/haptics retained. New graphics SOURCE imports a free 19-bone horse with three original gait studies, persistent URP materials, Linear/warm grade, generated dirt/crowd, all-phase rider camera/reduced motion and charcoal/gold HUD. A second source pass adds photographic PBR maps/sky, modeled arena props and foreground gloves/bridle/reins. Generation/save/reopen passed; finished character motion/reference quality and phone evidence remain pending. |
-| MyStable and Gear | Interactive 3D stable; original saddle/pad geometry; six starter cosmetic IDs; preview/equip and isolated device save; equipped appearance carried into the race. Reference-specific layouts, earned upgrades and trusted progression remain open. |
+| MyStable and Gear | Reference-driven enclosed 3D showroom, saddle grid and rider glove inspection; 20 local cosmetics/five slots, real mesh thumbnails, preview/equip/cancel, preserved migration into cosmetic save v2, and race appearance binding. 101/101 Editor and 17/17 Play Mode tests passed; realistic final art, earned upgrades and trusted progression remain open. |
 | Reproduction tools | Added Unity batch entry points, pinned packages/metadata, test reports and development guidance. |
 
 **Implementation baseline.** The original racing checkout remains at `b156a70` with its local work preserved. The repaired copy is based on the freshly fetched GitHub commit `b77f4e5`. It adds a saved foundation scene, persistent prefabs/materials and shared core/test assemblies. The Reins Lab now supplies an offline three-barrel race prototype; production horse/rider art and animation, full competitive presentation and multiplayer remain to be built. M1 continues on local branch `codex/m1-skill-loop` from the M0 commit `feabb99`; it is the same repository and remote. This document describes the checkpoint before publication; the root [AI handoff](../../Barrel-Rivals-AI-Handoff.md) and Git history identify its exact source commit and published branch. Do not infer push completion from this status document alone.
@@ -35,7 +35,7 @@ No original full section has passed all its integration/device acceptance requir
 | 2 | Input System Foundation | Reins v1 owned touch/input dispatch tested; user prefers its feel; v2 launch ownership, 50% rein travel and phone ergonomics qualification pending |
 | 3 | Game State Machine | Classic practice state tested; Reins preview/gate/race/Drive/finish/cancel/timeout state tested; online match/reconnect states pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
-| 5 | Save/Load & Cloud Sync | Classic64-best records and five isolated Reins surface bests; separate versioned cosmetic save with atomic replace/backup/session recovery now connected; phone restart proof and cloud sync pending |
+| 5 | Save/Load & Cloud Sync | Classic64-best records and five isolated Reins surface bests; isolated cosmetic-v2 save and preserved migration from v1, atomic replace/backup/session recovery; current migration verification, phone restart proof and cloud sync pending |
 | 6 | iOS & Android Platform Layer | 0.4.0 iOS build/sign/install/version and Android APK signature/ARM64/16 KB checks verified; user played Reins and prefers it; measured iPhone qualification and Android handset test pending |
 | 7 | Performance Budget & Quality Tiers | Targets proposed; device performance unmeasured |
 
@@ -48,7 +48,7 @@ No original full section has passed all its integration/device acceptance requir
 | 10 | Horse Animation State Machine | New graphics source imports 19-bone CC0 horse and movement-driven Idle/Walk/Gallop studies; production clips/blending, rigged rider/tack and device acceptance pending |
 | 11 | Horse Physics & Movement Controller | Classic automatic one-barrel path and Reins analog fixed-step three-barrel course with swept contacts implemented; final rig and online authority pending |
 | 12 | Horse Gait System | Original first-pass Idle/Walk/Gallop clips exported; natural gait/foot planting, turns/braking, synchronized rider/hoof audio and device acceptance pending |
-| 13 | Horse Visual Customization (Colors/Markings) | Six starter tack appearances preview/equip and persist into racing; coat/marking customization and trusted ownership still pending |
+| 13 | Horse Visual Customization (Colors/Markings) | Twenty local tack/rider cosmetic styles preview/equip with persisted race bindings; current reference-update verification, coat/marking customization and trusted ownership pending |
 | 14 | Horse Aging & Career System | Not built |
 | 15 | Horse Injury & Recovery System | Not built |
 
@@ -103,7 +103,7 @@ No original full section has passed all its integration/device acceptance requir
 | # | Section | Current implementation status |
 |---|---|---|
 | 42 | Currency System (Coins, Diamonds, Trophies) | Temporary local coins/trophies; persistence/ledger absent |
-| 43 | Gear & Equipment System | Three connected cosmetic slots (saddle/pad/reins), six free items, validation, 3D preview, explicit equip and persisted race appearance; competitive modifiers/reservations/consumables pending |
+| 43 | Gear & Equipment System | Five cosmetic slots (saddle/pad/reins/headstall/gloves), 20 free local styles, validation, real item thumbnails, 3D inspection, explicit equip and cosmetic-v2 persistence; desktop migration/equip checks passed; competitive modifiers/reservations/consumables pending |
 | 44 | Loot Crate & Reward System | Not built |
 | 45 | Trophy Road & Arena Unlocks | Tier constants only; progression path not built |
 | 46 | Daily Missions & Season Pass | Not built |
@@ -115,7 +115,7 @@ No original full section has passed all its integration/device acceptance requir
 |---|---|---|
 | 48 | Adaptive Audio Engine | Classic hoof/tack/dirt/grade audio plus Reins scheduled gate/cadence cues; physical latency, final sound assets and adaptive mix pending |
 | 49 | Haptics & Feedback System | 0.3.0 optional short native iOS/Android feedback observes accepted outcomes; persisted toggle and no editor vibration; native bridges built; phone feel pending |
-| 50 | UI/UX Design System | Compact v1 race HUD plus working MyStable/Gear tabs, 3D orbit, preview/equip and gated arena navigation; user will provide stable/gear reference photos later; v2 startup and phone ergonomics pending |
+| 50 | UI/UX Design System | Compact v1 race HUD plus reference-driven MyStable/Tack/Rider Gear navigation, filtered item grid, 3D orbit, true base-trait information and preview/equip/cancel; desktop layout/navigation checks passed; v2 startup and phone ergonomics pending |
 | 51 | Tutorial & Onboarding Flow | Not built |
 | 52 | Replay System & Highlights | Classic and Reins own-best replay formats isolated; Reins full save/reload/replay/fingerprint/session-failure checks pass; opponent authorization, live gap, sharing/highlights pending |
 | 53 | Analytics & Telemetry | Not built |

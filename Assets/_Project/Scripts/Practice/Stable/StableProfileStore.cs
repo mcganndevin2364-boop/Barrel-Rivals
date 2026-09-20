@@ -8,7 +8,8 @@ namespace BarrelRivals.Practice
     /// <summary>Device-only cosmetic preferences, independent of competitive replays and future cloud ownership.</summary>
     public sealed class StableProfileStore
     {
-        public const string FileName="stable-cosmetics-v1.json";
+        public const string FileName="stable-cosmetics-v2.json";
+        public const string LegacyFileName="stable-cosmetics-v1.json";
         private readonly string path;
         private bool protectUnrecognizedSave;
         private StableProfile current;
@@ -19,34 +20,70 @@ namespace BarrelRivals.Practice
         {
             path=Path.Combine(directory,FileName);
             var primary=Read(path);
-            current=primary ?? Read(path+".bak");
-            if(current!=null) {
-                protectUnrecognizedSave=HasNewerEnvelope(path);
-                if(protectUnrecognizedSave) { IsSessionOnly=true;Notice="A newer save was preserved. Using recovered gear for this session.";return; }
-                Notice=File.Exists(path) && primary==null ? "Recovered your previous saved gear." : "Saved on this device.";
+            var backup=Read(path+".bak");
+            if(primary.Exists || backup.Exists) {
+                current=primary.Profile ?? backup.Profile ?? StableProfile.Starter();
+                protectUnrecognizedSave=primary.Protected || backup.Protected
+                    || (primary.Profile==null && backup.Profile==null);
+                if(protectUnrecognizedSave) {
+                    IsSessionOnly=true;
+                    Notice="An unrecognized save was preserved. Gear changes are session-only.";
+                } else Notice=primary.Profile==null ? "Recovered your previous saved gear." : "Saved on this device.";
                 return;
             }
-            protectUnrecognizedSave=File.Exists(path) || File.Exists(path+".bak");
-            current=StableProfile.Starter(); IsSessionOnly=protectUnrecognizedSave;
-            Notice=protectUnrecognizedSave ? "Save could not be read. Gear changes are session-only; the original is preserved." : "Starter collection · saved on this device when equipped.";
-        }
-        private static bool HasNewerEnvelope(string file)
-        {
-            try {
-                if(!File.Exists(file) || new FileInfo(file).Length>16384)return false;
-                var p=JsonUtility.FromJson<StableProfile>(File.ReadAllText(file));
-                return p!=null && (p.version>1 || (p.version==1 && p.catalog!=StableCatalog.Revision));
+
+            // Separate namespaces make migration one-way and leave every v1 byte,
+            // including the last recovery copy, available to the previous client.
+            string legacyPath=Path.Combine(directory,LegacyFileName);
+            var legacy=Read(legacyPath,true);
+            var legacyBackup=Read(legacyPath+".bak",true);
+            current=legacy.Profile ?? legacyBackup.Profile ?? StableProfile.Starter();
+            protectUnrecognizedSave=legacy.Protected || legacyBackup.Protected
+                || ((legacy.Exists || legacyBackup.Exists) && legacy.Profile==null && legacyBackup.Profile==null);
+            if(protectUnrecognizedSave) {
+                IsSessionOnly=true;
+                Notice="An unrecognized legacy save was preserved. Gear changes are session-only.";
+                return;
             }
-            catch(Exception e) when(IsStorageError(e)) { return false; }
+            if(legacy.Profile!=null || legacyBackup.Profile!=null) {
+                if(Persist(current)) Notice="Saved gear migrated. Your original save and backup are preserved.";
+                return;
+            }
+            Notice="Starter collection · saved on this device when equipped.";
         }
-        private static StableProfile Read(string file)
+
+        private sealed class SaveRead
         {
+            public bool Exists;
+            public bool Protected;
+            public StableProfile Profile;
+        }
+        private static SaveRead Read(string file,bool legacy=false)
+        {
+            var result=new SaveRead();
             try {
-                if(!File.Exists(file) || new FileInfo(file).Length>16384)return null;
+                if(!File.Exists(file))return result;
+                result.Exists=true;
+                if(new FileInfo(file).Length>16384) { result.Protected=true;return result; }
                 var profile=JsonUtility.FromJson<StableProfile>(File.ReadAllText(file));
-                return profile!=null && profile.IsValid ? profile : null;
+                if(profile==null)return result;
+                int expectedVersion=legacy ? 1 : StableProfile.CurrentVersion;
+                string expectedCatalog=legacy ? StableCatalog.LegacyRevision : StableCatalog.Revision;
+                if((profile.version!=0 && profile.version!=expectedVersion)
+                    || (!string.IsNullOrEmpty(profile.catalog) && profile.catalog!=expectedCatalog)) {
+                    result.Protected=true;return result;
+                }
+                if(legacy) {
+                    if(StableProfile.TryMigrateVersion1(profile,out var migrated))result.Profile=migrated;
+                } else if(profile.IsValid)result.Profile=profile;
             }
-            catch(Exception e) when(IsStorageError(e)) { return null; }
+            catch(Exception e) when(IsStorageError(e)) {
+                // Invalid JSON is recoverable from a valid backup; an unreadable
+                // file must not be replaced just because it could not be checked.
+                result.Exists=true;
+                result.Protected=!(e is ArgumentException);
+            }
+            return result;
         }
         private static bool IsStorageError(Exception e) => e is IOException || e is UnauthorizedAccessException || e is ArgumentException || e is NotSupportedException;
         public bool Equip(StableSlot slot,string id)
@@ -54,24 +91,48 @@ namespace BarrelRivals.Practice
             var next=Current.Copy(); if(!next.TryEquip(slot,id))return false;
             current=next;
             if(protectUnrecognizedSave){IsSessionOnly=true;return true;}
+            Persist(next);
+            return true;
+        }
+        private bool Persist(StableProfile next)
+        {
             string temp=path+".tmp";
             try {
+                // Recheck after construction so another client cannot leave a
+                // newer envelope that this session then silently overwrites.
+                var primary=Read(path);var backup=Read(path+".bak");
+                if(primary.Protected || backup.Protected) {
+                    protectUnrecognizedSave=true;IsSessionOnly=true;
+                    Notice="An unrecognized save was preserved. Gear changes are session-only.";
+                    return false;
+                }
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
                 // Flush the candidate before an atomic same-directory replace.
                 using(var stream=new FileStream(temp,FileMode.Create,FileAccess.Write,FileShare.None))
                 using(var writer=new StreamWriter(stream)) { writer.Write(JsonUtility.ToJson(next));writer.Flush();stream.Flush(true); }
                 if(File.Exists(path)) {
                     // Never replace a valid recovery copy with corrupt primary bytes.
-                    if(Read(path)!=null) File.Replace(temp,path,path+".bak");
-                    else File.Replace(temp,path,null);
+                    if(primary.Profile!=null) {
+                        PreserveCorruptFile(path+".bak",backup);
+                        File.Replace(temp,path,path+".bak");
+                    } else {
+                        PreserveCorruptFile(path,primary);
+                        File.Replace(temp,path,null);
+                    }
                 } else File.Move(temp,path);
                 IsSessionOnly=false;Notice="Gear equipped · saved on this device.";
+                return true;
             }
             catch(Exception e) when(IsStorageError(e)) {
                 IsSessionOnly=true;Notice="Gear equipped for this session. Device storage is unavailable.";
+                return false;
             }
             finally { try { if(File.Exists(temp))File.Delete(temp); } catch(Exception e) when(IsStorageError(e)) {} }
-            return true;
+        }
+        private static void PreserveCorruptFile(string file,SaveRead state)
+        {
+            if(state.Exists && state.Profile==null)
+                File.Copy(file,file+".recovered-"+Guid.NewGuid().ToString("N"),false);
         }
     }
 

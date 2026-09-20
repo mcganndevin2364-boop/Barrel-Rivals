@@ -58,11 +58,10 @@ namespace BarrelRivals.Editor
             };
             foreach(var renderer in model.GetComponentsInChildren<MeshRenderer>(true))
                 if(renderer.name=="Left braided rein" || renderer.name=="Right braided rein")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=1,slot=StableSlot.Reins});
+                else if(renderer.name=="Fitted leather headstall")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=0,slot=StableSlot.Headstall});
+                else if(renderer.name=="Glove shell" || renderer.name=="Glove grip panels")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=0,slot=StableSlot.Gloves});
             var appearance=horse.GetComponent<StableAppearance>()??horse.gameObject.AddComponent<StableAppearance>();
-            appearance.Configure(bindings.ToArray(),new[]{
-                Palette("saddle-ranch",ranch),Palette("saddle-midnight",midnight),Palette("pad-desert",desert),
-                Palette("pad-turquoise",turquoise),Palette("reins-turquoise",teal),Palette("reins-crimson",red)
-            });
+            appearance.Configure(bindings.ToArray(),StableWardrobeArtBuilder.Palettes());
             appearance.Apply(StableProfile.Starter());
         }
         public static void MakeStablePose(Transform horse)
