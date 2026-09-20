@@ -34,6 +34,9 @@ for original,name in [('HorseMain4k00.png','HorseAlbedo.png'),('HorseMain4k00Nor
 sys.dont_write_bytecode=True
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from author_horse_gaits import author_gaits
+from refine_horse_surface import refine_surface
+surface_report=refine_surface(body,[o for o in meshes if o.name.startswith('HorseEye')])
+(out/'surface-refinement.json').write_text(json.dumps(surface_report,indent=2)+'\n')
 gait_report=author_gaits(arm,body)
 (out/'gait-metrics.json').write_text(json.dumps(gait_report,indent=2)+'\n')
 for o in list(bpy.context.view_layer.objects):o.select_set(False)

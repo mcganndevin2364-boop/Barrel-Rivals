@@ -1,5 +1,7 @@
 # Reins reference graphics — provenance and checkpoint limits
 
+The later [surface-fit checkpoint](Reins-Surface-Fit-Checkpoint.md) records the current constrained refinement of this same CC0 horse, its derived FBX hash, explicit four-weight skinning and fresh imported gait checks. The original source/hash and initial-export observations below remain historical.
+
 Original record: September 19, 2026. Updated September 20 with the candidate-06 gait export identity; original export identity is preserved below. This records sources and authoring work, not completed R2 visual-quality, gameplay or mobile-performance acceptance. The candidate's final Unity verification is tracked separately in [the visual-depth checkpoint](Reins-Visual-Depth-Checkpoint.md).
 
 ## Reference and intended use

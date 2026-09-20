@@ -1,0 +1,14 @@
+{
+  "sourceVertices": 3697,
+  "vertices": 14784,
+  "triangles": 29564,
+  "uvLayers": 1,
+  "maximumSmoothingShiftMetres": 0.056712761044209505,
+  "protectedSoleVertices": 949,
+  "maximumProtectedSoleDistanceMetres": 1.359603345463256e-07,
+  "maximumSkinInfluences": 4,
+  "limitedVertices": 986,
+  "maximumDroppedNormalizedInfluence": 0.13468391572594862,
+  "method": "Original cheek/flank contour correction; one constrained subdivision level",
+  "limits": "Same sparse rig and inherited anatomy; no new hoof joints or production-realism acceptance"
+}

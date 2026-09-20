@@ -15,24 +15,9 @@ namespace BarrelRivals.Editor
     {
         private const string Root = "Assets/_Project/Art/Reins/Premium/Mountains";
         private const float Tau = Mathf.PI * 2;
+        private const float InnerRadius = 105, OuterRadius = 910;
+        private const int Around = 256, Rows = 39, TextureWraps = 64;
         private static readonly Vector3 Center = new Vector3(0, 0, 27);
-
-        private readonly struct Range
-        {
-            public readonly float Inner, Outer, Height, Relief, Seed;
-            public readonly int Around, Rows, Material;
-            public Range(float inner, float outer, float height, float relief, float seed,
-                int around, int rows, int material)
-            { Inner = inner; Outer = outer; Height = height; Relief = relief; Seed = seed;
-                Around = around; Rows = rows; Material = material; }
-        }
-
-        // Staggered crests avoid a single circular wall. These ranges stay inside the existing
-        // 1,000 m camera far plane and use the scene's existing atmospheric fog unchanged.
-        private static readonly Range Valley = new Range(105, 235, 1.1f, 2.8f, 24.2f, 96, 6, 3);
-        private static readonly Range Foothills = new Range(155, 445, 6.8f, 24.4f, 3.7f, 192, 10, 2);
-        private static readonly Range MainRange = new Range(248, 708, 32.2f, 65.5f, 9.3f, 256, 16, 1);
-        private static readonly Range Skyline = new Range(415, 910, 60.3f, 82.7f, 17.8f, 192, 10, 0);
 
         public static void Build(Transform parent)
         {
@@ -42,29 +27,25 @@ namespace BarrelRivals.Editor
             if (!shader) throw new InvalidOperationException("The mountain builder requires the project's URP Lit shader.");
             var rockAlbedo = ImportRock("RockFace_Albedo_1K.jpg", false);
             var rockNormal = ImportRock("RockFace_NormalGL_1K.jpg", true);
-            var valleyAlbedo = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/_Project/Art/Reins/Premium/Textures/ArenaSoil_Albedo_2K.png");
             var materials = new[]
             {
-                Stone(shader, "Distant blue shale", new Color(.80f, 1.14f, 1.50f), rockAlbedo, rockNormal, .18f),
-                Stone(shader, "Weathered ridge stone", new Color(.76f, 1.04f, 1.34f), rockAlbedo, rockNormal, .32f),
-                Stone(shader, "Warm scree shoulders", new Color(.70f, .91f, 1.07f), rockAlbedo, rockNormal, .23f),
-                Stone(shader, "Dry sage foothills", new Color(.79f, .83f, .74f), valleyAlbedo),
+                // One continuous rock surface. Radially classified materials recreated the
+                // terrace bands even where the old layer heights were almost coincident.
+                Stone(shader, "Weathered ridge stone", new Color(.76f, 1.04f, 1.34f), rockAlbedo, rockNormal, .28f),
                 Stone(shader, "Pine needles", new Color(.105f, .17f, .125f)),
                 Stone(shader, "Pine trunks", new Color(.26f, .205f, .15f))
             };
-            var terrain = new Geometry(4);
-            AddRange(terrain, Valley);
-            AddRange(terrain, Foothills);
-            AddRange(terrain, MainRange);
-            AddRange(terrain, Skyline);
+            var terrain = new Geometry(1);
+            AddLandscape(terrain);
             var trees = new Geometry(2);
-            AddPines(trees);
+            AddPines(trees, terrain);
             var scenery = new GameObject("Original western mountain ranges").transform;
             scenery.SetParent(parent, false);
-            Save(scenery, "Layered eroded ridges", terrain, new[] { materials[0], materials[1], materials[2], materials[3] });
-            Save(scenery, "Sparse foothill pines", trees, new[] { materials[4], materials[5] });
+            // Retain saved mesh asset identity while replacing its formerly overlapping topology.
+            Save(scenery, "Layered eroded ridges", terrain, new[] { materials[0] });
+            Save(scenery, "Sparse foothill pines", trees, new[] { materials[1], materials[2] });
             Debug.Log($"Original western scenery: {terrain.Vertices.Count + trees.Vertices.Count:N0} vertices, " +
-                $"{terrain.TriangleCount + trees.TriangleCount:N0} triangles, 6 opaque material batches; no shadow casters or colliders.");
+                $"{terrain.TriangleCount + trees.TriangleCount:N0} triangles, 3 opaque material batches; one continuous terrain surface, no shadow casters or colliders.");
         }
 
         private static Texture2D ImportRock(string filename, bool normal)
@@ -105,91 +86,105 @@ namespace BarrelRivals.Editor
             return material;
         }
 
-        private static void AddRange(Geometry geometry, Range range)
+        private static void AddLandscape(Geometry geometry)
         {
-            int first = geometry.Vertices.Count;
-            for (int row = 0; row <= range.Rows; row++)
+            for (int row = 0; row <= Rows; row++)
             {
-                float t = row / (float)range.Rows;
-                for (int a = 0; a <= range.Around; a++)
+                // Concentrate rows near the visible foothills; the outer silhouette still has
+                // 256 angular samples. One shared set of vertices/normals spans every region.
+                float radius = Mathf.Lerp(InnerRadius, OuterRadius, Mathf.Pow(row / (float)Rows, 1.22f));
+                for (int a = 0; a <= Around; a++)
                 {
-                    float angle = (a % range.Around) * Tau / range.Around;
-                    float radius = Mathf.Lerp(range.Inner, range.Outer, t);
+                    float angle = (a % Around) * Tau / Around;
                     var point = Center + new Vector3(Mathf.Sin(angle) * radius,
-                        Height(range, angle, t), Mathf.Cos(angle) * radius);
-                    Vector2 uv;
-                    if (range.Material == 3) uv = new Vector2(point.x, point.z) / 3.6f;
-                    else
-                    {
-                        // A floor projection stretches badly on the inward-facing mountain walls.
-                        // Map around the range and up its actual height instead. Large feature
-                        // scales and small periodic offsets avoid a dense checker/stripe repeat.
-                        float feature = range.Material == 0 ? 70 : range.Material == 1 ? 50 : 35;
-                        int wraps = Mathf.Max(1, Mathf.RoundToInt(Tau * Mathf.Lerp(range.Inner, range.Outer, .48f) / feature));
-                        float u = a / (float)range.Around * wraps + .12f * Mathf.Sin(angle * 3 + range.Seed);
-                        float v = point.y / feature + .09f * Mathf.Sin(angle * 7 + range.Seed) + .04f * Mathf.Sin(angle * 13);
-                        // The duplicated final vertex uses U + an integer number of texture tiles;
-                        // all periodic offsets match the first vertex exactly at the seam.
-                        uv = new Vector2(u, v);
-                    }
-                    geometry.Vertex(point, uv);
+                        LandscapeHeight(angle, radius), Mathf.Cos(angle) * radius);
+                    // A single cylindrical chart avoids both floor-projected rock stretch and
+                    // discontinuous U/V scale changes at the former annular joins. Sixty-four
+                    // integer wraps naturally broaden from ~30 m at 300 m radius to ~70 m at 700 m.
+                    float u = a / (float)Around * TextureWraps + .12f * Mathf.Sin(angle * 3 + 9.3f);
+                    float v = point.y / 52 + .09f * Mathf.Sin(angle * 7 + 9.3f) + .04f * Mathf.Sin(angle * 13);
+                    geometry.Vertex(point, new Vector2(u, v));
                 }
             }
-            for (int row = 0; row < range.Rows; row++)
-                for (int a = 0; a < range.Around; a++)
+            for (int row = 0; row < Rows; row++)
+                for (int a = 0; a < Around; a++)
                 {
-                    int p = first + row * (range.Around + 1) + a, q = p + range.Around + 1;
-                    // Alternating diagonals remove the long regular strips of the former ring.
+                    int p = row * (Around + 1) + a, q = p + Around + 1;
                     if (((row + a) & 1) == 0)
-                    { Face(geometry, range.Material, p, q, p + 1); Face(geometry, range.Material, p + 1, q, q + 1); }
+                    { Face(geometry, 0, p, q, p + 1); Face(geometry, 0, p + 1, q, q + 1); }
                     else
-                    { Face(geometry, range.Material, p, q, q + 1); Face(geometry, range.Material, p, q + 1, p + 1); }
+                    { Face(geometry, 0, p, q, q + 1); Face(geometry, 0, p, q + 1, p + 1); }
                 }
-            // Duplicated seam vertices carry identical positions and smooth normals after Mesh().
-            for (int row = 0; row <= range.Rows; row++)
-                geometry.Seams.Add(new Vector2Int(first + row * (range.Around + 1), first + row * (range.Around + 1) + range.Around));
+            for (int row = 0; row <= Rows; row++)
+                geometry.Seams.Add(new Vector2Int(row * (Around + 1), row * (Around + 1) + Around));
         }
 
-        private static float Height(Range range, float angle, float t)
+        private static float LandscapeHeight(float angle, float radius)
         {
-            float crest = .48f + .055f * Mathf.Sin(angle * 5 + range.Seed) + .025f * Mathf.Sin(angle * 11 - range.Seed);
-            float broad = Mathf.PerlinNoise(Mathf.Cos(angle) * 1.9f + range.Seed, Mathf.Sin(angle) * 1.9f + 21);
-            // Smooth broad massing plus much smaller secondary peaks keeps a broken natural
-            // skyline without the first candidate's sawteeth and regularly repeated ribs.
-            float summit = AngularNoise(angle, 9, range.Seed) * .65f +
-                AngularNoise(angle, 21, range.Seed + 4) * .25f + AngularNoise(angle, 43, range.Seed + 9) * .10f;
-            float height = range.Height + range.Relief * Mathf.Clamp01(.55f * broad + .55f * summit);
-            float flank = t <= crest ? t / crest : (1 - t) / (1 - crest);
-            flank = Mathf.Clamp01(flank);
-            float profile = Mathf.Pow(Mathf.Max(0, Mathf.Sin(flank * Mathf.PI * .5f)), 1.9f);
-            float radius = Mathf.Lerp(range.Inner, range.Outer, t);
             float x = Mathf.Sin(angle) * radius, z = Mathf.Cos(angle) * radius;
-            // Local two-dimensional relief breaks the shoulders across the slope, rather than
-            // producing a flute running from every peak to the valley. It remains subordinate
-            // to the main ridge and fades out before terrain joins the existing outer apron.
-            float shoulders = Mathf.PerlinNoise(x * .018f + range.Seed, z * .018f + 31) - .5f;
-            float chips = Mathf.PerlinNoise(x * .046f + 11, z * .046f + range.Seed) - .5f;
-            float relief = height * (.13f * shoulders + .045f * chips) * Mathf.Sin(t * Mathf.PI);
-            return -.6f + Mathf.Max(0, height * profile + relief);
+            return WorldHeight(x, z, radius);
         }
 
-        private static float AngularNoise(float angle, int segments, float seed)
+        private static float WorldHeight(float x, float z, float radius)
         {
-            float position = Mathf.Repeat(angle / Tau, 1) * segments;
-            int index = Mathf.FloorToInt(position);
-            return Mathf.Lerp(Hash(index + seed * 37), Hash((index + 1) % segments + seed * 37), Mathf.SmoothStep(0, 1, position - index));
+            // The prior smooth-max of annular crests still made a circumferential quarry wall.
+            // Masses, valleys and secondary ridges now depend solely on world X/Z; radial
+            // distance only keeps the course clear and lowers the mesh's far boundary.
+            float px = x + (TerrainNoise(x * .0021f + 3.7f, z * .0021f - 8.3f, 17) * 2 - 1) * 85;
+            float pz = z + (TerrainNoise(x * .0021f - 6.1f, z * .0021f + 4.2f, 29) * 2 - 1) * 85;
+            float broad = TerrainNoise(px * .0029f + 5.1f, pz * .0029f + 2.8f, 43);
+            float shoulders = TerrainNoise((px * .8f + pz * .6f) * .0061f + 12.7f,
+                (pz * .8f - px * .6f) * .0061f - 3.6f, 71);
+            float detail = TerrainNoise((px * .6f - pz * .8f) * .013f - 4.8f,
+                (px * .8f + pz * .6f) * .013f + 17.3f, 113);
+            float mass = Mathf.Clamp01((broad * .64f + shoulders * .25f + detail * .11f - .31f) / .43f);
+            mass = Mathf.Pow(mass, 1.65f);
+            float ridge = 1 - Mathf.Abs(TerrainNoise(px * .0082f + 9, pz * .0082f - 7, 151) * 2 - 1);
+            float small = TerrainNoise(px * .021f - 11, pz * .021f + 5, 181);
+            float height = Mathf.Max(0, 2.5f + 128 * mass + 17 * mass * (ridge - .7f) + 5 * (small - .5f));
+            float inner = Mathf.SmoothStep(0, 1, (radius - InnerRadius) / 225);
+            float outer = Mathf.SmoothStep(0, 1, (OuterRadius - radius) / 155);
+            return -.6f + height * inner * outer;
+        }
+
+        private static float TerrainNoise(float x, float z, uint seed)
+        {
+            // Original deterministic gradient noise: integer hashing keeps the shape independent
+            // of engine-native noise implementations and reproducible in offline height previews.
+            int ix = Mathf.FloorToInt(x), iz = Mathf.FloorToInt(z);
+            float fx = x - ix, fz = z - iz;
+            float u = fx * fx * fx * (fx * (fx * 6 - 15) + 10);
+            float v = fz * fz * fz * (fz * (fz * 6 - 15) + 10);
+            float a = Mathf.Lerp(TerrainGradient(ix, iz, seed, fx, fz), TerrainGradient(ix + 1, iz, seed, fx - 1, fz), u);
+            float b = Mathf.Lerp(TerrainGradient(ix, iz + 1, seed, fx, fz - 1), TerrainGradient(ix + 1, iz + 1, seed, fx - 1, fz - 1), u);
+            return Mathf.Clamp01(.5f + .5f * Mathf.Lerp(a, b, v));
+        }
+
+        private static float TerrainGradient(int x, int z, uint seed, float dx, float dz)
+        {
+            uint hash;
+            unchecked
+            {
+                hash = (uint)x * 374761393u + (uint)z * 668265263u + seed * 1442695041u;
+                hash = (hash ^ (hash >> 13)) * 1274126177u;
+                hash ^= hash >> 16;
+            }
+            switch (hash & 7)
+            {
+                case 0: return dx; case 1: return -dx; case 2: return dz; case 3: return -dz;
+                case 4: return (dx + dz) * .70710678f; case 5: return (dx - dz) * .70710678f;
+                case 6: return (-dx + dz) * .70710678f; default: return (-dx - dz) * .70710678f;
+            }
         }
 
         private static float Hash(float n) => Mathf.Repeat(Mathf.Sin(n * 127.1f + 311.7f) * 43758.5453f, 1);
 
         private static void Face(Geometry g, int material, int a, int b, int c)
         {
-            // One continuous material per landform. Classifying triangle centroids produced
-            // conspicuous isolated brown triangles in the first actual Unity render.
             g.Indices[material].Add(a); g.Indices[material].Add(b); g.Indices[material].Add(c);
         }
 
-        private static void AddPines(Geometry g)
+        private static void AddPines(Geometry g, Geometry terrain)
         {
             // Separated small clusters, all >130 m from the arena center. Nothing crosses a fence,
             // competes with barrel sightlines, or needs transparent-card sorting/animated foliage.
@@ -198,11 +193,28 @@ namespace BarrelRivals.Editor
                 int cluster = i / 4;
                 float angle = cluster * Tau / 14 + (Hash(i + 92) - .5f) * .13f + .17f;
                 float radius = 137 + Hash(cluster + 25) * 97 + (Hash(i + 65) - .5f) * 20;
-                float t = Mathf.InverseLerp(Foothills.Inner, Foothills.Outer, radius);
-                float ground = Mathf.Max(Height(Foothills, angle, t), Height(Valley, angle, Mathf.InverseLerp(Valley.Inner, Valley.Outer, radius)));
-                var foot = Center + new Vector3(Mathf.Sin(angle) * radius, ground - .08f, Mathf.Cos(angle) * radius);
+                var foot = Center + new Vector3(Mathf.Sin(angle) * radius, 0, Mathf.Cos(angle) * radius);
+                foot.y = TerrainHeightAt(terrain, foot.x, foot.z) - .08f;
                 Pine(g, foot, 6.5f + Hash(i + 19) * 7, i);
             }
+        }
+
+        private static float TerrainHeightAt(Geometry terrain, float x, float z)
+        {
+            // Editor-only placement on the actual triangles, rather than the analytic field:
+            // low-resolution interpolation otherwise leaves some trunks floating or buried.
+            var indices = terrain.Indices[0];
+            for (int i = 0; i < indices.Count; i += 3)
+            {
+                var a = terrain.Vertices[indices[i]]; var b = terrain.Vertices[indices[i + 1]]; var c = terrain.Vertices[indices[i + 2]];
+                float area = (b.z - c.z) * (a.x - c.x) + (c.x - b.x) * (a.z - c.z);
+                if (Mathf.Abs(area) < .00001f) continue;
+                float u = ((b.z - c.z) * (x - c.x) + (c.x - b.x) * (z - c.z)) / area;
+                float v = ((c.z - a.z) * (x - c.x) + (a.x - c.x) * (z - c.z)) / area;
+                float w = 1 - u - v;
+                if (u >= -.00001f && v >= -.00001f && w >= -.00001f) return a.y * u + b.y * v + c.y * w;
+            }
+            throw new InvalidOperationException("A distant pine fell outside the continuous terrain mesh.");
         }
 
         private static void Pine(Geometry g, Vector3 foot, float height, int seed)

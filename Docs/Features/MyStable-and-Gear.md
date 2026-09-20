@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+The subsequent [surface-fit checkpoint](../Art/Reins-Surface-Fit-Checkpoint.md) refines the same horse and fitted western headstall across MyStable and racing. It has fresh visual/test evidence; the feature implementation and earlier results below retain their original scope. No additional horses, earned upgrades or online ownership were added.
+
 The latest [art-fit source](../Art/Reins-Art-Fit-Checkpoint.md) fits mane/forelock strands and a contoured saddle against the live horse, corrects strand shading, and routes the neutral stowed reins around the neck. It preserves the same 20 local cosmetics and connected UI; use its separate evidence for the new visuals.
 
 The later [visual-depth checkpoint](../Art/Reins-Visual-Depth-Checkpoint.md) improves the window/lantern lighting and torso-bound saddle, with fresh stable/gear captures and 110 Editor / 21 Play Mode checks. The counts below describe their historical feature boundary; the full roster, earned progression and photographic art remain unfinished.

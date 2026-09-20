@@ -1,0 +1,379 @@
+{
+  "baselineCommit": "5a90d8bfd89473713140075fe87805b781d09b6f",
+  "nativeIdentity": "0.4.0/build 4",
+  "rules": "reins-lab-v1",
+  "sourceOnly": true,
+  "newDeviceInstall": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "gameplayV2Implemented": false,
+  "historicalEvidenceRestored": 194,
+  "generatedMeshes": {
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Right glove grip.asset": {
+      "vertices": 180,
+      "triangles": 336
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Right glove stitching.asset": {
+      "vertices": 180,
+      "triangles": 288
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Left rein ready pose.asset": {
+      "vertices": 594,
+      "triangles": 1152
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Bridle metal fittings.asset": {
+      "vertices": 658,
+      "triangles": 1248
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Right glove shell.asset": {
+      "vertices": 402,
+      "triangles": 780
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Left sleeve.asset": {
+      "vertices": 74,
+      "triangles": 144
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Left glove stitching.asset": {
+      "vertices": 180,
+      "triangles": 288
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Left glove shell.asset": {
+      "vertices": 402,
+      "triangles": 780
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Right rein ready pose.asset": {
+      "vertices": 594,
+      "triangles": 1152
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Braided rein.asset": {
+      "vertices": 594,
+      "triangles": 1152
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Western leather headstall.asset": {
+      "vertices": 496,
+      "triangles": 976
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Right sleeve.asset": {
+      "vertices": 74,
+      "triangles": 144
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Headstall stitches.asset": {
+      "vertices": 800,
+      "triangles": 1280
+    },
+    "Assets/_Project/Art/Reins/Premium/RiderTack/Left glove grip.asset": {
+      "vertices": 180,
+      "triangles": 336
+    },
+    "Assets/_Project/Art/Reins/Premium/Mountains/Sparse foothill pines.asset": {
+      "vertices": 14112,
+      "triangles": 4704
+    },
+    "Assets/_Project/Art/Reins/Premium/Mountains/Layered eroded ridges.asset": {
+      "vertices": 10280,
+      "triangles": 19968
+    },
+    "Assets/_Project/Art/Reins/Hair/Skinned hair.asset": {
+      "vertices": 2748,
+      "triangles": 2512
+    },
+    "Assets/_Project/Art/Reins/Stable/Western saddle leather.asset": {
+      "vertices": 3252,
+      "triangles": 6272
+    },
+    "Assets/_Project/Art/Reins/Stable/Curved western pad.asset": {
+      "vertices": 714,
+      "triangles": 1424
+    },
+    "Assets/_Project/Art/Reins/Stable/Blanket stripes.asset": {
+      "vertices": 1435,
+      "triangles": 2672
+    },
+    "Assets/_Project/Art/Reins/Stable/Saddle fittings.asset": {
+      "vertices": 528,
+      "triangles": 992
+    }
+  },
+  "tests": {
+    "EditMode": {
+      "result": "Passed",
+      "total": "110",
+      "passed": "110",
+      "failed": "0",
+      "skipped": "0"
+    },
+    "PlayMode": {
+      "result": "Passed",
+      "total": "21",
+      "passed": "21",
+      "failed": "0",
+      "skipped": "0"
+    }
+  },
+  "canonicalReplay": {
+    "unityVersion": "6000.6.0f1",
+    "ruleset": "reins-lab-v1",
+    "rulesFingerprint": "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837",
+    "finalPhase": "Complete",
+    "graphicsDeviceName": "Intel(R) Iris(TM) Plus Graphics 640",
+    "graphicsDeviceVendor": "Apple",
+    "graphicsDeviceType": "Metal",
+    "graphicsDeviceVersion": "Metal",
+    "operatingSystem": "Mac OS X 13.7.8",
+    "finalTimeMs": 35120,
+    "knocks": 0,
+    "stylePoints": 300,
+    "replayFrames": 2156,
+    "captureWidth": 1280,
+    "captureHeight": 720,
+    "reportedGraphicsMemoryMB": 1536,
+    "reducedMotion": true,
+    "devicePerformanceMeasured": false,
+    "visualQualityAcceptance": false,
+    "minimumBarrelDistancesMetres": [
+      2.828191509063948,
+      2.9968458322863767,
+      2.9381575791737533
+    ],
+    "captures": [
+      {
+        "stage": "Ready",
+        "phase": "Ready",
+        "tick": 0,
+        "barrelIndex": 0,
+        "raceTimeMs": 0,
+        "distanceToTargetMetres": 30.54117875917693,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 0.0,
+        "horsePosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -9.0
+        },
+        "cameraPosition": {
+          "x": 0.0,
+          "y": 2.299999952316284,
+          "z": -9.399999618530273
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Approach-1",
+        "phase": "Racing",
+        "tick": 584,
+        "barrelIndex": 0,
+        "raceTimeMs": 3680,
+        "distanceToTargetMetres": 11.99591679549359,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 4.725,
+        "horsePosition": {
+          "x": -8.2037935256958,
+          "y": 0.0,
+          "z": 7.633535861968994
+        },
+        "cameraPosition": {
+          "x": -7.971719264984131,
+          "y": 2.1850383281707764,
+          "z": 7.196876525878906
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Turn-1",
+        "phase": "Racing",
+        "tick": 706,
+        "barrelIndex": 0,
+        "raceTimeMs": 6120,
+        "distanceToTargetMetres": 3.228541935758737,
+        "turnProgress01": 0.20307576332969401,
+        "speedMetresPerSecond": 4.059875624999998,
+        "horsePosition": {
+          "x": -10.567070960998535,
+          "y": 0.0,
+          "z": 17.57544708251953
+        },
+        "cameraPosition": {
+          "x": -10.844893455505371,
+          "y": 2.1860616207122803,
+          "z": 17.182601928710938
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Cross-2",
+        "phase": "Racing",
+        "tick": 893,
+        "barrelIndex": 1,
+        "raceTimeMs": 9860,
+        "distanceToTargetMetres": 29.782439877135097,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 4.039874999999999,
+        "horsePosition": {
+          "x": -15.940206527709961,
+          "y": 0.0,
+          "z": 15.548813819885254
+        },
+        "cameraPosition": {
+          "x": -16.30417251586914,
+          "y": 2.1860923767089844,
+          "z": 15.862945556640625
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Turn-2",
+        "phase": "Racing",
+        "tick": 1212,
+        "barrelIndex": 1,
+        "raceTimeMs": 16240,
+        "distanceToTargetMetres": 3.270576684294064,
+        "turnProgress01": 0.20437657322556393,
+        "speedMetresPerSecond": 3.8538281249999997,
+        "horsePosition": {
+          "x": 11.665299415588379,
+          "y": 0.0,
+          "z": 20.835803985595703
+        },
+        "cameraPosition": {
+          "x": 11.392770767211914,
+          "y": 2.1863787174224854,
+          "z": 20.44426155090332
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Approach-3",
+        "phase": "Racing",
+        "tick": 1639,
+        "barrelIndex": 2,
+        "raceTimeMs": 24780,
+        "distanceToTargetMetres": 11.989535409083814,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 4.722046875,
+        "horsePosition": {
+          "x": 4.43371057510376,
+          "y": 0.0,
+          "z": 36.064247131347656
+        },
+        "cameraPosition": {
+          "x": 4.587100028991699,
+          "y": 2.1850428581237793,
+          "z": 35.594200134277344
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Turn-3",
+        "phase": "Racing",
+        "tick": 1768,
+        "barrelIndex": 2,
+        "raceTimeMs": 27360,
+        "distanceToTargetMetres": 3.247565427683576,
+        "turnProgress01": 0.20072057473296245,
+        "speedMetresPerSecond": 3.8018906249999995,
+        "horsePosition": {
+          "x": -1.344609022140503,
+          "y": 0.0,
+          "z": 44.247737884521484
+        },
+        "cameraPosition": {
+          "x": -0.8714221119880676,
+          "y": 2.1864585876464844,
+          "z": 44.19599533081055
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Drive",
+        "phase": "Drive",
+        "tick": 1948,
+        "barrelIndex": 3,
+        "raceTimeMs": 30960,
+        "distanceToTargetMetres": 47.344116233120104,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 6.445781250000001,
+        "horsePosition": {
+          "x": 3.136640787124634,
+          "y": 0.0,
+          "z": 47.24009704589844
+        },
+        "cameraPosition": {
+          "x": 3.113320827484131,
+          "y": 2.1823911666870117,
+          "z": 47.76849365234375
+        },
+        "cameraFieldOfView": 65.0
+      },
+      {
+        "stage": "Finish",
+        "phase": "Complete",
+        "tick": 2156,
+        "barrelIndex": 3,
+        "raceTimeMs": 35120,
+        "distanceToTargetMetres": 0.32094031915516896,
+        "turnProgress01": 0.0,
+        "speedMetresPerSecond": 0.0,
+        "horsePosition": {
+          "x": 0.3174201250076294,
+          "y": 0.0,
+          "z": -0.0474042184650898
+        },
+        "cameraPosition": {
+          "x": 0.3428969979286194,
+          "y": 2.299999952316284,
+          "z": 0.35178321599960327
+        },
+        "cameraFieldOfView": 65.0
+      }
+    ],
+    "phaseFrameCounts": [
+      {
+        "phase": "Preview",
+        "frames": 249
+      },
+      {
+        "phase": "Gate",
+        "frames": 150
+      },
+      {
+        "phase": "Racing",
+        "frames": 1556
+      },
+      {
+        "phase": "Drive",
+        "frames": 200
+      },
+      {
+        "phase": "Complete",
+        "frames": 1
+      }
+    ]
+  },
+  "motion": {
+    "unityVersion": "6000.6.0f1",
+    "graphicsDevice": "Intel(R) Iris(TM) Plus Graphics 640",
+    "description": "Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v1 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
+    "rulesFingerprint": "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 360,
+    "frameCount": 220,
+    "canonicalFinalTimeMs": 35120,
+    "capturedDriveLegRangeDegrees": 40.2338752746582,
+    "capturedDriveNeckRangeDegrees": 2.2742323875427246,
+    "walkSilhouetteChangedPixels": 6281,
+    "devicePerformanceMeasured": false,
+    "footPlantingAccepted": false
+  },
+  "sourceHashes": {
+    "Assets/_Project/Scripts/Editor/ReinsHairBuilder.cs": "895d1be7b1698871d1a9f8f74b4df60c12d23f397ab7f08338bd98116db661be",
+    "Assets/_Project/Scripts/Editor/ReinsHorseSurface.cs": "5237852d5f1c38c80e4c2e6139d7ebb750ba57c2a18dd3f349cfe39d19fd9d41",
+    "Assets/_Project/Scripts/Editor/StableTackBuilder.cs": "8f34dad4ae6431d588be7555e7d24c651b2fc416b8de0bb91a6685944f9dec6b",
+    "Assets/_Project/Scripts/Editor/ReinsMountainBuilder.cs": "1adadf3e4a1eccdae7b63733e9fb83658caa091f2a344a11b5d49ac7a86d7dd8",
+    "Assets/_Project/Scripts/Editor/ReinsRiderTackBuilder.cs": "11fc3904a1f4f13dd0962d82c4fff1b296810f716b08c6833b435fada5b7f3e2",
+    "Assets/_Project/Scripts/Editor/ReinsHeadstallStrip.cs": "8807abf94f54b99717b4233dc2aa2e15c8e2f4d077d39058b4e42e659f74abc6",
+    "Tools/Art/refine_horse_surface.py": "021623a96d079d3b7d165569446e415546cbe842002246d384aa41b790a14b22",
+    "Tools/Art/export_reference_horse.py": "4be7e7c260dceaa3e1d5a9995ca9ffe7f5b0880dc87250ebd1224ef25ed33553",
+    "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx": "f84dfcd930b61adc51a81130df4c12bbb7b5753920ed81691cb2cc1c77a537a0"
+  }
+}

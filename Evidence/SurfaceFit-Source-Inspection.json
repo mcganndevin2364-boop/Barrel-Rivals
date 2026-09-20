@@ -1,0 +1,14 @@
+{
+  "source": "riggedHorse.blend",
+  "heightMetres": 2.12,
+  "bodyVertices": 14784,
+  "bones": 19,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Gallop"
+  ],
+  "animationQuality": "Original sole-target gait candidate; Unity import, torso/tack integration, foot orientation and visual acceptance pending",
+  "autoExecuteScripts": false,
+  "blender": "4.5.13 LTS"
+}
