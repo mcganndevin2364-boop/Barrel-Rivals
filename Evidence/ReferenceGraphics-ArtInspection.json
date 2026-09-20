@@ -1,0 +1,18 @@
+{
+    "unityVersion": "6000.6.0f1",
+    "posedBodyBoundsMetres": {
+        "x": 0.8571068644523621,
+        "y": 2.1754534244537354,
+        "z": 2.9349803924560547
+    },
+    "headPositionInModelMetres": {
+        "x": 0.019039230421185493,
+        "y": 1.9236472845077515,
+        "z": 1.8441486358642578
+    },
+    "gaitClips": [
+        "Armature|Idle",
+        "Armature|Walk",
+        "Armature|Gallop"
+    ]
+}

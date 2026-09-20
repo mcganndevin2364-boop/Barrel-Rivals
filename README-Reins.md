@@ -2,15 +2,17 @@
 
 This page documents the implemented 0.4 offline Reins prototype. The user has now selected Reins as the main game. Classic is still available in this binary, but the approved 0.5 update removes its player-facing route while preserving historical code and saves. The combined mobile build is **0.4.0 / build 4**. The iPhone app compiled, signed and installed with its version verified; the Android APK compiled and passed artifact checks. The user has played and prefers Reins. Formal iPhone controls/performance qualification and Android handset testing remain pending. See [the implementation evidence](Docs/Plan/Reins-Lab-Implementation.md) for the exact limits.
 
-## Approved next work (not implemented)
+**New source, separate from that installed build:** the [reference-graphics checkpoint](Docs/Art/Reins-Reference-Graphics-Checkpoint.md) adds the imported 19-bone CC0 horse and three first-pass gait studies, persistent URP materials, Linear/warm grading, original dirt/crowd art, first-person viewing in every phase with reduced motion, and a charcoal/gold HUD. Scene generation/save/reopen, 77 Editor tests and 13 Play Mode tests passed; records and five real Unity gameplay captures are in that checkpoint. No new native build, installation or measured phone performance is claimed. The source retains 0.4 identity, v1 rules/saves and Classic navigation. Its art is a step toward the user's throughout-gameplay reference, not finished photorealism or the complete horse/rider milestone.
 
-[Reins Racing 0.5](Docs/Plan/Reins-Racing-0.5-Implementation.md) replaces the stationary preview/three-tap gate with a four-second rider-view alley approach and one release at the third beep, keeps first-person racing, loosens cadence/rein demands and rebuilds one horse/rider/arena. Current controls below remain accurate for 0.4. See [the AI handoff](Barrel-Rivals-AI-Handoff.md) before continuing development.
+## Approved remaining work
 
-## Play the current 0.4 build
+[Reins Racing 0.5](Docs/Plan/Reins-Racing-0.5-Implementation.md) still needs to replace the stationary preview/three-tap gate with a four-second rider-view alley approach and one release at the third beep, loosen cadence/rein demands and complete one finished horse/rider/arena. The graphics checkpoint does not implement those v2 rules. Current controls below retain the 0.4 mechanics. See [the AI handoff](Barrel-Rivals-AI-Handoff.md) before continuing development.
+
+## Play the v1 gameplay
 
 From Classic Practice, select **TRY REINS RACING**. In Unity, open `Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity`.
 
-1. Select dirt conditions before starting. The preview shows the course and footing patches.
+1. Select dirt conditions before starting. The current source keeps the rider camera through the timed preview; use the course map for the pattern. The older installed 0.4 artifact has its original presentation.
 2. Tap the **center pad** at each of the three gate-energy peaks. A false break produces one bounded standstill; it never subtracts arbitrary time from a result.
 3. Drag down on the **left/right rein pads** to turn. Release to relax a rein; pull both to brake. Hold the turning rein with one thumb and tap the center cadence pad with the other.
 4. Near a barrel, holding the center pad for 300 ms activates **Leg Wrap** while eligible. It trades cadence/speed for turning control, with a two-second budget per barrel. It never grants contact immunity.
@@ -18,7 +20,7 @@ From Classic Practice, select **TRY REINS RACING**. In Unity, open `Assets/_Proj
 6. After barrel three, alternate taps on the side pads for the capped four-second Drive opportunity, then cross the white finish line between the gate posts. You can still drag a rein to correct direction.
 7. Retry repeats the conditions. A completed best is saved locally and can appear as an explicitly labelled own-best ghost. **CLASSIC PRACTICE** returns to drawing practice.
 
-Both reins plus center are never required simultaneously. Braking with both thumbs temporarily sacrifices center action. This layout needs real-phone ergonomic testing before becoming the permanent control scheme. Bodycam/chase camera and sound/ghost preferences are presentation choices. The haptic preference is shared with Classic Practice.
+Both reins plus center are never required simultaneously. Braking with both thumbs temporarily sacrifices center action. This layout needs real-phone ergonomic testing before becoming the permanent control scheme. In the current source, **RIDER VIEW / STEADY VIEW** switches reduced motion while retaining first person; the prior installed artifact still has its original bodycam/chase control. Sound/ghost preferences are presentation choices. The haptic preference is shared with Classic Practice.
 
 ## What this pass implements
 
@@ -35,7 +37,7 @@ Both reins plus center are never required simultaneously. Braking with both thum
 | Rival Ghost Pressure | Validated own-best recording in Unity. Opponent matchmaking, authorized rival replays, live gaps and cinematic clutch effects remain planned |
 | Streak Stakes | Revised earned-bonus design, API/DB ownership and idempotency contracts. No local reward preview, wallet, insurance, purchase or online award is enabled |
 
-The horse/rider and arena remain prototype art. Existing original art is used; a free CC0 horse candidate is isolated for evaluation and is not imported into this build. No paid assets were purchased.
+The current source imports the CC0 horse with original Idle/Walk/Gallop studies and replaces selected arena/HUD presentation. A finished rigged rider, western tack, planted production gaits and reference-level visual/device acceptance remain pending. The older installed 0.4 artifact still contains its prior procedural art. No paid assets were purchased. [Graphics provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) records source hashes, licensing and limitations.
 
 ## Rule and save boundaries
 

@@ -16,7 +16,7 @@ namespace BarrelRivals.Editor
         public const string Root = "Assets/_Project/Generated/Practice/Presentation";
         private static Mesh sphere, cube, cylinder;
 
-        public static PracticeHorseVisual Build(Transform horse, Transform barrel, Camera camera, bool includeAlleyRails = true)
+        public static PracticeHorseVisual Build(Transform horse, Transform barrel, Camera camera, bool includeAlleyRails = true, bool includeCrowd = true)
         {
             if (!horse || !barrel || !camera) throw new ArgumentException("Presentation requires the existing horse, barrel and camera.");
             Directory.CreateDirectory(Root); AssetDatabase.Refresh();
@@ -67,7 +67,7 @@ namespace BarrelRivals.Editor
                     batch.Add(cube, teal, new Vector3(x + side * .3f, y + .45f, 29), new Vector3(.12f, .7f, 48));
                     for (int person = 0; person < 17; person++)
                     {
-                        if ((row * 7 + person * 11) % 5 == 0) continue;
+                        if (!includeCrowd || (row * 7 + person * 11) % 5 == 0) continue;
                         float z = 7 + person * 2.7f;
                         Material shirt = (row + person) % 3 == 0 ? cream : (person % 3 == 1 ? roof : teal);
                         batch.Add(sphere, shirt, new Vector3(x, y + .64f, z), new Vector3(.43f, .67f, .33f));

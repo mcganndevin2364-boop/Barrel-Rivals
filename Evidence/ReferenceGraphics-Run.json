@@ -1,0 +1,18 @@
+{
+    "unityVersion": "6000.6.0f1",
+    "finalTimeMs": 35120,
+    "knocks": 0,
+    "stylePoints": 300,
+    "replayFrames": 2156,
+    "captureWidth": 1280,
+    "captureHeight": 720,
+    "reducedMotion": true,
+    "devicePerformanceMeasured": false,
+    "captures": [
+        "Ready",
+        "Barrel-1",
+        "Barrel-2",
+        "Barrel-3",
+        "Drive"
+    ]
+}

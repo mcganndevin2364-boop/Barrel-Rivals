@@ -1,0 +1,14 @@
+{
+  "source": "riggedHorse.blend",
+  "heightMetres": 2.12,
+  "bodyVertices": 3697,
+  "bones": 19,
+  "clips": [
+    "Idle",
+    "Walk",
+    "Gallop"
+  ],
+  "animationQuality": "Original first-pass gait studies; foot planting/turn/rider synchronization still require review",
+  "autoExecuteScripts": false,
+  "blender": "4.5.13 LTS"
+}

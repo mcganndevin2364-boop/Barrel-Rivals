@@ -122,7 +122,8 @@ namespace BarrelRivals.Tests
             try
             {
                 camera.targetTexture=target;canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=camera.nearClipPlane+.01f;Canvas.ForceUpdateCanvases();
-                camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();
+                foreach(var label in canvas.GetComponentsInChildren<Text>(true)){label.cachedTextGenerator.Invalidate();label.SetAllDirty();}
+                Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();
                 var path=Path.GetFullPath(Path.Combine(Application.dataPath,"../Evidence",name));File.WriteAllBytes(path,image.EncodeToPNG());
             }
             finally
