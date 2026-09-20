@@ -1,0 +1,36 @@
+{
+  "sourceService": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+  "requestUrl": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer/exportImage?bbox=-107.00%2C39.57%2C-106.80%2C39.73&bboxSR=4326&size=513%2C513&imageSR=3857&format=tiff&pixelType=F32&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D&interpolation=RSP_BilinearInterpolation&f=pjson",
+  "response": {
+    "href": "https://elevation.nationalmap.gov/arcgis/rest/directories/elevation_output/3DEPElevation_ImageServer/_ags_10e715af_0c2e_48d2_924d_39eff3252e02.tif",
+    "width": 513,
+    "height": 513,
+    "extent": {
+      "xmin": -11911619.88663873,
+      "ymin": 4803651.197388609,
+      "xmax": -11888487.244963158,
+      "ymax": 4826783.839064183,
+      "spatialReference": {
+        "wkid": 102100,
+        "latestWkid": 3857
+      }
+    },
+    "scale": 0
+  },
+  "retrievedDate": "2026-09-20",
+  "sourceBytes": 1639746,
+  "sourceSha256": "538201d0db19a813eaa56f0f00ad16a65ac3a025d199c5305b9de6f5032b0309",
+  "licenseSource": "https://www.usgs.gov/3d-elevation-program",
+  "credit": "U.S. Geological Survey, 3D Elevation Program (3DEP)",
+  "derived": {
+    "path": "Assets/_Project/Art/Reins/Premium/Mountains/Elevation/EagleValley.bytes",
+    "sha256": "b78ee20eba7c8b34ad31be5c389d41824c7a598854af96560f6ab74e4e27a198",
+    "byteCount": 1052688,
+    "format": "BRH1 ASCII magic, UInt32LE width and height, then row-major Float32LE elevations in metres; north row first. Numeric extraction only; no resampling or imagery editing.",
+    "sourceRangeMetres": [
+      1891.6170654296875,
+      2976.78564453125
+    ],
+    "centerMetres": 1947.870849609375
+  }
+}

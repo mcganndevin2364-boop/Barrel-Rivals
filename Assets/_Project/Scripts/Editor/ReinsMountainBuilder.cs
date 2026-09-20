@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 namespace BarrelRivals.Editor
 {
     /// <summary>
-    /// Original, deterministic western range geometry. Editor generated, opaque, no colliders,
+    /// Deterministic western range geometry from credited USGS elevations. Editor generated, opaque, no colliders,
     /// runtime behaviour, additional lighting, external imagery, or changes to the racing layout.
     /// </summary>
     public static class ReinsMountainBuilder
@@ -16,7 +16,7 @@ namespace BarrelRivals.Editor
         private const string Root = "Assets/_Project/Art/Reins/Premium/Mountains";
         private const float Tau = Mathf.PI * 2;
         private const float InnerRadius = 105, OuterRadius = 910;
-        private const int Around = 256, Rows = 39, TextureWraps = 64;
+        private const int Around = 256, Rows = 47;
         private static readonly Vector3 Center = new Vector3(0, 0, 27);
 
         public static void Build(Transform parent)
@@ -26,17 +26,14 @@ namespace BarrelRivals.Editor
             var shader = Shader.Find("Universal Render Pipeline/Lit");
             if (!shader) throw new InvalidOperationException("The mountain builder requires the project's URP Lit shader.");
             var rockAlbedo = ImportRock("RockFace_Albedo_1K.jpg", false);
-            var rockNormal = ImportRock("RockFace_NormalGL_1K.jpg", true);
             var materials = new[]
             {
-                // One continuous rock surface. Radially classified materials recreated the
-                // terrace bands even where the old layer heights were almost coincident.
-                Stone(shader, "Weathered ridge stone", new Color(.76f, 1.04f, 1.34f), rockAlbedo, rockNormal, .28f),
+                LandscapeMaterial(rockAlbedo),
                 Stone(shader, "Pine needles", new Color(.105f, .17f, .125f)),
                 Stone(shader, "Pine trunks", new Color(.26f, .205f, .15f))
             };
             var terrain = new Geometry(1);
-            AddLandscape(terrain);
+            AddLandscape(terrain,new ElevationField(Root+"/Elevation/EagleValley.bytes"));
             var trees = new Geometry(2);
             AddPines(trees, terrain);
             var scenery = new GameObject("Original western mountain ranges").transform;
@@ -46,6 +43,26 @@ namespace BarrelRivals.Editor
             Save(scenery, "Sparse foothill pines", trees, new[] { materials[1], materials[2] });
             Debug.Log($"Original western scenery: {terrain.Vertices.Count + trees.Vertices.Count:N0} vertices, " +
                 $"{terrain.TriangleCount + trees.TriangleCount:N0} triangles, 3 opaque material batches; one continuous terrain surface, no shadow casters or colliders.");
+        }
+
+        private static Material LandscapeMaterial(Texture2D rock)
+        {
+            var shader=Shader.Find("Barrel Rivals/Distant Terrain");
+            if(!shader)throw new InvalidOperationException("The original distant terrain shader is missing.");
+            string path=Root+"/Weathered ridge stone.mat";
+            var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+            if(!material){material=new Material(shader);AssetDatabase.CreateAsset(material,path);}
+            material.shader=shader;
+            material.SetTexture("_BaseMap",rock);
+            var soil=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/_Project/Art/Reins/Premium/Textures/ArenaSoil_Albedo_2K.png");
+            if(!soil)throw new InvalidOperationException("Reviewed CC0 soil texture is missing.");
+            material.SetTexture("_GroundMap",soil);
+            material.SetColor("_RockTint",new Color(.91f,.92f,.95f));
+            material.SetColor("_GroundTint",new Color(.56f,.61f,.52f));
+            material.SetColor("_DryTint",new Color(.76f,.70f,.60f));
+            material.SetFloat("_RockScale",1f/18);material.SetFloat("_GroundScale",1f/13);
+            material.DisableKeyword("_NORMALMAP");
+            EditorUtility.SetDirty(material);return material;
         }
 
         private static Texture2D ImportRock(string filename, bool normal)
@@ -86,7 +103,7 @@ namespace BarrelRivals.Editor
             return material;
         }
 
-        private static void AddLandscape(Geometry geometry)
+        private static void AddLandscape(Geometry geometry,ElevationField elevation)
         {
             for (int row = 0; row <= Rows; row++)
             {
@@ -97,13 +114,13 @@ namespace BarrelRivals.Editor
                 {
                     float angle = (a % Around) * Tau / Around;
                     var point = Center + new Vector3(Mathf.Sin(angle) * radius,
-                        LandscapeHeight(angle, radius), Mathf.Cos(angle) * radius);
-                    // A single cylindrical chart avoids both floor-projected rock stretch and
-                    // discontinuous U/V scale changes at the former annular joins. Sixty-four
-                    // integer wraps naturally broaden from ~30 m at 300 m radius to ~70 m at 700 m.
-                    float u = a / (float)Around * TextureWraps + .12f * Mathf.Sin(angle * 3 + 9.3f);
-                    float v = point.y / 52 + .09f * Mathf.Sin(angle * 7 + 9.3f) + .04f * Mathf.Sin(angle * 13);
-                    geometry.Vertex(point, new Vector2(u, v));
+                        LandscapeHeight(angle, radius,elevation), Mathf.Cos(angle) * radius);
+                    // World mapping in the shader removes the cylindrical chart's vertical
+                    // stretch. Vertex channels supply broad land-cover variation, not bands.
+                    float dryness=TerrainNoise(point.x*.008f+7,point.z*.008f-3,221);
+                    float variation=TerrainNoise(point.x*.017f-9,point.z*.017f+4,241);
+                    float exposed=Mathf.SmoothStep(0,1,Mathf.InverseLerp(42,105,point.y));
+                    geometry.Vertex(point,new Vector2(point.x/18,point.z/18),new Color(dryness,variation,1,exposed));
                 }
             }
             for (int row = 0; row < Rows; row++)
@@ -119,32 +136,49 @@ namespace BarrelRivals.Editor
                 geometry.Seams.Add(new Vector2Int(row * (Around + 1), row * (Around + 1) + Around));
         }
 
-        private static float LandscapeHeight(float angle, float radius)
+        private static float LandscapeHeight(float angle,float radius,ElevationField elevation)
         {
-            float x = Mathf.Sin(angle) * radius, z = Mathf.Cos(angle) * radius;
-            return WorldHeight(x, z, radius);
+            float x=Mathf.Sin(angle)*radius,z=Mathf.Cos(angle)*radius;
+            // Actual USGS valley/ridge structure supplies the silhouette. Only its game
+            // scale and the clear venue apron/buried outer boundary are art-directed.
+            float height=Mathf.Max(0,(elevation.Sample(x,z)-elevation.Datum)*.17f);
+            float inner=Mathf.SmoothStep(0,1,(radius-150)/110);
+            float outer=Mathf.SmoothStep(0,1,(OuterRadius-radius)/120);
+            return -.6f+height*inner*outer;
         }
 
-        private static float WorldHeight(float x, float z, float radius)
+        private sealed class ElevationField
         {
-            // The prior smooth-max of annular crests still made a circumferential quarry wall.
-            // Masses, valleys and secondary ridges now depend solely on world X/Z; radial
-            // distance only keeps the course clear and lowers the mesh's far boundary.
-            float px = x + (TerrainNoise(x * .0021f + 3.7f, z * .0021f - 8.3f, 17) * 2 - 1) * 85;
-            float pz = z + (TerrainNoise(x * .0021f - 6.1f, z * .0021f + 4.2f, 29) * 2 - 1) * 85;
-            float broad = TerrainNoise(px * .0029f + 5.1f, pz * .0029f + 2.8f, 43);
-            float shoulders = TerrainNoise((px * .8f + pz * .6f) * .0061f + 12.7f,
-                (pz * .8f - px * .6f) * .0061f - 3.6f, 71);
-            float detail = TerrainNoise((px * .6f - pz * .8f) * .013f - 4.8f,
-                (px * .8f + pz * .6f) * .013f + 17.3f, 113);
-            float mass = Mathf.Clamp01((broad * .64f + shoulders * .25f + detail * .11f - .31f) / .43f);
-            mass = Mathf.Pow(mass, 1.65f);
-            float ridge = 1 - Mathf.Abs(TerrainNoise(px * .0082f + 9, pz * .0082f - 7, 151) * 2 - 1);
-            float small = TerrainNoise(px * .021f - 11, pz * .021f + 5, 181);
-            float height = Mathf.Max(0, 2.5f + 128 * mass + 17 * mass * (ridge - .7f) + 5 * (small - .5f));
-            float inner = Mathf.SmoothStep(0, 1, (radius - InnerRadius) / 225);
-            float outer = Mathf.SmoothStep(0, 1, (OuterRadius - radius) / 155);
-            return -.6f + height * inner * outer;
+            private const int Size=513;
+            private readonly float[] samples=new float[Size*Size];
+            public float Datum=>samples[(Size*Size)/2];
+            public ElevationField(string path)
+            {
+                if(!File.Exists(path))throw new InvalidOperationException("Credited USGS elevation source is missing: "+path);
+                using(var reader=new BinaryReader(File.OpenRead(path)))
+                {
+                    if(reader.BaseStream.Length!=12+Size*Size*4 || reader.ReadUInt32()!=0x31485242
+                        || reader.ReadInt32()!=Size || reader.ReadInt32()!=Size)
+                        throw new InvalidDataException("Invalid BRH1 elevation header or dimensions.");
+                    for(int i=0;i<samples.Length;i++)
+                    {
+                        float value=reader.ReadSingle();
+                        if(!float.IsFinite(value) || value<0 || value>6000)
+                            throw new InvalidDataException("Missing/non-finite elevation value at sample "+i);
+                        samples[i]=value;
+                    }
+                }
+            }
+            public float Sample(float x,float z)
+            {
+                // The source raster is north-first; positive game Z samples north.
+                float u=Mathf.Clamp01(x/(OuterRadius*2)+.5f)*(Size-1);
+                float v=Mathf.Clamp01(.5f-z/(OuterRadius*2))*(Size-1);
+                int x0=Mathf.Min(Size-2,Mathf.FloorToInt(u)),y0=Mathf.Min(Size-2,Mathf.FloorToInt(v));
+                float a=Mathf.Lerp(samples[y0*Size+x0],samples[y0*Size+x0+1],u-x0);
+                float b=Mathf.Lerp(samples[(y0+1)*Size+x0],samples[(y0+1)*Size+x0+1],u-x0);
+                return Mathf.Lerp(a,b,v-y0);
+            }
         }
 
         private static float TerrainNoise(float x, float z, uint seed)
@@ -271,15 +305,16 @@ namespace BarrelRivals.Editor
         {
             public readonly List<Vector3> Vertices = new List<Vector3>();
             private readonly List<Vector2> uv = new List<Vector2>();
+            private readonly List<Color> colors = new List<Color>();
             public readonly List<Vector2Int> Seams = new List<Vector2Int>();
             public readonly List<int>[] Indices;
             public int TriangleCount { get { int count = 0; foreach (var indices in Indices) count += indices.Count / 3; return count; } }
             public Geometry(int materials) { Indices = new List<int>[materials]; for (int i = 0; i < materials; i++) Indices[i] = new List<int>(); }
-            public int Vertex(Vector3 p, Vector2 texcoord = default)
+            public int Vertex(Vector3 p, Vector2 texcoord = default, Color color = default)
             {
                 if (!float.IsFinite(p.x) || !float.IsFinite(p.y) || !float.IsFinite(p.z))
                     throw new InvalidOperationException("Mountain generation produced a non-finite vertex.");
-                Vertices.Add(p); uv.Add(texcoord); return Vertices.Count - 1;
+                Vertices.Add(p); uv.Add(texcoord); colors.Add(color); return Vertices.Count - 1;
             }
             public void Triangle(int material, Vector3 a, Vector3 b, Vector3 c)
             { Indices[material].Add(Vertex(a)); Indices[material].Add(Vertex(b)); Indices[material].Add(Vertex(c)); }
@@ -290,6 +325,7 @@ namespace BarrelRivals.Editor
                 var mesh = new Mesh { name = name, indexFormat = IndexFormat.UInt16 };
                 mesh.SetVertices(Vertices);
                 mesh.SetUVs(0, uv);
+                mesh.SetColors(colors);
                 mesh.subMeshCount = Indices.Length;
                 for (int i = 0; i < Indices.Length; i++) mesh.SetTriangles(Indices[i], i);
                 mesh.RecalculateNormals();

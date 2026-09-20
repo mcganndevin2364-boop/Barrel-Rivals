@@ -2,9 +2,9 @@
 
 Current source configures **0.5.0/build 5**, rules **reins-v2**: moving first-person alley, single-release launch, accessible rein/cadence tuning, shared alley walls, Reins-only startup and updated replay/verifier/save contracts. The warm MyStable/Tack/Rider Gear source includes one horse and 20 local cosmetics with real preview/equip behavior.
 
-135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last native/device artifact remains 0.4.0/build 4; no new native build or device install has been verified for this source. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
+Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last native/device artifact remains 0.4.0/build 4; no new native build or device install has been verified for this source. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
 
-Latest art-only update: [mane crown/coverage](../Art/Reins-Mane-Flow-Checkpoint.md), with fresh 135/135 Editor and 32/32 Play Mode results. Shared horse mesh now checks crown faces as well as vertices against actual skin. Coverage improves; graphics remain below reference quality and device acceptance is unchanged.
+Latest art-only update: [continuous elevation terrain](../Art/Reins-Landscape-Checkpoint.md), with fresh 137/137 Editor and 33/33 Play Mode results. Credited USGS data, an original world-mapped material and restrained haze/color replace the earlier coarse backdrop; all 386 previous evidence records are preserved. Horse/stable/gear and gameplay remain unchanged. The result remains below reference quality; new native artifacts, shader/device performance and full R2 acceptance are still pending.
 
 **How to read the list.** “Early code,” “helper” or “prototype” means a starting point exists but the section is not implemented and verified end to end. “Not built” means no implementation of the required system was found in the reviewed game project. All sections have a planning/engineering specification; none is release-ready.
 
@@ -37,7 +37,7 @@ Latest art-only update: [mane crown/coverage](../Art/Reins-Mane-Flow-Checkpoint.
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 16 | Arena Geometry & WPRA Standards | Standard pattern, ordered winding, full finish gate and shared finite alley-wall geometry tested; final arena/hull acceptance pending |
+| 16 | Arena Geometry & WPRA Standards | Standard pattern, ordered winding, full finish gate and shared finite alley-wall geometry tested; credited elevation backdrop and clear apron persist without gameplay colliders; final arena/hull acceptance pending |
 | 17 | Arena Lighting System | Photographic sky, brighter warm/fill light, working persisted HDR/ACES renderer and exposure pixel regression; final lighting and phone appearance/performance pending |
 | 18 | Arena Ground Surface (Dirt/Footing) | Photographic CC0 dirt albedo/normal/roughness with world UVs and six independently tintable patches; texture tiling/grazing-angle and mobile surface acceptance pending |
 | 19 | Arena Props (Barrels, Fences, Gates, Chutes) | Original modeled covered stands, roof trusses, fences, signs, fixtures, booth and detailed barrels; visible knock/penalty share one event; final art and animation pending |
@@ -119,7 +119,7 @@ Latest art-only update: [mane crown/coverage](../Art/Reins-Mane-Flow-Checkpoint.
 
 **iPhone preparation.** Xcode 15.2 built and signed development apps on the existing Ventura Mac. The signed IPA was installed on the connected iPhone 17 Pro running iOS 26.6.2 through standard USB installation; Xcode’s developer image lacks this phone variant. The user resolved development-certificate trust and confirmed 0.2.0 opens and feels good. Versions 0.3.0 and 0.4.0 were subsequently built, signed, installed and version-queried. The user has now played the second/Reins mode and prefers it; they want substantially better graphics and more forgiving arcade feel. This confirms mode use and product preference, not a measured launch-latency, sustained-performance or complete lifecycle acceptance pass. [iPhone setup guide](../../README-iPhone.md).
 
-**Next concrete work.** Review the actual moving alley and current stable/gear captures in [the v2 checkpoint](Reins-v2-Alley-Checkpoint.md). Refine the representative horse/rider/arena and natural planted turns/braking, then build fresh 0.5 platform artifacts and measure actual phone timing, visual comfort, lifecycle behavior and sustained performance. Preserve free/original asset provenance and historical evidence. Do not expand the roster before this quality gate. M1N follows R2 acceptance.
+**Next concrete work.** Review the actual moving alley and current stable/gear captures in [the latest art checkpoint](../Art/Reins-Landscape-Checkpoint.md); the [v2 checkpoint](Reins-v2-Alley-Checkpoint.md) owns gameplay acceptance. Refine the representative horse/rider/arena and natural planted turns/braking, then build fresh 0.5 platform artifacts and measure actual phone timing, visual comfort, lifecycle behavior and sustained performance. Preserve free/original asset provenance and historical evidence. Do not expand the roster before this quality gate. M1N follows R2 acceptance.
 
 **Companion documents.**
 

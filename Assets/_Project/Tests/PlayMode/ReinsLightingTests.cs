@@ -72,7 +72,7 @@ namespace BarrelRivals.Tests
                         volume.enabled=true;grade.postExposure.Override(candidate==0?.12f:.35f);grade.contrast.Override(7);grade.saturation.Override(2);
                         sun.color=new Color(1,.90f,.76f);sun.intensity=candidate==0?2.0f:2.5f;sun.transform.rotation=Quaternion.Euler(32,-32,0);
                         RenderSettings.ambientSkyColor=new Color(.58f,.65f,.76f);RenderSettings.ambientEquatorColor=new Color(.50f,.45f,.38f);RenderSettings.ambientGroundColor=new Color(.26f,.20f,.14f);
-                        RenderSettings.fogStartDistance=130;RenderSettings.fogEndDistance=700;RenderSettings.fogColor=new Color(.60f,.61f,.64f);
+                        RenderSettings.fogStartDistance=oldFogStart;RenderSettings.fogEndDistance=oldFogEnd;RenderSettings.fogColor=oldFogColor;
                         yield return null;Read(Path.Combine(output,"0"+(candidate+1)+"-afternoon-fill.png"));
                     }
                 }

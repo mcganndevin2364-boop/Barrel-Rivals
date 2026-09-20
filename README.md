@@ -4,7 +4,7 @@ An iOS/Android arcade barrel-racing game in development. Current source configur
 
 MyStable/Tack/Rider Gear follows the warm stable, saddle-grid and glove-inspection reference with one horse and 20 free local cosmetic styles. Preview/equip/persistence are real; photographic art, the full roster, leveling, trusted economy and multiplayer remain unfinished. All three requested multiplayer experiences and the eight-category/53-section plan remain in scope.
 
-135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current checkpoint and moving capture](Docs/Plan/Reins-v2-Alley-Checkpoint.md). The last native/device build remains 0.4.0/build 4; the new source has no verified 0.5 APK/IPA or device installation. Full R2 visual/timing/performance acceptance remains open.
+Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current checkpoint and moving capture](Docs/Plan/Reins-v2-Alley-Checkpoint.md). The last native/device build remains 0.4.0/build 4; the new source has no verified 0.5 APK/IPA or device installation. Full R2 visual/timing/performance acceptance remains open.
 
 - [AI continuation handoff](Barrel-Rivals-AI-Handoff.md)
 - [Copyable next-AI prompt](CONTINUE-WITH-ANOTHER-AI.md)
@@ -17,6 +17,8 @@ MyStable/Tack/Rider Gear follows the warm stable, saddle-grid and glove-inspecti
 - [iPhone setup and export guidance](README-iPhone.md)
 
 Next: finish the representative moving horse/rider/arena benchmark, build fresh 0.5 native artifacts, and qualify real phone controls/audio/visuals/lifecycle plus sustained performance. M1N authenticated continuous-input authority follows R2 acceptance. Continue `codex/m1-skill-loop`; main is historical. Free/original assets only, with no new paid service or purchase.
+
+Latest art-only source: [elevation terrain checkpoint](Docs/Art/Reins-Landscape-Checkpoint.md), with 137/137 Editor and 33/33 Play Mode checks. New terrain shading and actual captures use `Landscape-*`; the 78/78 HTTP check above is preserved gameplay evidence. No new phone build or photographic-quality acceptance.
 
 ## Development context
 

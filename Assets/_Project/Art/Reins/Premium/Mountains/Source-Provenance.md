@@ -1,6 +1,6 @@
 # Western mountain source
 
-September 20, 2026. The mountain/valley geometry, pine geometry and generation code are original Barrel Rivals work. They contain no copied reference pixels or sponsor artwork.
+September 20, 2026. Current mountain geometry derives from credited USGS 3DEP elevation samples, with original game scaling, venue apron, topology, pine geometry and material code. See [elevation provenance](../../../../../../Docs/Art/Elevation-Source.md). No copied user-reference pixels or sponsor artwork is included. The texture acquisition below remains valid; its cylindrical/layered mapping descriptions record earlier candidates, superseded by the current world-mapped terrain material.
 
 The two new 1024 × 1024 photographic material files come from [Poly Haven's Rock Face](https://polyhaven.com/a/rock_face), photographed by **Greg Zaal** and processed by **Dario Barresi**. The asset listing identifies the license as CC0. [Poly Haven's asset license](https://polyhaven.com/license) explicitly allows commercial use and redistribution; see also the [CC0 1.0 dedication](https://creativecommons.org/publicdomain/zero/1.0/). No purchase, account or paid service is involved.
 

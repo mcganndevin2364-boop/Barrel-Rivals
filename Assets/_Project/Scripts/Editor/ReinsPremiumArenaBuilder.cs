@@ -252,7 +252,7 @@ namespace BarrelRivals.Editor
             RenderSettings.ambientSkyColor=new Color(.58f,.65f,.76f);RenderSettings.ambientEquatorColor=new Color(.50f,.45f,.38f);RenderSettings.ambientGroundColor=new Color(.26f,.20f,.14f);
             RenderSettings.reflectionIntensity=.65f;
             RenderSettings.sun.color=new Color(1,.90f,.76f);RenderSettings.sun.intensity=2.5f;RenderSettings.sun.transform.rotation=Quaternion.Euler(32,-32,0);
-            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=130;RenderSettings.fogEndDistance=700;RenderSettings.fogColor=new Color(.60f,.61f,.64f);
+            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=180;RenderSettings.fogEndDistance=1400;RenderSettings.fogColor=new Color(.52f,.56f,.61f);
             camera.farClipPlane=1000;camera.allowHDR=true;
             var source=(UniversalRenderPipelineAsset)GraphicsSettings.defaultRenderPipeline;
             string pipelinePath=Root+"/Premium mobile pipeline.asset";var pipeline=AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>(pipelinePath);
