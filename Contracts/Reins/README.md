@@ -1,28 +1,52 @@
-# Reins Lab contracts — version 1
+# Reins local replay contracts — version 2
 
-`verify-request.v1.schema.json` and `verify-response.v1.schema.json` describe `POST /lab/reins/verify`. The companion ASP.NET adapter lives in `Tools/ReinsServerCheck`. This is an **offline consistency experiment**, not a production trust boundary or an award contract.
+`verify-request.v2.schema.json` and `verify-response.v2.schema.json` describe `POST /lab/reins/verify`. The ASP.NET adapter in `Tools/ReinsServerCheck` is an **offline consistency experiment**, not a production trust boundary or award contract. It explicitly rejects v1 verification; all `*.v1.*` files remain unchanged historical evidence.
 
-The local manifest contains rules version 1, an unsigned 32-bit seed (including zero), the exact surface enum, zero-based round index 0–2, and four bounded temperament values in permille. These are caller-supplied and therefore untrusted. In production a verified assignment must resolve to a server-issued immutable manifest, course/footing versions and frozen participant loadouts. That issuance/authentication path is not implemented here.
+The required request envelope is `contractVersion:2`, the exact compiled `ruleFingerprint`, `launchInitiallyHeld:true`, a manifest and ordered frames. The manifest specifies `rulesVersion:2`, `courseId:"reins-v2"`, an unsigned 32-bit seed (including zero), an exact surface name, round index 0–2 and four temperament values in permille 0–1000. Caller-supplied manifests remain untrusted. Future competition requires authenticated server-issued assignments, frozen loadouts and course/footing versions; those services are not implemented.
 
-The adapter constructs `ReinsManifest`/`ReinsRun`, calls `Start()` once and applies one `ReinsInput` per frame. `tick:1` is the first `Step`, `tick:2` the second, and so on. Each step is exactly 20 ms regardless of render framerate. Frames begin at 1 and cannot have gaps, duplicates or extra frames after Complete/Cancelled/TimedOut. Preview and gate frames are retained. Taps are events for that frame; left/right rein pressure and wrap are current state. The client must record the exact quantized frames consumed by its simulation instead of reconstructing them from render snapshots.
+The adapter constructs the shared run and calls `Start()` once, arming the launch at tick 0. Each frame is one 20 ms step, starting at tick 1. `launchHeld` replaces v1 `gateTap`; it is current held state, not a tap event. A false first frame records an intentional release at tick 1 even when touch-down/up happened within one rendering interval. The first release is graded once; represses cannot rearm it. All approach frames must be retained. Inputs cannot omit the approach, move GO or start the race clock early.
 
-Every declared property is required; unknown and repeated JSON names fail. Enum strings are case-sensitive names, never ordinals or flag combinations. Integer fields use integer tokens without decimal/exponent notation. Input JSON cannot contain a final time, position, result, score, wallet value or reward request. Non-finite JSON numbers and numeric overflow fail. Maximum request: 2,097,152 bytes and 7,500 frames, corresponding to at most 150 seconds including preview/gate.
+GO is tick 200: the horse reaches `(0,0)` at 1.5 m/s and race time is zero. The first free movement step is tick 201. Release timing uses signed error relative to GO: Perfect ±120 ms, Good through ±240 ms, otherwise Weak. Still-held input at tick 220 resolves as TimedOut; intentional release on that same tick wins. Timeout carries `launchReleaseErrorMs:null`, never a fabricated zero. The response includes launch outcome/error in the state and, when complete, the result. Initial arming is explicit in the wire format even though the Core's `Start()` always arms it.
 
-`accepted:true` means the shared local simulation reached Complete from those inputs. It does not mean the inputs came from a human or an authorized match. Only Complete includes `result`; other states include `result:null`. The response carries `authority:false` and `scope:"offline-consistency"`. Times, penalties, style points and final state are recomputed. The shared core owns the five-second knock penalty.
+Every declared property is required. Unknown, duplicate or missing properties, mixed v1 fields/namespaces, incorrect fingerprints, gaps/repeated ticks and input after a terminal state fail. Enum strings are case-sensitive names, not ordinals/combinations. Integer fields require integer JSON tokens, without decimal/exponent notation. Rein pressure and Wrap are current state; cadence/Drive taps are events. The adapter accepts only input, not claimed positions, final times, rewards or results. Maximum request is 2,097,152 uncompressed bytes and 7,500 frames (150 seconds including the approach). Schemas supplement runtime validation; source compatibility, integer-token syntax and terminal order also require parser/Core checks.
 
-Health and all verification responses also report the nonblank `ruleFingerprint` from the compiled shared core. It identifies the canonical source bytes of `ReinsContracts.cs`, `ReinsCourseJudge.cs`, `ReinsRun.cs`, and `ReinsReplay.cs`, in that order: each UTF-8 filename followed by a NUL byte and then that file's bytes, with SHA-256 over the concatenation. The smoke suite independently recomputes this fingerprint from source. Consumers must compare it with their saved/local rules fingerprint before treating playback as compatible; it is response metadata, not a caller-supplied request field or an authentication signature. Regenerate the shared fingerprint after legitimate rule edits, and advance the rules/save namespace version when existing saved inputs are no longer compatible. Course/content compatibility and the complete core assembly are separate provenance concerns.
+`accepted:true` means only that these inputs reached Complete in the shared local simulation. Complete has a recomputed result; other phases have `result:null`. Responses retain `authority:false` and `scope:"offline-consistency"`. Digests do not prove human input, trusted assignment, anti-cheat protection or reward eligibility.
 
-Canonical hashing uses UTF-8 JSON without whitespace, property order below, integer decimal tokens, lowercase booleans and the displayed enum strings. No BOM or trailing newline is included. No user-provided JSON text is hashed directly; duplicate names are rejected first. SHA-256 is lowercase hexadecimal. This canonicalization is deliberately narrow and is not a general JSON canonicalization standard.
+## Fingerprint and canonical hashes
 
-1. Manifest order: `rulesVersion`, `seed`, `surface`, `roundIndex`, `horse`.
-2. Horse order: `nervePermille`, `firePermille`, `biddabilityPermille`, `heartPermille`.
-3. Frame order: `tick`, `leftPermille`, `rightPermille`, `cadenceTap`, `gateTap`, `wrap`, `drive`.
-4. Replay order: `contractVersion`, `manifest`, `frames`.
+Version 2 fingerprints these source labels in this exact order, relative to `Packages/com.barrelrivals.core/Runtime/Reins`:
 
-`manifestSha256` hashes the canonical manifest object; `replaySha256` hashes the canonical request object. Digests identify equal content; they do not authenticate the manifest or prevent replay attacks.
+1. `ReinsContracts.cs`
+2. `ReinsCourseJudge.cs`
+3. `ReinsRun.cs`
+4. `ReinsReplay.cs`
+5. `ReinsAlley.cs`
+6. `../StandardCourse.cs`
 
-`preview-request.v1.json` is a three-frame incomplete request. `complete-request.v1.json` records a real complete shared-core route with 2,156 frames, including preview, three gate taps and alternating home-drive taps. `complete-response.v1.json` records its expected .NET 8 result: 35,120 ms raw/final time, zero knocks and 300 style points. The fixture uses a conservative development steering policy; it is neither player telemetry nor proof of human input. The generator only sends valid inputs and never sets positions or bypasses course judgement. `fixture-provenance.v1.json` records the tested runtime and file hashes. Cross-runtime comparisons must use the same request file, not independently regenerated steering inputs.
+For each label, concatenate its UTF-8 bytes, one NUL byte and the corresponding file's exact bytes; SHA-256 the concatenation. The literal `../StandardCourse.cs` label includes barrel geometry formerly omitted by the historical four-source fingerprint. The helper, Unity builder validator and smoke suite use the same six labels. The request fingerprint must equal the compiled constant. This is compatibility metadata, not authentication.
 
-To deliberately regenerate the request and expected response after reviewing a rules change, build the adapter then run `bash Tools/ReinsServerCheck/run.sh generate-fixture`. Review the diff and refresh the provenance evidence before accepting a new baseline. Smoke verification consumes the saved fixture and never regenerates its expected answer. Canonical request digests were independently reproduced with Python. The same saved fixture passed Unity Editor playback at 35,120 ms, zero knocks and 300 style points; native iOS/Android IL2CPP playback parity remains a separate outstanding check.
+Canonical hashes use compact UTF-8 JSON, no BOM/trailing newline, decimal integer tokens, lowercase booleans and exact enum names. Runtime DTOs reconstruct these property orders after strict validation:
 
-The PostgreSQL design under `Backend/Schema` has separate future trusted manifest, replay, settlement and progression responsibilities. The local endpoint has no connection to it. No paid asset, insurance mechanic, wallet authority or deployed persistence is implied by these contracts.
+- Manifest: `rulesVersion`, `courseId`, `seed`, `surface`, `roundIndex`, `horse`.
+- Horse: `nervePermille`, `firePermille`, `biddabilityPermille`, `heartPermille`.
+- Frame: `tick`, `leftPermille`, `rightPermille`, `cadenceTap`, `launchHeld`, `wrap`, `drive`.
+- Replay: `contractVersion`, `ruleFingerprint`, `launchInitiallyHeld`, `manifest`, `frames`.
+
+`manifestSha256` covers the canonical manifest; `replaySha256` covers the entire canonical request. Equivalent property order/whitespace at input does not alter either hash. This narrow encoding is not a general JSON canonicalization standard.
+
+## Fixtures and preservation
+
+`preview-request.v2.json` retains the familiar filename but represents three **Approach** frames, not the removed Preview phase. It must be incomplete with a pending launch. `complete-request.v2.json` is generated solely through valid inputs from a development steering policy, using `(0,0)` as the incoming source for barrel one. It holds through tick 199 and releases on GO. The saved `complete-response.v2.json` and `fixture-provenance.v2.json` record the actual result/runtime/hashes; use that exact input file for cross-runtime comparisons. A generated expected answer is not independent physics validation.
+
+After a deliberate, reviewed rules edit, regenerate only v2:
+
+```bash
+bash Tools/ReinsServerCheck/run.sh fingerprint
+bash Tools/ReinsServerCheck/run.sh build
+bash Tools/ReinsServerCheck/run.sh generate-fixture
+bash Tools/ReinsServerCheck/run.sh smoke
+```
+
+Smoke consumes the saved expected response; it does not regenerate it. Its evidence is `Tools/ReinsServerCheck/verification-evidence.v2.json`. Compare the same fixture in Unity and native IL2CPP separately before claiming parity/device acceptance. The v1 request/response/schema/provenance files and original verifier evidence are preserved byte for byte. Old Classic/`reins-lab-v1` saves are not migrated into v2 bests.
+
+The unapplied PostgreSQL draft has a separate future persistence/settlement role. The loopback endpoint has no database writer, account services, ranked authority or rewards.

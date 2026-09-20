@@ -1,10 +1,8 @@
 # Reins Racing 0.5 — approved implementation plan
 
-The current source repairs **previously inactive URP post-processing**, retunes arena light and fence materials, and varies the fitted mane flow. It also corrects evidence capture so world grading does not alter the actual overlay HUD. Read [the renderer/lighting checkpoint](../Art/Reins-Lighting-Flow-Checkpoint.md) for executed pixel checks, current race/stable/gear captures, source costs and visual limits. Photographic quality, full rider animation, device qualification and approved 0.5/v2 gameplay remain unfinished.
+Current source implements the v2 alley/rules/input/replay boundary. See [executed checks and remaining acceptance](Reins-v2-Alley-Checkpoint.md). Representative art and native/device qualification remain unfinished; R2 is not complete.
 
-The preceding source added **a layered mane/tail groom with restrained phase-driven motion**, including stable Idle, reduced motion and private ghost handling. It also combines the racing hands into fewer material slots while preserving all 20 cosmetics. Read [the groom checkpoint](../Art/Reins-Hair-Groom-Checkpoint.md) for current tests, actual moving captures and source costs. Photographic quality, a full rider, further optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
-
-Approved September 19, 2026. Gameplay revision 5 / engineering revision 6. **Status: approved, not implemented.** Source baseline is `3e1ce2f` (0.4.0/build 4). This document supersedes the additive-Lab, three-tap gate and third-person introduction defaults in earlier planning documents. Historical 0.4 evidence remains valid for its own source and rules only.
+Approved September 19, 2026. Gameplay revision 5 / engineering revision 6. **Status: rules/input/replay implemented and source-tested; art/device acceptance incomplete.** Source baseline is `3e1ce2f` (0.4.0/build 4). This document supersedes the additive-Lab, three-tap gate and third-person introduction defaults in earlier planning documents. Historical 0.4 evidence remains valid for its own source and rules only.
 
 ## Outcome and boundaries
 
@@ -93,7 +91,7 @@ Initial engineering limits (targets, not achieved measurements):
 1. **CORE:** retain pure C#/.NET Standard 2.1 and the 20 ms step. Add approach/single-release state and course walls; publish explicit launch outcome/timing. Version new rules as **2** and namespace **`reins-v2`**.
 2. **CLIENT:** make Reins the only mobile startup scene; remove Classic navigation/binding requirements. Implement pointer handoff, scheduled audio, presentation adapter, rig/camera/HUD and isolated v2 storage. Preserve legacy code/evidence rather than deleting old work.
 3. **CONTRACTS/API:** publish v2 request/response schemas for the existing local `/lab/reins/verify` proof with canonical `launchHeld` replacing v1 `GateTap`, initial armed state and launch outcome/error. Update strict parser, canonical hashing, fixture generator, Unity decoder and smoke checks together. Explicitly reject unsupported v1 verification at the v2 verifier rather than silently reinterpreting it; preserve v1 fixtures/evidence as history.
-4. **REPLAY/SAVE:** regenerate the four-source fingerprint and a completed v2 fixture. Keep old Classic and `reins-lab-v1` records untouched and isolated; do not automatically migrate their times or award them v2 best status.
+4. **REPLAY/SAVE:** regenerate the six-source fingerprint and a completed v2 fixture. Keep old Classic and `reins-lab-v1` records untouched and isolated; do not automatically migrate their times or award them v2 best status.
 5. **DB:** revise the unapplied schema draft's v1-only assumptions and replay compatibility design. No production database migration or service provisioning is part of this milestone.
 6. **BUILD/DOCS:** use **0.5.0/build 5** if still unallocated. Update mobile builders, READMEs, evidence and relevant S01–S53 cards together. Use a clean generated iOS export outside cloud-coordinated folders for native compilation; preserve source/engine files and follow the recorded preflight guidance.
 

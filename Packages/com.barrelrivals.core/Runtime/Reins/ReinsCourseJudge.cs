@@ -69,7 +69,7 @@ namespace BarrelRivals.Core.Reins
             if (!_turnActive)
             {
                 if (!_canEnter || distance > EntryRadius || distance >= previousDistance) return false;
-                var source = BarrelIndex == 0 ? new StandardCourse.Point(0, -9) : StandardCourse.Barrel(BarrelIndex - 1);
+                var source = BarrelIndex == 0 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(BarrelIndex - 1);
                 double incomingLength = ReinsMath.Distance(source.X, source.Z, target.X, target.Z);
                 double dot = ((x - target.X) * (source.X - target.X) + (z - target.Z) * (source.Z - target.Z)) / Math.Max(.001, distance * incomingLength);
                 if (dot < .34) return false;

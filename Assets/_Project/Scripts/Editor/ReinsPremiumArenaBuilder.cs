@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using BarrelRivals.Practice;
+using BarrelRivals.Core.Reins;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -40,7 +41,7 @@ namespace BarrelRivals.Editor
             world = new GameObject("Premium rodeo arena").transform; batches.Clear();
             var originalGround = GameObject.Find("Arena dirt"); if (originalGround) originalGround.GetComponent<Renderer>().enabled = false;
             Ground(patches);
-            Stands(); Fences(); Structures(); Mountains();
+            Stands(); Fences(); Alley(); Structures(); Mountains();
             Flush();
             ReinsCrowdBuilder.Build(world);
             BuildBarrels(barrels);
@@ -102,6 +103,24 @@ namespace BarrelRivals.Editor
             int panels=Mathf.CeilToInt(Vector3.Distance(a,b)/3.2f);
             for(int i=0;i<=panels;i++) {var p=Vector3.Lerp(a,b,i/(float)panels);Tube(p,p+Vector3.up*1.7f,.045f,rails,10);}
             for(int r=0;r<5;r++){var up=Vector3.up*(.24f+r*.32f);Tube(a+up,b+up,.029f,rails,8);}
+        }
+        private static void Alley()
+        {
+            // These visible centerlines use the same swept-capsule bounds as Core.
+            // No Unity collider or decorative timing line can decide contact or the start.
+            foreach(int side in new[]{-1,1})
+            {
+                float x=side*(float)ReinsAlley.HalfWidth;
+                float back=(float)ReinsAlley.BackZ,front=(float)ReinsAlley.FrontZ;
+                float radius=(float)ReinsAlley.RailRadius;
+                for(int row=0;row<5;row++)
+                { float y=.25f+row*.32f;Tube(new Vector3(x,y,back),new Vector3(x,y,front),radius,rails,12); }
+                for(int post=0;post<=4;post++)
+                {
+                    float z=Mathf.Lerp(back,front,post/4f);
+                    Tube(new Vector3(x,0,z),new Vector3(x,1.76f,z),radius,rails,12);
+                }
+            }
         }
         private static void Stands()
         {

@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:barrelrivals:reins:verify-response:2",
+  "title": "Reins moving-launch local verification response v2",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "scope",
+        "accepted",
+        "authority",
+        "status",
+        "rulesVersion",
+        "frameCount",
+        "fixedStepMs",
+        "manifestSha256",
+        "replaySha256",
+        "state",
+        "result",
+        "ruleFingerprint"
+      ],
+      "properties": {
+        "contractVersion": {
+          "const": 2
+        },
+        "scope": {
+          "const": "offline-consistency"
+        },
+        "accepted": {
+          "type": "boolean"
+        },
+        "authority": {
+          "const": false
+        },
+        "status": {
+          "enum": [
+            "Approach",
+            "Racing",
+            "Drive",
+            "Complete",
+            "Cancelled",
+            "TimedOut"
+          ]
+        },
+        "rulesVersion": {
+          "const": 2
+        },
+        "frameCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7500
+        },
+        "fixedStepMs": {
+          "const": 20
+        },
+        "manifestSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "replaySha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "state": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "tick",
+            "raceTimeMs",
+            "barrelIndex",
+            "x",
+            "z",
+            "headingRadians",
+            "speedMetresPerSecond",
+            "launchOutcome",
+            "launchReleaseErrorMs"
+          ],
+          "properties": {
+            "tick": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 7500
+            },
+            "raceTimeMs": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "barrelIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            "x": {
+              "type": "number"
+            },
+            "z": {
+              "type": "number"
+            },
+            "headingRadians": {
+              "type": "number"
+            },
+            "speedMetresPerSecond": {
+              "type": "number",
+              "minimum": 0
+            },
+            "launchOutcome": {
+              "enum": [
+                "Pending",
+                "Perfect",
+                "Good",
+                "Weak",
+                "TimedOut"
+              ]
+            },
+            "launchReleaseErrorMs": {
+              "$ref": "#/$defs/launchError"
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "launchOutcome": {
+                    "enum": [
+                      "Pending",
+                      "TimedOut"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "launchReleaseErrorMs": {
+                    "type": "null"
+                  }
+                }
+              },
+              "else": {
+                "properties": {
+                  "launchReleaseErrorMs": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "result": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "raceTimeMs",
+                "finalTimeMs",
+                "knockCount",
+                "stylePoints",
+                "launchOutcome",
+                "launchReleaseErrorMs"
+              ],
+              "properties": {
+                "raceTimeMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "finalTimeMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "knockCount": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 3
+                },
+                "stylePoints": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "launchOutcome": {
+                  "enum": [
+                    "Perfect",
+                    "Good",
+                    "Weak",
+                    "TimedOut"
+                  ]
+                },
+                "launchReleaseErrorMs": {
+                  "$ref": "#/$defs/launchError"
+                }
+              },
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "launchOutcome": {
+                        "enum": [
+                          "Pending",
+                          "TimedOut"
+                        ]
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "launchReleaseErrorMs": {
+                        "type": "null"
+                      }
+                    }
+                  },
+                  "else": {
+                    "properties": {
+                      "launchReleaseErrorMs": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "ruleFingerprint": {
+          "$ref": "#/$defs/hash"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "Complete"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "accepted": {
+                "const": true
+              },
+              "result": {
+                "type": "object"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "accepted": {
+                "const": false
+              },
+              "result": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contractVersion",
+        "scope",
+        "accepted",
+        "error",
+        "ruleFingerprint"
+      ],
+      "properties": {
+        "contractVersion": {
+          "const": 2
+        },
+        "scope": {
+          "const": "offline-consistency"
+        },
+        "accepted": {
+          "const": false
+        },
+        "error": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "ruleFingerprint": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "launchError": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": -3980,
+      "maximum": 400,
+      "multipleOf": 20
+    }
+  }
+}

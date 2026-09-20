@@ -27,12 +27,13 @@ namespace BarrelRivals.Editor
         public static void Generate()
         {
             if(!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())return;
-            Directory.CreateDirectory(Root);AssetDatabase.Refresh();
+            Directory.CreateDirectory(Root);AssetDatabase.Refresh();Version();
             var scene=EditorSceneManager.OpenScene(PracticeBuilder.ScenePath);
             EditorSceneManager.SaveScene(scene,ScenePath);
-            foreach(string name in new[]{"Skill practice","Skill HUD","Practice mode navigation"})
+            foreach(string name in new[]{"Skill practice","Skill HUD","Practice mode navigation","Score line"})
             {var old=GameObject.Find(name);if(old)UnityEngine.Object.DestroyImmediate(old);}
             var horse=GameObject.Find("Horse proxy").transform;
+            horse.position=new Vector3(0,0,-6);
             var barrels=Enumerable.Range(1,3).Select(i=>GameObject.Find("Barrel "+i).transform).ToArray();
             var camera=Camera.main;var controller=new GameObject("Reins practice").AddComponent<ReinsLabController>();
             // Classic's decorative inner rails have no contact rules. Use separate world meshes for the free-steering lab.
@@ -83,8 +84,7 @@ namespace BarrelRivals.Editor
             var mapPanel=Panel(safe,"Course map",new Vector2(1,1),new Vector2(-20,-104),new Vector2(132,124),new Color(.045f,.053f,.050f,.70f));
             mapPanel.GetComponent<ReinsHudPanel>().ShowGrid=true;
             var mapObject=new GameObject("Route",typeof(RectTransform),typeof(ReinsMapGraphic));var mapRect=mapObject.GetComponent<RectTransform>();mapRect.SetParent(mapPanel,false);mapRect.anchorMin=Vector2.zero;mapRect.anchorMax=Vector2.one;mapRect.offsetMin=new Vector2(8,8);mapRect.offsetMax=new Vector2(-8,-8);var map=mapObject.GetComponent<ReinsMapGraphic>();map.raycastTarget=false;
-            var start=Button(safe,"Begin","BEGIN RUN",new Vector2(.5f,.5f),new Vector2(0,15),new Vector2(250,58),22,out var startText);
-            startText.font=HudFont("Cinzel-SemiBold.ttf");
+            Button start=null; // The center input surface owns the complete launch hold/release.
             var resultPanel=Panel(safe,"Run result",new Vector2(.5f,.5f),new Vector2(0,30),new Vector2(680,326),new Color(.035f,.041f,.038f,.97f));var resultGroup=resultPanel.gameObject.AddComponent<CanvasGroup>();
             var result=Label(resultPanel,"Result","",new Vector2(.5f,.5f),new Vector2(0,0),new Vector2(630,280),24,TextAnchor.MiddleCenter);
             var retry=Button(safe,"Retry","RETRY SAME",new Vector2(0,1),new Vector2(20,-102),new Vector2(126,38),13,out _);
@@ -92,17 +92,16 @@ namespace BarrelRivals.Editor
             var ghost=Button(safe,"Own ghost","OWN BEST: —",new Vector2(0,1),new Vector2(318,-102),new Vector2(132,38),13,out var ghostText);
             var sound=Button(safe,"Sound","SOUND ON",new Vector2(0,0),new Vector2(20,10),new Vector2(144,36),14,out var soundText);
             var cameraMode=Button(safe,"Camera","BODYCAM",new Vector2(0,0),new Vector2(174,10),new Vector2(144,36),14,out var cameraText);
-            // Preserve the v1 navigation for this graphics checkpoint; startup changes ship with v2.
-            var classic=Button(safe,"Classic practice","CLASSIC PRACTICE",new Vector2(1,0),new Vector2(-20,10),new Vector2(220,36),14,out _);
+            Button classic=null; // Historical Classic remains source-only in the Reins v2 player.
             Label(safe,"Practice status","FREE PRACTICE · LOCAL RECORDINGS",new Vector2(.5f,0),new Vector2(0,14),new Vector2(430,26),12,TextAnchor.MiddleCenter).color=new Color(.88f,.85f,.76f,.85f);
-            var stable=Button(safe,"MyStable","MY STABLE",new Vector2(1,0),new Vector2(-250,10),new Vector2(140,36),14,out _);
+            var stable=Button(safe,"MyStable","MY STABLE",new Vector2(1,0),new Vector2(-20,10),new Vector2(140,36),14,out _);
             controller.ConfigureStable(stable);
             var ghostMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Generated/Practice/PersonalBestGhost.mat");
             controller.Configure(horse,barrels,camera,safe,new[]{title,hint,status,feedback,action,result,surfaceText,soundText,cameraText,ghostText},new[]{beat,lf,rf},resultGroup,map,new[]{start,retry,surface,sound,cameraMode,classic,ghost},ghostMaterial);
-            EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(PracticeBuilder.ScenePath,true),new EditorBuildSettingsScene(ScenePath,true),new EditorBuildSettingsScene(FoundationBuilder.ScenePath,true)};
+            EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ScenePath,true),new EditorBuildSettingsScene(StableBuilder.ScenePath,true)};
             AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(scene);
-            AddClassicNavigation();StableBuilder.Generate();EditorSceneManager.OpenScene(ScenePath);Validate();
-            Debug.Log("BARREL_REINS: both practice modes generated, saved and reopened.");
+            StableBuilder.Generate();EditorSceneManager.OpenScene(ScenePath);Validate();
+            Debug.Log("BARREL_REINS: Reins v2 and MyStable generated, saved and reopened.");
         }
         private static void AddClassicNavigation()
         {
@@ -123,7 +122,7 @@ namespace BarrelRivals.Editor
             if(!controller || !controller.HasBindings)throw new InvalidOperationException("Reins scene bindings missing.");
             using(var bytes=new MemoryStream())
             {
-                foreach(string name in new[]{"ReinsContracts.cs","ReinsCourseJudge.cs","ReinsRun.cs","ReinsReplay.cs"})
+                foreach(string name in new[]{"ReinsContracts.cs","ReinsCourseJudge.cs","ReinsRun.cs","ReinsReplay.cs","ReinsAlley.cs","../StandardCourse.cs"})
                 {var prefix=System.Text.Encoding.UTF8.GetBytes(name+"\0");bytes.Write(prefix,0,prefix.Length);var data=File.ReadAllBytes("Packages/com.barrelrivals.core/Runtime/Reins/"+name);bytes.Write(data,0,data.Length);}
                 using(var sha=System.Security.Cryptography.SHA256.Create())
                     if(BitConverter.ToString(sha.ComputeHash(bytes.ToArray())).Replace("-","").ToLowerInvariant()!=ReinsRuleFingerprint.Sha256)
@@ -144,11 +143,11 @@ namespace BarrelRivals.Editor
             Validate();Version();EditorUserBuildSettings.buildAppBundle=false;PlayerSettings.Android.targetSdkVersion=(AndroidSdkVersions)36;PlayerSettings.Android.useCustomKeystore=false;PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;PlayerSettings.SetScriptingBackend(NamedBuildTarget.Android,ScriptingImplementation.IL2CPP);
             Build(BuildTarget.Android,"Builds/Android/BarrelRivals-ReinsLab.apk");
         }
-        private static void Version(){PlayerSettings.bundleVersion="0.4.0";PlayerSettings.iOS.buildNumber="4";PlayerSettings.Android.bundleVersionCode=4;}
+        private static void Version(){PlayerSettings.bundleVersion="0.5.0";PlayerSettings.iOS.buildNumber="5";PlayerSettings.Android.bundleVersionCode=5;}
         private static void Build(BuildTarget target,string path)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
-            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{PracticeBuilder.ScenePath,ScenePath,StableBuilder.ScenePath},locationPathName=path,target=target,options=BuildOptions.Development});
+            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{ScenePath,StableBuilder.ScenePath},locationPathName=path,target=target,options=BuildOptions.Development});
             Debug.Log($"BARREL_REINS: {target} build {report.summary.result}; errors={report.summary.totalErrors}.");if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Reins mobile build failed.");
         }
         private static void CreateZones(Transform barrel,int index)

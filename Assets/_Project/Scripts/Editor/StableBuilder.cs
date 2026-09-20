@@ -54,7 +54,7 @@ namespace BarrelRivals.Editor
             StableUiBuilder.Build(horse.transform,camera,riderPreview);
             Object.FindFirstObjectByType<StableController>().ConfigureRiderCamera(new Vector3(.7f,1.5f,4.7f),new Vector3(-1.35f,1.05f,1.5f));
             AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(scene,ScenePath);
-            EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(PracticeBuilder.ScenePath,true),new EditorBuildSettingsScene(ReinsLabBuilder.ScenePath,true),new EditorBuildSettingsScene(ScenePath,true),new EditorBuildSettingsScene(FoundationBuilder.ScenePath,true)};
+            EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(ReinsLabBuilder.ScenePath,true),new EditorBuildSettingsScene(ScenePath,true)};
             EditorSceneManager.OpenScene(ScenePath);
             foreach(var root in SceneManager.GetActiveScene().GetRootGameObjects())foreach(var t in root.GetComponentsInChildren<Transform>(true))if(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)>0)throw new InvalidOperationException("Stable missing script: "+t.name);
             Debug.Log("BARREL_STABLE: saved and reopened MyStable / Gear with shared horse and original western tack.");

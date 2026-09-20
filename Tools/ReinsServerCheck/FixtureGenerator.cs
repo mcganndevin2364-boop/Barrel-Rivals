@@ -1,4 +1,6 @@
 using System.Text.Json;
+using System.Security.Cryptography;
+using System.Runtime.InteropServices;
 using BarrelRivals.Core;
 using BarrelRivals.Core.Reins;
 
@@ -18,9 +20,8 @@ internal static class FixtureGenerator
         while (!run.IsTerminal)
         {
             ReinsInput input;
-            if (run.Phase == ReinsPhase.Preview) input = default;
-            else if (run.Phase == ReinsPhase.Gate)
-                input = new ReinsInput(gateTap: (run.PhaseElapsedMs + ReinsRun.StepMs) % 1000 == 500);
+            if (run.Phase == ReinsPhase.Approach)
+                input = new ReinsInput(launchHeld: run.Tick + 1 < 200);
             else
             {
                 if (routeIndex != run.BarrelIndex)
@@ -35,7 +36,7 @@ internal static class FixtureGenerator
             }
             inputs.Add(input);
             frames.Add(new { tick = inputs.Count, leftPermille = input.LeftPermille, rightPermille = input.RightPermille,
-                cadenceTap = input.CadenceTap, gateTap = input.GateTap, wrap = input.Wrap, drive = input.Drive.ToString() });
+                cadenceTap = input.CadenceTap, launchHeld = input.LaunchHeld, wrap = input.Wrap, drive = input.Drive.ToString() });
             run.Step(input);
         }
         Console.WriteLine($"Terminal {run.Phase}; tick={run.Tick}; barrel={run.BarrelIndex}; waypoint={waypoint}/{route.Count}; X={run.X:R}; Z={run.Z:R}; finalTimeMs={run.FinalTimeMs}");
@@ -43,21 +44,47 @@ internal static class FixtureGenerator
             || !ReinsReplay.TryCreate(ReinsRun.RulesVersion, manifest, inputs, out _))
             throw new InvalidOperationException("Steering policy did not produce a complete, independently replayable run. No fixture written.");
         string directory = Path.Combine(Directory.GetCurrentDirectory(), "Contracts", "Reins");
-        if (!File.Exists(Path.Combine(directory, "verify-request.v1.schema.json")))
+        if (!File.Exists(Path.Combine(directory, "verify-request.v2.schema.json")))
             throw new InvalidOperationException("Run through run.sh from the repository containing the Reins contracts.");
         byte[] json = JsonSerializer.SerializeToUtf8Bytes(new
         {
-            contractVersion = 1,
-            manifest = new { rulesVersion = ReinsRun.RulesVersion, seed = manifest.Seed, surface = manifest.Surface.ToString(),
+            contractVersion = 2,
+            ruleFingerprint = ReinsRuleFingerprint.Sha256,
+            launchInitiallyHeld = true,
+            manifest = new { rulesVersion = ReinsRun.RulesVersion, courseId = "reins-v2", seed = manifest.Seed, surface = manifest.Surface.ToString(),
                 roundIndex = manifest.RoundIndex, horse = new { nervePermille = 500, firePermille = 500, biddabilityPermille = 500, heartPermille = 500 } },
             frames
         });
         using var document = JsonDocument.Parse(json);
         var response = ReplayVerifier.Verify(document.RootElement, CancellationToken.None);
-        File.WriteAllBytes(Path.Combine(directory, "complete-request.v1.json"), json);
-        File.WriteAllText(Path.Combine(directory, "complete-response.v1.json"), JsonSerializer.Serialize(response,
+        File.WriteAllBytes(Path.Combine(directory, "complete-request.v2.json"), json);
+        File.WriteAllText(Path.Combine(directory, "complete-response.v2.json"), JsonSerializer.Serialize(response,
             new JsonSerializerOptions { WriteIndented = true, PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) + "\n");
-        Console.WriteLine($"Wrote {frames.Count} frames ({json.Length} bytes) and expected response to {directory}");
+        string Digest(string path) => Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(path))).ToLowerInvariant();
+        string[] sources = { "ReinsContracts.cs", "ReinsCourseJudge.cs", "ReinsRun.cs", "ReinsReplay.cs", "ReinsAlley.cs", "../StandardCourse.cs" };
+        string coreDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Packages/com.barrelrivals.core/Runtime/Reins");
+        var provenance = new
+        {
+            contractVersion = 2, rulesVersion = ReinsRun.RulesVersion, courseId = "reins-v2",
+            generatedAtUtc = DateTimeOffset.UtcNow, ruleFingerprint = ReinsRuleFingerprint.Sha256,
+            scope = "offline-consistency", runtime = RuntimeInformation.FrameworkDescription,
+            generationCommand = "bash Tools/ReinsServerCheck/run.sh generate-fixture",
+            generatorSource = "Tools/ReinsServerCheck/FixtureGenerator.cs",
+            generatorSourceSha256 = Digest("Tools/ReinsServerCheck/FixtureGenerator.cs"),
+            compiledCoreAssemblySha256 = Digest(typeof(ReinsRun).Assembly.Location),
+            sourceSnapshotSha256 = sources.ToDictionary(name => name, name => Digest(Path.Combine(coreDirectory, name))),
+            requestFileSha256 = Digest(Path.Combine(directory, "complete-request.v2.json")),
+            responseFileSha256 = Digest(Path.Combine(directory, "complete-response.v2.json")),
+            frameCount = frames.Count, launchInitiallyHeld = true,
+            result = new { run.RaceTimeMs, run.FinalTimeMs, run.KnockCount, run.StylePoints,
+                launchOutcome = run.LaunchOutcome.ToString(), launchReleaseErrorMs = run.LaunchReleaseErrorMs },
+            limits = new[] { "Development steering policy, not player telemetry or proof of human input.",
+                "Expected response uses the same shared rules; HTTP/Python verification is recorded separately.",
+                "Unity and native IL2CPP parity, phone acceptance, trusted service and persistence are separate gates." }
+        };
+        File.WriteAllText(Path.Combine(directory, "fixture-provenance.v2.json"), JsonSerializer.Serialize(provenance,
+            new JsonSerializerOptions { WriteIndented = true, PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) + "\n");
+        Console.WriteLine($"Wrote {frames.Count} frames ({json.Length} bytes), expected response and provenance to {directory}");
     }
 
     private static ReinsInput Toward(ReinsRun run, double x, double z, double brake, DriveSide drive)
@@ -74,7 +101,7 @@ internal static class FixtureGenerator
     {
         if (index == 3) return new List<StandardCourse.Point> { new(0, -5) };
         var center = StandardCourse.Barrel(index);
-        var source = index == 0 ? new StandardCourse.Point(0, -9) : StandardCourse.Barrel(index - 1);
+        var source = index == 0 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index - 1);
         var next = index == 2 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index + 1);
         double angle = Math.Atan2(source.X - center.X, source.Z - center.Z);
         double outgoing = Math.Atan2(next.X - center.X, next.Z - center.Z);

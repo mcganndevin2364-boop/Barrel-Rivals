@@ -6,10 +6,10 @@ ACTION="${1:-validate}"
 mkdir -p "$PROJECT_DIR/Logs/reins" "$PROJECT_DIR/Evidence"
 ARGS=(-batchmode -projectPath "$PROJECT_DIR" -logFile "$PROJECT_DIR/Logs/reins/$ACTION.log")
 case "$ACTION" in
- generate) ARGS+=(-nographics -quit -executeMethod BarrelRivals.Editor.ReinsLabBuilder.Generate) ;;
+ generate) ARGS+=(-quit -executeMethod BarrelRivals.Editor.ReinsLabBuilder.Generate) ;;
  validate) ARGS+=(-nographics -quit -executeMethod BarrelRivals.Editor.ReinsLabBuilder.Validate) ;;
- editmode) ARGS+=(-nographics -runTests -testPlatform EditMode -testResults "$PROJECT_DIR/Evidence/Reins-EditMode.xml") ;;
- playmode) ARGS+=(-runTests -testPlatform PlayMode -testResults "$PROJECT_DIR/Evidence/Reins-PlayMode.xml") ;;
+ editmode) ARGS+=(-runTests -testPlatform EditMode -testResults "$PROJECT_DIR/Evidence/Reins-v2-EditMode.xml") ;;
+ playmode) ARGS+=(-runTests -testPlatform PlayMode -testResults "$PROJECT_DIR/Evidence/Reins-v2-PlayMode.xml") ;;
  android) ARGS+=(-nographics -quit -buildTarget Android -executeMethod BarrelRivals.Editor.ReinsLabBuilder.BuildAndroid) ;;
  ios) ARGS+=(-nographics -quit -buildTarget iOS -executeMethod BarrelRivals.Editor.ReinsLabBuilder.ExportIOS) ;;
  *) echo 'Usage: Tools/run-reins.sh {generate|validate|editmode|playmode|android|ios}' >&2; exit 2 ;;
@@ -19,7 +19,7 @@ cd "$PROJECT_DIR"
 if [[ "$ACTION" == editmode || "$ACTION" == playmode ]]; then
  python3 - "$PROJECT_DIR/Evidence" "$ACTION" <<'PY'
 import sys,pathlib,xml.etree.ElementTree as ET
-p=pathlib.Path(sys.argv[1])/('Reins-EditMode.xml' if sys.argv[2]=='editmode' else 'Reins-PlayMode.xml')
+p=pathlib.Path(sys.argv[1])/('Reins-v2-EditMode.xml' if sys.argv[2]=='editmode' else 'Reins-v2-PlayMode.xml')
 r=ET.parse(p).getroot()
 print({k:r.get(k) for k in ('result','total','passed','failed','duration')})
 if r.get('result')!='Passed' or int(r.get('total','0'))==0:raise SystemExit('No nonempty passing Unity result.')

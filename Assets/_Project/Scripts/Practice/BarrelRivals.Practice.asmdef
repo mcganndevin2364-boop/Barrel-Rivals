@@ -1,4 +1,4 @@
 {
   "name": "BarrelRivals.Practice",
-  "references": ["BarrelRivals.Core", "UnityEngine.UI"]
+  "references": ["BarrelRivals.Core", "UnityEngine.UI", "Unity.InputSystem"]
 }

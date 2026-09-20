@@ -1,187 +1,50 @@
 # Barrel Rivals — AI continuation handoff
 
-The current source repairs **previously inactive URP post-processing**, retunes arena light and fence materials, and varies the fitted mane flow. It also corrects evidence capture so world grading does not alter the actual overlay HUD. Read [the renderer/lighting checkpoint](Docs/Art/Reins-Lighting-Flow-Checkpoint.md) for executed pixel checks, current race/stable/gear captures, source costs and visual limits. Photographic quality, full rider animation, device qualification and approved 0.5/v2 gameplay remain unfinished.
+## Current state
 
-The preceding source added **a layered mane/tail groom with restrained phase-driven motion**, including stable Idle, reduced motion and private ghost handling. It also combines the racing hands into fewer material slots while preserving all 20 cosmetics. Read [the groom checkpoint](Docs/Art/Reins-Hair-Groom-Checkpoint.md) for current tests, actual moving captures and source costs. Photographic quality, a full rider, further optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
+Continue the same repository, **Barrel-Rivals-M0**, branch `codex/m1-skill-loop`, remote `https://github.com/mcganndevin2364-boop/Barrel-Rivals.git`. Use `git rev-parse HEAD` for the exact checkpoint. Do not restart the project or overwrite the user's original recovered projects.
 
-The preceding source refined **the horse’s cheek/flank contours and upper-body surface**, adds explicit four-weight skinning and a fitted western headstall, and replaces circular scenery bands with one irregular terrain mesh. It retains the rig, textures, original hair/saddle and connected MyStable/Tack/Rider Gear flow. Read [the surface checkpoint](Docs/Art/Reins-Surface-Fit-Checkpoint.md) for that source’s tests, moving captures and limits. Photographic quality, a full rider, material/LOD optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
+Current source configures **0.5.0/build 5**, rules **reins-v2**, Unity **6000.6.0f1**. The last native artifact installed on the user's iPhone remains **0.4.0/build 4**, checkpoint `3e1ce2f`. No new 0.5 APK/IPA/export, phone install or measured performance is claimed by this source checkpoint.
 
-The preceding character-motion source added **skinned mane/tail strands and synchronized riding motion**, plus a correction for Animator visibility culling that could advance the clock without updating bones. The moving Unity check, actual captures and current verification belong to [the character-motion checkpoint](Docs/Art/Reins-Character-Motion-Checkpoint.md); earlier static screenshots remain historical. This continues the reference-directed MyStable/Tack/Rider Gear work below. Natural foot planting, reference-quality art, a complete rider, phone qualification and the approved gameplay-v2 launch remain unfinished.
+Read [AGENTS](AGENTS.md), [onboarding](AGENT_ONBOARDING.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 contract](Docs/Plan/Reins-Racing-0.5-Implementation.md), [current v2 evidence](Docs/Plan/Reins-v2-Alley-Checkpoint.md), [blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md), [eight-category plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md) and affected cards in [the engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md).
 
-The current source includes reference-driven **MyStable, Tack and Rider Gear**: the user has supplied the warm barn/roster, saddle-grid and glove-inspection reference. The implementation adds an enclosed 3D showroom, rendered item cards, 20 free local cosmetics across five slots, preview/equip/cancel, and cosmetic save version 2 with preserved v1 migration. Cosmetic v2 is separate from the still-unimplemented Reins gameplay v2. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). It records current verification status and remaining gaps; the reference is a target, not achieved photographic quality. Paid ownership, earned progression, the ten-horse roster and a new phone installation remain pending.
+## Product decisions
 
-September 20, 2026 · Gameplay revision 5 / engineering revision 6
+- Reins Racing is the main game, first-person throughout. Accessible arcade racing with realistic horse/arena presentation; no automatic barrel steering or paid timing advantages.
+- Hold center while walking down the alley; release near the third beep. Forgiving grades continue the race. The new rules implement the approved four-second/six-metre timeline.
+- The user wants the supplied rodeo and warm MyStable/saddle/glove images as quality targets throughout play. Use their composition/material direction, not their pixels or sponsor trademarks.
+- Free/original licensed assets only. Paid horse pack declined. User is solo, using AI assistance, on an Intel 2017 MacBook Pro/Ventura with Xcode 15.2 and no paid Apple membership. Reported phone: iPhone 17 Pro / iOS 26.6.2. These are recorded setup facts, not modern store qualification.
+- Prior authorization includes pushing source updates and preparing a complete AI continuation package. No full-release section is accepted. All three multiplayer modes and all eight categories/53 section IDs remain in scope.
 
-## Start here
+## What is implemented
 
-Continue **Barrel Rivals**, an iOS/Android multiplayer arcade barrel-racing game being built by a solo creator with AI assistance. The user chose **Reins Racing** over Classic and supplied a realistic rider-view rodeo image as the target throughout gameplay. The current **premium-direction graphics SOURCE checkpoint** adds photographed surfaces and dusk sky, original arena geometry, foreground hands/tack/reins and a compact licensed-font HUD while retaining 0.4/v1 gameplay. **It has no new native build or installation; the approved 0.5/v2 moving-alley launch and full horse/rider/visual milestone remain unfinished.**
+CORE owns a deterministic 20 ms approach/release/steering/cadence/Wrap/Drive/finish simulation. At tick 200 the horse is exactly `(0,0)`, speed 1.5 m/s, race time 0; tick 201 first moves freely. Release grades Perfect±120 ms/Good±240ms/Weak, or explicit TimedOut at GO +400 ms with no release timestamp. Positive acceleration bonuses expire at GO +1,200 ms; late releases affect only the following step. Cadence starts GO +600 ms, grades ±60/100/140 ms, period 360–500 ms. Shared swept finite alley walls slide without knock/time penalty and clear the full finish gate.
 
-- Repository: [mcganndevin2364-boop/Barrel-Rivals](https://github.com/mcganndevin2364-boop/Barrel-Rivals).
-- Continuation branch: **`codex/m1-skill-loop`**. Do not start from the older `main` without checking the branch.
-- Last native/device checkpoint: **`3e1ce2f`**, following `5cee8e7` (Reins rules, client and local verifier). Current native build: **0.4.0/build 4**. Newer graphics source retains that version identity and unchanged v1 rules; determine its exact source commit from Git history, not the binary version.
-- This handoff is committed after that source checkpoint. Determine its exact commit with `git log -1 --format=%H -- Barrel-Rivals-AI-Handoff.md`; the exported handoff package includes a publication receipt with the pushed commit.
-- Existing working project on the original Mac: `outputs/Barrel-Rivals-M0` inside the Codex task workspace. Despite the directory name, this is the continuing M0/M1/Reins repository, not a disposable new project.
-- Older original Unity project folders were preserved. Do not overwrite them or restart development in them.
+CLIENT owns timestamped pointer changes, fresh-press cadence after launch, side hold preservation, cancellation/retry and three dedicated DSP-scheduled cues at 2/3/4 seconds. Reins/Stable are the only player scenes. Classic/Foundation remain source/history and are loaded explicitly by historical Editor tests. Current race bests are isolated in reins-v2 files; cosmetic-v2 storage is a separate schema.
 
-Read [AGENTS.md](AGENTS.md), [onboarding](AGENT_ONBOARDING.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 implementation plan](Docs/Plan/Reins-Racing-0.5-Implementation.md), [blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md), [eight-category plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md), and the affected S01–S53 cards in [the engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md). Current design supersedes historical instructions that call Reins optional, require three gate taps or a third-person intro.
+MyStable/Tack/Rider Gear contains an enclosed original 3D barn, actual rendered item thumbnails, preview/equip/cancel and 20 local cosmetics in five slots: saddle, pad, reins, headstall, gloves. One horse is implemented. No invented levels, rarity, ownership, progression or gear stat bonuses.
 
-Read the [graphics source checkpoint](Docs/Art/Reins-Premium-Graphics-Checkpoint.md) and [art provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) before changing presentation. The current checkpoint records its own final scene/test checks and nine real Unity gameplay captures, separately from the older installed build's evidence. The canonical v1 result remains 35,120 ms, zero knocks and 300 style.
+Art source includes imported CC0 horse with 19 base bones and original Idle/Walk/Gallop studies; fitted tack/hands/reins; 118-card/27-palette-bone mane/tail; photographic CC0 materials/sky; modeled arena and shared alley; warm working URP/ACES renderer with ungraded HUD. Read [lighting checkpoint](Docs/Art/Reins-Lighting-Flow-Checkpoint.md), [hair checkpoint](Docs/Art/Reins-Hair-Groom-Checkpoint.md), [stable feature](Docs/Features/MyStable-and-Gear.md) and provenance before editing. Current character is 54,436 triangles / 17 renderers / 22 material slots, above the six-slot target; no lower LODs. Horse anatomy, mane separation, planted turns/braking, full rider, ground repetition and crowd remain visual gaps.
 
-## The user's decisions
+## Evidence for this checkpoint
 
-- Reins is the chosen main game. The approved v2 player build opens it directly; Classic source/history/saves remain preserved, but Classic leaves player navigation. The current v1 graphics checkpoint still retains Classic navigation/startup.
-- First-person throughout: visible horse ears/neck, rider hands and reins, stable camera and comfortable movement.
-- A slow alley approach builds anticipation. Three beeps culminate at an invisible starting line; release timing grades the launch, followed by heartbeat tapping and steering toward barrel one.
-- Realistic arcade visuals: believable anatomy, tack, lighting and animation with readable, satisfying race feedback. The user's supplied image is the target throughout a moving race, not just an opening still. Use its art direction without copying reference pixels, sponsor branding or implying the target has already been achieved.
-- Responsive, forgiving handling. Early/late release should continue the race with less acceleration, not a punishing reset.
-- Free/original assets only. The user explicitly deferred paid horse packs. No new paid service is approved.
-- Long-term inspiration: accessible mobile competition such as CSR Racing, 8 Ball Pool and Hunting Sniper. This does not authorize copying their assets or treating engagement claims as evidence.
-- All three multiplayer experiences remain in the total game scope: live turns/spectating, recorded challenges and simultaneous racing. Progression, horses, tack, earned arenas and a premium store are later systems with trusted settlement and fair competitive caps.
+135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. Canonical Unity/.NET v2 replay: **1,893 frames, 33,860 ms, 0 knocks, 300 style, Perfect / error 0**. Fingerprint `759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274` spans ReinsContracts, ReinsCourseJudge, ReinsRun, ReinsReplay, ReinsAlley and StandardCourse using the documented ordered filename-NUL/raw-byte hash.
 
-## What works now, and what does not
+[Checkpoint JSON](Evidence/AlleyV2-Checkpoint.json), [Editor XML](Evidence/AlleyV2-EditMode.xml), [Play Mode XML](Evidence/AlleyV2-PlayMode.xml), [HTTP proof](Tools/ReinsServerCheck/verification-evidence.v2.json), [moving alley movie](Evidence/AlleyV2-Launch.mp4), [capture metadata](Evidence/AlleyV2-Launch-Capture.json) and current `Evidence/AlleyV2-*` race/stable/gear images. The controlled 25 fps movie has no audio and is not measured phone FPS. All 302 prior tracked evidence files were restored byte-for-byte; v1 contracts remain unchanged. Oldv1 canonical result35,120 ms belongs only to v1.
 
-The 0.4 build contains both Classic and the offline three-barrel Reins Lab. It starts in Classic; **TRY REINS RACING** opens Reins. Reins currently has a stationary preview and three wave-peak gate taps. Do not confuse those implemented rules with the approved new hold/release walk.
+The loopback verifier is an offline consistency experiment, not ranked authority or production anti-cheat. Unapplied DB draft was revised; no deployment, paid service or database migration occurred.
 
-Implemented Reins connections include owned left/right rein drags, center cadence/300 ms Wrap, geometric barrel pockets/contact, five surfaces with six Mixed patches, ordered three-barrel completion, alternating final Drive, bounded default horse traits, results/retry and a validated local own-best ghost. Horse selection/learning/bond progression, opponent ghosts/gaps, actual streak rewards, multiplayer, accounts, trusted economy and cloud persistence are not implemented.
+## Next work and acceptance
 
-The older installed artifact uses procedural prototype art. The first graphics source imported a 19-bone CC0 horse with original first-pass Idle/Walk/Gallop studies; adds persistent URP materials, Linear/warm color treatment, original generated dirt and distant crowd impostors; and supplies first-person camera throughout all phases, reduced motion and a charcoal/gold HUD. Scene generation/save/reopen passed. The new source is not a new phone build. The newer source adds modeled gloves/sleeves, bridle and deforming braided reins, photographed material maps/dusk panorama, detailed arena meshes and licensed HUD fonts. These are foreground studies: finished natural gait/foot contact, a full rigged rider, convincing hair/anatomy/crowd depth, full-reference appearance and measured device performance remain pending. Preserve the new art integration while completing those requirements.
+1. Review actual moving alley/race/stable/gear captures. Finish one convincing horse/rider/arena, with natural walk-to-gallop/turn/brake movement and restrained camera. Do not label procedural detail or static pictures as photographic quality.
+2. Build clean 0.5 iOS/Android artifacts using current source. Export iOS outside cloud-coordinated storage per [recorded guidance](README-iPhone.md). Inspect current verifier flags before invoking artifact scripts; earlier 0.4 records are historical. Keep raw logs, signing credentials, caches and binaries out of Git.
+3. Install the verified new app on the connected/unlocked iPhone when available. Check speaker/touch launch alignment, early/late/held starts, thumb reach, turns/Drive, interruption/retry, sound/comfort and persistence. Measure 20 minutes of repeat races: 60 FPS target, p95 ≤16.7 ms; fallback 30 FPS, p95 ≤33.3 ms. Android handset verification remains separate.
+4. Only accept R2 after combined game/art/device checks. Then implement M1N continuous-input authenticated authority/two-client proof, followed by planned networking, trusted progression/economy/content and release qualification.
 
-### Recorded evidence
+## Working commands and ownership
 
-| Boundary | Evidence and limit |
-|---|---|
-| Historical Unity Editor | 77/77 tests passed for the prior 0.4 checkpoint; see that checkpoint's `Evidence/Reins-EditMode.xml` |
-| Historical Unity Play Mode | 8/8 passed for the prior 0.4 checkpoint; see that checkpoint's `Evidence/Reins-PlayMode.xml` |
-| Historical local HTTP verifier | 46/46 checks for the prior 0.4 checkpoint; see its `Tools/ReinsServerCheck/verification-evidence.json` |
-| Historical six-item MyStable/Gear | 89/89 Editor and 17/17 Play Mode checks; .NET Standard Core compilation and real stable/gear captures. These precede the supplied stable reference. |
-| Reference-driven MyStable/Tack/Rider Gear | 20 cosmetics/five slots, original showroom and glove inspection, real mesh thumbnails, isolated cosmetic-v2 migration. 101/101 Editor and 17/17 Play Mode tests passed; actual Unity captures at 16:9 and 4:3 and preserved cosmetic migration verified. See the feature checkpoint. No new native installation. |
-| Character motion source | Corrected bone culling, original skinned strands with verified saved vertex buffers, shared camera/hand stride and ghost alpha cleanup. Current checks and actual moving Unity evidence are in the [motion checkpoint](Docs/Art/Reins-Character-Motion-Checkpoint.md); no new native/device qualification. |
-| Graphics source checkpoint | Scene generation/save/reopen passed; current test results and their exact source boundary are recorded in the linked graphics checkpoint. No new native/device qualification. |
-| Canonical replay | Unity/.NET agreement: 35,120 ms, zero knocks, 300 style points, 2,156 frames; v1 fixtures under `Contracts/Reins` |
-| iPhone | 0.4 compiled, signed, installed and version queried. See versioned export/native/artifact/device evidence. |
-| User feedback | User played and prefers Reins; dislikes graphics. `Evidence/Reins-User-Feedback-2026-09-19.json` records this qualitative report separately from automated evidence. |
-| Android | APK compiled; package/version/signature/ARM64 and 16 KB ZIP/ELF alignment checked. No physical Android handset run. |
-| Unverified | Sustained phone frame time/memory/thermals, full device acceptance, production art, online authority/security, database deployment and store readiness. |
+`Tools/run-reins.sh generate|validate|editmode|playmode|android|ios` is the main Unity entry. Only one Editor per project. Generate uses graphics because stable thumbnails are rendered. Use fresh paths for BARREL_GAIT_GEOMETRY_REPORT, BARREL_MOTION_CAPTURE_DIRECTORY and BARREL_ALLEY_CAPTURE_DIRECTORY. Preserve old evidence before tests with historical image filenames, copy current results to a new checkpoint prefix, then restore old bytes.
 
-Historical rows are previous observations, not checks rerun by the next model or automatically transferable to newer graphics source. Root evidence files can be updated by later runs; use the specified Git checkpoint and current graphics report to establish which source was tested. Old native/device reports retain their original “launch pending” observation; the later user-feedback record supplies the qualitative evidence. It does not claim measured performance or re-query the phone's installed version.
+`Tools/ReinsServerCheck/run.sh build|serve|smoke|fingerprint|generate-fixture` covers the shared-Core local verifier. It binds 127.0.0.1 only. Fingerprint/fixture regeneration is an intentional version-boundary operation; never update expected output just to conceal a regression.
 
-**0 of 53 original full-release sections are verified complete.** That is an acceptance count, not an effort percentage. Foundation and prototype milestones have real passing evidence, but no full section has met every release requirement.
-
-## Master project position
-
-| Category / section IDs | Present checkpoint | Next dependent work |
-|---|---|---|
-| A — Foundation & Infrastructure / 1–7 | Repaired Unity/package/URP setup; shared Core; tested local rules/input/storage; both native artifacts | v2 state/input/storage, production configuration, device quality tiers; cloud later |
-| B — Horse System / 8–15 | Bounded traits/movement plus newly imported 19-bone CC0 horse and three first-pass gait studies | Natural planted gaits, synchronized rider/tack and turn/brake animation; roster/progression later |
-| C — Arena & Environment / 16–22 | Course/surface rules; photographic PBR dirt/materials, modeled arena props, distant terrain and temporary crowd cards | Full arena quality, true alley geometry/collision, crowd-angle/tiling and mobile review |
-| D — Bodycam Graphics Engine / 23–28 | New all-phase first-person/reduced-motion camera, Linear/warm URP presentation | Refine modeled hands/reins and character anatomy; motion review and measured graphics profiles |
-| E — Gameplay Mechanics / 29–36 | Full offline Reins course with v1 gate/cadence/Wrap/Drive/timing | v2 walk/release/heartbeat handoff and forgiving input; keep geometric race authority |
-| F — Multiplayer & Competition / 37–41 | Local-only shared-Core verifier; networking scaffolding | After R2, M1N two-client authority/timing/failure proof; matchmaking and live modes later |
-| G — Progression & Economy / 42–47 | Definitions/scaffolding, no trusted ledger/store | Authenticated ownership, progression, economy balance and idempotent settlement after service proof |
-| H — Polish, Audio & UX / 48–53 | Prototype sound/haptics and own-best replay; new charcoal/gold HUD source | V2 scheduled start audio, final HUD/tutorial, synchronized gait effects, comfort and mobile evidence |
-
-The master status lists all 53 individually; retain their original numbers and section-title aliases. Sequence: preserved M0/M1/R1 → **R2/0.5** → M1N authority proof → M3–M5 online/progression/modes → M6 content/economy beta → M7 store qualification. Earlier M2 representative-course scope is incorporated into R2.
-
-## Architecture and code map
-
-| Layer | Actual location / responsibility |
-|---|---|
-| Shared rules | `Packages/com.barrelrivals.core/Runtime/Reins`: contracts, `ReinsRun`, course judge and replay. Pure C#/.NET Standard 2.1; no Unity/network/database imports. |
-| Unity adapter | `Assets/_Project/Scripts/Practice/ReinsLab`: controller and input surfaces. Inputs become canonical 20 ms frames; presentation observes accepted state. |
-| Scene/build tooling | `Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs`; saved `Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity`. Builder owns generated content. |
-| Current horse/arena | `ReinsReferenceArtBuilder`, `ReinsHorsePresentation` and `RiderCameraRig` add the reference-directed art/camera; `ReinsPremiumArenaBuilder` supplies the new arena/PBR/sky; `ReinsRiderTackBuilder` and `ReinsRiderTackPresentation` supply the foreground hands and flexible reins. Authored FBX/maps live under `Assets/_Project/Art/Reins`. The new gait clips are integration studies, not production animation. |
-| Replay contracts | `Contracts/Reins`: v1 schemas, preview and complete fixtures, expected response/provenance. |
-| Local API proof | `Tools/ReinsServerCheck`: ASP.NET on loopback only; strict parsing, hashes and resimulation of the same Core. .NET 8 locally; .NET 10 production remains a proposal. |
-| Database | `Backend/Schema`: unapplied PostgreSQL design draft; no deployed DB/migrations. |
-| Networking | Photon Fusion 2 is a planned candidate; no active sessions or proven topology. |
-| Legacy | Classic `PracticeRun`, saved scene/tools and historical reports remain isolated from Reins. |
-
-Current `reins-lab-v1` has 20 ms steps, 7,500-frame maximum, fixed seed 104 for local bests, bounded manifest and source-fingerprint validation. V1 fingerprint: `ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837`. Match the actual checked-out source before relying on that value. Fixed stepping and desktop replay equality do not prove bitwise mobile/server reproducibility or production anti-cheat.
-
-## Next implementation: R2 / version 0.5
-
-Implement the complete [approved specification](Docs/Plan/Reins-Racing-0.5-Implementation.md), not just this summary. The standalone handoff export includes that specification as an appendix.
-
-1. **R2.1 rules and controls:** center hold arms a four-second/six-metre walk; beeps at 2/3/4 seconds, GO at exact `z=0`. Release Perfect ±120 ms / Good ±240 ms / weak otherwise; positive acceleration multiplier 1.35/1.15/1 until common GO+1.2 s, held deadline GO+400 ms, no false-start standstill. First heartbeat GO+600 ms. Preserve held steering, suppress launch pointer until lifted, reject cancellation as a scored release. Use matched visible/core alley-wall bounds and update course/fixture start anchors.
-2. **Arcade tuning:** 50%-pad full-pull travel (existing 80-unit minimum); cadence Perfect/Great/Good ±60/100/140 ms with 360–500 ms periods. Keep current movement/contact/penalty limits.
-3. **Version boundary:** rules/contracts/save namespace v2; canonical `launchHeld`, launch outcome/error, parser/hash/fixture/Unity decoder changes together. Preserve v1 records without reinterpreting them. Regenerate fingerprint deliberately and verify new fixtures independently.
-4. **R2.2 art benchmark:** complete the new horse/camera/material source into one believable chestnut horse, western tack/rider, planted gait/turn clips, visible hands/reins and detailed alley. The CC0 source has been extracted; inspect its actual Unity appearance/deformation and rework as needed. No imported movement controller may override Core.
-5. **R2.3 full race:** finish arena materials/lighting, compact HUD, scheduled cues, hoof audio/dust, comfort and scalable quality. Approved initial budgets include 60k character triangles, 2K character textures, <=150 visible batches and <=650 MB peak app memory.
-6. **R2.4 acceptance:** relevant Core/input/replay/verifier checks, both native artifacts, actual iPhone play/cue/comfort review and 20-minute measured performance. Target 60 FPS on iPhone and a 30 FPS lower profile. Android phone results need a named physical handset.
-
-Do not start new multiplayer/economy deployment to avoid finishing the representative race. R2 is done when start, control and improved presentation work together on device, not merely when code compiles.
-
-## Reproduction and host limits
-
-Pinned baseline: Unity **6000.6.0f1**, URP **17.6.0**, Input System **1.20.0**, Unity Test Framework **1.8.0**, uGUI **2.6.0**. Preserve `Packages/packages-lock.json` and `.meta` files. Hand-authored production content belongs outside generated directories.
-
-Original host: 2017 Intel Mac, 8 GB RAM, Ventura 13.7.8; Xcode 15.2/SDK 17.2; user iPhone 17 Pro/iOS 26.6.2; free Personal Team. No newer Mac or paid Apple membership was available. Native builds are slow; do not run concurrent Unity Editors or unnecessary repeated native builds.
-
-For another machine, clone into a workspace layout with `<workspace>/outputs/Barrel-Rivals-M0` and writable `<workspace>/work`: the current local smoke tool deliberately writes two levels above the repo under `work`. Set `UNITY_EDITOR` and `BARREL_DOTNET` to actual compatible installed binaries if their default Mac paths are unavailable. Do not assume Unity licensing, Xcode, SDKs or credentials exist on the receiving host.
-
-From the repository root, first inspect status and validate unchanged rules:
-
-```bash
-git status --short
-git branch --show-current
-git log -3 --oneline
-python3 Tools/update-reins-fingerprint.py
-```
-
-Focused shared-rule/API checks after consequential code changes:
-
-```bash
-bash Tools/ReinsServerCheck/run.sh build
-bash Tools/ReinsServerCheck/run.sh smoke
-```
-
-Unity checks/builds, with this project's other Editors closed:
-
-```bash
-bash Tools/run-reins.sh validate
-bash Tools/run-reins.sh editmode
-bash Tools/run-reins.sh playmode
-bash Tools/run-reins.sh ios
-bash Tools/run-reins.sh android
-```
-
-`generate` intentionally rewrites scenes; use it only when implementing a required scene/build change. The fingerprint tool's default is check-only; `--write` changes the generated fingerprint. Never regenerate expected fixtures just to hide a regression. Current builders still emit 0.4; implementing 0.5 must update identity and verification commands together.
-
-Artifact checks for the existing build:
-
-```bash
-python3 Tools/verify-ios-export.py --version 0.4.0 --build 4 --output Evidence/Reins-iOS-Export.json
-python3 Tools/verify-android.py --apk Builds/Android/BarrelRivals-ReinsLab.apk --output Evidence/Reins-Android-Artifact.json --version 0.4.0 --code 4
-```
-
-These artifact commands require generated local builds and write evidence. `BARREL_ANDROID_TOOLCHAIN` overrides the Android SDK/NDK/OpenJDK root. The iOS export verifier requires macOS `/usr/bin/plutil` and currently inspects the fixed `Builds/iOS/BarrelRivals-Practice` export path. APKs/IPAs, caches, raw logs and native exports are not Git source. The Android APK SHA-256 recorded for 0.4 is `701ba5cbf40dd5077f35a517c685402c1e93e42f1e2deda48e4c733b60c66232`.
-
-### iPhone build knowledge to preserve
-
-Read [README-iPhone.md](README-iPhone.md) before another native build. The target-build route on Xcode 15.2 compiled/signed the app, but the modern phone was unsupported by Xcode's developer-image/debugger path. Standard paired USB installation using pymobiledevice3 succeeded; do not assume debugger readiness from installation success.
-
-The original generated export under Documents stalled on a coordinated read. A task-owned temporary export outside that folder compiled after **119 byte-identical numbered duplicate generated files** were quarantined in that copy. **1,122 canonical Unity runtime files** matched the installed engine. Do not blindly delete similarly named files, patch the installed engine or alter project source to repeat that repair. Start with a clean unsynced export and verify actual generated inputs.
-
-`Tools/build-ios-native.sh` is an **unsigned compile check**, not a signing/install pipeline; its existing export path remains under `Builds/iOS/BarrelRivals-Practice`. Reuse the chosen local Personal Team/profile for a signed build without publishing credentials. Development signing expires and may require renewal. Prior signing/USB helper environments live outside Git; a new host must configure its own authorized tools. Store release requires separate supported-toolchain/membership qualification.
-
-## Art provenance and portability
-
-Read [premium material provenance](Docs/Art/Reins-Premium-Materials-Provenance.md), the bundled font source/license records, [Horse-and-Rider-Options](Docs/Art/Horse-and-Rider-Options.md), [reference graphics provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) and [Practice-Provenance](Docs/Art/Practice-Provenance.md). Existing prototype assets are original. The imported free horse comes from [Rigged Horse](https://opengameart.org/node/10771), with [download](https://opengameart.org/sites/default/files/riggedHorse.blend), CC0, 20,194,164 bytes, SHA-256 `9cca670b93a74d50e89263e50d55ab035a6c46aa7d2b21e354bdac6987037f4a`. This Blender 2.63-era file was opened with embedded scripts disabled and exported to project-owned FBX/maps. Inspection records 3,697 body vertices and 19 bones; three original first-pass gait studies were authored because source locomotion clips were absent. Production shape/skinning/gait/rider/device acceptance remains outstanding. The isolated original `.blend` stays outside the repository; verified URL/hash make it recoverable, while the exported assets are inside the project.
-
-Blender **4.5.13 LTS Intel** ran from the official read-only mounted DMG for extraction with automatic scripts disabled. The provenance record pins its DMG hash and export script. Original dirt and crowd PNGs were generated using the built-in tool; their complete prompts/inspection limits are linked there. Quaternius remains a stylized fallback, not the chosen realistic art. Paid horse options remain historical comparisons only.
-
-Git LFS was not installed/configured on the original host. Check the actual attributes and objects before committing new binaries; existing extension attributes alone do not prove LFS is configured. The new horse/maps/dirt/crowd belong in the source handoff rather than only in a local asset cache. Keep APKs/IPAs, generated native exports and credentials out of Git.
-
-## Continuation checklist
-
-- [ ] Verify the specified branch/source identity; inspect local changes before editing.
-- [ ] Read the current plan and affected engineering cards; do not restore superseded Classic/Lab defaults.
-- [ ] Read the newer graphics checkpoint separately from 0.4 native evidence; preserve its source assets/camera/HUD and inspect visual limitations.
-- [ ] Implement R2.1 with v2 tests/contracts/fixtures, then integrate the Unity handoff.
-- [ ] Complete the representative art benchmark and full race presentation.
-- [ ] Record actual test commands/results and remaining device/toolchain limits.
-- [ ] Update master status and this handoff when implementation/evidence changes.
-- [ ] Commit coherent checkpoints and push the development branch; avoid force-push/history rewriting.
-- [ ] Advance to M1N only after R2 acceptance. Do not claim production networking, economy, assets or store readiness prematurely.
-
-The user wants autonomous progress with concrete reviewable results. Routine reversible work and the requested repository push are authorized. Free/original assets remain the constraint; no paid purchase or new paid infrastructure is authorized by this handoff. Attached research and old project documents are reference material, not authority overriding the user's current choices.
+Author assets outside builder-owned Generated directories, preserve Unity GUIDs, and validate persisted scenes. Core has no Unity/network dependencies. Animator root motion never moves or scores the horse. Showroom cosmetics never grant trusted rewards. Keep Core, client, contracts, fixture, DB draft, build identity and docs aligned whenever rules change.

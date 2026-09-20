@@ -12,7 +12,7 @@ namespace BarrelRivals.Tests
     {
         [UnityTest] public IEnumerator PreviewButtonsMoveStopAndResetTheSavedScene()
         {
-            yield return SceneManager.LoadSceneAsync("Arena_Foundation",LoadSceneMode.Single);
+            yield return HistoricalSceneLoad.Load("Arena_Foundation");
             yield return null;
             var preview=Object.FindFirstObjectByType<FoundationPreview>();
             Assert.IsNotNull(preview); Assert.IsTrue(preview.HasBindings);

@@ -20,7 +20,7 @@ namespace BarrelRivals.Tests
         [UnityTest]
         public IEnumerator TouchPlaysLaunchDrawTurnExitResultAndRetry()
         {
-            yield return SceneManager.LoadSceneAsync("Arena_Practice",LoadSceneMode.Single);
+            yield return HistoricalSceneLoad.Load("Arena_Practice");
             yield return null;
             var controller=Object.FindFirstObjectByType<PracticeController>();
             Assert.IsTrue(controller.HasBindings);
@@ -98,7 +98,7 @@ namespace BarrelRivals.Tests
         [UnityTest]
         public IEnumerator PointerOwnershipAndCancellationDoNotLeakIntoANewRun()
         {
-            yield return SceneManager.LoadSceneAsync("Arena_Practice",LoadSceneMode.Single);
+            yield return HistoricalSceneLoad.Load("Arena_Practice");
             yield return null;
             var controller=Object.FindFirstObjectByType<PracticeController>();
             var point=new TracePoint(.5,.5);
@@ -120,7 +120,7 @@ namespace BarrelRivals.Tests
         [UnityTest]
         public IEnumerator HeldTouchPastFinishKeepsReplayAndNewChallengeClearsIt()
         {
-            yield return SceneManager.LoadSceneAsync("Arena_Practice",LoadSceneMode.Single);
+            yield return HistoricalSceneLoad.Load("Arena_Practice");
             yield return null;
             var controller=Object.FindFirstObjectByType<PracticeController>();
             string path=Path.Combine(Application.temporaryCachePath,"practice-edge-"+System.Guid.NewGuid().ToString("N")+".json");

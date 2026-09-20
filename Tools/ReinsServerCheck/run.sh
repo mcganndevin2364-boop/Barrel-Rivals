@@ -19,11 +19,14 @@ case "${1:-build}" in
   smoke)
     exec python3 "$reins_tool_dir/smoke.py"
     ;;
+  fingerprint)
+    exec python3 "$reins_tool_dir/fingerprint.py" --write
+    ;;
   generate-fixture)
     exec "$reins_dotnet" "$reins_tool_dir/bin/Release/net8.0/ReinsServerCheck.dll" --generate-fixture
     ;;
   *)
-    echo "Usage: bash Tools/ReinsServerCheck/run.sh build|serve|smoke|generate-fixture" >&2
+    echo "Usage: bash Tools/ReinsServerCheck/run.sh build|serve|smoke|fingerprint|generate-fixture" >&2
     exit 2
     ;;
 esac

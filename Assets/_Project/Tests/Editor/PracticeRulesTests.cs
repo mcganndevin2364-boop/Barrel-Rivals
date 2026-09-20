@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using BarrelRivals.Core;
 using BarrelRivals.Editor;
 using NUnit.Framework;
@@ -125,7 +127,15 @@ namespace BarrelRivals.Tests
                 Assert.That(Math.Sqrt((a.X-b.X)*(a.X-b.X)+(a.Z-b.Z)*(a.Z-b.Z)),Is.LessThan(.05),run.Phase.ToString());
             }
         }
-        [Test] public void SavedPracticeSceneHasRequiredBindings() => PracticeBuilder.Validate();
+        [Test] public void SavedPracticeSceneHasRequiredBindings()
+        {
+            var shipping=EditorBuildSettings.scenes;
+            try {
+                EditorBuildSettings.scenes=shipping.Where(x=>x.path!=PracticeBuilder.ScenePath)
+                    .Concat(new[]{new EditorBuildSettingsScene(PracticeBuilder.ScenePath,true)}).ToArray();
+                PracticeBuilder.Validate();
+            } finally { EditorBuildSettings.scenes=shipping; }
+        }
         private static PracticeRun AtDrawing()
         {
             var run=new PracticeRun(104); run.StartHold(0); run.ReleaseHold(run.LaunchCueMs+30);

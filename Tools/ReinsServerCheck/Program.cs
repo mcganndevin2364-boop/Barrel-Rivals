@@ -55,7 +55,7 @@ app.Use(async (context, next) =>
 
 app.MapGet("/lab/reins/health", () => Results.Json(new
 {
-    contractVersion = 1, scope = "offline-consistency", rulesVersion = ReinsRun.RulesVersion,
+    contractVersion = 2, scope = "offline-consistency", rulesVersion = ReinsRun.RulesVersion, courseId = "reins-v2",
     ruleFingerprint = ReinsRuleFingerprint.Sha256,
     fixedStepMs = 20, maximumFrames = ReplayVerifier.MaxFrames, maximumBodyBytes = ReplayVerifier.MaxBodyBytes,
     authority = false, runtimeTarget = ".NET 8 local proof; production .NET 10 remains planned"
@@ -132,16 +132,27 @@ internal static class ReplayVerifier
 
     internal static object Error(string code, string message) => new
     {
-        contractVersion = 1, scope = "offline-consistency", accepted = false,
+        contractVersion = 2, scope = "offline-consistency", accepted = false,
         ruleFingerprint = ReinsRuleFingerprint.Sha256, error = new { code, message }
     };
 
     internal static object Verify(JsonElement root, CancellationToken cancellation)
     {
-        Exact(root, "request", "contractVersion", "manifest", "frames");
-        if (Integer(root, "contractVersion", 1, 1) != 1) throw Invalid("contract_version", "Only contractVersion 1 is supported.");
+        if (root.ValueKind != JsonValueKind.Object) throw Invalid("object_required", "request must be an object.");
+        if (!root.TryGetProperty("contractVersion", out var version) || version.ValueKind != JsonValueKind.Number
+            || !version.TryGetInt32(out int contractVersion) || contractVersion != 2)
+            throw Invalid("contract_version", "Only contractVersion 2 is supported; v1 inputs cannot be reinterpreted.");
+        Exact(root, "request", "contractVersion", "ruleFingerprint", "launchInitiallyHeld", "manifest", "frames");
+        var fingerprint = root.GetProperty("ruleFingerprint");
+        if (fingerprint.ValueKind != JsonValueKind.String || fingerprint.GetString() != ReinsRuleFingerprint.Sha256)
+            throw Invalid("rule_fingerprint", "The replay fingerprint does not match this verifier's compiled rules.");
+        if (!Boolean(root, "launchInitiallyHeld"))
+            throw Invalid("launch_initial_state", "Version 2 starts with the launch hold armed at tick 0.");
         JsonElement manifest = root.GetProperty("manifest");
-        Exact(manifest, "manifest", "rulesVersion", "seed", "surface", "roundIndex", "horse");
+        Exact(manifest, "manifest", "rulesVersion", "courseId", "seed", "surface", "roundIndex", "horse");
+        var courseId = manifest.GetProperty("courseId");
+        if (courseId.ValueKind != JsonValueKind.String || courseId.GetString() != "reins-v2")
+            throw Invalid("course_version", "Only the reins-v2 course namespace is supported.");
         if (manifest.GetProperty("rulesVersion").ValueKind != JsonValueKind.Number
             || !manifest.GetProperty("rulesVersion").TryGetInt32(out int rulesVersion) || rulesVersion != ReinsRun.RulesVersion)
             throw Invalid("rules_version", "Unknown Reins rules version.");
@@ -153,7 +164,7 @@ internal static class ReplayVerifier
         Exact(horse, "horse", "nervePermille", "firePermille", "biddabilityPermille", "heartPermille");
         var horseDto = new HorseDto(Integer(horse, "nervePermille", 0, 1000), Integer(horse, "firePermille", 0, 1000),
             Integer(horse, "biddabilityPermille", 0, 1000), Integer(horse, "heartPermille", 0, 1000));
-        var manifestDto = new ManifestDto(rulesVersion, seed, surface.ToString(), round, horseDto);
+        var manifestDto = new ManifestDto(rulesVersion, "reins-v2", seed, surface.ToString(), round, horseDto);
         var model = new ReinsRun(new ReinsManifest(seed, surface, round,
             new ReinsHorseProfile(horseDto.NervePermille, horseDto.FirePermille, horseDto.BiddabilityPermille, horseDto.HeartPermille)));
         JsonElement frames = root.GetProperty("frames");
@@ -165,11 +176,11 @@ internal static class ReplayVerifier
         {
             cancellation.ThrowIfCancellationRequested();
             JsonElement frame = frames[i];
-            Exact(frame, "frame", "tick", "leftPermille", "rightPermille", "cadenceTap", "gateTap", "wrap", "drive");
+            Exact(frame, "frame", "tick", "leftPermille", "rightPermille", "cadenceTap", "launchHeld", "wrap", "drive");
             int tick = Integer(frame, "tick", 1, MaxFrames);
             if (tick != i + 1) throw Invalid("frame_order", "Ticks must start at 1 and advance exactly once per 20 ms; no gaps or repeats.");
             canonical[i] = new FrameDto(tick, Integer(frame, "leftPermille", 0, 1000), Integer(frame, "rightPermille", 0, 1000),
-                Boolean(frame, "cadenceTap"), Boolean(frame, "gateTap"), Boolean(frame, "wrap"), Named<DriveSide>(frame, "drive").ToString());
+                Boolean(frame, "cadenceTap"), Boolean(frame, "launchHeld"), Boolean(frame, "wrap"), Named<DriveSide>(frame, "drive").ToString());
         }
         if (!model.Start()) throw new InvalidOperationException("A new shared run did not start.");
         var timer = Stopwatch.StartNew();
@@ -179,7 +190,7 @@ internal static class ReplayVerifier
             if (timer.ElapsedMilliseconds > 2000) throw new OperationCanceledException("Replay compute budget exhausted.");
             if (model.Phase == ReinsPhase.Complete || model.Phase == ReinsPhase.Cancelled || model.Phase == ReinsPhase.TimedOut)
                 throw Invalid("post_terminal_input", "Frames after the shared run's terminal tick are not permitted.");
-            model.Step(new ReinsInput(frame.LeftPermille, frame.RightPermille, frame.CadenceTap, frame.GateTap, frame.Wrap,
+            model.Step(new ReinsInput(frame.LeftPermille, frame.RightPermille, frame.CadenceTap, frame.LaunchHeld, frame.Wrap,
                 Enum.Parse<DriveSide>(frame.Drive, false)));
             if (model.Tick != frame.Tick) throw new InvalidOperationException("Shared core tick disagrees with canonical input tick.");
         }
@@ -188,13 +199,14 @@ internal static class ReplayVerifier
         bool complete = model.Phase == ReinsPhase.Complete;
         return new
         {
-            contractVersion = 1, scope = "offline-consistency", accepted = complete, authority = false,
+            contractVersion = 2, scope = "offline-consistency", accepted = complete, authority = false,
             status = model.Phase.ToString(), rulesVersion, ruleFingerprint = ReinsRuleFingerprint.Sha256,
             frameCount = canonical.Length, fixedStepMs = 20,
-            manifestSha256 = Hash(manifestDto), replaySha256 = Hash(new { contractVersion = 1, manifest = manifestDto, frames = canonical }),
+            manifestSha256 = Hash(manifestDto), replaySha256 = Hash(new { contractVersion = 2, ruleFingerprint = ReinsRuleFingerprint.Sha256, launchInitiallyHeld = true, manifest = manifestDto, frames = canonical }),
             state = new { tick = model.Tick, raceTimeMs = model.RaceTimeMs, barrelIndex = model.BarrelIndex,
-                x = model.X, z = model.Z, headingRadians = model.HeadingRadians, speedMetresPerSecond = model.SpeedMetresPerSecond },
-            result = complete ? new ResultDto(model.RaceTimeMs, model.FinalTimeMs, model.KnockCount, model.StylePoints) : null
+                x = model.X, z = model.Z, headingRadians = model.HeadingRadians, speedMetresPerSecond = model.SpeedMetresPerSecond,
+                launchOutcome = model.LaunchOutcome.ToString(), launchReleaseErrorMs = model.LaunchReleaseErrorMs },
+            result = complete ? new ResultDto(model.RaceTimeMs, model.FinalTimeMs, model.KnockCount, model.StylePoints, model.LaunchOutcome.ToString(), model.LaunchReleaseErrorMs) : null
         };
     }
 
@@ -233,7 +245,7 @@ internal static class ReplayVerifier
     }
 
     private sealed record HorseDto(int NervePermille, int FirePermille, int BiddabilityPermille, int HeartPermille);
-    private sealed record ManifestDto(int RulesVersion, uint Seed, string Surface, int RoundIndex, HorseDto Horse);
-    private sealed record FrameDto(int Tick, int LeftPermille, int RightPermille, bool CadenceTap, bool GateTap, bool Wrap, string Drive);
-    private sealed record ResultDto(long RaceTimeMs, long FinalTimeMs, int KnockCount, int StylePoints);
+    private sealed record ManifestDto(int RulesVersion, string CourseId, uint Seed, string Surface, int RoundIndex, HorseDto Horse);
+    private sealed record FrameDto(int Tick, int LeftPermille, int RightPermille, bool CadenceTap, bool LaunchHeld, bool Wrap, string Drive);
+    private sealed record ResultDto(long RaceTimeMs, long FinalTimeMs, int KnockCount, int StylePoints, string LaunchOutcome, int? LaunchReleaseErrorMs);
 }

@@ -107,7 +107,7 @@ namespace BarrelRivals.Tests
         }
 
         [UnityTest]
-        public IEnumerator CanonicalV1ReplayCapturesNinePremiumGameplayStagesWithoutChangingTheResult()
+        public IEnumerator CanonicalV2ReplayCapturesNinePremiumGameplayStagesWithoutChangingTheResult()
         {
             yield return SceneManager.LoadSceneAsync(ReinsLabController.SceneName, LoadSceneMode.Single);
             yield return null;
@@ -135,7 +135,7 @@ namespace BarrelRivals.Tests
                 controller.RefreshPresentation(); animator.Update(0); tack.RenderImmediate(); controller.RefreshPresentation();
                 Capture("Ready", controller, camera, tack, captures); captured.Add("Ready");
                 var fixture = JsonUtility.FromJson<Fixture>(File.ReadAllText(Path.Combine(Application.dataPath,
-                    "../Contracts/Reins/complete-request.v1.json")));
+                    "../Contracts/Reins/complete-request.v2.json")));
                 Assert.IsNotNull(fixture.frames); Assert.IsNotEmpty(fixture.frames);
                 controller.Begin();
                 // No yields: animation advances exactly once per accepted 20ms replay input, not by extra Editor frames.
@@ -155,7 +155,7 @@ namespace BarrelRivals.Tests
                             CaptureOnce("Cross-2", controller, camera, tack, captures, captured);
                         if (barrel == 2 && run.DistanceToBarrel <= 12)
                             CaptureOnce("Approach-3", controller, camera, tack, captures, captured);
-                        // The canonical v1 fixture uses approximately 3.4m Risk turns; a 2.5m assertion would invent a new route.
+                        // The canonical v2 fixture uses approximately 3.4m Risk turns; a 2.5m assertion would invent a new route.
                         if (run.TurnActive && run.DistanceToBarrel <= 3.5 && run.TurnProgress01 >= .20)
                             CaptureOnce("Turn-" + (barrel + 1), controller, camera, tack, captures, captured);
                     }
@@ -163,14 +163,14 @@ namespace BarrelRivals.Tests
                         CaptureOnce("Drive", controller, camera, tack, captures, captured);
                 }
                 Assert.AreEqual(ReinsPhase.Complete, controller.Run.Phase);
-                Assert.AreEqual(35120L, controller.Run.FinalTimeMs);
+                Assert.AreEqual(V2FixtureExpected.Result.finalTimeMs, controller.Run.FinalTimeMs);
                 Assert.AreEqual(0, controller.Run.KnockCount); Assert.AreEqual(300, controller.Run.StylePoints);
                 CaptureOnce("Finish", controller, camera, tack, captures, captured);
                 foreach (string stage in Stages) Assert.IsTrue(captured.Contains(stage), "Missing canonical gameplay stage: " + stage);
                 Assert.AreEqual(Stages.Length, captures.Count);
                 var evidence = new RunEvidence
                 {
-                    unityVersion = Application.unityVersion, ruleset = "reins-lab-v1",
+                    unityVersion = Application.unityVersion, ruleset = "reins-v2",
                     rulesFingerprint = ReinsRuleFingerprint.Sha256, finalPhase = controller.Run.Phase.ToString(),
                     finalTimeMs = controller.Run.FinalTimeMs, knocks = controller.Run.KnockCount,
                     stylePoints = controller.Run.StylePoints, replayFrames = fixture.frames.Length,
@@ -270,9 +270,9 @@ namespace BarrelRivals.Tests
         [Serializable] private sealed class Frame
         {
             public int leftPermille, rightPermille;
-            public bool cadenceTap, gateTap, wrap;
+            public bool cadenceTap, launchHeld, wrap;
             public string drive;
-            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, gateTap, wrap,
+            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, launchHeld, wrap,
                 (DriveSide)Enum.Parse(typeof(DriveSide), drive));
         }
     }

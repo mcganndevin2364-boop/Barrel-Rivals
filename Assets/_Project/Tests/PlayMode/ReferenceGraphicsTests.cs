@@ -115,7 +115,7 @@ namespace BarrelRivals.Tests
                 controller.RefreshPresentation(); animator.Update(0);
                 Capture("Ready", controller, camera);
                 var fixture = JsonUtility.FromJson<Fixture>(File.ReadAllText(Path.Combine(Application.dataPath,
-                    "../Contracts/Reins/complete-request.v1.json")));
+                    "../Contracts/Reins/complete-request.v2.json")));
                 var captured = new bool[3]; bool capturedDrive = false;
                 controller.Begin();
                 // No yield in this loop: only these explicit 20ms advances update animation during the replay.
@@ -137,7 +137,7 @@ namespace BarrelRivals.Tests
                 Assert.IsTrue(captured.All(value => value), "The canonical replay must provide all three barrel captures.");
                 Assert.IsTrue(capturedDrive, "Missing final Drive capture.");
                 Assert.AreEqual(ReinsPhase.Complete, controller.Run.Phase);
-                Assert.AreEqual(35120, controller.Run.FinalTimeMs);
+                Assert.AreEqual(V2FixtureExpected.Result.finalTimeMs, controller.Run.FinalTimeMs);
                 Assert.AreEqual(0, controller.Run.KnockCount);
                 Assert.AreEqual(300, controller.Run.StylePoints);
                 WriteEvidence("Run", new RunEvidence
@@ -232,9 +232,9 @@ namespace BarrelRivals.Tests
         [Serializable] private sealed class Frame
         {
             public int leftPermille, rightPermille;
-            public bool cadenceTap, gateTap, wrap;
+            public bool cadenceTap, launchHeld, wrap;
             public string drive;
-            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, gateTap, wrap,
+            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, launchHeld, wrap,
                 (DriveSide)Enum.Parse(typeof(DriveSide), drive));
         }
     }

@@ -19,33 +19,90 @@ namespace BarrelRivals.Tests
             Assert.Throws<ArgumentNullException>(() => new ReinsRun(null));
         }
 
-        [Test] public void GateUsesThreePeaksAndPhysicalFalseBreakOnlyOnce()
+        [Test] public void AlleyApproachOwnsPoseAndClockUntilExactGoBoundary()
         {
-            var perfect = Racing();
-            Assert.AreEqual(3, perfect.GatePeaksHit); Assert.IsFalse(perfect.FalseBreak);
-            Assert.AreEqual(0, perfect.RaceTimeMs); Assert.Greater(perfect.SpeedMetresPerSecond, 0);
-            var spam = new ReinsRun(new ReinsManifest(1)); spam.Start();
-            while (spam.Phase != ReinsPhase.Racing) spam.Step(new ReinsInput(gateTap: true));
-            Assert.IsTrue(spam.FalseBreak); Assert.AreEqual(0, spam.GatePeaksHit);
-            Assert.AreEqual(2100, spam.StandstillRemainingMs, "One false break (1500) plus one cold start (600), never repeated fines.");
-            double x = spam.X, z = spam.Z;
-            for (int i = 0; i < 50; i++) spam.Step(new ReinsInput(gateTap: true));
-            Assert.AreEqual(1000, spam.RaceTimeMs); Assert.AreEqual(x, spam.X); Assert.AreEqual(z, spam.Z);
-            Assert.AreEqual(1100, spam.StandstillRemainingMs); Assert.AreEqual(0, spam.FinalTimeMs);
+            var run = new ReinsRun(new ReinsManifest(1));
+            Assert.AreEqual(-6, run.Z); Assert.AreEqual(0, run.SpeedMetresPerSecond);
+            Assert.IsTrue(run.Start()); Assert.IsFalse(run.Start());
+            for (int tick = 1; tick <= 200; tick++)
+            {
+                run.Step(new ReinsInput(1000, 700, true, true, true, DriveSide.Right));
+                Assert.AreEqual(0, run.X); Assert.That(run.Z, Is.EqualTo(-6 + tick * .03).Within(1e-12));
+                Assert.AreEqual(0, run.HeadingRadians); Assert.AreEqual(1.5, run.SpeedMetresPerSecond);
+                Assert.AreEqual(0, run.RaceTimeMs); Assert.AreEqual(0, run.CadenceAwards);
+                Assert.IsFalse(run.WrapActive); Assert.AreEqual(0, run.DriveAcceptedTaps);
+                Assert.AreEqual(tick == 200 ? ReinsPhase.Racing : ReinsPhase.Approach, run.Phase);
+            }
+            Assert.AreEqual(600, run.NextCadenceBeatMs);
+            run.Step(new ReinsInput(leftPermille: 500, launchHeld: true));
+            Assert.AreEqual(20, run.RaceTimeMs); Assert.Less(run.X, 0); Assert.Greater(run.Z, 0);
         }
 
-        [Test] public void DuplicatePeakTapsCannotReceiveAnotherGateAward()
+        [TestCase(-260, ReinsLaunchOutcome.Weak)] [TestCase(-240, ReinsLaunchOutcome.Good)]
+        [TestCase(-140, ReinsLaunchOutcome.Good)] [TestCase(-120, ReinsLaunchOutcome.Perfect)]
+        [TestCase(0, ReinsLaunchOutcome.Perfect)] [TestCase(120, ReinsLaunchOutcome.Perfect)]
+        [TestCase(140, ReinsLaunchOutcome.Good)] [TestCase(240, ReinsLaunchOutcome.Good)]
+        [TestCase(260, ReinsLaunchOutcome.Weak)] [TestCase(400, ReinsLaunchOutcome.Weak)]
+        public void FirstReleaseUsesSignedGoErrorAndInclusiveWindows(int error, ReinsLaunchOutcome outcome)
+        {
+            var run = ReleaseAt(4000 + error);
+            Assert.AreEqual(outcome, run.LaunchOutcome); Assert.AreEqual(error, run.LaunchReleaseErrorMs);
+            for (int i = 0; i < 230; i++) run.Step(new ReinsInput(launchHeld: i % 2 == 0));
+            Assert.AreEqual(outcome, run.LaunchOutcome); Assert.AreEqual(error, run.LaunchReleaseErrorMs);
+        }
+
+        [Test] public void SubStepReleaseTimeoutAndCancellationCannotFabricateOrRepeatLaunch()
+        {
+            var shortTouch = ReleaseAt(20);
+            Assert.AreEqual(ReinsLaunchOutcome.Weak, shortTouch.LaunchOutcome);
+            Assert.AreEqual(-3980, shortTouch.LaunchReleaseErrorMs);
+            while (shortTouch.Tick < 200) shortTouch.Step(new ReinsInput(launchHeld: true));
+            Assert.AreEqual(0, shortTouch.Z); Assert.AreEqual(0, shortTouch.RaceTimeMs);
+            var timeout = new ReinsRun(new ReinsManifest(1)); timeout.Start();
+            while (timeout.Tick < 219) timeout.Step(new ReinsInput(launchHeld: true));
+            Assert.IsFalse(timeout.LaunchResolved);
+            timeout.Step(new ReinsInput(launchHeld: true));
+            Assert.AreEqual(ReinsLaunchOutcome.TimedOut, timeout.LaunchOutcome);
+            Assert.IsNull(timeout.LaunchReleaseErrorMs); Assert.AreEqual(400, timeout.RaceTimeMs);
+            timeout.Step(default); Assert.IsNull(timeout.LaunchReleaseErrorMs);
+            var cancelled = new ReinsRun(new ReinsManifest(1)); cancelled.Start();
+            while (cancelled.Tick < 219) cancelled.Step(new ReinsInput(launchHeld: true));
+            cancelled.Cancel(); cancelled.Step(default);
+            Assert.AreEqual(219, cancelled.Tick); Assert.AreEqual(ReinsLaunchOutcome.Pending, cancelled.LaunchOutcome);
+            Assert.IsNull(cancelled.LaunchReleaseErrorMs);
+        }
+
+        [Test] public void LaunchBoostStartsAfterReleaseNeverChangesBrakingAndExpiresAtFixedGoTime()
+        {
+            var early = ReleaseAt(4000); var late = ReleaseAt(4000, release: false);
+            early.Step(default); late.Step(default);
+            Assert.That(early.SpeedMetresPerSecond - 1.5, Is.EqualTo(4.8 * .02 * 1.35).Within(1e-12));
+            Assert.That(late.SpeedMetresPerSecond - 1.5, Is.EqualTo(4.8 * .02).Within(1e-12), "This tick consumed the late release; its boost starts next tick.");
+            double speed = late.SpeedMetresPerSecond; late.Step(default);
+            Assert.That(late.SpeedMetresPerSecond - speed, Is.EqualTo(4.8 * .02 * 1.35).Within(1e-12));
+            var weak = ReleaseAt(20); while (weak.Tick < 200) weak.Step(default);
+            var perfectBrake = ReleaseAt(4000);
+            perfectBrake.Step(new ReinsInput(1000, 1000)); weak.Step(new ReinsInput(1000, 1000));
+            Assert.AreEqual(weak.SpeedMetresPerSecond, perfectBrake.SpeedMetresPerSecond);
+            // Hold both reins to ensure positive acceleration is available near expiry.
+            while (early.RaceTimeMs < 1160) early.Step(new ReinsInput(1000, 1000));
+            speed = early.SpeedMetresPerSecond; early.Step(default);
+            Assert.That(early.SpeedMetresPerSecond - speed, Is.EqualTo(4.8 * .02 * 1.35).Within(1e-12));
+            speed = early.SpeedMetresPerSecond; early.Step(default);
+            Assert.AreEqual(1200, early.RaceTimeMs);
+            Assert.That(early.SpeedMetresPerSecond - speed, Is.EqualTo(4.8 * .02).Within(1e-12));
+        }
+
+        private static ReinsRun ReleaseAt(int milliseconds, bool release = true)
         {
             var run = new ReinsRun(new ReinsManifest(1)); run.Start();
-            while (run.Phase != ReinsPhase.Gate || run.PhaseElapsedMs < 480) run.Step(default);
-            run.Step(new ReinsInput(gateTap: true));
-            for (int i = 0; i < 4; i++) run.Step(new ReinsInput(gateTap: true));
-            Assert.AreEqual(1, run.GatePeaksHit); Assert.IsFalse(run.FalseBreak);
+            while (run.ElapsedMs + ReinsRun.StepMs < milliseconds) run.Step(new ReinsInput(launchHeld: true));
+            run.Step(new ReinsInput(launchHeld: !release)); return run;
         }
 
-        [TestCase(-140, ReinsTimingGrade.Good)] [TestCase(-80, ReinsTimingGrade.Great)]
-        [TestCase(-40, ReinsTimingGrade.Perfect)] [TestCase(0, ReinsTimingGrade.Perfect)]
-        [TestCase(40, ReinsTimingGrade.Perfect)] [TestCase(80, ReinsTimingGrade.Great)]
+        [TestCase(-140, ReinsTimingGrade.Good)] [TestCase(-100, ReinsTimingGrade.Great)] [TestCase(-80, ReinsTimingGrade.Great)]
+        [TestCase(-60, ReinsTimingGrade.Perfect)] [TestCase(-40, ReinsTimingGrade.Perfect)] [TestCase(0, ReinsTimingGrade.Perfect)]
+        [TestCase(40, ReinsTimingGrade.Perfect)] [TestCase(60, ReinsTimingGrade.Perfect)] [TestCase(80, ReinsTimingGrade.Great)] [TestCase(100, ReinsTimingGrade.Great)] [TestCase(120, ReinsTimingGrade.Good)]
         [TestCase(140, ReinsTimingGrade.Good)] [TestCase(-160, ReinsTimingGrade.Miss)]
         public void CadenceGradesTheExactFixedTickWindow(int offset, ReinsTimingGrade expected)
         {
@@ -153,7 +210,7 @@ namespace BarrelRivals.Tests
             FeedLoop(judge, wrongBarrel, 3, 1, Math.PI, Math.PI * 2);
             Assert.AreEqual(0, judge.BarrelIndex);
             var reverse = new ReinsCourseJudge();
-            double angle = Math.Atan2(-barrel.X, -9 - barrel.Z);
+            double angle = Math.Atan2(-barrel.X, -barrel.Z);
             FeedApproach(reverse, barrel, angle, 3);
             FeedLoop(reverse, barrel, 3, 1, angle, Math.PI * 2);
             Assert.AreEqual(0, reverse.BarrelIndex); Assert.AreEqual(0, reverse.StylePoints);
@@ -165,7 +222,7 @@ namespace BarrelRivals.Tests
             for (int index = 0; index < 3; index++)
             {
                 var barrel = StandardCourse.Barrel(index);
-                var source = index == 0 ? new StandardCourse.Point(0, -9) : StandardCourse.Barrel(index - 1);
+                var source = index == 0 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index - 1);
                 var destination = index == 2 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index + 1);
                 double angle = Math.Atan2(source.X - barrel.X, source.Z - barrel.Z);
                 double outbound = Math.Atan2(destination.X - barrel.X, destination.Z - barrel.Z);
@@ -212,7 +269,7 @@ namespace BarrelRivals.Tests
             for (int i = 0; i < 1400; i++)
             {
                 var input = new ReinsInput(i % 47 < 9 ? 400 : 0, i % 59 < 12 ? 300 : 0,
-                    cadenceTap: i % 21 == 0, gateTap: i == 275 || i == 325 || i == 375, wrap: i % 77 < 5);
+                    cadenceTap: i % 21 == 0, launchHeld: i < 199, wrap: i % 77 < 5);
                 a.Step(input); b.Step(input);
                 Assert.AreEqual(a.X, b.X); Assert.AreEqual(a.Z, b.Z); Assert.AreEqual(a.HeadingRadians, b.HeadingRadians);
             }
@@ -230,8 +287,7 @@ namespace BarrelRivals.Tests
             while (!run.IsTerminal)
             {
                 ReinsInput input;
-                if (run.Phase == ReinsPhase.Preview) input = default;
-                else if (run.Phase == ReinsPhase.Gate) input = new ReinsInput(gateTap: (run.PhaseElapsedMs + ReinsRun.StepMs) % 1000 == 500);
+                if (run.Phase == ReinsPhase.Approach) input = new ReinsInput(launchHeld: run.ElapsedMs + ReinsRun.StepMs < ReinsRun.ApproachMs);
                 else
                 {
                     if (routeIndex != run.BarrelIndex) { routeIndex = run.BarrelIndex; waypoint = 0; route = Route(routeIndex); }
@@ -272,7 +328,7 @@ namespace BarrelRivals.Tests
         {
             var run = new ReinsRun(new ReinsManifest(104)); run.Start();
             while (run.Phase != ReinsPhase.Racing)
-                run.Step(new ReinsInput(gateTap: run.Phase == ReinsPhase.Gate && (run.PhaseElapsedMs + ReinsRun.StepMs) % 1000 == 500));
+                run.Step(new ReinsInput(launchHeld: run.ElapsedMs + ReinsRun.StepMs < ReinsRun.ApproachMs));
             return run;
         }
         private static void HitNextBeat(ReinsRun run)
@@ -296,7 +352,7 @@ namespace BarrelRivals.Tests
         {
             if (index == 3) return new List<StandardCourse.Point> { new StandardCourse.Point(0, -5) };
             var center = StandardCourse.Barrel(index);
-            var source = index == 0 ? new StandardCourse.Point(0, -9) : StandardCourse.Barrel(index - 1);
+            var source = index == 0 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index - 1);
             var next = index == 2 ? new StandardCourse.Point(0, 0) : StandardCourse.Barrel(index + 1);
             double angle = Math.Atan2(source.X - center.X, source.Z - center.Z);
             double outgoing = Math.Atan2(next.X - center.X, next.Z - center.Z);

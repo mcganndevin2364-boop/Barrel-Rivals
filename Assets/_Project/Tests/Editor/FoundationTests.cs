@@ -66,7 +66,15 @@ namespace BarrelRivals.Tests
             Assert.Throws<ArgumentOutOfRangeException>(()=>StandardCourse.Barrel(-1));
             Assert.Throws<ArgumentOutOfRangeException>(()=>StandardCourse.Barrel(3));
         }
-        [Test] public void SavedSceneHasValidBindingsAndPersistentMaterials() => FoundationBuilder.Validate();
+        [Test] public void SavedSceneHasValidBindingsAndPersistentMaterials()
+        {
+            var shipping=EditorBuildSettings.scenes;
+            try {
+                EditorBuildSettings.scenes=shipping.Where(x=>x.path!=FoundationBuilder.ScenePath)
+                    .Concat(new[]{new EditorBuildSettingsScene(FoundationBuilder.ScenePath,true)}).ToArray();
+                FoundationBuilder.Validate();
+            } finally { EditorBuildSettings.scenes=shipping; }
+        }
         [Test] public void EveryQualityTierUsesTheSavedPipeline()
         {
             bool reinsEnabled=EditorBuildSettings.scenes.Any(s=>s.enabled && s.path==ReinsLabBuilder.ScenePath);

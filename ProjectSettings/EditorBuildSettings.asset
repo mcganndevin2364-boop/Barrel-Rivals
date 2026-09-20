@@ -6,15 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Generated/Practice/Arena_Practice.unity
-    guid: 8f2c9201edd6c4cc081660efc5ec5226
-  - enabled: 1
     path: Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity
     guid: 5563d468067d744efbcf6074b0b6dbb1
   - enabled: 1
     path: Assets/_Project/Generated/ReinsLab/MyStable.unity
     guid: a1d12c1e1586a4999841845bd7095420
-  - enabled: 1
-    path: Assets/_Project/Generated/Foundation/Arena_Foundation.unity
-    guid: 7553a3942cea64cf0aab117fe7ca9254
   m_configObjects: {}

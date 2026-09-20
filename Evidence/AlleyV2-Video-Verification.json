@@ -1,0 +1,35 @@
+{
+  "checks": [
+    {
+      "video": "AlleyV2-Launch.mp4",
+      "sha256": "dc7e23d5aed9adbf64fadca2a4529fb6bb7a0ca1f660da219fed335a4759be91",
+      "frames": 161,
+      "encodedFps": 25,
+      "durationSeconds": 6.44,
+      "size": [
+        1280,
+        720
+      ],
+      "decodedSourceFrame": 60,
+      "rgbMeanAbsoluteError": 2.7937384259259255,
+      "maximumAllowedError": 5,
+      "devicePerformanceMeasured": false
+    },
+    {
+      "video": "AlleyV2-Motion.mp4",
+      "sha256": "b660bf831f5f1f039da9274d7b8ae997f78947ff59f178ad19d094b0d4120ca7",
+      "frames": 220,
+      "encodedFps": 25,
+      "durationSeconds": 8.8,
+      "size": [
+        1280,
+        360
+      ],
+      "decodedSourceFrame": 60,
+      "rgbMeanAbsoluteError": 1.8154130497685186,
+      "maximumAllowedError": 5,
+      "devicePerformanceMeasured": false
+    }
+  ],
+  "allPassed": true
+}

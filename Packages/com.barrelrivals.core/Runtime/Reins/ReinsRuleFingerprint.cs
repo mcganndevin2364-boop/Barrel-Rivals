@@ -1,8 +1,8 @@
-// Generated from the four Reins simulation source files; ReinsLabBuilder validates this before build.
+// Generated from six simulation/geometry sources; see Contracts/Reins/README.md.
 namespace BarrelRivals.Core.Reins
 {
     public static class ReinsRuleFingerprint
     {
-        public const string Sha256 = "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837";
+        public const string Sha256 = "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274";
     }
 }

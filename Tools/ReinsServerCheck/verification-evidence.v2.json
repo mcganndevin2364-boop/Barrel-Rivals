@@ -1,0 +1,326 @@
+{
+  "scope": "offline-consistency",
+  "contractVersion": 2,
+  "rulesVersion": 2,
+  "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+  "verifiedAtUtc": "2026-09-20T21:28:07.454886+00:00",
+  "suitePassed": true,
+  "checks": [
+    {
+      "name": "health_is_offline_and_bounded",
+      "passed": true
+    },
+    {
+      "name": "health_fingerprint_matches_canonical_rule_sources",
+      "passed": true
+    },
+    {
+      "name": "incomplete_replay_cannot_be_accepted",
+      "passed": true
+    },
+    {
+      "name": "exact_tick_count_recomputed",
+      "passed": true
+    },
+    {
+      "name": "response_fingerprint_matches_health_and_sources",
+      "passed": true
+    },
+    {
+      "name": "canonical_hash_ignores_json_whitespace_and_key_order",
+      "passed": true
+    },
+    {
+      "name": "canonical_digests_match_independent_python_serialization",
+      "passed": true
+    },
+    {
+      "name": "approach_has_fixed_pose_and_unresolved_launch",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_1",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_187",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_188",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_193",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_194",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_200",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_206",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_207",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_212",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_213",
+      "passed": true
+    },
+    {
+      "name": "launch_boundary_tick_220",
+      "passed": true
+    },
+    {
+      "name": "go_is_exact_start_pose_clock_and_speed",
+      "passed": true
+    },
+    {
+      "name": "held_launch_times_out_with_null_error",
+      "passed": true
+    },
+    {
+      "name": "post_timeout_release_does_not_regrade",
+      "passed": true
+    },
+    {
+      "name": "release_and_repress_cannot_rearm",
+      "passed": true
+    },
+    {
+      "name": "launch_hold_changes_replay_hash_only",
+      "passed": true
+    },
+    {
+      "name": "v1_envelope_explicitly_rejected",
+      "passed": true
+    },
+    {
+      "name": "mixed_v1_rules",
+      "passed": true
+    },
+    {
+      "name": "mixed_v1_course",
+      "passed": true
+    },
+    {
+      "name": "missing_course",
+      "passed": true
+    },
+    {
+      "name": "wrong_fingerprint",
+      "passed": true
+    },
+    {
+      "name": "malformed_fingerprint",
+      "passed": true
+    },
+    {
+      "name": "missing_fingerprint",
+      "passed": true
+    },
+    {
+      "name": "unarmed_launch_rejected",
+      "passed": true
+    },
+    {
+      "name": "numeric_initial_state_rejected",
+      "passed": true
+    },
+    {
+      "name": "missing_initial_state",
+      "passed": true
+    },
+    {
+      "name": "mixed_gate_tap_rejected",
+      "passed": true
+    },
+    {
+      "name": "unknown_ruleset",
+      "passed": true
+    },
+    {
+      "name": "string_ruleset",
+      "passed": true
+    },
+    {
+      "name": "unknown_contract",
+      "passed": true
+    },
+    {
+      "name": "negative_seed",
+      "passed": true
+    },
+    {
+      "name": "seed_overflow",
+      "passed": true
+    },
+    {
+      "name": "invalid_surface",
+      "passed": true
+    },
+    {
+      "name": "numeric_enum_name",
+      "passed": true
+    },
+    {
+      "name": "invalid_round",
+      "passed": true
+    },
+    {
+      "name": "invalid_horse_stat",
+      "passed": true
+    },
+    {
+      "name": "reins_out_of_range",
+      "passed": true
+    },
+    {
+      "name": "fractional_rein",
+      "passed": true
+    },
+    {
+      "name": "decimal_integer_token",
+      "passed": true
+    },
+    {
+      "name": "numeric_launch_state",
+      "passed": true
+    },
+    {
+      "name": "numeric_boolean",
+      "passed": true
+    },
+    {
+      "name": "invalid_drive",
+      "passed": true
+    },
+    {
+      "name": "tick_gap",
+      "passed": true
+    },
+    {
+      "name": "tick_repeat",
+      "passed": true
+    },
+    {
+      "name": "missing_field",
+      "passed": true
+    },
+    {
+      "name": "uploaded_final_time_rejected",
+      "passed": true
+    },
+    {
+      "name": "uploaded_position_rejected",
+      "passed": true
+    },
+    {
+      "name": "empty_frames",
+      "passed": true
+    },
+    {
+      "name": "too_many_frames",
+      "passed": true
+    },
+    {
+      "name": "duplicate_property",
+      "passed": true
+    },
+    {
+      "name": "nan_rejected",
+      "passed": true
+    },
+    {
+      "name": "overflow_number_rejected",
+      "passed": true
+    },
+    {
+      "name": "exponent_integer_token_rejected",
+      "passed": true
+    },
+    {
+      "name": "oversized_declared_body_rejected_before_upload",
+      "passed": true
+    },
+    {
+      "name": "compressed_body_rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong_content_type",
+      "passed": true
+    },
+    {
+      "name": "browser_origin_rejected",
+      "passed": true
+    },
+    {
+      "name": "foreign_host_rejected",
+      "passed": true
+    },
+    {
+      "name": "maximum_length_incomplete_run_times_out_without_result",
+      "passed": true
+    },
+    {
+      "name": "two_verification_slots_are_enforced",
+      "passed": true
+    },
+    {
+      "name": "slow_body_deadline_1",
+      "passed": true
+    },
+    {
+      "name": "slow_body_deadline_2",
+      "passed": true
+    },
+    {
+      "name": "verification_slots_recovered_after_deadline",
+      "passed": true
+    },
+    {
+      "name": "complete_replay_recomputes_result",
+      "passed": true
+    },
+    {
+      "name": "complete_launch_result_matches_state",
+      "passed": true
+    },
+    {
+      "name": "complete_fixture_matches_reviewed_expected_response",
+      "passed": true
+    },
+    {
+      "name": "complete_digest_matches_python_serialization",
+      "passed": true
+    },
+    {
+      "name": "complete_replay_is_repeatable",
+      "passed": true
+    },
+    {
+      "name": "post_terminal_frame_rejected",
+      "passed": true
+    },
+    {
+      "name": "all_v1_contract_and_verifier_evidence_bytes_preserved",
+      "passed": true
+    }
+  ],
+  "limits": [
+    "Local consistency only; no authentication, ranked authority, storage or rewards.",
+    "Unity/IL2CPP parity and physical device acceptance require separate evidence."
+  ]
+}

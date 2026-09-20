@@ -15,12 +15,14 @@ $$;
 
 CREATE TABLE reins_draft.ruleset (
     ruleset_id text PRIMARY KEY CHECK (ruleset_id ~ '^reins/[1-9][0-9]*$'),
+    contract_version smallint NOT NULL CHECK (contract_version IN (1, 2)),
     core_source_sha256 bytea NOT NULL CHECK (octet_length(core_source_sha256) = 32),
     rules_sha256 bytea NOT NULL CHECK (octet_length(rules_sha256) = 32),
     fixed_step_ms smallint NOT NULL CHECK (fixed_step_ms = 20),
     maximum_frames integer NOT NULL CHECK (maximum_frames BETWEEN 1 AND 7500),
     created_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE (ruleset_id, rules_sha256)
+    UNIQUE (ruleset_id, rules_sha256),
+    UNIQUE (ruleset_id, rules_sha256, contract_version)
 );
 
 -- Full manifests are server-private in a future competitive service. Reveal permissions are separate.
@@ -29,6 +31,7 @@ CREATE TABLE reins_draft.manifest (
     match_id uuid NOT NULL,
     round_index smallint NOT NULL CHECK (round_index BETWEEN 0 AND 2),
     ruleset_id text NOT NULL,
+    contract_version smallint NOT NULL CHECK (contract_version IN (1, 2)),
     rules_sha256 bytea NOT NULL CHECK (octet_length(rules_sha256) = 32),
     course_id text NOT NULL CHECK (length(course_id) BETWEEN 1 AND 96),
     course_sha256 bytea NOT NULL CHECK (octet_length(course_sha256) = 32),
@@ -37,9 +40,13 @@ CREATE TABLE reins_draft.manifest (
     manifest_sha256 bytea NOT NULL UNIQUE CHECK (octet_length(manifest_sha256) = 32),
     canonical_manifest bytea NOT NULL CHECK (octet_length(canonical_manifest) BETWEEN 1 AND 65536),
     issued_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ruleset_id, rules_sha256) REFERENCES reins_draft.ruleset (ruleset_id, rules_sha256),
+    FOREIGN KEY (ruleset_id, rules_sha256, contract_version)
+        REFERENCES reins_draft.ruleset (ruleset_id, rules_sha256, contract_version),
+    CHECK ((contract_version = 1 AND course_id = 'reins-lab-v1')
+        OR (contract_version = 2 AND course_id = 'reins-v2')),
     UNIQUE (match_id, round_index),
-    UNIQUE (manifest_id, match_id, round_index)
+    UNIQUE (manifest_id, match_id, round_index),
+    UNIQUE (manifest_id, match_id, round_index, contract_version)
 );
 
 CREATE TABLE reins_draft.horse_snapshot (
@@ -61,30 +68,39 @@ CREATE TABLE reins_draft.horse_snapshot (
 CREATE TABLE reins_draft.run_attempt (
     run_id uuid PRIMARY KEY,
     manifest_id uuid NOT NULL,
+    contract_version smallint NOT NULL CHECK (contract_version IN (1, 2)),
     match_id uuid NOT NULL,
     round_index smallint NOT NULL CHECK (round_index BETWEEN 0 AND 2),
     rider_id uuid NOT NULL,
     attempt_id uuid NOT NULL,
     loadout_sha256 bytea NOT NULL CHECK (octet_length(loadout_sha256) = 32),
     assigned_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (manifest_id, match_id, round_index) REFERENCES reins_draft.manifest (manifest_id, match_id, round_index),
+    FOREIGN KEY (manifest_id, match_id, round_index, contract_version)
+        REFERENCES reins_draft.manifest (manifest_id, match_id, round_index, contract_version),
     FOREIGN KEY (manifest_id, rider_id, loadout_sha256) REFERENCES reins_draft.horse_snapshot (manifest_id, rider_id, loadout_sha256),
     UNIQUE (match_id, round_index, rider_id, attempt_id),
-    UNIQUE (run_id, match_id)
+    UNIQUE (run_id, match_id),
+    UNIQUE (run_id, contract_version)
 );
 
 -- The backend chooses object_key; it is never a URL to fetch from a client.
+-- Keep v1 objects as immutable history. Contract/course/source hashes must match the
+-- assigned attempt; a v1 object cannot become a v2 best or trusted match result.
 CREATE TABLE reins_draft.replay_object (
     replay_id uuid PRIMARY KEY,
-    run_id uuid NOT NULL REFERENCES reins_draft.run_attempt,
+    run_id uuid NOT NULL,
     replay_sha256 bytea NOT NULL CHECK (octet_length(replay_sha256) = 32),
     object_sha256 bytea NOT NULL CHECK (octet_length(object_sha256) = 32),
     object_key text NOT NULL UNIQUE CHECK (length(object_key) BETWEEN 1 AND 512),
     byte_length integer NOT NULL CHECK (byte_length BETWEEN 1 AND 2097152),
-    contract_version smallint NOT NULL CHECK (contract_version = 1),
+    contract_version smallint NOT NULL CHECK (contract_version IN (1, 2)),
+    launch_initially_held boolean,
+    CHECK ((contract_version = 1 AND launch_initially_held IS NULL)
+        OR (contract_version = 2 AND launch_initially_held IS TRUE)),
     frame_count integer NOT NULL CHECK (frame_count BETWEEN 1 AND 7500),
     duration_ms integer NOT NULL CHECK (duration_ms = frame_count * 20),
     stored_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (run_id, contract_version) REFERENCES reins_draft.run_attempt (run_id, contract_version),
     UNIQUE (run_id, replay_sha256),
     UNIQUE (replay_id, run_id)
 );
@@ -99,6 +115,9 @@ CREATE TABLE reins_draft.run_verification (
     raw_time_ms integer CHECK (raw_time_ms BETWEEN 0 AND 150000),
     knock_count smallint CHECK (knock_count BETWEEN 0 AND 3),
     final_time_ms integer,
+    -- V2 canonical result JSON retains launchOutcome and signed launchReleaseErrorMs;
+    -- TimedOut uses JSON null, not an invented zero release error. The trusted verifier
+    -- must validate these against replayed frames before insertion.
     result_json jsonb NOT NULL CHECK (jsonb_typeof(result_json) = 'object' AND octet_length(result_json::text) <= 16384),
     verified_at timestamptz NOT NULL DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (replay_id, run_id) REFERENCES reins_draft.replay_object (replay_id, run_id),

@@ -1,0 +1,38 @@
+{
+  "contractVersion": 2,
+  "rulesVersion": 2,
+  "courseId": "reins-v2",
+  "generatedAtUtc": "2026-09-20T21:27:44.270814+00:00",
+  "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+  "scope": "offline-consistency",
+  "runtime": ".NET 8.0.21",
+  "generationCommand": "bash Tools/ReinsServerCheck/run.sh generate-fixture",
+  "generatorSource": "Tools/ReinsServerCheck/FixtureGenerator.cs",
+  "generatorSourceSha256": "7a742f9a01efe8b2eee1f534e412f9d42077ff1574de0147454c3b4e1c0b1047",
+  "compiledCoreAssemblySha256": "425c2746de2c3cd97e97f7e401717d040b99082976201e5d5aa88cd83d9ea699",
+  "sourceSnapshotSha256": {
+    "ReinsContracts.cs": "c49857f643cefadf5eef2d1e4ba81b0d04f1c1f80a41bc0f7255d36f5c1fba61",
+    "ReinsCourseJudge.cs": "d46f640022a7c3864931aeff8fa475f0091c3f69e8fd17a406930f4ce7851c21",
+    "ReinsRun.cs": "84855ae09802c7c5f0abc1f3f390e9d182550c654b2310ff9ba460cebb292a0a",
+    "ReinsReplay.cs": "f133efb39ecd66f65b0528782813b5f43d02b31340120ba84c196b5305daedca",
+    "ReinsAlley.cs": "29d98a310dcb1d12f80c87e31f44775fa5f827536e00077a7ecf99f2770e5030",
+    "../StandardCourse.cs": "da0057bf512a8b284932eccf1c781128c19749a1c4193e0d91537670953f459d"
+  },
+  "requestFileSha256": "f068e9dece3fd549068ce100ef1ae05fd7c6ab76640ae83ab2f7df0bfa0d3f49",
+  "responseFileSha256": "b84e10105800e00c7dc5231d6a3523b5625e608e9ac3ff559908ed116c3e59bf",
+  "frameCount": 1893,
+  "launchInitiallyHeld": true,
+  "result": {
+    "raceTimeMs": 33860,
+    "finalTimeMs": 33860,
+    "knockCount": 0,
+    "stylePoints": 300,
+    "launchOutcome": "Perfect",
+    "launchReleaseErrorMs": 0
+  },
+  "limits": [
+    "Development steering policy, not player telemetry or proof of human input.",
+    "Expected response uses the same shared rules; HTTP/Python verification is recorded separately.",
+    "Unity and native IL2CPP parity, phone acceptance, trusted service and persistence are separate gates."
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "baselineCommit": "ac12692daca15e89c296d88895fb2e8baee87918",
+  "configuredNextBuildIdentity": "0.5.0/build 5",
+  "rules": "reins-v2",
+  "sourceOnly": true,
+  "newDeviceInstall": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "movingLaunchImplemented": true,
+  "fullR2Accepted": false,
+  "historicalEvidenceRestored": 302,
+  "tests": {
+    "EditMode": {
+      "result": "Passed",
+      "total": "135",
+      "passed": "135",
+      "failed": "0",
+      "skipped": "0"
+    },
+    "PlayMode": {
+      "result": "Passed",
+      "total": "32",
+      "passed": "32",
+      "failed": "0",
+      "skipped": "0"
+    }
+  },
+  "canonicalReplay": {
+    "contractVersion": 2,
+    "scope": "offline-consistency",
+    "accepted": true,
+    "authority": false,
+    "status": "Complete",
+    "rulesVersion": 2,
+    "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "frameCount": 1893,
+    "fixedStepMs": 20,
+    "manifestSha256": "a5e17d101145edf9a2293e7356cb75b8fdac774a9f0072f21ab1695777ec6b5e",
+    "replaySha256": "f068e9dece3fd549068ce100ef1ae05fd7c6ab76640ae83ab2f7df0bfa0d3f49",
+    "state": {
+      "tick": 1893,
+      "raceTimeMs": 33860,
+      "barrelIndex": 3,
+      "x": 0.3173989796553723,
+      "z": -0.047388634925340456,
+      "headingRadians": -3.077845111034062,
+      "speedMetresPerSecond": 0,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    },
+    "result": {
+      "raceTimeMs": 33860,
+      "finalTimeMs": 33860,
+      "knockCount": 0,
+      "stylePoints": 300,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    }
+  },
+  "motion": {
+    "unityVersion": "6000.6.0f1",
+    "graphicsDevice": "Intel(R) Iris(TM) Plus Graphics 640",
+    "description": "Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v2 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 360,
+    "frameCount": 220,
+    "canonicalFinalTimeMs": 33860,
+    "capturedDriveLegRangeDegrees": 36.70969772338867,
+    "capturedDriveNeckRangeDegrees": 2.282820463180542,
+    "walkSilhouetteChangedPixels": 6281,
+    "devicePerformanceMeasured": false,
+    "footPlantingAccepted": false
+  },
+  "launch": {
+    "description": "Actual saved Reins v2 scene and rider camera: Ready, four-second moving alley, perfect release, first steering and cadence. Controlled 20ms simulation/animation with one player-loop yield per rendered sample, ungraded actual HUD. No audio track; scheduled-beep tests are separate and speaker/input alignment still needs phone playtest. Encoding rate is not measured device FPS.",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 720,
+    "frameCount": 161,
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274"
+  },
+  "sourceHashes": {
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRun.cs": "84855ae09802c7c5f0abc1f3f390e9d182550c654b2310ff9ba460cebb292a0a",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsAlley.cs": "29d98a310dcb1d12f80c87e31f44775fa5f827536e00077a7ecf99f2770e5030",
+    "Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs": "733fab7400e57755470461e29f0e0ceb34c4566ebc25af7b6ef8986f27c730b0",
+    "Assets/_Project/Scripts/Editor/ReinsPremiumArenaBuilder.cs": "e643a041aa099c5e3339c4a889c6312385a501e7b59465575ae064c3d5a7ee1e",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsLabController.cs": "e5451d757fea12da2e724c2422b15e32620aee91c032805adb3240177142f986",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsInputSurface.cs": "dfae9dabfcbbd8275444edf9158bd0849408ead5bdf6a8ee765329e719b4fdc4",
+    "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx": "f84dfcd930b61adc51a81130df4c12bbb7b5753920ed81691cb2cc1c77a537a0"
+  }
+}

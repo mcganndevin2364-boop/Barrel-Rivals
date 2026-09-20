@@ -1,4 +1,6 @@
 **Barrel Rivals — engineering playbook and stack contracts**  
+
+Current implementation update: [v2 alley/source checkpoint](Reins-v2-Alley-Checkpoint.md) records connected work for S01–S03, S05, S11, S16/S19, S23, S29–S36, S40, S48/S50/S52. The current source has the approach/release/input/replay boundary; native artifacts, physical timing, production animation and R2 acceptance remain open. Card acceptance criteria below remain unchanged.
 Engineering revision 6 · Gameplay revision 5 · Original eight-category, 53-section build plan
 
 **Purpose.** This is the coding guide for the complete game: Reins Racing, three multiplayer experiences, ten horses, progression, purchases and publishable iOS/Android builds. The user has chosen Reins; Classic remains historical source/saves rather than a required player-facing mode. Every section names specialist skills, stack, dependencies, deliverables and evidence. Read its card with the matching build-plan row, gameplay blueprint and [approved 0.5 implementation plan](Reins-Racing-0.5-Implementation.md).

@@ -2,7 +2,8 @@ using System;
 
 namespace BarrelRivals.Core.Reins
 {
-    public enum ReinsPhase { Ready, Preview, Gate, Racing, Drive, Complete, Cancelled, TimedOut }
+    public enum ReinsPhase { Ready, Approach, Racing, Drive, Complete, Cancelled, TimedOut }
+    public enum ReinsLaunchOutcome { Pending, Perfect, Good, Weak, TimedOut }
     public enum DriveSide { None, Left, Right }
     public enum ReinsSurface { HardPack, LooseSand, TackyClay, MuddySlop, Mixed }
     public enum ReinsTimingGrade { None, Miss, Good, Great, Perfect }
@@ -71,23 +72,23 @@ namespace BarrelRivals.Core.Reins
         }
     }
 
-    /// <summary>One 20ms input frame. Tap booleans are events for this frame, not held buttons.</summary>
+    /// <summary>One 20ms input frame. Cadence/Drive are events; LaunchHeld is sampled state after Start arms the launch at tick zero.</summary>
     public readonly struct ReinsInput
     {
         public int LeftPermille { get; }
         public int RightPermille { get; }
         public bool CadenceTap { get; }
-        public bool GateTap { get; }
+        public bool LaunchHeld { get; }
         public bool Wrap { get; }
         public DriveSide Drive { get; }
         public ReinsInput(int leftPermille = 0, int rightPermille = 0, bool cadenceTap = false,
-            bool gateTap = false, bool wrap = false, DriveSide drive = DriveSide.None)
+            bool launchHeld = false, bool wrap = false, DriveSide drive = DriveSide.None)
         {
             if (leftPermille < 0 || leftPermille > 1000) throw new ArgumentOutOfRangeException(nameof(leftPermille));
             if (rightPermille < 0 || rightPermille > 1000) throw new ArgumentOutOfRangeException(nameof(rightPermille));
             if (drive < DriveSide.None || drive > DriveSide.Right) throw new ArgumentOutOfRangeException(nameof(drive));
             LeftPermille = leftPermille; RightPermille = rightPermille; CadenceTap = cadenceTap;
-            GateTap = gateTap; Wrap = wrap; Drive = drive;
+            LaunchHeld = launchHeld; Wrap = wrap; Drive = drive;
         }
     }
 

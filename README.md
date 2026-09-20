@@ -1,28 +1,22 @@
 # Barrel Rivals
 
-The current source includes reference-driven **MyStable, Tack and Rider Gear**: the user has supplied the warm barn/roster, saddle-grid and glove-inspection reference. The implementation adds an enclosed 3D showroom, rendered item cards, 20 free local cosmetics across five slots, preview/equip/cancel, and cosmetic save version 2 with preserved v1 migration. Cosmetic v2 is separate from the still-unimplemented Reins gameplay v2. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). It records current verification status and remaining gaps; the reference is a target, not achieved photographic quality. Paid ownership, earned progression, the ten-horse roster and a new phone installation remain pending.
+An iOS/Android arcade barrel-racing game in development. Current source configures **0.5.0/build 5**, rules **reins-v2**: first-person moving-alley hold/release, rein steering and heartbeat cadence, three legal turns, final Drive and local best replay. Reins and MyStable are the player scenes. Classic remains preserved source/history.
 
-An iOS/Android arcade barrel-racing game in development. The user has selected Reins Racing: continuous rein steering, cadence, close barrel turns, changing footing and a final drive. Classic is preserved as historical code/evidence; its player-facing route will be removed in the approved 0.5 update. Live turns with spectating, recorded challenges and simultaneous duels remain in scope, alongside ten horses, progression and a trusted economy.
+MyStable/Tack/Rider Gear follows the warm stable, saddle-grid and glove-inspection reference with one horse and 20 free local cosmetic styles. Preview/equip/persistence are real; photographic art, the full roster, leveling, trusted economy and multiplayer remain unfinished. All three requested multiplayer experiences and the eight-category/53-section plan remain in scope.
 
-## Current build
+135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current checkpoint and moving capture](Docs/Plan/Reins-v2-Alley-Checkpoint.md). The last native/device build remains 0.4.0/build 4; the new source has no verified 0.5 APK/IPA or device installation. Full R2 visual/timing/performance acceptance remains open.
 
-**Classic Practice + Reins Lab development build 0.4.0:** Unity 6000.6.0f1, saved URP scenes, original prototype art, isolated rules/saves and a local shared-Core replay verifier. Reins adds a legal three-barrel course; it is an experimental offline game mode. Final horse/rider art, trusted online play, progression/economy and measured mobile qualification remain ahead. The 0.4.0 iPhone build is installed with its version verified; the Android APK passed artifact checks. The user has played and prefers Reins, while requesting substantially better graphics. This qualitative report does not establish measured performance or full device qualification. Version-labelled evidence distinguishes those stages. The new alley launch and visual rebuild are approved next work, not implemented in 0.4.
-
-- [Start here: AI continuation handoff](Barrel-Rivals-AI-Handoff.md)
-- [Copyable message for another AI](CONTINUE-WITH-ANOTHER-AI.md)
-- [Approved Reins 0.5 launch and visual rebuild](Docs/Plan/Reins-Racing-0.5-Implementation.md)
-- [Classic controls and historical checkpoint](README-M1.md)
-- [Current graphics source and actual Unity captures](Docs/Art/Reins-Premium-Graphics-Checkpoint.md)
-- [Play Reins Lab and inspect the cross-stack prototype](README-Reins.md)
-- [All ten mechanics: stack contracts and delivery gates](Docs/Plan/Reins-Mechanics-Integration.md)
-- [iPhone export and test setup](README-iPhone.md)
-- [M1 implementation results and limits](Docs/Plan/Barrel-Rivals-M1-Report.md)
-- [Master status: eight categories and 53 sections](Docs/Plan/Barrel-Rivals-Master-Build-Status.md)
-- [Full build plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md)
+- [AI continuation handoff](Barrel-Rivals-AI-Handoff.md)
+- [Copyable next-AI prompt](CONTINUE-WITH-ANOTHER-AI.md)
+- [Current controls and build commands](README-Reins.md)
+- [Master status: all eight categories and 53 sections](Docs/Plan/Barrel-Rivals-Master-Build-Status.md)
+- [Approved 0.5 implementation contract](Docs/Plan/Reins-Racing-0.5-Implementation.md)
+- [MyStable and Gear](Docs/Features/MyStable-and-Gear.md)
 - [Gameplay blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md)
 - [Engineering stack and section contracts](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md)
+- [iPhone setup and export guidance](README-iPhone.md)
 
-The next work is R2/0.5: a first-person moving-alley hold/release start, forgiving controls and one properly rigged horse/rider/arena, followed by phone qualification and then M1N continuous-input authority proof. The existing Mac can compile/sign/install personal iPhone test builds; debugger compatibility and release toolchain qualification remain open. [README-M0.md](README-M0.md) preserves the foundation preview; `Arena_Practice` and `Arena_ReinsLab` are the playable development scenes. Original folders remain preserved. Continue the `codex/m1-skill-loop` branch; `main` is an older checkpoint. This is development work, with no store submission.
+Next: finish the representative moving horse/rider/arena benchmark, build fresh 0.5 native artifacts, and qualify real phone controls/audio/visuals/lifecycle plus sustained performance. M1N authenticated continuous-input authority follows R2 acceptance. Continue `codex/m1-skill-loop`; main is historical. Free/original assets only, with no new paid service or purchase.
 
 ## Development context
 

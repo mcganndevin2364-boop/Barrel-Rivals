@@ -1,0 +1,32 @@
+{
+  "contractVersion": 2,
+  "scope": "offline-consistency",
+  "accepted": true,
+  "authority": false,
+  "status": "Complete",
+  "rulesVersion": 2,
+  "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+  "frameCount": 1893,
+  "fixedStepMs": 20,
+  "manifestSha256": "a5e17d101145edf9a2293e7356cb75b8fdac774a9f0072f21ab1695777ec6b5e",
+  "replaySha256": "f068e9dece3fd549068ce100ef1ae05fd7c6ab76640ae83ab2f7df0bfa0d3f49",
+  "state": {
+    "tick": 1893,
+    "raceTimeMs": 33860,
+    "barrelIndex": 3,
+    "x": 0.3173989796553723,
+    "z": -0.047388634925340456,
+    "headingRadians": -3.077845111034062,
+    "speedMetresPerSecond": 0,
+    "launchOutcome": "Perfect",
+    "launchReleaseErrorMs": 0
+  },
+  "result": {
+    "raceTimeMs": 33860,
+    "finalTimeMs": 33860,
+    "knockCount": 0,
+    "stylePoints": 300,
+    "launchOutcome": "Perfect",
+    "launchReleaseErrorMs": 0
+  }
+}

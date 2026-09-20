@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:barrelrivals:reins:verify-request:2",
+  "title": "Reins moving-launch local replay verification request v2",
+  "description": "Offline consistency only. The caller supplies an untrusted local manifest. This contract does not authorize competitive results or rewards.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contractVersion",
+    "ruleFingerprint",
+    "launchInitiallyHeld",
+    "manifest",
+    "frames"
+  ],
+  "properties": {
+    "contractVersion": {
+      "const": 2
+    },
+    "ruleFingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "Must match the exact compiled v2 source fingerprint; checked by the verifier."
+    },
+    "launchInitiallyHeld": {
+      "const": true,
+      "description": "Start() arms a held launch at tick 0; a false frame at tick 1 records a sub-step release."
+    },
+    "manifest": {
+      "$ref": "#/$defs/manifest"
+    },
+    "frames": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 7500,
+      "description": "Full input state for each consecutive 20 ms tick, starting at tick 1 after Start(). No gaps, repeated ticks or frames after a terminal state.",
+      "items": {
+        "$ref": "#/$defs/frame"
+      }
+    }
+  },
+  "$defs": {
+    "permille": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 1000
+    },
+    "horse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nervePermille",
+        "firePermille",
+        "biddabilityPermille",
+        "heartPermille"
+      ],
+      "properties": {
+        "nervePermille": {
+          "$ref": "#/$defs/permille"
+        },
+        "firePermille": {
+          "$ref": "#/$defs/permille"
+        },
+        "biddabilityPermille": {
+          "$ref": "#/$defs/permille"
+        },
+        "heartPermille": {
+          "$ref": "#/$defs/permille"
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rulesVersion",
+        "courseId",
+        "seed",
+        "surface",
+        "roundIndex",
+        "horse"
+      ],
+      "properties": {
+        "rulesVersion": {
+          "const": 2
+        },
+        "courseId": {
+          "const": "reins-v2"
+        },
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "surface": {
+          "enum": [
+            "HardPack",
+            "LooseSand",
+            "TackyClay",
+            "MuddySlop",
+            "Mixed"
+          ]
+        },
+        "roundIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "horse": {
+          "$ref": "#/$defs/horse"
+        }
+      }
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tick",
+        "leftPermille",
+        "rightPermille",
+        "cadenceTap",
+        "launchHeld",
+        "wrap",
+        "drive"
+      ],
+      "properties": {
+        "tick": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7500
+        },
+        "leftPermille": {
+          "$ref": "#/$defs/permille"
+        },
+        "rightPermille": {
+          "$ref": "#/$defs/permille"
+        },
+        "cadenceTap": {
+          "type": "boolean"
+        },
+        "launchHeld": {
+          "type": "boolean",
+          "description": "Current state of the initially armed launch pointer. First true-to-false transition is graded once; later represses cannot rearm it."
+        },
+        "wrap": {
+          "type": "boolean"
+        },
+        "drive": {
+          "enum": [
+            "None",
+            "Left",
+            "Right"
+          ]
+        }
+      }
+    }
+  }
+}

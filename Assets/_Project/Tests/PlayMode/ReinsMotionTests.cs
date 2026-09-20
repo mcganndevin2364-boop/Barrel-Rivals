@@ -105,7 +105,7 @@ namespace BarrelRivals.Tests
                 yield return null;
                 Assert.That(Time.deltaTime,Is.EqualTo(0),"Controlled sampling must start in a fully paused frame.");
                 controller.SetRecordDirectory(replayDirectory);rig.SetReducedMotion(false);
-                // The current v1 game has no walking alley yet. Label these two short
+                // The actual v2 alley is captured separately. Label these two short
                 // rig samples honestly; the remaining sections use the canonical replay.
                 foreach(float speed in new[]{0f,1.5f}) {
                     source.ResetFrame(Sample(0,horse.position,horse.rotation,speed));animator.Update(0);
@@ -115,7 +115,7 @@ namespace BarrelRivals.Tests
                         float phase=source.GaitPhaseRadians;
                         yield return null;
                         Assert.That(Mathf.Abs(Mathf.DeltaAngle(phase*Mathf.Rad2Deg,source.GaitPhaseRadians*Mathf.Rad2Deg)),Is.LessThan(.001f),"Yielding must not advance the controlled animation clock.");
-                        Capture(output,frameIndex++,speed==0?"Idle rig study":"Walk rig study (not v1 gameplay)",false,source,controller,camera,side,target,image,frameInfo,false);
+                        Capture(output,frameIndex++,speed==0?"Idle rig study":"Walk rig study (isolated pose)",false,source,controller,camera,side,target,image,frameInfo,false);
                         if(speed>0 && (i==5 || i==18)) {
                             var silhouette=CaptureBodySilhouette(output,frameIndex-1,body,side,target);
                             if(firstWalkSilhouette==null)firstWalkSilhouette=silhouette;
@@ -128,7 +128,7 @@ namespace BarrelRivals.Tests
                         }
                     }
                 }
-                var fixture=JsonUtility.FromJson<Fixture>(File.ReadAllText(Path.Combine(Application.dataPath,"../Contracts/Reins/complete-request.v1.json")));
+                var fixture=JsonUtility.FromJson<Fixture>(File.ReadAllText(Path.Combine(Application.dataPath,"../Contracts/Reins/complete-request.v2.json")));
                 for(int pass=0;pass<2;pass++) {
                     controller.ResetRun();rig.SetReducedMotion(pass==1);controller.Begin();int turnFrames=0;
                     foreach(var frame in fixture.frames) {
@@ -146,7 +146,7 @@ namespace BarrelRivals.Tests
                             Capture(output,frameIndex++,section,true,source,controller,camera,side,target,image,frameInfo,pass==1);
                         }
                     }
-                    Assert.AreEqual(ReinsPhase.Complete,controller.Run.Phase);Assert.AreEqual(35120,controller.Run.FinalTimeMs);
+                    Assert.AreEqual(ReinsPhase.Complete,controller.Run.Phase);Assert.AreEqual(V2FixtureExpected.Result.finalTimeMs,controller.Run.FinalTimeMs);
                     Assert.AreEqual(0,controller.Run.KnockCount);Assert.AreEqual(300,controller.Run.StylePoints);
                 }
                 Assert.Greater(frameIndex,150);Assert.LessOrEqual(frameIndex,220);
@@ -157,9 +157,9 @@ namespace BarrelRivals.Tests
                 Assert.That(neckMovement,Is.GreaterThan(1),"Captured Drive must show real neck motion.");
                 var evidence=new MotionEvidence {
                     unityVersion=Application.unityVersion,graphicsDevice=SystemInfo.graphicsDeviceName,frames=frameInfo.ToArray(),
-                    description="Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v1 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
+                    description="Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v2 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
                     rulesFingerprint=ReinsRuleFingerprint.Sha256,framesPerSecond=25,width=1280,height=360,frameCount=frameIndex,
-                    canonicalFinalTimeMs=35120,devicePerformanceMeasured=false,footPlantingAccepted=false,
+                    canonicalFinalTimeMs=V2FixtureExpected.Result.finalTimeMs,devicePerformanceMeasured=false,footPlantingAccepted=false,
                     capturedDriveLegRangeDegrees=legMovement,capturedDriveNeckRangeDegrees=neckMovement,
                     walkSilhouetteChangedPixels=walkSilhouetteChangedPixels
                 };
@@ -231,7 +231,7 @@ namespace BarrelRivals.Tests
             Assert.Greater(visible,100,"The evidence crop must include the horse's lower legs.");return changed;
         }
         [Serializable] private sealed class MotionEvidence {
-            public string unityVersion,graphicsDevice,description,rulesFingerprint;public int framesPerSecond,width,height,frameCount,canonicalFinalTimeMs;
+            public string unityVersion,graphicsDevice,description,rulesFingerprint;public int framesPerSecond,width,height,frameCount;public long canonicalFinalTimeMs;
             public float capturedDriveLegRangeDegrees,capturedDriveNeckRangeDegrees;public int walkSilhouetteChangedPixels;
             public bool devicePerformanceMeasured,footPlantingAccepted;public MotionFrame[] frames;
         }
@@ -241,8 +241,8 @@ namespace BarrelRivals.Tests
         }
         [Serializable] private sealed class Fixture {public Frame[] frames;}
         [Serializable] private sealed class Frame {
-            public int leftPermille,rightPermille;public bool cadenceTap,gateTap,wrap;public string drive;
-            public ReinsInput Input()=>new ReinsInput(leftPermille,rightPermille,cadenceTap,gateTap,wrap,(DriveSide)Enum.Parse(typeof(DriveSide),drive));
+            public int leftPermille,rightPermille;public bool cadenceTap,launchHeld,wrap;public string drive;
+            public ReinsInput Input()=>new ReinsInput(leftPermille,rightPermille,cadenceTap,launchHeld,wrap,(DriveSide)Enum.Parse(typeof(DriveSide),drive));
         }
     }
 }

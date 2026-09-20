@@ -29,16 +29,18 @@ namespace BarrelRivals.Tests
             Quaternion initialCameraRotation = camera.transform.rotation;
 
             controller.Begin();
-            Assert.AreEqual(ReinsPhase.Preview, controller.Run.Phase);
-            controller.RefreshPresentation(); AssertRiderView(camera, horse);
-            for (int i = 0; i < 400 && controller.Run.Phase == ReinsPhase.Preview; i++) controller.Step(default);
-            Assert.AreEqual(ReinsPhase.Gate, controller.Run.Phase);
-            controller.RefreshPresentation(); AssertRiderView(camera, horse);
-            Assert.Less(Vector3.Distance(initialCameraPosition, camera.transform.position), .001f,
-                "Stationary v1 pre-race phases must not cut away to the old overhead view.");
-
-            for (int i = 0; i < 200 && controller.Run.Phase == ReinsPhase.Gate; i++) controller.Step(default);
-            Assert.AreEqual(ReinsPhase.Racing, controller.Run.Phase);
+            Assert.AreEqual(ReinsPhase.Approach, controller.Run.Phase);
+            for(int i=0;i<100;i++)controller.Step(new ReinsInput(launchHeld:true));
+            controller.RefreshPresentation();horse.GetComponent<ReinsHorsePresentation>().ApplyInterpolation(1);
+            camera.GetComponent<RiderCameraRig>().RenderImmediate();AssertRiderView(camera,horse);
+            Assert.That(controller.Run.Z,Is.EqualTo(-3).Within(.000001));
+            Assert.That(camera.transform.position.z-initialCameraPosition.z,Is.EqualTo(3).Within(.01f),
+                "The rider must travel with the horse down the actual six-metre alley.");
+            for(int i=100;i<199;i++)controller.Step(new ReinsInput(launchHeld:true));
+            controller.Step(new ReinsInput(launchHeld:false));
+            Assert.AreEqual(ReinsPhase.Racing,controller.Run.Phase);
+            Assert.AreEqual(ReinsLaunchOutcome.Perfect,controller.Run.LaunchOutcome);
+            Assert.AreEqual(0,controller.Run.RaceTimeMs);
             for (int i = 0; i < 150; i++) controller.Step(new ReinsInput(450, 0));
             controller.RefreshPresentation(); AssertRiderView(camera, horse);
             Assert.Greater(Vector3.Distance(initialCameraPosition, camera.transform.position), .5f);
@@ -63,7 +65,7 @@ namespace BarrelRivals.Tests
             try
             {
                 var fixture = JsonUtility.FromJson<Fixture>(File.ReadAllText(Path.Combine(Application.dataPath,
-                    "../Contracts/Reins/complete-request.v1.json")));
+                    "../Contracts/Reins/complete-request.v2.json")));
                 var expected = new ReinsRun(new ReinsManifest(ReinsLabController.ChallengeSeed, ReinsSurface.HardPack));
                 expected.Start(); controller.Begin();
                 bool checkedOwnership = false;
@@ -73,7 +75,7 @@ namespace BarrelRivals.Tests
                     expected.Step(input); controller.Step(input);
                     if (i % 137 == 0)
                     {
-                        GameObject.Find("Camera").GetComponent<Button>().onClick.Invoke();
+                        rig.SetReducedMotion(!rig.ReducedMotion);
                         controller.RefreshPresentation(); controller.RefreshPresentation();
                         Assert.AreEqual(expected.Tick, controller.Run.Tick);
                         Assert.AreEqual(expected.X, controller.Run.X);
@@ -86,7 +88,7 @@ namespace BarrelRivals.Tests
                     {
                         Assert.IsTrue(controller.Press(ReinsPad.Left, 923));
                         controller.Pull(ReinsPad.Left, 923, .7f);
-                        GameObject.Find("Camera").GetComponent<Button>().onClick.Invoke();
+                        rig.SetReducedMotion(!rig.ReducedMotion);
                         Assert.IsFalse(controller.Press(ReinsPad.Right, 923), "Changing comfort settings cannot steal the held finger.");
                         Assert.AreEqual(700, controller.ConsumeInput(Time.realtimeSinceStartupAsDouble).LeftPermille);
                         controller.Release(ReinsPad.Left, 923);
@@ -96,7 +98,7 @@ namespace BarrelRivals.Tests
                 }
                 Assert.IsTrue(checkedOwnership);
                 Assert.AreEqual(ReinsPhase.Complete, controller.Run.Phase);
-                Assert.AreEqual(35120, controller.Run.FinalTimeMs);
+                Assert.AreEqual(V2FixtureExpected.Result.finalTimeMs, controller.Run.FinalTimeMs);
                 Assert.AreEqual(expected.FinalTimeMs, controller.Run.FinalTimeMs);
                 Assert.AreEqual(expected.StylePoints, controller.Run.StylePoints);
                 Assert.AreEqual(expected.KnockCount, controller.Run.KnockCount);
@@ -202,9 +204,9 @@ namespace BarrelRivals.Tests
         [Serializable] private sealed class Frame
         {
             public int leftPermille, rightPermille;
-            public bool cadenceTap, gateTap, wrap;
+            public bool cadenceTap, launchHeld, wrap;
             public string drive;
-            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, gateTap, wrap,
+            public ReinsInput Input() => new ReinsInput(leftPermille, rightPermille, cadenceTap, launchHeld, wrap,
                 (DriveSide)Enum.Parse(typeof(DriveSide), drive));
         }
     }
