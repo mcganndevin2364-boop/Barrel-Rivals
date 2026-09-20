@@ -52,8 +52,10 @@ namespace BarrelRivals.Practice
             float strength = ReducedMotion ? 0 : Mathf.Clamp01(speed / 5);
             motionAmount = snap || ReducedMotion ? strength : Mathf.Lerp(motionAmount, strength, 1 - Mathf.Exp(-10 * dt));
             Vector3 offset = presentation.SeatOffset;
-            // Follow the visible horse's cycle, never a competing render-time oscillator.
-            offset.y += Mathf.Sin(presentation.GaitPhaseRadians) * .012f * motionAmount;
+            // Follow the changed body posture. Reduced motion keeps its mean height,
+            // while normal view uses the rendered torso's small stride displacement.
+            offset += presentation.StableTorsoMotion;
+            offset += (presentation.TorsoMotion-presentation.StableTorsoMotion)*motionAmount;
             Vector3 target = presentation.RenderPosition + presentation.RenderRotation * offset;
             // Only the view is displaced by obstruction. Self colliders are never used as camera blockers.
             Vector3 origin = presentation.RenderPosition + Vector3.up * 1.7f;

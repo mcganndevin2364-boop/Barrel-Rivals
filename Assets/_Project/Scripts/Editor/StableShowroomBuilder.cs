@@ -10,7 +10,8 @@ namespace BarrelRivals.Editor
 {
     /// <summary>
     /// Original enclosed showroom geometry. Photographic maps reuse the reviewed CC0 arena sources;
-    /// no reference-image pixels, live lights per prop, colliders or gameplay behaviours are added.
+    /// no reference-image pixels, colliders or gameplay behaviours are added. Lighting stays bounded
+    /// to one shadowed sun, one soft horse fill and one local lantern pool.
     /// </summary>
     public static class StableShowroomBuilder
     {
@@ -39,17 +40,15 @@ namespace BarrelRivals.Editor
             straw = Plain("Golden straw", new Color(.40f, .285f, .12f), .025f);
             paleStraw = Plain("Dry straw highlights", new Color(.60f, .45f, .22f), .025f);
             rope = Plain("Natural binding twine", new Color(.30f, .23f, .13f), .035f);
-            glass = Plain("Frosted evening window", new Color(.79f, .62f, .37f), .09f);
-            // URP's material validator removes _EMISSION unless an AnyEmissive flag is present.
-            // This preserves visible self-emission after import/reopen; no lightmap bake is implied.
-            glass.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
-            glass.EnableKeyword("_EMISSION");
-            glass.SetColor("_EmissionColor", new Color(1.0f, .77f, .47f) * 2.1f);
-            EditorUtility.SetDirty(glass);
-            lamp = Plain("Lantern candle glass", new Color(.98f, .68f, .31f), .12f);
+            glass = WindowMaterial();
+            lamp = Plain("Lantern candle glass", new Color(.15f, .055f, .012f), .035f);
+            // The glass itself glows; its one nearby point light supplies the wall/bench pool.
+            // AnyEmissive preserves URP's keyword after import, not a baked-lighting claim.
             lamp.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
             lamp.EnableKeyword("_EMISSION");
-            lamp.SetColor("_EmissionColor", new Color(1, .48f, .12f) * 2.3f);
+            lamp.SetColor("_EmissionColor", new Color(1, .45f, .105f) * .90f);
+            lamp.SetFloat("_SpecularHighlights", 0);
+            lamp.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
             EditorUtility.SetDirty(lamp);
 
             Architecture();
@@ -117,11 +116,20 @@ namespace BarrelRivals.Editor
 
         private static void Window(Vector3 center, float width, float height)
         {
-            Box(glass, center + new Vector3(0, 0, -.17f), new Vector3(width - .08f, height - .08f, .018f));
+            // One physical frosted pane recessed behind the wooden sash. Normalized UVs keep
+            // its original transmission gradient continuous across all twelve framed openings.
+            var pane = center + new Vector3(0, 0, -.17f);
+            var horizontal = Vector3.right * (width - .08f) * .5f;
+            var vertical = Vector3.up * (height - .08f) * .5f;
+            Batch(glass).Quad(pane-horizontal-vertical,pane+horizontal-vertical,
+                pane+horizontal+vertical,pane-horizontal+vertical,1,1);
             foreach (int side in new[] { -1, 1 })
             {
                 Box(beam, center + new Vector3(side * width * .5f, 0, 0), new Vector3(.12f, height + .20f, .22f));
                 Box(beam, center + new Vector3(0, side * height * .5f, 0), new Vector3(width + .25f, .14f, .24f));
+                // Shallow inner reveal catches the grazing sun and gives the aperture depth.
+                Box(wood, center + new Vector3(side * (width * .5f - .08f), 0, -.08f), new Vector3(.05f, height - .12f, .16f));
+                Box(wood, center + new Vector3(0, side * (height * .5f - .08f), -.08f), new Vector3(width - .12f, .045f, .16f));
             }
             for (int i = 1; i < 6; i++)
                 Box(beam, center + new Vector3(-width * .5f + i * width / 6, 0, .015f), new Vector3(.065f, height, .09f));
@@ -264,29 +272,89 @@ namespace BarrelRivals.Editor
         {
             RenderSettings.fog = false;
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor = new Color(.58f, .51f, .42f);
-            RenderSettings.ambientEquatorColor = new Color(.48f, .39f, .30f);
-            RenderSettings.ambientGroundColor = new Color(.27f, .23f, .18f);
-            RenderSettings.reflectionIntensity = .33f;
-            var sunObject = GameObject.Find("Stable evening sunlight") ?? new GameObject("Stable evening sunlight");
-            var sun = sunObject.GetComponent<Light>() ?? sunObject.AddComponent<Light>();
+            // Lower, slightly cooler diffuse bounce leaves warm sunlight and the local lantern
+            // readable as separate sources instead of flattening every wall into the same orange.
+            RenderSettings.ambientSkyColor = new Color(.38f, .405f, .43f);
+            RenderSettings.ambientEquatorColor = new Color(.30f, .26f, .22f);
+            RenderSettings.ambientGroundColor = new Color(.145f, .115f, .08f);
+            RenderSettings.reflectionIntensity = .24f;
+            var sunObject = GameObject.Find("Stable evening sunlight");
+            if (!sunObject) sunObject = new GameObject("Stable evening sunlight");
+            var sun = sunObject.GetComponent<Light>();
+            if (!sun) sun = sunObject.AddComponent<Light>();
             sun.type = LightType.Directional;
-            sun.color = new Color(1, .83f, .61f);
-            sun.intensity = 2.1f;
+            sun.color = new Color(1, .81f, .58f);
+            sun.intensity = 1.8f;
             sun.shadows = LightShadows.Soft;
             sun.shadowBias = .025f;
             sun.shadowNormalBias = .12f;
-            sun.transform.rotation = Quaternion.Euler(15, 16, 0);
+            // Through the rear opening toward the grooming floor. Existing sash/stall geometry
+            // produces the bands; no transparent shaft planes or full-room haze are needed.
+            sun.transform.rotation = Quaternion.Euler(18, 20, 0);
             RenderSettings.sun = sun;
-            var fillObject = GameObject.Find("Stable soft lantern fill") ?? new GameObject("Stable soft lantern fill");
-            var fill = fillObject.GetComponent<Light>() ?? fillObject.AddComponent<Light>();
+            var fillObject = GameObject.Find("Stable soft lantern fill");
+            if (!fillObject) fillObject = new GameObject("Stable soft lantern fill");
+            var fill = fillObject.GetComponent<Light>();
+            if (!fill) fill = fillObject.AddComponent<Light>();
             fill.type = LightType.Point;
-            fill.color = new Color(1, .90f, .79f);
-            fill.intensity = 12;
-            fill.range = 10;
+            fill.color = new Color(.90f, .92f, 1);
+            fill.intensity = 8;
+            fill.range = 7.6f;
             fill.shadows = LightShadows.None;
-            fill.transform.position = new Vector3(.7f, 3.15f, 2.6f);
+            fill.transform.position = new Vector3(.95f, 2.9f, 2.25f);
+            var poolObject = GameObject.Find("Stable rear lantern pool");
+            if (!poolObject) poolObject = new GameObject("Stable rear lantern pool");
+            var pool = poolObject.GetComponent<Light>();
+            if (!pool) pool = poolObject.AddComponent<Light>();
+            pool.type = LightType.Point;
+            pool.color = new Color(1, .57f, .28f);
+            pool.intensity = 3.2f;
+            pool.range = 3.0f;
+            pool.shadows = LightShadows.None;
+            pool.transform.position = new Vector3(1.40f, 2.38f, -3.07f);
             camera.backgroundColor = new Color(.06f, .045f, .03f);
+        }
+
+        private static Material WindowMaterial()
+        {
+            // The old bright albedo plus 2.1 HDR emission clipped all pane detail to white under
+            // the shared ACES grade. Keep the diffuse term near black and bound transmitted light.
+            // This is a small original glass transmittance map, not an exterior photograph/sky card.
+            const int width = 64, height = 128;
+            string path = Root + "/Materials/Frosted pane transmission.asset";
+            var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            if (!texture)
+            {
+                texture = new Texture2D(width, height, TextureFormat.RGBA32, false, false)
+                    { name = "Original frosted pane transmission", wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear };
+                AssetDatabase.CreateAsset(texture, path);
+            }
+            var pixels = new Color[width * height];
+            for (int y = 0; y < height; y++) for (int x = 0; x < width; x++)
+            {
+                float u = x / (float)(width - 1), v = y / (float)(height - 1);
+                var color = Color.Lerp(new Color(.48f, .31f, .16f), new Color(.70f, .62f, .48f), v);
+                float warmCenter = Mathf.Exp(-((u-.40f)*(u-.40f)*7 + (v-.50f)*(v-.50f)*4)) * .11f;
+                // Low-amplitude irregularity suggests old frosted glass without repeating a scene.
+                float grain = (Mathf.PerlinNoise(u*8.2f+1.7f,v*14.4f+3.8f)-.5f)*.028f;
+                pixels[y*width+x] = new Color(color.r+warmCenter+grain,
+                    color.g+warmCenter*.83f+grain,color.b+warmCenter*.57f+grain,1);
+            }
+            texture.SetPixels(pixels);texture.Apply(false,false);EditorUtility.SetDirty(texture);
+            var material = Plain("Frosted evening window", new Color(.025f, .025f, .025f), .025f);
+            material.SetTexture("_BaseMap", texture);
+            material.SetTexture("_EmissionMap", texture);
+            material.SetTextureScale("_BaseMap", Vector2.one);
+            material.SetTextureOffset("_BaseMap", Vector2.zero);
+            material.SetColor("_EmissionColor", Color.white * .85f);
+            material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.BakedEmissive;
+            material.EnableKeyword("_EMISSION");
+            material.SetFloat("_SpecularHighlights", 0);
+            material.SetFloat("_EnvironmentReflections", 0);
+            material.EnableKeyword("_SPECULARHIGHLIGHTS_OFF");
+            material.EnableKeyword("_ENVIRONMENTREFLECTIONS_OFF");
+            EditorUtility.SetDirty(material);
+            return material;
         }
 
         private static Material Surface(string name, string source, Color tint, float smoothness, float normal, float metallic = 0)
@@ -358,15 +426,8 @@ namespace BarrelRivals.Editor
                 var mesh = item.Value.Mesh();
                 mesh.name = "Showroom " + item.Key.name;
                 string path = Root + "/Meshes/" + mesh.name + ".asset";
-                var saved = AssetDatabase.LoadAssetAtPath<Mesh>(path);
-                if (saved)
-                {
-                    EditorUtility.CopySerialized(mesh, saved);
-                    Object.DestroyImmediate(mesh);
-                    EditorUtility.SetDirty(saved);
-                }
-                else { AssetDatabase.CreateAsset(mesh, path); saved = mesh; }
-                var go = new GameObject(mesh ? mesh.name : saved.name, typeof(MeshFilter), typeof(MeshRenderer));
+                var saved = PersistentMeshAsset.Save(mesh, path);
+                var go = new GameObject(saved.name, typeof(MeshFilter), typeof(MeshRenderer));
                 go.transform.SetParent(world, false);
                 go.GetComponent<MeshFilter>().sharedMesh = saved;
                 var renderer = go.GetComponent<MeshRenderer>();

@@ -1,0 +1,253 @@
+{
+    "unityVersion": "6000.6.0f1",
+    "results": [
+        {
+            "variant": "clear-only",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            }
+        },
+        {
+            "variant": "legacy-empty-before",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            }
+        },
+        {
+            "variant": "legacy-null-after",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            }
+        },
+        {
+            "variant": "legacy-empty-after",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 39,
+                "bindposeCount": 0,
+                "counts": [
+                    31,
+                    1,
+                    1
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": false
+            }
+        },
+        {
+            "variant": "variable-empty-before",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 0,
+                "bindposeCount": 0,
+                "counts": [],
+                "noSkinInfluences": true,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 0,
+                "bindposeCount": 0,
+                "counts": [],
+                "noSkinInfluences": true,
+                "hasBlendWeightChannel": false
+            }
+        },
+        {
+            "variant": "variable-empty-after",
+            "exception": "",
+            "errors": [],
+            "before": {
+                "vertexCount": 6,
+                "weightCount": 30,
+                "bindposeCount": 5,
+                "counts": [
+                    5,
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                ],
+                "noSkinInfluences": false,
+                "hasBlendWeightChannel": true
+            },
+            "afterReplacement": {
+                "vertexCount": 3,
+                "weightCount": 0,
+                "bindposeCount": 0,
+                "counts": [],
+                "noSkinInfluences": true,
+                "hasBlendWeightChannel": false
+            },
+            "afterReload": {
+                "vertexCount": 3,
+                "weightCount": 0,
+                "bindposeCount": 0,
+                "counts": [],
+                "noSkinInfluences": true,
+                "hasBlendWeightChannel": false
+            }
+        }
+    ]
+}

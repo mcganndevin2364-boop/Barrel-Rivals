@@ -27,6 +27,8 @@ namespace BarrelRivals.Practice
         [SerializeField] private Transform riderSeat;
         [SerializeField] private Transform interpolationRoot;
         [SerializeField] private Animator characterAnimator;
+        [SerializeField] private Transform torsoBone;
+        [SerializeField] private Vector3 torsoBindLocal;
         [SerializeField] private Vector3 fallbackSeat = new Vector3(0, 2.45f, -.55f);
         private HorsePresentationFrame previous, current;
         private bool initialized, hasSample, resetAnimator;
@@ -42,6 +44,14 @@ namespace BarrelRivals.Practice
         public Vector3 RenderPosition { get; private set; }
         public Quaternion RenderRotation { get; private set; } = Quaternion.identity;
         public Vector3 SeatOffset => seatOffset;
+        /// <summary>Actual skeletal compression in the rider's local axes; never moves the Core root.</summary>
+        public Vector3 TorsoMotion => torsoBone && torsoBone.parent
+            ? Quaternion.Inverse(RenderRotation) * torsoBone.parent.TransformVector(torsoBone.localPosition-torsoBindLocal)
+            : Vector3.zero;
+        /// <summary>Mean pose of the authored Idle/Walk/Gallop blend, excluding repeated stride bob.</summary>
+        public Vector3 StableTorsoMotion => !torsoBone ? Vector3.zero : Vector3.up *
+            (Speed<=1.5f ? Mathf.Lerp(0,-.110f,Mathf.Clamp01(Speed/1.5f))
+                : Mathf.Lerp(-.110f,-.120f,Mathf.InverseLerp(1.5f,8,Speed)));
         public float Speed => current.Speed;
         public float Turn => current.Turn;
         public float LeftRein => current.LeftRein;
@@ -64,6 +74,9 @@ namespace BarrelRivals.Practice
         public void Configure(Transform model, Transform seat = null, Animator animator = null)
         {
             modelRoot = model; riderSeat = seat; characterAnimator = animator;
+            torsoBone = null;
+            if(model) foreach(var bone in model.GetComponentsInChildren<Transform>(true))
+                if(bone.name=="Bone") {torsoBone=bone;torsoBindLocal=bone.localPosition;break;}
             initialized = false;
         }
 
@@ -139,10 +152,10 @@ namespace BarrelRivals.Practice
             }
             // Optional controller parameters are cached once, so unconfigured imported rigs remain valid.
             if ((parameterMask & 1) != 0) characterAnimator.SetFloat(SpeedId, current.Speed);
-            // The authored gallop is 1.5 cycles/second at 8m/s. Increase its playback
-            // modestly through Drive rather than leaving the same slow leg cycle at top pace.
+            // Above the full-gallop threshold, match its authored 8m/s stance travel.
+            // Blended walk/gallop, turning and braking still need stride-warping review.
             // This is presentation only; no root motion, contact grading or time credit.
-            if ((parameterMask & 1) != 0) characterAnimator.speed=Mathf.Lerp(1,1.35f,Mathf.InverseLerp(8,14,current.Speed));
+            if ((parameterMask & 1) != 0) characterAnimator.speed=Mathf.Clamp(current.Speed/8,1,1.75f);
             if ((parameterMask & 2) != 0) characterAnimator.SetFloat(TurnId, current.Turn);
             if ((parameterMask & 4) != 0) characterAnimator.SetFloat(LeftId, current.LeftRein);
             if ((parameterMask & 8) != 0) characterAnimator.SetFloat(RightId, current.RightRein);

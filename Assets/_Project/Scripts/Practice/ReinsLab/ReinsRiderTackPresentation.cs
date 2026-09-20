@@ -51,7 +51,7 @@ namespace BarrelRivals.Practice
             // Hands move with the same visible stride as the stabilized seat; the
             // reins below are then rebuilt from those exact grips to the animated bit.
             float phase=source.GaitPhaseRadians, effort=source.GaitStrength;
-            var seatMotion=new Vector3(Mathf.Cos(phase)*.003f,Mathf.Sin(phase)*.008f,Mathf.Cos(phase)*.004f)*effort;
+            var seatMotion=source.TorsoMotion+new Vector3(Mathf.Cos(phase)*.003f,Mathf.Sin(phase)*.008f,Mathf.Cos(phase)*.004f)*effort;
             leftHand.localPosition = leftRest + new Vector3(-turn * .009f, left * .016f, -.082f * left - speed * .0006f)+seatMotion;
             rightHand.localPosition = rightRest + new Vector3(-turn * .009f, right * .016f, -.082f * right - speed * .0006f)+seatMotion;
             leftHand.localRotation = Quaternion.Euler(-left * 5, -8, -9 - left * 3);

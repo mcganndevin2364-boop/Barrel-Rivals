@@ -203,9 +203,9 @@ Mesh:
       m_Levels:
       - serializedVersion: 1
         m_IndexStart: 0
-        m_IndexCount: 0
+        m_IndexCount: 960
     - serializedVersion: 2
       m_Levels:
       - serializedVersion: 1
         m_IndexStart: 0
-        m_IndexCount: 0
+        m_IndexCount: 960

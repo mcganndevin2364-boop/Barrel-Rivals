@@ -170,7 +170,7 @@ namespace BarrelRivals.Editor
         private static Material Leather(string name, Color tint)
             => ReinsPremiumArenaBuilder.Pbr(name,"Leather_Albedo_1K.jpg","Leather_NormalGL_1K.png","Leather_Roughness_1K.jpg",null,tint,0);
         private static Mesh SaveMesh(string name,Mesh mesh)
-        {string path=Root+"/"+name+".asset";mesh.name=name;var existing=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(existing){EditorUtility.CopySerialized(mesh,existing);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(existing);return existing;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
+        {mesh.name=name;return PersistentMeshAsset.Save(mesh,Root+"/"+name+".asset");}
 
         private sealed class Surface
         {

@@ -97,7 +97,7 @@ namespace BarrelRivals.Editor
         private static Renderer Part(Transform parent,string name,Mesh mesh,Material material)
         {var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(parent,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;var r=go.GetComponent<MeshRenderer>();r.sharedMaterial=material;return r;}
         private static Mesh Save(string name,Mesh mesh)
-        {mesh.name=name;string path=Root+"/"+name+".asset";var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(old){EditorUtility.CopySerialized(mesh,old);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(old);return old;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
+        {mesh.name=name;return PersistentMeshAsset.Save(mesh,Root+"/"+name+".asset");}
         private sealed class Surface
         {
             readonly List<Vector3> vertices=new List<Vector3>();readonly List<Vector2> uvs=new List<Vector2>();readonly List<int> indices=new List<int>();

@@ -33,6 +33,7 @@ namespace BarrelRivals.Editor
             lamp = Solid("Floodlight emissive glass", new Color(.95f,.74f,.43f), .45f);
             if (!lamp.IsKeywordEnabled("_EMISSION")) { lamp.EnableKeyword("_EMISSION");lamp.SetColor("_EmissionColor",new Color(1,.64f,.29f)*2.3f);EditorUtility.SetDirty(lamp); }
             distant = Pbr("Mountain shale", "ArenaSoil_Albedo_2K.png", "ArenaSoil_NormalGL_2K.png", "ArenaSoil_Roughness_1K.jpg", null, new Color(.42f,.48f,.57f), 0);
+            DrySurfaceFinish();
             foreach (string name in new[] { "Practice presentation", "Reins arena detail", "Premium rodeo arena" })
             { var old = GameObject.Find(name); if (old) Object.DestroyImmediate(old); }
             world = new GameObject("Premium rodeo arena").transform; batches.Clear();
@@ -224,6 +225,9 @@ namespace BarrelRivals.Editor
         {
             var body=AssetDatabase.LoadAssetAtPath<Material>(Root+"/Materials/Bay horse coat.mat");
             if(!body){body=Object.Instantiate(AssetDatabase.LoadAssetAtPath<Material>(ReinsReferenceArtBuilder.Root+"/Materials/Horse coat.mat"));body.name="Bay horse coat";body.SetColor("_BaseColor",new Color(.70f,.56f,.46f));body.SetFloat("_Smoothness",.43f);body.SetFloat("_BumpScale",.30f);AssetDatabase.CreateAsset(body,Root+"/Materials/Bay horse coat.mat");}
+            // Broad plastic highlights obscure the textured coat. Keep a restrained
+            // fur sheen without changing the original color/normal source maps.
+            body.SetFloat("_Smoothness",.28f);EditorUtility.SetDirty(body);
             var hair=AssetDatabase.LoadAssetAtPath<Material>(Root+"/Materials/Dark horse mane.mat");
             if(!hair){hair=Object.Instantiate(AssetDatabase.LoadAssetAtPath<Material>(ReinsReferenceArtBuilder.Root+"/Materials/Horse mane and tail.mat"));hair.name="Dark horse mane";hair.SetColor("_BaseColor",new Color(.13f,.09f,.065f));hair.SetFloat("_Smoothness",.37f);AssetDatabase.CreateAsset(hair,Root+"/Materials/Dark horse mane.mat");}
             foreach(var r in horse.GetComponentsInChildren<Renderer>(true))
@@ -236,8 +240,9 @@ namespace BarrelRivals.Editor
             if(!sky){sky=new Material(Shader.Find("Skybox/Panoramic"));sky.SetTexture("_MainTex",skyTexture);sky.SetFloat("_Exposure",.48f);sky.SetFloat("_Rotation",75);AssetDatabase.CreateAsset(sky,path);}
             sky.SetFloat("_Exposure",.48f);EditorUtility.SetDirty(sky);
             RenderSettings.skybox=sky;RenderSettings.ambientMode=AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.46f,.45f,.47f);RenderSettings.ambientEquatorColor=new Color(.53f,.43f,.32f);RenderSettings.ambientGroundColor=new Color(.27f,.20f,.13f);
-            RenderSettings.sun.color=new Color(1,.82f,.66f);RenderSettings.sun.intensity=1.6f;RenderSettings.sun.transform.rotation=Quaternion.Euler(30,-32,0);
+            RenderSettings.ambientSkyColor=new Color(.34f,.37f,.41f);RenderSettings.ambientEquatorColor=new Color(.39f,.31f,.23f);RenderSettings.ambientGroundColor=new Color(.18f,.13f,.085f);
+            RenderSettings.reflectionIntensity=.65f;
+            RenderSettings.sun.color=new Color(1,.81f,.61f);RenderSettings.sun.intensity=1.6f;RenderSettings.sun.transform.rotation=Quaternion.Euler(22,-32,0);
             RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=320;RenderSettings.fogEndDistance=950;RenderSettings.fogColor=new Color(.43f,.40f,.41f);
             camera.farClipPlane=1000;camera.allowHDR=true;
             var source=(UniversalRenderPipelineAsset)GraphicsSettings.defaultRenderPipeline;
@@ -267,13 +272,48 @@ namespace BarrelRivals.Editor
             material.SetTexture("_MetallicGlossMap",PackSurface(name,roughness,metal,metallic));material.SetFloat("_Smoothness",1);material.SetFloat("_Metallic",metallic);material.EnableKeyword("_METALLICSPECGLOSSMAP");
             material.SetFloat("_Cull",0);AssetDatabase.CreateAsset(material,path);return material;
         }
+        private static void DrySurfaceFinish()
+        {
+            // The measured source roughness averages only .53. At full smoothness
+            // multiplier it reads as wet earth at grazing angles, rather than dry footing.
+            // Scale its existing roughness-derived smoothness; never rewrite source maps.
+            soil.SetFloat("_Smoothness",.34f);soil.SetFloat("_BumpScale",.78f);
+            distant.SetFloat("_Smoothness",.12f);distant.SetFloat("_BumpScale",.12f);
+            distant.SetTextureScale("_BaseMap",Vector2.one*.18f);
+            // Macro variation breaks up the 1.3m photograph without enlarging its clods.
+            // URP's installed LitInput multiplies albedo by 2*detail (linear .5 is neutral).
+            const int size=128;string path=Root+"/Materials/Original arena macro variation.asset";
+            var map=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            if(!map){map=new Texture2D(size,size,TextureFormat.RGBA32,true,true){name="Original arena macro variation"};AssetDatabase.CreateAsset(map,path);}
+            var pixels=new Color[size*size];
+            float Seamless(float u,float v,float scale)
+            {
+                float Sample(float x,float y)=>Mathf.PerlinNoise(x*scale+31.7f,y*scale+17.3f);
+                return Mathf.Lerp(Mathf.Lerp(Sample(u,v),Sample(u-1,v),u),Mathf.Lerp(Sample(u,v-1),Sample(u-1,v-1),u),v);
+            }
+            for(int y=0;y<size;y++)for(int x=0;x<size;x++)
+            {
+                float u=x/(float)(size-1),v=y/(float)(size-1);
+                float n=Seamless(u,v,4)*.72f+Seamless(u,v,11)*.28f;
+                float value=.5f+(n-.5f)*.5f;pixels[y*size+x]=new Color(value,value,value,1);
+            }
+            map.SetPixels(pixels);map.wrapMode=TextureWrapMode.Repeat;map.filterMode=FilterMode.Trilinear;map.Apply(true,false);EditorUtility.SetDirty(map);
+            soil.SetTexture("_DetailAlbedoMap",map);soil.SetTextureScale("_DetailAlbedoMap",Vector2.one*(1.3f/42));
+            soil.SetFloat("_DetailAlbedoMapScale",1);soil.SetFloat("_DetailNormalMapScale",0);
+            soil.DisableKeyword("_DETAIL_SCALED");soil.EnableKeyword("_DETAIL_MULX2");
+            EditorUtility.SetDirty(soil);EditorUtility.SetDirty(distant);
+        }
         private static Texture2D Import(string file,bool normal,bool data,bool readable=false)
         {
             string path=Textures+file;var importer=AssetImporter.GetAtPath(path) as TextureImporter;
             if(!importer)throw new FileNotFoundException("Missing reviewed material source",path);
             var type=normal?TextureImporterType.NormalMap:TextureImporterType.Default;bool srgb=!normal&&!data;
-            if(importer.textureType!=type || importer.sRGBTexture!=srgb || importer.isReadable!=readable || importer.maxTextureSize!=2048 || importer.anisoLevel!=8)
-            {importer.textureType=type;importer.sRGBTexture=srgb;importer.isReadable=readable;importer.maxTextureSize=2048;importer.mipmapEnabled=true;importer.anisoLevel=8;importer.wrapMode=TextureWrapMode.Repeat;importer.SaveAndReimport();}
+            // Panoramic's implicit gradients cross its wrapped longitude. Mipped sampling
+            // produced a dashed white seam on Metal even with no world geometry rendered.
+            // The sky is always magnified at this 2K/mobile field of view; surface maps retain mips.
+            bool sky=file=="DuskSky_2K.hdr";bool mips=!sky;int anisotropy=sky?1:8;
+            if(importer.textureType!=type || importer.sRGBTexture!=srgb || importer.isReadable!=readable || importer.maxTextureSize!=2048 || importer.anisoLevel!=anisotropy || importer.mipmapEnabled!=mips)
+            {importer.textureType=type;importer.sRGBTexture=srgb;importer.isReadable=readable;importer.maxTextureSize=2048;importer.mipmapEnabled=mips;importer.anisoLevel=anisotropy;importer.wrapMode=TextureWrapMode.Repeat;importer.SaveAndReimport();}
             return AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
         private static Texture2D PackSurface(string name,string roughness,string metallic,float metalDefault)
@@ -324,7 +364,7 @@ namespace BarrelRivals.Editor
             foreach(var vertex in mesh.vertices)
                 if(float.IsNaN(vertex.x)||float.IsNaN(vertex.y)||float.IsNaN(vertex.z)||float.IsInfinity(vertex.x)||float.IsInfinity(vertex.y)||float.IsInfinity(vertex.z))
                     throw new InvalidOperationException("Invalid generated mesh vertex: "+name);
-            mesh.name=name;string path=Root+"/Meshes/"+name+".asset";var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(!old){AssetDatabase.CreateAsset(mesh,path);return mesh;}EditorUtility.CopySerialized(mesh,old);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(old);return old;}
+            mesh.name=name;return PersistentMeshAsset.Save(mesh,Root+"/Meshes/"+name+".asset");}
         private sealed class Geometry
         {
             public readonly List<Vector3> vertices=new List<Vector3>();public readonly List<Vector2> uv=new List<Vector2>();public readonly List<int> triangles=new List<int>();

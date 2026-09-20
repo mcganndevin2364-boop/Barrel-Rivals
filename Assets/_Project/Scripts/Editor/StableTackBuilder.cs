@@ -17,7 +17,14 @@ namespace BarrelRivals.Editor
         public static void Build(Transform horse)
         {
             Directory.CreateDirectory(Root);AssetDatabase.Refresh();
-            var model=horse.Find("Reference horse");var previous=model.Find("Western saddle");if(previous)Object.DestroyImmediate(previous.gameObject);
+            var model=horse.Find("Reference horse");
+            if(!model)throw new InvalidOperationException("Western tack requires the reference horse.");
+            var torso=model.GetComponentsInChildren<Transform>(true).SingleOrDefault(t=>t.name=="Bone");
+            if(!torso)throw new InvalidOperationException("Western tack requires the exact torso bone 'Bone'.");
+            // The saddle now lives below the rig. Remove descendants as well as old direct children
+            // so rebuilding either representation cannot leave duplicate tack or stale bindings.
+            foreach(var previous in model.GetComponentsInChildren<Transform>(true).Where(t=>t.name=="Western saddle").ToArray())
+                if(previous)Object.DestroyImmediate(previous.gameObject);
             var root=new GameObject("Western saddle").transform;root.SetParent(model,false);
             var ranch=ReinsPremiumArenaBuilder.Pbr("Ranch saddle leather","Leather_Albedo_1K.jpg","Leather_NormalGL_1K.png","Leather_Roughness_1K.jpg",null,new Color(.56f,.31f,.16f),0);
             ranch.SetColor("_BaseColor",new Color(1.15f,1.15f,1.15f));ranch.SetFloat("_Smoothness",.45f);EditorUtility.SetDirty(ranch);
@@ -52,6 +59,9 @@ namespace BarrelRivals.Editor
                 fittings.Tube(circle,.006f,8);
             }
             Part(root,"Saddle hardware",Save("Saddle fittings",fittings.Mesh()),steel);
+            // Mesh coordinates were authored in normalized Reference-horse space. Preserve that
+            // world bind pose while attaching to the torso, never the independently turning neck.
+            root.SetParent(torso,true);
             var bindings=new List<StableAppearance.Binding> {
                 new StableAppearance.Binding{renderer=saddleRenderer,materialIndex=0,slot=StableSlot.Saddle},
                 new StableAppearance.Binding{renderer=padRenderer,materialIndex=0,slot=StableSlot.Pad}
@@ -60,7 +70,8 @@ namespace BarrelRivals.Editor
                 if(renderer.name=="Left braided rein" || renderer.name=="Right braided rein")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=1,slot=StableSlot.Reins});
                 else if(renderer.name=="Fitted leather headstall")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=0,slot=StableSlot.Headstall});
                 else if(renderer.name=="Glove shell" || renderer.name=="Glove grip panels")bindings.Add(new StableAppearance.Binding{renderer=renderer,materialIndex=0,slot=StableSlot.Gloves});
-            var appearance=horse.GetComponent<StableAppearance>()??horse.gameObject.AddComponent<StableAppearance>();
+            var appearance=horse.GetComponent<StableAppearance>();
+            if(!appearance)appearance=horse.gameObject.AddComponent<StableAppearance>();
             appearance.Configure(bindings.ToArray(),StableWardrobeArtBuilder.Palettes());
             appearance.Apply(StableProfile.Starter());
         }
@@ -89,7 +100,7 @@ namespace BarrelRivals.Editor
         private static Renderer Part(Transform parent,string name,Mesh mesh,Material material)
         {var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(parent,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;var renderer=go.GetComponent<Renderer>();renderer.sharedMaterial=material;return renderer;}
         private static Mesh Save(string name,Mesh mesh)
-        {string path=Root+"/"+name+".asset";mesh.name=name;var existing=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(existing){EditorUtility.CopySerialized(mesh,existing);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(existing);return existing;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
+        {mesh.name=name;return PersistentMeshAsset.Save(mesh,Root+"/"+name+".asset");}
         private sealed class Shape
         {
             private readonly List<Vector3> v=new List<Vector3>();private readonly List<Vector2> uv=new List<Vector2>();private readonly List<int> triangles=new List<int>();

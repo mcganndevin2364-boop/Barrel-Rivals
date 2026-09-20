@@ -137,8 +137,8 @@ namespace BarrelRivals.Editor
         {
             var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(HorsePath);if(!prefab)return;
             var importer=(ModelImporter)AssetImporter.GetAtPath(HorsePath);
-            if(importer.animationType!=ModelImporterAnimationType.Generic || !importer.importAnimation || importer.avatarSetup!=ModelImporterAvatarSetup.CreateFromThisModel)
-            {importer.animationType=ModelImporterAnimationType.Generic;importer.importAnimation=true;importer.avatarSetup=ModelImporterAvatarSetup.CreateFromThisModel;importer.SaveAndReimport();prefab=AssetDatabase.LoadAssetAtPath<GameObject>(HorsePath);}
+            if(importer.animationType!=ModelImporterAnimationType.Generic || !importer.importAnimation || importer.avatarSetup!=ModelImporterAvatarSetup.CreateFromThisModel || importer.animationCompression!=ModelImporterAnimationCompression.Off || importer.resampleCurves)
+            {importer.animationType=ModelImporterAnimationType.Generic;importer.importAnimation=true;importer.avatarSetup=ModelImporterAvatarSetup.CreateFromThisModel;importer.animationCompression=ModelImporterAnimationCompression.Off;importer.resampleCurves=false;importer.SaveAndReimport();prefab=AssetDatabase.LoadAssetAtPath<GameObject>(HorsePath);}
             var clipSettings=importer.defaultClipAnimations;
             if(clipSettings.Length>0 && importer.clipAnimations.Length==0)
             {foreach(var clip in clipSettings){clip.loopTime=true;clip.loopPose=true;}importer.clipAnimations=clipSettings;importer.SaveAndReimport();prefab=AssetDatabase.LoadAssetAtPath<GameObject>(HorsePath);}
@@ -184,6 +184,12 @@ namespace BarrelRivals.Editor
                     tree.AddChild(idle,0);tree.AddChild(walk,1.5f);tree.AddChild(gallop,8);
                 }
                 animator.runtimeAnimatorController=controller;
+                // FBX's imported default pose is Gallop frame zero, including 106mm
+                // body compression. Fit hair/tack and cache rider offsets in the
+                // explicit neutral Idle pose, not that incidental export pose.
+                var neutral=clips.FirstOrDefault(c=>c.name.EndsWith("|Idle",StringComparison.Ordinal) || c.name=="Idle");
+                if(!neutral)throw new InvalidOperationException("Horse neutral Idle clip is missing.");
+                neutral.SampleAnimation(animator.gameObject,0);
             }
             var seat=new GameObject("Rider seat anchor").transform;seat.SetParent(model.transform,false);seat.localPosition=new Vector3(0,2.3f,-.4f);
             var presentation=horse.GetComponent<ReinsHorsePresentation>();if(!presentation)presentation=horse.gameObject.AddComponent<ReinsHorsePresentation>();

@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-20",
+  "baselineCommit": "b86deead41ab28034e6367d8c23912abb90513b7",
+  "sourceCommit": "See Git history and portable publication receipt; this manifest is committed with the source.",
+  "unity": "6000.6.0f1",
+  "nativeIdentity": "0.4.0/build 4",
+  "ruleset": "reins-lab-v1",
+  "rulesFingerprint": "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837",
+  "coreAndContractsChanged": false,
+  "generationSavedAndReopened": true,
+  "editorTests": {
+    "passed": 110,
+    "failed": 0,
+    "skipped": 0
+  },
+  "playModeTests": {
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0
+  },
+  "canonicalReplay": {
+    "finalTimeMs": 35120,
+    "knocks": 0,
+    "stylePoints": 300,
+    "replayFrames": 2156
+  },
+  "historicalEvidenceRecordsRestored": 125,
+  "horseFbxSha256": "6951b81ac7bd0aed7c58e98822cbddc94641d877ea3873ce0c28f0ffce24efad",
+  "sourceBodyVertices": 3697,
+  "importedBodyVertices": 4349,
+  "motion": {
+    "framesPerSecond": 25,
+    "frameCount": 220,
+    "width": 1280,
+    "height": 360,
+    "capturedDriveLegRangeDegrees": 40.06100845336914,
+    "capturedDriveNeckRangeDegrees": 2.2742323875427246,
+    "walkSilhouetteChangedPixels": 6286
+  },
+  "skySameCameraComparison": "Dashed seam present with sky-only mipped/aniso8 panorama; absent with no mips/aniso1. HDR source unchanged.",
+  "newNativeBuild": false,
+  "phoneInstalled": false,
+  "devicePerformanceMeasured": false,
+  "fullVisualAcceptance": false,
+  "productionFootPlantingAccepted": false,
+  "reinsV2MovingLaunchImplemented": false,
+  "limitations": [
+    "Coarse horse anatomy and no independent hoof/pastern joints.",
+    "Single gallop lead; blends/turns/variable speed still need foot-placement work.",
+    "Hair cards remain strip-like and can produce an artificial silhouette in the rider view.",
+    "Saddle/gloves/crowd/horizon remain visibly below the photo reference.",
+    "No full rider rig, earned progression, trusted ownership, multiplayer or release acceptance."
+  ]
+}

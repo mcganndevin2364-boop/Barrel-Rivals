@@ -82,18 +82,7 @@ namespace BarrelRivals.Editor
             var mesh=shape.Mesh();mesh.name="Skinned mane forelock and tail";
             mesh.bindposes=Array.ConvertAll(bones,b=>b.worldToLocalMatrix*model.localToWorldMatrix);
             string meshPath=Root+"/Skinned hair.asset";
-            var saved=AssetDatabase.LoadAssetAtPath<Mesh>(meshPath);
-            if(saved)
-            {
-                // CopySerialized can copy the bounds while retaining a Mesh's old
-                // native vertex buffer. Write all channels explicitly and preserve
-                // the asset/GUID so scenes, thumbnails and ghosts share the new shape.
-                saved.Clear(false);saved.name=mesh.name;
-                saved.vertices=mesh.vertices;saved.normals=mesh.normals;saved.tangents=mesh.tangents;saved.uv=mesh.uv;
-                saved.boneWeights=mesh.boneWeights;saved.bindposes=mesh.bindposes;saved.triangles=mesh.triangles;saved.bounds=mesh.bounds;
-                Object.DestroyImmediate(mesh);EditorUtility.SetDirty(saved);
-            }
-            else{saved=mesh;AssetDatabase.CreateAsset(mesh,meshPath);}
+            var saved=PersistentMeshAsset.Save(mesh,meshPath);
             var go=new GameObject(RendererName);go.transform.SetParent(model,false);
             var skin=go.AddComponent<SkinnedMeshRenderer>();skin.sharedMesh=saved;skin.bones=bones;skin.rootBone=model;
             skin.sharedMaterial=HairMaterial();skin.quality=SkinQuality.Bone2;skin.shadowCastingMode=ShadowCastingMode.On;

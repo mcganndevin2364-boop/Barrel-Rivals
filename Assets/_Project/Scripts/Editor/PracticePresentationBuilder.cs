@@ -375,7 +375,7 @@ namespace BarrelRivals.Editor
             }
             var mesh = new Mesh { vertices = v, triangles = indices }; mesh.RecalculateNormals(); return mesh;
         }
-        private static Mesh SaveMesh(string name, Mesh mesh) { mesh.name = name; return SaveAsset(mesh, name + ".asset"); }
+        private static Mesh SaveMesh(string name, Mesh mesh) { mesh.name = name; return PersistentMeshAsset.Save(mesh, Root + "/" + name + ".asset"); }
         private static T SaveAsset<T>(T value, string file) where T : Object
         {
             string path = Root + "/" + file; var existing = AssetDatabase.LoadAssetAtPath<T>(path);

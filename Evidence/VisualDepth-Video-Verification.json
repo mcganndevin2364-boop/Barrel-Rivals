@@ -1,0 +1,15 @@
+{
+  "decodedFrame": 60,
+  "size": [
+    1280,
+    360
+  ],
+  "meanAbsoluteErrorRGB": [
+    2.028342013888889,
+    0.8320768229166666,
+    2.1547569444444443
+  ],
+  "orientationMatched": true,
+  "source": "Unity captured frame-0060.png",
+  "video": "VisualDepth-Motion.mp4"
+}
