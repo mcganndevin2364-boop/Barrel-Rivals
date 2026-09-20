@@ -1,0 +1,659 @@
+{
+  "baselineCommit": "3775b134373f5a4469ce9d0e966357942cdaa64c",
+  "restoredCount": 163,
+  "allMatchGitBaseline": true,
+  "records": [
+    {
+      "path": "Evidence/Android-Artifact.json",
+      "sha256": "7d34bff0e1f3df999e306f7c97577395af6633b33082f77ec3b63681b6c827c3"
+    },
+    {
+      "path": "Evidence/Arena-Overview.png",
+      "sha256": "b25f0c3d089fcaab24580a1d42ed9b4f88aca0abf06e6c557b729fe65ce0bb01"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Capture.json",
+      "sha256": "ce132ec4176f2b4e41fe36c9a2952a922858a1c3325f314a0456f9368b9b1401"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Checkpoint.json",
+      "sha256": "8b03b0dc93d036903a5c567820526507a0cfb2078383e02790afbc7f65138520"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Culling-Diagnostic-BeforeFix.json",
+      "sha256": "31c5c1b83e067c8e1eda641372e27abfe7a32e3d07f67a27fd9a535800f81e25"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Drive-SideStudy.png",
+      "sha256": "b9e0e5e6254c7f512f4ce17fc7a33a07335632dde8c0f27c377f95a8068b6426"
+    },
+    {
+      "path": "Evidence/CharacterMotion-EditMode.xml",
+      "sha256": "50fb0bf0a08dab24c720df9ac207d99b7e7a8fdbb3c2a79a87da95756057a105"
+    },
+    {
+      "path": "Evidence/CharacterMotion-HeadstallPreview.png",
+      "sha256": "e1a629a27162911dc4c877e3c15bbd7daa67ac02d2e027b56a4b3ac3acea3522"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Motion.mp4",
+      "sha256": "35a1136b350709fb201c3edb35596e275c0b8eedd705c1fef62140321f3bb575"
+    },
+    {
+      "path": "Evidence/CharacterMotion-MyStable.png",
+      "sha256": "f111e22ce22876f025548ec5549f558c415fd516a614dae28d58c1993c7240d6"
+    },
+    {
+      "path": "Evidence/CharacterMotion-PlayMode.xml",
+      "sha256": "77fafa1ba3bfda5c00fac2d1dc044dc77f58a7fa19429b167571c490e2983599"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Approach-1.png",
+      "sha256": "c551633408af4b2aaa6c1c8bfd3bcab1b4f76b4f8c457da940d7f633ec8f732c"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Approach-3.png",
+      "sha256": "0642ff37cffb8f72f521d3579c92bf7c43f3fa12a5ef4f9f9d2f792da10228cc"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Cross-2.png",
+      "sha256": "14079fc4e730e16a74fdce81315ca4b35f5bbfe49942cce720d62522be212835"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Drive.png",
+      "sha256": "90f9f524d90283c0a1bd2cde9be71e58f6c50bc2da16032bfbe8bac95d4c3018"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Finish.png",
+      "sha256": "613df3877026087abf7aafb99a1b9fae7168a1d77e1dbf4ca7245c261e043c3a"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Mixed-Footing.png",
+      "sha256": "854f0cb4ddc8e314d3bcd0c403da6adc584bbc354c363c0d5f5675764970cc89"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Ready.png",
+      "sha256": "af595be35a844fe9e427377e64ea9a12a0ef79be3fa074b4b8d98e280ee2a4b3"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Run.json",
+      "sha256": "2e5716b6d0f62a274c95e838418fde7c36461de073ba71ec6f39e0762c8e94d7"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Turn-1.png",
+      "sha256": "f9156ac32f21dec335bdccd94d014789353448dfb1f0827a4db457d3847ef5a6"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Turn-2.png",
+      "sha256": "b478a8f8cd1d19e89f8a233f9ff130f67a40357a81e200b426a996057af9a892"
+    },
+    {
+      "path": "Evidence/CharacterMotion-Race-Turn-3.png",
+      "sha256": "af44c7de4a93ed7fb90402a4ae97372fd64e6d01469e61353e977079715c2d51"
+    },
+    {
+      "path": "Evidence/CharacterMotion-RiderEquipped.png",
+      "sha256": "aefd67d8329fe914e60e04165149d3133a5e2672cf6aeeda2a7e54f1a49fa410"
+    },
+    {
+      "path": "Evidence/CharacterMotion-RiderPreview.png",
+      "sha256": "975f47fdab92bca32e0083920c729a37a58934f4c1400ffc8849ed86c96cd486"
+    },
+    {
+      "path": "Evidence/CharacterMotion-RiderTablet.png",
+      "sha256": "35503f18538865ceaf618476612924b493d45332f4ddb82b1d29eda7ec220322"
+    },
+    {
+      "path": "Evidence/CharacterMotion-SaddlesEquipped.png",
+      "sha256": "13f91d6712026d1959aff53db8e727bba6da6d26a6bc01ac02fbc8809ca9429c"
+    },
+    {
+      "path": "Evidence/CharacterMotion-SaddlesPreview.png",
+      "sha256": "300950a9d7004eaa4184294898b4613f595a23e0613b46922dc62d769de7c004"
+    },
+    {
+      "path": "Evidence/CharacterMotion-silhouette-0035.png",
+      "sha256": "92069c4ecbd8bcdab2fa81d5677e77ecbd7a0b3ab2632e72c4fcc729bb013732"
+    },
+    {
+      "path": "Evidence/CharacterMotion-silhouette-0048.png",
+      "sha256": "8e3b7bad2969d26986fa00ff1aaef4b8affa7a1cf94647b3b6bf0c0011b6706d"
+    },
+    {
+      "path": "Evidence/EditMode.xml",
+      "sha256": "c26e4e91eb97402c8155f6ef4fda2be8b22f1401b3cfba939c8113b80c551210"
+    },
+    {
+      "path": "Evidence/M1-0.2-Preview.png",
+      "sha256": "050eff063102a49b5e52af0d22c223b0a3ea6572fcdfe347c03d5fbc002f2277"
+    },
+    {
+      "path": "Evidence/M1-0.2-Ready.png",
+      "sha256": "4287c83bb0d1cd4e20844a2a7070cb9134f48391e737348f5739457855716fc6"
+    },
+    {
+      "path": "Evidence/M1-0.2-Result.png",
+      "sha256": "aaee5cc90fcd8b2e385d59990a6bfde0b341f91c26dba073dab7f3205a2872f2"
+    },
+    {
+      "path": "Evidence/M1-Android-Artifact.json",
+      "sha256": "e45696d72e1024f1a8b54645cafbcd98904e00ef45ea753fc8ce32d705861079"
+    },
+    {
+      "path": "Evidence/M1-Core-Build.json",
+      "sha256": "12d02f6fe0d7a49a088e26c38e3bf1d38181e3e87e8f92c5fd0f794fd3838104"
+    },
+    {
+      "path": "Evidence/M1-EditMode.xml",
+      "sha256": "127e6f7b5b82562663ff4cd057ff1f813a6746d57279941114aea61e3a8ced5d"
+    },
+    {
+      "path": "Evidence/M1-PlayMode.xml",
+      "sha256": "a00c4fe8875d670597df7be484716a77b9f5722948a9508da8b4d3351f101cc4"
+    },
+    {
+      "path": "Evidence/M1-Polish-Validation.json",
+      "sha256": "db90fd8020e80c98bdd2e651a683677d3926033a486a051693f4c5b8d1f40621"
+    },
+    {
+      "path": "Evidence/M1-Polish-iOS-Artifact.json",
+      "sha256": "978963051c368c73a6614f3bae3e9720367940e8cd7d8fc72fb5df413afe8f7f"
+    },
+    {
+      "path": "Evidence/M1-Polish-iOS-Export.json",
+      "sha256": "057042047a9180a6a76df953d239192675b67eb01dcb13596cdde52bf2a6547d"
+    },
+    {
+      "path": "Evidence/M1-Polish-iOS-Native.json",
+      "sha256": "709c0f1aef03b26d002f9147501daa8dc28195dbe7979d4157d820163cc9d013"
+    },
+    {
+      "path": "Evidence/M1-Preview.png",
+      "sha256": "246186e74b45ec5bb89e0b93665d1cb33163370f8a22395d5694cb67250bc179"
+    },
+    {
+      "path": "Evidence/M1-Ready.png",
+      "sha256": "d086d741712381cc40817740ba42f752e273f66eb82662f70f92a69092d0c1ca"
+    },
+    {
+      "path": "Evidence/M1-Result.png",
+      "sha256": "53a4007f73824d8a03daf6f764f8d360ce8eb7a38c9eccf35c9aee1efdad134f"
+    },
+    {
+      "path": "Evidence/M1-iOS-Artifact.json",
+      "sha256": "a1f6b0d7b4cdc190c1e658d87d9d33a13fd7af25c25f2dde2af14c60f5fb81d4"
+    },
+    {
+      "path": "Evidence/M1-iOS-Device.json",
+      "sha256": "b7d151348e1f81df4ba5ad68acb8caedb68ffa4d8536376cd23a9e469eeb06e6"
+    },
+    {
+      "path": "Evidence/M1-iOS-Export.json",
+      "sha256": "057042047a9180a6a76df953d239192675b67eb01dcb13596cdde52bf2a6547d"
+    },
+    {
+      "path": "Evidence/M1-iOS-Host.json",
+      "sha256": "5a369345a506e42e81785cb4d2b53f37f631e0617caac9cb1052b97eb7baf877"
+    },
+    {
+      "path": "Evidence/M1-iOS-Native.json",
+      "sha256": "6c4f6dd4398cd447809189c0ca626b7e1e2c7965855f40791583fc350b3ce0f9"
+    },
+    {
+      "path": "Evidence/PlayMode.xml",
+      "sha256": "87d85134706a75d9c6a061ebf65ff9cca9e2e9ca4c839a60b6daf4809cdbb167"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Approach-1.png",
+      "sha256": "dc9093e9fa332e03e195d3970632a807ce7c6aaae0eb957a5a8a3d9add890f8f"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Approach-3.png",
+      "sha256": "4a70aef6c13c17f4ec2ab56e650f6eedf7e84e62aa3b13ebc630b33a5597bc5e"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Cross-2.png",
+      "sha256": "dd1b361b7781a48eca888a5330448bb1683b60b82c863607171e21467e74ced7"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Drive.png",
+      "sha256": "37c723aa5f32c2d67a0b8577b0c1b225e6c5bbc4408b4ba2965d92db46f0b007"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-EditMode.xml",
+      "sha256": "4c2579a1ab3f53376ea0621f7dfb5614700ff5b430d04fca126b12e0a65c8946"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Finish.png",
+      "sha256": "49d470d8a568cf4b6faae69bc9ae9ec01ace716a975263a5a30d97139a43cd83"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Mixed-Footing.png",
+      "sha256": "2c8f31da3c6478536bdfd5e3047851c0ffb19e9b1c72da9120a0cee4b2293fa8"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-PlayMode.xml",
+      "sha256": "f03a6f7f50407a432c38cd445351997aaf4a836096f418a089e62af61490f036"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Ready.png",
+      "sha256": "39db6bfbe36fd6746460e46f95d572c04560656b7e53495f02c3adfbdd8d24cb"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Run.json",
+      "sha256": "2e5716b6d0f62a274c95e838418fde7c36461de073ba71ec6f39e0762c8e94d7"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Turn-1.png",
+      "sha256": "7325e69e8d7091035de25b7601c87c5eb86a9b7e7628e12029be58f977ce1d28"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Turn-2.png",
+      "sha256": "cc0dada7429d3a4014b9bb7716c22d67cc7b3d348abe8ef44fc7dbd237d68ad6"
+    },
+    {
+      "path": "Evidence/PremiumGraphics-Turn-3.png",
+      "sha256": "db6fb02fa0c7d8479147726363c129cfde419dd8c70a74a94d51e92a10d8e460"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-ArtInspection.json",
+      "sha256": "a96d6488495c1e93560fb5fe8f4a18f021b2c982aee6680135c430800cb329c6"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Barrel-1.png",
+      "sha256": "2c2448b99a7682d0124176e4b26907cecd8ee3ee0a599032d3c0e9985f7bc989"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Barrel-2.png",
+      "sha256": "e1e21ed28c8cefd1050b8f696f1a1f1a0b1f933ddc781c4c1f6cc7f8465468e7"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Barrel-3.png",
+      "sha256": "d5556b03251b3db40080a156d11d5a7f54b2c75a699c5a9b58780812958f07ed"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Drive.png",
+      "sha256": "43be53f7d4bde13ad117267ba5341633685bad6377bcb7ccdef93ff896aac457"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-EditMode.xml",
+      "sha256": "ff18356e34710b18503de9fd4e7f7e0e9d3f4daf923688fcc3a268fe473f5626"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-PlayMode.xml",
+      "sha256": "071feb7be4c790eb8e6754e475a20998435b533b11aea91727e56ab5f267a322"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Ready.png",
+      "sha256": "8aed1194d20b9b7319cbf09a5e1c9d706107e37a70f4041b7ccee7a78b2a1511"
+    },
+    {
+      "path": "Evidence/ReferenceGraphics-Run.json",
+      "sha256": "32bb6202ef75b2ad970596ae944c148b8803df6932ee9542641b649926c15470"
+    },
+    {
+      "path": "Evidence/Reins-Android-Artifact.json",
+      "sha256": "8be23fda8f7975e657a6a9b704c1fffe37dd05a03e4237d9dc7eb4bfb9cd9662"
+    },
+    {
+      "path": "Evidence/Reins-EditMode.xml",
+      "sha256": "865d4e45d1c585732706b6eafe6b81505cb5a49af8420cecc0c6d8b6a16cd99d"
+    },
+    {
+      "path": "Evidence/Reins-Mixed-Footing.png",
+      "sha256": "92e9241380be4ae08f6a5fa31d096a32ad9ef6d22c9ec07509360f49172a252c"
+    },
+    {
+      "path": "Evidence/Reins-PlayMode.xml",
+      "sha256": "0301cb0cab18858c1e593e1704484dfe7a44dd878a0012f5ef18f19e6f51a311"
+    },
+    {
+      "path": "Evidence/Reins-Ready.png",
+      "sha256": "f1b03f3bc90238459fe25ba3500f4c86f27fd9199c351ccc9199fd2965363487"
+    },
+    {
+      "path": "Evidence/Reins-Result.png",
+      "sha256": "6db8bc070a541f8a1ef0fcb528b17404b53f34783dfaf9221d88bbb8e5f4f8ca"
+    },
+    {
+      "path": "Evidence/Reins-Riding.png",
+      "sha256": "7465cc1130512a26ce18614707b9c21f65e5d3e346a415c57a2c6a8f283b8a42"
+    },
+    {
+      "path": "Evidence/Reins-User-Feedback-2026-09-19.json",
+      "sha256": "4e16ca44e545d1790f3717ae579354e6383a60ab22863ef655f4a0a5a8f14ee5"
+    },
+    {
+      "path": "Evidence/Reins-Validation.json",
+      "sha256": "6ba5070edacd5f4bb2ceba074a18e5d32e79c045e5dca1b602348a78dfdc84fc"
+    },
+    {
+      "path": "Evidence/Reins-iOS-Artifact.json",
+      "sha256": "8ebb847d4d6aa989ab581fec0dce3a0fd555f4fe1397b848fb08f0e09b54f49f"
+    },
+    {
+      "path": "Evidence/Reins-iOS-Device.json",
+      "sha256": "9cc788f25a0b79e9aa3d3438d8da9ca0ec601bfff2d41a596139be8dae1a3db1"
+    },
+    {
+      "path": "Evidence/Reins-iOS-Export.json",
+      "sha256": "4f63114ad303401f91f04d4efa6ab3a70f0e2beb42e21635019bb0c13c5e10e6"
+    },
+    {
+      "path": "Evidence/Reins-iOS-Native.json",
+      "sha256": "e4d683c7fdee6ef839f885c97b794c4a9b75ff6e38f86f62f9118a395d48ed4e"
+    },
+    {
+      "path": "Evidence/StableGear-Checkpoint.json",
+      "sha256": "b8b26222653793cf830c6554626c15304248457b65397c0e9a13a154c092539d"
+    },
+    {
+      "path": "Evidence/StableGear-CoreBuild.json",
+      "sha256": "878b9bf49a7d7313e17ab8137d42927c54d087dc62be7962e46caa5eb4ab6449"
+    },
+    {
+      "path": "Evidence/StableGear-EditMode.xml",
+      "sha256": "94864f33acfa638cdae99dce0f105c44d4f70bfccebf40b26e06eb426014bf10"
+    },
+    {
+      "path": "Evidence/StableGear-GearEquipped.png",
+      "sha256": "3cf86bf9c274ac05c924393f1db5b3a64919c1e3ac6893a8ee091ff0bc06a396"
+    },
+    {
+      "path": "Evidence/StableGear-GearPreview.png",
+      "sha256": "4c3b4fcf52857a84538a386caf9e64e5d08143245b4bccec9a0cf833badc8351"
+    },
+    {
+      "path": "Evidence/StableGear-MyStable.png",
+      "sha256": "488adbe9f3641da61779ae3a12dd4be06fec08f24d5743d05860ffe9136894e0"
+    },
+    {
+      "path": "Evidence/StableGear-PlayMode.xml",
+      "sha256": "21278714aa8dcc30e3f82f3c75b79b07c8d5c6a19759d11b9ee34150501c74c8"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Approach-1.png",
+      "sha256": "7281dbfc40d66968a34fc85d411be3533c38ae1003146afd83d8f31032699026"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Approach-3.png",
+      "sha256": "4fd093d8b0561256da8ba7b894d83c7c4a91348988ff1601d782bccdc60e9101"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Cross-2.png",
+      "sha256": "66ae5beaf73c1dead4c9af8be0ea10fb19356548513b090499b2f0b1bc899e14"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Drive.png",
+      "sha256": "79f9f8b1c4506c25d46c467e388ff43ba8035fef1cc951fdda018bd2e2edc9ce"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Finish.png",
+      "sha256": "80864fdacc9176a052264318917b35fd52a5f47b7184ac45f9f6ebcc82b8a59b"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Mixed-Footing.png",
+      "sha256": "2c8f31da3c6478536bdfd5e3047851c0ffb19e9b1c72da9120a0cee4b2293fa8"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Ready.png",
+      "sha256": "5cad1b7e1581aa014a2cde2d00f42ab0b19c1e38e46b712b3226ce3cbe0c14ca"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Run.json",
+      "sha256": "2e5716b6d0f62a274c95e838418fde7c36461de073ba71ec6f39e0762c8e94d7"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Turn-1.png",
+      "sha256": "228a150d0d46f1bf12645c666f2cafc553e3da362ee560377b0fbdc96543259b"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Turn-2.png",
+      "sha256": "c57411ebacafe5841d5d553a2833cb60efee695f1ae1e990101998491bae94d3"
+    },
+    {
+      "path": "Evidence/StableGear-Race-Turn-3.png",
+      "sha256": "f3324ec43f0390ea2c7d4ebbe2265b3fb0ac74fc7a4280420e3574424f1e9a77"
+    },
+    {
+      "path": "Evidence/StableReference-Checkpoint.json",
+      "sha256": "cbb3137c71a6df64ac6fe819549939c251b323ddee4c9be87c1d7408b27ce67c"
+    },
+    {
+      "path": "Evidence/StableReference-CoreBuild.json",
+      "sha256": "e919802274539897134aca4f0e3bd7e5a528fce53935346c1a7fe0e9794707bf"
+    },
+    {
+      "path": "Evidence/StableReference-EditMode.xml",
+      "sha256": "5c6963111c7213ff241612e628b7416258edd4cb7bc291e93d2ed3e8f4f7c68e"
+    },
+    {
+      "path": "Evidence/StableReference-HeadstallPreview.png",
+      "sha256": "25a5177f694f3dfa73874df67b610f4104c6d2bc97e06adff3c2a4b38d35930a"
+    },
+    {
+      "path": "Evidence/StableReference-MyStable.png",
+      "sha256": "d950d57e366416c90a272f78bb00c6ea69096455601207af2d1d88ece7cbeca9"
+    },
+    {
+      "path": "Evidence/StableReference-PlayMode.xml",
+      "sha256": "566f14c1d759f50a39cc88f5231a44b93077ba9ad979053fd0da99f8e1198bfd"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Approach-1.png",
+      "sha256": "500e18d192f60fa720b8197202f6a3f3f014e720972b44d53807b6e64bc0a9a2"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Approach-3.png",
+      "sha256": "4759e3892374a92bf4db947c04c814f76ac54807c9ae89bedeb8b60edbf48eef"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Cross-2.png",
+      "sha256": "0022d39cb7d260c20b4803121a1dd9356c62a516fc44d58a8821c59fed96d697"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Drive.png",
+      "sha256": "066df240edf233802afd1c2e1fbe691d1c2ee70dae1549a4982cea2eb184c9c7"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Finish.png",
+      "sha256": "1d875101e114a03213788fb99bde5ebfcd0b41c1a2d4bb01f4c6761a09ddfc2c"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Mixed-Footing.png",
+      "sha256": "479609837d865320de93c4a6285a90a5ee541973f131056fc92e12c47806fd1a"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Ready.png",
+      "sha256": "581af1092796e6ec74f75886d71890a61b56e7c8be009dafb810ebf56f9a3cd2"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Run.json",
+      "sha256": "2e5716b6d0f62a274c95e838418fde7c36461de073ba71ec6f39e0762c8e94d7"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Turn-1.png",
+      "sha256": "611dd793b7c0494880a654755d5750d35af2080bf69aa9a330469c472414dbcf"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Turn-2.png",
+      "sha256": "2e1696f08b6eee193ff904ca11718ac58c8984bbd91a97a9bd3bab782945a737"
+    },
+    {
+      "path": "Evidence/StableReference-Race-Turn-3.png",
+      "sha256": "ed75c091275e3d94c698da127bd71f2fe3ece15d65287c64a441eaf5773adb68"
+    },
+    {
+      "path": "Evidence/StableReference-RiderEquipped.png",
+      "sha256": "70a0a38fb1df92b6e0421aaacca9c23cc4df8340bdb3e910fe99766692e32e56"
+    },
+    {
+      "path": "Evidence/StableReference-RiderPreview.png",
+      "sha256": "cada96080389744b8b206b362f5ef3eb0ea031dc1fc3e55463e854ac60d0eed6"
+    },
+    {
+      "path": "Evidence/StableReference-RiderTablet.png",
+      "sha256": "99f162a9abf6bfb58170316e73140b27b5d9a21d096db5fba4c98ed2f3d567bb"
+    },
+    {
+      "path": "Evidence/StableReference-SaddlesEquipped.png",
+      "sha256": "45d83d2fd5dc3ec3d34bec5b2caf31bb63eb5c869821e0984f99f982a6cd46dc"
+    },
+    {
+      "path": "Evidence/StableReference-SaddlesPreview.png",
+      "sha256": "1f4653026c2855dce2acd53c178e3dc88b8fb7dcbf5a81d3d94bf5fffa6ceb39"
+    },
+    {
+      "path": "Evidence/VisualDepth-Capture.json",
+      "sha256": "349485536fe259e2c905fa0e62c2415e098157bcd9744b00b314db920d9d49d7"
+    },
+    {
+      "path": "Evidence/VisualDepth-Checkpoint.json",
+      "sha256": "c0e4bcb128902cc23dab7627b6dd46d587d9e25e1821474254bf9b7d6c29ff76"
+    },
+    {
+      "path": "Evidence/VisualDepth-Drive-SideStudy.png",
+      "sha256": "829d9c13ba4cfcf5d24d072cec6fd8d77cd06cac7cff5c581d10f00b89b2d65e"
+    },
+    {
+      "path": "Evidence/VisualDepth-EditMode.xml",
+      "sha256": "6238f976a43aeed3f60f1bd1f60c7d23bf14c7a390e57c614e7fe14013a30b15"
+    },
+    {
+      "path": "Evidence/VisualDepth-Gait-Authoring.json",
+      "sha256": "04b92473ff3dadb951db3c5c2d41f1a7fbe550dec1e5a5b47ca88741099a9f76"
+    },
+    {
+      "path": "Evidence/VisualDepth-Gait-FbxRoundtrip.json",
+      "sha256": "bc249ea41ff7c8ca1a8758118d7b1515f97988eeb3805efd06501d2f2f27b6f8"
+    },
+    {
+      "path": "Evidence/VisualDepth-Gait-Unity.json",
+      "sha256": "fd764490c2c456533297e0fdbbefe63a3b672298e217c0e48a50788d3e67f7e8"
+    },
+    {
+      "path": "Evidence/VisualDepth-HeadstallPreview.png",
+      "sha256": "e0d02e70b00e680b70e9e7926c377b76c49c528b59aced970aa4905fe3ba36e3"
+    },
+    {
+      "path": "Evidence/VisualDepth-Historical-Integrity.json",
+      "sha256": "deaef92d6b6f26e235f541c894164508c39cae47a3fb2b79d2e625b6d9b80828"
+    },
+    {
+      "path": "Evidence/VisualDepth-Horse-BindInspection.json",
+      "sha256": "32a158895e96d6f144ec6e62084f255d2597f08bb50a17bb23e80d85921de9c3"
+    },
+    {
+      "path": "Evidence/VisualDepth-Horse-Inspection.json",
+      "sha256": "1fdb00a7a6d43e483551426826283ddc510868667112e44c548c2dbc1830a1b2"
+    },
+    {
+      "path": "Evidence/VisualDepth-MeshSkin-Diagnostic.json",
+      "sha256": "13fd11b368be971dd9d75a75ae3f7d5402921542878462d55656f7b7798e48f2"
+    },
+    {
+      "path": "Evidence/VisualDepth-Motion.mp4",
+      "sha256": "0057a804441fc9ded664eb8602454ff814cfb0cbf8d6a2afe559d90f7d344d80"
+    },
+    {
+      "path": "Evidence/VisualDepth-MyStable.png",
+      "sha256": "0cb2bd396e156fedf2cd5058138f6dacfcaefda379527329c7459dab695c71bc"
+    },
+    {
+      "path": "Evidence/VisualDepth-PlayMode.xml",
+      "sha256": "d73d70ad02b02fb1e74c0e4e213ceffdb904adc1aeeba9103f2297aa4a8f6c39"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Approach-1.png",
+      "sha256": "bb8b94035fd7c59c3e3239c620bfb6cc292933112c0b77f88ca16f500478b034"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Approach-3.png",
+      "sha256": "864367c6b1689b462d8c703b4097a82f19250a1469a15b6b345fc5ec64a6a5ac"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Cross-2.png",
+      "sha256": "e3a767504632c7d9a7ebc2b9220e9b6449955227e70b200b71699209dbcf6fdc"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Drive.png",
+      "sha256": "6b0b970deb8a0cda5617e419810bf5028780c4bd80dbdd1343bb6f8e28988229"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Finish.png",
+      "sha256": "5167888f329770db94b37a46ea58ed5bf3e234f27408051503af1ba97df53821"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Mixed-Footing.png",
+      "sha256": "9e222c05c132dd15de9db84df7111db41e0f7e3cd3dadb82ca42672d8e4cac1f"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Ready.png",
+      "sha256": "3cf107ac88ab43485e6ff679e99857bda7dae296b43bc3c306ea3d9cd0414e6c"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Run.json",
+      "sha256": "d126e5f89f1490ccaac35906a92f382c347ad12c7fbfdaf4606c504a7a815a69"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Turn-1.png",
+      "sha256": "dd379db409b9a6d01dbf89e5c0e11b629cf17fc2abe5c0ddfea582199a867044"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Turn-2.png",
+      "sha256": "b5bec8211d705e9dbe3de3626c623805c8c27a2c740fb7008d9a5e64643b6c91"
+    },
+    {
+      "path": "Evidence/VisualDepth-Race-Turn-3.png",
+      "sha256": "836e6a58d1087e3580e432c83c963761bd6317c3bf2a2585068c15b1d0ea838e"
+    },
+    {
+      "path": "Evidence/VisualDepth-RiderEquipped.png",
+      "sha256": "f7b13c79a993b0f9c6f9f809d60a37b14fd447b7e554c64aa088efba59e545c6"
+    },
+    {
+      "path": "Evidence/VisualDepth-RiderPreview.png",
+      "sha256": "d0a5d3f1fc23cad9340a14144f9d0cf6ad297167b31a8231513704ecf0f3d5f6"
+    },
+    {
+      "path": "Evidence/VisualDepth-RiderTablet.png",
+      "sha256": "8a4718198f036f9a2c5a212938b18cd44fe80d2645c01e17aa3f4bc5cb35bca3"
+    },
+    {
+      "path": "Evidence/VisualDepth-SaddlesEquipped.png",
+      "sha256": "47c0257b25f54331907f11c648b82d72b13bd09eadad20ff926e37ead0fcac63"
+    },
+    {
+      "path": "Evidence/VisualDepth-SaddlesPreview.png",
+      "sha256": "5d0e3a078511adb80399512cafd8c15419243f3e4473cd5fc2ec9378ddddc4af"
+    },
+    {
+      "path": "Evidence/VisualDepth-Sky-after-south-sky-only.png",
+      "sha256": "d1950f1098792e9f7a029fe4dc7760c0673f56422fffa5831bab8548b3e77ee1"
+    },
+    {
+      "path": "Evidence/VisualDepth-Sky-after-south-world-only.png",
+      "sha256": "b46e225cea9ad77db1b22e63fe4d9ba136ac86ce0793941c71541e668585c237"
+    },
+    {
+      "path": "Evidence/VisualDepth-Sky-before-south-sky-only.png",
+      "sha256": "dc32170e98db78b636de2ff145c7a32385fe541d862617648fb17eb710f7430e"
+    },
+    {
+      "path": "Evidence/VisualDepth-Sky-before-south-world-only.png",
+      "sha256": "1e30e0069975282573828e1185702ab26f2ad7a0f93e9cd47bf6938c31ebe5ff"
+    },
+    {
+      "path": "Evidence/VisualDepth-Video-Verification.json",
+      "sha256": "b16b7a76db10a78d61ed4ae21e97c22142667242b5f358276522f842fb001f23"
+    },
+    {
+      "path": "Evidence/VisualDepth-silhouette-0035.png",
+      "sha256": "829da292bf63fa4b056f454bd19fb86538016d98c4476a6f0d78e5997c346b99"
+    },
+    {
+      "path": "Evidence/VisualDepth-silhouette-0048.png",
+      "sha256": "f5fe5234765a48dc7421b90c713db34ec22fe0a59ccbc77bc63f12e9376f4510"
+    }
+  ]
+}

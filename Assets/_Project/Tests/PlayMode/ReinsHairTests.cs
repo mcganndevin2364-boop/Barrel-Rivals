@@ -22,9 +22,9 @@ namespace BarrelRivals.Tests
             Assert.That(skin.sharedMesh.vertexCount,Is.LessThan(4000));
             Assert.That(skin.sharedMaterial.GetFloat("_AlphaClip"),Is.EqualTo(1));
             Assert.IsTrue(skin.sharedMaterial.IsKeywordEnabled("_ALPHATEST_ON"));
-            Assert.AreEqual(4,skin.bones.Length);
+            Assert.That(skin.bones.Length,Is.InRange(6,32));
             foreach(var b in skin.bones){Assert.IsNotNull(b);Assert.IsTrue(b.IsChildOf(horse));}
-            foreach(var w in skin.sharedMesh.boneWeights){Assert.That(w.weight0+w.weight1,Is.EqualTo(1).Within(.0001f));Assert.That(w.boneIndex0,Is.InRange(0,3));Assert.That(w.boneIndex1,Is.InRange(0,3));}
+            foreach(var w in skin.sharedMesh.boneWeights){Assert.That(w.weight0+w.weight1,Is.EqualTo(1).Within(.0001f));Assert.That(w.boneIndex0,Is.InRange(0,skin.bones.Length-1));Assert.That(w.boneIndex1,Is.InRange(0,skin.bones.Length-1));}
             foreach(var renderer in horse.GetComponentsInChildren<Renderer>(true).Where(r=>r.name.StartsWith("HorseHair")))Assert.IsFalse(renderer.gameObject.activeSelf,"Frozen source clumps must stay hidden, including in thumbnails.");
             var animator=horse.GetComponentInChildren<Animator>();var presentation=horse.GetComponent<ReinsHorsePresentation>();
             presentation.ResetFrame(new HorsePresentationFrame(0,horse.position,horse.rotation,8,0,0,0,false,false));

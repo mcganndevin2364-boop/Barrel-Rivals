@@ -1,0 +1,14 @@
+{
+  "decodedFrame": 60,
+  "frameSize": [
+    1280,
+    360
+  ],
+  "rgbMeanAbsoluteError": [
+    2.0580555555555557,
+    0.8399544270833333,
+    2.1987348090277776
+  ],
+  "orientationAndContentMatch": true,
+  "devicePerformanceClaim": false
+}

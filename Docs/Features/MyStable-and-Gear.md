@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+The latest [art-fit source](../Art/Reins-Art-Fit-Checkpoint.md) fits mane/forelock strands and a contoured saddle against the live horse, corrects strand shading, and routes the neutral stowed reins around the neck. It preserves the same 20 local cosmetics and connected UI; use its separate evidence for the new visuals.
+
 The later [visual-depth checkpoint](../Art/Reins-Visual-Depth-Checkpoint.md) improves the window/lantern lighting and torso-bound saddle, with fresh stable/gear captures and 110 Editor / 21 Play Mode checks. The counts below describe their historical feature boundary; the full roster, earned progression and photographic art remain unfinished.
 
 A later [character-motion source](../Art/Reins-Character-Motion-Checkpoint.md) replaces the rigid mane/tail, corrects animation culling and records fresh stable/race evidence. The counts and images below retain this earlier stable-reference checkpoint; they are not silently replaced by later captures.

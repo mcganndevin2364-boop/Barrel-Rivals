@@ -179,18 +179,7 @@ namespace BarrelRivals.Editor
         }
         private static void Mountains()
         {
-            var g=Group(distant);const int around=240,rings=9;int start=g.vertices.Count;
-            for(int ring=0;ring<=rings;ring++)for(int a=0;a<=around;a++)
-            {
-                float angle=a*Mathf.PI*2/around,t=ring/(float)rings;
-                float radius=Mathf.Lerp(220,850,t);float ridge=Mathf.Pow(Mathf.Max(0,Mathf.Sin(t*Mathf.PI)),1.45f);
-                float noise=Mathf.PerlinNoise(Mathf.Cos(angle)*2.7f+13,Mathf.Sin(angle)*2.7f+8);
-                float sharp=Mathf.Abs(Mathf.Sin(angle*13+.9f))*.22f+Mathf.Abs(Mathf.Sin(angle*29))* .06f;
-                float y=ridge*(24+noise*80+sharp*46)-2;
-                var p=new Vector3(Mathf.Sin(angle)*radius,y,Mathf.Cos(angle)*radius+27);
-                g.vertices.Add(p);g.uv.Add(new Vector2(p.x/15,p.z/15));
-                if(ring<rings && a<around){int i=start+ring*(around+1)+a;g.triangles.AddRange(new[]{i,i+around+1,i+1,i+1,i+around+1,i+around+2});}
-            }
+            ReinsMountainBuilder.Build(world);
         }
         private static void BuildBarrels(Transform[] barrels)
         {
