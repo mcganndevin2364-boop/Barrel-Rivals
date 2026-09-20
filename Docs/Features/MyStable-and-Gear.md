@@ -1,5 +1,8 @@
 # MyStable and Gear — reference-driven source increment
 
+Latest art-only revision: [mane crown/coverage checkpoint](../Art/Reins-Mane-Flow-Checkpoint.md). The same horse has fuller fitted hair in stable/racing/ghost; current captures and 135 Editor / 32 Play Mode checks use ManeFlow-*. Existing 20 cosmetics and feature contracts remain unchanged. Reference-quality art and progression are still unfinished.
+
+
 Current gameplay integration is now rules v2 / configured 0.5.0 build 5. [The v2 checkpoint](../Plan/Reins-v2-Alley-Checkpoint.md) includes fresh Stable/Tack/Rider Gear captures and regressions; no new native/device install is claimed. The historical v1 race result below belongs to the original feature checkpoint. Cosmetic-v2 storage remains independent from gameplay-v2 storage.
 
 The later [renderer/lighting checkpoint](../Art/Reins-Lighting-Flow-Checkpoint.md) fixes missing post resources and verifies actual ungraded HUD capture for MyStable/Tack/Rider Gear. Cosmetic contracts remain unchanged; its new captures and checks are separate from the historical records below.

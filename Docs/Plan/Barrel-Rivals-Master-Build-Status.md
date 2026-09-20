@@ -4,6 +4,8 @@ Current source configures **0.5.0/build 5**, rules **reins-v2**: moving first-pe
 
 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last native/device artifact remains 0.4.0/build 4; no new native build or device install has been verified for this source. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
 
+Latest art-only update: [mane crown/coverage](../Art/Reins-Mane-Flow-Checkpoint.md), with fresh 135/135 Editor and 32/32 Play Mode results. Shared horse mesh now checks crown faces as well as vertices against actual skin. Coverage improves; graphics remain below reference quality and device acceptance is unchanged.
+
 **How to read the list.** “Early code,” “helper” or “prototype” means a starting point exists but the section is not implemented and verified end to end. “Not built” means no implementation of the required system was found in the reviewed game project. All sections have a planning/engineering specification; none is release-ready.
 
 **CATEGORY A: FOUNDATION & INFRASTRUCTURE (Sections 1–7)**

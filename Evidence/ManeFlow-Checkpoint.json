@@ -1,0 +1,1148 @@
+{
+  "baselineCommit": "977249b87518ff32e72c6d6b307991c7299c1a4c",
+  "configuredNextBuildIdentity": "0.5.0/build 5",
+  "rules": "reins-v2",
+  "sourceOnly": true,
+  "newDeviceInstall": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "movingLaunchImplemented": true,
+  "changeScope": "Art-only mane crest coverage and flow; v2 Core/runtime input/replay unchanged",
+  "fullR2Accepted": false,
+  "historicalEvidenceRestored": 346,
+  "tests": {
+    "EditMode": {
+      "result": "Passed",
+      "total": "135",
+      "passed": "135",
+      "failed": "0",
+      "skipped": "0"
+    },
+    "PlayMode": {
+      "result": "Passed",
+      "total": "32",
+      "passed": "32",
+      "failed": "0",
+      "skipped": "0"
+    }
+  },
+  "canonicalReplay": {
+    "contractVersion": 2,
+    "scope": "offline-consistency",
+    "accepted": true,
+    "authority": false,
+    "status": "Complete",
+    "rulesVersion": 2,
+    "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "frameCount": 1893,
+    "fixedStepMs": 20,
+    "manifestSha256": "a5e17d101145edf9a2293e7356cb75b8fdac774a9f0072f21ab1695777ec6b5e",
+    "replaySha256": "f068e9dece3fd549068ce100ef1ae05fd7c6ab76640ae83ab2f7df0bfa0d3f49",
+    "state": {
+      "tick": 1893,
+      "raceTimeMs": 33860,
+      "barrelIndex": 3,
+      "x": 0.3173989796553723,
+      "z": -0.047388634925340456,
+      "headingRadians": -3.077845111034062,
+      "speedMetresPerSecond": 0,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    },
+    "result": {
+      "raceTimeMs": 33860,
+      "finalTimeMs": 33860,
+      "knockCount": 0,
+      "stylePoints": 300,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    }
+  },
+  "motion": {
+    "unityVersion": "6000.6.0f1",
+    "graphicsDevice": "Intel(R) Iris(TM) Plus Graphics 640",
+    "description": "Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v2 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 360,
+    "frameCount": 220,
+    "canonicalFinalTimeMs": 33860,
+    "capturedDriveLegRangeDegrees": 36.70969772338867,
+    "capturedDriveNeckRangeDegrees": 2.282820463180542,
+    "walkSilhouetteChangedPixels": 6281,
+    "devicePerformanceMeasured": false,
+    "footPlantingAccepted": false
+  },
+  "launch": {
+    "description": "Actual saved Reins v2 scene and rider camera: Ready, four-second moving alley, perfect release, first steering and cadence. Controlled 20ms simulation/animation with one player-loop yield per rendered sample, ungraded actual HUD. No audio track; scheduled-beep tests are separate and speaker/input alignment still needs phone playtest. Encoding rate is not measured device FPS.",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 720,
+    "frameCount": 161,
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274"
+  },
+  "sourceHashes": {
+    "Assets/_Project/Scripts/Editor/ReinsHairBuilder.cs": "48641ddec3ea212c0a739698920926d15c6dbcf95dc46861b12fbeaac6dc030e",
+    "Assets/_Project/Art/Reins/Hair/Skinned hair.asset": "a66446fe43535d1c5bbe8bef0d8f63b33ccfe10e25c06d47c0a94e98a164f4d8",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRun.cs": "84855ae09802c7c5f0abc1f3f390e9d182550c654b2310ff9ba460cebb292a0a",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsAlley.cs": "29d98a310dcb1d12f80c87e31f44775fa5f827536e00077a7ecf99f2770e5030",
+    "Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs": "733fab7400e57755470461e29f0e0ceb34c4566ebc25af7b6ef8986f27c730b0",
+    "Assets/_Project/Scripts/Editor/ReinsPremiumArenaBuilder.cs": "e643a041aa099c5e3339c4a889c6312385a501e7b59465575ae064c3d5a7ee1e",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsLabController.cs": "e5451d757fea12da2e724c2422b15e32620aee91c032805adb3240177142f986",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsInputSurface.cs": "dfae9dabfcbbd8275444edf9158bd0849408ead5bdf6a8ee765329e719b4fdc4",
+    "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx": "f84dfcd930b61adc51a81130df4c12bbb7b5753920ed81691cb2cc1c77a537a0"
+  },
+  "characterBudget": {
+    "boundary": "Read-only current saved hierarchy/mesh index counts plus exact current project FBX polygons. Not a GPU profiler/drawcall/frame-time count. Runtime player saddle is ShadowsOnly; active ghost changes it back to normal rendering. No LODGroup is present.",
+    "fbxSha256": "f84dfcd930b61adc51a81130df4c12bbb7b5753920ed81691cb2cc1c77a537a0",
+    "fbxTrianglesByObject": {
+      "HorseBody": 29564,
+      "HorseEyeL": 960,
+      "HorseEyeR": 960,
+      "HorseHairA": 3920,
+      "HorseHairB": 1756
+    },
+    "stable": {
+      "triangles": 51500,
+      "renderers": 13,
+      "materialSlots": 18,
+      "uniqueMaterials": 13,
+      "rows": [
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Left rider grip/Sleeve and glove stitching",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Left sleeve and stitching.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "02ee867e0413242b69f4ef77d2724ac2"
+          ],
+          "materialNames": [
+            "Fixed sleeve and glove stitching"
+          ],
+          "triangles": 432
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/HorseEyeL",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -7745080437638617254,
+          "materialGuids": [
+            "11a66934b99d9491d9a401cb347501d1"
+          ],
+          "materialNames": [
+            "Horse eyes"
+          ],
+          "triangles": 960
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Right braided rein",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Stowed right rein slotted.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28",
+            "a768986aafb6348eeb087dc554ec02ee",
+            "b76fad9403118404790652198fd796e8"
+          ],
+          "materialNames": [
+            "Oiled bridle leather",
+            "Turquoise rein braid",
+            "Flax rein braid"
+          ],
+          "triangles": 960
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/HorseHairB",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -2389641611107127761,
+          "materialGuids": [
+            "0dcf4d210a6454c92af28b39e7421cab"
+          ],
+          "materialNames": [
+            "Dark horse mane"
+          ],
+          "triangles": 1756
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Western saddle/Contoured western leather",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Western saddle leather.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a26e618f89a154ebaa0f446f2783f27e"
+          ],
+          "materialNames": [
+            "Ranch saddle leather"
+          ],
+          "triangles": 6272
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/Western bridle/Fitted leather headstall",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Western leather headstall.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28"
+          ],
+          "materialNames": [
+            "Oiled bridle leather"
+          ],
+          "triangles": 976
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Left rider grip/Glove shell",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Left glove shell.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "921e94281a4eb48f0bb2d3251e8f4a21"
+          ],
+          "materialNames": [
+            "Worn chestnut gloves"
+          ],
+          "triangles": 1116
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Western saddle/Woven saddle pad",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Curved western pad.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "2872083df3e584ce0b27c4509c8cbc5f"
+          ],
+          "materialNames": [
+            "Desert woven wool"
+          ],
+          "triangles": 1424
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Western saddle/Woven blanket stripes",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Blanket stripes.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "5f3fc0572a0dc40269185970072f2cb6"
+          ],
+          "materialNames": [
+            "Blanket ivory stitching"
+          ],
+          "triangles": 2672
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/HorseHairA",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": 843994242343503594,
+          "materialGuids": [
+            "0dcf4d210a6454c92af28b39e7421cab"
+          ],
+          "materialNames": [
+            "Dark horse mane"
+          ],
+          "triangles": 3920
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/HorseBody",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": 8832727077777283345,
+          "materialGuids": [
+            "ca37338bf08f74b5abe39fbd2e886d03"
+          ],
+          "materialNames": [
+            "Bay horse coat"
+          ],
+          "triangles": 29564
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Horse strand hair",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Hair/Skinned hair.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "87505d85221da41afb4987c626745114",
+            "bffd19188675b4a06bace9d8ac361297"
+          ],
+          "materialNames": [
+            "Dense undercoat hair",
+            "Dark strand hair"
+          ],
+          "triangles": 3232
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Western saddle/Saddle hardware",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Saddle fittings.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "da8e6ecdbf63044fca711a4d23957407"
+          ],
+          "materialNames": [
+            "Saddle silver"
+          ],
+          "triangles": 992
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/HorseEyeR",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -7993278216736376537,
+          "materialGuids": [
+            "11a66934b99d9491d9a401cb347501d1"
+          ],
+          "materialNames": [
+            "Horse eyes"
+          ],
+          "triangles": 960
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Left braided rein",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Stowed left rein slotted.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28",
+            "a768986aafb6348eeb087dc554ec02ee",
+            "b76fad9403118404790652198fd796e8"
+          ],
+          "materialNames": [
+            "Oiled bridle leather",
+            "Turquoise rein braid",
+            "Flax rein braid"
+          ],
+          "triangles": 960
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Right rider grip/Sleeve and glove stitching",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Right sleeve and stitching.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "02ee867e0413242b69f4ef77d2724ac2"
+          ],
+          "materialNames": [
+            "Fixed sleeve and glove stitching"
+          ],
+          "triangles": 432
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/Western bridle/Bit rings and buckles",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Bridle metal fittings.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "fe8ae665dcbd142df9a3739c8704256b"
+          ],
+          "materialNames": [
+            "Brushed bit steel"
+          ],
+          "triangles": 1248
+        },
+        {
+          "renderer": "Stable horse/Reference horse/Rider tack/Right rider grip/Glove shell",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Right glove shell.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "921e94281a4eb48f0bb2d3251e8f4a21"
+          ],
+          "materialNames": [
+            "Worn chestnut gloves"
+          ],
+          "triangles": 1116
+        },
+        {
+          "renderer": "Stable horse/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/Western bridle/Headstall stitching",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Headstall stitches.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "078f8fe77c8ff45568383e5baa0456ad"
+          ],
+          "materialNames": [
+            "Waxed saddle stitching"
+          ],
+          "triangles": 1280
+        }
+      ]
+    },
+    "player": {
+      "triangles": 54980,
+      "renderers": 17,
+      "materialSlots": 22,
+      "uniqueMaterials": 15,
+      "rows": [
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western saddle/Woven saddle pad",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Curved western pad.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "2872083df3e584ce0b27c4509c8cbc5f"
+          ],
+          "materialNames": [
+            "Desert woven wool"
+          ],
+          "triangles": 1424
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 3/Lower leg joint/Cannon bone",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 3/Lower leg joint/Fetlock",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "bbecfa12e33224ba4801bc0d11b5df67"
+          ],
+          "materialNames": [
+            "Ivory markings"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Right braided rein",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Right rein ready pose.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28",
+            "a768986aafb6348eeb087dc554ec02ee",
+            "b76fad9403118404790652198fd796e8"
+          ],
+          "materialNames": [
+            "Oiled bridle leather",
+            "Turquoise rein braid",
+            "Flax rein braid"
+          ],
+          "triangles": 1152
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 2/Lower leg joint/Fetlock",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "bbecfa12e33224ba4801bc0d11b5df67"
+          ],
+          "materialNames": [
+            "Ivory markings"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Saddle blanket",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "e0f03d31e182148d0bd178be38c9317e"
+          ],
+          "materialNames": [
+            "Woven turquoise blanket"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Nostril",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "28bd41bb53f1942949a3970372da1cc3"
+          ],
+          "materialNames": [
+            "Dark mane"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 2/Lower leg joint/Hoof",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 1/Upper leg",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Horn cap",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "b8e6bdca9392f425281be501fe28de92"
+          ],
+          "materialNames": [
+            "Oiled saddle leather"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 0/Upper leg",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 1/Lower leg joint/Knee",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Left rider grip/Sleeve and glove stitching",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Left sleeve and stitching.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "02ee867e0413242b69f4ef77d2724ac2"
+          ],
+          "materialNames": [
+            "Fixed sleeve and glove stitching"
+          ],
+          "triangles": 432
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Cantle",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "b8e6bdca9392f425281be501fe28de92"
+          ],
+          "materialNames": [
+            "Oiled saddle leather"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 0/Lower leg joint/Fetlock",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "bbecfa12e33224ba4801bc0d11b5df67"
+          ],
+          "materialNames": [
+            "Ivory markings"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Forehead blaze",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "bbecfa12e33224ba4801bc0d11b5df67"
+          ],
+          "materialNames": [
+            "Ivory markings"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 2/Lower leg joint/Cannon bone",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 0/Lower leg joint/Hoof",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Right rider grip/Glove shell",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Right glove shell.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "921e94281a4eb48f0bb2d3251e8f4a21"
+          ],
+          "materialNames": [
+            "Worn chestnut gloves"
+          ],
+          "triangles": 1116
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Ear joint 0/Inner ear",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Ear joint 1/Inner ear",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 3/Lower leg joint/Knee",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 3/Upper leg",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Velvet muzzle",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western saddle/Contoured western leather",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Western saddle leather.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a26e618f89a154ebaa0f446f2783f27e"
+          ],
+          "materialNames": [
+            "Ranch saddle leather"
+          ],
+          "triangles": 6272
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Right rider grip/Sleeve and glove stitching",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Right sleeve and stitching.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "02ee867e0413242b69f4ef77d2724ac2"
+          ],
+          "materialNames": [
+            "Fixed sleeve and glove stitching"
+          ],
+          "triangles": 432
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Left rider grip/Glove shell",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Left glove shell.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "921e94281a4eb48f0bb2d3251e8f4a21"
+          ],
+          "materialNames": [
+            "Worn chestnut gloves"
+          ],
+          "triangles": 1116
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western saddle/Woven blanket stripes",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Blanket stripes.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "5f3fc0572a0dc40269185970072f2cb6"
+          ],
+          "materialNames": [
+            "Blanket ivory stitching"
+          ],
+          "triangles": 2672
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western bridle/Bit rings and buckles",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Bridle metal fittings.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "fe8ae665dcbd142df9a3739c8704256b"
+          ],
+          "materialNames": [
+            "Brushed bit steel"
+          ],
+          "triangles": 1248
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Equine head",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Horse head.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 160
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Tail joint/Flowing tail",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "28bd41bb53f1942949a3970372da1cc3"
+          ],
+          "materialNames": [
+            "Dark mane"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Eye",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "81c1aab161cb6422aa4b81f0f6de64c3"
+          ],
+          "materialNames": [
+            "Deep brown eyes"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Sculpted chestnut body",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Horse barrel.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 280
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 1/Lower leg joint/Fetlock",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "bbecfa12e33224ba4801bc0d11b5df67"
+          ],
+          "materialNames": [
+            "Ivory markings"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western saddle/Saddle hardware",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Stable/Saddle fittings.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "da8e6ecdbf63044fca711a4d23957407"
+          ],
+          "materialNames": [
+            "Saddle silver"
+          ],
+          "triangles": 992
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 3/Lower leg joint/Hoof",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Ear joint 0/Tapered ear",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Horse strand hair",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Hair/Skinned hair.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "87505d85221da41afb4987c626745114",
+            "bffd19188675b4a06bace9d8ac361297"
+          ],
+          "materialNames": [
+            "Dense undercoat hair",
+            "Dark strand hair"
+          ],
+          "triangles": 3232
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 2/Upper leg",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/Rider tack/Left braided rein",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Left rein ready pose.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28",
+            "a768986aafb6348eeb087dc554ec02ee",
+            "b76fad9403118404790652198fd796e8"
+          ],
+          "materialNames": [
+            "Oiled bridle leather",
+            "Turquoise rein braid",
+            "Flax rein braid"
+          ],
+          "triangles": 1152
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western bridle/Headstall stitching",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Headstall stitches.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "078f8fe77c8ff45568383e5baa0456ad"
+          ],
+          "materialNames": [
+            "Waxed saddle stitching"
+          ],
+          "triangles": 1280
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 0/Lower leg joint/Knee",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Ear joint 1/Tapered ear",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Western saddle seat",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "b8e6bdca9392f425281be501fe28de92"
+          ],
+          "materialNames": [
+            "Oiled saddle leather"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 0/Lower leg joint/Cannon bone",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Hindleg 2/Lower leg joint/Knee",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Nostril",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "28bd41bb53f1942949a3970372da1cc3"
+          ],
+          "materialNames": [
+            "Dark mane"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Arched neck",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Horse neck.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 160
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 1/Lower leg joint/Hoof",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "c24c36e05c21a41e0b0e892282a1a406"
+          ],
+          "materialNames": [
+            "Muzzle and hooves"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/[Imported FBX transform]/Western bridle/Fitted leather headstall",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Premium/RiderTack/Western leather headstall.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "a4e476449bee54e4c9d557e6e2426a28"
+          ],
+          "materialNames": [
+            "Oiled bridle leather"
+          ],
+          "triangles": 976
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Foreleg 1/Lower leg joint/Cannon bone",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "4013a7f4681ee473b833aec3b6a82705"
+          ],
+          "materialNames": [
+            "Chestnut coat"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Articulated horse/Head joint/Eye",
+          "active": false,
+          "asset": "Assets/_Project/Generated/Practice/Presentation/Rounded original primitive.asset",
+          "fileID": 4300000,
+          "materialGuids": [
+            "81c1aab161cb6422aa4b81f0f6de64c3"
+          ],
+          "materialNames": [
+            "Deep brown eyes"
+          ],
+          "triangles": 520
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/HorseEyeL",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -7745080437638617254,
+          "materialGuids": [
+            "11a66934b99d9491d9a401cb347501d1"
+          ],
+          "materialNames": [
+            "Horse eyes"
+          ],
+          "triangles": 960
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/RodeoHorse/HorseHairB",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -2389641611107127761,
+          "materialGuids": [
+            "0dcf4d210a6454c92af28b39e7421cab"
+          ],
+          "materialNames": [
+            "Dark horse mane"
+          ],
+          "triangles": 1756
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/RodeoHorse/HorseHairA",
+          "active": false,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": 843994242343503594,
+          "materialGuids": [
+            "0dcf4d210a6454c92af28b39e7421cab"
+          ],
+          "materialNames": [
+            "Dark horse mane"
+          ],
+          "triangles": 3920
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/RodeoHorse/HorseBody",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": 8832727077777283345,
+          "materialGuids": [
+            "ca37338bf08f74b5abe39fbd2e886d03"
+          ],
+          "materialNames": [
+            "Bay horse coat"
+          ],
+          "triangles": 29564
+        },
+        {
+          "renderer": "Horse proxy/Reference horse/RodeoHorse/Armature/Bone/Bone.001/Bone.002/HorseEyeR",
+          "active": true,
+          "asset": "Assets/_Project/Art/Reins/Horse/RodeoHorse.fbx",
+          "fileID": -7993278216736376537,
+          "materialGuids": [
+            "11a66934b99d9491d9a401cb347501d1"
+          ],
+          "materialNames": [
+            "Horse eyes"
+          ],
+          "triangles": 960
+        }
+      ],
+      "saddleShadowOnlyTriangles": 11360,
+      "colorPassEligibleTriangles": 43620,
+      "colorPassEligibleMaterialSlots": 18
+    },
+    "ghost": {
+      "activeAdditionalTriangles": 54980,
+      "activeAdditionalMaterialSlots": 22,
+      "uniqueTintMaterials": 3,
+      "notes": "Full source clone; ordinary geometry shares ghost tint and the two hair layers use separate private alpha-preserving materials. Material assignment changes shadow mode to Off, making saddle visible. Source rigid hair remains inactive; no draw cost while whole ghost inactive. Adds GPU skinning/draw/transparent-overdraw cost, not another copy of shared source mesh assets."
+    },
+    "playerPlusVisibleGhostGeometry": 109960
+  },
+  "hair": {
+    "cards": 118,
+    "vertices": 3048,
+    "triangles": 3232,
+    "paletteBones": 27,
+    "materialSlots": 2
+  }
+}

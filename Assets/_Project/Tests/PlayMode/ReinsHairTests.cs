@@ -18,7 +18,9 @@ namespace BarrelRivals.Tests
             var horse=GameObject.Find("Horse proxy").transform;var rootPosition=horse.position;
             var skin=horse.GetComponentsInChildren<SkinnedMeshRenderer>().Single(r=>r.name=="Horse strand hair");
             Assert.IsNotNull(skin.sharedMesh);
-            Assert.That(skin.sharedMesh.triangles.Length/3,Is.LessThan(3000));
+            // The crown arc needs two fitted rings before the side drape. Keep this
+            // small explicit budget; the full character still has a separate 60k target.
+            Assert.That(skin.sharedMesh.triangles.Length/3,Is.LessThan(3600));
             Assert.That(skin.sharedMesh.vertexCount,Is.LessThan(4000));
             AssertLayeredHairMaterials(skin);
             Assert.That(skin.bones.Length,Is.InRange(6,32));

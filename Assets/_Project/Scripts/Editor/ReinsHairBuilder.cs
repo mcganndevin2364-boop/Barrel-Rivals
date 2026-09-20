@@ -54,19 +54,23 @@ namespace BarrelRivals.Editor
                 int count=row==0?34:26;
                 float t=Mathf.Clamp01((i+Random(-.38f,.38f))/(count-1f));
                 float rootZ=origin+Mathf.Lerp(.08f,1.02f,t);
-                float length=Random(row==0?.18f:.30f,row==0?.28f:.44f)*(1-.20f*t);
-                float width=Random(row==0?.045f:.045f,row==0?.063f:.073f);
+                float length=Random(row==0?.22f:.30f,row==0?.30f:.44f)*(1-.20f*t);
+                // Atlas gutters and tapered roots cover only part of a card. The dense
+                // roots must overlap after clipping, not merely touch as mesh quads.
+                float width=Random(row==0?.090f:.060f,row==0?.115f:.085f);
                 float sweep=Random(.025f,.065f),loose=Random(row==0?.002f:.012f,row==0?.008f:.025f),wave=Random(0,Mathf.PI*2);
                 int layer=row,helper=maneHelpers[Mathf.Min(5,Mathf.FloorToInt(t*6))];
                 // Keep the same random draw count so the unmodified forelock/tail retain
                 // their previous authoring samples when only the mane is revised.
                 int bundle=random.Next(8);
-                float rootX=.001f+layer*.008f+Mathf.Sin(wave+t*19)*.009f;
+                float rootX=layer==0?-.055f:.009f+Mathf.Sin(wave+t*19)*.007f;
                 rootZ+=Mathf.Sin(t*11+layer*.9f)*.011f;
-                float flow=.65f*Mathf.Sin(t*12+.8f)+.35f*Mathf.Sin(wave);
-                float endSweep=length*Mathf.Lerp(-.34f,.10f,flow*.5f+.5f)+(sweep-.045f)*.3f;
-                float bend=length*(.035f+.035f*Mathf.Sin(wave+.7f));
-                float roll=28*Mathf.Sin(wave+.8f)+8*Mathf.Sin(t*17+1);
+                // One coherent groom flows toward the shoulder. Long-wave grouping
+                // makes overlapping locks, instead of independent diagonal comb teeth.
+                float flow=.8f*Mathf.Sin(t*7+.8f)+.2f*Mathf.Sin(wave);
+                float endSweep=length*Mathf.Lerp(-.48f,-.19f,flow*.5f+.5f)+(sweep-.045f)*.3f;
+                float bend=length*(.10f+.04f*Mathf.Sin(t*9+.7f));
+                float roll=16*Mathf.Sin(t*9+.8f)+6*Mathf.Sin(wave);
                 AddManeLock(shape,surface,rootX,rootZ,length,width,endSweep,bend,roll,loose,wave,helper,bundle,layer);
             }
             // The poll/forehead is also sampled on actual skin; ear-base influences are retained.
@@ -106,15 +110,24 @@ namespace BarrelRivals.Editor
         private static void AddManeLock(Cards shape,ReinsHorseSurface surface,float rootX,float rootZ,
             float length,float width,float sweep,float bend,float roll,float loose,float wave,int helper,int bundle,int layer)
         {
+            // Two rings cross the crown before draping down the flank. A direct chord
+            // from a fitted root to the side cuts through the convex neck between vertices.
             const int segments=8;
             var centers=new Vector3[segments+1];var drops=new float[segments+1];
             for(int i=0;i<=segments;i++)
             {
                 float u=i/(float)segments;
                 float z=rootZ+sweep*Mathf.SmoothStep(0,1,u)+bend*Mathf.Sin(u*Mathf.PI);
-                var crest=surface.Top(rootX,z);drops[i]=length*u*(.80f+.20f*u);
-                if(i==0){centers[i]=crest.Point;continue;}
-                centers[i]=surface.Side(crest.Point.y-drops[i],z).Point;
+                var crest=surface.Top(rootX,z);
+                if(u<=.25f)
+                    centers[i]=surface.Top(Mathf.Lerp(rootX,.09f,u/.25f),z).Point;
+                else
+                {
+                    float drape=(u-.25f)/.75f;
+                    float shoulderY=surface.Top(.09f,z).Point.y;
+                    centers[i]=surface.Side(shoulderY-length*drape*(.80f+.20f*drape),z).Point;
+                }
+                drops[i]=crest.Point.y-centers[i].y;
             }
             shape.AddFitted((u,side)=>{
                 int ring=Mathf.RoundToInt(u*segments);
@@ -123,9 +136,17 @@ namespace BarrelRivals.Editor
                 {
                     // A shallow diagonal root line breaks the perfectly straight crest
                     // edge. Every vertex still takes its position and weights from skin.
-                    float angle=12*Mathf.Sin(wave)*Mathf.Deg2Rad;
+                    float angle=layer==0?0:12*Mathf.Sin(wave)*Mathf.Deg2Rad;
                     var root=surface.Top(rootX+Mathf.Sin(angle)*edge,rootZ+Mathf.Cos(angle)*edge);
                     return new ReinsHorseSurface.Hit(root.Point+Vector3.up*(.007f+layer*.003f),root.Weight);
+                }
+                if(u<=.25f)
+                {
+                    // Sample every cross-section on the actual crown, including the
+                    // center column. This is a surface arc, not an interpolation through skin.
+                    var crown=surface.Top(Mathf.Lerp(rootX,.09f,u/.25f),centers[ring].z+edge);
+                    var crownOffset=Vector3.up*(.009f+layer*.003f)+Vector3.right*(.005f*u/.25f);
+                    return new ReinsHorseSurface.Hit(crown.Point+crownOffset,WithHelper(crown.Weight,helper,u,.62f));
                 }
                 var tangent=(centers[Mathf.Min(ring+1,segments)]-centers[ring-1]).normalized;
                 var across=Vector3.Cross(tangent,Vector3.right).normalized;
@@ -143,7 +164,7 @@ namespace BarrelRivals.Editor
                 float clearance=Mathf.Clamp(.008f+layer*.006f+loose*.55f*looseEnd+across.x*edge+cup,.004f,.038f);
                 var point=Vector3.Lerp(crest.Point+Vector3.up*.008f,flank.Point+Vector3.right*clearance,Mathf.Clamp01(drop/.025f));
                 return new ReinsHorseSurface.Hit(point,WithHelper(flank.Weight,helper,u,.62f));
-            },bundle,segments,0,layer,layer==0?1:2);
+            },bundle,segments,0,layer,2);
         }
         private static int AddHelper(Transform model,List<Transform> bones,List<ReinsHairMotion.Binding> motion,
             Transform parent,Vector3 position,Vector3 lift,Vector3 sway,float idle,float stride,float turn,float phase)
@@ -178,7 +199,7 @@ namespace BarrelRivals.Editor
             importer.textureCompression=TextureImporterCompression.Uncompressed;importer.anisoLevel=4;importer.SaveAndReimport();
             string path=Root+(dense?"/Dense undercoat hair.mat":"/Dark strand hair.mat");var material=AssetDatabase.LoadAssetAtPath<Material>(path);
             if(!material){material=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=dense?"Dense undercoat hair":"Dark strand hair"};AssetDatabase.CreateAsset(material,path);}
-            material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));material.SetColor("_BaseColor",dense?Color.white:new Color(.24f,.25f,.28f,1));
+            material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));material.SetColor("_BaseColor",dense?Color.white:new Color(.38f,.32f,.28f,1));
             material.SetFloat("_AlphaClip",1);material.SetFloat("_Cutoff",.36f);material.SetFloat("_Cull",0);
             material.SetFloat("_AlphaToMask",1);material.SetFloat("_Smoothness",.30f);material.SetFloat("_EnvironmentReflections",1);material.DisableKeyword("_ENVIRONMENTREFLECTIONS_OFF");material.SetFloat("_Metallic",0);
             material.EnableKeyword("_ALPHATEST_ON");material.SetOverrideTag("RenderType","TransparentCutout");material.renderQueue=2450;
@@ -207,7 +228,10 @@ namespace BarrelRivals.Editor
                     {
                         float side=column/(float)acrossSegments;
                         var hit=point(t,side);vertices.Add(hit.Point);weights.Add(hit.Weight);
-                        uv.Add(new Vector2((bundle+Mathf.Lerp(.04f,.96f,side))/8f,.976f-t*.946f));
+                        // Dense mane roots use the full lock interior. The atlas's
+                        // narrow isolated tops made repeated bald notches at the crest.
+                        float rootV=region==0 && layer==0?.80f:.976f;
+                        uv.Add(new Vector2((bundle+Mathf.Lerp(.04f,.96f,side))/8f,Mathf.Lerp(rootV,.030f,t)));
                         // Authoring landmarks retained for reload/attachment QA; shaders use UV0 only.
                         regions.Add(new Vector2(region,t));
                     }

@@ -6,4 +6,6 @@ The four-second moving first-person alley, one graded release, forgiving rein/ca
 
 Preserve all eight categories and 53 sections in the [engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md). Free/original assets only; no purchases or new paid services are authorized. Read [AGENTS.md](AGENTS.md) and the relevant subsystem provenance before editing. Historical M0/M1/0.4 documents are evidence of their own revisions, not current mechanics. Classic remains source/history; it is excluded from the v2 player scenes. Never import v1 race times into reins-v2.
 
+Read the [current mane crown checkpoint](Docs/Art/Reins-Mane-Flow-Checkpoint.md) for the latest art-only revision and its fresh 135 Editor / 32 Play Mode checks. Mane crown faces now fit the actual neck; visible strip pattern and reference quality remain unresolved.
+
 Next work: refine and inspect the actual moving horse/rider/alley benchmark, build fresh 0.5 native artifacts, then qualify release/beep alignment, controls, lifecycle and 20-minute device performance. Do not call R2 complete or expand content before those gates. M1N shared continuous-input authority proof follows R2; multiplayer, trusted economy/progression, cloud persistence and store release remain planned.

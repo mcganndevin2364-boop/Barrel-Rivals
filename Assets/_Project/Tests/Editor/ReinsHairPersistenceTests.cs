@@ -64,6 +64,21 @@ namespace BarrelRivals.Tests
                         Assert.That(point.x-skin.Point.x,Is.InRange(.001f,.040f),"Draped mane must clear the actual neck, not a stale world-space envelope.");
                     }
                 }
+                // Attached vertices alone do not prove a visible groom: a wide face
+                // can take a chord through the convex crown. Check the actual faces.
+                var triangles=savedMesh.triangles;int crownFaces=0;
+                for(int i=0;i<triangles.Length;i+=3)
+                {
+                    int a=triangles[i],b=triangles[i+1],c=triangles[i+2];
+                    if(landmarks[a].x>.5f || landmarks[b].x>.5f || landmarks[c].x>.5f)continue;
+                    if(Mathf.Max(landmarks[a].y,Mathf.Max(landmarks[b].y,landmarks[c].y))>.251f)continue;
+                    var center=(vertices[a]+vertices[b]+vertices[c])/3;
+                    var body=surface.Top(center.x,center.z);
+                    Assert.That(center.y-body.Point.y,Is.GreaterThan(-.002f),
+                        "A mane crown face passes through the neck despite attached vertices.");
+                    crownFaces++;
+                }
+                Assert.That(crownFaces,Is.GreaterThan(100),"Check a real fitted crown, not only the hanging tips.");
             }
             finally{EditorSceneManager.RestoreSceneManagerSetup(setup);}
             // A stale native Mesh buffer can coexist with newly copied bounds metadata.

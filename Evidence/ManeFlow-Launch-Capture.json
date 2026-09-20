@@ -1,0 +1,2264 @@
+{
+    "description": "Actual saved Reins v2 scene and rider camera: Ready, four-second moving alley, perfect release, first steering and cadence. Controlled 20ms simulation/animation with one player-loop yield per rendered sample, ungraded actual HUD. No audio track; scheduled-beep tests are separate and speaker/input alignment still needs phone playtest. Encoding rate is not measured device FPS.",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 720,
+    "frameCount": 161,
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "frames": [
+        {
+            "tick": 0,
+            "raceTimeMs": 0,
+            "phase": "Ready",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -6.0,
+            "speed": 0.0,
+            "cameraPosition": {
+                "x": 0.0,
+                "y": 2.299999952316284,
+                "z": -6.400000095367432
+            }
+        },
+        {
+            "tick": 2,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.94,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -1.5557217736272833e-9,
+                "y": 2.1905763149261475,
+                "z": -6.340000152587891
+            }
+        },
+        {
+            "tick": 4,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.88,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -2.6106656836333286e-9,
+                "y": 2.190882444381714,
+                "z": -6.28000020980835
+            }
+        },
+        {
+            "tick": 6,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.82,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -3.3377360875164186e-9,
+                "y": 2.190955877304077,
+                "z": -6.220000267028809
+            }
+        },
+        {
+            "tick": 8,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.76,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -3.849486063245422e-9,
+                "y": 2.1908435821533203,
+                "z": -6.160000324249268
+            }
+        },
+        {
+            "tick": 10,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.7,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.218568605551809e-9,
+                "y": 2.1905956268310547,
+                "z": -6.099999904632568
+            }
+        },
+        {
+            "tick": 12,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.64,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.49220927123406e-9,
+                "y": 2.190255880355835,
+                "z": -6.039999961853027
+            }
+        },
+        {
+            "tick": 14,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.58,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.699866718027579e-9,
+                "y": 2.1898674964904785,
+                "z": -5.980000019073486
+            }
+        },
+        {
+            "tick": 16,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.52,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.860248203897299e-9,
+                "y": 2.189466953277588,
+                "z": -5.920000076293945
+            }
+        },
+        {
+            "tick": 18,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.46,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.984682888675707e-9,
+                "y": 2.189086437225342,
+                "z": -5.860000133514404
+            }
+        },
+        {
+            "tick": 20,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.4,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.080262877044106e-9,
+                "y": 2.1887505054473877,
+                "z": -5.800000190734863
+            }
+        },
+        {
+            "tick": 22,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.34,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.150313509005855e-9,
+                "y": 2.188485860824585,
+                "z": -5.740000247955322
+            }
+        },
+        {
+            "tick": 24,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.28,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.1980211246416275e-9,
+                "y": 2.1883034706115723,
+                "z": -5.680000305175781
+            }
+        },
+        {
+            "tick": 26,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.22,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.224621624222436e-9,
+                "y": 2.1882169246673584,
+                "z": -5.619999885559082
+            }
+        },
+        {
+            "tick": 28,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.16,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.231580058051577e-9,
+                "y": 2.1882307529449463,
+                "z": -5.559999942779541
+            }
+        },
+        {
+            "tick": 30,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.1,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.2209960799132205e-9,
+                "y": 2.1883411407470703,
+                "z": -5.5
+            }
+        },
+        {
+            "tick": 32,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -5.04,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.193845353801407e-9,
+                "y": 2.1885478496551514,
+                "z": -5.440000057220459
+            }
+        },
+        {
+            "tick": 34,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.98,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.153490523213122e-9,
+                "y": 2.188833236694336,
+                "z": -5.380000114440918
+            }
+        },
+        {
+            "tick": 36,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.92,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.10234743344995e-9,
+                "y": 2.1891841888427734,
+                "z": -5.320000171661377
+            }
+        },
+        {
+            "tick": 38,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.86,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.043708117824508e-9,
+                "y": 2.1895806789398193,
+                "z": -5.260000228881836
+            }
+        },
+        {
+            "tick": 40,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.8,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.981187462504977e-9,
+                "y": 2.190000057220459,
+                "z": -5.200000286102295
+            }
+        },
+        {
+            "tick": 42,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.74,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.9183825900911415e-9,
+                "y": 2.1904196739196777,
+                "z": -5.139999866485596
+            }
+        },
+        {
+            "tick": 44,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.68,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.858828450693409e-9,
+                "y": 2.1908164024353027,
+                "z": -5.079999923706055
+            }
+        },
+        {
+            "tick": 46,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.62,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.8059991542004354e-9,
+                "y": 2.1911680698394775,
+                "z": -5.019999980926514
+            }
+        },
+        {
+            "tick": 48,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.5600000000000005,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.762906069544215e-9,
+                "y": 2.1914544105529785,
+                "z": -4.960000038146973
+            }
+        },
+        {
+            "tick": 50,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.5,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7315444895446035e-9,
+                "y": 2.1916630268096924,
+                "z": -4.900000095367432
+            }
+        },
+        {
+            "tick": 52,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.4399999999999995,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.71458427853122e-9,
+                "y": 2.1917757987976074,
+                "z": -4.840000152587891
+            }
+        },
+        {
+            "tick": 54,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.38,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7120201074335455e-9,
+                "y": 2.191793203353882,
+                "z": -4.78000020980835
+            }
+        },
+        {
+            "tick": 56,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.32,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.72450611965769e-9,
+                "y": 2.1917107105255127,
+                "z": -4.720000267028809
+            }
+        },
+        {
+            "tick": 58,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.26,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.751345983322608e-9,
+                "y": 2.191533088684082,
+                "z": -4.660000324249268
+            }
+        },
+        {
+            "tick": 60,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.2,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7906421052346104e-9,
+                "y": 2.1912729740142822,
+                "z": -4.599999904632568
+            }
+        },
+        {
+            "tick": 62,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.14,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.840992051668991e-9,
+                "y": 2.190939426422119,
+                "z": -4.539999961853027
+            }
+        },
+        {
+            "tick": 64,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.08,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.89892704180761e-9,
+                "y": 2.1905558109283447,
+                "z": -4.480000019073486
+            }
+        },
+        {
+            "tick": 66,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -4.02,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.961539179504371e-9,
+                "y": 2.190141201019287,
+                "z": -4.420000076293945
+            }
+        },
+        {
+            "tick": 68,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.96,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.025323268625925e-9,
+                "y": 2.189718723297119,
+                "z": -4.360000133514404
+            }
+        },
+        {
+            "tick": 70,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.9,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.086865151326947e-9,
+                "y": 2.1893112659454346,
+                "z": -4.300000190734863
+            }
+        },
+        {
+            "tick": 72,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.84,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.142425152371288e-9,
+                "y": 2.188943386077881,
+                "z": -4.239999771118164
+            }
+        },
+        {
+            "tick": 74,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.78,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.189373375458217e-9,
+                "y": 2.1886324882507324,
+                "z": -4.180000305175781
+            }
+        },
+        {
+            "tick": 76,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.72,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.224842336559732e-9,
+                "y": 2.1883974075317383,
+                "z": -4.119999885559082
+            }
+        },
+        {
+            "tick": 78,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.66,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.246839851480445e-9,
+                "y": 2.1882517337799072,
+                "z": -4.060000419616699
+            }
+        },
+        {
+            "tick": 80,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.6,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.254653157038547e-9,
+                "y": 2.188199996948242,
+                "z": -4.0
+            }
+        },
+        {
+            "tick": 82,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.54,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.2468407396588645e-9,
+                "y": 2.1882517337799072,
+                "z": -3.940000057220459
+            }
+        },
+        {
+            "tick": 84,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.48,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.224842780648942e-9,
+                "y": 2.1883974075317383,
+                "z": -3.880000114440918
+            }
+        },
+        {
+            "tick": 86,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.42,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.189376039993476e-9,
+                "y": 2.1886324882507324,
+                "z": -3.820000171661377
+            }
+        },
+        {
+            "tick": 88,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.36,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.1424304814418065e-9,
+                "y": 2.188943386077881,
+                "z": -3.759999990463257
+            }
+        },
+        {
+            "tick": 90,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.3,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.086871368575885e-9,
+                "y": 2.1893112659454346,
+                "z": -3.700000047683716
+            }
+        },
+        {
+            "tick": 92,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.24,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.0253312622317026e-9,
+                "y": 2.189718723297119,
+                "z": -3.640000104904175
+            }
+        },
+        {
+            "tick": 94,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.18,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.961549837645407e-9,
+                "y": 2.190141201019287,
+                "z": -3.580000162124634
+            }
+        },
+        {
+            "tick": 96,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.12,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.898943029019165e-9,
+                "y": 2.1905558109283447,
+                "z": -3.5199999809265137
+            }
+        },
+        {
+            "tick": 98,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.06,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.841013367951064e-9,
+                "y": 2.190939426422119,
+                "z": -3.4600000381469727
+            }
+        },
+        {
+            "tick": 100,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -3.0,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.79067230330088e-9,
+                "y": 2.1912729740142822,
+                "z": -3.4000000953674316
+            }
+        },
+        {
+            "tick": 102,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.94,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.751390392243593e-9,
+                "y": 2.191533088684082,
+                "z": -3.3400001525878906
+            }
+        },
+        {
+            "tick": 104,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.88,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.724570956682328e-9,
+                "y": 2.1917107105255127,
+                "z": -3.2800002098083496
+            }
+        },
+        {
+            "tick": 106,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.82,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.712116030702873e-9,
+                "y": 2.191793203353882,
+                "z": -3.2200000286102295
+            }
+        },
+        {
+            "tick": 108,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.76,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.714725942989162e-9,
+                "y": 2.1917757987976074,
+                "z": -3.1600000858306885
+            }
+        },
+        {
+            "tick": 110,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.7,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.731758096454541e-9,
+                "y": 2.1916630268096924,
+                "z": -3.1000001430511475
+            }
+        },
+        {
+            "tick": 112,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.64,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.763226257864517e-9,
+                "y": 2.1914546489715576,
+                "z": -3.0400002002716064
+            }
+        },
+        {
+            "tick": 114,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.58,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.8064818791715425e-9,
+                "y": 2.1911680698394775,
+                "z": -2.9800000190734863
+            }
+        },
+        {
+            "tick": 116,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.52,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.8595576451759825e-9,
+                "y": 2.190816640853882,
+                "z": -2.9200000762939453
+            }
+        },
+        {
+            "tick": 118,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.46,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.919485263599199e-9,
+                "y": 2.1904196739196777,
+                "z": -2.8600001335144043
+            }
+        },
+        {
+            "tick": 120,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.4,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.982853685220334e-9,
+                "y": 2.190000057220459,
+                "z": -2.8000001907348633
+            }
+        },
+        {
+            "tick": 122,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.34,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.046228768179617e-9,
+                "y": 2.1895804405212402,
+                "z": -2.740000009536743
+            }
+        },
+        {
+            "tick": 124,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.28,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.106155942513624e-9,
+                "y": 2.189183473587036,
+                "z": -2.680000066757202
+            }
+        },
+        {
+            "tick": 126,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.22,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.159232596696484e-9,
+                "y": 2.1888320446014404,
+                "z": -2.620000123977661
+            }
+        },
+        {
+            "tick": 128,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.16,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.20248599755746e-9,
+                "y": 2.1885454654693604,
+                "z": -2.56000018119812
+            }
+        },
+        {
+            "tick": 130,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.1,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.233966149376101e-9,
+                "y": 2.1883370876312256,
+                "z": -2.5
+            }
+        },
+        {
+            "tick": 132,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -2.04,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.250995638306222e-9,
+                "y": 2.1882243156433105,
+                "z": -2.440000057220459
+            }
+        },
+        {
+            "tick": 134,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.9800000000000004,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.253603330146461e-9,
+                "y": 2.188206911087036,
+                "z": -2.380000114440918
+            }
+        },
+        {
+            "tick": 136,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.92,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.241155509594364e-9,
+                "y": 2.1882894039154053,
+                "z": -2.320000171661377
+            }
+        },
+        {
+            "tick": 138,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.8600000000000003,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.21433340949784e-9,
+                "y": 2.188467025756836,
+                "z": -2.260000228881836
+            }
+        },
+        {
+            "tick": 140,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.7999999999999998,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.175050610262133e-9,
+                "y": 2.1887271404266357,
+                "z": -2.200000047683716
+            }
+        },
+        {
+            "tick": 142,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.7400000000000002,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.124713098325628e-9,
+                "y": 2.189060688018799,
+                "z": -2.140000104904175
+            }
+        },
+        {
+            "tick": 144,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.6799999999999997,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.066786545881996e-9,
+                "y": 2.1894443035125732,
+                "z": -2.0799999237060547
+            }
+        },
+        {
+            "tick": 146,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.62,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.004176184542075e-9,
+                "y": 2.189858913421631,
+                "z": -2.0199999809265137
+            }
+        },
+        {
+            "tick": 148,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.5599999999999996,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.9403978685802485e-9,
+                "y": 2.190281391143799,
+                "z": -1.9600000381469727
+            }
+        },
+        {
+            "tick": 150,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.5,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.878853765433178e-9,
+                "y": 2.1906888484954834,
+                "z": -1.9000000953674316
+            }
+        },
+        {
+            "tick": 152,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.4400000000000004,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.8232959848348855e-9,
+                "y": 2.191056728363037,
+                "z": -1.8400001525878906
+            }
+        },
+        {
+            "tick": 154,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.38,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.776346873569537e-9,
+                "y": 2.1913676261901855,
+                "z": -1.78000009059906
+            }
+        },
+        {
+            "tick": 156,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.3200000000000003,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7408832415385405e-9,
+                "y": 2.1916027069091797,
+                "z": -1.720000147819519
+            }
+        },
+        {
+            "tick": 158,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.2599999999999998,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.718886614796247e-9,
+                "y": 2.1917483806610107,
+                "z": -1.6600000858306885
+            }
+        },
+        {
+            "tick": 160,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.2000000000000002,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.711069756524466e-9,
+                "y": 2.191800117492676,
+                "z": -1.6000001430511475
+            }
+        },
+        {
+            "tick": 162,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.1399999999999997,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7188826179933585e-9,
+                "y": 2.1917483806610107,
+                "z": -1.540000081062317
+            }
+        },
+        {
+            "tick": 164,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.08,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.7408770242896026e-9,
+                "y": 2.1916027069091797,
+                "z": -1.4800001382827759
+            }
+        },
+        {
+            "tick": 166,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -1.0199999999999996,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.77633754769613e-9,
+                "y": 2.1913678646087646,
+                "z": -1.4200000762939453
+            }
+        },
+        {
+            "tick": 168,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.96,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.8232831062478e-9,
+                "y": 2.191056966781616,
+                "z": -1.3600001335144043
+            }
+        },
+        {
+            "tick": 170,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.9000000000000004,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.878840442756882e-9,
+                "y": 2.1906888484954834,
+                "z": -1.3000000715255737
+            }
+        },
+        {
+            "tick": 172,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.8399999999999999,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.940382325457904e-9,
+                "y": 2.190281391143799,
+                "z": -1.2400000095367432
+            }
+        },
+        {
+            "tick": 174,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.7800000000000002,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.00416064141973e-9,
+                "y": 2.189858913421631,
+                "z": -1.1800000667572021
+            }
+        },
+        {
+            "tick": 176,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.7199999999999998,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.066771890938071e-9,
+                "y": 2.1894443035125732,
+                "z": -1.1200001239776611
+            }
+        },
+        {
+            "tick": 178,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.6600000000000001,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.1247011079169624e-9,
+                "y": 2.189060688018799,
+                "z": -1.0600001811981201
+            }
+        },
+        {
+            "tick": 180,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.5999999999999996,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.1750399521210966e-9,
+                "y": 2.188727378845215,
+                "z": -1.0000001192092896
+            }
+        },
+        {
+            "tick": 182,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.54,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.2143258599812725e-9,
+                "y": 2.188467025756836,
+                "z": -0.9400001168251038
+            }
+        },
+        {
+            "tick": 184,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.4800000000000004,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.241150624613056e-9,
+                "y": 2.1882894039154053,
+                "z": -0.880000114440918
+            }
+        },
+        {
+            "tick": 186,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.41999999999999993,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.253601553789622e-9,
+                "y": 2.188206911087036,
+                "z": -0.8200000524520874
+            }
+        },
+        {
+            "tick": 188,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.3600000000000003,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.250997858752271e-9,
+                "y": 2.1882243156433105,
+                "z": -0.7600001096725464
+            }
+        },
+        {
+            "tick": 190,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.2999999999999998,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.2339714784466196e-9,
+                "y": 2.1883370876312256,
+                "z": -0.7000000476837158
+            }
+        },
+        {
+            "tick": 192,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.2400000000000002,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.202495323430867e-9,
+                "y": 2.1885454654693604,
+                "z": -0.6400001049041748
+            }
+        },
+        {
+            "tick": 194,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.17999999999999972,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.15924414301594e-9,
+                "y": 2.1888320446014404,
+                "z": -0.580000102519989
+            }
+        },
+        {
+            "tick": 196,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.1200000000000001,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.106169265189919e-9,
+                "y": 2.189183473587036,
+                "z": -0.5200001001358032
+            }
+        },
+        {
+            "tick": 198,
+            "raceTimeMs": 0,
+            "phase": "Approach",
+            "launchOutcome": "Pending",
+            "x": 0.0,
+            "z": -0.05999999999999961,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -5.046243867212752e-9,
+                "y": 2.189580202102661,
+                "z": -0.46000009775161743
+            }
+        },
+        {
+            "tick": 200,
+            "raceTimeMs": 0,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": 0.0,
+            "z": 0.0,
+            "speed": 1.5,
+            "cameraPosition": {
+                "x": -4.982869228342679e-9,
+                "y": 2.190000057220459,
+                "z": -0.40000009536743164
+            }
+        },
+        {
+            "tick": 202,
+            "raceTimeMs": 40,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.0029959537626768006,
+            "z": 0.06770182528583604,
+            "speed": 1.7591999999999999,
+            "cameraPosition": {
+                "x": 0.020564664155244827,
+                "y": 2.190067768096924,
+                "z": -0.3316037952899933
+            }
+        },
+        {
+            "tick": 204,
+            "raceTimeMs": 80,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.011566772080657935,
+            "z": 0.14536228485028024,
+            "speed": 2.0183999999999997,
+            "cameraPosition": {
+                "x": 0.03905193507671356,
+                "y": 2.190242052078247,
+                "z": -0.25142204761505127
+            }
+        },
+        {
+            "tick": 206,
+            "raceTimeMs": 120,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.027812763225633426,
+            "z": 0.23235292771223653,
+            "speed": 2.2775999999999996,
+            "cameraPosition": {
+                "x": 0.05316522717475891,
+                "y": 2.1905269622802734,
+                "z": -0.15936462581157684
+            }
+        },
+        {
+            "tick": 208,
+            "raceTimeMs": 160,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.05298518935327784,
+            "z": 0.327960889456364,
+            "speed": 2.5367999999999995,
+            "cameraPosition": {
+                "x": 0.055131781846284866,
+                "y": 2.190896511077881,
+                "z": -0.05715054273605347
+            }
+        },
+        {
+            "tick": 210,
+            "raceTimeMs": 200,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.08721171835247109,
+            "z": 0.4316976641245871,
+            "speed": 2.7959999999999994,
+            "cameraPosition": {
+                "x": 0.04331286996603012,
+                "y": 2.1912789344787598,
+                "z": 0.05359265208244324
+            }
+        },
+        {
+            "tick": 212,
+            "raceTimeMs": 240,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.13049301984286016,
+            "z": 0.5431997379442438,
+            "speed": 3.0551999999999992,
+            "cameraPosition": {
+                "x": 0.018560022115707397,
+                "y": 2.191580057144165,
+                "z": 0.17200803756713867
+            }
+        },
+        {
+            "tick": 214,
+            "raceTimeMs": 280,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.18276244176790996,
+            "z": 0.6622041648926177,
+            "speed": 3.314399999999999,
+            "cameraPosition": {
+                "x": -0.01831844449043274,
+                "y": 2.1916840076446533,
+                "z": 0.29756975173950195
+            }
+        },
+        {
+            "tick": 216,
+            "raceTimeMs": 320,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.24390637910435187,
+            "z": 0.7885318751973798,
+            "speed": 3.573599999999999,
+            "cameraPosition": {
+                "x": -0.06665433943271637,
+                "y": 2.191453456878662,
+                "z": 0.4299488663673401
+            }
+        },
+        {
+            "tick": 218,
+            "raceTimeMs": 360,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.31377221555074597,
+            "z": 0.9220762835999343,
+            "speed": 3.832799999999999,
+            "cameraPosition": {
+                "x": -0.12584832310676575,
+                "y": 2.190770387649536,
+                "z": 0.5689691305160522
+            }
+        },
+        {
+            "tick": 220,
+            "raceTimeMs": 400,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.38960979171766624,
+            "z": 1.05810980530905,
+            "speed": 3.9069843750000004,
+            "cameraPosition": {
+                "x": -0.19269044697284698,
+                "y": 2.1897099018096924,
+                "z": 0.7099390029907227
+            }
+        },
+        {
+            "tick": 222,
+            "raceTimeMs": 440,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.46954680079450595,
+            "z": 1.1940629848613806,
+            "speed": 3.954825,
+            "cameraPosition": {
+                "x": -0.2649838626384735,
+                "y": 2.188201904296875,
+                "z": 0.8503274917602539
+            }
+        },
+        {
+            "tick": 224,
+            "raceTimeMs": 480,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.5530428606353571,
+            "z": 1.3298613807642807,
+            "speed": 3.9946921875000005,
+            "cameraPosition": {
+                "x": -0.34197741746902466,
+                "y": 2.18638014793396,
+                "z": 0.9900798797607422
+            }
+        },
+        {
+            "tick": 226,
+            "raceTimeMs": 520,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.6396389524554307,
+            "z": 1.4654740868235925,
+            "speed": 4.0319015625,
+            "cameraPosition": {
+                "x": -0.4230461120605469,
+                "y": 2.1844215393066406,
+                "z": 1.1291890144348145
+            }
+        },
+        {
+            "tick": 228,
+            "raceTimeMs": 560,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.7289059690558218,
+            "z": 1.6008748157089652,
+            "speed": 4.0611375,
+            "cameraPosition": {
+                "x": -0.5076051354408264,
+                "y": 2.1825122833251953,
+                "z": 1.2676690816879272
+            }
+        },
+        {
+            "tick": 230,
+            "raceTimeMs": 600,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.8217508483647002,
+            "z": 1.7378945721005574,
+            "speed": 4.20126328125,
+            "cameraPosition": {
+                "x": -0.596422553062439,
+                "y": 2.1805264949798584,
+                "z": 1.40739905834198
+            }
+        },
+        {
+            "tick": 232,
+            "raceTimeMs": 640,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -0.9179372326399473,
+            "z": 1.8766268313945889,
+            "speed": 4.225848046875,
+            "cameraPosition": {
+                "x": -0.6892126798629761,
+                "y": 2.179116725921631,
+                "z": 1.5484726428985596
+            }
+        },
+        {
+            "tick": 234,
+            "raceTimeMs": 680,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.0158544577655655,
+            "z": 2.015080956556546,
+            "speed": 4.24496953125,
+            "cameraPosition": {
+                "x": -0.7841880917549133,
+                "y": 2.178236722946167,
+                "z": 1.6889969110488892
+            }
+        },
+        {
+            "tick": 236,
+            "raceTimeMs": 720,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.1152979805703815,
+            "z": 2.15331890565413,
+            "speed": 4.261359375,
+            "cameraPosition": {
+                "x": -0.8811050653457642,
+                "y": 2.17795467376709,
+                "z": 1.8290446996688843
+            }
+        },
+        {
+            "tick": 238,
+            "raceTimeMs": 760,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.2160827597644757,
+            "z": 2.291394657901518,
+            "speed": 4.27774921875,
+            "cameraPosition": {
+                "x": -0.9797412753105164,
+                "y": 2.178295373916626,
+                "z": 1.968683123588562
+            }
+        },
+        {
+            "tick": 240,
+            "raceTimeMs": 800,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.3179842677669011,
+            "z": 2.429260289410555,
+            "speed": 4.28867578125,
+            "cameraPosition": {
+                "x": -1.0797759294509888,
+                "y": 2.1792547702789307,
+                "z": 2.107924222946167
+            }
+        },
+        {
+            "tick": 242,
+            "raceTimeMs": 840,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.4208676281955888,
+            "z": 2.566940814884724,
+            "speed": 4.29960234375,
+            "cameraPosition": {
+                "x": -1.1810407638549805,
+                "y": 2.1807632446289063,
+                "z": 2.2468109130859375
+            }
+        },
+        {
+            "tick": 244,
+            "raceTimeMs": 880,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.5246305715632524,
+            "z": 2.704507554653834,
+            "speed": 4.31052890625,
+            "cameraPosition": {
+                "x": -1.2834302186965942,
+                "y": 2.1826791763305664,
+                "z": 2.385411262512207
+            }
+        },
+        {
+            "tick": 246,
+            "raceTimeMs": 920,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.6291243180721833,
+            "z": 2.841932061890198,
+            "speed": 4.318723828125,
+            "cameraPosition": {
+                "x": -1.3867336511611938,
+                "y": 2.1848578453063965,
+                "z": 2.5237388610839844
+            }
+        },
+        {
+            "tick": 248,
+            "raceTimeMs": 960,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.7342453987859567,
+            "z": 2.9792215145072714,
+            "speed": 4.324187109375,
+            "cameraPosition": {
+                "x": -1.490816354751587,
+                "y": 2.187126398086548,
+                "z": 2.6618220806121826
+            }
+        },
+        {
+            "tick": 250,
+            "raceTimeMs": 1000,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.8399569007138836,
+            "z": 3.116470878163964,
+            "speed": 4.33238203125,
+            "cameraPosition": {
+                "x": -1.5956697463989258,
+                "y": 2.1892948150634766,
+                "z": 2.7997312545776367
+            }
+        },
+        {
+            "tick": 252,
+            "raceTimeMs": 1040,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -1.947570781651688,
+            "z": 3.2554898542813095,
+            "speed": 4.455084375,
+            "cameraPosition": {
+                "x": -1.7025471925735474,
+                "y": 2.191121816635132,
+                "z": 2.939319610595703
+            }
+        },
+        {
+            "tick": 254,
+            "raceTimeMs": 1080,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.0569940011180328,
+            "z": 3.3962129672607175,
+            "speed": 4.45788984375,
+            "cameraPosition": {
+                "x": -1.811295747756958,
+                "y": 2.1926703453063965,
+                "z": 3.080566883087158
+            }
+        },
+        {
+            "tick": 256,
+            "raceTimeMs": 1120,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.1668163880986917,
+            "z": 3.5369096201293786,
+            "speed": 4.4635007812500005,
+            "cameraPosition": {
+                "x": -1.9205620288848877,
+                "y": 2.1936452388763428,
+                "z": 3.2216973304748535
+            }
+        },
+        {
+            "tick": 258,
+            "raceTimeMs": 1160,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.2769363461337733,
+            "z": 3.677516063413597,
+            "speed": 4.466306250000001,
+            "cameraPosition": {
+                "x": -2.030184745788574,
+                "y": 2.1939616203308105,
+                "z": 3.3626925945281982
+            }
+        },
+        {
+            "tick": 260,
+            "raceTimeMs": 1200,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.3873277627517764,
+            "z": 3.8180522134919856,
+            "speed": 4.46911171875,
+            "cameraPosition": {
+                "x": -2.1401381492614746,
+                "y": 2.1935863494873047,
+                "z": 3.503572702407837
+            }
+        },
+        {
+            "tick": 262,
+            "raceTimeMs": 1240,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.4979645698668898,
+            "z": 3.9585381330527114,
+            "speed": 4.4719171875,
+            "cameraPosition": {
+                "x": -2.2503960132598877,
+                "y": 2.1925268173217773,
+                "z": 3.6443567276000977
+            }
+        },
+        {
+            "tick": 264,
+            "raceTimeMs": 1280,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.6088207328356448,
+            "z": 4.098994016543233,
+            "speed": 4.47472265625,
+            "cameraPosition": {
+                "x": -2.360931396484375,
+                "y": 2.1908926963806152,
+                "z": 3.7850654125213623
+            }
+        },
+        {
+            "tick": 266,
+            "raceTimeMs": 1320,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.7198419449391333,
+            "z": 4.23939101544389,
+            "speed": 4.47472265625,
+            "cameraPosition": {
+                "x": -2.4716615676879883,
+                "y": 2.1888160705566406,
+                "z": 3.925692558288574
+            }
+        },
+        {
+            "tick": 268,
+            "raceTimeMs": 1360,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.831043501774692,
+            "z": 4.379788400140168,
+            "speed": 4.477528125,
+            "cameraPosition": {
+                "x": -2.5826303958892822,
+                "y": 2.186458110809326,
+                "z": 4.066274166107178
+            }
+        },
+        {
+            "tick": 270,
+            "raceTimeMs": 1400,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -2.942377580601053,
+            "z": 4.5201523445828435,
+            "speed": 4.48033359375,
+            "cameraPosition": {
+                "x": -2.693760871887207,
+                "y": 2.184006452560425,
+                "z": 4.2067999839782715
+            }
+        },
+        {
+            "tick": 272,
+            "raceTimeMs": 1440,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.05382464183832,
+            "z": 4.660498254740445,
+            "speed": 4.48033359375,
+            "cameraPosition": {
+                "x": -2.8050336837768555,
+                "y": 2.1816697120666504,
+                "z": 4.347283840179443
+            }
+        },
+        {
+            "tick": 274,
+            "raceTimeMs": 1480,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.16654474190152,
+            "z": 4.802284948861795,
+            "speed": 4.57633359375,
+            "cameraPosition": {
+                "x": -2.9175798892974854,
+                "y": 2.179389715194702,
+                "z": 4.489208698272705
+            }
+        },
+        {
+            "tick": 276,
+            "raceTimeMs": 1520,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.281136193098825,
+            "z": 4.946303123125311,
+            "speed": 4.60111640625,
+            "cameraPosition": {
+                "x": -3.0320558547973633,
+                "y": 2.1776669025421143,
+                "z": 4.633318901062012
+            }
+        },
+        {
+            "tick": 278,
+            "raceTimeMs": 1560,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.3957807997605958,
+            "z": 5.090278986967376,
+            "speed": 4.60111640625,
+            "cameraPosition": {
+                "x": -3.146584987640381,
+                "y": 2.1766164302825928,
+                "z": 4.777386665344238
+            }
+        },
+        {
+            "tick": 280,
+            "raceTimeMs": 1600,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.5104785462646233,
+            "z": 5.234212520768915,
+            "speed": 4.60111640625,
+            "cameraPosition": {
+                "x": -3.261167049407959,
+                "y": 2.176273822784424,
+                "z": 4.921412467956543
+            }
+        },
+        {
+            "tick": 282,
+            "raceTimeMs": 1640,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.6252586814061782,
+            "z": 5.378154023064826,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.3758606910705566,
+                "y": 2.176663637161255,
+                "z": 5.065422534942627
+            }
+        },
+        {
+            "tick": 284,
+            "raceTimeMs": 1680,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.740101287568498,
+            "z": 5.522119359283942,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.49064564704895,
+                "y": 2.1777877807617188,
+                "z": 5.209434509277344
+            }
+        },
+        {
+            "tick": 286,
+            "raceTimeMs": 1720,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.8549704604673782,
+            "z": 5.666063498936669,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.605457067489624,
+                "y": 2.1795222759246826,
+                "z": 5.353424072265625
+            }
+        },
+        {
+            "tick": 288,
+            "raceTimeMs": 1760,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -3.9698661961905564,
+            "z": 5.809986437120498,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.7202951908111572,
+                "y": 2.1817257404327393,
+                "z": 5.497393608093262
+            }
+        },
+        {
+            "tick": 290,
+            "raceTimeMs": 1800,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.084788490824866,
+            "z": 5.953888168933641,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.8351595401763916,
+                "y": 2.184217929840088,
+                "z": 5.641341209411621
+            }
+        },
+        {
+            "tick": 292,
+            "raceTimeMs": 1840,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.199737340456235,
+            "z": 6.097768689475033,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -3.9500510692596436,
+                "y": 2.1867973804473877,
+                "z": 5.7852678298950195
+            }
+        },
+        {
+            "tick": 294,
+            "raceTimeMs": 1880,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.314712741169686,
+            "z": 6.24162799384433,
+            "speed": 4.603995703125,
+            "cameraPosition": {
+                "x": -4.064968585968018,
+                "y": 2.1892518997192383,
+                "z": 5.929173469543457
+            }
+        },
+        {
+            "tick": 296,
+            "raceTimeMs": 1920,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.430913709958432,
+            "z": 6.3869656600375,
+            "speed": 4.699995703125,
+            "cameraPosition": {
+                "x": -4.181112289428711,
+                "y": 2.19132661819458,
+                "z": 6.074556827545166
+            }
+        },
+        {
+            "tick": 298,
+            "raceTimeMs": 1960,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.548944947195599,
+            "z": 6.534578759172582,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.299143314361572,
+                "y": 2.193021297454834,
+                "z": 6.222169876098633
+            }
+        },
+        {
+            "tick": 300,
+            "raceTimeMs": 2000,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.666952848790538,
+            "z": 6.682134894336588,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.417122840881348,
+                "y": 2.19407057762146,
+                "z": 6.369749069213867
+            }
+        },
+        {
+            "tick": 302,
+            "raceTimeMs": 2040,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.784997639382536,
+            "z": 6.829737155207116,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.535167217254639,
+                "y": 2.194364547729492,
+                "z": 6.517351150512695
+            }
+        },
+        {
+            "tick": 304,
+            "raceTimeMs": 2080,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -4.903042429974534,
+            "z": 6.977339416077644,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.653212070465088,
+                "y": 2.193875551223755,
+                "z": 6.664953231811523
+            }
+        },
+        {
+            "tick": 306,
+            "raceTimeMs": 2120,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.021087220566533,
+            "z": 7.124941676948172,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.771256923675537,
+                "y": 2.1926422119140625,
+                "z": 6.81255578994751
+            }
+        },
+        {
+            "tick": 308,
+            "raceTimeMs": 2160,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.139132011158531,
+            "z": 7.2725439378187,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -4.889301776885986,
+                "y": 2.190753221511841,
+                "z": 6.960157871246338
+            }
+        },
+        {
+            "tick": 310,
+            "raceTimeMs": 2200,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.257176801750529,
+            "z": 7.420146198689228,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.0073466300964355,
+                "y": 2.188389778137207,
+                "z": 7.107759952545166
+            }
+        },
+        {
+            "tick": 312,
+            "raceTimeMs": 2240,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.375221592342528,
+            "z": 7.5677484595597555,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.125391483306885,
+                "y": 2.1857476234436035,
+                "z": 7.255362510681152
+            }
+        },
+        {
+            "tick": 314,
+            "raceTimeMs": 2280,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.493243042061956,
+            "z": 7.715293758602129,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.24338436126709,
+                "y": 2.1830451488494873,
+                "z": 7.402931213378906
+            }
+        },
+        {
+            "tick": 316,
+            "raceTimeMs": 2320,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.611301385013557,
+            "z": 7.862885179963677,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.361442565917969,
+                "y": 2.180504083633423,
+                "z": 7.5505218505859375
+            }
+        },
+        {
+            "tick": 318,
+            "raceTimeMs": 2360,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.729359727965158,
+            "z": 8.010476601325225,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.479500770568848,
+                "y": 2.178333282470703,
+                "z": 7.698114395141602
+            }
+        },
+        {
+            "tick": 320,
+            "raceTimeMs": 2400,
+            "phase": "Racing",
+            "launchOutcome": "Perfect",
+            "x": -5.847418070916759,
+            "z": 8.158068022686772,
+            "speed": 4.725,
+            "cameraPosition": {
+                "x": -5.597559452056885,
+                "y": 2.1767282485961914,
+                "z": 7.845705032348633
+            }
+        }
+    ]
+}
