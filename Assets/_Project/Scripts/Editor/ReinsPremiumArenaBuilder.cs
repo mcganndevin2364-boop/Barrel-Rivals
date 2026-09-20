@@ -17,7 +17,7 @@ namespace BarrelRivals.Editor
         public const string Root = "Assets/_Project/Art/Reins/Premium";
         private const string Textures = Root + "/Textures/";
         private static Transform world;
-        private static Material soil, wood, iron, steel, dark, cream, red, lamp, distant;
+        private static Material soil, wood, iron, steel, rails, dark, cream, red, lamp, distant;
         private static readonly Dictionary<Material, Geometry> batches = new Dictionary<Material, Geometry>();
 
         public static void Apply(Camera camera, Transform horse, Transform[] barrels, Renderer[] patches)
@@ -27,6 +27,7 @@ namespace BarrelRivals.Editor
             wood = Pbr("Weathered wood", "WeatheredWood_Albedo_2K.jpg", "WeatheredWood_NormalGL_1K.png", "WeatheredWood_Roughness_1K.jpg", null, Color.white, 0);
             iron = Pbr("Corrugated galvanized roof", "CorrugatedIron_Albedo_1K.jpg", "CorrugatedIron_NormalGL_1K.png", "CorrugatedIron_Roughness_1K.jpg", "CorrugatedIron_Metallic_1K.jpg", new Color(.72f,.73f,.7f), .8f);
             steel = Pbr("Worn painted steel", "PaintedSteel_Albedo_1K.jpg", "PaintedSteel_NormalGL_1K.png", "PaintedSteel_Roughness_1K.jpg", null, new Color(.52f,.55f,.59f), .55f);
+            rails = ReinsRailMaterialBuilder.Get(iron);
             dark = Solid("Arena charcoal canvas", new Color(.028f,.037f,.043f), .15f);
             cream = Solid("Warm ivory enamel", new Color(.82f,.76f,.61f), .37f);
             red = Solid("Oxide red enamel", new Color(.44f,.038f,.019f), .4f, .25f);
@@ -99,8 +100,8 @@ namespace BarrelRivals.Editor
         private static void Fence(Vector3 a,Vector3 b)
         {
             int panels=Mathf.CeilToInt(Vector3.Distance(a,b)/3.2f);
-            for(int i=0;i<=panels;i++) {var p=Vector3.Lerp(a,b,i/(float)panels);Tube(p,p+Vector3.up*1.7f,.045f,steel,10);}
-            for(int r=0;r<5;r++){var up=Vector3.up*(.24f+r*.32f);Tube(a+up,b+up,.029f,steel,8);}
+            for(int i=0;i<=panels;i++) {var p=Vector3.Lerp(a,b,i/(float)panels);Tube(p,p+Vector3.up*1.7f,.045f,rails,10);}
+            for(int r=0;r<5;r++){var up=Vector3.up*(.24f+r*.32f);Tube(a+up,b+up,.029f,rails,8);}
         }
         private static void Stands()
         {
@@ -229,14 +230,40 @@ namespace BarrelRivals.Editor
             if(!sky){sky=new Material(Shader.Find("Skybox/Panoramic"));sky.SetTexture("_MainTex",skyTexture);sky.SetFloat("_Exposure",.48f);sky.SetFloat("_Rotation",75);AssetDatabase.CreateAsset(sky,path);}
             sky.SetFloat("_Exposure",.48f);EditorUtility.SetDirty(sky);
             RenderSettings.skybox=sky;RenderSettings.ambientMode=AmbientMode.Trilight;
-            RenderSettings.ambientSkyColor=new Color(.34f,.37f,.41f);RenderSettings.ambientEquatorColor=new Color(.39f,.31f,.23f);RenderSettings.ambientGroundColor=new Color(.18f,.13f,.085f);
+            RenderSettings.ambientSkyColor=new Color(.58f,.65f,.76f);RenderSettings.ambientEquatorColor=new Color(.50f,.45f,.38f);RenderSettings.ambientGroundColor=new Color(.26f,.20f,.14f);
             RenderSettings.reflectionIntensity=.65f;
-            RenderSettings.sun.color=new Color(1,.81f,.61f);RenderSettings.sun.intensity=1.6f;RenderSettings.sun.transform.rotation=Quaternion.Euler(22,-32,0);
-            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=320;RenderSettings.fogEndDistance=950;RenderSettings.fogColor=new Color(.43f,.40f,.41f);
+            RenderSettings.sun.color=new Color(1,.90f,.76f);RenderSettings.sun.intensity=2.5f;RenderSettings.sun.transform.rotation=Quaternion.Euler(32,-32,0);
+            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogStartDistance=130;RenderSettings.fogEndDistance=700;RenderSettings.fogColor=new Color(.60f,.61f,.64f);
             camera.farClipPlane=1000;camera.allowHDR=true;
             var source=(UniversalRenderPipelineAsset)GraphicsSettings.defaultRenderPipeline;
             string pipelinePath=Root+"/Premium mobile pipeline.asset";var pipeline=AssetDatabase.LoadAssetAtPath<UniversalRenderPipelineAsset>(pipelinePath);
             if(!pipeline){pipeline=Object.Instantiate(source);pipeline.supportsHDR=true;pipeline.msaaSampleCount=2;pipeline.shadowDistance=68;AssetDatabase.CreateAsset(pipeline,pipelinePath);}
+            // A camera/Volume alone does not enable URP post processing. The legacy
+            // Foundation renderer has no PostProcessData; retain it as history and
+            // give this pipeline its own persistent renderer with installed resources.
+            var pipelineData=new SerializedObject(pipeline);
+            var rendererList=pipelineData.FindProperty("m_RendererDataList");
+            var defaultRenderer=pipelineData.FindProperty("m_DefaultRendererIndex");
+            string rendererPath=Root+"/Premium mobile renderer.asset";
+            var renderer=AssetDatabase.LoadAssetAtPath<UniversalRendererData>(rendererPath);
+            if(!renderer)
+            {
+                int index=defaultRenderer.intValue;
+                var template=index>=0 && index<rendererList.arraySize
+                    ? rendererList.GetArrayElementAtIndex(index).objectReferenceValue as UniversalRendererData : null;
+                if(!template)throw new InvalidOperationException("The premium pipeline requires a valid Universal Renderer template.");
+                renderer=Object.Instantiate(template);renderer.name="Premium mobile renderer";
+                AssetDatabase.CreateAsset(renderer,rendererPath);
+            }
+            // This is the same package-relative asset used by URP17.6's renderer
+            // creation API, not a guessed GUID or a transient ScriptableObject.
+            const string postPath="Packages/com.unity.render-pipelines.universal/Runtime/Data/PostProcessData.asset";
+            var post=AssetDatabase.LoadAssetAtPath<PostProcessData>(postPath);
+            if(!post || post.shaders==null || !post.shaders.lutBuilderHdrPS || !post.shaders.uberPostPS || !post.shaders.finalPostPassPS)
+                throw new InvalidOperationException("Installed URP post-processing resources are missing: "+postPath);
+            renderer.postProcessData=post;renderer.SetDirty();EditorUtility.SetDirty(renderer);
+            rendererList.arraySize=1;rendererList.GetArrayElementAtIndex(0).objectReferenceValue=renderer;
+            defaultRenderer.intValue=0;pipelineData.ApplyModifiedPropertiesWithoutUndo();
             pipeline.colorGradingMode=ColorGradingMode.HighDynamicRange;EditorUtility.SetDirty(pipeline);
             GraphicsSettings.defaultRenderPipeline=pipeline;
             int active=QualitySettings.GetQualityLevel();for(int i=0;i<QualitySettings.names.Length;i++){QualitySettings.SetQualityLevel(i,false);QualitySettings.renderPipeline=pipeline;}QualitySettings.SetQualityLevel(active,false);
@@ -245,9 +272,14 @@ namespace BarrelRivals.Editor
             if(!profile)
             {
                 profile=ScriptableObject.CreateInstance<VolumeProfile>();AssetDatabase.CreateAsset(profile,path);
-                var grade=profile.Add<ColorAdjustments>(true);grade.postExposure.Override(.25f);grade.contrast.Override(9);grade.saturation.Override(-4);AssetDatabase.AddObjectToAsset(grade,profile);
-                var tone=profile.Add<Tonemapping>(true);tone.mode.Override(TonemappingMode.ACES);AssetDatabase.AddObjectToAsset(tone,profile);
             }
+            // Generation must migrate an existing saved profile as well as create one.
+            if(!profile.TryGet<ColorAdjustments>(out var grade))
+            { grade=profile.Add<ColorAdjustments>(true);AssetDatabase.AddObjectToAsset(grade,profile); }
+            grade.postExposure.Override(.35f);grade.contrast.Override(7);grade.saturation.Override(2);EditorUtility.SetDirty(grade);
+            if(!profile.TryGet<Tonemapping>(out var tone))
+            { tone=profile.Add<Tonemapping>(true);AssetDatabase.AddObjectToAsset(tone,profile); }
+            tone.mode.Override(TonemappingMode.ACES);EditorUtility.SetDirty(tone);
             volume.sharedProfile=profile;EditorUtility.SetDirty(profile);
             var cameraData=camera.GetUniversalAdditionalCameraData();cameraData.renderPostProcessing=true;
             cameraData.antialiasing=AntialiasingMode.FastApproximateAntialiasing;

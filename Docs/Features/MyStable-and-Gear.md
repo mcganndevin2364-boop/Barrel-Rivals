@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+The later [renderer/lighting checkpoint](../Art/Reins-Lighting-Flow-Checkpoint.md) fixes missing post resources and verifies actual ungraded HUD capture for MyStable/Tack/Rider Gear. Cosmetic contracts remain unchanged; its new captures and checks are separate from the historical records below.
+
 The subsequent [groom checkpoint](../Art/Reins-Hair-Groom-Checkpoint.md) adds layered hair with stable Idle motion and reduces racing-hand material slots. Current cosmetic IDs, preview/equip/cancel, save isolation and frozen race appearance remain intact. Its fresh evidence is separate from the historical results below.
 
 The subsequent [surface-fit checkpoint](../Art/Reins-Surface-Fit-Checkpoint.md) refines the same horse and fitted western headstall across MyStable and racing. It has fresh visual/test evidence; the feature implementation and earlier results below retain their original scope. No additional horses, earned upgrades or online ownership were added.

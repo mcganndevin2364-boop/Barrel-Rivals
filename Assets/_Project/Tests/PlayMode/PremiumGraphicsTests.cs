@@ -218,21 +218,10 @@ namespace BarrelRivals.Tests
             Assert.Greater(Vector3.Dot(camera.transform.up, Vector3.up), .95f);
             var canvas = GameObject.Find("Reins HUD").GetComponent<Canvas>();
             Assert.IsTrue(canvas.enabled && canvas.gameObject.activeInHierarchy);
-            var previousMode = canvas.renderMode; var previousCamera = canvas.worldCamera;
-            float previousDistance = canvas.planeDistance; var previousTarget = camera.targetTexture;
-            var previousActive = RenderTexture.active;
-            var target = new RenderTexture(1280, 720, 24);
-            var image = new Texture2D(1280, 720, TextureFormat.RGB24, false);
+            Texture2D image = null;
             try
             {
-                camera.targetTexture = target; canvas.renderMode = RenderMode.ScreenSpaceCamera;
-                canvas.worldCamera = camera; canvas.planeDistance = camera.nearClipPlane + .01f;
-                Canvas.ForceUpdateCanvases();
-                // Changing the canvas render target invalidates cached screen-space text geometry.
-                foreach (var label in canvas.GetComponentsInChildren<Text>(true))
-                { label.cachedTextGenerator.Invalidate(); label.SetAllDirty(); }
-                Canvas.ForceUpdateCanvases(); camera.Render(); RenderTexture.active = target;
-                image.ReadPixels(new Rect(0, 0, 1280, 720), 0, 0); image.Apply();
+                image = OverlayEvidenceCapture.Render(camera, canvas, 1280, 720);
                 File.WriteAllBytes(Path.Combine(EvidenceDirectory(), "PremiumGraphics-" + stage + ".png"), image.EncodeToPNG());
                 var run = controller.Run;
                 captures.Add(new CaptureEvidence
@@ -246,9 +235,7 @@ namespace BarrelRivals.Tests
             }
             finally
             {
-                canvas.renderMode = previousMode; canvas.worldCamera = previousCamera; canvas.planeDistance = previousDistance;
-                camera.targetTexture = previousTarget; RenderTexture.active = previousActive;
-                Object.Destroy(target); Object.Destroy(image); Canvas.ForceUpdateCanvases();
+                if(image)Object.DestroyImmediate(image);
             }
         }
 

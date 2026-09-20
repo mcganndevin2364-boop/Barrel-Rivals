@@ -272,11 +272,11 @@ namespace BarrelRivals.Editor
         {
             RenderSettings.fog = false;
             RenderSettings.ambientMode = AmbientMode.Trilight;
-            // Lower, slightly cooler diffuse bounce leaves warm sunlight and the local lantern
-            // readable as separate sources instead of flattening every wall into the same orange.
-            RenderSettings.ambientSkyColor = new Color(.38f, .405f, .43f);
-            RenderSettings.ambientEquatorColor = new Color(.30f, .26f, .22f);
-            RenderSettings.ambientGroundColor = new Color(.145f, .115f, .08f);
+            // The now-active ACES toe needs enough diffuse bounce to retain leather and
+            // timber detail. Cooler fill separates warm sunlight and the local lantern.
+            RenderSettings.ambientSkyColor = new Color(.52f, .56f, .60f);
+            RenderSettings.ambientEquatorColor = new Color(.44f, .39f, .34f);
+            RenderSettings.ambientGroundColor = new Color(.25f, .20f, .15f);
             RenderSettings.reflectionIntensity = .24f;
             var sunObject = GameObject.Find("Stable evening sunlight");
             if (!sunObject) sunObject = new GameObject("Stable evening sunlight");
@@ -298,7 +298,7 @@ namespace BarrelRivals.Editor
             if (!fill) fill = fillObject.AddComponent<Light>();
             fill.type = LightType.Point;
             fill.color = new Color(.90f, .92f, 1);
-            fill.intensity = 8;
+            fill.intensity = 12;
             fill.range = 7.6f;
             fill.shadows = LightShadows.None;
             fill.transform.position = new Vector3(.95f, 2.9f, 2.25f);

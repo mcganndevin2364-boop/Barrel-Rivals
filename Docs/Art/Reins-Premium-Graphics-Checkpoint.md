@@ -1,5 +1,7 @@
 # Reins graphics — photographed materials and foreground tack
 
+September 20 rendering correction: the ACES/FXAA settings described below were configured, but missing renderer PostProcessData prevented their passes from executing. The later [renderer/lighting checkpoint](Reins-Lighting-Flow-Checkpoint.md) fixes this and proves actual exposure response. Original images and results below remain historical, not evidence of executed post-processing.
+
 September 20, 2026. This continues the first reference-graphics source checkpoint in the same Unity project. Native identity remains **0.4.0/build 4**, with unchanged `reins-lab-v1` rules. It is not a new phone installation or acceptance of photographic quality. The approved 0.5 moving-alley launch remains a separate pending integration.
 
 The subsequently supplied **MyStable/Tack/Rider Gear reference** now directs the separate stable source: enclosed timber showroom, horse roster, real rendered equipment cards and rotatable glove inspection. The [current feature checkpoint](../Features/MyStable-and-Gear.md) owns that newer 20-cosmetic/five-slot implementation and its separate desktop verification. The gameplay test/capture results below remain the earlier graphics boundary; they do not verify the newer stable reference work or establish photographic acceptance.

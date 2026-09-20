@@ -206,25 +206,23 @@ namespace BarrelRivals.Tests
         private static void Capture(string name,int width=1280,int height=720)
         {
             var camera=Camera.main;var canvas=GameObject.Find("Stable HUD").GetComponent<Canvas>();
-            var mode=canvas.renderMode;var priorCamera=canvas.worldCamera;float distance=canvas.planeDistance;var priorTarget=camera.targetTexture;var active=RenderTexture.active;
-            var target=new RenderTexture(width,height,24);var image=new Texture2D(width,height,TextureFormat.RGB24,false);
+            Texture2D image=null;
             var stable=Object.FindFirstObjectByType<StableController>();
             try {
-                camera.targetTexture=target;canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=camera.nearClipPlane+.01f;
-                Canvas.ForceUpdateCanvases();stable.RefreshLayout();Canvas.ForceUpdateCanvases();foreach(var label in canvas.GetComponentsInChildren<Text>(true)){label.cachedTextGenerator.Invalidate();label.SetAllDirty();}
-                Canvas.ForceUpdateCanvases();
-                if(stable.IsRiderGearOpen) {
-                    var glove=GameObject.Find("Inspect glove shell").GetComponent<Renderer>();
-                    var center=camera.WorldToViewportPoint(glove.bounds.center);
-                    Assert.That(center.x,Is.InRange(.10f,.39f),"Glove must be in the left inspection area, not hidden behind the collection.");
-                    Assert.That(center.y,Is.InRange(.28f,.72f),"Glove must remain above the footer and below the header.");
-                }
-                var brand=canvas.GetComponentsInChildren<Text>(true).First(t=>t.name=="Brand");
-                Assert.Greater(brand.cachedTextGenerator.characterCountVisible,0,"Brand text must not be truncated by its rect.");
-                camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,width,height),0,0);image.Apply();
+                image=OverlayEvidenceCapture.Render(camera,canvas,width,height,()=> {
+                    stable.RefreshLayout(width,height,new Rect(0,0,width,height));Canvas.ForceUpdateCanvases();
+                    if(stable.IsRiderGearOpen) {
+                        var glove=GameObject.Find("Inspect glove shell").GetComponent<Renderer>();
+                        var center=camera.WorldToViewportPoint(glove.bounds.center);
+                        Assert.That(center.x,Is.InRange(.10f,.39f),"Glove must be in the left inspection area, not hidden behind the collection.");
+                        Assert.That(center.y,Is.InRange(.28f,.72f),"Glove must remain above the footer and below the header.");
+                    }
+                    var brand=canvas.GetComponentsInChildren<Text>(true).First(t=>t.name=="Brand");
+                    Assert.Greater(brand.cachedTextGenerator.characterCountVisible,0,"Brand text must not be truncated by its rect.");
+                });
                 string path=Path.GetFullPath(Path.Combine(Application.dataPath,"../Evidence/"+name+".png"));File.WriteAllBytes(path,image.EncodeToPNG());
             }
-            finally {canvas.renderMode=mode;canvas.worldCamera=priorCamera;canvas.planeDistance=distance;camera.targetTexture=priorTarget;RenderTexture.active=active;Object.Destroy(target);Object.Destroy(image);Canvas.ForceUpdateCanvases();stable.RefreshLayout();Canvas.ForceUpdateCanvases();}
+            finally {if(image)Object.DestroyImmediate(image);stable.RefreshLayout();Canvas.ForceUpdateCanvases();}
         }
     }
 }

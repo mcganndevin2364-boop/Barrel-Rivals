@@ -1,7 +1,9 @@
 **Barrel Rivals — master build status**  
 September 20, 2026 · Engineering plan revision 6 · Eight categories / 53 sections
 
-The current source adds **a layered mane/tail groom with restrained phase-driven motion**, including stable Idle, reduced motion and private ghost handling. It also combines the racing hands into fewer material slots while preserving all 20 cosmetics. Read [the groom checkpoint](../Art/Reins-Hair-Groom-Checkpoint.md) for current tests, actual moving captures and source costs. Photographic quality, a full rider, further optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
+The current source repairs **previously inactive URP post-processing**, retunes arena light and fence materials, and varies the fitted mane flow. It also corrects evidence capture so world grading does not alter the actual overlay HUD. Read [the renderer/lighting checkpoint](../Art/Reins-Lighting-Flow-Checkpoint.md) for executed pixel checks, current race/stable/gear captures, source costs and visual limits. Photographic quality, full rider animation, device qualification and approved 0.5/v2 gameplay remain unfinished.
+
+The preceding source added **a layered mane/tail groom with restrained phase-driven motion**, including stable Idle, reduced motion and private ghost handling. It also combines the racing hands into fewer material slots while preserving all 20 cosmetics. Read [the groom checkpoint](../Art/Reins-Hair-Groom-Checkpoint.md) for current tests, actual moving captures and source costs. Photographic quality, a full rider, further optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
 
 The preceding source refined **the horse’s cheek/flank contours and upper-body surface**, adds explicit four-weight skinning and a fitted western headstall, and replaces circular scenery bands with one irregular terrain mesh. It retains the rig, textures, original hair/saddle and connected MyStable/Tack/Rider Gear flow. Read [the surface checkpoint](../Art/Reins-Surface-Fit-Checkpoint.md) for that source’s tests, moving captures and limits. Photographic quality, a full rider, material/LOD optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
 
@@ -63,7 +65,7 @@ No original full section has passed all its integration/device acceptance requir
 | # | Section | Current implementation status |
 |---|---|---|
 | 16 | Arena Geometry & WPRA Standards | Standard-pattern geometry plus tested Reins ordered winding and physical finish; production hull/arena validation pending |
-| 17 | Arena Lighting System | Photographic dusk sky, Linear HDR/ACES, warm directional light and original fixtures integrated; saved/reopened scene passed; final lighting and phone appearance/performance pending |
+| 17 | Arena Lighting System | Photographic sky, brighter warm/fill light, working persisted HDR/ACES renderer and exposure pixel regression; final lighting and phone appearance/performance pending |
 | 18 | Arena Ground Surface (Dirt/Footing) | Photographic CC0 dirt albedo/normal/roughness with world UVs and six independently tintable patches; texture tiling/grazing-angle and mobile surface acceptance pending |
 | 19 | Arena Props (Barrels, Fences, Gates, Chutes) | Original modeled covered stands, roof trusses, fences, signs, fixtures, booth and detailed barrels; visible knock/penalty share one event; final art and animation pending |
 | 20 | Crowd System (Stands, Fans, Animation) | New original distant crowd-card strip with inspected alpha; oblique-angle/repetition review, animation and measured mobile costs pending |

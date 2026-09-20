@@ -46,8 +46,9 @@ namespace BarrelRivals.Editor
             for(int i=0;i<2;i++)tailHelpers[i]=AddHelper(model,palette,motion,bones[tailTip],
                 model.InverseTransformPoint(bones[tailTip].position),Vector3.right,Vector3.forward,.6f,5.8f,3f,i*.85f);
             bones=palette.ToArray();
-            // A short crest undercoat and irregular longer outer locks avoid parallel roof tiles.
-            // Fit the actual neutral mesh, then allow only the distal ends to leave its surface.
+            // The dense layer keeps coverage; outer locks use a cupped, rolling cross-section.
+            // Stagger their fitted crest roots and vary the flow along the neck, rather than
+            // hanging every card in the same Z-width plane seen edge-on from the rider.
             for(int row=0;row<2;row++)for(int i=0;i<(row==0?34:26);i++)
             {
                 int count=row==0?34:26;
@@ -57,18 +58,16 @@ namespace BarrelRivals.Editor
                 float width=Random(row==0?.045f:.045f,row==0?.063f:.073f);
                 float sweep=Random(.025f,.065f),loose=Random(row==0?.002f:.012f,row==0?.008f:.025f),wave=Random(0,Mathf.PI*2);
                 int layer=row,helper=maneHelpers[Mathf.Min(5,Mathf.FloorToInt(t*6))];
-                shape.AddFitted((u,side)=>{
-                    float taper=1-.76f*Mathf.Pow(u,3.4f);
-                    float z=rootZ+(side-.5f)*width*taper-sweep*Mathf.SmoothStep(0,1,u)
-                        +Mathf.Sin(u*Mathf.PI*2+wave)*.004f*Mathf.Sin(u*Mathf.PI);
-                    var crest=surface.Top((layer-.5f)*.006f,z);float drop=length*u*(.80f+.20f*u);
-                    if(u==0)return new ReinsHorseSurface.Hit(crest.Point+Vector3.up*(.007f+layer*.003f),crest.Weight);
-                    var flank=surface.Side(crest.Point.y-drop,z);
-                    float separation=.008f+layer*.005f+loose*Mathf.SmoothStep(0,1,Mathf.InverseLerp(.35f,1,u));
-                    var outer=flank.Point+Vector3.right*separation;
-                    var point=Vector3.Lerp(crest.Point+Vector3.up*.008f,outer,Mathf.Clamp01(drop/.025f));
-                    return new ReinsHorseSurface.Hit(point,WithHelper(flank.Weight,helper,u,.62f));
-                },random.Next(8),10,0,row);
+                // Keep the same random draw count so the unmodified forelock/tail retain
+                // their previous authoring samples when only the mane is revised.
+                int bundle=random.Next(8);
+                float rootX=.001f+layer*.008f+Mathf.Sin(wave+t*19)*.009f;
+                rootZ+=Mathf.Sin(t*11+layer*.9f)*.011f;
+                float flow=.65f*Mathf.Sin(t*12+.8f)+.35f*Mathf.Sin(wave);
+                float endSweep=length*Mathf.Lerp(-.34f,.10f,flow*.5f+.5f)+(sweep-.045f)*.3f;
+                float bend=length*(.035f+.035f*Mathf.Sin(wave+.7f));
+                float roll=28*Mathf.Sin(wave+.8f)+8*Mathf.Sin(t*17+1);
+                AddManeLock(shape,surface,rootX,rootZ,length,width,endSweep,bend,roll,loose,wave,helper,bundle,layer);
             }
             // The poll/forehead is also sampled on actual skin; ear-base influences are retained.
             for(int i=0;i<10;i++)
@@ -103,6 +102,48 @@ namespace BarrelRivals.Editor
             go.AddComponent<ReinsHairMotion>().Configure(horse.GetComponent<ReinsHorsePresentation>(),model.GetComponentInChildren<Animator>(),motion.ToArray());
             AssetDatabase.SaveAssets();
             Debug.Log("BARREL_HAIR: "+shape.CardCount+" fitted skinned cards, "+saved.vertexCount+" vertices, "+saved.triangles.Length/3+" triangles, two hair layers; neutral body "+surface.Bounds+"; tail anchor "+tailRoot);
+        }
+        private static void AddManeLock(Cards shape,ReinsHorseSurface surface,float rootX,float rootZ,
+            float length,float width,float sweep,float bend,float roll,float loose,float wave,int helper,int bundle,int layer)
+        {
+            const int segments=8;
+            var centers=new Vector3[segments+1];var drops=new float[segments+1];
+            for(int i=0;i<=segments;i++)
+            {
+                float u=i/(float)segments;
+                float z=rootZ+sweep*Mathf.SmoothStep(0,1,u)+bend*Mathf.Sin(u*Mathf.PI);
+                var crest=surface.Top(rootX,z);drops[i]=length*u*(.80f+.20f*u);
+                if(i==0){centers[i]=crest.Point;continue;}
+                centers[i]=surface.Side(crest.Point.y-drops[i],z).Point;
+            }
+            shape.AddFitted((u,side)=>{
+                int ring=Mathf.RoundToInt(u*segments);
+                float taper=1-.76f*Mathf.Pow(u,3.4f),edge=(side-.5f)*width*taper;
+                if(ring==0)
+                {
+                    // A shallow diagonal root line breaks the perfectly straight crest
+                    // edge. Every vertex still takes its position and weights from skin.
+                    float angle=12*Mathf.Sin(wave)*Mathf.Deg2Rad;
+                    var root=surface.Top(rootX+Mathf.Sin(angle)*edge,rootZ+Mathf.Cos(angle)*edge);
+                    return new ReinsHorseSurface.Hit(root.Point+Vector3.up*(.007f+layer*.003f),root.Weight);
+                }
+                var tangent=(centers[Mathf.Min(ring+1,segments)]-centers[ring-1]).normalized;
+                var across=Vector3.Cross(tangent,Vector3.right).normalized;
+                if(across.sqrMagnitude<.1f)across=Vector3.forward;
+                float twist=roll*Mathf.SmoothStep(0,1,u)+10*Mathf.Sin(u*Mathf.PI)*Mathf.Sin(wave);
+                across=Quaternion.AngleAxis(twist,tangent)*across;
+                float z=centers[ring].z+across.z*edge;
+                var crest=surface.Top(rootX,z);
+                float drop=Mathf.Max(.003f,drops[ring]-across.y*edge*Mathf.SmoothStep(0,1,u/.35f));
+                var flank=surface.Side(crest.Point.y-drop,z);
+                float looseEnd=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.35f,1,u));
+                // The middle column bows slightly out of the card plane. Roll changes
+                // which edge lifts; reprojection keeps both edges clear of the real neck.
+                float cup=layer*.006f*Mathf.Sin(side*Mathf.PI)*Mathf.Sin(u*Mathf.PI);
+                float clearance=Mathf.Clamp(.008f+layer*.006f+loose*.55f*looseEnd+across.x*edge+cup,.004f,.038f);
+                var point=Vector3.Lerp(crest.Point+Vector3.up*.008f,flank.Point+Vector3.right*clearance,Mathf.Clamp01(drop/.025f));
+                return new ReinsHorseSurface.Hit(point,WithHelper(flank.Weight,helper,u,.62f));
+            },bundle,segments,0,layer,layer==0?1:2);
         }
         private static int AddHelper(Transform model,List<Transform> bones,List<ReinsHairMotion.Binding> motion,
             Transform parent,Vector3 position,Vector3 lift,Vector3 sway,float idle,float stride,float turn,float phase)
@@ -156,24 +197,29 @@ namespace BarrelRivals.Editor
                     return new ReinsHorseSurface.Hit(point+across*((side-.5f)*width*(1-.75f*t*t)),
                         WithHelper(new BoneWeight{boneIndex0=tailTip,weight0=tip,boneIndex1=tailBase,weight1=1-tip},helper,t,.75f));
                 },bundle,segments,2,layer);
-            public void AddFitted(Func<float,int,ReinsHorseSurface.Hit> point,int bundle,int segments,int region,int layer)
+            public void AddFitted(Func<float,float,ReinsHorseSurface.Hit> point,int bundle,int segments,int region,int layer,int acrossSegments=1)
             {
-                int start=vertices.Count;CardCount++;var indices=batches[layer];
+                int start=vertices.Count,stride=acrossSegments+1;CardCount++;var indices=batches[layer];
                 for(int i=0;i<=segments;i++)
                 {
                     float t=i/(float)segments;
-                    for(int side=0;side<2;side++)
+                    for(int column=0;column<stride;column++)
                     {
+                        float side=column/(float)acrossSegments;
                         var hit=point(t,side);vertices.Add(hit.Point);weights.Add(hit.Weight);
-                        uv.Add(new Vector2((bundle+(side==0?.04f:.96f))/8f,.976f-t*.946f));
+                        uv.Add(new Vector2((bundle+Mathf.Lerp(.04f,.96f,side))/8f,.976f-t*.946f));
                         // Authoring landmarks retained for reload/attachment QA; shaders use UV0 only.
                         regions.Add(new Vector2(region,t));
                     }
-                    if(i==0)continue;int a=start+(i-1)*2;
-                    // Mane and tail ribbons run downward; the forelock runs forward. Keep
-                    // their geometric normals facing outward for correct two-sided Lit shading.
-                    if(region==1){indices.Add(a);indices.Add(a+2);indices.Add(a+1);indices.Add(a+1);indices.Add(a+2);indices.Add(a+3);}
-                    else{indices.Add(a);indices.Add(a+1);indices.Add(a+2);indices.Add(a+1);indices.Add(a+3);indices.Add(a+2);}
+                    if(i==0)continue;
+                    for(int column=0;column<acrossSegments;column++)
+                    {
+                        int a=start+(i-1)*stride+column;
+                        // Mane/tail run downward; the forelock runs forward. Keep the
+                        // original outward winding for each curved cross-section strip.
+                        if(region==1){indices.Add(a);indices.Add(a+stride);indices.Add(a+1);indices.Add(a+1);indices.Add(a+stride);indices.Add(a+stride+1);}
+                        else{indices.Add(a);indices.Add(a+1);indices.Add(a+stride);indices.Add(a+1);indices.Add(a+stride+1);indices.Add(a+stride);}
+                    }
                 }
             }
             public Mesh Mesh()
