@@ -82,7 +82,7 @@ namespace BarrelRivals.Tests
             Assert.AreEqual("gloves-rodeo-red",appearance.Applied.glovesId,"Riding must discard an unequipped glove preview.");
             AssertMaterial(horse,"Fitted leather headstall","Midnight headstall",1);
             AssertMaterial(horse,"Glove shell","Rodeo red gloves",2);
-            AssertMaterial(horse,"Glove grip panels","Rodeo red gloves",2);
+            AssertMaterial(horse,"Sleeve and glove stitching","Fixed sleeve and glove stitching",2);
             var rein=horse.GetComponentsInChildren<Renderer>().First(r=>r.name=="Left braided rein");
             Assert.AreEqual("Crimson rein braid",rein.sharedMaterials[1].name);
             Assert.AreEqual(500,race.Run.Manifest.Horse.FirePermille);
@@ -95,8 +95,59 @@ namespace BarrelRivals.Tests
             Assert.IsTrue(StableSession.Store.Equip(StableSlot.Gloves,"gloves-whiskey"));
             Assert.AreEqual("gloves-rodeo-red",appearance.Applied.glovesId,"Race appearance freezes on scene initialization.");
             AssertMaterial(horse,"Glove shell","Rodeo red gloves",2);
+            AssertMaterial(horse,"Sleeve and glove stitching","Fixed sleeve and glove stitching",2);
             race.ResetRun();race.OpenStable();yield return null;yield return null;
             Assert.IsNotNull(Object.FindFirstObjectByType<StableController>());LogAssert.NoUnexpectedReceived();
+        }
+        [UnityTest] public IEnumerator RaceGloveDyesPreserveCombinedFixedSurfacesAndGhostIsolation()
+        {
+            yield return SceneManager.LoadSceneAsync(ReinsLabController.SceneName);yield return null;
+            var race=Object.FindFirstObjectByType<ReinsLabController>();race.enabled=false;
+            var horse=GameObject.Find("Horse proxy");var appearance=horse.GetComponent<StableAppearance>();
+            var gloves=horse.GetComponentsInChildren<MeshRenderer>().Where(r=>r.name=="Glove shell").ToArray();
+            var fixedParts=horse.GetComponentsInChildren<MeshRenderer>().Where(r=>r.name=="Sleeve and glove stitching").ToArray();
+            Assert.AreEqual(2,gloves.Length);Assert.AreEqual(2,fixedParts.Length);
+            foreach(var glove in gloves) {
+                Assert.AreEqual(1,glove.sharedMaterials.Length);
+                Assert.AreEqual(1116,glove.GetComponent<MeshFilter>().sharedMesh.triangles.Length/3,"Shell and grip geometry must both survive consolidation.");
+            }
+            var fixedMaterial=fixedParts[0].sharedMaterial;
+            var albedo=fixedMaterial.GetTexture("_BaseMap") as Texture2D;
+            var surface=fixedMaterial.GetTexture("_MetallicGlossMap") as Texture2D;
+            Assert.IsNotNull(albedo);Assert.IsNotNull(surface);
+            AssertColor(new Color(.034f,.047f,.054f,1),albedo.GetPixel(0,0));
+            AssertColor(new Color(.58f,.40f,.19f,1),albedo.GetPixel(1,0));
+            Assert.That(surface.GetPixel(0,0).a,Is.EqualTo(.12f).Within(1f/255));
+            Assert.That(surface.GetPixel(1,0).a,Is.EqualTo(.22f).Within(1f/255));
+            var originalColors=albedo.GetPixels32();var originalSurface=surface.GetPixels32();
+            foreach(var part in fixedParts) {
+                Assert.AreSame(fixedMaterial,part.sharedMaterial);Assert.AreEqual(1,part.sharedMaterials.Length);
+                Assert.AreEqual(432,part.GetComponent<MeshFilter>().sharedMesh.triangles.Length/3,"Sleeve and stitch geometry must both survive consolidation.");
+                Assert.AreEqual(2,part.transform.parent.GetComponentsInChildren<Renderer>().Length,"Each independently moving hand uses exactly two renderers.");
+            }
+            var original=appearance.Applied.Copy();var variants=new HashSet<Material>();
+            try {
+                foreach(var item in StableCatalog.Gear.Where(g=>g.Slot==StableSlot.Gloves)) {
+                    var profile=original.Copy();Assert.IsTrue(profile.TryEquip(StableSlot.Gloves,item.Id));appearance.Apply(profile);
+                    Assert.AreEqual(item.Id,appearance.Applied.glovesId);
+                    Assert.AreSame(gloves[0].sharedMaterial,gloves[1].sharedMaterial);variants.Add(gloves[0].sharedMaterial);
+                    foreach(var part in fixedParts)Assert.AreSame(fixedMaterial,part.sharedMaterial,"A glove dye must not bind the sleeve/thread material.");
+                    CollectionAssert.AreEqual(originalColors,albedo.GetPixels32());CollectionAssert.AreEqual(originalSurface,surface.GetPixels32());
+                    Assert.AreEqual(Color.white,fixedMaterial.GetColor("_BaseColor"));
+                }
+                Assert.AreEqual(6,variants.Count,"All six existing glove IDs retain distinct materials.");
+                Assert.AreEqual(original.glovesId,StableSession.Store.Current.glovesId,"Presentation checks must not mutate the saved loadout.");
+            }
+            finally { appearance.Apply(original); }
+            var ghost=Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None).First(t=>t.name=="Own best — Reins recording");
+            var ghostParts=ghost.GetComponentsInChildren<Renderer>(true).Where(r=>r.name=="Glove shell" || r.name=="Sleeve and glove stitching").ToArray();
+            Assert.AreEqual(4,ghostParts.Length);
+            foreach(var part in ghostParts) {
+                Assert.AreSame(ghostParts[0].sharedMaterial,part.sharedMaterial,"Combined opaque parts retain the normal ghost tint.");
+                Assert.AreNotSame(fixedMaterial,part.sharedMaterial);
+            }
+            foreach(var part in fixedParts)Assert.AreSame(fixedMaterial,part.sharedMaterial,"Ghost tint must not replace player assets.");
+            LogAssert.NoUnexpectedReceived();
         }
         [UnityTest] public IEnumerator StableAndGearRenderActualSavedSceneAndInputRemainsReachable()
         {
@@ -135,6 +186,8 @@ namespace BarrelRivals.Tests
             LogAssert.NoUnexpectedReceived();
         }
         private static Button[] VisibleCards()=>Object.FindObjectsByType<Button>(FindObjectsSortMode.None).Where(b=>b.name.StartsWith("Select ",StringComparison.Ordinal)).ToArray();
+        private static void AssertColor(Color expected,Color actual)
+        {Assert.That(actual.r,Is.EqualTo(expected.r).Within(1f/255));Assert.That(actual.g,Is.EqualTo(expected.g).Within(1f/255));Assert.That(actual.b,Is.EqualTo(expected.b).Within(1f/255));Assert.That(actual.a,Is.EqualTo(expected.a).Within(1f/255));}
         private static void AssertMaterial(GameObject root,string rendererName,string materialName,int expectedCount)
         {
             var renderers=root.GetComponentsInChildren<Renderer>(true).Where(r=>r.name==rendererName).ToArray();

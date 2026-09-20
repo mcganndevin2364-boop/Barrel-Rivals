@@ -82,6 +82,7 @@ namespace BarrelRivals.Practice
             riderCamera=rideCamera.GetComponent<RiderCameraRig>();
             if(!riderCamera)riderCamera=rideCamera.gameObject.AddComponent<RiderCameraRig>();
             riderCamera.Configure(horsePresentation,horse);
+            horse.GetComponentInChildren<ReinsHairMotion>()?.BindComfort(riderCamera);
             horse.GetComponent<StableAppearance>()?.Apply(StableSession.Store.Current);
             // The seated rider occludes the saddle in first person. Keep its shadows; the ghost
             // receives its own visible render state below, and the showroom retains the full tack.
@@ -97,6 +98,7 @@ namespace BarrelRivals.Practice
         {
             ghostHorse=CreatePresentationGhost(horse,ghostMaterial);
             ghostPresentation=ghostHorse.GetComponent<ReinsHorsePresentation>();ghostPresentation.Initialize();
+            ghostHorse.GetComponentInChildren<ReinsHairMotion>(true)?.BindComfort(riderCamera);
         }
         internal static Transform CreatePresentationGhost(Transform sourceHorse,Material material)
         {
@@ -180,7 +182,7 @@ namespace BarrelRivals.Practice
         {
             var pending=new List<MonoBehaviour>();
             foreach(var behaviour in ghost.GetComponentsInChildren<MonoBehaviour>(true))
-                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation) && !(behaviour is ReinsRiderTackPresentation))pending.Add(behaviour);
+                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation) && !(behaviour is ReinsRiderTackPresentation) && !(behaviour is ReinsHairMotion))pending.Add(behaviour);
             while(pending.Count>0)
             {
                 bool removed=false;

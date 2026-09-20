@@ -1,5 +1,7 @@
 # Reins Racing 0.5 — approved implementation plan
 
+The current source adds **a layered mane/tail groom with restrained phase-driven motion**, including stable Idle, reduced motion and private ghost handling. It also combines the racing hands into fewer material slots while preserving all 20 cosmetics. Read [the groom checkpoint](../Art/Reins-Hair-Groom-Checkpoint.md) for current tests, actual moving captures and source costs. Photographic quality, a full rider, further optimization, phone qualification and the approved 0.5/v2 gameplay remain unfinished.
+
 Approved September 19, 2026. Gameplay revision 5 / engineering revision 6. **Status: approved, not implemented.** Source baseline is `3e1ce2f` (0.4.0/build 4). This document supersedes the additive-Lab, three-tap gate and third-person introduction defaults in earlier planning documents. Historical 0.4 evidence remains valid for its own source and rules only.
 
 ## Outcome and boundaries

@@ -111,7 +111,7 @@ namespace BarrelRivals.Tests
                     source.ResetFrame(Sample(0,horse.position,horse.rotation,speed));animator.Update(0);
                     for(int i=0;i<30;i++) {
                         source.PushFrame(Sample((i+1)*2,horse.position,horse.rotation,speed));source.ApplyInterpolation(1);
-                        animator.Update(.04f);tack.RenderImmediate();rig.RenderForCapture(.04f);
+                        animator.Update(.04f);horse.GetComponentInChildren<ReinsHairMotion>().RenderImmediate();tack.RenderImmediate();rig.RenderForCapture(.04f);
                         float phase=source.GaitPhaseRadians;
                         yield return null;
                         Assert.That(Mathf.Abs(Mathf.DeltaAngle(phase*Mathf.Rad2Deg,source.GaitPhaseRadians*Mathf.Rad2Deg)),Is.LessThan(.001f),"Yielding must not advance the controlled animation clock.");
@@ -133,7 +133,7 @@ namespace BarrelRivals.Tests
                     controller.ResetRun();rig.SetReducedMotion(pass==1);controller.Begin();int turnFrames=0;
                     foreach(var frame in fixture.frames) {
                         controller.Step(frame.Input());controller.RefreshPresentation();source.ApplyInterpolation(1);
-                        animator.Update(.02f);tack.RenderImmediate();rig.RenderForCapture(.02f);
+                        animator.Update(.02f);horse.GetComponentInChildren<ReinsHairMotion>().RenderImmediate();tack.RenderImmediate();rig.RenderForCapture(.02f);
                         var run=controller.Run;if(run.Tick%2!=0)continue;
                         string section=null;
                         if(pass==0 && run.Phase==ReinsPhase.Racing && run.RaceTimeMs<1600)section="Canonical race acceleration";

@@ -1,0 +1,17 @@
+{
+  "frameCount": 220,
+  "framesPerSecond": 25,
+  "durationSeconds": 8.8,
+  "size": [
+    1280,
+    360
+  ],
+  "videoSha256": "da45dbbc147e9513ce7be649944eba1c71f7a59bdd38ed828565fc5966c30026",
+  "decodedFrameIndex": 60,
+  "rgbMeanAbsoluteError": [
+    2.069140625,
+    0.8453211805555556,
+    2.2045551215277777
+  ],
+  "comparison": "AVFoundation decoded frame at60/25 seconds versus captured Unity frame0060; compression difference allowed below5 per channel. Encoding rate is not measured rendering performance."
+}

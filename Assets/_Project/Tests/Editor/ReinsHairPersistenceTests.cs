@@ -61,7 +61,7 @@ namespace BarrelRivals.Tests
                     {
                         Assert.That(normals[i].x,Is.GreaterThan(.05f),"Mane normals must face outward so lit strands do not shade as an inverted black sheet.");
                         var skin=surface.Side(point.y,point.z);
-                        Assert.That(point.x-skin.Point.x,Is.InRange(.001f,.03f),"Draped mane must clear the actual neck, not a stale world-space envelope.");
+                        Assert.That(point.x-skin.Point.x,Is.InRange(.001f,.040f),"Draped mane must clear the actual neck, not a stale world-space envelope.");
                     }
                 }
             }

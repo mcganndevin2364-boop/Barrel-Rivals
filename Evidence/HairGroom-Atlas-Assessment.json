@@ -1,0 +1,134 @@
+{
+  "path": "Assets/_Project/Art/Reins/Hair/Original separated strand atlas.png",
+  "sha256": "7e9ffd61284340429ca8fae65ab6cde07ac515953a4f921fd2fd7efa69e1f236",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "alpha_zero_fraction": 0.3072833599149389,
+  "alpha_partial_fraction": 0.6927166400850612,
+  "rows": [
+    {
+      "bundle": 0,
+      "full_tile_pass36": 0.22778480419711447,
+      "central_pass36": 0.3555660723009282,
+      "central_pass60": 0.2465956277479238,
+      "central_alpha_percentiles": [
+        0.00784313725490196,
+        0.10196078431372549,
+        0.9098039215686274
+      ],
+      "mid_band_pass36": 0.2462962962962963
+    },
+    {
+      "bundle": 1,
+      "full_tile_pass36": 0.21453414839797638,
+      "central_pass36": 0.33553676111382513,
+      "central_pass60": 0.21746763556424034,
+      "central_alpha_percentiles": [
+        0.00392156862745098,
+        0.09803921568627451,
+        0.8941176470588236
+      ],
+      "mid_band_pass36": 0.2550925925925926
+    },
+    {
+      "bundle": 2,
+      "full_tile_pass36": 0.19962642870526512,
+      "central_pass36": 0.3175531265266243,
+      "central_pass60": 0.2021708597948217,
+      "central_alpha_percentiles": [
+        0.00392156862745098,
+        0.08627450980392157,
+        0.8509803921568627
+      ],
+      "mid_band_pass36": 0.2178240740740741
+    },
+    {
+      "bundle": 3,
+      "full_tile_pass36": 0.22314736743488853,
+      "central_pass36": 0.35849719101123595,
+      "central_pass60": 0.24757266731802638,
+      "central_alpha_percentiles": [
+        0.00392156862745098,
+        0.12156862745098039,
+        0.9137254901960784
+      ],
+      "mid_band_pass36": 0.2515046296296296
+    },
+    {
+      "bundle": 4,
+      "full_tile_pass36": 0.21235010305415028,
+      "central_pass36": 0.3441927210552027,
+      "central_pass60": 0.21242977528089887,
+      "central_alpha_percentiles": [
+        0.00784313725490196,
+        0.11372549019607843,
+        0.8823529411764706
+      ],
+      "mid_band_pass36": 0.21944444444444444
+    },
+    {
+      "bundle": 5,
+      "full_tile_pass36": 0.21903105677346824,
+      "central_pass36": 0.3379488275525159,
+      "central_pass60": 0.23659623839765512,
+      "central_alpha_percentiles": [
+        0.00392156862745098,
+        0.08627450980392157,
+        0.9137254901960784
+      ],
+      "mid_band_pass36": 0.26006944444444446
+    },
+    {
+      "bundle": 6,
+      "full_tile_pass36": 0.2103417181937418,
+      "central_pass36": 0.341673790913532,
+      "central_pass60": 0.22636785539814364,
+      "central_alpha_percentiles": [
+        0.00784313725490196,
+        0.09411764705882353,
+        0.8823529411764706
+      ],
+      "mid_band_pass36": 0.24212962962962964
+    },
+    {
+      "bundle": 7,
+      "full_tile_pass36": 0.2022203485103991,
+      "central_pass36": 0.3285295554469956,
+      "central_pass60": 0.21957437713727407,
+      "central_alpha_percentiles": [
+        0.00392156862745098,
+        0.09019607843137255,
+        0.8941176470588236
+      ],
+      "mid_band_pass36": 0.24108796296296298
+    }
+  ],
+  "mean_central_pass36": 0.33993725574010747,
+  "mean_central_pass60": 0.22609687957987298,
+  "horizontal_structure_at1024": [
+    {
+      "cutoff": 0.36,
+      "median_longest_solid_run_fraction": 0.06779661016949153,
+      "p95_longest_run_fraction": 0.11016949152542373,
+      "median_distinct_bands_2px_or_wider": 7.0
+    },
+    {
+      "cutoff": 0.6,
+      "median_longest_solid_run_fraction": 0.05084745762711865,
+      "p95_longest_run_fraction": 0.0847457627118644,
+      "median_distinct_bands_2px_or_wider": 4.0
+    }
+  ],
+  "surviving_srgb_luma_percentiles": [
+    0.2289992156862745,
+    0.3046101960784314,
+    0.3314949019607843
+  ],
+  "surviving_rgb_mean": [
+    0.35066588597113246,
+    0.28532114583543994,
+    0.23480464863504985
+  ]
+}

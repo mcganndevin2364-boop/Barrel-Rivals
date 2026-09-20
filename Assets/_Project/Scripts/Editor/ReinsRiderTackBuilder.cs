@@ -29,15 +29,15 @@ namespace BarrelRivals.Editor
             Directory.CreateDirectory(Root); AssetDatabase.Refresh();
             var leather = Leather("Oiled bridle leather", new Color(.30f,.20f,.14f));
             var glove = Leather("Worn chestnut gloves", new Color(.85f,.72f,.56f));
-            var palm = Leather("Suede palm grip", new Color(.60f,.50f,.40f));
             var sleeve = Material("Charcoal denim sleeves", new Color(.034f,.047f,.054f), .12f);
             var stitch = Material("Waxed saddle stitching", new Color(.58f,.40f,.19f), .22f);
             var silver = Material("Brushed bit steel", new Color(.48f,.51f,.52f), .62f, .85f);
             var teal = Material("Turquoise rein braid", new Color(.035f,.34f,.31f), .31f);
             var cream = Material("Flax rein braid", new Color(.65f,.49f,.28f), .28f);
+            var fixedHand = FixedHandMaterial(sleeve, stitch);
             var rig = Child(model, "Rider tack");
-            var left = BuildHand(rig, -1, glove, palm, sleeve, stitch);
-            var right = BuildHand(rig, 1, glove, palm, sleeve, stitch);
+            var left = BuildHand(rig, -1, glove, fixedHand);
+            var right = BuildHand(rig, 1, glove, fixedHand);
             var leftGrip = Child(left, "Closed left grip"); leftGrip.localPosition = new Vector3(.006f,-.023f,.137f);
             var rightGrip = Child(right, "Closed right grip"); rightGrip.localPosition = new Vector3(-.006f,-.023f,.137f);
             Transform leftBit, rightBit;
@@ -84,7 +84,7 @@ namespace BarrelRivals.Editor
             }
         }
 
-        private static Transform BuildHand(Transform parent, int side, Material glove, Material palm, Material sleeve, Material thread)
+        private static Transform BuildHand(Transform parent, int side, Material glove, Material fixedParts)
         {
             var hand=Child(parent,side<0?"Left rider grip":"Right rider grip");
             hand.localPosition=new Vector3(side*.41f,1.84f,.28f);
@@ -121,11 +121,75 @@ namespace BarrelRivals.Editor
                 stitching.Tube(new[]{new Vector3(x,.022f,z),new Vector3(x,.023f,z+.0045f)},.0009f,4,true);
             }
             var sideLabel=side<0?"Left":"Right";
-            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",shell.Mesh()),new[]{glove});
-            MeshObject(hand,"Glove grip panels",SaveMesh(sideLabel+" glove grip",suede.Mesh()),new[]{palm});
-            MeshObject(hand,"Denim forearm",SaveMesh(sideLabel+" sleeve",clothing.Mesh()),new[]{sleeve});
-            MeshObject(hand,"Glove stitching",SaveMesh(sideLabel+" glove stitching",stitching.Mesh()),new[]{thread});
+            // Both leather surfaces already share the selected glove palette. Preserve their
+            // geometry/UVs in one renderer, independently bound beneath each moving hand.
+            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",JoinHandSurfaces(shell.Mesh(),suede.Mesh(),false)),new[]{glove});
+            // Fixed sleeve/thread colors must not inherit glove dyes. Two constant swatches
+            // share one opaque material; the open inspection glove remains a separate build.
+            MeshObject(hand,"Sleeve and glove stitching",SaveMesh(sideLabel+" sleeve and stitching",JoinHandSurfaces(clothing.Mesh(),stitching.Mesh(),true)),new[]{fixedParts});
             return hand;
+        }
+
+        private static Mesh JoinHandSurfaces(Mesh first,Mesh second,bool fixedSwatches)
+        {
+            var combined=new Mesh();
+            try
+            {
+                if(fixedSwatches)
+                {
+                    // Each disconnected part samples a texel centre. No UV interpolation
+                    // crosses between colors, and this untextured material needs no normal map.
+                    first.uv=ConstantUv(first.vertexCount,new Vector2(.25f,.5f));
+                    second.uv=ConstantUv(second.vertexCount,new Vector2(.75f,.5f));
+                }
+                combined.CombineMeshes(new[]{new CombineInstance{mesh=first},new CombineInstance{mesh=second}},true,false);
+                combined.RecalculateBounds();
+                return combined;
+            }
+            catch { Object.DestroyImmediate(combined);throw; }
+            finally { Object.DestroyImmediate(first);Object.DestroyImmediate(second); }
+        }
+
+        private static Vector2[] ConstantUv(int count,Vector2 value)
+        {var uv=new Vector2[count];for(int i=0;i<count;i++)uv[i]=value;return uv;}
+
+        private static Material FixedHandMaterial(Material sleeve,Material thread)
+        {
+            // These source materials are constant opaque colors. Fail rather than silently
+            // discarding future authored maps if that contract changes.
+            foreach(var source in new[]{sleeve,thread})
+                foreach(var property in new[]{"_BaseMap","_BumpMap","_MetallicGlossMap"})
+                    if(source.GetTexture(property))throw new InvalidOperationException("Fixed hand swatches require untextured source material: "+source.name);
+            var albedo=SaveHandSwatches("Fixed hand color swatches",new[]{sleeve.GetColor("_BaseColor"),thread.GetColor("_BaseColor")});
+            var surface=SaveHandSwatches("Fixed hand surface swatches",new[]{
+                new Color(sleeve.GetFloat("_Metallic"),0,0,sleeve.GetFloat("_Smoothness")),
+                new Color(thread.GetFloat("_Metallic"),0,0,thread.GetFloat("_Smoothness"))});
+            string path=Root+"/Fixed sleeve and glove stitching.mat";
+            var material=AssetDatabase.LoadAssetAtPath<Material>(path);
+            if(!material){material=new Material(Shader.Find("Universal Render Pipeline/Lit")){name="Fixed sleeve and glove stitching"};AssetDatabase.CreateAsset(material,path);}
+            material.SetColor("_BaseColor",Color.white);material.SetTexture("_BaseMap",albedo);
+            material.SetTextureScale("_BaseMap",Vector2.one);material.SetTextureOffset("_BaseMap",Vector2.zero);
+            material.SetTexture("_MetallicGlossMap",surface);material.SetFloat("_Metallic",1);material.SetFloat("_Smoothness",1);
+            material.SetFloat("_WorkflowMode",1);material.SetFloat("_SmoothnessTextureChannel",0);
+            material.SetFloat("_Surface",0);material.SetFloat("_AlphaClip",0);material.SetFloat("_ZWrite",1);
+            material.SetFloat("_SrcBlend",(float)BlendMode.One);material.SetFloat("_DstBlend",(float)BlendMode.Zero);
+            material.SetTexture("_BumpMap",null);material.DisableKeyword("_NORMALMAP");
+            material.DisableKeyword("_SPECULAR_SETUP");material.DisableKeyword("_SURFACE_TYPE_TRANSPARENT");
+            material.DisableKeyword("_ALPHATEST_ON");material.DisableKeyword("_SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A");
+            material.EnableKeyword("_METALLICSPECGLOSSMAP");material.SetOverrideTag("RenderType","Opaque");material.renderQueue=-1;
+            EditorUtility.SetDirty(material);return material;
+        }
+
+        private static Texture2D SaveHandSwatches(string name,Color[] pixels)
+        {
+            string path=Root+"/"+name+".asset";var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(path);
+            // Linear textures store the source shader constants directly, with 8-bit precision.
+            // Two point-filtered texels need no mip chain and cannot bleed across material roles.
+            if(!texture){texture=new Texture2D(2,1,TextureFormat.RGBA32,false,true){name=name};AssetDatabase.CreateAsset(texture,path);}
+            if(texture.width!=2 || texture.height!=1 || texture.format!=TextureFormat.RGBA32 || texture.mipmapCount!=1 || !texture.isReadable)
+                throw new InvalidOperationException("Unexpected generated hand swatch format: "+path);
+            texture.filterMode=FilterMode.Point;texture.wrapMode=TextureWrapMode.Clamp;texture.anisoLevel=0;
+            texture.SetPixels(pixels);texture.Apply(false,false);EditorUtility.SetDirty(texture);return texture;
         }
 
         private static void BuildBridle(Transform model,Transform head,Material leather,Material steel,Material thread,out Transform leftBit,out Transform rightBit)
