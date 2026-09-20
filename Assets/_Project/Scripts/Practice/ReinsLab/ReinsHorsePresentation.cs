@@ -47,6 +47,18 @@ namespace BarrelRivals.Practice
         public float LeftRein => current.LeftRein;
         public float RightRein => current.RightRein;
         public bool HasSample => hasSample;
+        /// <summary>The cycle actually being rendered by the rig, shared by camera, tack and secondary art.</summary>
+        public float GaitPhaseRadians
+        {
+            get
+            {
+                if(!characterAnimator || !characterAnimator.isActiveAndEnabled || !characterAnimator.isInitialized
+                    || !characterAnimator.runtimeAnimatorController || characterAnimator.layerCount==0)return 0;
+                float cycle=characterAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                return float.IsNaN(cycle) || float.IsInfinity(cycle) ? 0 : Mathf.Repeat(cycle,1)*Mathf.PI*2;
+            }
+        }
+        public float GaitStrength => hasSample ? Mathf.Clamp01(Mathf.Lerp(previous.Speed,current.Speed,alpha)/1.5f) : 0;
 
         /// <summary>Model must be a child containing art/bones only, with no gameplay colliders.</summary>
         public void Configure(Transform model, Transform seat = null, Animator animator = null)
@@ -71,7 +83,14 @@ namespace BarrelRivals.Practice
             }
             if (!characterAnimator && modelRoot) characterAnimator = modelRoot.GetComponentInChildren<Animator>(true);
             if (modelRoot)
-                foreach (var animator in modelRoot.GetComponentsInChildren<Animator>(true)) animator.applyRootMotion = false;
+                foreach (var animator in modelRoot.GetComponentsInChildren<Animator>(true))
+                {
+                    animator.applyRootMotion = false;
+                    // First-person tack and sibling hair depend on these bones even
+                    // when the imported body's renderer is culled. Advancing only
+                    // normalized time would otherwise leave the actual rig frozen.
+                    animator.cullingMode = AnimatorCullingMode.AlwaysAnimate;
+                }
             parameterMask = 0;
             if (!characterAnimator || !characterAnimator.runtimeAnimatorController) return;
             foreach (var parameter in characterAnimator.parameters)
@@ -120,6 +139,10 @@ namespace BarrelRivals.Practice
             }
             // Optional controller parameters are cached once, so unconfigured imported rigs remain valid.
             if ((parameterMask & 1) != 0) characterAnimator.SetFloat(SpeedId, current.Speed);
+            // The authored gallop is 1.5 cycles/second at 8m/s. Increase its playback
+            // modestly through Drive rather than leaving the same slow leg cycle at top pace.
+            // This is presentation only; no root motion, contact grading or time credit.
+            if ((parameterMask & 1) != 0) characterAnimator.speed=Mathf.Lerp(1,1.35f,Mathf.InverseLerp(8,14,current.Speed));
             if ((parameterMask & 2) != 0) characterAnimator.SetFloat(TurnId, current.Turn);
             if ((parameterMask & 4) != 0) characterAnimator.SetFloat(LeftId, current.LeftRein);
             if ((parameterMask & 8) != 0) characterAnimator.SetFloat(RightId, current.RightRein);

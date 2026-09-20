@@ -117,16 +117,64 @@ namespace BarrelRivals.Practice
             foreach(var particles in ghostHorse.GetComponentsInChildren<ParticleSystem>(true))
             {var main=particles.main;main.playOnAwake=false;particles.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);}
             foreach(var animator in ghostHorse.GetComponentsInChildren<Animator>(true))animator.applyRootMotion=false;
-            foreach(var renderer in ghostHorse.GetComponentsInChildren<Renderer>(true))
-            {
-                if(!(renderer is MeshRenderer) && !(renderer is SkinnedMeshRenderer)){renderer.enabled=false;continue;}
-                var materials=new Material[renderer.sharedMaterials.Length];
-                for(int i=0;i<materials.Length;i++)materials[i]=material;
-                // Assign this renderer's slots; never alter the player's shared materials or skeleton.
-                renderer.sharedMaterials=materials;renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;
-            }
+            try { ApplyGhostMaterials(ghostHorse,material); }
+            catch { DestroyImmediate(staging);throw; }
             ghostHorse.SetParent(sourceHorse.parent,true);Destroy(staging);
             return ghostHorse;
+        }
+        private static void ApplyGhostMaterials(Transform ghost,Material tint)
+        {
+            ReinsGhostMaterialResources resources=null;
+            var hairCopies=new Dictionary<Material,Material>();
+            try
+            {
+                foreach(var renderer in ghost.GetComponentsInChildren<Renderer>(true))
+                {
+                    if(!(renderer is MeshRenderer) && !(renderer is SkinnedMeshRenderer)){renderer.enabled=false;continue;}
+                    var source=renderer.sharedMaterials;
+                    var materials=new Material[source.Length];
+                    for(int i=0;i<materials.Length;i++)
+                    {
+                        var original=source[i];
+                        bool strandHair=renderer.name=="Horse strand hair";
+                        if(!strandHair){materials[i]=tint;continue;}
+                        if(!original || !original.HasProperty("_BaseMap") || !original.GetTexture("_BaseMap") || !original.HasProperty("_Cutoff"))
+                            throw new InvalidOperationException("Ghost strand hair requires its source alpha atlas and cutoff.");
+                        if(!hairCopies.TryGetValue(original,out var copy))
+                        {
+                            // A regular URP tinted alpha clip multiplies texture alpha by tint alpha first.
+                            // The existing ghost opacity (.28) is below the hair cutoff (.36), so it would
+                            // erase every strand. This shader clips the source mask before applying opacity.
+                            var shader=Resources.Load<Shader>("ReinsGhostHair");
+                            if(!shader)throw new InvalidOperationException("Missing Reins ghost strand shader.");
+                            if(!resources)
+                            {
+                                var owner=new GameObject("Own-best ghost material resources");
+                                resources=owner.AddComponent<ReinsGhostMaterialResources>();
+                                resources.Initialize(ghost);
+                            }
+                            copy=new Material(shader){name=original.name+" — private own-best ghost",hideFlags=HideFlags.DontSave};
+                            resources.Own(copy);
+                            copy.SetTexture("_BaseMap",original.GetTexture("_BaseMap"));
+                            copy.SetTextureScale("_BaseMap",original.GetTextureScale("_BaseMap"));
+                            copy.SetTextureOffset("_BaseMap",original.GetTextureOffset("_BaseMap"));
+                            copy.SetFloat("_AlphaClip",1);
+                            copy.SetFloat("_Cutoff",original.GetFloat("_Cutoff"));
+                            copy.SetFloat("_Cull",original.HasProperty("_Cull")?original.GetFloat("_Cull"):0);
+                            copy.SetColor("_BaseColor",tint && tint.HasProperty("_BaseColor")?tint.GetColor("_BaseColor"):Color.white);
+                            hairCopies.Add(original,copy);
+                        }
+                        materials[i]=copy;
+                    }
+                    // Assign this renderer's slots; never alter the player's shared assets or skeleton.
+                    renderer.sharedMaterials=materials;renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.Off;renderer.receiveShadows=false;
+                }
+            }
+            catch
+            {
+                if(resources){resources.Release();DestroyImmediate(resources.gameObject);}
+                throw;
+            }
         }
         private static void RemoveGhostBehaviours(Transform ghost)
         {

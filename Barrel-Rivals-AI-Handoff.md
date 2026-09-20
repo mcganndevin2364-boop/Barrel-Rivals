@@ -1,5 +1,7 @@
 # Barrel Rivals — AI continuation handoff
 
+The latest source adds **skinned mane/tail strands and synchronized riding motion**, plus a correction for Animator visibility culling that could advance the clock without updating bones. The moving Unity check, actual captures and current verification belong to [the character-motion checkpoint](Docs/Art/Reins-Character-Motion-Checkpoint.md); earlier static screenshots remain historical. This continues the reference-directed MyStable/Tack/Rider Gear work below. Natural foot planting, reference-quality art, a complete rider, phone qualification and the approved gameplay-v2 launch remain unfinished.
+
 The current source includes reference-driven **MyStable, Tack and Rider Gear**: the user has supplied the warm barn/roster, saddle-grid and glove-inspection reference. The implementation adds an enclosed 3D showroom, rendered item cards, 20 free local cosmetics across five slots, preview/equip/cancel, and cosmetic save version 2 with preserved v1 migration. Cosmetic v2 is separate from the still-unimplemented Reins gameplay v2. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). It records current verification status and remaining gaps; the reference is a target, not achieved photographic quality. Paid ownership, earned progression, the ten-horse roster and a new phone installation remain pending.
 
 September 20, 2026 · Gameplay revision 5 / engineering revision 6
@@ -47,6 +49,7 @@ The older installed artifact uses procedural prototype art. The first graphics s
 | Historical local HTTP verifier | 46/46 checks for the prior 0.4 checkpoint; see its `Tools/ReinsServerCheck/verification-evidence.json` |
 | Historical six-item MyStable/Gear | 89/89 Editor and 17/17 Play Mode checks; .NET Standard Core compilation and real stable/gear captures. These precede the supplied stable reference. |
 | Reference-driven MyStable/Tack/Rider Gear | 20 cosmetics/five slots, original showroom and glove inspection, real mesh thumbnails, isolated cosmetic-v2 migration. 101/101 Editor and 17/17 Play Mode tests passed; actual Unity captures at 16:9 and 4:3 and preserved cosmetic migration verified. See the feature checkpoint. No new native installation. |
+| Character motion source | Corrected bone culling, original skinned strands with verified saved vertex buffers, shared camera/hand stride and ghost alpha cleanup. Current checks and actual moving Unity evidence are in the [motion checkpoint](Docs/Art/Reins-Character-Motion-Checkpoint.md); no new native/device qualification. |
 | Graphics source checkpoint | Scene generation/save/reopen passed; current test results and their exact source boundary are recorded in the linked graphics checkpoint. No new native/device qualification. |
 | Canonical replay | Unity/.NET agreement: 35,120 ms, zero knocks, 300 style points, 2,156 frames; v1 fixtures under `Contracts/Reins` |
 | iPhone | 0.4 compiled, signed, installed and version queried. See versioned export/native/artifact/device evidence. |

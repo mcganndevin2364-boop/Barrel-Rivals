@@ -1,0 +1,99 @@
+{
+    "animatorPath": "Reference horse/RodeoHorse",
+    "avatar": "RodeoHorseAvatar",
+    "culling": "CullUpdateTransforms",
+    "avatarValid": true,
+    "bonePaths": [
+        "Armature/Bone/Bone.001",
+        "Armature/Bone/Bone.001/Bone.002",
+        "Armature/Bone/Bone_L/Bone_L.001"
+    ],
+    "animatorSampleBoneAngles": [
+        2.8539464473724365,
+        2.0924735069274902,
+        27.943592071533203
+    ],
+    "clips": [
+        {
+            "name": "Armature|Idle",
+            "length": 2.0,
+            "bindings": 200,
+            "varyingBindings": 10,
+            "unresolvedBindings": 0,
+            "sampleBindings": [
+                "Armature | m_LocalRotation.x",
+                "Armature | m_LocalRotation.y",
+                "Armature | m_LocalRotation.z",
+                "Armature | m_LocalRotation.w",
+                "Armature/Bone | m_LocalRotation.x",
+                "Armature/Bone | m_LocalRotation.y",
+                "Armature/Bone | m_LocalRotation.z",
+                "Armature/Bone | m_LocalRotation.w",
+                "Armature/Bone/Bone.001 | m_LocalRotation.x",
+                "Armature/Bone/Bone.001 | m_LocalRotation.y",
+                "Armature/Bone/Bone.001 | m_LocalRotation.z",
+                "Armature/Bone/Bone.001 | m_LocalRotation.w"
+            ],
+            "unresolvedExamples": [],
+            "directSampleBoneAngles": [
+                1.507108449935913,
+                2.285219430923462,
+                0.0
+            ]
+        },
+        {
+            "name": "Armature|Gallop",
+            "length": 0.6666666865348816,
+            "bindings": 200,
+            "varyingBindings": 43,
+            "unresolvedBindings": 0,
+            "sampleBindings": [
+                "Armature | m_LocalRotation.x",
+                "Armature | m_LocalRotation.y",
+                "Armature | m_LocalRotation.z",
+                "Armature | m_LocalRotation.w",
+                "Armature/Bone | m_LocalRotation.x",
+                "Armature/Bone | m_LocalRotation.y",
+                "Armature/Bone | m_LocalRotation.z",
+                "Armature/Bone | m_LocalRotation.w",
+                "Armature/Bone/Bone.001 | m_LocalRotation.x",
+                "Armature/Bone/Bone.001 | m_LocalRotation.y",
+                "Armature/Bone/Bone.001 | m_LocalRotation.z",
+                "Armature/Bone/Bone.001 | m_LocalRotation.w"
+            ],
+            "unresolvedExamples": [],
+            "directSampleBoneAngles": [
+                2.8542206287384033,
+                2.0924735069274902,
+                27.943592071533203
+            ]
+        },
+        {
+            "name": "Armature|Walk",
+            "length": 1.0666667222976685,
+            "bindings": 200,
+            "varyingBindings": 39,
+            "unresolvedBindings": 0,
+            "sampleBindings": [
+                "Armature | m_LocalRotation.x",
+                "Armature | m_LocalRotation.y",
+                "Armature | m_LocalRotation.z",
+                "Armature | m_LocalRotation.w",
+                "Armature/Bone | m_LocalRotation.x",
+                "Armature/Bone | m_LocalRotation.y",
+                "Armature/Bone | m_LocalRotation.z",
+                "Armature/Bone | m_LocalRotation.w",
+                "Armature/Bone/Bone.001 | m_LocalRotation.x",
+                "Armature/Bone/Bone.001 | m_LocalRotation.y",
+                "Armature/Bone/Bone.001 | m_LocalRotation.z",
+                "Armature/Bone/Bone.001 | m_LocalRotation.w"
+            ],
+            "unresolvedExamples": [],
+            "directSampleBoneAngles": [
+                2.002248525619507,
+                2.145298480987549,
+                10.996794700622559
+            ]
+        }
+    ]
+}

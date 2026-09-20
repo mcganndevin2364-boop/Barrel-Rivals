@@ -58,3 +58,7 @@ No new Unity test, scene validation, native build, phone installation or measure
 Required graphics review includes correct imported materials/bones/clips, horse-camera framing throughout a complete race, no detached eyes or stretched hair, acceptable gait/ground contact, readable barrels, dirt seams, crowd transparency/repetition, preservation of authored references on scene regeneration, and measured draw/triangle/texture/frame-time costs. Compare actual Unity captures and physical-phone footage with the user reference; one attractive still does not satisfy the throughout-gameplay requirement.
 
 The previously approved R2 limits and sequence remain: one finished horse/rider/alley, full-course presentation, then physical-device qualification. More arenas and crowd detail do not replace that acceptance work.
+
+## Original skinned hair follow-up
+
+The later character-motion source keeps the CC0 horse/rig unchanged and deactivates its two unweighted rigid hair objects. `ReinsHairBuilder` authors a separate skinned mesh and a deterministic 256 × 512 strand atlas from code, without reference pixels or a new downloaded asset. Four existing bones and at most two weights per vertex drive 118 cards (2,748 vertices; 2,512 triangles). Generated source lives under `Assets/_Project/Art/Reins/Hair`. The [motion checkpoint](Reins-Character-Motion-Checkpoint.md) records current geometry, hashes, tests, moving review and remaining limitations.

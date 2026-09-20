@@ -48,9 +48,12 @@ namespace BarrelRivals.Practice
             Initialize(); if (!initialized) return;
             float speed = Mathf.Clamp(source.Speed, 0, 14), turn = Mathf.Clamp(source.Turn, -1.5f, 1.5f);
             float left = Mathf.Clamp01(source.LeftRein), right = Mathf.Clamp01(source.RightRein);
-            // A subtle pose response, without free-running noise or any modification of the race root.
-            leftHand.localPosition = leftRest + new Vector3(-turn * .009f, left * .016f, -.082f * left - speed * .0006f);
-            rightHand.localPosition = rightRest + new Vector3(-turn * .009f, right * .016f, -.082f * right - speed * .0006f);
+            // Hands move with the same visible stride as the stabilized seat; the
+            // reins below are then rebuilt from those exact grips to the animated bit.
+            float phase=source.GaitPhaseRadians, effort=source.GaitStrength;
+            var seatMotion=new Vector3(Mathf.Cos(phase)*.003f,Mathf.Sin(phase)*.008f,Mathf.Cos(phase)*.004f)*effort;
+            leftHand.localPosition = leftRest + new Vector3(-turn * .009f, left * .016f, -.082f * left - speed * .0006f)+seatMotion;
+            rightHand.localPosition = rightRest + new Vector3(-turn * .009f, right * .016f, -.082f * right - speed * .0006f)+seatMotion;
             leftHand.localRotation = Quaternion.Euler(-left * 5, -8, -9 - left * 3);
             rightHand.localRotation = Quaternion.Euler(-right * 5, 8, 9 + right * 3);
             Deform(leftRein.transform, leftGrip.position, leftBit.position, left, -1, leftMesh, leftVertices, leftNormals, leftTangents);

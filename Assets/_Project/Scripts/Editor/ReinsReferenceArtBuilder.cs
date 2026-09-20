@@ -16,6 +16,33 @@ namespace BarrelRivals.Editor
     {
         public const string Root = "Assets/_Project/Art/Reins";
         public const string HorsePath = Root + "/Horse/RodeoHorse.fbx";
+        public static void DiagnoseMotion()
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene(ReinsLabBuilder.ScenePath);
+            var horse=GameObject.Find("Horse proxy");var animator=horse.GetComponentInChildren<Animator>(true);
+            var bones=animator.GetComponentsInChildren<Transform>(true).Where(t=>t.name=="Bone.001" || t.name=="Bone.002" || t.name=="Bone_L.001").ToArray();
+            var report=new AnimationDiagnostic {animatorPath=AnimationUtility.CalculateTransformPath(animator.transform,horse.transform),
+                avatar=animator.avatar?animator.avatar.name:"none",avatarValid=animator.avatar && animator.avatar.isValid,
+                culling=animator.cullingMode.ToString(),bonePaths=bones.Select(b=>AnimationUtility.CalculateTransformPath(b,animator.transform)).ToArray()};
+            var clips=AssetDatabase.LoadAllAssetsAtPath(HorsePath).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
+            report.clips=clips.Select(clip=>{
+                var bindings=AnimationUtility.GetCurveBindings(clip);
+                var missing=bindings.Where(b=>b.type==typeof(Transform) && !string.IsNullOrEmpty(b.path) && !animator.transform.Find(b.path)).ToArray();
+                var varying=bindings.Where(b=>{var curve=AnimationUtility.GetEditorCurve(clip,b);return curve!=null && curve.length>1 && curve.keys.Max(k=>k.value)-curve.keys.Min(k=>k.value)>.00001f;}).ToArray();
+                clip.SampleAnimation(animator.gameObject,clip.length*.1f);var a=bones.Select(b=>b.localRotation).ToArray();
+                clip.SampleAnimation(animator.gameObject,clip.length*.6f);var delta=bones.Select((b,i)=>Quaternion.Angle(a[i],b.localRotation)).ToArray();
+                return new ClipDiagnostic {name=clip.name,length=clip.length,bindings=bindings.Length,varyingBindings=varying.Length,
+                    unresolvedBindings=missing.Length,sampleBindings=bindings.Take(12).Select(b=>b.path+" | "+b.propertyName).ToArray(),
+                    unresolvedExamples=missing.Take(8).Select(b=>b.path+" | "+b.propertyName).ToArray(),directSampleBoneAngles=delta};
+            }).ToArray();
+            animator.cullingMode=AnimatorCullingMode.AlwaysAnimate;animator.Rebind();animator.Update(0);animator.SetFloat("Speed",8);
+            animator.Play(0,0,.1f);animator.Update(0);var first=bones.Select(b=>b.localRotation).ToArray();
+            animator.Play(0,0,.6f);animator.Update(0);report.animatorSampleBoneAngles=bones.Select((b,i)=>Quaternion.Angle(first[i],b.localRotation)).ToArray();
+            string output=Path.GetFullPath(Path.Combine(Application.dataPath,"../Evidence/ReinsMotion-Diagnostic.json"));
+            File.WriteAllText(output,JsonUtility.ToJson(report,true)+"\n");Debug.Log("BARREL_MOTION_DIAGNOSTIC: "+JsonUtility.ToJson(report));
+        }
+        [Serializable] private sealed class AnimationDiagnostic {public string animatorPath,avatar,culling;public bool avatarValid;public string[] bonePaths;public float[] animatorSampleBoneAngles;public ClipDiagnostic[] clips;}
+        [Serializable] private sealed class ClipDiagnostic {public string name;public float length;public int bindings,varyingBindings,unresolvedBindings;public string[] sampleBindings,unresolvedExamples;public float[] directSampleBoneAngles;}
         public static void Apply(Transform horse, Camera camera)
         {
             Directory.CreateDirectory(Root + "/Materials");
@@ -140,6 +167,9 @@ namespace BarrelRivals.Editor
             foreach(var r in model.GetComponentsInChildren<Renderer>(true))
             {var material=r.name.StartsWith("HorseHair")?hair:r.name.StartsWith("HorseEye")?eye:coat;r.enabled=true;r.sharedMaterials=Enumerable.Repeat(material,r.sharedMaterials.Length).ToArray();r.shadowCastingMode=ShadowCastingMode.On;r.receiveShadows=true;}
             var animator=model.GetComponentInChildren<Animator>(true);if(!animator)animator=model.AddComponent<Animator>();animator.applyRootMotion=false;
+            // Bones also drive first-person tack/hair outside the imported renderer
+            // hierarchy; visibility culling must not freeze their transform updates.
+            animator.cullingMode=AnimatorCullingMode.AlwaysAnimate;
             var clips=AssetDatabase.LoadAllAssetsAtPath(HorsePath).OfType<AnimationClip>().Where(c=>!c.name.StartsWith("__preview__")).ToArray();
             if(clips.Length>0)
             {

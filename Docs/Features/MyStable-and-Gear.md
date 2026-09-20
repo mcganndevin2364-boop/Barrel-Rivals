@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+A later [character-motion source](../Art/Reins-Character-Motion-Checkpoint.md) replaces the rigid mane/tail, corrects animation culling and records fresh stable/race evidence. The counts and images below retain this earlier stable-reference checkpoint; they are not silently replaced by later captures.
+
 September 20, 2026. The user has now supplied the three-panel reference: a warm timber stable with a horse roster and traits, an illustrated saddle collection with an equip inspector, and a rider glove collection with a close-up view. That image guides the new live scene and UI. Its pixels, named horses, levels, rarity and stat bonuses are not imported or represented as already implemented features. Racing still uses `reins-lab-v1`; native identity remains 0.4.0/build 4. **Scene generation, desktop tests and real Unity captures are verified below; device and reference-quality acceptance remain open.**
 
 ## Player flow

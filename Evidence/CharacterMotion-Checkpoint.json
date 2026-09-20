@@ -1,0 +1,91 @@
+{
+  "checkedAtUtc": "2026-09-20T14:57:19.687386+00:00",
+  "unityVersion": "6000.6.0f1",
+  "graphicsDevice": "Intel Iris Plus Graphics640 / Metal",
+  "sourceBaseline": "2afbcabd45003509dd383f6d5d9e963c580c5197",
+  "editorPassed": 103,
+  "playModePassed": 21,
+  "playModeEndedUtc": "2026-09-20 14:54:45Z",
+  "canonicalFinalTimeMs": 35120,
+  "knocks": 0,
+  "stylePoints": 300,
+  "replayFrames": 2156,
+  "rulesFingerprint": "ffd16884d534628a46d2164751c19fbf7ff51cf8e56e92d36a799cac129e4837",
+  "coreOrReplayContractsChanged": false,
+  "independentCoreOrVerifierRerun": false,
+  "historicalRecordsRestored": 98,
+  "nativeBuildOrInstall": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "footPlantingAccepted": false,
+  "motion": {
+    "frameCount": 220,
+    "framesPerSecond": 25,
+    "seconds": 8.8,
+    "dimensions": [
+      1280,
+      360
+    ],
+    "actualRenderedLegMaskChangedPixels": 4694,
+    "capturedDriveLegRangeDegrees": 26.952682495117188,
+    "capturedDriveNeckRangeDegrees": 2.9900338649749756,
+    "encodedFrame60MeanChannelError": [
+      2.05216796875,
+      0.8837065972222222,
+      2.1781792534722224
+    ],
+    "realtimePerformanceMeasurement": false
+  },
+  "persistedHair": {
+    "cards": 118,
+    "vertices": 2748,
+    "triangles": 2512,
+    "boneCount": 4,
+    "maximumInfluences": 2,
+    "atlasDimensions": [
+      256,
+      512
+    ],
+    "actualVertexBoundsErrorMetres": 7.43e-08,
+    "broadNeckExteriorVertices": 74,
+    "assetGuidPreserved": true
+  },
+  "masterSections": 53,
+  "fullReleaseSectionsAccepted": 0,
+  "evidenceSha256": {
+    "CharacterMotion-Capture.json": "ce132ec4176f2b4e41fe36c9a2952a922858a1c3325f314a0456f9368b9b1401",
+    "CharacterMotion-Culling-Diagnostic-BeforeFix.json": "31c5c1b83e067c8e1eda641372e27abfe7a32e3d07f67a27fd9a535800f81e25",
+    "CharacterMotion-Drive-SideStudy.png": "b9e0e5e6254c7f512f4ce17fc7a33a07335632dde8c0f27c377f95a8068b6426",
+    "CharacterMotion-EditMode.xml": "50fb0bf0a08dab24c720df9ac207d99b7e7a8fdbb3c2a79a87da95756057a105",
+    "CharacterMotion-HeadstallPreview.png": "e1a629a27162911dc4c877e3c15bbd7daa67ac02d2e027b56a4b3ac3acea3522",
+    "CharacterMotion-Motion.mp4": "35a1136b350709fb201c3edb35596e275c0b8eedd705c1fef62140321f3bb575",
+    "CharacterMotion-MyStable.png": "f111e22ce22876f025548ec5549f558c415fd516a614dae28d58c1993c7240d6",
+    "CharacterMotion-PlayMode.xml": "77fafa1ba3bfda5c00fac2d1dc044dc77f58a7fa19429b167571c490e2983599",
+    "CharacterMotion-Race-Approach-1.png": "c551633408af4b2aaa6c1c8bfd3bcab1b4f76b4f8c457da940d7f633ec8f732c",
+    "CharacterMotion-Race-Approach-3.png": "0642ff37cffb8f72f521d3579c92bf7c43f3fa12a5ef4f9f9d2f792da10228cc",
+    "CharacterMotion-Race-Cross-2.png": "14079fc4e730e16a74fdce81315ca4b35f5bbfe49942cce720d62522be212835",
+    "CharacterMotion-Race-Drive.png": "90f9f524d90283c0a1bd2cde9be71e58f6c50bc2da16032bfbe8bac95d4c3018",
+    "CharacterMotion-Race-Finish.png": "613df3877026087abf7aafb99a1b9fae7168a1d77e1dbf4ca7245c261e043c3a",
+    "CharacterMotion-Race-Mixed-Footing.png": "854f0cb4ddc8e314d3bcd0c403da6adc584bbc354c363c0d5f5675764970cc89",
+    "CharacterMotion-Race-Ready.png": "af595be35a844fe9e427377e64ea9a12a0ef79be3fa074b4b8d98e280ee2a4b3",
+    "CharacterMotion-Race-Run.json": "2e5716b6d0f62a274c95e838418fde7c36461de073ba71ec6f39e0762c8e94d7",
+    "CharacterMotion-Race-Turn-1.png": "f9156ac32f21dec335bdccd94d014789353448dfb1f0827a4db457d3847ef5a6",
+    "CharacterMotion-Race-Turn-2.png": "b478a8f8cd1d19e89f8a233f9ff130f67a40357a81e200b426a996057af9a892",
+    "CharacterMotion-Race-Turn-3.png": "af44c7de4a93ed7fb90402a4ae97372fd64e6d01469e61353e977079715c2d51",
+    "CharacterMotion-RiderEquipped.png": "aefd67d8329fe914e60e04165149d3133a5e2672cf6aeeda2a7e54f1a49fa410",
+    "CharacterMotion-RiderPreview.png": "975f47fdab92bca32e0083920c729a37a58934f4c1400ffc8849ed86c96cd486",
+    "CharacterMotion-RiderTablet.png": "35503f18538865ceaf618476612924b493d45332f4ddb82b1d29eda7ec220322",
+    "CharacterMotion-SaddlesEquipped.png": "13f91d6712026d1959aff53db8e727bba6da6d26a6bc01ac02fbc8809ca9429c",
+    "CharacterMotion-SaddlesPreview.png": "300950a9d7004eaa4184294898b4613f595a23e0613b46922dc62d769de7c004",
+    "CharacterMotion-silhouette-0035.png": "92069c4ecbd8bcdab2fa81d5677e77ecbd7a0b3ab2632e72c4fcc729bb013732",
+    "CharacterMotion-silhouette-0048.png": "8e3b7bad2969d26986fa00ff1aaef4b8affa7a1cf94647b3b6bf0c0011b6706d"
+  },
+  "hairAssetSha256": {
+    "Dark strand hair.mat": "5f18f9cfa09363bdabdb39760716919478935c3b427cf6de57c6b5580bba27e9",
+    "Dark strand hair.mat.meta": "23b4fb4ed8fc64ca2463291f68baa53f31d930957e46f188238e5170ad4cae88",
+    "Original strand atlas.png": "d91488763c9f59561b81c160abb052e1ca1f2aecfc90aaf9abcd7905698cf85f",
+    "Original strand atlas.png.meta": "214f1d994860eab20fa9c941ee9b3553736d15ab6d7e17a5790685e434327166",
+    "Skinned hair.asset": "3ca33a33db4a2138f6315b787c9de68e38173f416e411e133cca9da26f221eb6",
+    "Skinned hair.asset.meta": "9007dee418da9aaa4a82e38d49693e261bdaf6036fec2d526908ad6ab611c1c8"
+  }
+}

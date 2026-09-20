@@ -16,7 +16,7 @@ namespace BarrelRivals.Practice
         private Camera view;
         private Transform ignoredRoot;
         private bool snap = true, preferenceLoaded;
-        private float gaitPhase, motionAmount;
+        private float motionAmount;
         public bool ReducedMotion { get; private set; }
 
         public void Configure(ReinsHorsePresentation source, Transform horseRoot)
@@ -35,11 +35,14 @@ namespace BarrelRivals.Practice
             ResetView();
         }
 
-        public void ResetView() { snap = true; gaitPhase = motionAmount = 0; }
+        public void ResetView() { snap = true; motionAmount = 0; }
         private void LateUpdate() => Render(Mathf.Min(Time.unscaledDeltaTime, .05f));
 
         /// <summary>For a paused inspection/capture after updating the accepted pose.</summary>
         public void RenderImmediate() => Render(0);
+
+        /// <summary>Advance the normal presentation envelope by an explicit replay/capture step.</summary>
+        public void RenderForCapture(float elapsedSeconds) => Render(Mathf.Clamp(elapsedSeconds,0,.05f));
 
         private void Render(float dt)
         {
@@ -48,9 +51,9 @@ namespace BarrelRivals.Practice
             float speed = Mathf.Clamp(presentation.Speed, 0, 14);
             float strength = ReducedMotion ? 0 : Mathf.Clamp01(speed / 5);
             motionAmount = snap || ReducedMotion ? strength : Mathf.Lerp(motionAmount, strength, 1 - Mathf.Exp(-10 * dt));
-            gaitPhase = Mathf.Repeat(gaitPhase + speed * dt * 2.4f, Mathf.PI * 2);
             Vector3 offset = presentation.SeatOffset;
-            offset.y += Mathf.Sin(gaitPhase * 2) * .012f * motionAmount;
+            // Follow the visible horse's cycle, never a competing render-time oscillator.
+            offset.y += Mathf.Sin(presentation.GaitPhaseRadians) * .012f * motionAmount;
             Vector3 target = presentation.RenderPosition + presentation.RenderRotation * offset;
             // Only the view is displaced by obstruction. Self colliders are never used as camera blockers.
             Vector3 origin = presentation.RenderPosition + Vector3.up * 1.7f;
