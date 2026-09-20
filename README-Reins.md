@@ -1,5 +1,7 @@
 # Barrel Rivals — Reins Lab
 
+The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+
 This page documents the implemented 0.4 offline Reins prototype. The user has now selected Reins as the main game. Classic is still available in this binary, but the approved 0.5 update removes its player-facing route while preserving historical code and saves. The combined mobile build is **0.4.0 / build 4**. The iPhone app compiled, signed and installed with its version verified; the Android APK compiled and passed artifact checks. The user has played and prefers Reins. Formal iPhone controls/performance qualification and Android handset testing remain pending. See [the implementation evidence](Docs/Plan/Reins-Lab-Implementation.md) for the exact limits.
 
 The current **premium-direction graphics SOURCE** adds photographic CC0 dirt/wood/metal/leather and dusk-sky assets, original arena structures/barrels/distant terrain, modeled foreground gloves/bridle/braided reins, and a smaller licensed-typeface HUD. It builds on the imported horse, three basic gait studies and all-phase rider camera. Core/v1 rules and the 0.4.0/build 4 native identity remain unchanged. See the [current graphics checkpoint](Docs/Art/Reins-Premium-Graphics-Checkpoint.md) for actual checks and nine gameplay captures. This is not reference-quality acceptance, a new phone installation or measured mobile performance; natural horse/rider motion and the approved 0.5/v2 moving launch remain unfinished.
@@ -7,6 +9,10 @@ The current **premium-direction graphics SOURCE** adds photographic CC0 dirt/woo
 ## Approved remaining work
 
 [Reins Racing 0.5](Docs/Plan/Reins-Racing-0.5-Implementation.md) still needs to replace the stationary preview/three-tap gate with a four-second rider-view alley approach and one release at the third beep, loosen cadence/rein demands and complete one finished horse/rider/arena. The graphics checkpoint does not implement those v2 rules. Current controls below retain the 0.4 mechanics. See [the AI handoff](Barrel-Rivals-AI-Handoff.md) before continuing development.
+
+## MyStable and Gear in the current source
+
+From a ready or completed Reins run, choose **MY STABLE**. Drag Copper to rotate, open **GEAR**, select a style to preview and press **EQUIP GEAR** to save. **RIDE TO ARENA** returns with equipped saddle, pad and rein colors. An unequipped preview never changes racing gear. These six starter items are free cosmetic choices; they do not alter racing performance. Saves are local to this installation, with backup/session fallback. Open `Assets/_Project/Generated/ReinsLab/MyStable.unity` directly to inspect the stable in Unity. The current phone app does not include this source update yet.
 
 ## Play the v1 gameplay
 

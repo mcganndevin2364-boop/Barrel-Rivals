@@ -1,5 +1,7 @@
 # Copy this message to the next AI
 
+The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+
 Continue developing my game, **Barrel Rivals**, from the attached handoff/source bundle or this GitHub repository:
 
 https://github.com/mcganndevin2364-boop/Barrel-Rivals/tree/codex/m1-skill-loop

@@ -1,5 +1,7 @@
 # Barrel Rivals
 
+The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+
 An iOS/Android arcade barrel-racing game in development. The user has selected Reins Racing: continuous rein steering, cadence, close barrel turns, changing footing and a final drive. Classic is preserved as historical code/evidence; its player-facing route will be removed in the approved 0.5 update. Live turns with spectating, recorded challenges and simultaneous duels remain in scope, alongside ten horses, progression and a trusted economy.
 
 ## Current build

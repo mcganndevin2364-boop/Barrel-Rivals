@@ -24,6 +24,10 @@ namespace BarrelRivals.Practice
         [SerializeField] private ReinsMapGraphic map;
         [SerializeField] private Button begin,retry,surfaceButton,soundButton,cameraButton,classicButton,ghostButton;
         [SerializeField] private Material ghostMaterial;
+        [SerializeField] private Button stableButton;
+        public bool CanOpenStable => run!=null && (run.Phase==ReinsPhase.Ready || Terminal(run.Phase));
+        public void ConfigureStable(Button button) { stableButton=button; }
+        public void OpenStable() { if(CanOpenStable)SceneManager.LoadScene(StableController.SceneName); }
         private readonly Dictionary<ReinsPad,int> owners=new Dictionary<ReinsPad,int>();
         private readonly List<ReinsInput> recorded=new List<ReinsInput>();
         private readonly Dictionary<ReinsSurface,ReinsLabRecord> sessionBests=new Dictionary<ReinsSurface,ReinsLabRecord>();
@@ -78,6 +82,14 @@ namespace BarrelRivals.Practice
             riderCamera=rideCamera.GetComponent<RiderCameraRig>();
             if(!riderCamera)riderCamera=rideCamera.gameObject.AddComponent<RiderCameraRig>();
             riderCamera.Configure(horsePresentation,horse);
+            horse.GetComponent<StableAppearance>()?.Apply(StableSession.Store.Current);
+            // The seated rider occludes the saddle in first person. Keep its shadows; the ghost
+            // receives its own visible render state below, and the showroom retains the full tack.
+            var saddle=horse.GetComponentsInChildren<Transform>(true);
+            foreach(var part in saddle)if(part.name=="Western saddle")
+                foreach(var renderer in part.GetComponentsInChildren<Renderer>(true))
+                    renderer.shadowCastingMode=UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+            if(stableButton)stableButton.onClick.AddListener(OpenStable);
             CreateGhost();
             ResetRun();
         }
@@ -251,6 +263,7 @@ namespace BarrelRivals.Practice
         private void Present()
         {
             if(run==null || !HasBindings)return;
+            if(stableButton)stableButton.gameObject.SetActive(CanOpenStable);
             var screen=Screen.safeArea;
             if(Screen.width>0 && Screen.height>0){safeArea.anchorMin=new Vector2(screen.xMin/Screen.width,screen.yMin/Screen.height);safeArea.anchorMax=new Vector2(screen.xMax/Screen.width,screen.yMax/Screen.height);safeArea.offsetMin=safeArea.offsetMax=Vector2.zero;}
             bool ready=run.Phase==ReinsPhase.Ready,terminal=Terminal(run.Phase);

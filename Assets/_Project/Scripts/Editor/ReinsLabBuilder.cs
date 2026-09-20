@@ -50,6 +50,7 @@ namespace BarrelRivals.Editor
             for(int i=0;i<3;i++)CreateZones(barrels[i],i);
             ReinsPremiumArenaBuilder.Apply(camera,horse,barrels,patches);
             ReinsRiderTackBuilder.Build(horse);
+            StableTackBuilder.Build(horse);
             var canvas=new GameObject("Reins HUD",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
             canvas.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;
             var scaler=canvas.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1280,720);scaler.matchWidthOrHeight=.5f;
@@ -93,11 +94,13 @@ namespace BarrelRivals.Editor
             // Preserve the v1 navigation for this graphics checkpoint; startup changes ship with v2.
             var classic=Button(safe,"Classic practice","CLASSIC PRACTICE",new Vector2(1,0),new Vector2(-20,10),new Vector2(220,36),14,out _);
             Label(safe,"Practice status","FREE PRACTICE · LOCAL RECORDINGS",new Vector2(.5f,0),new Vector2(0,14),new Vector2(430,26),12,TextAnchor.MiddleCenter).color=new Color(.88f,.85f,.76f,.85f);
+            var stable=Button(safe,"MyStable","MY STABLE",new Vector2(1,0),new Vector2(-250,10),new Vector2(140,36),14,out _);
+            controller.ConfigureStable(stable);
             var ghostMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Generated/Practice/PersonalBestGhost.mat");
             controller.Configure(horse,barrels,camera,safe,new[]{title,hint,status,feedback,action,result,surfaceText,soundText,cameraText,ghostText},new[]{beat,lf,rf},resultGroup,map,new[]{start,retry,surface,sound,cameraMode,classic,ghost},ghostMaterial);
             EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene(PracticeBuilder.ScenePath,true),new EditorBuildSettingsScene(ScenePath,true),new EditorBuildSettingsScene(FoundationBuilder.ScenePath,true)};
             AssetDatabase.SaveAssets();EditorSceneManager.SaveScene(scene);
-            AddClassicNavigation();EditorSceneManager.OpenScene(ScenePath);Validate();
+            AddClassicNavigation();StableBuilder.Generate();EditorSceneManager.OpenScene(ScenePath);Validate();
             Debug.Log("BARREL_REINS: both practice modes generated, saved and reopened.");
         }
         private static void AddClassicNavigation()
@@ -144,7 +147,7 @@ namespace BarrelRivals.Editor
         private static void Build(BuildTarget target,string path)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
-            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{PracticeBuilder.ScenePath,ScenePath},locationPathName=path,target=target,options=BuildOptions.Development});
+            var report=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{PracticeBuilder.ScenePath,ScenePath,StableBuilder.ScenePath},locationPathName=path,target=target,options=BuildOptions.Development});
             Debug.Log($"BARREL_REINS: {target} build {report.summary.result}; errors={report.summary.totalErrors}.");if(report.summary.result!=BuildResult.Succeeded)throw new InvalidOperationException("Reins mobile build failed.");
         }
         private static void CreateZones(Transform barrel,int index)

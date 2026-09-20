@@ -1,5 +1,7 @@
 # Barrel Rivals — AI continuation handoff
 
+The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+
 September 20, 2026 · Gameplay revision 5 / engineering revision 6
 
 ## Start here
@@ -43,6 +45,7 @@ The older installed artifact uses procedural prototype art. The first graphics s
 | Historical Unity Editor | 77/77 tests passed for the prior 0.4 checkpoint; see that checkpoint's `Evidence/Reins-EditMode.xml` |
 | Historical Unity Play Mode | 8/8 passed for the prior 0.4 checkpoint; see that checkpoint's `Evidence/Reins-PlayMode.xml` |
 | Historical local HTTP verifier | 46/46 checks for the prior 0.4 checkpoint; see its `Tools/ReinsServerCheck/verification-evidence.json` |
+| MyStable/Gear source | 89/89 Editor and 17/17 Play Mode checks; .NET Standard Core compilation; real stable/gear captures. See the linked feature checkpoint for persistence/navigation checks and limits. No new native installation. |
 | Graphics source checkpoint | Scene generation/save/reopen passed; current test results and their exact source boundary are recorded in the linked graphics checkpoint. No new native/device qualification. |
 | Canonical replay | Unity/.NET agreement: 35,120 ms, zero knocks, 300 style points, 2,156 frames; v1 fixtures under `Contracts/Reins` |
 | iPhone | 0.4 compiled, signed, installed and version queried. See versioned export/native/artifact/device evidence. |

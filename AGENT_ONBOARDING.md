@@ -1,5 +1,7 @@
 # Barrel Rivals development onboarding
 
+The current source also includes **MyStable and Gear**: an interactive 3D stable, six original free starter cosmetics, preview/equip, device-only saved choices and a return-to-race flow using the equipped appearance. The user will supply MyStable/Gear-specific photos later; their exact layout is not yet known. Read [the feature checkpoint](Docs/Features/MyStable-and-Gear.md). This does not implement paid ownership, competitive upgrades, cloud progression, the ten-horse roster or a new phone installation.
+
 The user has selected **Reins Racing**, first-person throughout, with realistic arcade presentation and forgiving controls. Continue this repository. The current **premium-direction graphics SOURCE** adds photographic CC0 dirt/wood/metal/leather and dusk-sky assets, original arena structures/barrels/distant terrain, modeled foreground gloves/bridle/braided reins, and a smaller licensed-typeface HUD. It builds on the imported horse, three basic gait studies and all-phase rider camera. Core/v1 rules and the 0.4.0/build 4 native identity remain unchanged. See the [current graphics checkpoint](Docs/Art/Reins-Premium-Graphics-Checkpoint.md) for actual checks and nine gameplay captures. This is not reference-quality acceptance, a new phone installation or measured mobile performance; natural horse/rider motion and the approved 0.5/v2 moving launch remain unfinished.
 
 Read in this order:
