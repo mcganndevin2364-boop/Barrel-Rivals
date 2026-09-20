@@ -69,8 +69,10 @@ namespace BarrelRivals.Tests
         [Test] public void SavedSceneHasValidBindingsAndPersistentMaterials() => FoundationBuilder.Validate();
         [Test] public void EveryQualityTierUsesTheSavedPipeline()
         {
+            bool reinsEnabled=EditorBuildSettings.scenes.Any(s=>s.enabled && s.path==ReinsLabBuilder.ScenePath);
             bool practiceEnabled=EditorBuildSettings.scenes.Any(s=>s.enabled && s.path==PracticeBuilder.ScenePath);
-            string expectedPath=practiceEnabled ? PracticePresentationBuilder.Root+"/Practice mobile pipeline.asset" : FoundationBuilder.PipelinePath;
+            string expectedPath=reinsEnabled ? ReinsPremiumArenaBuilder.Root+"/Premium mobile pipeline.asset"
+                : practiceEnabled ? PracticePresentationBuilder.Root+"/Practice mobile pipeline.asset" : FoundationBuilder.PipelinePath;
             var pipeline=AssetDatabase.LoadAssetAtPath<RenderPipelineAsset>(expectedPath);
             Assert.IsNotNull(pipeline); Assert.AreEqual(pipeline,GraphicsSettings.defaultRenderPipeline);
             int previous=QualitySettings.GetQualityLevel();

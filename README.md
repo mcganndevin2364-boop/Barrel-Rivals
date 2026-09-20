@@ -10,6 +10,7 @@ An iOS/Android arcade barrel-racing game in development. The user has selected R
 - [Copyable message for another AI](CONTINUE-WITH-ANOTHER-AI.md)
 - [Approved Reins 0.5 launch and visual rebuild](Docs/Plan/Reins-Racing-0.5-Implementation.md)
 - [Classic controls and historical checkpoint](README-M1.md)
+- [Current graphics source and actual Unity captures](Docs/Art/Reins-Premium-Graphics-Checkpoint.md)
 - [Play Reins Lab and inspect the cross-stack prototype](README-Reins.md)
 - [All ten mechanics: stack contracts and delivery gates](Docs/Plan/Reins-Mechanics-Integration.md)
 - [iPhone export and test setup](README-iPhone.md)

@@ -1,10 +1,10 @@
 # Barrel Rivals — AI continuation handoff
 
-September 19, 2026 · Gameplay revision 5 / engineering revision 6
+September 20, 2026 · Gameplay revision 5 / engineering revision 6
 
 ## Start here
 
-Continue **Barrel Rivals**, an iOS/Android multiplayer arcade barrel-racing game being built by a solo creator with AI assistance. The user chose **Reins Racing** over Classic and supplied a realistic rider-view rodeo image as the target throughout gameplay. A new **reference-graphics SOURCE checkpoint** advances horse/arena/camera/HUD presentation while retaining 0.4/v1 gameplay. **It has no new native build or installation; the approved 0.5/v2 moving-alley launch and full horse/rider/visual milestone remain unfinished.**
+Continue **Barrel Rivals**, an iOS/Android multiplayer arcade barrel-racing game being built by a solo creator with AI assistance. The user chose **Reins Racing** over Classic and supplied a realistic rider-view rodeo image as the target throughout gameplay. The current **premium-direction graphics SOURCE checkpoint** adds photographed surfaces and dusk sky, original arena geometry, foreground hands/tack/reins and a compact licensed-font HUD while retaining 0.4/v1 gameplay. **It has no new native build or installation; the approved 0.5/v2 moving-alley launch and full horse/rider/visual milestone remain unfinished.**
 
 - Repository: [mcganndevin2364-boop/Barrel-Rivals](https://github.com/mcganndevin2364-boop/Barrel-Rivals).
 - Continuation branch: **`codex/m1-skill-loop`**. Do not start from the older `main` without checking the branch.
@@ -15,7 +15,7 @@ Continue **Barrel Rivals**, an iOS/Android multiplayer arcade barrel-racing game
 
 Read [AGENTS.md](AGENTS.md), [onboarding](AGENT_ONBOARDING.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 implementation plan](Docs/Plan/Reins-Racing-0.5-Implementation.md), [blueprint](Docs/Plan/Barrel-Rivals-Gameplay-Blueprint.md), [eight-category plan](Docs/Plan/Barrel-Rivals-8-Category-Build-Plan.md), and the affected S01–S53 cards in [the engineering playbook](Docs/Plan/Barrel-Rivals-Engineering-Playbook.md). Current design supersedes historical instructions that call Reins optional, require three gate taps or a third-person intro.
 
-Read the [graphics source checkpoint](Docs/Art/Reins-Reference-Graphics-Checkpoint.md) and [art provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) before changing presentation. Scene generation/save/reopen, 77 Editor tests and 13 Play Mode tests passed; five real Unity gameplay captures and the unchanged 35,120 ms replay result are recorded there, separately from the older installed build's evidence.
+Read the [graphics source checkpoint](Docs/Art/Reins-Premium-Graphics-Checkpoint.md) and [art provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) before changing presentation. The current checkpoint records its own final scene/test checks and nine real Unity gameplay captures, separately from the older installed build's evidence. The canonical v1 result remains 35,120 ms, zero knocks and 300 style.
 
 ## The user's decisions
 
@@ -34,7 +34,7 @@ The 0.4 build contains both Classic and the offline three-barrel Reins Lab. It s
 
 Implemented Reins connections include owned left/right rein drags, center cadence/300 ms Wrap, geometric barrel pockets/contact, five surfaces with six Mixed patches, ordered three-barrel completion, alternating final Drive, bounded default horse traits, results/retry and a validated local own-best ghost. Horse selection/learning/bond progression, opponent ghosts/gaps, actual streak rewards, multiplayer, accounts, trusted economy and cloud persistence are not implemented.
 
-The older installed artifact uses procedural prototype art. New graphics source imports a 19-bone CC0 horse with original first-pass Idle/Walk/Gallop studies; adds persistent URP materials, Linear/warm color treatment, original generated dirt and distant crowd impostors; and supplies first-person camera throughout all phases, reduced motion and a charcoal/gold HUD. Scene generation/save/reopen passed. The new source is not a new phone build. Finished natural gait/foot contact, rigged rider, western tack/hands/reins, full-reference appearance and measured device performance remain pending. Preserve the new art integration while completing those requirements.
+The older installed artifact uses procedural prototype art. The first graphics source imported a 19-bone CC0 horse with original first-pass Idle/Walk/Gallop studies; adds persistent URP materials, Linear/warm color treatment, original generated dirt and distant crowd impostors; and supplies first-person camera throughout all phases, reduced motion and a charcoal/gold HUD. Scene generation/save/reopen passed. The new source is not a new phone build. The newer source adds modeled gloves/sleeves, bridle and deforming braided reins, photographed material maps/dusk panorama, detailed arena meshes and licensed HUD fonts. These are foreground studies: finished natural gait/foot contact, a full rigged rider, convincing hair/anatomy/crowd depth, full-reference appearance and measured device performance remain pending. Preserve the new art integration while completing those requirements.
 
 ### Recorded evidence
 
@@ -60,8 +60,8 @@ Historical rows are previous observations, not checks rerun by the next model or
 |---|---|---|
 | A — Foundation & Infrastructure / 1–7 | Repaired Unity/package/URP setup; shared Core; tested local rules/input/storage; both native artifacts | v2 state/input/storage, production configuration, device quality tiers; cloud later |
 | B — Horse System / 8–15 | Bounded traits/movement plus newly imported 19-bone CC0 horse and three first-pass gait studies | Natural planted gaits, synchronized rider/tack and turn/brake animation; roster/progression later |
-| C — Arena & Environment / 16–22 | Course/surface rules; new persistent arena materials, generated dirt and distant crowd cards | Full arena quality, true alley geometry/collision, crowd-angle/tiling and mobile review |
-| D — Bodycam Graphics Engine / 23–28 | New all-phase first-person/reduced-motion camera, Linear/warm URP presentation | Finished rider hands/reins, camera/anatomy review and measured graphics profiles |
+| C — Arena & Environment / 16–22 | Course/surface rules; photographic PBR dirt/materials, modeled arena props, distant terrain and temporary crowd cards | Full arena quality, true alley geometry/collision, crowd-angle/tiling and mobile review |
+| D — Bodycam Graphics Engine / 23–28 | New all-phase first-person/reduced-motion camera, Linear/warm URP presentation | Refine modeled hands/reins and character anatomy; motion review and measured graphics profiles |
 | E — Gameplay Mechanics / 29–36 | Full offline Reins course with v1 gate/cadence/Wrap/Drive/timing | v2 walk/release/heartbeat handoff and forgiving input; keep geometric race authority |
 | F — Multiplayer & Competition / 37–41 | Local-only shared-Core verifier; networking scaffolding | After R2, M1N two-client authority/timing/failure proof; matchmaking and live modes later |
 | G — Progression & Economy / 42–47 | Definitions/scaffolding, no trusted ledger/store | Authenticated ownership, progression, economy balance and idempotent settlement after service proof |
@@ -76,7 +76,7 @@ The master status lists all 53 individually; retain their original numbers and s
 | Shared rules | `Packages/com.barrelrivals.core/Runtime/Reins`: contracts, `ReinsRun`, course judge and replay. Pure C#/.NET Standard 2.1; no Unity/network/database imports. |
 | Unity adapter | `Assets/_Project/Scripts/Practice/ReinsLab`: controller and input surfaces. Inputs become canonical 20 ms frames; presentation observes accepted state. |
 | Scene/build tooling | `Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs`; saved `Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity`. Builder owns generated content. |
-| Current horse/arena | `ReinsReferenceArtBuilder`, `ReinsHorsePresentation` and `RiderCameraRig` add the reference-directed art/camera; `PracticePresentationBuilder` still supplies arena scaffold. Authored FBX/maps live under `Assets/_Project/Art/Reins`. The new gait clips are integration studies, not production animation. |
+| Current horse/arena | `ReinsReferenceArtBuilder`, `ReinsHorsePresentation` and `RiderCameraRig` add the reference-directed art/camera; `ReinsPremiumArenaBuilder` supplies the new arena/PBR/sky; `ReinsRiderTackBuilder` and `ReinsRiderTackPresentation` supply the foreground hands and flexible reins. Authored FBX/maps live under `Assets/_Project/Art/Reins`. The new gait clips are integration studies, not production animation. |
 | Replay contracts | `Contracts/Reins`: v1 schemas, preview and complete fixtures, expected response/provenance. |
 | Local API proof | `Tools/ReinsServerCheck`: ASP.NET on loopback only; strict parsing, hashes and resimulation of the same Core. .NET 8 locally; .NET 10 production remains a proposal. |
 | Database | `Backend/Schema`: unapplied PostgreSQL design draft; no deployed DB/migrations. |
@@ -153,7 +153,7 @@ The original generated export under Documents stalled on a coordinated read. A t
 
 ## Art provenance and portability
 
-Read [Horse-and-Rider-Options](Docs/Art/Horse-and-Rider-Options.md), [reference graphics provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) and [Practice-Provenance](Docs/Art/Practice-Provenance.md). Existing prototype assets are original. The imported free horse comes from [Rigged Horse](https://opengameart.org/node/10771), with [download](https://opengameart.org/sites/default/files/riggedHorse.blend), CC0, 20,194,164 bytes, SHA-256 `9cca670b93a74d50e89263e50d55ab035a6c46aa7d2b21e354bdac6987037f4a`. This Blender 2.63-era file was opened with embedded scripts disabled and exported to project-owned FBX/maps. Inspection records 3,697 body vertices and 19 bones; three original first-pass gait studies were authored because source locomotion clips were absent. Production shape/skinning/gait/rider/device acceptance remains outstanding. The isolated original `.blend` stays outside the repository; verified URL/hash make it recoverable, while the exported assets are inside the project.
+Read [premium material provenance](Docs/Art/Reins-Premium-Materials-Provenance.md), the bundled font source/license records, [Horse-and-Rider-Options](Docs/Art/Horse-and-Rider-Options.md), [reference graphics provenance](Docs/Art/Reins-Reference-Graphics-Provenance.md) and [Practice-Provenance](Docs/Art/Practice-Provenance.md). Existing prototype assets are original. The imported free horse comes from [Rigged Horse](https://opengameart.org/node/10771), with [download](https://opengameart.org/sites/default/files/riggedHorse.blend), CC0, 20,194,164 bytes, SHA-256 `9cca670b93a74d50e89263e50d55ab035a6c46aa7d2b21e354bdac6987037f4a`. This Blender 2.63-era file was opened with embedded scripts disabled and exported to project-owned FBX/maps. Inspection records 3,697 body vertices and 19 bones; three original first-pass gait studies were authored because source locomotion clips were absent. Production shape/skinning/gait/rider/device acceptance remains outstanding. The isolated original `.blend` stays outside the repository; verified URL/hash make it recoverable, while the exported assets are inside the project.
 
 Blender **4.5.13 LTS Intel** ran from the official read-only mounted DMG for extraction with automatic scripts disabled. The provenance record pins its DMG hash and export script. Original dirt and crowd PNGs were generated using the built-in tool; their complete prompts/inspection limits are linked there. Quaternius remains a stylized fallback, not the chosen realistic art. Paid horse options remain historical comparisons only.
 

@@ -22,6 +22,7 @@ namespace BarrelRivals.Editor
         private static readonly Color Ink=new Color(.055f,.060f,.057f,.84f);
         private static readonly Color Gold=new Color(.83f,.69f,.43f,1);
         private static readonly Color Paper=new Color(.96f,.93f,.86f,1);
+        private const string FontRoot="Assets/_Project/Art/Reins/Premium/Fonts/";
         [MenuItem("Barrel Rivals/Setup Reins Lab")]
         public static void Generate()
         {
@@ -47,39 +48,46 @@ namespace BarrelRivals.Editor
             }
             controller.gameObject.AddComponent<ReinsFootingVisual>().Configure(patches);
             for(int i=0;i<3;i++)CreateZones(barrels[i],i);
+            ReinsPremiumArenaBuilder.Apply(camera,horse,barrels,patches);
+            ReinsRiderTackBuilder.Build(horse);
             var canvas=new GameObject("Reins HUD",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
             canvas.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;
             var scaler=canvas.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1280,720);scaler.matchWidthOrHeight=.5f;
             var safe=new GameObject("Safe area",typeof(RectTransform)).GetComponent<RectTransform>();safe.SetParent(canvas.transform,false);safe.anchorMin=Vector2.zero;safe.anchorMax=Vector2.one;safe.offsetMin=safe.offsetMax=Vector2.zero;
             // Dark, outlined cards keep the foreground visible while full-size invisible pads retain thumb reach.
-            var header=Panel(safe,"Course status",new Vector2(0,1),new Vector2(20,-14),new Vector2(644,76),Ink);
-            var title=Label(header,"Title","REINS RACING · PRACTICE",new Vector2(0,1),new Vector2(20,-8),new Vector2(606,32),27);
-            title.color=Paper;title.fontStyle=FontStyle.Bold;
-            var hint=Label(header,"Instruction","",new Vector2(0,0),new Vector2(20,9),new Vector2(606,26),16);
-            hint.resizeTextForBestFit=true;hint.resizeTextMinSize=13;hint.resizeTextMaxSize=16;
-            var stats=Panel(safe,"Race stats",new Vector2(1,1),new Vector2(-20,-14),new Vector2(376,76),Ink);
-            var status=Label(stats,"Timer","0.00s  ·  +0s   |   0 km/h",new Vector2(.5f,1),new Vector2(0,-9),new Vector2(348,32),23,TextAnchor.MiddleCenter);
-            status.fontStyle=FontStyle.Bold;status.resizeTextForBestFit=true;status.resizeTextMinSize=19;status.resizeTextMaxSize=23;
-            Label(stats,"Stat captions","TIME        /        PENALTY        /        SPEED",new Vector2(.5f,0),new Vector2(0,11),new Vector2(344,18),12,TextAnchor.MiddleCenter).color=new Color(.78f,.77f,.71f,1);
+            var header=Panel(safe,"Course status",new Vector2(0,1),new Vector2(20,-14),new Vector2(430,78),Ink);
+            var brand=Panel(header,"Barrel Rivals mark",new Vector2(0,1),new Vector2(14,-9),new Vector2(34,31),new Color(.15f,.125f,.080f,.64f));
+            var initials=Label(brand,"BR mark","BR",new Vector2(.5f,.5f),Vector2.zero,new Vector2(31,26),16,TextAnchor.MiddleCenter);
+            initials.font=HudFont("Cinzel-SemiBold.ttf");initials.color=Gold;
+            var title=Label(header,"Title","REINS RACING · PRACTICE",new Vector2(0,1),new Vector2(59,-5),new Vector2(357,35),26);
+            title.font=HudFont("Cinzel-SemiBold.ttf");title.color=Paper;
+            title.resizeTextForBestFit=true;title.resizeTextMinSize=18;title.resizeTextMaxSize=26;
+            var hint=Label(header,"Instruction","",new Vector2(0,1),new Vector2(16,-41),new Vector2(400,31),14);
+            hint.resizeTextForBestFit=true;hint.resizeTextMinSize=12;hint.resizeTextMaxSize=14;hint.lineSpacing=1.02f;
+            var stats=Panel(safe,"Race stats",new Vector2(1,1),new Vector2(-20,-14),new Vector2(300,78),Ink);
+            var status=Label(stats,"Timer","0.00s  ·  +0s   |   0 km/h",new Vector2(.5f,1),new Vector2(0,-8),new Vector2(274,35),22,TextAnchor.MiddleCenter);
+            status.font=HudFont("Lato-Bold.ttf");status.resizeTextForBestFit=true;status.resizeTextMinSize=17;status.resizeTextMaxSize=22;
+            Label(stats,"Stat captions","TIME          PENALTY          SPEED",new Vector2(.5f,0),new Vector2(0,13),new Vector2(273,18),11,TextAnchor.MiddleCenter).color=new Color(.78f,.77f,.71f,1);
             var left=ReinPad(safe,"Left rein","Left label",controller,ReinsPad.Left,new Vector2(0,0),new Vector2(20,54),out var lf);
             var right=ReinPad(safe,"Right rein","Right label",controller,ReinsPad.Right,new Vector2(1,0),new Vector2(-20,54),out var rf);
             var rhythm=Panel(safe,"Rhythm and wrap",new Vector2(.5f,0),new Vector2(0,47),new Vector2(358,150),Color.clear,false);
             rhythm.GetComponent<Image>().raycastTarget=true;rhythm.gameObject.AddComponent<ReinsInputSurface>().Configure(controller,ReinsPad.Rhythm);
-            var rhythmCard=Panel(rhythm,"Rhythm card",new Vector2(.5f,0),new Vector2(0,10),new Vector2(342,104),Ink);
-            var action=Label(rhythmCard,"Action","TAP THE BEAT",new Vector2(.5f,1),new Vector2(0,-10),new Vector2(316,57),18,TextAnchor.MiddleCenter);
-            action.fontStyle=FontStyle.Bold;
-            var beat=Fill(rhythmCard,"Beat",new Vector2(.5f,0),new Vector2(0,14),new Vector2(306,9));
-            var feedback=Label(safe,"Feedback","",new Vector2(.5f,0),new Vector2(0,207),new Vector2(646,48),20,TextAnchor.MiddleCenter);
+            var rhythmCard=Panel(rhythm,"Rhythm card",new Vector2(.5f,0),new Vector2(0,10),new Vector2(312,86),Ink);
+            var action=Label(rhythmCard,"Action","TAP THE BEAT",new Vector2(.5f,1),new Vector2(0,-8),new Vector2(286,47),16,TextAnchor.MiddleCenter);
+            action.font=HudFont("Lato-Bold.ttf");action.lineSpacing=1.1f;
+            var beat=Fill(rhythmCard,"Beat",new Vector2(.5f,0),new Vector2(0,13),new Vector2(280,7));
+            var feedback=Label(safe,"Feedback","",new Vector2(.5f,0),new Vector2(0,160),new Vector2(620,40),17,TextAnchor.MiddleCenter);
             feedback.color=Gold;var feedbackShadow=feedback.gameObject.AddComponent<Shadow>();feedbackShadow.effectColor=new Color(0,0,0,.8f);feedbackShadow.effectDistance=new Vector2(0,-1.5f);
-            var mapPanel=Panel(safe,"Course map",new Vector2(1,1),new Vector2(-20,-103),new Vector2(174,166),new Color(.045f,.053f,.050f,.78f));
+            var mapPanel=Panel(safe,"Course map",new Vector2(1,1),new Vector2(-20,-104),new Vector2(132,124),new Color(.045f,.053f,.050f,.70f));
             mapPanel.GetComponent<ReinsHudPanel>().ShowGrid=true;
             var mapObject=new GameObject("Route",typeof(RectTransform),typeof(ReinsMapGraphic));var mapRect=mapObject.GetComponent<RectTransform>();mapRect.SetParent(mapPanel,false);mapRect.anchorMin=Vector2.zero;mapRect.anchorMax=Vector2.one;mapRect.offsetMin=new Vector2(8,8);mapRect.offsetMax=new Vector2(-8,-8);var map=mapObject.GetComponent<ReinsMapGraphic>();map.raycastTarget=false;
-            var start=Button(safe,"Begin","BEGIN RUN",new Vector2(.5f,.5f),new Vector2(0,15),new Vector2(284,66),23,out _);
+            var start=Button(safe,"Begin","BEGIN RUN",new Vector2(.5f,.5f),new Vector2(0,15),new Vector2(250,58),22,out var startText);
+            startText.font=HudFont("Cinzel-SemiBold.ttf");
             var resultPanel=Panel(safe,"Run result",new Vector2(.5f,.5f),new Vector2(0,30),new Vector2(680,326),new Color(.035f,.041f,.038f,.97f));var resultGroup=resultPanel.gameObject.AddComponent<CanvasGroup>();
             var result=Label(resultPanel,"Result","",new Vector2(.5f,.5f),new Vector2(0,0),new Vector2(630,280),24,TextAnchor.MiddleCenter);
-            var retry=Button(safe,"Retry","RETRY SAME",new Vector2(0,1),new Vector2(20,-102),new Vector2(174,42),16,out _);
-            var surface=Button(safe,"Surface","DIRT: HARD PACK",new Vector2(0,1),new Vector2(204,-102),new Vector2(218,42),15,out var surfaceText);
-            var ghost=Button(safe,"Own ghost","OWN BEST: —",new Vector2(0,1),new Vector2(432,-102),new Vector2(202,42),15,out var ghostText);
+            var retry=Button(safe,"Retry","RETRY SAME",new Vector2(0,1),new Vector2(20,-102),new Vector2(126,38),13,out _);
+            var surface=Button(safe,"Surface","DIRT: HARD PACK",new Vector2(0,1),new Vector2(154,-102),new Vector2(156,38),13,out var surfaceText);
+            var ghost=Button(safe,"Own ghost","OWN BEST: —",new Vector2(0,1),new Vector2(318,-102),new Vector2(132,38),13,out var ghostText);
             var sound=Button(safe,"Sound","SOUND ON",new Vector2(0,0),new Vector2(20,10),new Vector2(144,36),14,out var soundText);
             var cameraMode=Button(safe,"Camera","BODYCAM",new Vector2(0,0),new Vector2(174,10),new Vector2(144,36),14,out var cameraText);
             // Preserve the v1 navigation for this graphics checkpoint; startup changes ship with v2.
@@ -155,12 +163,12 @@ namespace BarrelRivals.Editor
         {
             var hit=Panel(parent,name,anchor,position,new Vector2(280,258),Color.clear,false);
             hit.GetComponent<Image>().raycastTarget=true;hit.gameObject.AddComponent<ReinsInputSurface>().Configure(controller,pad);
-            var card=Panel(hit,"Rein card",new Vector2(anchor.x,0),new Vector2(0,8),new Vector2(234,176),new Color(.060f,.064f,.056f,.66f));
-            var label=Label(card,labelName,pad==ReinsPad.Left?"LEFT REIN\nDrag down to pull":"RIGHT REIN\nDrag down to pull",new Vector2(.5f,1),new Vector2(0,-10),new Vector2(218,50),18,TextAnchor.MiddleCenter);
-            label.lineSpacing=1.12f;
+            var card=Panel(hit,"Rein card",new Vector2(anchor.x,0),new Vector2(0,8),new Vector2(184,118),new Color(.050f,.055f,.048f,.68f));
+            var label=Label(card,labelName,pad==ReinsPad.Left?"LEFT REIN\nDrag down to pull":"RIGHT REIN\nDrag down to pull",new Vector2(.5f,1),new Vector2(0,-9),new Vector2(164,42),16,TextAnchor.MiddleCenter);
+            label.lineSpacing=1.08f;
             var glyphObject=new GameObject("Pull gesture",typeof(RectTransform),typeof(ReinsPullGlyph));var glyph=glyphObject.GetComponent<ReinsPullGlyph>();
-            var rect=glyphObject.GetComponent<RectTransform>();rect.SetParent(card,false);rect.anchorMin=rect.anchorMax=rect.pivot=new Vector2(.5f,.5f);rect.anchoredPosition=new Vector2(0,-8);rect.sizeDelta=new Vector2(108,62);glyph.color=Gold;glyph.raycastTarget=false;
-            tension=Fill(card,pad==ReinsPad.Left?"Left tension":"Right tension",new Vector2(.5f,0),new Vector2(0,15),new Vector2(200,6));
+            var rect=glyphObject.GetComponent<RectTransform>();rect.SetParent(card,false);rect.anchorMin=rect.anchorMax=rect.pivot=new Vector2(.5f,.5f);rect.anchoredPosition=new Vector2(0,-15);rect.sizeDelta=new Vector2(72,42);glyph.color=Gold;glyph.raycastTarget=false;
+            tension=Fill(card,pad==ReinsPad.Left?"Left tension":"Right tension",new Vector2(.5f,0),new Vector2(0,11),new Vector2(156,5));
             tension.color=new Color(.12f,.83f,.83f,1);
             return hit;
         }
@@ -175,9 +183,11 @@ namespace BarrelRivals.Editor
         private static Text Label(Transform parent,string name,string content,Vector2 anchor,Vector2 pos,Vector2 size,int fontSize,TextAnchor alignment=TextAnchor.MiddleLeft)
         {
             var go=new GameObject(name,typeof(RectTransform),typeof(Text));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=anchor;r.anchoredPosition=pos;r.sizeDelta=size;
-            var text=go.GetComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=fontSize;text.color=Paper;text.text=content;text.alignment=alignment;text.raycastTarget=false;
+            var text=go.GetComponent<Text>();text.font=HudFont("Lato-Regular.ttf");text.fontSize=fontSize;text.color=Paper;text.text=content;text.alignment=alignment;text.raycastTarget=false;
             return text;
         }
+        private static Font HudFont(string file)
+            =>AssetDatabase.LoadAssetAtPath<Font>(FontRoot+file)??Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         private static Button Button(Transform parent,string name,string content,Vector2 anchor,Vector2 pos,Vector2 size,int fontSize,out Text text)
         {
             var r=Panel(parent,name,anchor,pos,size,new Color(.06f,.065f,.057f,.88f));r.GetComponent<Image>().raycastTarget=true;

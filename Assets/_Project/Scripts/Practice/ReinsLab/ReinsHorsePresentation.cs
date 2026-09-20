@@ -44,6 +44,8 @@ namespace BarrelRivals.Practice
         public Vector3 SeatOffset => seatOffset;
         public float Speed => current.Speed;
         public float Turn => current.Turn;
+        public float LeftRein => current.LeftRein;
+        public float RightRein => current.RightRein;
         public bool HasSample => hasSample;
 
         /// <summary>Model must be a child containing art/bones only, with no gameplay colliders.</summary>

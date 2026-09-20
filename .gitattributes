@@ -15,6 +15,8 @@
 # Small verification screenshots are ordinary Git binaries, not LFS pointers.
 Evidence/*.png -filter -diff -merge -text
 
-# Reviewed original/CC0 reference art: each file is < 8 MiB; self-contained ordinary Git.
+# Reviewed original/CC0 reference art: each source file is < 10 MiB; self-contained ordinary Git.
 Assets/_Project/Art/Reins/**/*.png -filter -diff -merge -text
 Assets/_Project/Art/Reins/**/*.fbx -filter -diff -merge -text
+Assets/_Project/Art/Reins/**/*.jpg -filter -diff -merge -text
+Assets/_Project/Art/Reins/**/*.hdr -filter -diff -merge -text

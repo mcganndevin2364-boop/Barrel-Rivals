@@ -1,0 +1,41 @@
+{
+  "retrieved": "2026-09-19",
+  "modified": false,
+  "license": "SIL Open Font License 1.1; full notices included",
+  "stylesheets": [
+    "https://fonts.googleapis.com/css?family=Cinzel:600",
+    "https://fonts.googleapis.com/css?family=Lato:400,700"
+  ],
+  "files": [
+    {
+      "file": "Cinzel-SemiBold.ttf",
+      "source": "https://fonts.gstatic.com/s/cinzel/v26/8vIU7ww63mVu7gtR-kwKxNvkNOjw-gjgfY3lCA.ttf",
+      "sha256": "74611732b017d0a60b1dec355aa226a6ce7c359dc5cd34e2d16c7ef46b74b9ae",
+      "bytes": 33816
+    },
+    {
+      "file": "Lato-Regular.ttf",
+      "source": "https://fonts.gstatic.com/s/lato/v25/S6uyw4BMUTPHjx4wWw.ttf",
+      "sha256": "b6e055ad6056d64c89133fd73e9ee935c068d8bd3ac09366d5d99f9eee99e3f4",
+      "bytes": 60540
+    },
+    {
+      "file": "Lato-Bold.ttf",
+      "source": "https://fonts.gstatic.com/s/lato/v25/S6u9w4BMUTPHh6UVSwiPHA.ttf",
+      "sha256": "7e15d8482756e9d79c5b14dde8cd92256fd2afe0307703d825d4e8178d416c41",
+      "bytes": 59048
+    },
+    {
+      "file": "Cinzel-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/cinzel/OFL.txt",
+      "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+      "bytes": 4383
+    },
+    {
+      "file": "Lato-OFL.txt",
+      "source": "https://raw.githubusercontent.com/google/fonts/main/ofl/lato/OFL.txt",
+      "sha256": "74ba064d03f1f1c4a952da936c3eb71866c34404916734de3cae73b34357e59e",
+      "bytes": 4407
+    }
+  ]
+}

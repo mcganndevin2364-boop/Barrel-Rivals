@@ -120,7 +120,7 @@ namespace BarrelRivals.Practice
         {
             var pending=new List<MonoBehaviour>();
             foreach(var behaviour in ghost.GetComponentsInChildren<MonoBehaviour>(true))
-                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation))pending.Add(behaviour);
+                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation) && !(behaviour is ReinsRiderTackPresentation))pending.Add(behaviour);
             while(pending.Count>0)
             {
                 bool removed=false;
