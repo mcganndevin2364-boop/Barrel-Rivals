@@ -67,7 +67,7 @@ namespace BarrelRivals.Tests
                     {
                         Assert.That(normals[i].x,Is.GreaterThan(.05f),"Mane normals must face outward so lit strands do not shade as an inverted black sheet.");
                         var skin=surface.Side(point.y,point.z);
-                        Assert.That(point.x-skin.Point.x,Is.InRange(.001f,.040f),"Draped mane must clear the actual neck, not a stale world-space envelope.");
+                        Assert.That(point.x-skin.Point.x,Is.InRange(.001f,.040f),"Draped mane must clear actual skin: vertex "+i+", progress "+landmarks[i].y+", foundation "+savedMesh.uv3[i].x);
                     }
                 }
                 // Attached vertices alone do not prove a visible groom: a wide face
@@ -86,7 +86,7 @@ namespace BarrelRivals.Tests
                 }
                 Assert.That(crownFaces,Is.GreaterThan(100),"Check a real fitted crown, not only the hanging tips.");
             }
-            finally{EditorSceneManager.RestoreSceneManagerSetup(setup);}
+            finally{if(setup.Length>0)EditorSceneManager.RestoreSceneManagerSetup(setup);else EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);}
             // A stale native Mesh buffer can coexist with newly copied bounds metadata.
             // Compare the actual imported channel, without RecalculateBounds masking it.
             Assert.That(Vector3.Distance(minimum,savedMesh.bounds.min),Is.LessThan(.0001f),"Saved minimum disagrees with the persisted vertex buffer.");
@@ -118,6 +118,34 @@ namespace BarrelRivals.Tests
                 Assert.That(active,Is.InRange(1,2),"The mobile renderer uses two bone influences.");
             }
             Assert.That(used.Count(value=>value),Is.GreaterThanOrEqualTo(6),"Fitted roots retain torso, neck, head/ear and tail influences.");
+        }
+
+        [Test]
+        public void FoundationIsOneConnectedSurfaceWithoutInteriorCracksAndOtherLocksRemainUnmarked()
+        {
+            var marker=savedMesh.uv3;var vertices=savedMesh.vertices;var indices=savedMesh.triangles;
+            Assert.AreEqual(vertices.Length,marker.Length,"Foundation coverage must survive native mesh persistence.");
+            var marked=Enumerable.Range(0,vertices.Length).Where(i=>marker[i].x>.5f).ToArray();
+            Assert.That(marked.Length,Is.InRange(400,800));
+            var parent=Enumerable.Range(0,vertices.Length).ToArray();
+            var edges=new System.Collections.Generic.Dictionary<(int,int),int>();int faces=0;
+            int Find(int i){while(parent[i]!=i){parent[i]=parent[parent[i]];i=parent[i];}return i;}
+            for(int i=0;i<indices.Length;i+=3)
+            {
+                int count=Enumerable.Range(0,3).Count(k=>marker[indices[i+k]].x>.5f);
+                Assert.IsTrue(count==0 || count==3,"Coverage must never interpolate from foundation onto an unrelated lock.");
+                if(count==0)continue;faces++;
+                for(int k=0;k<3;k++)
+                {
+                    int a=indices[i+k],b=indices[i+(k+1)%3];parent[Find(a)]=Find(b);
+                    var key=a<b?(a,b):(b,a);edges[key]=edges.TryGetValue(key,out int n)?n+1:1;
+                    Assert.That(Vector3.Distance(vertices[a],vertices[b]),Is.LessThan(.08f),"Long chords could cut across the fitted neck: "+a+" to "+b);
+                }
+            }
+            Assert.AreEqual(1,marked.Select(Find).Distinct().Count(),"Dense mane must form one surface rather than disconnected overlapping cards.");
+            Assert.IsTrue(edges.Values.All(n=>n==1 || n==2));
+            Assert.AreEqual(1,marked.Length-edges.Count+faces,"A connected rectangular foundation must not contain interior holes.");
+            foreach(int i in marked)Assert.AreEqual(0,savedMesh.uv2[i].x,"Only the mane is covered; tail/forelock keep their original masks.");
         }
 
         private static bool Finite(float value)=>!float.IsNaN(value)&&!float.IsInfinity(value);

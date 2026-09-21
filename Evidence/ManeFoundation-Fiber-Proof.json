@@ -1,0 +1,37 @@
+{
+    "context": "Isolated actual saved materials; controlled tangent rotation, clipped gaps and back-face coverage. Not photographic or phone-performance acceptance.",
+    "layers": [
+        {
+            "layer": 0,
+            "coveredPixels": 18983,
+            "backCoveredPixels": 18983,
+            "changedPixels": 18983,
+            "foundationPixels": 36720,
+            "ghostFoundationPixels": 36720,
+            "alongEnergy": 4457496.0,
+            "acrossEnergy": 37686.0,
+            "activePasses": [
+                "FiberForward",
+                "ShadowCaster",
+                "DepthOnly",
+                "DepthNormals"
+            ]
+        },
+        {
+            "layer": 1,
+            "coveredPixels": 6482,
+            "backCoveredPixels": 6482,
+            "changedPixels": 6482,
+            "foundationPixels": 0,
+            "ghostFoundationPixels": 0,
+            "alongEnergy": 2532414.0,
+            "acrossEnergy": 89331.0,
+            "activePasses": [
+                "FiberForward",
+                "ShadowCaster",
+                "DepthOnly",
+                "DepthNormals"
+            ]
+        }
+    ]
+}

@@ -1,5 +1,7 @@
 # Barrel Rivals
 
+The [shared mane foundation checkpoint](Docs/Art/Reins-Mane-Foundation-Checkpoint.md) replaces overlapping dense strips with a continuous fitted crest and swept outer locks across racing, MyStable, the roster portrait and the personal ghost. Original atlases and all forelock/tail vertex channels are preserved. Hair is 2,827 vertices / 3,424 triangles in two slots; the full racing character is 83,634 triangles / 26 slots. Actual moving/gear checks are scoped evidence; photographic quality, natural actions, LODs and current-source phone qualification remain open.
+
 An iOS/Android arcade barrel-racing game in development. Current source configures **0.5.0/build 5**, rules **reins-v2**: first-person moving-alley hold/release, rein steering and heartbeat cadence, three legal turns, final Drive and local best replay. Reins and MyStable are the player scenes. Classic remains preserved source/history.
 
 MyStable/Tack/Rider Gear follows the warm stable, saddle-grid and glove-inspection reference with one horse and 20 free local cosmetic styles. Preview/equip/persistence are real; photographic art, the full roster, leveling, trusted economy and multiplayer remain unfinished. All three requested multiplayer experiences and the eight-category/53-section plan remain in scope.
@@ -18,7 +20,7 @@ Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests an
 
 Next: refine the representative moving horse/rider/arena benchmark and qualify the new mobile builds for real phone controls/audio/visuals/lifecycle and sustained performance. M1N authenticated continuous-input authority follows R2 acceptance. Continue `codex/m1-skill-loop`; main is historical. Free/original assets only, with no new paid service or purchase.
 
-Latest art-only source: [connected glove anatomy](Docs/Art/Reins-Glove-Anatomy-Checkpoint.md), with 140/140 Editor and 37/37 Play Mode checks. New actual race/stable/gear captures and moving studies use `GloveAnatomy-*`; all 515 earlier evidence records remain unchanged. The glove inspection is smaller and its anatomy is connected, but whole-character budgets and photographic quality remain unfinished. Phone installation/review is next; no new phone install is claimed.
+Earlier art-only source: [connected glove anatomy](Docs/Art/Reins-Glove-Anatomy-Checkpoint.md), with 140/140 Editor and 37/37 Play Mode checks. New actual race/stable/gear captures and moving studies use `GloveAnatomy-*`; all 515 earlier evidence records remain unchanged. The glove inspection is smaller and its anatomy is connected, but whole-character budgets and photographic quality remain unfinished. Phone installation/review is next; no new phone install is claimed.
 
 ## Development context
 

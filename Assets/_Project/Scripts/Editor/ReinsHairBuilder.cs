@@ -46,7 +46,10 @@ namespace BarrelRivals.Editor
             for(int i=0;i<2;i++)tailHelpers[i]=AddHelper(model,palette,motion,bones[tailTip],
                 model.InverseTransformPoint(bones[tailTip].position),Vector3.right,Vector3.forward,.6f,5.8f,3f,i*.85f);
             bones=palette.ToArray();
-            // The dense layer keeps coverage; outer locks use a cupped, rolling cross-section.
+            // A single smooth foundation replaces 34 independently edged undercoat cards.
+            // Its shared vertices provide a continuous crest and consistent curved normals.
+            AddManeFoundation(shape,surface,origin,maneHelpers);
+            // Outer locks retain their cupped, rolling cross-section.
             // Stagger their fitted crest roots and vary the flow along the neck, rather than
             // hanging every card in the same Z-width plane seen edge-on from the rider.
             for(int row=0;row<2;row++)for(int i=0;i<(row==0?34:26);i++)
@@ -63,15 +66,16 @@ namespace BarrelRivals.Editor
                 // Keep the same random draw count so the unmodified forelock/tail retain
                 // their previous authoring samples when only the mane is revised.
                 int bundle=random.Next(8);
-                float rootX=layer==0?-.055f:.009f+Mathf.Sin(wave+t*19)*.007f;
+                float rootX=layer==0?-.055f:-.009f+Mathf.Sin(wave+t*19)*.012f;
                 rootZ+=Mathf.Sin(t*11+layer*.9f)*.011f;
                 // One coherent groom flows toward the shoulder. Long-wave grouping
                 // makes overlapping locks, instead of independent diagonal comb teeth.
                 float flow=.8f*Mathf.Sin(t*7+.8f)+.2f*Mathf.Sin(wave);
                 float endSweep=length*Mathf.Lerp(-.48f,-.19f,flow*.5f+.5f)+(sweep-.045f)*.3f;
-                float bend=length*(.10f+.04f*Mathf.Sin(t*9+.7f));
+                float bend=-length*(.14f+.05f*Mathf.Sin(t*9+.7f));
                 float roll=16*Mathf.Sin(t*9+.8f)+6*Mathf.Sin(wave);
-                AddManeLock(shape,surface,rootX,rootZ,length,width,endSweep,bend,roll,loose,wave,helper,bundle,layer);
+                // Consume the same random sequence to preserve all outer/forelock/tail samples.
+                if(layer==1)AddManeLock(shape,surface,rootX,rootZ,length,width,endSweep,bend,roll,loose,wave,helper,bundle,layer);
             }
             // The poll/forehead is also sampled on actual skin; ear-base influences are retained.
             for(int i=0;i<10;i++)
@@ -105,7 +109,32 @@ namespace BarrelRivals.Editor
             var bounds=saved.bounds;bounds.Expand(.55f);skin.localBounds=bounds;
             go.AddComponent<ReinsHairMotion>().Configure(horse.GetComponent<ReinsHorsePresentation>(),model.GetComponentInChildren<Animator>(),motion.ToArray());
             AssetDatabase.SaveAssets();
-            Debug.Log("BARREL_HAIR: "+shape.CardCount+" fitted skinned cards, "+saved.vertexCount+" vertices, "+saved.triangles.Length/3+" triangles, two hair layers; neutral body "+surface.Bounds+"; tail anchor "+tailRoot);
+            Debug.Log("BARREL_HAIR: "+shape.CardCount+" fitted skinned groom surfaces, "+saved.vertexCount+" vertices, "+saved.triangles.Length/3+" triangles, two hair layers; neutral body "+surface.Bounds+"; tail anchor "+tailRoot);
+        }
+        private static void AddManeFoundation(Cards shape,ReinsHorseSurface surface,float origin,int[] helpers)
+        {
+            shape.AddFoundation((u,along)=>{
+                float z=origin+Mathf.Lerp(.08f,1.04f,along)-.085f*Mathf.SmoothStep(0,1,u)-.045f*Mathf.Sin(u*Mathf.PI);
+                float rootX=.008f+.012f*Mathf.Sin(along*13)*Mathf.Sin(along*Mathf.PI);
+                Vector3 point;BoneWeight weight;
+                if(u<=.25f)
+                {
+                    var crown=surface.Top(Mathf.Lerp(rootX,.11f,u/.25f),z);
+                    point=crown.Point+Vector3.up*.007f+Vector3.right*(.005f*u/.25f);
+                    weight=crown.Weight;
+                }
+                else
+                {
+                    float t=(u-.25f)/.75f;
+                    float length=(.24f-.052f*along)*(1+.075f*Mathf.Sin(along*13));
+                    float shoulderY=surface.Top(.11f,z).Point.y;
+                    var side=surface.Side(shoulderY-length*t,z);
+                    point=side.Point+Vector3.right*(.009f+.005f*t);
+                    weight=side.Weight;
+                }
+                int helper=helpers[Mathf.Min(helpers.Length-1,Mathf.FloorToInt(along*helpers.Length))];
+                return new ReinsHorseSurface.Hit(point,WithHelper(weight,helper,u,.42f));
+            },40,16);
         }
         private static void AddManeLock(Cards shape,ReinsHorseSurface surface,float rootX,float rootZ,
             float length,float width,float sweep,float bend,float roll,float loose,float wave,int helper,int bundle,int layer)
@@ -120,11 +149,11 @@ namespace BarrelRivals.Editor
                 float z=rootZ+sweep*Mathf.SmoothStep(0,1,u)+bend*Mathf.Sin(u*Mathf.PI);
                 var crest=surface.Top(rootX,z);
                 if(u<=.25f)
-                    centers[i]=surface.Top(Mathf.Lerp(rootX,.09f,u/.25f),z).Point;
+                    centers[i]=surface.Top(Mathf.Lerp(rootX,.11f,u/.25f),z).Point;
                 else
                 {
                     float drape=(u-.25f)/.75f;
-                    float shoulderY=surface.Top(.09f,z).Point.y;
+                    float shoulderY=surface.Top(.11f,z).Point.y;
                     centers[i]=surface.Side(shoulderY-length*drape*(.80f+.20f*drape),z).Point;
                 }
                 drops[i]=crest.Point.y-centers[i].y;
@@ -144,8 +173,8 @@ namespace BarrelRivals.Editor
                 {
                     // Sample every cross-section on the actual crown, including the
                     // center column. This is a surface arc, not an interpolation through skin.
-                    var crown=surface.Top(Mathf.Lerp(rootX,.09f,u/.25f),centers[ring].z+edge);
-                    var crownOffset=Vector3.up*(.009f+layer*.003f)+Vector3.right*(.005f*u/.25f);
+                    var crown=surface.Top(Mathf.Lerp(rootX,.11f,u/.25f),centers[ring].z+edge);
+                    var crownOffset=Vector3.up*(.007f+layer*.001f)+Vector3.right*(.005f*u/.25f);
                     return new ReinsHorseSurface.Hit(crown.Point+crownOffset,WithHelper(crown.Weight,helper,u,.62f));
                 }
                 var tangent=(centers[Mathf.Min(ring+1,segments)]-centers[ring-1]).normalized;
@@ -204,6 +233,7 @@ namespace BarrelRivals.Editor
             material.shader=shader;
             material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));material.SetColor("_BaseColor",dense?Color.white:new Color(.38f,.32f,.28f,1));
             material.SetFloat("_AlphaClip",1);material.SetFloat("_Cutoff",.36f);material.SetFloat("_Cull",0);
+            material.SetFloat("_FoundationCoverage",dense?1:0);
             material.SetFloat("_AlphaToMask",1);material.DisableKeyword("_ALPHATOMASK_ON");
             material.SetColor("_FiberTint",new Color(.80f,.80f,.78f));
             material.SetFloat("_PrimaryStrength",dense?.035f:.060f);material.SetFloat("_SecondaryStrength",dense?.015f:.028f);
@@ -216,7 +246,7 @@ namespace BarrelRivals.Editor
         private sealed class Cards
         {
             readonly List<Vector3> vertices=new List<Vector3>();readonly List<Vector2> uv=new List<Vector2>();
-            readonly List<Vector2> regions=new List<Vector2>();
+            readonly List<Vector2> regions=new List<Vector2>(),foundation=new List<Vector2>();
             readonly List<BoneWeight> weights=new List<BoneWeight>();readonly List<int>[] batches={new List<int>(),new List<int>()};
             public int CardCount{get;private set;}
             public void Add(Vector3 p0,Vector3 p1,Vector3 p2,Vector3 p3,Vector3 across,float width,int bundle,int segments,int tailBase,int tailTip,int helper,int layer)
@@ -240,8 +270,8 @@ namespace BarrelRivals.Editor
                         // narrow isolated tops made repeated bald notches at the crest.
                         float rootV=region==0 && layer==0?.80f:.976f;
                         uv.Add(new Vector2((bundle+Mathf.Lerp(.04f,.96f,side))/8f,Mathf.Lerp(rootV,.030f,t)));
-                        // Authoring landmarks retained for reload/attachment QA; shaders use UV0 only.
-                        regions.Add(new Vector2(region,t));
+                        // Region/progress and foundation markers persist for coverage and attachment QA.
+                        regions.Add(new Vector2(region,t));foundation.Add(Vector2.zero);
                     }
                     if(i==0)continue;
                     for(int column=0;column<acrossSegments;column++)
@@ -254,9 +284,24 @@ namespace BarrelRivals.Editor
                     }
                 }
             }
+            public void AddFoundation(Func<float,float,ReinsHorseSurface.Hit> point,int alongSegments,int downSegments)
+            {
+                int first=vertices.Count,stride=alongSegments+1;var indices=batches[0];CardCount++;
+                for(int row=0;row<=downSegments;row++)for(int col=0;col<=alongSegments;col++)
+                {
+                    float u=row/(float)downSegments,along=col/(float)alongSegments;
+                    var hit=point(u,along);vertices.Add(hit.Point);weights.Add(hit.Weight);
+                    uv.Add(new Vector2(Mathf.Lerp(.02f,.98f,along),Mathf.Lerp(.80f,.03f,u)));
+                    regions.Add(new Vector2(0,u));foundation.Add(Vector2.right);
+                    if(row==0 || col==0)continue;
+                    int a=first+(row-1)*stride+col-1;
+                    indices.Add(a);indices.Add(a+1);indices.Add(a+stride);
+                    indices.Add(a+1);indices.Add(a+stride+1);indices.Add(a+stride);
+                }
+            }
             public Mesh Mesh()
             {
-                var mesh=new Mesh();mesh.SetVertices(vertices);mesh.SetUVs(0,uv);mesh.SetUVs(1,regions);mesh.subMeshCount=2;for(int i=0;i<2;i++)mesh.SetTriangles(batches[i],i);mesh.boneWeights=weights.ToArray();
+                var mesh=new Mesh();mesh.SetVertices(vertices);mesh.SetUVs(0,uv);mesh.SetUVs(1,regions);mesh.SetUVs(2,foundation);mesh.subMeshCount=2;for(int i=0;i<2;i++)mesh.SetTriangles(batches[i],i);mesh.boneWeights=weights.ToArray();
                 mesh.RecalculateNormals();mesh.RecalculateTangents();mesh.RecalculateBounds();return mesh;
             }
         }

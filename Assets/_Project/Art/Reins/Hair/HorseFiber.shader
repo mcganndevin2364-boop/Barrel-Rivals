@@ -17,6 +17,7 @@ Shader "Barrel Rivals/Horse Fiber"
         _SecondaryShift("Broad tilt", Range(-.5,.5)) = -.16
         _Scatter("Edge transmission", Range(0,1)) = .28
         _RootShade("Root ambient visibility", Range(0,1)) = .68
+        _FoundationCoverage("Continuous mane foundation", Range(0,1)) = 0
     }
     SubShader
     {
@@ -24,6 +25,7 @@ Shader "Barrel Rivals/Horse Fiber"
         HLSLINCLUDE
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
         #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
+        #include "HorseHairCoverage.hlsl"
         TEXTURE2D(_BaseMap); SAMPLER(sampler_BaseMap);
         CBUFFER_START(UnityPerMaterial)
             float4 _BaseMap_ST;
@@ -31,7 +33,7 @@ Shader "Barrel Rivals/Horse Fiber"
             half4 _FiberTint;
             half _AlphaClip, _Cutoff, _Cull, _AlphaToMask;
             half _PrimaryStrength, _SecondaryStrength, _PrimaryExponent, _SecondaryExponent;
-            half _PrimaryShift, _SecondaryShift, _Scatter, _RootShade;
+            half _PrimaryShift, _SecondaryShift, _Scatter, _RootShade, _FoundationCoverage;
         CBUFFER_END
         struct Attributes
         {
@@ -40,6 +42,7 @@ Shader "Barrel Rivals/Horse Fiber"
             float4 tangentOS : TANGENT;
             float2 uv : TEXCOORD0;
             float2 attachment : TEXCOORD1;
+            float2 foundation : TEXCOORD2;
             UNITY_VERTEX_INPUT_INSTANCE_ID
         };
         struct Varyings
@@ -48,7 +51,7 @@ Shader "Barrel Rivals/Horse Fiber"
             float3 positionWS : TEXCOORD0;
             half3 normalWS : TEXCOORD1;
             half3 fiberWS : TEXCOORD2;
-            float3 uvProgress : TEXCOORD3;
+            float4 uvProgress : TEXCOORD3;
             half4 fogAndVertexLight : TEXCOORD4;
             UNITY_VERTEX_INPUT_INSTANCE_ID
             UNITY_VERTEX_OUTPUT_STEREO
@@ -66,16 +69,22 @@ Shader "Barrel Rivals/Horse Fiber"
             // Atlas V decreases from root to tip. U runs ACROSS each lock;
             // using mesh tangent alone would rotate the highlight by 90 degrees.
             output.fiberWS=-basis.bitangentWS;
-            output.uvProgress=float3(TRANSFORM_TEX(input.uv,_BaseMap),input.attachment.y);
+            output.uvProgress=float4(TRANSFORM_TEX(input.uv,_BaseMap),input.attachment.y,input.foundation.x);
             output.fogAndVertexLight.x=ComputeFogFactor(p.positionCS.z);
             #if defined(_ADDITIONAL_LIGHTS_VERTEX)
                 output.fogAndVertexLight.yzw=VertexLighting(p.positionWS,basis.normalWS);
             #endif
             return output;
         }
-        half4 ReadFiber(float2 uv)
+        half4 ReadFiber(float4 uvProgress)
         {
-            half4 sample=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,uv);
+            half4 sample=SAMPLE_TEXTURE2D(_BaseMap,sampler_BaseMap,uvProgress.xy);
+            half foundation=saturate(uvProgress.w*_FoundationCoverage);
+            sample.a=HorseHairCoverage(sample.a,uvProgress.z,uvProgress.w,_FoundationCoverage);
+            // Transparent atlas gutters contain no reliable reflectance. Keep the
+            // newly covered foundation near the atlas’s dark tenth-percentile color.
+            // A brighter floor erases most strand variation and reads as a flat sheet.
+            sample.rgb=max(sample.rgb,half3(.0075h,.0056h,.0052h)*foundation);
             // Coverage is an atlas property; tint never changes the strand silhouette.
             clip(sample.a-_Cutoff);
             return sample;
@@ -126,7 +135,7 @@ Shader "Barrel Rivals/Horse Fiber"
             {
                 UNITY_SETUP_INSTANCE_ID(input);
                 UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-                half4 texel=ReadFiber(input.uvProgress.xy);
+                half4 texel=ReadFiber(input.uvProgress);
                 half3 normal=NormalizeNormalPerPixel(input.normalWS)*IS_FRONT_VFACE(frontFace,1,-1);
                 half3 fiber=SafeNormalize(input.fiberWS);
                 half3 view=GetWorldSpaceNormalizeViewDir(input.positionWS);
@@ -177,7 +186,7 @@ Shader "Barrel Rivals/Horse Fiber"
                 return output;
             }
             half4 FiberShadowFragment(Varyings input) : SV_Target
-            { ReadFiber(input.uvProgress.xy);return 0; }
+            { ReadFiber(input.uvProgress);return 0; }
             ENDHLSL
         }
         Pass
@@ -192,7 +201,7 @@ Shader "Barrel Rivals/Horse Fiber"
             #pragma fragment FiberDepthFragment
             #pragma multi_compile_instancing
             half4 FiberDepthFragment(Varyings input) : SV_Target
-            { ReadFiber(input.uvProgress.xy);return input.positionCS.z; }
+            { ReadFiber(input.uvProgress);return input.positionCS.z; }
             ENDHLSL
         }
         Pass
@@ -209,7 +218,7 @@ Shader "Barrel Rivals/Horse Fiber"
             #pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
             half4 FiberNormalsFragment(Varyings input,FRONT_FACE_TYPE frontFace : FRONT_FACE_SEMANTIC) : SV_Target
             {
-                ReadFiber(input.uvProgress.xy);
+                ReadFiber(input.uvProgress);
                 half3 normal=NormalizeNormalPerPixel(input.normalWS)*IS_FRONT_VFACE(frontFace,1,-1);
                 #if defined(_GBUFFER_NORMALS_OCT)
                     float2 oct=PackNormalOctQuadEncode(normal);

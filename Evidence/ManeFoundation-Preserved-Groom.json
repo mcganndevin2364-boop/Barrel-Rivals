@@ -1,0 +1,19 @@
+{
+  "preservedForelockTailVertices": 1428,
+  "maximumChannelDelta": {
+    "position": 0.0,
+    "normal": 0.0,
+    "tangent": 0.0,
+    "uv": 0.0,
+    "regionProgress": 0.0,
+    "weight": 0.0,
+    "boneIndex": 0
+  },
+  "originalAtlasSha256": {
+    "Original natural strand atlas.png": "76d95b131e996f01fac36ea5a8b6df0dd0ac04184944116e29c3716650158a21",
+    "Original separated strand atlas.png": "7e9ffd61284340429ca8fae65ab6cde07ac515953a4f921fd2fd7efa69e1f236"
+  },
+  "priorVertices": 3048,
+  "currentVertices": 2827,
+  "scope": "Persisted forelock/tail channels and source PNG conservation; changed mane is reviewed separately."
+}

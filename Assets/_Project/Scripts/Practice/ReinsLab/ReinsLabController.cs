@@ -170,6 +170,7 @@ namespace BarrelRivals.Practice
                             copy.SetTextureOffset("_BaseMap",original.GetTextureOffset("_BaseMap"));
                             copy.SetFloat("_AlphaClip",1);
                             copy.SetFloat("_Cutoff",original.GetFloat("_Cutoff"));
+                            copy.SetFloat("_FoundationCoverage",original.HasProperty("_FoundationCoverage")?original.GetFloat("_FoundationCoverage"):0);
                             copy.SetFloat("_Cull",original.HasProperty("_Cull")?original.GetFloat("_Cull"):0);
                             copy.SetColor("_BaseColor",tint && tint.HasProperty("_BaseColor")?tint.GetColor("_BaseColor"):Color.white);
                             hairCopies.Add(original,copy);

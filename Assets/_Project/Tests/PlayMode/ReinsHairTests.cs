@@ -55,6 +55,7 @@ namespace BarrelRivals.Tests
             var originals=player.sharedMaterials;
             var maps=originals.Select(m=>m.GetTexture("_BaseMap")).ToArray();
             var cutoffs=originals.Select(m=>m.GetFloat("_Cutoff")).ToArray();
+            var foundations=originals.Select(m=>m.GetFloat("_FoundationCoverage")).ToArray();
             var colors=originals.Select(m=>m.GetColor("_BaseColor")).ToArray();
             var scales=originals.Select(m=>m.GetTextureScale("_BaseMap")).ToArray();
             var offsets=originals.Select(m=>m.GetTextureOffset("_BaseMap")).ToArray();
@@ -77,6 +78,7 @@ namespace BarrelRivals.Tests
                     Assert.AreEqual("Barrel Rivals/Reins Ghost Hair",copies[i].shader.name);
                     Assert.AreSame(maps[i],copies[i].GetTexture("_BaseMap"),"Each submesh must retain its own alpha atlas.");
                     Assert.AreEqual(cutoffs[i],copies[i].GetFloat("_Cutoff"),.00001f);
+                    Assert.AreEqual(foundations[i],copies[i].GetFloat("_FoundationCoverage"),.00001f);
                     Assert.AreEqual(culls[i],copies[i].GetFloat("_Cull"),.00001f);
                     Assert.AreEqual(1,copies[i].GetFloat("_AlphaClip"),.00001f);
                     Assert.That(Vector2.Distance(scales[i],copies[i].GetTextureScale("_BaseMap")),Is.LessThan(.00001f));
@@ -85,6 +87,7 @@ namespace BarrelRivals.Tests
 
                 var otherColor=copies[1].GetColor("_BaseColor");
                 copies[0].SetFloat("_Cutoff",Mathf.Clamp01(cutoffs[0]+.1f));
+                copies[0].SetFloat("_FoundationCoverage",.17f);
                 copies[0].SetColor("_BaseColor",Color.magenta);
                 copies[0].SetTextureOffset("_BaseMap",offsets[0]+new Vector2(.013f,.027f));
                 Assert.AreEqual(cutoffs[1],copies[1].GetFloat("_Cutoff"),.00001f,"Changing one ghost layer must not alter the other.");
@@ -94,6 +97,7 @@ namespace BarrelRivals.Tests
                     Assert.AreSame(originals[i],player.sharedMaterials[i]);
                     Assert.AreSame(maps[i],originals[i].GetTexture("_BaseMap"));
                     Assert.AreEqual(cutoffs[i],originals[i].GetFloat("_Cutoff"),.00001f);
+                    Assert.AreEqual(foundations[i],originals[i].GetFloat("_FoundationCoverage"),.00001f);
                     Assert.AreEqual(culls[i],originals[i].GetFloat("_Cull"),.00001f);
                     Assert.That(Vector2.Distance(scales[i],originals[i].GetTextureScale("_BaseMap")),Is.LessThan(.00001f));
                     Assert.That(Vector2.Distance(offsets[i],originals[i].GetTextureOffset("_BaseMap")),Is.LessThan(.00001f));

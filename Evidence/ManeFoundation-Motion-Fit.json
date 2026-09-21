@@ -1,0 +1,8 @@
+{
+    "poses": 32,
+    "samples": 5600,
+    "minimumClearanceM": 0.006921172142028809,
+    "maximumClearanceM": 0.038674354553222656,
+    "vertexTravelM": 0.15289930999279022,
+    "scope": "Sampled vertices/cross-sections over four speeds/eight phases; no continuous collision, natural-motion or phone performance claim."
+}

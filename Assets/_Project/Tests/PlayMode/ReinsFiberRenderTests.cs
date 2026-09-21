@@ -117,8 +117,29 @@ namespace BarrelRivals.Tests
                     var passes=Enumerable.Range(0,material.passCount).Select(material.GetPassName).ToArray();
                     foreach(string pass in new[]{"FiberForward","ShadowCaster","DepthOnly","DepthNormals"})
                         Assert.IsTrue(passes.Any(p=>string.Equals(p,pass,StringComparison.OrdinalIgnoreCase)),pass+": "+string.Join(",",passes));
+                    int foundationPixels=0,ghostFoundationPixels=0;
+                    if(layer==0)
+                    {
+                        mesh.uv3=Enumerable.Repeat(Vector2.right,4).ToArray();
+                        mesh.uv2=Enumerable.Repeat(Vector2.zero,4).ToArray();
+                        var root=Capture(new Vector4(1,0,0,-1),"continuous-foundation");
+                        foundationPixels=root.Count(p=>p.a>0);
+                        Assert.Greater(foundationPixels,visible+1500,"The dense crest must close the old atlas gutters.");
+                        mesh.uv2=Enumerable.Repeat(Vector2.up,4).ToArray();
+                        var tip=Capture(new Vector4(1,0,0,-1),"foundation-loose-tip");
+                        Assert.That(Math.Abs(tip.Count(p=>p.a>127)-visible),Is.LessThan(12),"The lower edge must retain the atlas cutout.");
+                        var ghost=new Material(Resources.Load<Shader>("ReinsGhostHair"));copies.Add(ghost);
+                        ghost.SetTexture("_BaseMap",material.GetTexture("_BaseMap"));ghost.SetFloat("_Cutoff",material.GetFloat("_Cutoff"));
+                        ghost.SetFloat("_FoundationCoverage",1);ghost.SetColor("_BaseColor",new Color(1,1,1,.28f));
+                        renderer.sharedMaterial=ghost;mesh.uv2=Enumerable.Repeat(Vector2.zero,4).ToArray();
+                        var ghostRoot=Capture(new Vector4(1,0,0,-1),"ghost-foundation");ghostFoundationPixels=ghostRoot.Count(p=>p.a>0);
+                        Assert.That(Math.Abs(ghostFoundationPixels-foundationPixels),Is.LessThan(12),"Ghost coverage must match the solid crest before applying its lower opacity.");
+                        for(int i=0;i<root.Length;i++)Assert.AreEqual(root[i].a>0,ghostRoot[i].a>0,"The ghost must not reopen filled root gaps.");
+                        mesh.uv3=Enumerable.Repeat(Vector2.zero,4).ToArray();mesh.uv2=Enumerable.Repeat(new Vector2(0,.7f),4).ToArray();
+                        renderer.sharedMaterial=material;
+                    }
                     records.Add(new LayerProof{layer=layer,coveredPixels=visible,backCoveredPixels=backVisible,changedPixels=changed,
-                        alongEnergy=alongEnergy,acrossEnergy=acrossEnergy,activePasses=passes});
+                        alongEnergy=alongEnergy,acrossEnergy=acrossEnergy,activePasses=passes,foundationPixels=foundationPixels,ghostFoundationPixels=ghostFoundationPixels});
                 }
                 if(!string.IsNullOrEmpty(output))File.WriteAllText(Path.Combine(output,"render-proof.json"),JsonUtility.ToJson(new Proof{layers=records.ToArray()},true)+"\n");
                 LogAssert.NoUnexpectedReceived();
@@ -139,6 +160,6 @@ namespace BarrelRivals.Tests
             public LayerProof[] layers;
         }
         [Serializable] private sealed class LayerProof
-        {public int layer,coveredPixels,backCoveredPixels,changedPixels;public double alongEnergy,acrossEnergy;public string[] activePasses;}
+        {public int layer,coveredPixels,backCoveredPixels,changedPixels,foundationPixels,ghostFoundationPixels;public double alongEnergy,acrossEnergy;public string[] activePasses;}
     }
 }

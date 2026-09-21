@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+The [shared mane foundation checkpoint](../Art/Reins-Mane-Foundation-Checkpoint.md) replaces overlapping dense strips with a continuous fitted crest and swept outer locks across racing, MyStable, the roster portrait and the personal ghost. Original atlases and all forelock/tail vertex channels are preserved. Hair is 2,827 vertices / 3,424 triangles in two slots; the full racing character is 83,634 triangles / 26 slots. Actual moving/gear checks are scoped evidence; photographic quality, natural actions, LODs and current-source phone qualification remain open.
+
 The [shared glove construction checkpoint](../Art/Reins-Glove-Tailoring-Checkpoint.md) adds fitted leather panels, ribs, a stitched cuff and fixed-color thread to both actual riding hands and Rider Gear, including all six item thumbnails. One opaque material per glove retains the existing renderer/slot count and shared maps. Source anatomy, rein clearance and equipment behavior remain intact. Geometry increases; photographic quality, finger articulation, LODs and phone qualification remain open.
 
 Latest art-only revision: [mane crown/coverage checkpoint](../Art/Reins-Mane-Flow-Checkpoint.md). The same horse has fuller fitted hair in stable/racing/ghost; current captures and 135 Editor / 32 Play Mode checks use ManeFlow-*. Existing 20 cosmetics and feature contracts remain unchanged. Reference-quality art and progression are still unfinished.
