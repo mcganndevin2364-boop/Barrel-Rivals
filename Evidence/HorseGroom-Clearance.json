@@ -1,0 +1,910 @@
+{
+  "scope": "Diagnostic signed nearest-surface distances at hair vertices and triangle centers over 113 full-cycle poses. Not a continuous collision proof.",
+  "poses": [
+    {
+      "frame": 1.0,
+      "minimumSignedDistanceM": -0.00027648627292364836,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002415468127231311,
+      "rootMaxM": 0.007006659886765478,
+      "minimumGroomHeightM": 0.12651902437210083
+    },
+    {
+      "frame": 1.25,
+      "minimumSignedDistanceM": -0.00028069653490092605,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024263051597682808,
+      "rootMaxM": 0.007006403437418376,
+      "minimumGroomHeightM": 0.12665362656116486
+    },
+    {
+      "frame": 1.5,
+      "minimumSignedDistanceM": -0.00028473212296376005,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002437619232825003,
+      "rootMaxM": 0.007006365338353268,
+      "minimumGroomHeightM": 0.12669780850410461
+    },
+    {
+      "frame": 1.75,
+      "minimumSignedDistanceM": -0.0002886112342821434,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024489695748622564,
+      "rootMaxM": 0.0070061721625201264,
+      "minimumGroomHeightM": 0.1266515851020813
+    },
+    {
+      "frame": 2.0,
+      "minimumSignedDistanceM": -0.00029256549169076607,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002460784093935976,
+      "rootMaxM": 0.007006053463429756,
+      "minimumGroomHeightM": 0.12651598453521729
+    },
+    {
+      "frame": 2.25,
+      "minimumSignedDistanceM": -0.00029629477648995817,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002472724808235094,
+      "rootMaxM": 0.0070059306081590115,
+      "minimumGroomHeightM": 0.1262928545475006
+    },
+    {
+      "frame": 2.5,
+      "minimumSignedDistanceM": -0.00029973774508107454,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002484781102409396,
+      "rootMaxM": 0.00700572658024262,
+      "minimumGroomHeightM": 0.12598572671413422
+    },
+    {
+      "frame": 2.75,
+      "minimumSignedDistanceM": -0.0003029670115211047,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002485641240659399,
+      "rootMaxM": 0.007005596660062036,
+      "minimumGroomHeightM": 0.12559828162193298
+    },
+    {
+      "frame": 3.0,
+      "minimumSignedDistanceM": -0.00030574666743632406,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002483703835698913,
+      "rootMaxM": 0.0070053830151559264,
+      "minimumGroomHeightM": 0.12513646483421326
+    },
+    {
+      "frame": 3.25,
+      "minimumSignedDistanceM": -0.00030820531537756324,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024787659481321665,
+      "rootMaxM": 0.007005207193412297,
+      "minimumGroomHeightM": 0.12460540980100632
+    },
+    {
+      "frame": 3.5,
+      "minimumSignedDistanceM": -0.00031049962854012847,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024736929178067408,
+      "rootMaxM": 0.007005154790084041,
+      "minimumGroomHeightM": 0.12401291728019714
+    },
+    {
+      "frame": 3.75,
+      "minimumSignedDistanceM": -0.0003120743276667781,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024673472806560114,
+      "rootMaxM": 0.007004919221813934,
+      "minimumGroomHeightM": 0.12336600571870804
+    },
+    {
+      "frame": 4.0,
+      "minimumSignedDistanceM": -0.0003133336140308529,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002460618278572915,
+      "rootMaxM": 0.007004785083120737,
+      "minimumGroomHeightM": 0.12267325073480606
+    },
+    {
+      "frame": 4.25,
+      "minimumSignedDistanceM": -0.00031415986450156197,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024542123770365273,
+      "rootMaxM": 0.007004642648225183,
+      "minimumGroomHeightM": 0.12194395810365677
+    },
+    {
+      "frame": 4.5,
+      "minimumSignedDistanceM": -0.0003143663125229068,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002447807255638672,
+      "rootMaxM": 0.007004332611847241,
+      "minimumGroomHeightM": 0.12118682265281677
+    },
+    {
+      "frame": 4.75,
+      "minimumSignedDistanceM": -0.0003142950517940335,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024417078867482456,
+      "rootMaxM": 0.007004169813719688,
+      "minimumGroomHeightM": 0.12041207402944565
+    },
+    {
+      "frame": 5.0,
+      "minimumSignedDistanceM": -0.00031366774783236906,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002436006103922852,
+      "rootMaxM": 0.007004060365154528,
+      "minimumGroomHeightM": 0.119629867374897
+    },
+    {
+      "frame": 5.25,
+      "minimumSignedDistanceM": -0.0003125657240161672,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024304787548540944,
+      "rootMaxM": 0.007003828185048162,
+      "minimumGroomHeightM": 0.11884896457195282
+    },
+    {
+      "frame": 5.5,
+      "minimumSignedDistanceM": -0.0003110429097432643,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002425542974853419,
+      "rootMaxM": 0.0070035768264730845,
+      "minimumGroomHeightM": 0.11808060109615326
+    },
+    {
+      "frame": 5.75,
+      "minimumSignedDistanceM": -0.0003091977268923074,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024209800175755947,
+      "rootMaxM": 0.007003498276082841,
+      "minimumGroomHeightM": 0.11733338236808777
+    },
+    {
+      "frame": 6.0,
+      "minimumSignedDistanceM": -0.00030661798518849537,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024168847918620367,
+      "rootMaxM": 0.007003259389176407,
+      "minimumGroomHeightM": 0.11661767214536667
+    },
+    {
+      "frame": 6.25,
+      "minimumSignedDistanceM": -0.0003038641225430183,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024134625345448536,
+      "rootMaxM": 0.0070030402670708935,
+      "minimumGroomHeightM": 0.11594193428754807
+    },
+    {
+      "frame": 6.5,
+      "minimumSignedDistanceM": -0.0003008840067195706,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024106025148731202,
+      "rootMaxM": 0.007002858688254143,
+      "minimumGroomHeightM": 0.11531466990709305
+    },
+    {
+      "frame": 6.75,
+      "minimumSignedDistanceM": -0.00029754400748061016,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002408403636359382,
+      "rootMaxM": 0.007002611694543568,
+      "minimumGroomHeightM": 0.11474443972110748
+    },
+    {
+      "frame": 7.0,
+      "minimumSignedDistanceM": -0.00029399256891338155,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024068603424602236,
+      "rootMaxM": 0.007002432523678908,
+      "minimumGroomHeightM": 0.11423744261264801
+    },
+    {
+      "frame": 7.25,
+      "minimumSignedDistanceM": -0.0002901155676227063,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002406279441557908,
+      "rootMaxM": 0.007002221785859749,
+      "minimumGroomHeightM": 0.11380039900541306
+    },
+    {
+      "frame": 7.5,
+      "minimumSignedDistanceM": -0.00028633774491027,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024063392895573984,
+      "rootMaxM": 0.007001996039329467,
+      "minimumGroomHeightM": 0.1134389191865921
+    },
+    {
+      "frame": 7.75,
+      "minimumSignedDistanceM": -0.000282125489320606,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024074901556925665,
+      "rootMaxM": 0.007001821593843746,
+      "minimumGroomHeightM": 0.1131570041179657
+    },
+    {
+      "frame": 8.0,
+      "minimumSignedDistanceM": -0.0002780422364594415,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024101570364497104,
+      "rootMaxM": 0.007001665313365845,
+      "minimumGroomHeightM": 0.11295798420906067
+    },
+    {
+      "frame": 8.25,
+      "minimumSignedDistanceM": -0.0002739978954195976,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002413579611888115,
+      "rootMaxM": 0.0070014270134258795,
+      "minimumGroomHeightM": 0.11284485459327698
+    },
+    {
+      "frame": 8.5,
+      "minimumSignedDistanceM": -0.00026999585679732263,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002396243954993936,
+      "rootMaxM": 0.007001220921927897,
+      "minimumGroomHeightM": 0.11281812191009521
+    },
+    {
+      "frame": 8.75,
+      "minimumSignedDistanceM": -0.00026600927230902016,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023768776466774797,
+      "rootMaxM": 0.007001002580430955,
+      "minimumGroomHeightM": 0.11287788301706314
+    },
+    {
+      "frame": 9.0,
+      "minimumSignedDistanceM": -0.0002622635511215776,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002359171850901238,
+      "rootMaxM": 0.007000843829578672,
+      "minimumGroomHeightM": 0.11302393674850464
+    },
+    {
+      "frame": 9.25,
+      "minimumSignedDistanceM": -0.0002588073693914339,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023433927940799694,
+      "rootMaxM": 0.007000475389014756,
+      "minimumGroomHeightM": 0.11325369775295258
+    },
+    {
+      "frame": 9.5,
+      "minimumSignedDistanceM": -0.0002552413716330193,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023295532994461908,
+      "rootMaxM": 0.007000370088880282,
+      "minimumGroomHeightM": 0.11356354504823685
+    },
+    {
+      "frame": 9.75,
+      "minimumSignedDistanceM": -0.0002522635149944108,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023178226573490556,
+      "rootMaxM": 0.007000368497348517,
+      "minimumGroomHeightM": 0.11395030468702316
+    },
+    {
+      "frame": 10.0,
+      "minimumSignedDistanceM": -0.00024955434855655767,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002308296998574996,
+      "rootMaxM": 0.007000917083411265,
+      "minimumGroomHeightM": 0.11440802365541458
+    },
+    {
+      "frame": 10.25,
+      "minimumSignedDistanceM": -0.00024701780421310104,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002301252041143982,
+      "rootMaxM": 0.007001635566909851,
+      "minimumGroomHeightM": 0.11493077874183655
+    },
+    {
+      "frame": 10.5,
+      "minimumSignedDistanceM": -0.00024511630545021035,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022966530441172702,
+      "rootMaxM": 0.007002325077407652,
+      "minimumGroomHeightM": 0.11551201343536377
+    },
+    {
+      "frame": 10.75,
+      "minimumSignedDistanceM": -0.00024352885156986304,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022944924188211483,
+      "rootMaxM": 0.0070027052557600855,
+      "minimumGroomHeightM": 0.11614331603050232
+    },
+    {
+      "frame": 11.0,
+      "minimumSignedDistanceM": -0.00024243033840321004,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002294877743756404,
+      "rootMaxM": 0.007003318819467903,
+      "minimumGroomHeightM": 0.11681728065013885
+    },
+    {
+      "frame": 11.25,
+      "minimumSignedDistanceM": -0.000241449579334585,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022979429279039007,
+      "rootMaxM": 0.007003869187212109,
+      "minimumGroomHeightM": 0.11752397567033768
+    },
+    {
+      "frame": 11.5,
+      "minimumSignedDistanceM": -0.00024131510508595966,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002303436704229569,
+      "rootMaxM": 0.007004399661501337,
+      "minimumGroomHeightM": 0.11825516819953918
+    },
+    {
+      "frame": 11.75,
+      "minimumSignedDistanceM": -0.0002413713045825716,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002311333270710815,
+      "rootMaxM": 0.007004719514089197,
+      "minimumGroomHeightM": 0.11900077015161514
+    },
+    {
+      "frame": 12.0,
+      "minimumSignedDistanceM": -0.00024192044293158688,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023216040449647764,
+      "rootMaxM": 0.00700523697338854,
+      "minimumGroomHeightM": 0.11975105106830597
+    },
+    {
+      "frame": 12.25,
+      "minimumSignedDistanceM": -0.00024278132332256064,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002334094144838719,
+      "rootMaxM": 0.0070055419877094295,
+      "minimumGroomHeightM": 0.12049636244773865
+    },
+    {
+      "frame": 12.5,
+      "minimumSignedDistanceM": -0.00024449082411592826,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023486374984613176,
+      "rootMaxM": 0.007005848092215508,
+      "minimumGroomHeightM": 0.12122660875320435
+    },
+    {
+      "frame": 12.75,
+      "minimumSignedDistanceM": -0.0002461688818584662,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023651772440178224,
+      "rootMaxM": 0.007006029041836363,
+      "minimumGroomHeightM": 0.12193191051483154
+    },
+    {
+      "frame": 13.0,
+      "minimumSignedDistanceM": -0.0002483815624145791,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.00238349196351983,
+      "rootMaxM": 0.007006239762497701,
+      "minimumGroomHeightM": 0.12260372936725616
+    },
+    {
+      "frame": 13.25,
+      "minimumSignedDistanceM": -0.000251101690082578,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024032471671631885,
+      "rootMaxM": 0.007006535565577839,
+      "minimumGroomHeightM": 0.12315228581428528
+    },
+    {
+      "frame": 13.5,
+      "minimumSignedDistanceM": -0.0002541056674090214,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002424213193928566,
+      "rootMaxM": 0.007006762188046065,
+      "minimumGroomHeightM": 0.12361564487218857
+    },
+    {
+      "frame": 13.75,
+      "minimumSignedDistanceM": -0.00025721952988533303,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002446217494722738,
+      "rootMaxM": 0.007006848278973507,
+      "minimumGroomHeightM": 0.12402047216892242
+    },
+    {
+      "frame": 14.0,
+      "minimumSignedDistanceM": -0.00026070048625115305,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002469121304058824,
+      "rootMaxM": 0.007006861924272166,
+      "minimumGroomHeightM": 0.12436065822839737
+    },
+    {
+      "frame": 14.25,
+      "minimumSignedDistanceM": -0.000264647722360678,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024786928178779015,
+      "rootMaxM": 0.007006944314702304,
+      "minimumGroomHeightM": 0.12463030964136124
+    },
+    {
+      "frame": 14.5,
+      "minimumSignedDistanceM": -0.00026837764016818255,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002480621875586278,
+      "rootMaxM": 0.007006999381732055,
+      "minimumGroomHeightM": 0.12482447922229767
+    },
+    {
+      "frame": 14.75,
+      "minimumSignedDistanceM": -0.00027242553915129974,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002482444528610429,
+      "rootMaxM": 0.007006934109244719,
+      "minimumGroomHeightM": 0.12493932247161865
+    },
+    {
+      "frame": 15.0,
+      "minimumSignedDistanceM": -0.00027648627292364836,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002484158036454726,
+      "rootMaxM": 0.007006935747959896,
+      "minimumGroomHeightM": 0.12497188150882721
+    },
+    {
+      "frame": 15.25,
+      "minimumSignedDistanceM": -0.0002806950578815304,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002486078109050773,
+      "rootMaxM": 0.007006718541845759,
+      "minimumGroomHeightM": 0.12492071092128754
+    },
+    {
+      "frame": 15.5,
+      "minimumSignedDistanceM": -0.000284784022369422,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002487674421156086,
+      "rootMaxM": 0.007006541796292843,
+      "minimumGroomHeightM": 0.12478452920913696
+    },
+    {
+      "frame": 15.75,
+      "minimumSignedDistanceM": -0.00028869307425338775,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002489476315523965,
+      "rootMaxM": 0.007006499381889,
+      "minimumGroomHeightM": 0.12456408888101578
+    },
+    {
+      "frame": 16.0,
+      "minimumSignedDistanceM": -0.0002926559609477408,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024899090416605238,
+      "rootMaxM": 0.007006276223376621,
+      "minimumGroomHeightM": 0.12426083534955978
+    },
+    {
+      "frame": 16.25,
+      "minimumSignedDistanceM": -0.0002962147773359902,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002489385413762563,
+      "rootMaxM": 0.007006125835226524,
+      "minimumGroomHeightM": 0.12387728691101074
+    },
+    {
+      "frame": 16.5,
+      "minimumSignedDistanceM": -0.0002997281262651086,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024874693851585595,
+      "rootMaxM": 0.007006072562516897,
+      "minimumGroomHeightM": 0.12341716140508652
+    },
+    {
+      "frame": 16.75,
+      "minimumSignedDistanceM": -0.0003029595100088045,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024855078896105,
+      "rootMaxM": 0.007005837917615935,
+      "minimumGroomHeightM": 0.12288492918014526
+    },
+    {
+      "frame": 17.0,
+      "minimumSignedDistanceM": -0.0003057383655686863,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024840471860693323,
+      "rootMaxM": 0.007005672915029167,
+      "minimumGroomHeightM": 0.1222868338227272
+    },
+    {
+      "frame": 17.25,
+      "minimumSignedDistanceM": -0.0003082493058172986,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002482420972013721,
+      "rootMaxM": 0.00700560211266864,
+      "minimumGroomHeightM": 0.1216285228729248
+    },
+    {
+      "frame": 17.5,
+      "minimumSignedDistanceM": -0.0003105592040810734,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002478091113751729,
+      "rootMaxM": 0.0070053792988291124,
+      "minimumGroomHeightM": 0.1209181398153305
+    },
+    {
+      "frame": 17.75,
+      "minimumSignedDistanceM": -0.0003121045301668346,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002473079881007398,
+      "rootMaxM": 0.007005227106249672,
+      "minimumGroomHeightM": 0.12016308307647705
+    },
+    {
+      "frame": 18.0,
+      "minimumSignedDistanceM": -0.0003134314465569332,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024683008808575766,
+      "rootMaxM": 0.007005020623443053,
+      "minimumGroomHeightM": 0.11937222629785538
+    },
+    {
+      "frame": 18.25,
+      "minimumSignedDistanceM": -0.00031422008032677695,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002463536433808309,
+      "rootMaxM": 0.007004804980928226,
+      "minimumGroomHeightM": 0.1185552328824997
+    },
+    {
+      "frame": 18.5,
+      "minimumSignedDistanceM": -0.00031451120594283566,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002458782497806393,
+      "rootMaxM": 0.007004655859605589,
+      "minimumGroomHeightM": 0.11772117018699646
+    },
+    {
+      "frame": 18.75,
+      "minimumSignedDistanceM": -0.00031428272632183507,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024541514266006115,
+      "rootMaxM": 0.007004419154635468,
+      "minimumGroomHeightM": 0.11688016355037689
+    },
+    {
+      "frame": 19.0,
+      "minimumSignedDistanceM": -0.0003136648956569843,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002449638057810736,
+      "rootMaxM": 0.007004344947343764,
+      "minimumGroomHeightM": 0.11604290455579758
+    },
+    {
+      "frame": 19.25,
+      "minimumSignedDistanceM": -0.0003125726798316464,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002445243926561456,
+      "rootMaxM": 0.007004009495255538,
+      "minimumGroomHeightM": 0.11521822959184647
+    },
+    {
+      "frame": 19.5,
+      "minimumSignedDistanceM": -0.00031106216920306906,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002440860166143123,
+      "rootMaxM": 0.007003989643883311,
+      "minimumGroomHeightM": 0.11441758275032043
+    },
+    {
+      "frame": 19.75,
+      "minimumSignedDistanceM": -0.0003090414611506276,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002436705483844311,
+      "rootMaxM": 0.007003801369568043,
+      "minimumGroomHeightM": 0.11364947259426117
+    },
+    {
+      "frame": 20.0,
+      "minimumSignedDistanceM": -0.0003067619472858496,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.00243245151745206,
+      "rootMaxM": 0.007003467011516255,
+      "minimumGroomHeightM": 0.11292444914579391
+    },
+    {
+      "frame": 20.25,
+      "minimumSignedDistanceM": -0.0003039479270228185,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024284194216853193,
+      "rootMaxM": 0.007003284908063166,
+      "minimumGroomHeightM": 0.11225099116563797
+    },
+    {
+      "frame": 20.5,
+      "minimumSignedDistanceM": -0.00030081815202720463,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002424290032439302,
+      "rootMaxM": 0.007003022361027584,
+      "minimumGroomHeightM": 0.11163762211799622
+    },
+    {
+      "frame": 20.75,
+      "minimumSignedDistanceM": -0.0002976336036226712,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024202767628780926,
+      "rootMaxM": 0.007002810861704655,
+      "minimumGroomHeightM": 0.11109278351068497
+    },
+    {
+      "frame": 21.0,
+      "minimumSignedDistanceM": -0.00029402766085695475,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002416484824968277,
+      "rootMaxM": 0.007002661243342833,
+      "minimumGroomHeightM": 0.1106225997209549
+    },
+    {
+      "frame": 21.25,
+      "minimumSignedDistanceM": -0.00029021644149906933,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024124802601429075,
+      "rootMaxM": 0.0070024532237004155,
+      "minimumGroomHeightM": 0.11023391038179398
+    },
+    {
+      "frame": 21.5,
+      "minimumSignedDistanceM": -0.0002862879991880618,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024085918322690305,
+      "rootMaxM": 0.0070021957435502675,
+      "minimumGroomHeightM": 0.10993176698684692
+    },
+    {
+      "frame": 21.75,
+      "minimumSignedDistanceM": -0.00028233713237568736,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.00240448828523712,
+      "rootMaxM": 0.0070019551398518036,
+      "minimumGroomHeightM": 0.10972043871879578
+    },
+    {
+      "frame": 22.0,
+      "minimumSignedDistanceM": -0.00027813594351755455,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024009294394826226,
+      "rootMaxM": 0.007001732404799356,
+      "minimumGroomHeightM": 0.10960257053375244
+    },
+    {
+      "frame": 22.25,
+      "minimumSignedDistanceM": -0.00027396937366575,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023969416681902836,
+      "rootMaxM": 0.007001461128680337,
+      "minimumGroomHeightM": 0.10958138853311539
+    },
+    {
+      "frame": 22.5,
+      "minimumSignedDistanceM": -0.00026995948428520933,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023929544846656367,
+      "rootMaxM": 0.007001316222949945,
+      "minimumGroomHeightM": 0.10965663939714432
+    },
+    {
+      "frame": 22.75,
+      "minimumSignedDistanceM": -0.00026607830659486353,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002376871356981011,
+      "rootMaxM": 0.007001037980600688,
+      "minimumGroomHeightM": 0.10982855409383774
+    },
+    {
+      "frame": 23.0,
+      "minimumSignedDistanceM": -0.00026214096578769386,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023591261188132305,
+      "rootMaxM": 0.007000862423231022,
+      "minimumGroomHeightM": 0.11009617149829865
+    },
+    {
+      "frame": 23.25,
+      "minimumSignedDistanceM": -0.00025880991597659886,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023433807868891592,
+      "rootMaxM": 0.007000594653632916,
+      "minimumGroomHeightM": 0.11045686900615692
+    },
+    {
+      "frame": 23.5,
+      "minimumSignedDistanceM": -0.0002552674923208542,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023295637430487235,
+      "rootMaxM": 0.007000412053219944,
+      "minimumGroomHeightM": 0.11090641468763351
+    },
+    {
+      "frame": 23.75,
+      "minimumSignedDistanceM": -0.0002522134927858133,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023177636261496213,
+      "rootMaxM": 0.0070003838442468875,
+      "minimumGroomHeightM": 0.1114412173628807
+    },
+    {
+      "frame": 24.0,
+      "minimumSignedDistanceM": -0.0002494962463970296,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002308321722640804,
+      "rootMaxM": 0.007001090901896763,
+      "minimumGroomHeightM": 0.11205489933490753
+    },
+    {
+      "frame": 24.25,
+      "minimumSignedDistanceM": -0.00024706767362658866,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023011875951146894,
+      "rootMaxM": 0.007001563538395746,
+      "minimumGroomHeightM": 0.11274103820323944
+    },
+    {
+      "frame": 24.5,
+      "minimumSignedDistanceM": -0.0002451078216836322,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022966520045940653,
+      "rootMaxM": 0.007002040250762899,
+      "minimumGroomHeightM": 0.11349259316921234
+    },
+    {
+      "frame": 24.75,
+      "minimumSignedDistanceM": -0.00024342519100173377,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022945475895294327,
+      "rootMaxM": 0.007002649619213015,
+      "minimumGroomHeightM": 0.11430048942565918
+    },
+    {
+      "frame": 25.0,
+      "minimumSignedDistanceM": -0.00024224919980042614,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022948970392667007,
+      "rootMaxM": 0.007003197198675536,
+      "minimumGroomHeightM": 0.11515696346759796
+    },
+    {
+      "frame": 25.25,
+      "minimumSignedDistanceM": -0.00024136198771884665,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0022979185126968103,
+      "rootMaxM": 0.0070037193642060545,
+      "minimumGroomHeightM": 0.11605139076709747
+    },
+    {
+      "frame": 25.5,
+      "minimumSignedDistanceM": -0.00024125211348291487,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002303441985241923,
+      "rootMaxM": 0.0070040995318033155,
+      "minimumGroomHeightM": 0.11697500199079514
+    },
+    {
+      "frame": 25.75,
+      "minimumSignedDistanceM": -0.00024143208065652288,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002311278476086408,
+      "rootMaxM": 0.007004527575074296,
+      "minimumGroomHeightM": 0.11791705340147018
+    },
+    {
+      "frame": 26.0,
+      "minimumSignedDistanceM": -0.00024198679966502823,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002321564110328312,
+      "rootMaxM": 0.007004886567839863,
+      "minimumGroomHeightM": 0.11886723339557648
+    },
+    {
+      "frame": 26.25,
+      "minimumSignedDistanceM": -0.00024283964739879593,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002334144458677981,
+      "rootMaxM": 0.007005224655691648,
+      "minimumGroomHeightM": 0.11981522291898727
+    },
+    {
+      "frame": 26.5,
+      "minimumSignedDistanceM": -0.0002444209312670864,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002341671159641425,
+      "rootMaxM": 0.007005568471965577,
+      "minimumGroomHeightM": 0.1207503005862236
+    },
+    {
+      "frame": 26.75,
+      "minimumSignedDistanceM": -0.00024613716232124716,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.00234518813492319,
+      "rootMaxM": 0.007005846015105471,
+      "minimumGroomHeightM": 0.1216619610786438
+    },
+    {
+      "frame": 27.0,
+      "minimumSignedDistanceM": -0.00024847409076755866,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023497486729734496,
+      "rootMaxM": 0.00700587577613891,
+      "minimumGroomHeightM": 0.12254095077514648
+    },
+    {
+      "frame": 27.25,
+      "minimumSignedDistanceM": -0.00025097700563492253,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023551353147436647,
+      "rootMaxM": 0.007006199601763935,
+      "minimumGroomHeightM": 0.12329690903425217
+    },
+    {
+      "frame": 27.5,
+      "minimumSignedDistanceM": -0.00025398657817277126,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002361561781325411,
+      "rootMaxM": 0.0070064190144892464,
+      "minimumGroomHeightM": 0.12396721541881561
+    },
+    {
+      "frame": 27.75,
+      "minimumSignedDistanceM": -0.0002572951270849444,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023689166479030333,
+      "rootMaxM": 0.00700653446222148,
+      "minimumGroomHeightM": 0.12457776069641113
+    },
+    {
+      "frame": 28.0,
+      "minimumSignedDistanceM": -0.0002608635404612869,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.00237687635525827,
+      "rootMaxM": 0.007006685734002447,
+      "minimumGroomHeightM": 0.12512212991714478
+    },
+    {
+      "frame": 28.25,
+      "minimumSignedDistanceM": -0.0002646263237693347,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002385762337144162,
+      "rootMaxM": 0.007006799035611698,
+      "minimumGroomHeightM": 0.1255933940410614
+    },
+    {
+      "frame": 28.5,
+      "minimumSignedDistanceM": -0.00026837491168407723,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0023951389958620614,
+      "rootMaxM": 0.0070067686943894435,
+      "minimumGroomHeightM": 0.12598615884780884
+    },
+    {
+      "frame": 28.75,
+      "minimumSignedDistanceM": -0.00027244017110206187,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.0024051133900732237,
+      "rootMaxM": 0.007006696588840013,
+      "minimumGroomHeightM": 0.12629583477973938
+    },
+    {
+      "frame": 29.0,
+      "minimumSignedDistanceM": -0.00027648627292364836,
+      "insideCountBeyond2mm": 0,
+      "rootMinM": 0.002415468127231311,
+      "rootMaxM": 0.007006659886765478,
+      "minimumGroomHeightM": 0.12651902437210083
+    }
+  ],
+  "worst": []
+}

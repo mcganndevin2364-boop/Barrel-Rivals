@@ -1,0 +1,50 @@
+{
+  "scope": "Offline actual saved-mesh groom material/motion review. Not gameplay, photographic quality or measured device performance.",
+  "blender": "4.5.13 LTS (daeeeca98fb0)",
+  "renderer": "Cycles CPU",
+  "stillSamples": 12,
+  "motionSamples": 8,
+  "denoising": true,
+  "transparentMaxBounces": 16,
+  "stills": {
+    "width": 800,
+    "height": 800,
+    "views": [
+      "head",
+      "head-neutral",
+      "side",
+      "body",
+      "rider"
+    ]
+  },
+  "movie": {
+    "frames": 224,
+    "fps": 30,
+    "width": 800,
+    "height": 600,
+    "views": [
+      "quarter",
+      "rider"
+    ],
+    "scope": "Offline material review, static floor, four repeated cycles per view. Not measured gameplay performance."
+  },
+  "sourceBlendSha256": "50754d1c1e0e6b62cbc360e1800787a65fb80399d7dc29c804f6754201e7b5eb",
+  "exportedFbxSha256": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3",
+  "videoSha256": "0311b6e8c1e4518df7cdff982857f36e1fc0b78c8d18e84485b92a640cbd9e26",
+  "tools": {
+    "Tools/Art/horse_study/author_groom.py": "d6103752bfa657bb854f90301d30d51b24122c51a8cb205c8a22a311a915f4e1",
+    "Tools/Art/horse_study/verify_groom.py": "2dd10c2975f8f6245fcfc2fd8fc5fefaad0f32d770d61380803bad64d72de86b",
+    "Tools/Art/horse_study/verify_groom_clearance.py": "5404f302b6424a97d6f6252efc8decc076d6147c47628a2a2e3d852189dc9757",
+    "Tools/Art/horse_study/verify_rig_extension.py": "9c4e9b26f215051f19702da6290eab3f4a418f53a34c06e5932a571ebf526ccc",
+    "Tools/Art/horse_study/render_groom.py": "ff27fb6a7ca137d097aa842e69a1d93383bd5d7d67858f5b9e9d36305a8fdb6f",
+    "Tools/Art/horse_study/encode_groom.py": "f6f5add1d4fdf2017e05c6043394fac62a22360718bc83abc6b724359a7359d6"
+  },
+  "images": {
+    "Head.png": "6ffa34e640fb8b78c73547b90655c6dc3eaa82045fe1862a4a763eccdbd3748f",
+    "HeadNeutral.png": "96970adbe28604d0c269e0f279078cde44955677c6b1687d49ac7de9b9d70a54",
+    "Side.png": "71b99b99fc21bfba19b7c4b1f790dfa17c49312ea881dc89de11059eac753a4a",
+    "Body.png": "a66129f6c05aa7eadc2d01793ec7c818498d0fd46b57391da5360b057c7f5f61",
+    "Rider.png": "f0a8322f27730028d19cb5d2fdad3f0386b2016caf4a5be2b4f66182a76f3b75"
+  },
+  "renderingNotes": "Warm/neutral studio views and static floor; four repeated cycles each for quarter/rider, no audio. Earlier defective candidates remain only in private work files."
+}

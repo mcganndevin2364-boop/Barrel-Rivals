@@ -1,0 +1,7365 @@
+{
+  "scope": "Offline surface-fitted groom; no Unity/device or reference-quality acceptance.",
+  "sourceBlendSha256": "63be0de234eecbd5591a01ef258a9118249855906b00256b42a7f6d8d73f6d1b",
+  "hairVertices": 4878,
+  "hairTriangles": 6624,
+  "hairMaterials": 2,
+  "bones": 39,
+  "helpers": [
+    {
+      "name": "GroomMane.0",
+      "parent": "Chest",
+      "head": [
+        0.0,
+        0.14000000059604645,
+        1.665967345237732
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "phase": 0.0,
+      "kind": "mane"
+    },
+    {
+      "name": "GroomMane.1",
+      "parent": "NeckLower",
+      "head": [
+        0.0,
+        0.3400000035762787,
+        1.7702016830444336
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "phase": 0.55,
+      "kind": "mane"
+    },
+    {
+      "name": "GroomMane.2",
+      "parent": "NeckUpper",
+      "head": [
+        0.0,
+        0.5400000214576721,
+        1.9138585329055786
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "phase": 1.1,
+      "kind": "mane"
+    },
+    {
+      "name": "GroomMane.3",
+      "parent": "NeckUpper",
+      "head": [
+        0.0,
+        0.7400000095367432,
+        2.008589267730713
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "phase": 1.6500000000000001,
+      "kind": "mane"
+    },
+    {
+      "name": "GroomTail",
+      "parent": "TailTip",
+      "head": [
+        0.0,
+        -1.1943594217300415,
+        1.3700000047683716
+      ],
+      "axis": [
+        0,
+        1,
+        0
+      ],
+      "phase": 0.5,
+      "kind": "tail"
+    }
+  ],
+  "atlases": [
+    {
+      "file": "Assets/_Project/Art/Reins/Hair/Original natural strand atlas.png",
+      "sha256": "76d95b131e996f01fac36ea5a8b6df0dd0ac04184944116e29c3716650158a21",
+      "bitmapEdited": false,
+      "packedInBlend": true
+    },
+    {
+      "file": "Assets/_Project/Art/Reins/Hair/Original separated strand atlas.png",
+      "sha256": "7e9ffd61284340429ca8fae65ab6cde07ac515953a4f921fd2fd7efa69e1f236",
+      "bitmapEdited": false,
+      "packedInBlend": true
+    }
+  ],
+  "cards": [
+    {
+      "kind": "mane",
+      "startVertex": 0,
+      "vertexCount": 39,
+      "rootVertices": [
+        0,
+        1,
+        2
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 39,
+      "vertexCount": 39,
+      "rootVertices": [
+        39,
+        40,
+        41
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 78,
+      "vertexCount": 39,
+      "rootVertices": [
+        78,
+        79,
+        80
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 117,
+      "vertexCount": 39,
+      "rootVertices": [
+        117,
+        118,
+        119
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 156,
+      "vertexCount": 39,
+      "rootVertices": [
+        156,
+        157,
+        158
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 195,
+      "vertexCount": 39,
+      "rootVertices": [
+        195,
+        196,
+        197
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 0,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 234,
+      "vertexCount": 39,
+      "rootVertices": [
+        234,
+        235,
+        236
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 273,
+      "vertexCount": 39,
+      "rootVertices": [
+        273,
+        274,
+        275
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 312,
+      "vertexCount": 39,
+      "rootVertices": [
+        312,
+        313,
+        314
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 351,
+      "vertexCount": 39,
+      "rootVertices": [
+        351,
+        352,
+        353
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 390,
+      "vertexCount": 39,
+      "rootVertices": [
+        390,
+        391,
+        392
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 429,
+      "vertexCount": 39,
+      "rootVertices": [
+        429,
+        430,
+        431
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 468,
+      "vertexCount": 39,
+      "rootVertices": [
+        468,
+        469,
+        470
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 507,
+      "vertexCount": 39,
+      "rootVertices": [
+        507,
+        508,
+        509
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 546,
+      "vertexCount": 39,
+      "rootVertices": [
+        546,
+        547,
+        548
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 585,
+      "vertexCount": 39,
+      "rootVertices": [
+        585,
+        586,
+        587
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 624,
+      "vertexCount": 39,
+      "rootVertices": [
+        624,
+        625,
+        626
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 663,
+      "vertexCount": 39,
+      "rootVertices": [
+        663,
+        664,
+        665
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 0,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 702,
+      "vertexCount": 39,
+      "rootVertices": [
+        702,
+        703,
+        704
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 741,
+      "vertexCount": 39,
+      "rootVertices": [
+        741,
+        742,
+        743
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 780,
+      "vertexCount": 39,
+      "rootVertices": [
+        780,
+        781,
+        782
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 819,
+      "vertexCount": 39,
+      "rootVertices": [
+        819,
+        820,
+        821
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 858,
+      "vertexCount": 39,
+      "rootVertices": [
+        858,
+        859,
+        860
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 897,
+      "vertexCount": 39,
+      "rootVertices": [
+        897,
+        898,
+        899
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 936,
+      "vertexCount": 39,
+      "rootVertices": [
+        936,
+        937,
+        938
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 975,
+      "vertexCount": 39,
+      "rootVertices": [
+        975,
+        976,
+        977
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1014,
+      "vertexCount": 39,
+      "rootVertices": [
+        1014,
+        1015,
+        1016
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1053,
+      "vertexCount": 39,
+      "rootVertices": [
+        1053,
+        1054,
+        1055
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1092,
+      "vertexCount": 39,
+      "rootVertices": [
+        1092,
+        1093,
+        1094
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1131,
+      "vertexCount": 39,
+      "rootVertices": [
+        1131,
+        1132,
+        1133
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1170,
+      "vertexCount": 39,
+      "rootVertices": [
+        1170,
+        1171,
+        1172
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1209,
+      "vertexCount": 39,
+      "rootVertices": [
+        1209,
+        1210,
+        1211
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 4,
+      "material": 1,
+      "helper": "GroomMane.0"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1248,
+      "vertexCount": 39,
+      "rootVertices": [
+        1248,
+        1249,
+        1250
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1287,
+      "vertexCount": 39,
+      "rootVertices": [
+        1287,
+        1288,
+        1289
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1326,
+      "vertexCount": 39,
+      "rootVertices": [
+        1326,
+        1327,
+        1328
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1365,
+      "vertexCount": 39,
+      "rootVertices": [
+        1365,
+        1366,
+        1367
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1404,
+      "vertexCount": 39,
+      "rootVertices": [
+        1404,
+        1405,
+        1406
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1443,
+      "vertexCount": 39,
+      "rootVertices": [
+        1443,
+        1444,
+        1445
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1482,
+      "vertexCount": 39,
+      "rootVertices": [
+        1482,
+        1483,
+        1484
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.1"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1521,
+      "vertexCount": 39,
+      "rootVertices": [
+        1521,
+        1522,
+        1523
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1560,
+      "vertexCount": 39,
+      "rootVertices": [
+        1560,
+        1561,
+        1562
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1599,
+      "vertexCount": 39,
+      "rootVertices": [
+        1599,
+        1600,
+        1601
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1638,
+      "vertexCount": 39,
+      "rootVertices": [
+        1638,
+        1639,
+        1640
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1677,
+      "vertexCount": 39,
+      "rootVertices": [
+        1677,
+        1678,
+        1679
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1716,
+      "vertexCount": 39,
+      "rootVertices": [
+        1716,
+        1717,
+        1718
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1755,
+      "vertexCount": 39,
+      "rootVertices": [
+        1755,
+        1756,
+        1757
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomMane.2"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1794,
+      "vertexCount": 39,
+      "rootVertices": [
+        1794,
+        1795,
+        1796
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1833,
+      "vertexCount": 39,
+      "rootVertices": [
+        1833,
+        1834,
+        1835
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1872,
+      "vertexCount": 39,
+      "rootVertices": [
+        1872,
+        1873,
+        1874
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1911,
+      "vertexCount": 39,
+      "rootVertices": [
+        1911,
+        1912,
+        1913
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1950,
+      "vertexCount": 39,
+      "rootVertices": [
+        1950,
+        1951,
+        1952
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 1989,
+      "vertexCount": 39,
+      "rootVertices": [
+        1989,
+        1990,
+        1991
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 2028,
+      "vertexCount": 39,
+      "rootVertices": [
+        2028,
+        2029,
+        2030
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "mane",
+      "startVertex": 2067,
+      "vertexCount": 39,
+      "rootVertices": [
+        2067,
+        2068,
+        2069
+      ],
+      "rows": 12,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.125,
+        0.17,
+        0.21,
+        0.25,
+        0.375,
+        0.5,
+        0.625,
+        0.75,
+        0.875,
+        1
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 1,
+      "helper": "GroomMane.3"
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2106,
+      "vertexCount": 21,
+      "rootVertices": [
+        2106,
+        2107,
+        2108
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 0,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2127,
+      "vertexCount": 21,
+      "rootVertices": [
+        2127,
+        2128,
+        2129
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2148,
+      "vertexCount": 21,
+      "rootVertices": [
+        2148,
+        2149,
+        2150
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 0,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2169,
+      "vertexCount": 21,
+      "rootVertices": [
+        2169,
+        2170,
+        2171
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 0,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2190,
+      "vertexCount": 21,
+      "rootVertices": [
+        2190,
+        2191,
+        2192
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2211,
+      "vertexCount": 21,
+      "rootVertices": [
+        2211,
+        2212,
+        2213
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2232,
+      "vertexCount": 21,
+      "rootVertices": [
+        2232,
+        2233,
+        2234
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2253,
+      "vertexCount": 21,
+      "rootVertices": [
+        2253,
+        2254,
+        2255
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 7,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2274,
+      "vertexCount": 21,
+      "rootVertices": [
+        2274,
+        2275,
+        2276
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2295,
+      "vertexCount": 21,
+      "rootVertices": [
+        2295,
+        2296,
+        2297
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2316,
+      "vertexCount": 21,
+      "rootVertices": [
+        2316,
+        2317,
+        2318
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "forelock",
+      "startVertex": 2337,
+      "vertexCount": 21,
+      "rootVertices": [
+        2337,
+        2338,
+        2339
+      ],
+      "rows": 6,
+      "times": [
+        0.0,
+        0.16666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.6666666666666666,
+        0.8333333333333334,
+        1.0
+      ],
+      "columns": 2,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": null
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2358,
+      "vertexCount": 70,
+      "rootVertices": [
+        2358,
+        2359,
+        2360,
+        2361,
+        2362
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2428,
+      "vertexCount": 70,
+      "rootVertices": [
+        2428,
+        2429,
+        2430,
+        2431,
+        2432
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 7,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2498,
+      "vertexCount": 70,
+      "rootVertices": [
+        2498,
+        2499,
+        2500,
+        2501,
+        2502
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2568,
+      "vertexCount": 70,
+      "rootVertices": [
+        2568,
+        2569,
+        2570,
+        2571,
+        2572
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 0,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2638,
+      "vertexCount": 70,
+      "rootVertices": [
+        2638,
+        2639,
+        2640,
+        2641,
+        2642
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2708,
+      "vertexCount": 70,
+      "rootVertices": [
+        2708,
+        2709,
+        2710,
+        2711,
+        2712
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2778,
+      "vertexCount": 70,
+      "rootVertices": [
+        2778,
+        2779,
+        2780,
+        2781,
+        2782
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2848,
+      "vertexCount": 70,
+      "rootVertices": [
+        2848,
+        2849,
+        2850,
+        2851,
+        2852
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 4,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2918,
+      "vertexCount": 70,
+      "rootVertices": [
+        2918,
+        2919,
+        2920,
+        2921,
+        2922
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 0,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 2988,
+      "vertexCount": 70,
+      "rootVertices": [
+        2988,
+        2989,
+        2990,
+        2991,
+        2992
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 3,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3058,
+      "vertexCount": 70,
+      "rootVertices": [
+        3058,
+        3059,
+        3060,
+        3061,
+        3062
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 1,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3128,
+      "vertexCount": 70,
+      "rootVertices": [
+        3128,
+        3129,
+        3130,
+        3131,
+        3132
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 2,
+      "material": 0,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3198,
+      "vertexCount": 70,
+      "rootVertices": [
+        3198,
+        3199,
+        3200,
+        3201,
+        3202
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3268,
+      "vertexCount": 70,
+      "rootVertices": [
+        3268,
+        3269,
+        3270,
+        3271,
+        3272
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3338,
+      "vertexCount": 70,
+      "rootVertices": [
+        3338,
+        3339,
+        3340,
+        3341,
+        3342
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3408,
+      "vertexCount": 70,
+      "rootVertices": [
+        3408,
+        3409,
+        3410,
+        3411,
+        3412
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3478,
+      "vertexCount": 70,
+      "rootVertices": [
+        3478,
+        3479,
+        3480,
+        3481,
+        3482
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3548,
+      "vertexCount": 70,
+      "rootVertices": [
+        3548,
+        3549,
+        3550,
+        3551,
+        3552
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 3,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3618,
+      "vertexCount": 70,
+      "rootVertices": [
+        3618,
+        3619,
+        3620,
+        3621,
+        3622
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3688,
+      "vertexCount": 70,
+      "rootVertices": [
+        3688,
+        3689,
+        3690,
+        3691,
+        3692
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3758,
+      "vertexCount": 70,
+      "rootVertices": [
+        3758,
+        3759,
+        3760,
+        3761,
+        3762
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3828,
+      "vertexCount": 70,
+      "rootVertices": [
+        3828,
+        3829,
+        3830,
+        3831,
+        3832
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3898,
+      "vertexCount": 70,
+      "rootVertices": [
+        3898,
+        3899,
+        3900,
+        3901,
+        3902
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 4,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 3968,
+      "vertexCount": 70,
+      "rootVertices": [
+        3968,
+        3969,
+        3970,
+        3971,
+        3972
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4038,
+      "vertexCount": 70,
+      "rootVertices": [
+        4038,
+        4039,
+        4040,
+        4041,
+        4042
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4108,
+      "vertexCount": 70,
+      "rootVertices": [
+        4108,
+        4109,
+        4110,
+        4111,
+        4112
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 2,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4178,
+      "vertexCount": 70,
+      "rootVertices": [
+        4178,
+        4179,
+        4180,
+        4181,
+        4182
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4248,
+      "vertexCount": 70,
+      "rootVertices": [
+        4248,
+        4249,
+        4250,
+        4251,
+        4252
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 7,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4318,
+      "vertexCount": 70,
+      "rootVertices": [
+        4318,
+        4319,
+        4320,
+        4321,
+        4322
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4388,
+      "vertexCount": 70,
+      "rootVertices": [
+        4388,
+        4389,
+        4390,
+        4391,
+        4392
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4458,
+      "vertexCount": 70,
+      "rootVertices": [
+        4458,
+        4459,
+        4460,
+        4461,
+        4462
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 7,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4528,
+      "vertexCount": 70,
+      "rootVertices": [
+        4528,
+        4529,
+        4530,
+        4531,
+        4532
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 0,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4598,
+      "vertexCount": 70,
+      "rootVertices": [
+        4598,
+        4599,
+        4600,
+        4601,
+        4602
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4668,
+      "vertexCount": 70,
+      "rootVertices": [
+        4668,
+        4669,
+        4670,
+        4671,
+        4672
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 5,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4738,
+      "vertexCount": 70,
+      "rootVertices": [
+        4738,
+        4739,
+        4740,
+        4741,
+        4742
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 1,
+      "material": 1,
+      "helper": "GroomTail"
+    },
+    {
+      "kind": "tail",
+      "startVertex": 4808,
+      "vertexCount": 70,
+      "rootVertices": [
+        4808,
+        4809,
+        4810,
+        4811,
+        4812
+      ],
+      "rows": 13,
+      "times": [
+        0,
+        0.04,
+        0.08,
+        0.12,
+        0.16,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "columns": 4,
+      "atlasCell": 6,
+      "material": 1,
+      "helper": "GroomTail"
+    }
+  ],
+  "attachments": [
+    {
+      "vertex": 0,
+      "face": 31730,
+      "barycentric": [
+        0.31677108557040734,
+        0.11985210114057243,
+        0.5633768132890202
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1,
+      "face": 26953,
+      "barycentric": [
+        0.23724967367421868,
+        0.5035672913452027,
+        0.2591830349805786
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2,
+      "face": 26957,
+      "barycentric": [
+        0.09433388867785786,
+        0.1421294405424316,
+        0.7635366707797105
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 39,
+      "face": 7426,
+      "barycentric": [
+        0.00015239063583885604,
+        0.7934428867143901,
+        0.20640472264977103
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 40,
+      "face": 26950,
+      "barycentric": [
+        0.12364716779954535,
+        0.8592730061402144,
+        0.017079826060240257
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 41,
+      "face": 26926,
+      "barycentric": [
+        0.6206710092990949,
+        0.3722456067446097,
+        0.007083383956295381
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 78,
+      "face": 12253,
+      "barycentric": [
+        0.10539257676781522,
+        0.39323382519027866,
+        0.5013735980419061
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 79,
+      "face": 26926,
+      "barycentric": [
+        0.04696225285729229,
+        0.8422039539270033,
+        0.1108337932157044
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 80,
+      "face": 26943,
+      "barycentric": [
+        0.8950895257420124,
+        0.04404726201472233,
+        0.060863212243265304
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 117,
+      "face": 26926,
+      "barycentric": [
+        0.21996537423301643,
+        0.6576373946047215,
+        0.1223972311622621
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 118,
+      "face": 26943,
+      "barycentric": [
+        0.8570581372427506,
+        0.06586147462196623,
+        0.07708038813528312
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 119,
+      "face": 19090,
+      "barycentric": [
+        0.021367396894028334,
+        0.452362763125687,
+        0.5262698399802846
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 156,
+      "face": 26943,
+      "barycentric": [
+        0.24038208552565757,
+        0.7378829001012915,
+        0.021735014373050882
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 157,
+      "face": 2462,
+      "barycentric": [
+        0.06376117884229471,
+        0.14602706091561726,
+        0.7902117602420881
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 158,
+      "face": 2472,
+      "barycentric": [
+        0.1898183769247772,
+        0.5550585842317382,
+        0.25512303884348464
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 195,
+      "face": 22001,
+      "barycentric": [
+        0.17696040148556058,
+        0.004310386527863098,
+        0.8187292119865763
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 196,
+      "face": 19090,
+      "barycentric": [
+        0.311619723433749,
+        0.12034981936701959,
+        0.5680304571992314
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 197,
+      "face": 27576,
+      "barycentric": [
+        0.49767273159563163,
+        0.04683510808259167,
+        0.45549216032177664
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 234,
+      "face": 19090,
+      "barycentric": [
+        0.6694435530994871,
+        0.13139665903124326,
+        0.19915978786926974
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 235,
+      "face": 8063,
+      "barycentric": [
+        0.16642597474981285,
+        0.4464057491502236,
+        0.38716827609996357
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 236,
+      "face": 27574,
+      "barycentric": [
+        0.9311118581360773,
+        0.042606185297623354,
+        0.026281956566299287
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 273,
+      "face": 7394,
+      "barycentric": [
+        0.03669452527942407,
+        0.0893612732909467,
+        0.8739442014296293
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 274,
+      "face": 7420,
+      "barycentric": [
+        0.24167079301311006,
+        0.4975021671800721,
+        0.2608270398068178
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 275,
+      "face": 8044,
+      "barycentric": [
+        0.4628882964973976,
+        0.07148431526859837,
+        0.46562738823400407
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 312,
+      "face": 8045,
+      "barycentric": [
+        0.27862408284611034,
+        0.2699340459577205,
+        0.45144187119616913
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 313,
+      "face": 27558,
+      "barycentric": [
+        0.20573348882454995,
+        0.2985604735720333,
+        0.49570603760341675
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 314,
+      "face": 26888,
+      "barycentric": [
+        0.48287941183105004,
+        0.2793422970412885,
+        0.23777829112766152
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 351,
+      "face": 27558,
+      "barycentric": [
+        0.10063354265449925,
+        0.4569374426705169,
+        0.4424290146749839
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 352,
+      "face": 26888,
+      "barycentric": [
+        0.36311837204222575,
+        0.4564602087892025,
+        0.1804214191685718
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 353,
+      "face": 27553,
+      "barycentric": [
+        0.5169675304974735,
+        0.4001003034013262,
+        0.08293216610120041
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 390,
+      "face": 8044,
+      "barycentric": [
+        0.6037783497864923,
+        0.35890621699330133,
+        0.037315433220206515
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 391,
+      "face": 7374,
+      "barycentric": [
+        0.8716705334881871,
+        0.03715426501240208,
+        0.09117520149941086
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 392,
+      "face": 27546,
+      "barycentric": [
+        0.12149655349980282,
+        0.01693008504345724,
+        0.8615733614567399
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 429,
+      "face": 7374,
+      "barycentric": [
+        0.4979035135672624,
+        0.16281597880630447,
+        0.3392805076264331
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 430,
+      "face": 27549,
+      "barycentric": [
+        0.0015242493673678914,
+        0.7178236963918031,
+        0.280652054240829
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 431,
+      "face": 8067,
+      "barycentric": [
+        0.11746585479466776,
+        0.10175062264076701,
+        0.7807835225645653
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 468,
+      "face": 27549,
+      "barycentric": [
+        0.14271049478795916,
+        0.07681700578151,
+        0.7804724994305309
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 469,
+      "face": 8067,
+      "barycentric": [
+        0.6719088349665445,
+        0.012839082841663598,
+        0.31525208219179196
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 470,
+      "face": 27580,
+      "barycentric": [
+        0.11205934218555436,
+        0.4967197112372021,
+        0.3912209465772435
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 507,
+      "face": 27567,
+      "barycentric": [
+        0.6415359488140562,
+        0.3439467099715074,
+        0.014517341214436352
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 508,
+      "face": 27580,
+      "barycentric": [
+        0.4359276519490905,
+        0.5009171624844614,
+        0.06315518556644811
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 509,
+      "face": 27584,
+      "barycentric": [
+        0.5081272465110279,
+        0.3817690423852895,
+        0.11010371110368258
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 546,
+      "face": 8060,
+      "barycentric": [
+        0.3486429015844274,
+        0.5770657431078641,
+        0.07429135530770851
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 547,
+      "face": 8064,
+      "barycentric": [
+        0.3131428142883915,
+        0.6739166179474857,
+        0.012940567764122772
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 548,
+      "face": 27583,
+      "barycentric": [
+        0.2211817598139154,
+        0.06528109155644558,
+        0.713537148629639
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 585,
+      "face": 8064,
+      "barycentric": [
+        0.4146533517679998,
+        0.21377403469833514,
+        0.3715726135336651
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 586,
+      "face": 8070,
+      "barycentric": [
+        0.39129762267205853,
+        0.17914377020161282,
+        0.4295586071263287
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 587,
+      "face": 27542,
+      "barycentric": [
+        0.15632435884945095,
+        0.4728122252124601,
+        0.370863415938089
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 624,
+      "face": 27577,
+      "barycentric": [
+        0.14746943651771216,
+        0.21708145831385028,
+        0.6354491051684376
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 625,
+      "face": 27583,
+      "barycentric": [
+        0.11875941161775849,
+        0.2218395722645757,
+        0.6594010161176658
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 626,
+      "face": 8028,
+      "barycentric": [
+        0.6766666984943781,
+        0.05963957843224859,
+        0.2636937230733733
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 663,
+      "face": 8070,
+      "barycentric": [
+        0.11428549398334453,
+        0.5168740274837139,
+        0.36884047853294155
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 664,
+      "face": 27542,
+      "barycentric": [
+        0.612013107621108,
+        0.29769380602573775,
+        0.09029308635315424
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 665,
+      "face": 8074,
+      "barycentric": [
+        0.08246097024589108,
+        0.7676019809259023,
+        0.14993704882820666
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 702,
+      "face": 27594,
+      "barycentric": [
+        0.2219477962339751,
+        0.12304050067933292,
+        0.655011703086692
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 703,
+      "face": 27599,
+      "barycentric": [
+        0.6135785289613938,
+        0.03079954652115754,
+        0.3556219245174486
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 704,
+      "face": 27605,
+      "barycentric": [
+        0.35992493808147774,
+        0.2946213694333142,
+        0.3454536924852081
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 741,
+      "face": 8086,
+      "barycentric": [
+        0.007274016051545651,
+        0.3856673684607234,
+        0.6070586154877309
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 742,
+      "face": 8092,
+      "barycentric": [
+        0.03458958082837571,
+        0.41896147914030024,
+        0.546448940031324
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 743,
+      "face": 8099,
+      "barycentric": [
+        0.044111642790214234,
+        0.556915170391279,
+        0.39897318681850674
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 780,
+      "face": 8085,
+      "barycentric": [
+        0.5921632840346034,
+        0.32629582572923865,
+        0.08154089023615796
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 781,
+      "face": 27604,
+      "barycentric": [
+        0.5482675510438019,
+        0.06909260998730096,
+        0.3826398389688972
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 782,
+      "face": 27608,
+      "barycentric": [
+        0.2577894759517417,
+        0.29390797367495186,
+        0.4483025503733064
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 819,
+      "face": 27598,
+      "barycentric": [
+        0.04771981703345629,
+        0.37408274310329453,
+        0.5781974398632492
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 820,
+      "face": 8095,
+      "barycentric": [
+        0.36935062652344974,
+        0.5858416475290833,
+        0.04480772594746697
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 821,
+      "face": 28204,
+      "barycentric": [
+        0.7257366506793119,
+        0.2517430075467677,
+        0.022520341773920382
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 858,
+      "face": 27604,
+      "barycentric": [
+        0.19541297049192063,
+        0.22750672735834937,
+        0.57708030214973
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 859,
+      "face": 28205,
+      "barycentric": [
+        0.24154488664478313,
+        0.45743844459326233,
+        0.30101666876195454
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 860,
+      "face": 6643,
+      "barycentric": [
+        0.07057477698085535,
+        0.8768744951888433,
+        0.052550727830301354
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 897,
+      "face": 28205,
+      "barycentric": [
+        0.26573464295911375,
+        0.08695736899865289,
+        0.6473079880422333
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 898,
+      "face": 6656,
+      "barycentric": [
+        0.21573534280237064,
+        0.5801276592428862,
+        0.20413699795474313
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 899,
+      "face": 6593,
+      "barycentric": [
+        0.8590094928595886,
+        0.03587971873423844,
+        0.10511078840617291
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 936,
+      "face": 22020,
+      "barycentric": [
+        0.025370013824187798,
+        0.2755398106766388,
+        0.6990901754991734
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 937,
+      "face": 22023,
+      "barycentric": [
+        0.7086870719003319,
+        0.22582159023541004,
+        0.0654913378642581
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 938,
+      "face": 21990,
+      "barycentric": [
+        0.7114269146844285,
+        0.013491996465745719,
+        0.2750810888498257
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 975,
+      "face": 22015,
+      "barycentric": [
+        0.3066634401788156,
+        0.439856128341114,
+        0.25348043148007043
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 976,
+      "face": 2484,
+      "barycentric": [
+        0.07085849626392349,
+        0.3030988147576981,
+        0.6260426889783784
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 977,
+      "face": 21988,
+      "barycentric": [
+        0.6928059998574294,
+        0.055444809613765196,
+        0.25174919052880546
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1014,
+      "face": 2484,
+      "barycentric": [
+        0.3692304372955486,
+        0.2986515193790087,
+        0.3321180433254427
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1015,
+      "face": 2451,
+      "barycentric": [
+        0.29182788153516837,
+        0.2985265498290064,
+        0.40964556863582524
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1016,
+      "face": 2449,
+      "barycentric": [
+        0.12398640304827191,
+        0.3036263574016391,
+        0.572387239550089
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1053,
+      "face": 2451,
+      "barycentric": [
+        0.2758265987853834,
+        0.26620987489813935,
+        0.4579635263164772
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1054,
+      "face": 2449,
+      "barycentric": [
+        0.09220079477927423,
+        0.27075872335657736,
+        0.6370404818641484
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1055,
+      "face": 22000,
+      "barycentric": [
+        0.7086524293790615,
+        0.1307131011624589,
+        0.16063446945847953
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1092,
+      "face": 21988,
+      "barycentric": [
+        0.7566598942115972,
+        0.04555220541569817,
+        0.19778790037270463
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1093,
+      "face": 2463,
+      "barycentric": [
+        0.46862966147160107,
+        0.2542704240872265,
+        0.2770999144411725
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1094,
+      "face": 2461,
+      "barycentric": [
+        0.06967303901600996,
+        0.2699649036203548,
+        0.6603620573636352
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1131,
+      "face": 2463,
+      "barycentric": [
+        0.5146797778230537,
+        0.17358204988996442,
+        0.31173817228698186
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1132,
+      "face": 2461,
+      "barycentric": [
+        0.05092913177831471,
+        0.18430556295975778,
+        0.7647653052619275
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1133,
+      "face": 2437,
+      "barycentric": [
+        0.5605775341653438,
+        0.21074282254214424,
+        0.22867964329251192
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1170,
+      "face": 2461,
+      "barycentric": [
+        0.3948089008886388,
+        0.121996643373179,
+        0.48319445573818226
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1171,
+      "face": 2435,
+      "barycentric": [
+        0.1574594979254803,
+        0.13084056615647224,
+        0.7116999359180475
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1172,
+      "face": 31970,
+      "barycentric": [
+        0.8572216668831177,
+        0.06617963419845202,
+        0.07659869891843031
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1209,
+      "face": 2435,
+      "barycentric": [
+        0.33941452651394666,
+        0.045813942617486406,
+        0.614771530868567
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1210,
+      "face": 2437,
+      "barycentric": [
+        0.07006761840208331,
+        0.04883884891750666,
+        0.88109353268041
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1211,
+      "face": 2467,
+      "barycentric": [
+        0.8539239859651596,
+        0.05297747024739894,
+        0.09309854378744147
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1248,
+      "face": 7405,
+      "barycentric": [
+        0.05048863785171265,
+        0.5235461620967891,
+        0.4259652000514983
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1249,
+      "face": 8038,
+      "barycentric": [
+        0.05477820549242,
+        0.9096659179909229,
+        0.03555587651665711
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1250,
+      "face": 8048,
+      "barycentric": [
+        0.05760665614427263,
+        0.4987541360388545,
+        0.4436392078168728
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1287,
+      "face": 8059,
+      "barycentric": [
+        0.14873787201073296,
+        0.2678185813387146,
+        0.5834435466505524
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1288,
+      "face": 8048,
+      "barycentric": [
+        0.1624129415804499,
+        0.8170808421701344,
+        0.020506216249415662
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1289,
+      "face": 8041,
+      "barycentric": [
+        0.17247119257148846,
+        0.6014614321842279,
+        0.22606737524428366
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1326,
+      "face": 27562,
+      "barycentric": [
+        0.12426895887613854,
+        0.10412056249911528,
+        0.7716104786247462
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1327,
+      "face": 27555,
+      "barycentric": [
+        0.07478706144982328,
+        0.16333774386936395,
+        0.7618751946808128
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1328,
+      "face": 8041,
+      "barycentric": [
+        0.2482320296325805,
+        0.10385717041613547,
+        0.647910799951284
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1365,
+      "face": 8048,
+      "barycentric": [
+        0.2690744715631613,
+        0.4665315472964119,
+        0.26439398114042684
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1366,
+      "face": 8041,
+      "barycentric": [
+        0.2857362355505911,
+        0.3055002028908329,
+        0.408763561558576
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1367,
+      "face": 27569,
+      "barycentric": [
+        0.3600858536081392,
+        0.3368329196688064,
+        0.3030812267230543
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1404,
+      "face": 8041,
+      "barycentric": [
+        0.2987456308331601,
+        0.3627994554989721,
+        0.33845491366786784
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1405,
+      "face": 27569,
+      "barycentric": [
+        0.5244754014579551,
+        0.15841847428524977,
+        0.31710612425679513
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1406,
+      "face": 8049,
+      "barycentric": [
+        0.6734590215608436,
+        0.20907255919942255,
+        0.11746841923973378
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1443,
+      "face": 8056,
+      "barycentric": [
+        0.707060249919869,
+        0.11495175095473917,
+        0.1779879991253918
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1444,
+      "face": 27569,
+      "barycentric": [
+        0.15831538994488736,
+        0.5383237226628238,
+        0.30336088739228884
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1445,
+      "face": 8062,
+      "barycentric": [
+        0.674890192985458,
+        0.23256767747802415,
+        0.09254212953651783
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1482,
+      "face": 8049,
+      "barycentric": [
+        0.7764789407332647,
+        0.012072592701377503,
+        0.21144846656535776
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1483,
+      "face": 27575,
+      "barycentric": [
+        0.6551478678742765,
+        0.10362613697104771,
+        0.24122599515467577
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1484,
+      "face": 27575,
+      "barycentric": [
+        0.3074225755607999,
+        0.4508203836047766,
+        0.2417570408344235
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1521,
+      "face": 27575,
+      "barycentric": [
+        0.7980465831973867,
+        0.03547472656508235,
+        0.1664786902375309
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1522,
+      "face": 27575,
+      "barycentric": [
+        0.4128136931222952,
+        0.42012313517117034,
+        0.16706317170653448
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1523,
+      "face": 27575,
+      "barycentric": [
+        0.027582172903500013,
+        0.80476819722302,
+        0.16764962987348003
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1560,
+      "face": 27575,
+      "barycentric": [
+        0.5387421193614474,
+        0.4124473040936808,
+        0.048810576544871795
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1561,
+      "face": 27575,
+      "barycentric": [
+        0.09531286917028373,
+        0.8552015388023779,
+        0.049485592027338356
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1562,
+      "face": 8068,
+      "barycentric": [
+        0.05040483595335776,
+        0.34809668307430797,
+        0.6014984809723343
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1599,
+      "face": 38548,
+      "barycentric": [
+        0.06232989308138415,
+        0.6550184014982942,
+        0.2826517054203217
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1600,
+      "face": 19111,
+      "barycentric": [
+        0.6870870586768245,
+        0.06290142581187276,
+        0.25001151551130274
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1601,
+      "face": 32320,
+      "barycentric": [
+        0.1523402082749271,
+        0.7846830024005341,
+        0.06297678932453878
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1638,
+      "face": 19111,
+      "barycentric": [
+        0.6223910056604531,
+        0.24455345030583603,
+        0.13305554403371084
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1639,
+      "face": 32320,
+      "barycentric": [
+        0.0711492770949958,
+        0.6842623907099222,
+        0.24458833219508197
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1640,
+      "face": 12853,
+      "barycentric": [
+        0.755006290480809,
+        0.24048974321364547,
+        0.004503966305545498
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1677,
+      "face": 19111,
+      "barycentric": [
+        0.3792640175536259,
+        0.3326792346706039,
+        0.2880567477757702
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1678,
+      "face": 32320,
+      "barycentric": [
+        0.46930565341215325,
+        0.19778249157602407,
+        0.33291185501182274
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1679,
+      "face": 32319,
+      "barycentric": [
+        0.33077813487114516,
+        0.3313132052198235,
+        0.3379086599090313
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1716,
+      "face": 32320,
+      "barycentric": [
+        0.35134067498371907,
+        0.19730737101148177,
+        0.45135195400479916
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1717,
+      "face": 32319,
+      "barycentric": [
+        0.1318337545297445,
+        0.410229766109635,
+        0.4579364793606205
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1718,
+      "face": 12852,
+      "barycentric": [
+        0.5374408768133636,
+        0.0706041292857604,
+        0.39195499390087596
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1755,
+      "face": 32319,
+      "barycentric": [
+        0.0014114098238250383,
+        0.4692102266596687,
+        0.5293783635165062
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1756,
+      "face": 12852,
+      "barycentric": [
+        0.46726283229469767,
+        0.25494779862313105,
+        0.27778936908217133
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1757,
+      "face": 12845,
+      "barycentric": [
+        0.5326758226100206,
+        0.46091467585983514,
+        0.006409501530144276
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1794,
+      "face": 12852,
+      "barycentric": [
+        0.43821088236499073,
+        0.28601742036956,
+        0.27577169726544926
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1795,
+      "face": 12845,
+      "barycentric": [
+        0.3767987424483208,
+        0.4325134789936043,
+        0.19068777855807498
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1796,
+      "face": 32317,
+      "barycentric": [
+        0.4309470656374811,
+        0.5142442607173177,
+        0.054808673645201235
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1833,
+      "face": 12852,
+      "barycentric": [
+        0.4405678820013147,
+        0.086554009397964,
+        0.4728781086007213
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1834,
+      "face": 32312,
+      "barycentric": [
+        0.564051763795218,
+        0.2515842708683912,
+        0.18436396533639074
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1835,
+      "face": 12850,
+      "barycentric": [
+        0.21261491769017815,
+        0.5675824897680283,
+        0.21980259254179357
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1872,
+      "face": 32312,
+      "barycentric": [
+        0.5065799328538515,
+        0.27204110281502275,
+        0.2213789643311258
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1873,
+      "face": 12850,
+      "barycentric": [
+        0.3396221563747053,
+        0.5097492332763068,
+        0.15062861034898786
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1874,
+      "face": 12506,
+      "barycentric": [
+        0.3713912435445717,
+        0.5155893690557964,
+        0.11301938739963185
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1911,
+      "face": 12850,
+      "barycentric": [
+        0.4930935291045334,
+        0.40794026735401995,
+        0.09896620354144657
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1912,
+      "face": 12506,
+      "barycentric": [
+        0.5000554702117217,
+        0.4126058941789336,
+        0.08733863560934457
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1913,
+      "face": 12502,
+      "barycentric": [
+        0.37035939577264115,
+        0.41991518225605945,
+        0.20972542197129945
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1950,
+      "face": 31980,
+      "barycentric": [
+        0.6630581378439324,
+        0.2250475228354789,
+        0.1118943393205887
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1951,
+      "face": 12506,
+      "barycentric": [
+        0.016608430342069713,
+        0.33980357953410517,
+        0.6435879901238251
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1952,
+      "face": 12502,
+      "barycentric": [
+        0.021834352490813447,
+        0.34564658737699033,
+        0.6325190601321963
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1989,
+      "face": 12506,
+      "barycentric": [
+        0.45616235641040387,
+        0.2192478480139786,
+        0.32458979557561757
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1990,
+      "face": 12502,
+      "barycentric": [
+        0.21093108251099535,
+        0.223237165203855,
+        0.5658317522851497
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 1991,
+      "face": 31987,
+      "barycentric": [
+        0.23482205559035152,
+        0.09639156170302524,
+        0.6687863827066233
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2028,
+      "face": 12502,
+      "barycentric": [
+        0.3430509842269588,
+        0.04260206411954645,
+        0.6143469516534947
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2029,
+      "face": 31987,
+      "barycentric": [
+        0.043819882920265174,
+        0.007491236499579048,
+        0.9486888805801558
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2030,
+      "face": 12524,
+      "barycentric": [
+        0.17776413582301454,
+        0.04502296152680271,
+        0.7772129026501827
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2067,
+      "face": 27596,
+      "barycentric": [
+        0.25223472298854543,
+        0.6476744919089722,
+        0.10009078510248237
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2068,
+      "face": 19316,
+      "barycentric": [
+        0.10992617762879053,
+        0.7174717459576205,
+        0.17260207641358893
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2069,
+      "face": 8102,
+      "barycentric": [
+        0.12457249340226219,
+        0.7990674150124455,
+        0.07636009158529232
+      ],
+      "normalOffset": 0.0025,
+      "kind": "mane"
+    },
+    {
+      "vertex": 2106,
+      "face": 8103,
+      "barycentric": [
+        0.6106596230366806,
+        0.22015448684491526,
+        0.16918589011840415
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2107,
+      "face": 27623,
+      "barycentric": [
+        0.4120982059810835,
+        0.43691280712216446,
+        0.15098898689675214
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2108,
+      "face": 8107,
+      "barycentric": [
+        0.46611669843644726,
+        0.20136514120293506,
+        0.3325181603606177
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2127,
+      "face": 27618,
+      "barycentric": [
+        0.48035686983322795,
+        0.16496724700411083,
+        0.35467588316266124
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2128,
+      "face": 8102,
+      "barycentric": [
+        0.30022680194437334,
+        0.6379821777752278,
+        0.061791020280398845
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2129,
+      "face": 12531,
+      "barycentric": [
+        0.5984829950430758,
+        0.012228526214570098,
+        0.38928847874235417
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2148,
+      "face": 8050,
+      "barycentric": [
+        0.052386299493418664,
+        0.3764726591031624,
+        0.5711410414034189
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2149,
+      "face": 12522,
+      "barycentric": [
+        0.3155010967746589,
+        0.17470013713981675,
+        0.5097987660855244
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2150,
+      "face": 12527,
+      "barycentric": [
+        0.15962533907177429,
+        0.5725218361306643,
+        0.2678528247975614
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2169,
+      "face": 6625,
+      "barycentric": [
+        0.48168641010732377,
+        0.17687074060838215,
+        0.3414428492842941
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2170,
+      "face": 12526,
+      "barycentric": [
+        0.4452891054854119,
+        0.2919971797179367,
+        0.2627137147966514
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2171,
+      "face": 8050,
+      "barycentric": [
+        0.5201505467745288,
+        0.35954458774448694,
+        0.1203048654809843
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2190,
+      "face": 27613,
+      "barycentric": [
+        0.17574331079489547,
+        0.13411112334706277,
+        0.6901455658580418
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2191,
+      "face": 8077,
+      "barycentric": [
+        0.03011174603555438,
+        0.9215669526819557,
+        0.048321301282489966
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2192,
+      "face": 27578,
+      "barycentric": [
+        0.7489319274158036,
+        0.0834809065494103,
+        0.16758716603478607
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2211,
+      "face": 12526,
+      "barycentric": [
+        0.043412906258658124,
+        0.3632108571324464,
+        0.5933762366088955
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2212,
+      "face": 8050,
+      "barycentric": [
+        0.1983826133973683,
+        0.4025004503695445,
+        0.3991169362330872
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2213,
+      "face": 31986,
+      "barycentric": [
+        0.3364296170236274,
+        0.044261047346309715,
+        0.6193093356300629
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2232,
+      "face": 8102,
+      "barycentric": [
+        0.47439759741114845,
+        0.4329766885203415,
+        0.09262571406851011
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2233,
+      "face": 32002,
+      "barycentric": [
+        0.15693057065732863,
+        0.25617064000694667,
+        0.5868987893357247
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2234,
+      "face": 973,
+      "barycentric": [
+        0.23650239462039868,
+        0.2723075819481203,
+        0.491190023431481
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2253,
+      "face": 27616,
+      "barycentric": [
+        0.5918337447526641,
+        0.21729245399431096,
+        0.1908738012530249
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2254,
+      "face": 8110,
+      "barycentric": [
+        0.6060529114568775,
+        0.3803586857402699,
+        0.013588402802852666
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2255,
+      "face": 8084,
+      "barycentric": [
+        0.09176464413916247,
+        0.706956826609427,
+        0.2012785292514105
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2274,
+      "face": 12512,
+      "barycentric": [
+        0.07770180456495235,
+        0.09932372794375438,
+        0.8229744674912932
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2275,
+      "face": 12522,
+      "barycentric": [
+        0.006510110306447547,
+        0.2643661208122433,
+        0.7291237688813091
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2276,
+      "face": 20518,
+      "barycentric": [
+        0.39594889671366834,
+        0.4333873831017077,
+        0.170663720184624
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2295,
+      "face": 8102,
+      "barycentric": [
+        0.18595024395076348,
+        0.7955412254762552,
+        0.018508530572981338
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2296,
+      "face": 32002,
+      "barycentric": [
+        0.04103372444530623,
+        0.7124697599175769,
+        0.2464965156371169
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2297,
+      "face": 973,
+      "barycentric": [
+        0.5913593553508034,
+        0.2299239790140159,
+        0.17871666563518068
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2316,
+      "face": 27615,
+      "barycentric": [
+        0.6772200535768813,
+        0.31774415705964854,
+        0.0050357893634701235
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2317,
+      "face": 8102,
+      "barycentric": [
+        0.06591660287134682,
+        0.3723085532381246,
+        0.5617748438905286
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2318,
+      "face": 32002,
+      "barycentric": [
+        0.1268851118922638,
+        0.20255449645137205,
+        0.6705603916563642
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2337,
+      "face": 6636,
+      "barycentric": [
+        0.6331295589308851,
+        0.18724550525347672,
+        0.17962493581563824
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2338,
+      "face": 8105,
+      "barycentric": [
+        0.44492433718630087,
+        0.35719689066276133,
+        0.19787877215093777
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2339,
+      "face": 8102,
+      "barycentric": [
+        0.3962059558119651,
+        0.44560967958324316,
+        0.15818436460479174
+      ],
+      "normalOffset": 0.007,
+      "kind": "forelock"
+    },
+    {
+      "vertex": 2358,
+      "face": 34046,
+      "barycentric": [
+        0.3213710700171715,
+        0.2862670786427483,
+        0.3923618513400801
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2359,
+      "face": 14587,
+      "barycentric": [
+        0.009952428323405205,
+        0.6447231532400237,
+        0.3453244184365711
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2360,
+      "face": 14521,
+      "barycentric": [
+        0.3519390383432454,
+        0.5534943930093227,
+        0.09456656864743189
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2361,
+      "face": 14584,
+      "barycentric": [
+        0.3802022147835688,
+        0.6070392685176534,
+        0.012758516698777768
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2362,
+      "face": 14574,
+      "barycentric": [
+        0.4513572535142913,
+        0.25992872441290515,
+        0.28871402207280356
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2428,
+      "face": 14572,
+      "barycentric": [
+        0.6704903032952944,
+        0.2694789088876675,
+        0.06003078781703819
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2429,
+      "face": 14584,
+      "barycentric": [
+        0.003034123899316399,
+        0.6536036045877597,
+        0.3433622715129239
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2430,
+      "face": 33987,
+      "barycentric": [
+        0.3995260382226265,
+        0.13865172747584426,
+        0.4618222343015292
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2431,
+      "face": 14587,
+      "barycentric": [
+        0.074493620745536,
+        0.6501314615170318,
+        0.27537491773743217
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2432,
+      "face": 34046,
+      "barycentric": [
+        0.32238969274810353,
+        0.24593514408708678,
+        0.43167516316480975
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2498,
+      "face": 14521,
+      "barycentric": [
+        0.3529273722239826,
+        0.5337449672739213,
+        0.11332766050209608
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2499,
+      "face": 33987,
+      "barycentric": [
+        0.3865484133923296,
+        0.43850560387308596,
+        0.1749459827345845
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2500,
+      "face": 14587,
+      "barycentric": [
+        0.2670542415533932,
+        0.6522666013888734,
+        0.08067915705773346
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2501,
+      "face": 34046,
+      "barycentric": [
+        0.3322519033717449,
+        0.36671024251079437,
+        0.30103785411746065
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2502,
+      "face": 29854,
+      "barycentric": [
+        0.13259768608570993,
+        0.5394917493659449,
+        0.32791056454834516
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2568,
+      "face": 33987,
+      "barycentric": [
+        0.3873161239137204,
+        0.42952865403177026,
+        0.1831552220545094
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2569,
+      "face": 34046,
+      "barycentric": [
+        0.3409031969252818,
+        0.023626518801296806,
+        0.6354702842734213
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2570,
+      "face": 34046,
+      "barycentric": [
+        0.32693070636203503,
+        0.5779427935001389,
+        0.09512650013782611
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2571,
+      "face": 29854,
+      "barycentric": [
+        0.44527524932641827,
+        0.21871731050637278,
+        0.33600744016720896
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2572,
+      "face": 10380,
+      "barycentric": [
+        0.631677110563827,
+        0.021665806580778775,
+        0.3466570828553942
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2638,
+      "face": 34046,
+      "barycentric": [
+        0.3321865823501726,
+        0.36992811280630655,
+        0.2978853048435208
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2639,
+      "face": 29854,
+      "barycentric": [
+        0.21789175274947614,
+        0.45197551190099405,
+        0.3301327353495298
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2640,
+      "face": 10380,
+      "barycentric": [
+        0.6522947365540808,
+        0.26798336727362737,
+        0.07972189617229186
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2641,
+      "face": 24139,
+      "barycentric": [
+        0.2636034234874848,
+        0.34145687228965393,
+        0.3949397042228613
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2642,
+      "face": 4609,
+      "barycentric": [
+        0.42991026128694165,
+        0.17695240061563494,
+        0.39313733809742346
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2708,
+      "face": 29854,
+      "barycentric": [
+        0.3438839223635453,
+        0.335944115229447,
+        0.3201719624070077
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2709,
+      "face": 10380,
+      "barycentric": [
+        0.6536919841951712,
+        0.11787794975936518,
+        0.22843006604546362
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2710,
+      "face": 24139,
+      "barycentric": [
+        0.4608368755681846,
+        0.13964893268561515,
+        0.39951419174620023
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2711,
+      "face": 10375,
+      "barycentric": [
+        0.6466941716391851,
+        0.060012884968877966,
+        0.293292943391937
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2712,
+      "face": 29861,
+      "barycentric": [
+        0.219609316734651,
+        0.09473481724935136,
+        0.6856558660159976
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2778,
+      "face": 29854,
+      "barycentric": [
+        0.39601145929781506,
+        0.282469357031852,
+        0.321519183670333
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2779,
+      "face": 10380,
+      "barycentric": [
+        0.6445371960469262,
+        0.008630758136515992,
+        0.34683204581655785
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2780,
+      "face": 4609,
+      "barycentric": [
+        0.5539813529502661,
+        0.352983630856443,
+        0.09303501619329087
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2781,
+      "face": 10375,
+      "barycentric": [
+        0.6076986967907765,
+        0.3755621395997881,
+        0.01673916360943534
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2782,
+      "face": 10382,
+      "barycentric": [
+        0.26491837332542406,
+        0.42822429301254605,
+        0.3068573336620299
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2848,
+      "face": 29861,
+      "barycentric": [
+        0.07586367082682521,
+        0.2658594179461448,
+        0.6582769112270299
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2849,
+      "face": 10375,
+      "barycentric": [
+        0.6371423617551454,
+        0.13732047916282633,
+        0.22553715908202832
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2850,
+      "face": 24139,
+      "barycentric": [
+        0.4608368755681846,
+        0.13964893268561515,
+        0.39951419174620023
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2851,
+      "face": 10380,
+      "barycentric": [
+        0.6583233759926346,
+        0.17319497041992474,
+        0.16848165358744072
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2852,
+      "face": 29854,
+      "barycentric": [
+        0.23070150613572898,
+        0.4520606642232148,
+        0.31723782964105623
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2918,
+      "face": 4609,
+      "barycentric": [
+        0.38985459226716535,
+        0.10900808816112609,
+        0.5011373195717086
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2919,
+      "face": 24139,
+      "barycentric": [
+        0.29801291764174476,
+        0.30381084563304317,
+        0.3981762367252121
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2920,
+      "face": 10380,
+      "barycentric": [
+        0.6522947365540808,
+        0.26798336727362737,
+        0.07972189617229186
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2921,
+      "face": 29854,
+      "barycentric": [
+        0.1863478731239569,
+        0.48433558972805174,
+        0.3293165371479914
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2922,
+      "face": 34046,
+      "barycentric": [
+        0.33381891957267057,
+        0.30521454789788427,
+        0.36096653252944516
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2988,
+      "face": 24139,
+      "barycentric": [
+        0.06363528290826015,
+        0.560241029364647,
+        0.3761236877270928
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2989,
+      "face": 29854,
+      "barycentric": [
+        0.485527826477216,
+        0.17741766249676144,
+        0.33705451102602263
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2990,
+      "face": 34046,
+      "barycentric": [
+        0.32693070636203503,
+        0.5779427935001389,
+        0.09512650013782611
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2991,
+      "face": 14587,
+      "barycentric": [
+        0.32467358973552346,
+        0.6570950285007543,
+        0.018231381763722247
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 2992,
+      "face": 33987,
+      "barycentric": [
+        0.3955723051056679,
+        0.3334864118699858,
+        0.2709412830243463
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3058,
+      "face": 29854,
+      "barycentric": [
+        0.4488079076480843,
+        0.21509324617385472,
+        0.33609884617806096
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3059,
+      "face": 34046,
+      "barycentric": [
+        0.32816688503552266,
+        0.5288788255069037,
+        0.14295428945757366
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3060,
+      "face": 14587,
+      "barycentric": [
+        0.2670542415533932,
+        0.6522666013888734,
+        0.08067915705773346
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3061,
+      "face": 33987,
+      "barycentric": [
+        0.4027533417509454,
+        0.2499044690653457,
+        0.3473421891837089
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3062,
+      "face": 14521,
+      "barycentric": [
+        0.011696150042460052,
+        0.33258663851757175,
+        0.6557172114399682
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3128,
+      "face": 34046,
+      "barycentric": [
+        0.31762111908587143,
+        0.43501695313655964,
+        0.24736192777756894
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3129,
+      "face": 14587,
+      "barycentric": [
+        0.164576675593497,
+        0.6576773452789265,
+        0.17774597912757648
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3130,
+      "face": 33987,
+      "barycentric": [
+        0.3995260382226265,
+        0.13865172747584426,
+        0.4618222343015292
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3131,
+      "face": 14584,
+      "barycentric": [
+        0.12864231518415747,
+        0.6380942887682615,
+        0.23326339604758106
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3132,
+      "face": 34032,
+      "barycentric": [
+        0.6618580665229679,
+        0.24392258971286734,
+        0.09421934376416471
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3198,
+      "face": 2153,
+      "barycentric": [
+        0.1482841159715636,
+        0.4923562196239387,
+        0.3593596644044977
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3199,
+      "face": 2153,
+      "barycentric": [
+        0.5614011110462482,
+        0.3477451668026547,
+        0.09085372215109694
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3200,
+      "face": 34034,
+      "barycentric": [
+        0.8216647992094618,
+        0.1586019443516829,
+        0.019733256438855408
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3201,
+      "face": 34032,
+      "barycentric": [
+        0.7240194904506766,
+        0.03931438106699382,
+        0.23666612848232957
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3202,
+      "face": 14584,
+      "barycentric": [
+        0.16104991132912772,
+        0.581862845432472,
+        0.25708724323840026
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3268,
+      "face": 2153,
+      "barycentric": [
+        0.7409196694291004,
+        0.25153349777268297,
+        0.00754683279821667
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3269,
+      "face": 34032,
+      "barycentric": [
+        0.6455455368714904,
+        0.3442490043536604,
+        0.010205458774849296
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3270,
+      "face": 14584,
+      "barycentric": [
+        0.34568828284104625,
+        0.6117874895516239,
+        0.04252422760732989
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3271,
+      "face": 14521,
+      "barycentric": [
+        0.2644211741270792,
+        0.5014123385473899,
+        0.2341664873255309
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3272,
+      "face": 33987,
+      "barycentric": [
+        0.3746220954772423,
+        0.4320120706236093,
+        0.19336583389914846
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3338,
+      "face": 14584,
+      "barycentric": [
+        0.2262248515793233,
+        0.6463779754313833,
+        0.1273971729892934
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3339,
+      "face": 33987,
+      "barycentric": [
+        0.4196138224702177,
+        0.053682612103082734,
+        0.5267035654266995
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3340,
+      "face": 14587,
+      "barycentric": [
+        0.11834148329485211,
+        0.6398104288292517,
+        0.24184808787589623
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3341,
+      "face": 34046,
+      "barycentric": [
+        0.3317796493298006,
+        0.3854674972599437,
+        0.28275285341025574
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3342,
+      "face": 29854,
+      "barycentric": [
+        0.32132964414349374,
+        0.3458689179218338,
+        0.33280143793467254
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3408,
+      "face": 34046,
+      "barycentric": [
+        0.3391466917593048,
+        0.09377790620137853,
+        0.5670754020393167
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3409,
+      "face": 29854,
+      "barycentric": [
+        0.00074790871797209,
+        0.6747459217664716,
+        0.3245061695155563
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3410,
+      "face": 29854,
+      "barycentric": [
+        0.568649061541378,
+        0.09213309521285047,
+        0.3392178432457715
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3411,
+      "face": 24139,
+      "barycentric": [
+        0.14037496903732483,
+        0.4762720882357701,
+        0.3833529427269051
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3412,
+      "face": 4609,
+      "barycentric": [
+        0.46856901564708897,
+        0.24252971137844573,
+        0.28890127297446533
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3478,
+      "face": 10380,
+      "barycentric": [
+        0.6662233216887724,
+        0.26751540898409343,
+        0.06626126932713412
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3479,
+      "face": 24139,
+      "barycentric": [
+        0.3570601058678279,
+        0.2531833333098961,
+        0.38975656082227605
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3480,
+      "face": 10375,
+      "barycentric": [
+        0.6529754583834724,
+        0.009198301694454179,
+        0.33782623992207345
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3481,
+      "face": 29861,
+      "barycentric": [
+        0.19328436092030865,
+        0.1260732460314999,
+        0.6806423930481914
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3482,
+      "face": 35351,
+      "barycentric": [
+        0.2169774358957276,
+        0.00728270091901474,
+        0.7757398631852577
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3548,
+      "face": 10375,
+      "barycentric": [
+        0.5978845491767055,
+        0.02770750947131305,
+        0.3744079413519814
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3549,
+      "face": 10388,
+      "barycentric": [
+        0.1858306009649747,
+        0.6450638142394,
+        0.16910558479562535
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3550,
+      "face": 10382,
+      "barycentric": [
+        0.1803606119056417,
+        0.6586796464067212,
+        0.16095974168763713
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3551,
+      "face": 15898,
+      "barycentric": [
+        0.30799521887398373,
+        0.6403271996354833,
+        0.05167758149053293
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3552,
+      "face": 15898,
+      "barycentric": [
+        0.4538441851542753,
+        0.22362566259521638,
+        0.32253015225050824
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3618,
+      "face": 15898,
+      "barycentric": [
+        0.5105876371448805,
+        0.06108121464526834,
+        0.4283311482098511
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3619,
+      "face": 15898,
+      "barycentric": [
+        0.3499485249484929,
+        0.5200566263181006,
+        0.12999484873340655
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3620,
+      "face": 29855,
+      "barycentric": [
+        0.026821129173690283,
+        0.14883656521036526,
+        0.8243423056159445
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3621,
+      "face": 10388,
+      "barycentric": [
+        0.23584435073306692,
+        0.6959903869547722,
+        0.06816526231216084
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3622,
+      "face": 10375,
+      "barycentric": [
+        0.599355215176998,
+        0.017576787567289868,
+        0.38306799725571217
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3688,
+      "face": 35351,
+      "barycentric": [
+        0.11484413025164597,
+        0.07680535856098172,
+        0.8083505111873723
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3689,
+      "face": 29861,
+      "barycentric": [
+        0.11321315507010732,
+        0.22170785177393698,
+        0.6650789931559556
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3690,
+      "face": 10375,
+      "barycentric": [
+        0.6121382133879915,
+        0.3433894938148476,
+        0.04447229279716092
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3691,
+      "face": 4609,
+      "barycentric": [
+        0.4520899502807817,
+        0.18094239743684848,
+        0.3669676522823698
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3692,
+      "face": 24139,
+      "barycentric": [
+        0.36454239513965925,
+        0.24467442310212023,
+        0.39078318175822047
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3758,
+      "face": 10375,
+      "barycentric": [
+        0.6467478942175808,
+        0.22381641739927524,
+        0.12943568838314387
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3759,
+      "face": 24139,
+      "barycentric": [
+        0.5255544051083405,
+        0.05487691068673278,
+        0.41956868420492666
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3760,
+      "face": 10380,
+      "barycentric": [
+        0.6398350501656539,
+        0.11924795309184302,
+        0.24091699674250308
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3761,
+      "face": 29854,
+      "barycentric": [
+        0.2820415387710412,
+        0.38616276911613995,
+        0.3317956921128188
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3762,
+      "face": 34046,
+      "barycentric": [
+        0.33280247879730585,
+        0.3454589971184181,
+        0.32173852408427606
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3828,
+      "face": 29854,
+      "barycentric": [
+        0.6247862706775186,
+        0.034554861277160225,
+        0.3406588680453212
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3829,
+      "face": 29854,
+      "barycentric": [
+        0.027543902701970047,
+        0.6472707650571061,
+        0.32518533224092383
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3830,
+      "face": 34046,
+      "barycentric": [
+        0.33920128539916805,
+        0.09117722922158021,
+        0.5696214853792517
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3831,
+      "face": 33987,
+      "barycentric": [
+        0.38639719494540803,
+        0.44028285380662835,
+        0.17331995124796365
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3832,
+      "face": 14521,
+      "barycentric": [
+        0.17803247631054775,
+        0.43064217712706526,
+        0.39132534656238704
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3898,
+      "face": 33987,
+      "barycentric": [
+        0.3575099126254355,
+        0.6275904016147581,
+        0.014899685759806403
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3899,
+      "face": 33987,
+      "barycentric": [
+        0.40444240170450874,
+        0.08139602148472959,
+        0.5141615768107617
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3900,
+      "face": 14584,
+      "barycentric": [
+        0.011398886769409422,
+        0.6525719334762566,
+        0.33602917975433394
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3901,
+      "face": 14572,
+      "barycentric": [
+        0.6240745932759313,
+        0.22411499025018658,
+        0.15181041647388221
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3902,
+      "face": 14574,
+      "barycentric": [
+        0.5974628150885362,
+        0.22880863247450284,
+        0.173728552436961
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3968,
+      "face": 14521,
+      "barycentric": [
+        0.2779479716486426,
+        0.5623925934937116,
+        0.1596594348576458
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3969,
+      "face": 14572,
+      "barycentric": [
+        0.4641928002689243,
+        0.009295169819684899,
+        0.5265120299113908
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3970,
+      "face": 14574,
+      "barycentric": [
+        0.6630913180012359,
+        0.17957791074018725,
+        0.15733077125857686
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3971,
+      "face": 2153,
+      "barycentric": [
+        0.5079468270489109,
+        0.366639562632939,
+        0.12541361031815
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 3972,
+      "face": 1870,
+      "barycentric": [
+        0.029048021832258297,
+        0.4477059378843076,
+        0.5232460402834341
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4038,
+      "face": 1870,
+      "barycentric": [
+        0.05981862258095727,
+        0.41349483406716825,
+        0.5266865433518745
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4039,
+      "face": 2153,
+      "barycentric": [
+        0.3905553413780881,
+        0.43362717751964813,
+        0.1758174811022638
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4040,
+      "face": 21695,
+      "barycentric": [
+        0.719259870129437,
+        0.12800819883292316,
+        0.15273193103763982
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4041,
+      "face": 34032,
+      "barycentric": [
+        0.7284994346009227,
+        0.15662572283731485,
+        0.11487484256176242
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4042,
+      "face": 14584,
+      "barycentric": [
+        0.2080479391297821,
+        0.5348614675561677,
+        0.2570905933140502
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4108,
+      "face": 2153,
+      "barycentric": [
+        0.1490659618654856,
+        0.49226552905293797,
+        0.35866850908157644
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4109,
+      "face": 2153,
+      "barycentric": [
+        0.6488521573671298,
+        0.3173154781518159,
+        0.03383236448105431
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4110,
+      "face": 14574,
+      "barycentric": [
+        0.28000903321368936,
+        0.2611750987275775,
+        0.45881586805873315
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4111,
+      "face": 14584,
+      "barycentric": [
+        0.38928330224556,
+        0.5533975102647101,
+        0.05731918748972992
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4112,
+      "face": 14521,
+      "barycentric": [
+        0.28401958584010084,
+        0.5659731201732553,
+        0.15000729398664386
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4178,
+      "face": 14521,
+      "barycentric": [
+        0.33849975134600785,
+        0.5252405186799719,
+        0.13625972997402028
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4179,
+      "face": 33987,
+      "barycentric": [
+        0.37927560906990576,
+        0.5231281011030037,
+        0.09759628982709057
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4180,
+      "face": 34046,
+      "barycentric": [
+        0.33945146053251407,
+        0.08110900632587265,
+        0.5794395331416133
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4181,
+      "face": 34046,
+      "barycentric": [
+        0.32606457392800225,
+        0.612405275675217,
+        0.0615301503967808
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4182,
+      "face": 29854,
+      "barycentric": [
+        0.4564433359825536,
+        0.20725973417731183,
+        0.3362969298401346
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4248,
+      "face": 29854,
+      "barycentric": [
+        0.6324342183824728,
+        0.03991937054261998,
+        0.3276464110749072
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4249,
+      "face": 24139,
+      "barycentric": [
+        0.17235907682707274,
+        0.4552495435049295,
+        0.37239137966799774
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4250,
+      "face": 4609,
+      "barycentric": [
+        0.4922210439488619,
+        0.24822324007234797,
+        0.2595557159787901
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4251,
+      "face": 10388,
+      "barycentric": [
+        0.017430514179926027,
+        0.41249823719863277,
+        0.5700712486214412
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4252,
+      "face": 10382,
+      "barycentric": [
+        0.2973753421183101,
+        0.27591456192743347,
+        0.4267100959542564
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4318,
+      "face": 10388,
+      "barycentric": [
+        0.05546740346037843,
+        0.635278303759334,
+        0.30925429278028754
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4319,
+      "face": 35351,
+      "barycentric": [
+        0.019332636981663764,
+        0.25209314511796777,
+        0.7285742179003685
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4320,
+      "face": 15898,
+      "barycentric": [
+        0.44207801685913395,
+        0.45746029814976436,
+        0.10046168499110167
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4321,
+      "face": 7449,
+      "barycentric": [
+        0.37937793182591095,
+        0.06664737771748652,
+        0.5539746904566025
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4322,
+      "face": 7449,
+      "barycentric": [
+        0.26137775177226197,
+        0.4932219484889429,
+        0.24540029973879518
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4388,
+      "face": 10388,
+      "barycentric": [
+        0.11933007061346804,
+        0.647025846025736,
+        0.23364408336079598
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4389,
+      "face": 10382,
+      "barycentric": [
+        0.14115670396217006,
+        0.6493507894376899,
+        0.20949250660014007
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4390,
+      "face": 35351,
+      "barycentric": [
+        0.31893715761853936,
+        0.015243966658540864,
+        0.6658188757229198
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4391,
+      "face": 15898,
+      "barycentric": [
+        0.47737144727933734,
+        0.2697954147320493,
+        0.2528331379886133
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4392,
+      "face": 7449,
+      "barycentric": [
+        0.3971643203918601,
+        0.11220508447590849,
+        0.4906305951322314
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4458,
+      "face": 7449,
+      "barycentric": [
+        0.40232119075842604,
+        0.1447580194862718,
+        0.4529207897553022
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4459,
+      "face": 15898,
+      "barycentric": [
+        0.43989558331722595,
+        0.3364011425277551,
+        0.22370327415501895
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4460,
+      "face": 35351,
+      "barycentric": [
+        0.1518385610409705,
+        0.1146110527142062,
+        0.7335503862448233
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4461,
+      "face": 29861,
+      "barycentric": [
+        0.1861575634706406,
+        0.07261509003956793,
+        0.7412273464897915
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4462,
+      "face": 10375,
+      "barycentric": [
+        0.5558825209805394,
+        0.04824068867342236,
+        0.39587679034603834
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4528,
+      "face": 15898,
+      "barycentric": [
+        0.4041542393677381,
+        0.3655914711264119,
+        0.23025428950585
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4529,
+      "face": 35351,
+      "barycentric": [
+        0.24293773690025244,
+        0.025461680462839476,
+        0.7316005826369081
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4530,
+      "face": 10382,
+      "barycentric": [
+        0.2617725131357932,
+        0.27664000633039804,
+        0.4615874805338088
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4531,
+      "face": 10388,
+      "barycentric": [
+        0.08499851109326606,
+        0.5418814983924691,
+        0.3731199905142648
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4532,
+      "face": 4609,
+      "barycentric": [
+        0.4198917575823389,
+        0.03596687903992927,
+        0.5441413633777319
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4598,
+      "face": 24139,
+      "barycentric": [
+        0.4437661584299786,
+        0.14435290822877056,
+        0.41188093334125087
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4599,
+      "face": 10380,
+      "barycentric": [
+        0.6307720177932794,
+        0.011018029940849173,
+        0.35820995226587143
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4600,
+      "face": 29854,
+      "barycentric": [
+        0.5784706872269876,
+        0.08205680251344415,
+        0.33947251025956826
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4601,
+      "face": 29854,
+      "barycentric": [
+        0.1603569091822154,
+        0.5110013474936889,
+        0.32864174332409574
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4602,
+      "face": 34046,
+      "barycentric": [
+        0.3311506939275464,
+        0.41112664250687164,
+        0.257722663565582
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4668,
+      "face": 34046,
+      "barycentric": [
+        0.3244942240835198,
+        0.16239060179558915,
+        0.513115174120891
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4669,
+      "face": 33987,
+      "barycentric": [
+        0.36624277380652714,
+        0.5259807705874844,
+        0.1077764556059885
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4670,
+      "face": 14521,
+      "barycentric": [
+        0.2469616912521887,
+        0.4916053134431681,
+        0.26143299530464315
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4671,
+      "face": 14572,
+      "barycentric": [
+        0.49194269483634917,
+        0.09497778223707747,
+        0.4130795229265734
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4672,
+      "face": 14574,
+      "barycentric": [
+        0.7205019850307899,
+        0.2026010007659787,
+        0.07689701420323149
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4738,
+      "face": 14572,
+      "barycentric": [
+        0.6647195398542048,
+        0.08477982873574627,
+        0.25050063141004886
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4739,
+      "face": 21695,
+      "barycentric": [
+        0.711147119059376,
+        0.2540450670007148,
+        0.03480781393990921
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4740,
+      "face": 2153,
+      "barycentric": [
+        0.4517003162861428,
+        0.4547330528599946,
+        0.0935666308538625
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4741,
+      "face": 1870,
+      "barycentric": [
+        0.06430607631243845,
+        0.36976949635635203,
+        0.5659244273312095
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4742,
+      "face": 1870,
+      "barycentric": [
+        0.482302914972687,
+        0.2568010475761725,
+        0.2608960374511405
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4808,
+      "face": 14572,
+      "barycentric": [
+        0.5370385398444347,
+        0.011519346813455787,
+        0.4514421133421095
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4809,
+      "face": 14574,
+      "barycentric": [
+        0.4920969938187206,
+        0.174482307883916,
+        0.3334206982973635
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4810,
+      "face": 21695,
+      "barycentric": [
+        0.6525622967819343,
+        0.026167310790499193,
+        0.3212703924275665
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4811,
+      "face": 2153,
+      "barycentric": [
+        0.23002712710747986,
+        0.5030796876214438,
+        0.2668931852710763
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    },
+    {
+      "vertex": 4812,
+      "face": 1870,
+      "barycentric": [
+        0.17286495464047497,
+        0.36967943036068046,
+        0.4574556149988445
+      ],
+      "normalOffset": 0.007,
+      "kind": "tail"
+    }
+  ],
+  "alphaCutoff": 0.36,
+  "packedImages": true,
+  "fbxSha256": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3"
+}

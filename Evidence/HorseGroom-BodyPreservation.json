@@ -1,0 +1,12 @@
+{
+  "originalBodySkinBonesAndKeysPreserved": true,
+  "addedHairOnlyBones": [
+    "GroomMane.0",
+    "GroomMane.1",
+    "GroomMane.2",
+    "GroomMane.3",
+    "GroomTail"
+  ],
+  "canonicalDataSha256": "581316aada7bfac63072bb5ce92b91a3f65a173a6f0b35a32d75922b55e5711c",
+  "scope": "Original body and pre-existing bone/action subset; five explicit hair-only helper bones excluded. Canonical neutral vertex/topology/UV/corner-normal data, named weights, rest hierarchy/matrices, linear animation keys, armature skinning mode and object matrices; excludes file serialization metadata."
+}

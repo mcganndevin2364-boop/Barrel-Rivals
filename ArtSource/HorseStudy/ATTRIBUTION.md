@@ -9,3 +9,5 @@ Barrel Rivals changes: normalization to metres, reduced mesh, rebuilt smooth nor
 The mirror supplied geometry and UVs but no rig, animation or textures. Do not assume that maps mentioned on the original listing are present. No reference-image pixels or sponsor artwork are included.
 
 See [the supplied source license](Source/BlendSwap-13903-license.html) and [exact hashes/provenance](PROVENANCE.json). The latest surface candidate includes original procedural materials and fitted eyes; it is still an offline art study, not the current Unity horse.
+
+The later groom candidate adds original fitted mane/forelock/tail geometry and five hair-only helper bones. It reuses two original project atlases unchanged; see [natural atlas provenance](../../Docs/Art/Original-natural-hair-provenance.md) and [separated atlas provenance](../../Docs/Art/Original-separated-hair-provenance.md). The attributed horse body, eyes and base walk remain unchanged.

@@ -1,0 +1,25 @@
+{
+  "scope": "Saved groom topology, UV/skin/material identity and independent FBX fidelity at 225 authored and between-key poses. Not photographic, continuous collision, Unity or device acceptance.",
+  "hairVertices": 4878,
+  "hairTriangles": 6624,
+  "materials": 2,
+  "cards": 102,
+  "bones": 39,
+  "sampleCount": 225,
+  "packedAtlasHashesVerified": true,
+  "normalizedMaximumFourWeights": true,
+  "rootsExcludeHelperWeights": true,
+  "alphaCutoutAndAtlasOrientationVerified": true,
+  "fixedObjectRoot": true,
+  "distinctHelperMotion": true,
+  "loopErrorM": 0.0,
+  "fbx": {
+    "bijectivePositionUVSkinMapping": true,
+    "faceWindingMaterialsPreserved": true,
+    "maximumNeutralPositionErrorM": 5.332015007297741e-07,
+    "maximumMotionErrorM": 1.6982135338508272e-06,
+    "maximumUVError": 0.0,
+    "maximumSkinError": 0.0,
+    "minimumCornerNormalDot": 0.9999998286366463
+  }
+}

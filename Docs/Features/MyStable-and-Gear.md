@@ -66,3 +66,7 @@ The [rider source checkpoint](../Art/Reins-Rider-Body-Checkpoint.md) shortens th
 ## Connected glove inspection and riding poses
 
 The [glove source checkpoint](../Art/Reins-Glove-Anatomy-Checkpoint.md) shares CC0-derived palm/finger anatomy between the open inspector and closed riding hands. All six glove thumbnails are actual renders of the same inspectable geometry/materials. Softer leather finish replaces excessive speckled highlights; no new texture is imported. The inspection assembly drops from 4,192 triangles/three renderers to 2,537/two. Six-style preview/equip/cancel/persistence and race appearance isolation pass again, with current GloveAnatomy-* evidence. This does not add gear categories, ownership, bonuses or photographic-quality/device acceptance.
+
+## Offline replacement candidate
+
+The [fitted horse groom study](../Art/Reins-Horse-Groom-Study.md) now includes eyes, bay coat, mane, forelock and tail in editable offline source. It does not yet replace the stable or racing horse and adds no new equipment/progression functionality. The next integration uses explicit bone/renderer bindings, reviewed URP materials and refitted tack/rider/camera in a separate Unity benchmark; preserve the current 20-style catalog, preview/equip/cancel and save behavior.

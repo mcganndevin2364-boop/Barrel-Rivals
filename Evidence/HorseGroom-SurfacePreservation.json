@@ -1,0 +1,5 @@
+{
+  "surfaceDataAndShaderGraphsIdentical": true,
+  "canonicalDataSha256": "628ca8cf0c3129229b53fb892f4dbce520ae43908aee9678f55db55199dc32dd",
+  "scope": "Neutral body/eye mesh, vertex colors, skin and material assignment; shader node types, authored properties, input defaults and links. Body rig/animation checked separately. Not render or Unity acceptance."
+}
