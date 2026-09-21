@@ -24,11 +24,12 @@
     "Original in-place 32-frame walk at 30fps, 1.5m/s reference speed; independent pastern/hoof orientation, rotation IK, no stretch.",
     "Motion refinement: twenty connected-edge diffusion passes on upper-body skin weights, 28-frame walk, 75mm foot lift, 87mm mean root lowering, measured toe-pivot roll, folded swing and restrained torso/head weight-transfer accents. No mesh/UV/rig hierarchy changes.",
     "Original fitted closed eye globes with dark brown iris/horizontal pupil colors and single Head skin; original bay coat vertex reflectance, bare-surface mask and procedural grain/roughness. Body geometry, UVs, normals, weights, rig and walk unchanged. No bitmap asset added.",
-    "Original surface-fitted 102-card mane, forelock and tail using unchanged project atlas pixels; barycentric four-weight skinning, five hair-only helper bones and bounded cyclic secondary motion. Curved crown/tail sections and surface-tangent roots repair clipping and collapsed polygons. Body, eyes, their materials and original 34-bone walk unchanged."
+    "Original surface-fitted 102-card mane, forelock and tail using unchanged project atlas pixels; barycentric four-weight skinning, five hair-only helper bones and bounded cyclic secondary motion. Curved crown/tail sections and surface-tangent roots repair clipping and collapsed polygons. Body, eyes, their materials and original 34-bone walk unchanged.",
+    "Isolated Unity URP conversion: explicit rig/renderer roles, measured neutral bind-pose restoration, vertex reflectance and opaque bare-surface mask, existing original fiber shader/atlases, UV2 strand progress, existing original saddle refitted by actual surface rays and inherited support camera. No source FBX or bitmap bytes changed."
   ],
   "newAuthoring": "Original Barrel Rivals project work, September 20\u201321, 2026. Derivatives retain CC-BY-3.0; carry b2przemo credit, source/license link and modification notice.",
   "blender": "4.5.13 LTS (daeeeca98fb0), Intel; factory startup and embedded auto-execution disabled",
-  "acceptance": "Offline art study only; not used in Unity scenes, mobile packages or equipped stable horse.",
+  "acceptance": "Imported into an isolated Unity development benchmark only; not the player/stable/ghost horse, not included in existing verified mobile packages, not photographic or device acceptance.",
   "recordedAt": "2026-09-21T05:47:38+00:00",
   "files": {
     "Candidate/HeroHorse-RigStudy.fbx": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
@@ -86,5 +87,16 @@
     "newBitmapTextures": 0,
     "unityIntegrated": false,
     "reviewMovie": "Evidence/HorseGroom-Motion.mp4"
+  },
+  "unityBenchmark": {
+    "scene": "Assets/_Project/Development/HeroHorse/HeroHorseBenchmark.unity",
+    "importedFbxSha256": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3",
+    "runtimeReplacement": false,
+    "horseAndSaddleTriangles": 59864,
+    "materialSlots": 8,
+    "sourceMotionTargetM": 0.0002,
+    "sourceMotionTargetMet": false,
+    "maximumAnimatedBodyErrorM": 0.0003639314,
+    "checkpoint": "Docs/Art/Reins-Horse-Unity-Benchmark.md"
   }
 }

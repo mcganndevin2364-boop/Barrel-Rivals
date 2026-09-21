@@ -1,6 +1,6 @@
 # Fitted horse, movement, surface and groom studies
 
-This editable candidate advances S10/S12 but is **not integrated or visually accepted**. Current race/MyStable scenes and both verified 0.5 mobile artifacts still use the existing CC0 horse.
+This editable candidate advances S10/S12 in an isolated Unity benchmark but is **not adopted by runtime or visually accepted**. Current race/MyStable scenes and both verified 0.5 mobile artifacts still use the existing CC0 horse.
 
 - `Source/StaticHorse39k.fbx`: pinned reduced b2przemo body, 19,502 vertices / 39,000 triangles, existing UVs, no supplied maps.
 - `Candidate/HeroHorse-RigStudy.fbx`: 34 bones (one non-deforming root), at most four influences, no locomotion.
@@ -60,7 +60,7 @@ The still renderer uses Cycles CPU; the moving material review uses Cycles CPU a
 
 ## Rebuild the fitted groom
 
-The latest `Candidate/HeroHorse-GroomStudy.blend` / `.fbx` adds a fitted mane, forelock and tail with five hair-only helper bones. Body/eyes/base walk remain identical to the surface candidate. The complete horse candidate is **48,504 triangles / four slots / three renderers / 39 bones**, before tack or rider. It is still outside Unity Assets. See [groom checkpoint](../../Docs/Art/Reins-Horse-Groom-Study.md) for the actual review and limits.
+The latest `Candidate/HeroHorse-GroomStudy.blend` / `.fbx` adds a fitted mane, forelock and tail with five hair-only helper bones. Body/eyes/base walk remain identical to the surface candidate. The complete horse candidate is **48,504 triangles / four slots / three renderers / 39 bones**, before tack or rider. A copy is now in the isolated Unity development benchmark; the racing/stable/ghost horse is unchanged. See [groom checkpoint](../../Docs/Art/Reins-Horse-Groom-Study.md) for the actual review and limits.
 
 Run after the face/coat stage, from the repository root:
 
@@ -79,4 +79,4 @@ cp /tmp/barrel-horse-study/walk/walk-study.json /tmp/barrel-horse-study/groom/wa
 
 No downloaded code, add-on, new bitmap or paid asset is required. The `.blend` packs the unchanged atlas bytes. FBX uses image basenames, and does not transfer the Blender hair/coat shader graphs; bind the existing repo PNGs explicitly when making the Unity materials. UV-V runs from root to tip; the natural/separated layers use genuine alpha cutout at 0.36. The rig gains five explicitly named `Groom*` bones; no body or eye vertex uses them. Preserve the non-deforming Root and the measured original animation rather than renaming the rig to match legacy names.
 
-The next step is an isolated Unity horse benchmark with explicit renderer/bone-role bindings, coat/eye/hair URP conversion and refitted tack/rider/camera. Review the actual moving model there before replacing the player/stable/ghost prefab. Remaining gaits, root shading, natural hair motion, body deformation, LODs and phone budgets remain open.
+The isolated [Unity benchmark](../../Docs/Art/Reins-Horse-Unity-Benchmark.md) now has explicit renderer/bone-role bindings, opaque coat/eye and cutout hair materials, a fitted saddle and inherited camera movement. Review it before replacing player/stable/ghost content. Fit bridle/reins/rider next; the animated Unity-to-source comparison still exceeds its retained 0.2 mm target. Remaining gaits, root shading, natural hair motion, body deformation, LODs and phone budgets remain open.

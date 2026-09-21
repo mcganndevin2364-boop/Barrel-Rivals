@@ -1,0 +1,99 @@
+{
+  "recordedAt": "2026-09-21T07:04:30+00:00",
+  "sourceBaseline": "fe2d08f7ff13220833edd8a51b986ff5f2fc9d4d",
+  "scope": "Isolated Unity horse/saddle development benchmark, excluded from player scenes; not source-motion, photographic, native or phone acceptance.",
+  "priorEvidenceUnchanged": 611,
+  "neutralSurfaceResults": [
+    {
+      "name": "HeroHorseBody",
+      "sourceVertices": 19502,
+      "importedVertices": 23024,
+      "matchedSourceVertices": 19502,
+      "maximumPositionErrorM": 2.0395309547893703e-06,
+      "maximumLinearColorError": 0.0019607841968536377,
+      "colorFormat": "UNorm8"
+    },
+    {
+      "name": "HeroHorseEyes",
+      "sourceVertices": 1444,
+      "importedVertices": 1444,
+      "matchedSourceVertices": 1444,
+      "maximumPositionErrorM": 1.6636664668112644e-06,
+      "maximumLinearColorError": 0.0019606738351285458,
+      "colorFormat": "UNorm8"
+    }
+  ],
+  "shaderErrors": 0,
+  "opaqueMaskPixels": [
+    16384,
+    16384
+  ],
+  "animatedReference": {
+    "samples": 7,
+    "maximumErrorM": 0.00036393143818713725,
+    "targetM": 0.00019999999494757503,
+    "targetMet": false,
+    "status": "Open. Exact cause not isolated; Bone4 and importer minimum-weight changes did not remove it. Diagnostic capture completed without widening this target."
+  },
+  "playMode": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 06:59:33Z"
+  },
+  "geometry": {
+    "parts": {
+      "Fitted Saddle fittings.asset": 992,
+      "Fitted Curved western pad.asset": 1424,
+      "Fitted Blanket stripes.asset": 2672,
+      "Fitted Western saddle leather.asset": 6272
+    },
+    "horseTriangles": 48504,
+    "horseAndSaddleTriangles": 59864,
+    "horseAndSaddleRenderers": 7,
+    "horseAndSaddleMaterialSlots": 8,
+    "scope": "Saved Unity mesh index counts; excludes bridle/rider and does not measure performance."
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 7.467,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      111,
+      112,
+      223
+    ],
+    "height": 600,
+    "width": 800
+  },
+  "runtimeContentChanged": false,
+  "newNativeBuild": false,
+  "newPhoneInstallation": false,
+  "projectConfiguredVersion": "0.5.0/build 5",
+  "lastVerifiedInstalledIPhone": "0.4.0/build 4",
+  "remaining": [
+    "Fit bridle, reins, rider and hands",
+    "Refine smooth coat, hair edges and limb deformation",
+    "Isolate animated-source import difference",
+    "Author remaining gaits/turn/brake/Wrap",
+    "LODs and material/geometry budgets",
+    "Explicit race/stable/ghost adoption",
+    "Native/mobile visual and performance qualification"
+  ],
+  "evidenceSha256": {
+    "HorseUnity-Build.json": "6dfcde63447d9cfb0f00e761864c651259980368c45149238ba4b06218f2cb19",
+    "HorseUnity-Capture.json": "160272694d54d9e6bcd57d99312f1b54e8c3a82bea5e2cb0acdb65ea04f6dff1",
+    "HorseUnity-GeometryBudget.json": "bdfa4e05a57ee4fb9069dbe35da3dba1bfc12d5bdcb87c6e1e317a15de872971",
+    "HorseUnity-Head.png": "15883d9f203c19667ebef84ed7d0be92ee8103844c6dca80bea6bb2c4d975312",
+    "HorseUnity-Motion.mp4": "0e7ef4395db3e032588afdb291412c8db62957d80c0f7ef421761951af51b072",
+    "HorseUnity-MotionDiagnostic.txt": "06273b233b9fffc874c8215899520bede6a5d6de1a73dffd03032df63257ef5f",
+    "HorseUnity-Neutral.png": "1e0c688c36d752904f41f68307875356e74ae6439f13e0c99e1656f5dc435a7c",
+    "HorseUnity-PlayMode.xml": "23f29e1a166f8712659c7536084083984194d74320cf43b6a2af67cf56c6bb08",
+    "HorseUnity-Playback.json": "053e63afe7d20d0184987979fe5357fa3fb48223c1e974d04be4a0dde5dc20b6",
+    "HorseUnity-Review.json": "29e684af856d771694e8ea332adccbee1e4eb11181f333571d609794f445044b",
+    "HorseUnity-Rider.png": "61db28ffa3a8085758bca6bc6c458739351bfede7f12912f390ace11ec560854",
+    "HorseUnity-Video.json": "2d9bdcd223eafd2a7d5e2e806afa0e64d58ab948a1c4f8b26da054e4add707d6"
+  }
+}

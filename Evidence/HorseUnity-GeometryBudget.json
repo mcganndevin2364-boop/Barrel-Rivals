@@ -1,0 +1,13 @@
+{
+  "parts": {
+    "Fitted Saddle fittings.asset": 992,
+    "Fitted Curved western pad.asset": 1424,
+    "Fitted Blanket stripes.asset": 2672,
+    "Fitted Western saddle leather.asset": 6272
+  },
+  "horseTriangles": 48504,
+  "horseAndSaddleTriangles": 59864,
+  "horseAndSaddleRenderers": 7,
+  "horseAndSaddleMaterialSlots": 8,
+  "scope": "Saved Unity mesh index counts; excludes bridle/rider and does not measure performance."
+}

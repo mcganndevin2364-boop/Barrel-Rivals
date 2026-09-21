@@ -1,0 +1,11 @@
+{
+  "format": "BRHCOL02; little-endian int32 mesh count, name UTF-8 byte count/name, vertex count, float32 x/y/z/r/g/b/a per vertex. Then int32 pose count/body vertex count; for each pose float32 seconds followed by x/y/z float32 for every body vertex. Coordinates are canonical game metres, not renderer-local import units.",
+  "sourceBlendSha256": "50754d1c1e0e6b62cbc360e1800787a65fb80399d7dc29c804f6754201e7b5eb",
+  "referenceSha256": "b62661fa794ca17c7612cbd08bb541c30a12a252b16a67e545073a993146619c",
+  "animatedBodySamples": 7,
+  "sourceVertices": {
+    "HeroHorseBody": 19502,
+    "HeroHorseEyes": 1444
+  },
+  "scope": "Independent neutral surface and linear color reference for Unity import; alpha is a bare-surface mask, never opacity."
+}
