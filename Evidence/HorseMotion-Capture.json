@@ -1,0 +1,13 @@
+{
+  "frames": 336,
+  "fps": 30,
+  "width": 960,
+  "height": 720,
+  "views": [
+    "side",
+    "quarter",
+    "rider"
+  ],
+  "groundReferenceSpeedMps": 1.5,
+  "scope": "Offline diagnostic frames, not a Unity or device capture."
+}

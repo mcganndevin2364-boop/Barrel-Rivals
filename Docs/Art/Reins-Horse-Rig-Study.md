@@ -1,5 +1,7 @@
 # Reins — alternative horse rig and walk study
 
+Historical first fitted-rig checkpoint. See [the current movement refinement](Reins-Horse-Motion-Refinement.md).
+
 September 20, 2026. **Offline art progress for S10/S12; no runtime replacement or photographic acceptance.** The existing race/MyStable content, rules, controls and verified 0.5 mobile packages are unchanged. R2 is open.
 
 The earlier isolated b2przemo horse comparison now has an original fitted skeleton, continuous skin weights and an editable walk cycle. Its slimmer body and more defined head are useful for the requested realistic direction, but the rendered study still has visible shoulder/groin deformation and a crouched walk. Do not promote it based on contact metrics alone.

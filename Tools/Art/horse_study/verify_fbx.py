@@ -2,6 +2,7 @@
 # FBX import normally adds one Blender frame. Explicit anim_offset=0 below
 # aligns the exported 1..33 range; never mask a mismatch by relaxing tolerances.
 # Both directions cover all distinct UV corners at a potentially split seam.
+# Independent best rigid transform, rather than assuming the authored quaternion.
 
 """Independent saved Blender -> FBX -> Blender geometry/motion check.
 Imports data only, with automatic script execution disabled by the caller.
@@ -19,7 +20,14 @@ scene = bpy.context.scene
 scene.render.fps = 30
 arm = bpy.data.objects['HeroHorseRig']
 body = bpy.data.objects['HeroHorseBody']
-frames = [1 + i / 8 for i in range(257)]
+spec = json.loads((folder / 'walk-study.json').read_text())
+cycle_frames = spec['frames']
+speed = spec['authoredSpeedMps']
+duration = cycle_frames / 30
+duty = spec['dutyFraction']
+roll_start = spec['rollStart']
+assert spec['contactModel'] == 'toe-roll-v2'
+frames = [1 + i / 8 for i in range(cycle_frames * 8 + 1)]
 
 def eval_points(obj):
     ev = obj.evaluated_get(bpy.context.evaluated_depsgraph_get())
@@ -55,8 +63,13 @@ original_normals = normal_sets(body)
 original_bones = {b.name: b.parent.name if b.parent else None for b in arm.data.bones}
 original_triangles = sum((len(p.vertices) - 2 for p in body.data.polygons))
 sole = {}
+flat_indices = {}
+toe_indices = {}
 for name in ('ForeHoof.L', 'ForeHoof.R', 'HindHoof.L', 'HindHoof.R'):
     sole[name] = [i for (i, w) in enumerate(original_weights) if w.get(name, 0) > 0.99999]
+    low = min((neutral[i, 2] for i in sole[name]))
+    flat_indices[name] = [i for i in sole[name] if neutral[i, 2] < low + 0.008]
+    toe_indices[name] = max(flat_indices[name], key=lambda i: neutral[i, 1])
 arm.data.pose_position = 'POSE'
 bpy.context.view_layer.update()
 original_samples = []
@@ -114,7 +127,9 @@ bpy.context.view_layer.update()
 maximum_error = 0
 minimum_height = 1000000000.0
 byframe = []
-plane_error = 0
+rigidity_error = 0
+flat_normal_error = 0
+maximum_pitch = {n: 0.0 for n in sole}
 root_positions = []
 bone_scale_error = 0
 foot_rows = {n: [] for n in sole}
@@ -132,18 +147,35 @@ for (frame, expected) in zip(frames, original_samples):
     for (name, indices) in sole.items():
         selected = actual[[inverse[j] for j in indices]]
         reference = neutral[indices]
-        height_delta = selected[:, 2] - reference[:, 2]
-        plane_error = max(plane_error, float(np.ptp(height_delta)))
-        foot_rows[name].append({'frame': frame, 'minimumHeightM': float(np.min(selected[:, 2])), 'centerY': float(np.mean(selected[:, 1]))})
-print('ANIMATION_ERROR', maximum_error, byframe[:4], max(byframe, key=lambda a: a['maximumSkinnedPositionErrorM']), 'minHeight', minimum_height, 'plane', plane_error)
+        source_center = reference.mean(axis=0)
+        dest_center = selected.mean(axis=0)
+        (u, _, vt) = np.linalg.svd((reference - source_center).T @ (selected - dest_center))
+        rotation_matrix = vt.T @ u.T
+        assert np.linalg.det(rotation_matrix) > 0.999
+        residual = selected - ((reference - source_center) @ rotation_matrix.T + dest_center)
+        rigidity_error = max(rigidity_error, float(np.max(np.linalg.norm(residual, axis=1))))
+        offset = {'HindHoof.L': 0, 'ForeHoof.L': 0.25, 'HindHoof.R': 0.5, 'ForeHoof.R': 0.75}[name]
+        cycle = ((frame - 1) / cycle_frames - offset) % 1
+        normal = rotation_matrix @ np.array([0.0, 0.0, 1.0])
+        angle = math.acos(float(np.clip(normal[2], -1, 1)))
+        maximum_pitch[name] = max(maximum_pitch[name], math.degrees(angle))
+        if cycle < roll_start:
+            flat_normal_error = max(flat_normal_error, float(np.linalg.norm(normal - [0.0, 0.0, 1.0])))
+        anchor_indices = [toe_indices[name]] if roll_start <= cycle < duty else flat_indices[name]
+        anchor = actual[[inverse[j] for j in anchor_indices]].mean(axis=0)
+        rest_anchor = neutral[anchor_indices].mean(axis=0)
+        foot_rows[name].append({'frame': frame, 'minimumHeightM': float(np.min(selected[:, 2])), 'anchorY': float(anchor[1]), 'restAnchorY': float(rest_anchor[1]), 'cycle': cycle, 'contact': cycle < duty, 'pitchDegrees': math.degrees(angle)})
+print('ANIMATION_ERROR', maximum_error, byframe[:4], max(byframe, key=lambda a: a['maximumSkinnedPositionErrorM']), 'minHeight', minimum_height, 'rigidity', rigidity_error)
 assert maximum_error < 0.0001, maximum_error
 assert minimum_height > -0.001, minimum_height
-assert plane_error < 0.0001, plane_error
+assert rigidity_error < 0.0001, rigidity_error
+assert flat_normal_error < 0.001, flat_normal_error
+assert all((15 < v < 35 for v in maximum_pitch.values())), maximum_pitch
 assert bone_scale_error < 1e-05
 assert max((abs(v) for p in root_positions for v in p)) < 1e-05
 scene.frame_set(1)
 first = eval_points(body)
-scene.frame_set(33)
+scene.frame_set(cycle_frames + 1)
 last = eval_points(body)
 loop_error = float(np.max(np.linalg.norm(first - last, axis=1)))
 assert loop_error < 1e-05
@@ -152,11 +184,11 @@ for (name, points) in foot_rows.items():
     offset = {'HindHoof.L': 0, 'ForeHoof.L': 0.25, 'HindHoof.R': 0.5, 'ForeHoof.R': 0.75}[name]
     positions = []
     for point in points:
-        cycle = ((point['frame'] - 1) / 32 - offset) % 1
-        if cycle < 0.62:
-            positions.append(point['centerY'] + 1.5 * (32 / 30) * cycle)
+        cycle = point['cycle']
+        if cycle < duty:
+            positions.append(point['anchorY'] - point['restAnchorY'] + speed * duration * cycle)
     stance_residual[name] = max(positions) - min(positions)
 assert max(stance_residual.values()) < 0.0002, stance_residual
-report = {'stanceResidualTravelM': stance_residual, 'scope': 'Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.', 'fbxSha256': hashlib.sha256((folder / 'HeroHorse-WalkStudy.fbx').read_bytes()).hexdigest(), 'blender': bpy.app.version_string, 'sampleCount': len(frames), 'vertices': len(imported), 'triangles': original_triangles, 'bones': len(imported_bones), 'maximumNeutralPositionErrorM': max(distances), 'vertexMapping': 'bijective nearest rest-position map; original order not assumed', 'maximumWeightDifference': max_weight_error, 'maximumUvCornerDifference': max_uv_error, 'maximumCornerNormalVectorDifference': max_normal_error, 'maximumInfluences': max((len(w) for w in iw)), 'minimumWeightSum': min((sum(w.values()) for w in iw)), 'maximumSkinnedPositionErrorM': maximum_error, 'minimumAnimatedHeightM': minimum_height, 'maximumRigidSolePlaneErrorM': plane_error, 'maximumBoneScaleError': bone_scale_error, 'loopEndpointErrorM': loop_error, 'objectRootStationary': True, 'frames': byframe, 'feet': foot_rows}
+report = {'stanceResidualTravelM': stance_residual, 'scope': 'Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.', 'fbxSha256': hashlib.sha256((folder / 'HeroHorse-WalkStudy.fbx').read_bytes()).hexdigest(), 'blender': bpy.app.version_string, 'sampleCount': len(frames), 'vertices': len(imported), 'triangles': original_triangles, 'bones': len(imported_bones), 'maximumNeutralPositionErrorM': max(distances), 'vertexMapping': 'bijective nearest rest-position map; original order not assumed', 'maximumWeightDifference': max_weight_error, 'maximumUvCornerDifference': max_uv_error, 'maximumCornerNormalVectorDifference': max_normal_error, 'maximumInfluences': max((len(w) for w in iw)), 'minimumWeightSum': min((sum(w.values()) for w in iw)), 'maximumSkinnedPositionErrorM': maximum_error, 'minimumAnimatedHeightM': minimum_height, 'maximumRigidShapeErrorM': rigidity_error, 'maximumFlatNormalVectorError': flat_normal_error, 'maximumHoofPitchDegrees': maximum_pitch, 'maximumBoneScaleError': bone_scale_error, 'loopEndpointErrorM': loop_error, 'objectRootStationary': True, 'frames': byframe, 'feet': foot_rows}
 (folder / 'roundtrip-verification.json').write_text(json.dumps(report, indent=2) + '\n')
 print('ROUNDTRIP_VERIFIED', json.dumps({k: v for (k, v) in report.items() if k not in ('frames', 'feet')}))

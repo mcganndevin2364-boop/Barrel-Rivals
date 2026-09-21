@@ -12,6 +12,8 @@ scene.render.engine = 'BLENDER_WORKBENCH'
 scene.render.resolution_x = 960
 scene.render.resolution_y = 720
 scene.render.resolution_percentage = 100
+spec = json.loads((folder / 'walk-study.json').read_text())
+frames = spec['frames']
 sh = scene.display.shading
 sh.light = 'STUDIO'
 sh.studiolight_rotate_z = 0.4
@@ -33,19 +35,33 @@ bpy.ops.mesh.primitive_plane_add(size=200)
 floor = bpy.context.object
 floor.name = 'DiagnosticFloor'
 floor.color = (0.125, 0.13, 0.135, 1)
+grid = bpy.data.objects.new('MovingReferenceGrid', None)
+scene.collection.objects.link(grid)
+spacing = spec['authoredSpeedMps'] * (frames / 30) / 4
+for j in range(-65, 66):
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(0, j * spacing, 0.0003))
+    line = bpy.context.object
+    line.name = 'Ground motion reference'
+    line.dimensions = (35, 0.006, 0.0005)
+    line.color = (0.18, 0.185, 0.19, 1)
+    line.parent = grid
 cd = bpy.data.cameras.new('DiagnosticCamera')
 cam = bpy.data.objects.new('DiagnosticCamera', cd)
 scene.collection.objects.link(cam)
 scene.camera = cam
 cd.type = 'ORTHO'
 cd.ortho_scale = 3.4
-for (view, pos) in [('side', (6, 0, 1.25)), ('quarter', (4, 4, 2.7))]:
+for (view, pos) in [('side', (6, 0, 1.25)), ('quarter', (4, 4, 2.7)), ('rider', (0, -0.35, 2.25))]:
     cam.location = pos
-    cam.rotation_euler = (Vector((0, 0, 0.97)) - cam.location).to_track_quat('-Z', 'Y').to_euler()
+    cd.type = 'PERSP' if view == 'rider' else 'ORTHO'
+    cd.lens = 24
+    target = (0, 4, 1.9) if view == 'rider' else (0, 0, 1.05)
+    cam.rotation_euler = (Vector(target) - cam.location).to_track_quat('-Z', 'Y').to_euler()
     dest = folder / ('frames-' + view)
     dest.mkdir(exist_ok=True)
-    for i in range(1, 34):
+    for i in range(1, frames + 1):
         scene.frame_set(i)
+        grid.location.y = -spec['authoredSpeedMps'] * (i - 1) / 30
         scene.render.filepath = str(dest / ('%03d.png' % i))
         bpy.ops.render.render(write_still=True)
 print('WALK_RENDERS_COMPLETE')

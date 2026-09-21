@@ -1,0 +1,63 @@
+{
+  "scope": "28-frame walk with lower knee lift, toe roll and small weight-transfer accents. Offline art candidate; not physiological or game acceptance.",
+  "groundClearanceM": 0.004,
+  "sourceRigSha256": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
+  "fps": 30,
+  "frames": 28,
+  "durationSeconds": 0.9333333333333333,
+  "authoredSpeedMps": 1.5,
+  "dutyFraction": 0.62,
+  "swingClearanceM": 0.075,
+  "samples": 113,
+  "objectRootMotion": false,
+  "boneScaleAnimation": false,
+  "hoofOrientation": "Flat midstance, measured toe pivot during last 12% of cycle, folded swing; geometric support correction.",
+  "contactModel": "toe-roll-v2",
+  "rollStart": 0.5,
+  "toeRollDegrees": 12,
+  "swingFlexDegrees": 18,
+  "rootCompressionM": 0.087,
+  "rootBobM": 0.008,
+  "rootSwayM": 0.006,
+  "footfallOffsets": {
+    "HL": 0,
+    "FL": 0.25,
+    "HR": 0.5,
+    "FR": 0.75
+  },
+  "maximumReachClampingM": 0,
+  "maximumNonRootBoneTranslationM": 3.625608998714816e-07,
+  "minimumBodyHeightM": 0.00399971567094326,
+  "maximumEdgeStretch": 2.31660053082865,
+  "feet": {
+    "FL": {
+      "stanceResidualTravelM": 4.529953002707643e-07,
+      "minimumStanceHeightM": 0.0039999112486839294,
+      "maximumStanceHeightM": 0.004000207409262657,
+      "maximumRigidShapeErrorM": 1.519626234052415e-07,
+      "peakSwingHeightM": 0.07898061722517014
+    },
+    "FR": {
+      "stanceResidualTravelM": 6.794929504616576e-07,
+      "minimumStanceHeightM": 0.00399971567094326,
+      "maximumStanceHeightM": 0.004000019747763872,
+      "maximumRigidShapeErrorM": 1.4901161193847656e-07,
+      "peakSwingHeightM": 0.07898040860891342
+    },
+    "HL": {
+      "stanceResidualTravelM": 1.1086463928000612e-06,
+      "minimumStanceHeightM": 0.0039998251013457775,
+      "maximumStanceHeightM": 0.004000122658908367,
+      "maximumRigidShapeErrorM": 3.046549603381883e-07,
+      "peakSwingHeightM": 0.07898040115833282
+    },
+    "HR": {
+      "stanceResidualTravelM": 7.510185243142509e-07,
+      "minimumStanceHeightM": 0.003999821841716766,
+      "maximumStanceHeightM": 0.0040003154426813126,
+      "maximumRigidShapeErrorM": 3.009887021291875e-07,
+      "peakSwingHeightM": 0.07898049056529999
+    }
+  },
+  "fbxSha256": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443"
+}

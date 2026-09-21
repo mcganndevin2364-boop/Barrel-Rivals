@@ -21,25 +21,26 @@
     "Scaled/oriented to metres, +Y forward, +Z up at 2.12m full height (not withers height).",
     "Four reverse subdivision steps, gentle collapse to 39000 triangles, rebuilt smooth outward normals; preserved existing UVs.",
     "Original fitted 34-bone skeleton, heat weights, continuous limb/trunk/coronet masks, four-influence sparsification and rigid soles.",
-    "Original in-place 32-frame walk at 30fps, 1.5m/s reference speed; independent pastern/hoof orientation, rotation IK, no stretch."
+    "Original in-place 32-frame walk at 30fps, 1.5m/s reference speed; independent pastern/hoof orientation, rotation IK, no stretch.",
+    "Motion refinement: twenty connected-edge diffusion passes on upper-body skin weights, 28-frame walk, 75mm foot lift, 87mm mean root lowering, measured toe-pivot roll, folded swing and restrained torso/head weight-transfer accents. No mesh/UV/rig hierarchy changes."
   ],
-  "newAuthoring": "Original Barrel Rivals project work, September 20, 2026. Mesh derivatives remain CC-BY-3.0; retain b2przemo credit, source/license link and change notice.",
+  "newAuthoring": "Original Barrel Rivals project work, September 20\u201321, 2026. Derivatives retain CC-BY-3.0; carry b2przemo credit, source/license link and modification notice.",
   "blender": "4.5.13 LTS (daeeeca98fb0), Intel; factory startup and embedded auto-execution disabled",
   "acceptance": "Offline art study only; not used in Unity scenes, mobile packages or equipped stable horse.",
-  "recordedAt": "2026-09-21T03:44:27+00:00",
+  "recordedAt": "2026-09-21T04:20:01+00:00",
   "files": {
-    "Candidate/HeroHorse-RigStudy.fbx": "74a451843749e56c01c3d6cb55784ac7442c1f0583ce4be0f82cf21399f13efb",
-    "Candidate/HeroHorse-WalkStudy.blend": "7bc7c9e25e134da9c23d3648971381959efe1768a69eb7da97bf750aa4499556",
-    "Candidate/HeroHorse-WalkStudy.fbx": "c0125c84aee133c461cb13e8c556456d401c9dabc0799a6b288019d0ffea18db",
+    "Candidate/HeroHorse-RigStudy.fbx": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
+    "Candidate/HeroHorse-WalkStudy.blend": "8e8c30a25f9946a889b07ff6b33f364764e4cd961e64f810f9a9f7ef790e1222",
+    "Candidate/HeroHorse-WalkStudy.fbx": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443",
     "Source/BlendSwap-13903-license.html": "058281332b91f8fba71850d077392a2b3e886e024560e5941dabeabc03495b91",
     "Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89"
   },
   "reviewMovie": {
-    "path": "Evidence/HorseRigStudy-Walk.mp4",
-    "renderedFbxSha256": "ed78654bfdb53a7a933a39de214fb6f56c6916a943dfdd61aca2fb69a8d59d25",
-    "portableRebuildMeasurementsIdentical": true,
-    "scope": "Four repetitions per side/quarter view. 30fps offline frames, not measured gameplay performance.",
-    "portableRebuildCanonicalDataVerification": "Evidence/HorseRigStudy-Rebuild.json",
-    "canonicalDataSha256": "221111ab7612fbe63b5f006659ab2ed40bdeee1fd1799ee3b1a114fedfb2557c"
-  }
+    "path": "Evidence/HorseMotion-Walk.mp4",
+    "renderedFbxSha256": "c98333786e712ad500e919c8fb9acfa4dfb9ecf320a0c7e6902ee93fdbff5d4d",
+    "portableRebuildCanonicalDataVerification": "Evidence/HorseMotion-Rebuild.json",
+    "canonicalDataSha256": "581316aada7bfac63072bb5ce92b91a3f65a173a6f0b35a32d75922b55e5711c",
+    "scope": "Four cycles each from side, quarter and rider views with a scrolling ground reference. Offline30fps, not measured gameplay performance."
+  },
+  "previousCheckpoint": "55a68fbff16caecc958bcb22acd6d6e0fef09ac5"
 }

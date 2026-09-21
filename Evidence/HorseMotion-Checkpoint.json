@@ -1,0 +1,74 @@
+{
+  "recordedAt": "2026-09-21T04:20:01+00:00",
+  "sourceBaseline": "55a68fbff16caecc958bcb22acd6d6e0fef09ac5",
+  "scope": "Offline horse motion/skin refinement; runtime and mobile artifacts unchanged",
+  "priorEvidenceUnchanged": 570,
+  "photographicAccepted": false,
+  "r2Accepted": false,
+  "unityOrNativeRebuilt": false,
+  "phoneInstalled": false,
+  "roundtrip": {
+    "stanceResidualTravelM": {
+      "ForeHoof.L": 3.054440021521554e-05,
+      "ForeHoof.R": 3.1137466430575245e-05,
+      "HindHoof.L": 1.161098480217948e-05,
+      "HindHoof.R": 1.1020898818880909e-05
+    },
+    "scope": "Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.",
+    "fbxSha256": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443",
+    "blender": "4.5.13 LTS",
+    "sampleCount": 225,
+    "vertices": 19502,
+    "triangles": 39000,
+    "bones": 34,
+    "maximumNeutralPositionErrorM": 5.962326667940943e-07,
+    "vertexMapping": "bijective nearest rest-position map; original order not assumed",
+    "maximumWeightDifference": 0,
+    "maximumUvCornerDifference": 0,
+    "maximumCornerNormalVectorDifference": 2.7314279645418166e-07,
+    "maximumInfluences": 4,
+    "minimumWeightSum": 0.9999998733401299,
+    "maximumSkinnedPositionErrorM": 1.7737389725880348e-06,
+    "minimumAnimatedHeightM": 0.003906525205820799,
+    "maximumRigidShapeErrorM": 1.4318302419269457e-06,
+    "maximumFlatNormalVectorError": 1.4068039811873622e-06,
+    "maximumHoofPitchDegrees": {
+      "ForeHoof.L": 17.992302182152052,
+      "ForeHoof.R": 17.9923132381987,
+      "HindHoof.L": 17.9923132381987,
+      "HindHoof.R": 17.99229112609883
+    },
+    "maximumBoneScaleError": 7.748603820800781e-07,
+    "loopEndpointErrorM": 0.0,
+    "objectRootStationary": true
+  },
+  "sourceRebuild": {
+    "geometrySkinRigAndAnimationKeyDataIdentical": true,
+    "canonicalDataSha256": "581316aada7bfac63072bb5ce92b91a3f65a173a6f0b35a32d75922b55e5711c",
+    "scope": "Canonical neutral vertex/topology/UV/corner-normal data, named weights, rest hierarchy/matrices, linear animation keys, armature skinning mode and object matrices; excludes file serialization metadata."
+  },
+  "currentCharacterCountsUnchanged": true,
+  "previousWalkWorstEdgeRatio": 3.0107271942422194,
+  "currentWalkWorstEdgeRatio": 2.31660053082865,
+  "assetHashes": {
+    "ArtSource/HorseStudy/ATTRIBUTION.md": "3bd99ceba09449e2f4ed07d96ab268b8af03a6d8d39643a77e17bd3e3e9879fe",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-RigStudy.fbx": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-WalkStudy.blend": "8e8c30a25f9946a889b07ff6b33f364764e4cd961e64f810f9a9f7ef790e1222",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-WalkStudy.fbx": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443",
+    "ArtSource/HorseStudy/PROVENANCE.json": "b7b7f169371cc96b802f98ec29652360d664e04f7f32ccf8d4175e3837930b28",
+    "ArtSource/HorseStudy/README.md": "848fa068656930c081ae483ba93868baaa35917bb79965266306f894c36320c0",
+    "ArtSource/HorseStudy/Source/BlendSwap-13903-license.html": "058281332b91f8fba71850d077392a2b3e886e024560e5941dabeabc03495b91",
+    "ArtSource/HorseStudy/Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89"
+  },
+  "toolHashes": {
+    "Tools/Art/horse_study/author_walk.py": "6284ea261d29966585a2768d92ebf1cb1de5302bb1171c6bdf743bcc9457e341",
+    "Tools/Art/horse_study/compare_rebuild.py": "2817ef87282f0803ad993610802c396092d2a0a120435303406af4c6039a45bd",
+    "Tools/Art/horse_study/encode_review.py": "132e57a77112b088e1f85d2775dbfd1f79c39e4aa1e1a3342b547fe10d34b5e5",
+    "Tools/Art/horse_study/fit_rig.py": "358517aca81e96a5b56afce31ff0fc39df15e75531c90069843997b0d58d11d5",
+    "Tools/Art/horse_study/refine_weights.py": "f200b070cc5bf6afafe7e27ccc2df17fdfef8a66f6ca026cce3aa1587168a6ec",
+    "Tools/Art/horse_study/render_walk.py": "8e2839fdf6e95f9648cd67d472cc4eea13d13a3a8bf1cff00c53f524950b9ad9",
+    "Tools/Art/horse_study/review_poses.py": "e7f73f95c8d485c843f9cd1f25d98927590710b123577a74cfeea61e473a3f4b",
+    "Tools/Art/horse_study/verify_fbx.py": "e3e9be9e0adc16466b241ca87908f4a91daa358a6854d3248c141e5f3a5990b6",
+    "Tools/Art/horse_study/verify_video.swift": "872d94b3597d027a27aad916ce312f5be74f4f401ef0f8382ace2da2fa7a0956"
+  }
+}

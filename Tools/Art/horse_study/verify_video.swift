@@ -1,27 +1,41 @@
 import Foundation
 import AVFoundation
 import ImageIO
-let source=URL(fileURLWithPath:CommandLine.arguments[1])
-let output=URL(fileURLWithPath:CommandLine.arguments[2],isDirectory:true)
-let asset=AVURLAsset(url:source)
-let videos=asset.tracks(withMediaType:.video)
-precondition(videos.count==1 && asset.tracks(withMediaType:.audio).isEmpty)
-let track=videos[0]
-precondition(track.naturalSize.width==960 && track.naturalSize.height==720)
-precondition(abs(asset.duration.seconds-256.0/30)<0.001 && abs(track.nominalFrameRate-30)<0.01)
-let generator=AVAssetImageGenerator(asset:asset)
+
+// Verify and decode the rendered study; this measures file timing, not game FPS.
+let source = URL(fileURLWithPath: CommandLine.arguments[1])
+let output = URL(fileURLWithPath: CommandLine.arguments[2], isDirectory: true)
+let specData = try Data(contentsOf: output.appendingPathComponent("video-spec.json"))
+let spec = try JSONSerialization.jsonObject(with: specData) as! [String: Any]
+let frameCount = spec["frames"] as! Int
+let fps = spec["fps"] as! Int
+let asset = AVURLAsset(url: source)
+let videos = try await asset.loadTracks(withMediaType: .video)
+let audio = try await asset.loadTracks(withMediaType: .audio)
+precondition(videos.count == 1 && audio.isEmpty)
+let track = videos[0]
+let size = try await track.load(.naturalSize)
+let rate = try await track.load(.nominalFrameRate)
+let duration = try await asset.load(.duration)
+precondition(size.width == 960 && size.height == 720)
+precondition(abs(duration.seconds - Double(frameCount) / Double(fps)) < 0.001)
+precondition(abs(rate - Float(fps)) < 0.01)
+let generator = AVAssetImageGenerator(asset: asset)
 generator.requestedTimeToleranceBefore = .zero
 generator.requestedTimeToleranceAfter = .zero
-for frame in [0,15,127,128,143,255] {
- var actual=CMTime.zero
- let image=try generator.copyCGImage(at:CMTime(value:Int64(frame),timescale:30),actualTime:&actual)
- precondition(abs(actual.seconds-Double(frame)/30)<0.0001)
- let path=output.appendingPathComponent(String(format:"decoded-%03d.png",frame))
- let destination=CGImageDestinationCreateWithURL(path as CFURL,"public.png" as CFString,1,nil)!
- CGImageDestinationAddImage(destination,image,nil)
- precondition(CGImageDestinationFinalize(destination))
+let indices = [0, frameCount / 3 - 1, frameCount / 3,
+               frameCount * 2 / 3 - 1, frameCount * 2 / 3, frameCount - 1]
+for index in indices {
+    let frame = try await generator.image(at: CMTime(value: Int64(index), timescale: Int32(fps)))
+    precondition(abs(frame.actualTime.seconds - Double(index) / Double(fps)) < 0.0001)
+    let path = output.appendingPathComponent(String(format: "decoded-%03d.png", index))
+    let destination = CGImageDestinationCreateWithURL(path as CFURL, "public.png" as CFString, 1, nil)!
+    CGImageDestinationAddImage(destination, frame.image, nil)
+    precondition(CGImageDestinationFinalize(destination))
 }
-let result:[String:Any] = ["decoder":"macOS AVFoundation","framesDecoded":[0,15,127,128,143,255],"fps":track.nominalFrameRate,"durationSeconds":asset.duration.seconds,"width":track.naturalSize.width,"height":track.naturalSize.height,"audioTracks":0]
-let data=try JSONSerialization.data(withJSONObject:result,options:[.prettyPrinted,.sortedKeys])
-try data.write(to:output.appendingPathComponent("video-verification.json"))
-print(String(data:data,encoding:.utf8)!)
+let result: [String: Any] = ["decoder": "macOS AVFoundation", "framesDecoded": indices,
+    "fps": rate, "durationSeconds": duration.seconds, "width": size.width,
+    "height": size.height, "audioTracks": audio.count]
+let data = try JSONSerialization.data(withJSONObject: result, options: [.prettyPrinted, .sortedKeys])
+try data.write(to: output.appendingPathComponent("video-verification.json"))
+print(String(data: data, encoding: .utf8)!)

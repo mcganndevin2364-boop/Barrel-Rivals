@@ -1,0 +1,16 @@
+{
+  "audioTracks" : 0,
+  "decoder" : "macOS AVFoundation",
+  "durationSeconds" : 11.199999999999999,
+  "fps" : 30,
+  "framesDecoded" : [
+    0,
+    111,
+    112,
+    223,
+    224,
+    335
+  ],
+  "height" : 720,
+  "width" : 960
+}
