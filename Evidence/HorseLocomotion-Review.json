@@ -1,0 +1,47 @@
+{
+    "gaits": [
+        {
+            "name": "Idle",
+            "seconds": 4.0,
+            "minimumHoofY": 0.0039997100830078125,
+            "maximumLoopError": 0.0,
+            "maximumReachError": 5.169570158614079e-7
+        },
+        {
+            "name": "Walk",
+            "seconds": 0.9333332777023315,
+            "minimumHoofY": 0.003950774669647217,
+            "maximumLoopError": 0.0,
+            "maximumReachError": 4.1509832726660534e-7
+        },
+        {
+            "name": "Trot",
+            "seconds": 0.5999999642372131,
+            "minimumHoofY": 0.0038071870803833008,
+            "maximumLoopError": 0.0,
+            "maximumReachError": 4.860611966250872e-7
+        },
+        {
+            "name": "Gallop",
+            "seconds": 0.5999999642372131,
+            "minimumHoofY": 0.003512740135192871,
+            "maximumLoopError": 0.0,
+            "maximumReachError": 4.235705830524239e-7
+        },
+        {
+            "name": "Sprint",
+            "seconds": 0.4333333373069763,
+            "minimumHoofY": 0.002072930335998535,
+            "maximumLoopError": 0.0,
+            "maximumReachError": 5.543552674680541e-7
+        }
+    ],
+    "frames": 420,
+    "maximumRootStepAt30Hz": 0.016948163509368896,
+    "maximumReachError": 5.84763768074481e-7,
+    "minimumBlendHoofY": 0.003999531269073486,
+    "minimumBeforeGrounding": -0.0599316768348217,
+    "maximumGroundCorrection": 0.0639316737651825,
+    "blendGroundTargetMet": true,
+    "scope": "Actual Unity in-place gait and speed-blend study, static floor. 33 samples per clip, 420 controlled frames at 30 Hz. No production foot planting, full collision, Core connection, native or phone acceptance."
+}

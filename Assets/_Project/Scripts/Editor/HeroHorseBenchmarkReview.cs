@@ -72,7 +72,7 @@ namespace BarrelRivals.Editor
                     if(view=="quarter")
                     {camera.transform.position=new Vector3(3.8f,2.8f,4.3f);camera.transform.LookAt(new Vector3(0,1.45f,0));camera.fieldOfView=43;}
                     else
-                    {camera.transform.position=binding.FollowSupportPoint(riderPoint);camera.transform.rotation=binding.ModelSpace.rotation*Quaternion.Euler(8,0,0);camera.fieldOfView=72;}
+                    {camera.transform.position=binding.FollowSupportPoint(riderPoint);camera.transform.rotation=binding.ModelSpace.rotation*Quaternion.Euler(binding.GetComponent<HeroHorseBenchmarkPlayback>().riderPitch,0,0);camera.fieldOfView=binding.GetComponent<HeroHorseBenchmarkPlayback>().riderFieldOfView;}
                     Capture(camera,Path.Combine(folder,(frame+1).ToString("D3")+".png"),800,600);
                     Require(Vector3.Distance(binding.transform.position,originalActor)<1e-7f,"Visual sampling moved actor root");
                     frames.Add(new Frame{view=view,time=time,camera=camera.transform.position,root=binding.ModelSpace.InverseTransformPoint(binding.MotionRoot.position),head=binding.ModelSpace.InverseTransformPoint(binding.Head.position)});
@@ -177,14 +177,20 @@ namespace BarrelRivals.Editor
         static void Capture(Camera camera,string path,int width,int height)
         {
             var prior=camera.targetTexture;var active=RenderTexture.active;
+            // Repeated explicit renders can share one Editor frame. Without this,
+            // the skeleton advances while GPU skinning can retain an earlier pose.
+            // Scope it to offline review; live players keep their normal skin policy.
+            var skins=Object.FindObjectsByType<SkinnedMeshRenderer>(FindObjectsSortMode.None);
+            var recalculate=skins.Select(s=>s.forceMatrixRecalculationPerRender).ToArray();
             var target=new RenderTexture(width,height,24,RenderTextureFormat.ARGB32,RenderTextureReadWrite.sRGB){antiAliasing=2};var image=new Texture2D(width,height,TextureFormat.RGB24,false);
             try
             {
+                foreach(var skin in skins)skin.forceMatrixRecalculationPerRender=true;
                 camera.targetTexture=target;VolumeManager.instance.Update(camera.transform,camera.GetUniversalAdditionalCameraData().volumeLayerMask);
                 camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,width,height),0,0);image.Apply();
                 File.WriteAllBytes(path,image.EncodeToPNG());
             }
-            finally{camera.targetTexture=prior;RenderTexture.active=active;target.Release();Object.DestroyImmediate(target);Object.DestroyImmediate(image);}
+            finally{for(int i=0;i<skins.Length;i++)if(skins[i])skins[i].forceMatrixRecalculationPerRender=recalculate[i];camera.targetTexture=prior;RenderTexture.active=active;target.Release();Object.DestroyImmediate(target);Object.DestroyImmediate(image);}
         }
         static void Require(bool ok,string message){if(!ok)throw new InvalidOperationException(message);}
     }

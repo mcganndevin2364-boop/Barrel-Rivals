@@ -1,0 +1,35 @@
+{
+  "preservedSourceSignature": "a04c01155fc5f7e04f1058ab8adcf41bec89951d88f9cbfbd2f2676c3d424f33",
+  "originalPreserved": true,
+  "gaits": [
+    {
+      "name": "Idle",
+      "samples": 961,
+      "minimumRigidHoofHeightM": 0.003999706357717514,
+      "loopMaximumVertexErrorM": 0.0,
+      "fbxMaximumVertexErrorM": 1.5408117717159467e-06
+    },
+    {
+      "name": "Trot",
+      "samples": 145,
+      "minimumRigidHoofHeightM": 0.0035062655806541443,
+      "loopMaximumVertexErrorM": 0.0,
+      "fbxMaximumVertexErrorM": 1.8023361022679853e-06
+    },
+    {
+      "name": "Gallop",
+      "samples": 145,
+      "minimumRigidHoofHeightM": 0.0032619803678244352,
+      "loopMaximumVertexErrorM": 0.0,
+      "fbxMaximumVertexErrorM": 1.9466557833376232e-06
+    },
+    {
+      "name": "Sprint",
+      "samples": 105,
+      "minimumRigidHoofHeightM": 0.0016972980229184031,
+      "loopMaximumVertexErrorM": 0.0,
+      "fbxMaximumVertexErrorM": 2.279159274550029e-06
+    }
+  ],
+  "scope": "Sampled Blender contact/loop/export checks; not biomechanics, continuous collision or phone acceptance."
+}

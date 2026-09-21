@@ -1,5 +1,7 @@
 # Continue Barrel Rivals
 
+The [candidate locomotion checkpoint](Docs/Art/Reins-Horse-Locomotion-Study.md) adds original Idle/Trot/Gallop/Sprint actions, a five-gait speed blend, connected rider lean and measured flat-floor hoof correction to the isolated Unity horse. The corrected capture path refreshes skin matrices per render; older candidate movies cannot establish frame-by-frame deformation. The higher riding camera clears clothing while preserving grip framing. This remains development-only: race/stable/ghost adoption, natural turns/braking/Wrap, visual detail, LOD budgets and phone qualification are unfinished. Read this checkpoint before using earlier moving-review claims.
+
 Current source: **0.5.0/build 5 configured, rules v2**, Reins-only startup with MyStable. The last verified installed phone app remains **0.4.0/build 4**. Start with [the v2 alley checkpoint](Docs/Plan/Reins-v2-Alley-Checkpoint.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 contract](Docs/Plan/Reins-Racing-0.5-Implementation.md) and [AI handoff](Barrel-Rivals-AI-Handoff.md).
 
 The four-second moving first-person alley, one graded release, forgiving rein/cadence controls, deterministic rails and v2 replay/verifier/storage are source-tested. MyStable/Tack/Rider Gear follows the supplied warm barn, saddle-grid and glove reference with one horse and 20 real local cosmetics. The reference is a quality target; photographic art, natural full-rider animation, progression and device acceptance are unfinished.

@@ -25,7 +25,8 @@
     "Motion refinement: twenty connected-edge diffusion passes on upper-body skin weights, 28-frame walk, 75mm foot lift, 87mm mean root lowering, measured toe-pivot roll, folded swing and restrained torso/head weight-transfer accents. No mesh/UV/rig hierarchy changes.",
     "Original fitted closed eye globes with dark brown iris/horizontal pupil colors and single Head skin; original bay coat vertex reflectance, bare-surface mask and procedural grain/roughness. Body geometry, UVs, normals, weights, rig and walk unchanged. No bitmap asset added.",
     "Original surface-fitted 102-card mane, forelock and tail using unchanged project atlas pixels; barycentric four-weight skinning, five hair-only helper bones and bounded cyclic secondary motion. Curved crown/tail sections and surface-tangent roots repair clipping and collapsed polygons. Body, eyes, their materials and original 34-bone walk unchanged.",
-    "Isolated Unity URP conversion: explicit rig/renderer roles, measured neutral bind-pose restoration, vertex reflectance and opaque bare-surface mask, existing original fiber shader/atlases, UV2 strand progress, existing original saddle refitted by actual surface rays and inherited support camera. No source FBX or bitmap bytes changed."
+    "Isolated Unity URP conversion: explicit rig/renderer roles, measured neutral bind-pose restoration, vertex reflectance and opaque bare-surface mask, existing original fiber shader/atlases, UV2 strand progress, existing original saddle refitted by actual surface rays and inherited support camera. No source FBX or bitmap bytes changed.",
+    "Original Idle/Trot/Gallop/Sprint actions preserve the full groom source and Walk. Animation FBXs include a tiny bind-reference carrier; Unity blends the exact hierarchy and applies measured flat-floor visual hoof correction. No new bitmap or purchased asset."
   ],
   "newAuthoring": "Original Barrel Rivals project work, September 20\u201321, 2026. Derivatives retain CC-BY-3.0; carry b2przemo credit, source/license link and modification notice.",
   "blender": "4.5.13 LTS (daeeeca98fb0), Intel; factory startup and embedded auto-execution disabled",
@@ -40,7 +41,9 @@
     "Candidate/HeroHorse-SurfaceStudy.blend": "63be0de234eecbd5591a01ef258a9118249855906b00256b42a7f6d8d73f6d1b",
     "Candidate/HeroHorse-SurfaceStudy.fbx": "c1af98c565623e1c5ef3a11b5b9f513da3cb9ccefb67df91ce4d03d1347b45d3",
     "Candidate/HeroHorse-GroomStudy.blend": "50754d1c1e0e6b62cbc360e1800787a65fb80399d7dc29c804f6754201e7b5eb",
-    "Candidate/HeroHorse-GroomStudy.fbx": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3"
+    "Candidate/HeroHorse-GroomStudy.fbx": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3",
+    "Candidate/HeroHorse-Locomotion.blend": "9fba8b0f6a3124203e55f536d68978a980ef84e0cabb6ab77d67ec78cf31ff54",
+    "Candidate/locomotion-authoring.json": "7bef7740134e698f08fa32ecad3760b7a2060fe026e4b7b26490713bee50e84f"
   },
   "reviewMovie": {
     "path": "Evidence/HorseMotion-Walk.mp4",
@@ -107,5 +110,20 @@
       "focusedPlayModeTestsPassed": 7,
       "runtimeReplacement": false
     }
+  },
+  "locomotionStudy": {
+    "checkpoint": "Docs/Art/Reins-Horse-Locomotion-Study.md",
+    "authoringTool": "Tools/Art/horse_study/author_locomotion.py",
+    "verificationTool": "Tools/Art/horse_study/verify_locomotion.py",
+    "newActions": [
+      "Idle",
+      "Trot",
+      "Gallop",
+      "Sprint"
+    ],
+    "preservedWalk": true,
+    "runtimeReplacement": false,
+    "newTextures": 0,
+    "biomechanicalAcceptance": false
   }
 }

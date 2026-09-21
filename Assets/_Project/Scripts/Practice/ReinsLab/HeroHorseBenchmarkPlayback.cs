@@ -10,6 +10,7 @@ namespace BarrelRivals.Practice
         public bool riderView;
         public bool reducedMotion;
         [Range(60,85)] public float riderFieldOfView=72;
+        [Range(0,25)] public float riderPitch=18;
         public Vector3 neutralRiderPosition=new Vector3(0,2.20f,-.35f);
         private Vector3 inspectionPosition;
         private Quaternion inspectionRotation;
@@ -31,7 +32,7 @@ namespace BarrelRivals.Practice
             {
                 reviewCamera.fieldOfView=riderFieldOfView;
                 reviewCamera.transform.position=reducedMotion?horse.ModelSpace.TransformPoint(neutralRiderPosition):horse.FollowSupportPoint(neutralRiderPosition);
-                reviewCamera.transform.rotation=horse.ModelSpace.rotation*Quaternion.Euler(8,0,0);
+                reviewCamera.transform.rotation=horse.ModelSpace.rotation*Quaternion.Euler(riderPitch,0,0);
             }
             else if(wasRiderView)
             {

@@ -84,3 +84,7 @@ The isolated [Unity benchmark](../../Docs/Art/Reins-Horse-Unity-Benchmark.md) no
 ## Candidate rider and tack
 
 The [new fitting checkpoint](../../Docs/Art/Reins-Horse-Rider-Fit.md) adds the existing credited rider/gloves, fitted bridle/reins, actual boot contacts and working first-person view switching to the isolated Unity scene. It does not replace runtime. Full candidate cost is 92,402 triangles/25 slots; natural remaining gaits/actions, visual detail, LODs, source-motion precision and device qualification remain open. Use `HeroHorseBenchmarkBuilder.CaptureAttachments` with a new scratch output folder for moving/neutral showroom review; never save its temporary substitution over MyStable.
+
+## Candidate locomotion
+
+Read [the current gait checkpoint](../../Docs/Art/Reins-Horse-Locomotion-Study.md). `Candidate/HeroHorse-Locomotion.blend` preserves the GroomStudy and original Walk while adding four original actions. `author_locomotion.py` and `verify_locomotion.py` accept the preserved GroomStudy file and a fresh output folder. Export files carry a tiny non-rendered binding mesh so neutral matrices and Unity hierarchy remain stable; never instantiate that carrier as character art. The corrected Unity capture refreshes skinning per explicit render; earlier movies are historical and cannot establish frame-by-frame deformation. Current speed blending/flat-floor correction are development-only, with no player/stable/ghost replacement.

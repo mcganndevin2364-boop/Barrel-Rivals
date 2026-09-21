@@ -68,6 +68,7 @@ namespace BarrelRivals.Editor
             foreach(var state in machine.states){machine.RemoveState(state.state);if(state.state)Object.DestroyImmediate(state.state,true);}
             var walkState=machine.AddState("Walk");walkState.motion=walk;machine.defaultState=walkState;
             var idleState=machine.AddState("Neutral fitting pose");idleState.motion=neutral;
+            ConfigureLocomotion(controller,bindings);
             animator.runtimeAnimatorController=controller;animator.applyRootMotion=false;animator.cullingMode=AnimatorCullingMode.AlwaysAnimate;animator.enabled=true;
             foreach(var s in skins){s.quality=SkinQuality.Bone4;s.updateWhenOffscreen=true;s.shadowCastingMode=ShadowCastingMode.On;}
             var camera=new GameObject("Horse review camera",typeof(Camera)).GetComponent<Camera>();
@@ -79,7 +80,7 @@ namespace BarrelRivals.Editor
             var floorMesh=Object.Instantiate(ground.GetComponent<MeshFilter>().sharedMesh);floorMesh.uv=floorMesh.uv.Select(uv=>uv*20).ToArray();ground.GetComponent<MeshFilter>().sharedMesh=PersistentMeshAsset.Save(floorMesh,Root+"/Benchmark floor.asset");
             ground.GetComponent<Renderer>().sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>(ReinsPremiumArenaBuilder.Root+"/Materials/Arena soil.mat");
             var motion=horse.AddComponent<HeroHorseBenchmarkPlayback>();motion.horse=bindings;motion.reviewCamera=camera;
-            motion.neutralRiderPosition=model.transform.InverseTransformPoint(model.GetComponentsInChildren<Transform>().Single(t=>t.name=="Fitted saddle horn").position)+new Vector3(0,.40f,-.20f);
+            motion.neutralRiderPosition=model.transform.InverseTransformPoint(model.GetComponentsInChildren<Transform>().Single(t=>t.name=="Fitted saddle horn").position)+new Vector3(0,.60f,-.20f);
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(),ScenePath);
             File.WriteAllText(Path.Combine(Output,"build.json"),JsonUtility.ToJson(new BuildReport{bodyVertices=body.sharedMesh.vertexCount,horseTriangles=skins.Sum(s=>s.sharedMesh.triangles.Length/3),horseSlots=skins.Sum(s=>s.sharedMaterials.Length),bones=nodes.Count(t=>t.IsChildOf(bindings.MotionRoot)||t==bindings.MotionRoot),walkSeconds=walk.length},true));

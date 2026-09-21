@@ -1,0 +1,158 @@
+{
+  "recordedAt": "2026-09-21T08:19:20+00:00",
+  "sourceBaseline": "fa60ea3a9af3ff55b8ff66d1c15e4021cb9d77d1",
+  "previousGoalTurn": "progress",
+  "scope": "Five-gait isolated Unity candidate, connected rider speed/attachments and flat-floor blend correction. Not production adoption, natural movement, photographic or phone acceptance.",
+  "priorEvidenceUnchanged": 639,
+  "focusedPlayMode": {
+    "passed": 8,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 08:16:52Z"
+  },
+  "blender": {
+    "preservedSourceSignature": "a04c01155fc5f7e04f1058ab8adcf41bec89951d88f9cbfbd2f2676c3d424f33",
+    "originalPreserved": true,
+    "gaits": [
+      {
+        "name": "Idle",
+        "samples": 961,
+        "minimumRigidHoofHeightM": 0.003999706357717514,
+        "loopMaximumVertexErrorM": 0.0,
+        "fbxMaximumVertexErrorM": 1.5408117717159467e-06
+      },
+      {
+        "name": "Trot",
+        "samples": 145,
+        "minimumRigidHoofHeightM": 0.0035062655806541443,
+        "loopMaximumVertexErrorM": 0.0,
+        "fbxMaximumVertexErrorM": 1.8023361022679853e-06
+      },
+      {
+        "name": "Gallop",
+        "samples": 145,
+        "minimumRigidHoofHeightM": 0.0032619803678244352,
+        "loopMaximumVertexErrorM": 0.0,
+        "fbxMaximumVertexErrorM": 1.9466557833376232e-06
+      },
+      {
+        "name": "Sprint",
+        "samples": 105,
+        "minimumRigidHoofHeightM": 0.0016972980229184031,
+        "loopMaximumVertexErrorM": 0.0,
+        "fbxMaximumVertexErrorM": 2.279159274550029e-06
+      }
+    ],
+    "scope": "Sampled Blender contact/loop/export checks; not biomechanics, continuous collision or phone acceptance."
+  },
+  "unity": {
+    "gaits": [
+      {
+        "name": "Idle",
+        "seconds": 4.0,
+        "minimumHoofY": 0.0039997100830078125,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 5.169570158614079e-07
+      },
+      {
+        "name": "Walk",
+        "seconds": 0.9333332777023315,
+        "minimumHoofY": 0.003950774669647217,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 4.1509832726660534e-07
+      },
+      {
+        "name": "Trot",
+        "seconds": 0.5999999642372131,
+        "minimumHoofY": 0.0038071870803833008,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 4.860611966250872e-07
+      },
+      {
+        "name": "Gallop",
+        "seconds": 0.5999999642372131,
+        "minimumHoofY": 0.003512740135192871,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 4.235705830524239e-07
+      },
+      {
+        "name": "Sprint",
+        "seconds": 0.4333333373069763,
+        "minimumHoofY": 0.002072930335998535,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 5.543552674680541e-07
+      }
+    ],
+    "frames": 420,
+    "maximumRootStepAt30Hz": 0.016948163509368896,
+    "maximumReachError": 5.84763768074481e-07,
+    "minimumBlendHoofY": 0.003999531269073486,
+    "minimumBeforeGrounding": -0.0599316768348217,
+    "maximumGroundCorrection": 0.0639316737651825,
+    "blendGroundTargetMet": true,
+    "scope": "Actual Unity in-place gait and speed-blend study, static floor. 33 samples per clip, 420 controlled frames at 30 Hz. No production foot planting, full collision, Core connection, native or phone acceptance."
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 14,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      209,
+      210,
+      419
+    ],
+    "height": 600,
+    "width": 800
+  },
+  "geometry": {
+    "triangles": 92402,
+    "renderers": 20,
+    "slots": 25,
+    "lods": false
+  },
+  "correctedIssues": [
+    "Authoring reach: adjusted trot/sprint root compression while keeping gate unchanged.",
+    "Bare armature export lost rest binding and model-root paths; tiny non-rendered skin carrier preserves both.",
+    "Same-frame explicit renders reused earlier GPU skin matrices; scoped per-render recalculation fixes footage. Earlier candidate movies cannot prove per-frame deformation.",
+    "Fast rider lean intersected low camera; raised support camera20cm and pitched down18degrees, with live grip checks.",
+    "Raw gait blend penetrated floor59.932mm; rotation-only lower-limb correction restores measured rigid hoof surface to4mm clearance without moving actor."
+  ],
+  "retainedHistoricalSourceMotionTarget": {
+    "maximumErrorM": 0.000363931438,
+    "targetM": 0.0002,
+    "met": false,
+    "retestedThisIncrement": false
+  },
+  "coreOrPlayerScenesChanged": false,
+  "newNativeBuild": false,
+  "newPhoneInstallation": false,
+  "lastVerifiedInstalledIPhone": "0.4.0/build4",
+  "open": [
+    "Natural planted locomotion/turn/brake/canter/contact/Wrap and rider effort",
+    "Horse coat/groom and rider materials/anatomy matching reference",
+    "Reduce topology/materials and add LODs",
+    "Old animated Unity/source precision discrepancy",
+    "Explicit race/stable/ghost adoption and cosmetics",
+    "Native/device comfort/performance",
+    "Progression, multiplayer and release across all53sections"
+  ],
+  "evidenceSha256": {
+    "HorseLocomotion-Authoring.json": "7bef7740134e698f08fa32ecad3760b7a2060fe026e4b7b26490713bee50e84f",
+    "HorseLocomotion-Blender.json": "2de411c641e8f53e2bc0e0c82a6aa1849e0667d02b4d4aa63677b25482041740",
+    "HorseLocomotion-Build.json": "6dfcde63447d9cfb0f00e761864c651259980368c45149238ba4b06218f2cb19",
+    "HorseLocomotion-Capture.json": "9aa0b9ba457b626f28c082cfdbebed12800dcd47425043cbf8260f9443d4fd23",
+    "HorseLocomotion-ExistingRider.json": "d583b76d0ac2fa570f6dbf191e769ad8137ddb6d57b991e13c378938e9162433",
+    "HorseLocomotion-Gallop.png": "37192a424e43600205d277f0b868b16ceac1354f5fc59fdd17f17ec6b0b10f3a",
+    "HorseLocomotion-Idle.png": "a4bbf4af0d8fc89e27c2ed13b64822d174a1b6ae5661b428f3a4014ab147eb83",
+    "HorseLocomotion-Motion.mp4": "05b739de1e642b2010edb213cb094f16441b3701a05eed429eeba29f1ea5c18d",
+    "HorseLocomotion-PlayMode.xml": "50b4bf91934af5dfc856a0b6186b9053cb58d506ce2e957bd59eb829b7aee718",
+    "HorseLocomotion-Review.json": "c13c0ab76914749b1e5022c421688b056ad965ecdb3d40ff379d7b4c7d823be3",
+    "HorseLocomotion-Riding.png": "2a1561fe070221e1ac2e1a9d08563d6445a1d40ce09d0fe499a54d55b5552196",
+    "HorseLocomotion-Sprint.png": "1fd1d29b2a61e432ec77d4d0e83f1a2b5ee52dcc04e97fe98f3302b1dd7882e4",
+    "HorseLocomotion-Trot.png": "dcb97357d980411275cca8ba9e619872df59bee20be0192e4c10e5b4ff683c41",
+    "HorseLocomotion-Video.json": "46139c286f244187a9806bd1cdc86b72ae280ef5bab7a3d53e4397d0d46cbf2f",
+    "HorseLocomotion-Walk.png": "4687b0a2ddbaf03b607d6554fe9855749457e889c80f0b35d69907cc71e8b9f1"
+  }
+}

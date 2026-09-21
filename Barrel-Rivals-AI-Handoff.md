@@ -1,5 +1,7 @@
 # Barrel Rivals — AI continuation handoff
 
+The [candidate locomotion checkpoint](Docs/Art/Reins-Horse-Locomotion-Study.md) adds original Idle/Trot/Gallop/Sprint actions, a five-gait speed blend, connected rider lean and measured flat-floor hoof correction to the isolated Unity horse. The corrected capture path refreshes skin matrices per render; older candidate movies cannot establish frame-by-frame deformation. The higher riding camera clears clothing while preserving grip framing. This remains development-only: race/stable/ghost adoption, natural turns/braking/Wrap, visual detail, LOD budgets and phone qualification are unfinished. Read this checkpoint before using earlier moving-review claims.
+
 ## Current state
 
 Continue the same repository, **Barrel-Rivals-M0**, branch `codex/m1-skill-loop`, remote `https://github.com/mcganndevin2364-boop/Barrel-Rivals.git`. Use `git rev-parse HEAD` for the exact checkpoint. Do not restart the project or overwrite the user's original recovered projects.

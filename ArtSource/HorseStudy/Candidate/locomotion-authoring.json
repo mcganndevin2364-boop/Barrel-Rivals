@@ -1,0 +1,81 @@
+{
+  "sourceSha256": "50754d1c1e0e6b62cbc360e1800787a65fb80399d7dc29c804f6754201e7b5eb",
+  "blender": "4.5.13 LTS",
+  "gaits": [
+    {
+      "name": "Idle",
+      "frames": 120,
+      "speed": 0,
+      "duty": 1,
+      "lift": 0,
+      "compression": 0.022,
+      "bob": 0.002,
+      "offsets": {
+        "HL": 0,
+        "HR": 0,
+        "FL": 0,
+        "FR": 0
+      },
+      "maximumReachClampingM": 0,
+      "minimumRigidHoofHeightM": 0.003999713342636824,
+      "maximumNonRootTranslationM": 2.4620758953479386e-07
+    },
+    {
+      "name": "Trot",
+      "frames": 18,
+      "speed": 3.5,
+      "duty": 0.45,
+      "lift": 0.14,
+      "compression": 0.12,
+      "bob": 0.012,
+      "offsets": {
+        "HL": 0,
+        "HR": 0.5,
+        "FL": 0.5,
+        "FR": 0
+      },
+      "maximumReachClampingM": 0,
+      "minimumRigidHoofHeightM": 0.003999701235443354,
+      "maximumNonRootTranslationM": 2.6656007498500226e-07
+    },
+    {
+      "name": "Gallop",
+      "frames": 18,
+      "speed": 6,
+      "duty": 0.28,
+      "lift": 0.24,
+      "compression": 0.145,
+      "bob": 0.025,
+      "offsets": {
+        "HL": 0,
+        "HR": 0.12,
+        "FL": 0.37,
+        "FR": 0.52
+      },
+      "maximumReachClampingM": 0,
+      "minimumRigidHoofHeightM": 0.003999680280685425,
+      "maximumNonRootTranslationM": 2.6066386229598374e-07
+    },
+    {
+      "name": "Sprint",
+      "frames": 13,
+      "speed": 12,
+      "duty": 0.215,
+      "lift": 0.28,
+      "compression": 0.195,
+      "bob": 0.027,
+      "offsets": {
+        "HL": 0,
+        "HR": 0.19,
+        "FL": 0.39,
+        "FR": 0.6
+      },
+      "maximumReachClampingM": 0,
+      "minimumRigidHoofHeightM": 0.003999723121523857,
+      "maximumNonRootTranslationM": 3.580157094220508e-07
+    }
+  ],
+  "geometryOrRestRigChanged": false,
+  "objectRootMotion": false,
+  "scope": "Original arcade locomotion studies. Not motion capture, production biomechanics or device acceptance."
+}
