@@ -33,7 +33,10 @@ namespace BarrelRivals.Editor
             cream = Solid("Warm ivory enamel", new Color(.82f,.76f,.61f), .37f);
             red = Solid("Oxide red enamel", new Color(.44f,.038f,.019f), .4f, .25f);
             lamp = Solid("Floodlight emissive glass", new Color(.95f,.74f,.43f), .45f);
-            if (!lamp.IsKeywordEnabled("_EMISSION")) { lamp.EnableKeyword("_EMISSION");lamp.SetColor("_EmissionColor",new Color(1,.64f,.29f)*2.3f);EditorUtility.SetDirty(lamp); }
+            // URP 17.6 validates emission from GI flags. Enabling only the keyword
+            // is transient: reimport otherwise strips the intended lamp glow.
+            lamp.globalIlluminationFlags=MaterialGlobalIlluminationFlags.BakedEmissive;
+            lamp.EnableKeyword("_EMISSION");lamp.SetColor("_EmissionColor",new Color(1,.64f,.29f)*2.3f);EditorUtility.SetDirty(lamp);
             distant = Pbr("Mountain shale", "ArenaSoil_Albedo_2K.png", "ArenaSoil_NormalGL_2K.png", "ArenaSoil_Roughness_1K.jpg", null, new Color(.42f,.48f,.57f), 0);
             DrySurfaceFinish();
             foreach (string name in new[] { "Practice presentation", "Reins arena detail", "Premium rodeo arena" })

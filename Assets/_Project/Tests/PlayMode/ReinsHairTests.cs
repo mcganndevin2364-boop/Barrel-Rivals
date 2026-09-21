@@ -120,6 +120,7 @@ namespace BarrelRivals.Tests
             for(int i=0;i<2;i++)
             {
                 Assert.IsNotNull(materials[i]);
+                Assert.AreEqual("Barrel Rivals/Horse Fiber",materials[i].shader.name);
                 Assert.That(skin.sharedMesh.GetIndexCount(i),Is.GreaterThan(0),"Both groom layers must contain real geometry.");
                 Assert.IsTrue(materials[i].HasProperty("_BaseMap"));
                 Assert.IsNotNull(materials[i].GetTexture("_BaseMap"));

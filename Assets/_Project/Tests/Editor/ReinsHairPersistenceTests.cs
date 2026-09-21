@@ -33,7 +33,8 @@ namespace BarrelRivals.Tests
             Assert.AreEqual(vertices.Length,uv.Length);
             var minimum=vertices[0];var maximum=vertices[0];
             var landmarks=savedMesh.uv2;
-            var normals=savedMesh.normals;
+            var normals=savedMesh.normals;var tangents=savedMesh.tangents;
+            Assert.AreEqual(vertices.Length,tangents.Length,"Fiber lighting requires a persisted tangent frame.");
             Assert.AreEqual(vertices.Length,landmarks.Length,"Saved hair must retain attachment landmarks.");
             int maneRoots=0;
             var setup=EditorSceneManager.GetSceneManagerSetup();
@@ -50,6 +51,11 @@ namespace BarrelRivals.Tests
                     var point=vertices[i];
                     Assert.IsTrue(Finite(point.x)&&Finite(point.y)&&Finite(point.z),"Non-finite hair vertex "+i);
                     minimum=Vector3.Min(minimum,point);maximum=Vector3.Max(maximum,point);
+                    var tangent=tangents[i];var direction=new Vector3(tangent.x,tangent.y,tangent.z);
+                    Assert.IsTrue(Finite(tangent.x)&&Finite(tangent.y)&&Finite(tangent.z)&&Finite(tangent.w));
+                    Assert.That(direction.sqrMagnitude,Is.EqualTo(1).Within(.001f));
+                    Assert.That(Mathf.Abs(tangent.w),Is.EqualTo(1).Within(.001f));
+                    Assert.That(Mathf.Abs(Vector3.Dot(direction,normals[i])),Is.LessThan(.001f),"A degenerate frame breaks longitudinal lighting.");
                     if(landmarks[i].x>1.5f)continue; // Tail uses its own rig landmark.
                     if(landmarks[i].y<.0001f)
                     {

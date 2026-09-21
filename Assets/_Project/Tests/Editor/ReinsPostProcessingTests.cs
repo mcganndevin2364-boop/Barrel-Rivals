@@ -8,6 +8,26 @@ namespace BarrelRivals.Tests
     public sealed class ReinsPostProcessingTests
     {
         [Test]
+        public void ReloadedFloodlightRetainsEmissionAfterUrpMaterialValidation()
+        {
+            const string path=ReinsPremiumArenaBuilder.Root+"/Materials/Floodlight emissive glass.mat";
+            AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceUpdate|ImportAssetOptions.ForceSynchronousImport);
+            var saved=AssetDatabase.LoadAssetAtPath<Material>(path);Assert.IsNotNull(saved);
+            Assert.IsTrue(saved.IsKeywordEnabled("_EMISSION"));
+            Assert.AreEqual(MaterialGlobalIlluminationFlags.BakedEmissive,saved.globalIlluminationFlags);
+            var probe=new Material(saved);
+            try
+            {
+                // Exercise the installed URP validator that used to strip the keyword.
+                BaseShaderGUI.SetMaterialKeywords(probe);
+                Assert.IsTrue(probe.IsKeywordEnabled("_EMISSION"),"Glow must survive normal inspector/import validation.");
+                Assert.That(probe.GetColor("_EmissionColor").maxColorComponent,Is.GreaterThan(2));
+                Assert.AreEqual(MaterialGlobalIlluminationFlags.BakedEmissive,probe.globalIlluminationFlags);
+            }
+            finally{Object.DestroyImmediate(probe);}
+        }
+
+        [Test]
         public void ReloadedPremiumRendererRetainsPostProcessingResources()
         {
             const string pipelinePath=ReinsPremiumArenaBuilder.Root+"/Premium mobile pipeline.asset";

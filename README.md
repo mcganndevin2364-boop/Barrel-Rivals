@@ -18,7 +18,7 @@ Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests an
 
 Next: finish the representative moving horse/rider/arena benchmark, build fresh 0.5 native artifacts, and qualify real phone controls/audio/visuals/lifecycle plus sustained performance. M1N authenticated continuous-input authority follows R2 acceptance. Continue `codex/m1-skill-loop`; main is historical. Free/original assets only, with no new paid service or purchase.
 
-Latest art-only source: [elevation terrain checkpoint](Docs/Art/Reins-Landscape-Checkpoint.md), with 137/137 Editor and 33/33 Play Mode checks. New terrain shading and actual captures use `Landscape-*`; the 78/78 HTTP check above is preserved gameplay evidence. No new phone build or photographic-quality acceptance.
+Latest art-only source: [shared horse fiber shading](Docs/Art/Reins-Fiber-Shading-Checkpoint.md), with 138/138 Editor and 35/35 Play Mode checks. New actual captures and shader proof use `FiberShading-*`; the 78/78 HTTP check above is preserved gameplay evidence. No new phone build or photographic-quality acceptance.
 
 ## Development context
 

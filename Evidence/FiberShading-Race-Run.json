@@ -1,0 +1,235 @@
+{
+    "unityVersion": "6000.6.0f1",
+    "ruleset": "reins-v2",
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "finalPhase": "Complete",
+    "graphicsDeviceName": "Intel(R) Iris(TM) Plus Graphics 640",
+    "graphicsDeviceVendor": "Apple",
+    "graphicsDeviceType": "Metal",
+    "graphicsDeviceVersion": "Metal",
+    "operatingSystem": "Mac OS X 13.7.8",
+    "finalTimeMs": 33860,
+    "knocks": 0,
+    "stylePoints": 300,
+    "replayFrames": 1893,
+    "captureWidth": 1280,
+    "captureHeight": 720,
+    "reportedGraphicsMemoryMB": 1536,
+    "reducedMotion": true,
+    "devicePerformanceMeasured": false,
+    "visualQualityAcceptance": false,
+    "minimumBarrelDistancesMetres": [
+        2.9303949084994936,
+        2.9636582254820416,
+        2.939942719330246
+    ],
+    "captures": [
+        {
+            "stage": "Ready",
+            "phase": "Ready",
+            "tick": 0,
+            "barrelIndex": 0,
+            "raceTimeMs": 0,
+            "distanceToTargetMetres": 27.893289515580626,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 0.0,
+            "horsePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -6.0
+            },
+            "cameraPosition": {
+                "x": 0.0,
+                "y": 2.299999952316284,
+                "z": -6.400000095367432
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Approach-1",
+            "phase": "Racing",
+            "tick": 329,
+            "barrelIndex": 0,
+            "raceTimeMs": 2580,
+            "distanceToTargetMetres": 11.976581271661052,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 4.725,
+            "horsePosition": {
+                "x": -6.3786773681640625,
+                "y": 0.0,
+                "z": 8.822155952453613
+            },
+            "cameraPosition": {
+                "x": -6.069754123687744,
+                "y": 2.1850383281707764,
+                "z": 8.436026573181152
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Turn-1",
+            "phase": "Racing",
+            "tick": 455,
+            "barrelIndex": 0,
+            "raceTimeMs": 5100,
+            "distanceToTargetMetres": 3.248627258361658,
+            "turnProgress01": 0.20220897261286108,
+            "speedMetresPerSecond": 4.114094999999998,
+            "horsePosition": {
+                "x": -10.471193313598633,
+                "y": 0.0,
+                "z": 18.130489349365234
+            },
+            "cameraPosition": {
+                "x": -10.654631614685059,
+                "y": 2.1859781742095947,
+                "z": 17.684492111206055
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Cross-2",
+            "phase": "Racing",
+            "tick": 630,
+            "barrelIndex": 1,
+            "raceTimeMs": 8600,
+            "distanceToTargetMetres": 29.744735926858876,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 4.045781249999999,
+            "horsePosition": {
+                "x": -15.899820327758789,
+                "y": 0.0,
+                "z": 15.521687507629395
+            },
+            "cameraPosition": {
+                "x": -16.268022537231445,
+                "y": 2.1860833168029785,
+                "z": 15.831029891967773
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Turn-2",
+            "phase": "Racing",
+            "tick": 949,
+            "barrelIndex": 1,
+            "raceTimeMs": 14980,
+            "distanceToTargetMetres": 3.268019108758998,
+            "turnProgress01": 0.2050964220161975,
+            "speedMetresPerSecond": 3.8242968750000004,
+            "horsePosition": {
+                "x": 11.672500610351563,
+                "y": 0.0,
+                "z": 20.838306427001953
+            },
+            "cameraPosition": {
+                "x": 11.405768394470215,
+                "y": 2.1864240169525146,
+                "z": 20.443506240844727
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Approach-3",
+            "phase": "Racing",
+            "tick": 1376,
+            "barrelIndex": 2,
+            "raceTimeMs": 23520,
+            "distanceToTargetMetres": 11.992480859212641,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 4.722046875,
+            "horsePosition": {
+                "x": 4.434924602508545,
+                "y": 0.0,
+                "z": 36.06155776977539
+            },
+            "cameraPosition": {
+                "x": 4.58834171295166,
+                "y": 2.1850428581237793,
+                "z": 35.59151840209961
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Turn-3",
+            "phase": "Racing",
+            "tick": 1505,
+            "barrelIndex": 2,
+            "raceTimeMs": 26100,
+            "distanceToTargetMetres": 3.2475719228462094,
+            "turnProgress01": 0.20064451898849975,
+            "speedMetresPerSecond": 3.80484375,
+            "horsePosition": {
+                "x": -1.3438301086425781,
+                "y": 0.0,
+                "z": 44.24737548828125
+            },
+            "cameraPosition": {
+                "x": -0.8706210255622864,
+                "y": 2.1864540576934814,
+                "z": 44.19529342651367
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Drive",
+            "phase": "Drive",
+            "tick": 1685,
+            "barrelIndex": 3,
+            "raceTimeMs": 29700,
+            "distanceToTargetMetres": 47.34413177813954,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 6.445781250000001,
+            "horsePosition": {
+                "x": 3.136514663696289,
+                "y": 0.0,
+                "z": 47.24011993408203
+            },
+            "cameraPosition": {
+                "x": 3.113201856613159,
+                "y": 2.1823911666870117,
+                "z": 47.76852035522461
+            },
+            "cameraFieldOfView": 65.0
+        },
+        {
+            "stage": "Finish",
+            "phase": "Complete",
+            "tick": 1893,
+            "barrelIndex": 3,
+            "raceTimeMs": 33860,
+            "distanceToTargetMetres": 0.320917115477437,
+            "turnProgress01": 0.0,
+            "speedMetresPerSecond": 0.0,
+            "horsePosition": {
+                "x": 0.31739896535873413,
+                "y": 0.0,
+                "z": -0.04738863557577133
+            },
+            "cameraPosition": {
+                "x": 0.3428807258605957,
+                "y": 2.299999952316284,
+                "z": 0.35179904103279114
+            },
+            "cameraFieldOfView": 65.0
+        }
+    ],
+    "phaseFrameCounts": [
+        {
+            "phase": "Approach",
+            "frames": 199
+        },
+        {
+            "phase": "Racing",
+            "frames": 1493
+        },
+        {
+            "phase": "Drive",
+            "frames": 200
+        },
+        {
+            "phase": "Complete",
+            "frames": 1
+        }
+    ]
+}

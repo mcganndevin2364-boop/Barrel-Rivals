@@ -4,7 +4,7 @@ Current source configures **0.5.0/build 5**, rules **reins-v2**: moving first-pe
 
 Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last native/device artifact remains 0.4.0/build 4; no new native build or device install has been verified for this source. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
 
-Latest art-only update: [continuous elevation terrain](../Art/Reins-Landscape-Checkpoint.md), with fresh 137/137 Editor and 33/33 Play Mode results. Credited USGS data, an original world-mapped material and restrained haze/color replace the earlier coarse backdrop; all 386 previous evidence records are preserved. Horse/stable/gear and gameplay remain unchanged. The result remains below reference quality; new native artifacts, shader/device performance and full R2 acceptance are still pending.
+Latest art-only update: [shared horse fiber shading](../Art/Reins-Fiber-Shading-Checkpoint.md), with fresh 138/138 Editor and 35/35 Play Mode results. Racing/MyStable/portrait now use directional hair highlights; geometry, animation and original atlases remain unchanged. All 427 earlier evidence records are preserved. The result remains below reference quality; new native artifacts, shader/device performance and full R2 acceptance are pending.
 
 **How to read the list.** “Early code,” “helper” or “prototype” means a starting point exists but the section is not implemented and verified end to end. “Not built” means no implementation of the required system was found in the reviewed game project. All sections have a planning/engineering specification; none is release-ready.
 
@@ -29,7 +29,7 @@ Latest art-only update: [continuous elevation terrain](../Art/Reins-Landscape-Ch
 | 10 | Horse Animation State Machine | New graphics source imports 19-bone CC0 horse and movement-driven Idle/Walk/Gallop studies; production clips/blending, rigged rider/tack and device acceptance pending |
 | 11 | Horse Physics & Movement Controller | Reins fixed-step three-barrel steering with bounded launch acceleration and swept barrel/alley contacts; production hull, rig and online authority pending |
 | 12 | Horse Gait System | Original Idle/Walk/Gallop studies now verified moving in actual rendered frames; bone culling corrected, skinned hair and camera/hand phase connected. Natural foot planting, turns/braking, full rider/hoof audio and device acceptance pending |
-| 13 | Horse Visual Customization (Colors/Markings) | Twenty local tack/rider cosmetic styles preview/equip with persisted race bindings; current reference-update verification, coat/marking customization and trusted ownership pending |
+| 13 | Horse Visual Customization (Colors/Markings) | Twenty local tack/rider styles preview/equip with persisted race bindings; shared horse fiber shading and saved-material/tangent checks pass; coat/marking customization and trusted ownership pending |
 | 14 | Horse Aging & Career System | Not built |
 | 15 | Horse Injury & Recovery System | Not built |
 
@@ -119,7 +119,7 @@ Latest art-only update: [continuous elevation terrain](../Art/Reins-Landscape-Ch
 
 **iPhone preparation.** Xcode 15.2 built and signed development apps on the existing Ventura Mac. The signed IPA was installed on the connected iPhone 17 Pro running iOS 26.6.2 through standard USB installation; Xcode’s developer image lacks this phone variant. The user resolved development-certificate trust and confirmed 0.2.0 opens and feels good. Versions 0.3.0 and 0.4.0 were subsequently built, signed, installed and version-queried. The user has now played the second/Reins mode and prefers it; they want substantially better graphics and more forgiving arcade feel. This confirms mode use and product preference, not a measured launch-latency, sustained-performance or complete lifecycle acceptance pass. [iPhone setup guide](../../README-iPhone.md).
 
-**Next concrete work.** Review the actual moving alley and current stable/gear captures in [the latest art checkpoint](../Art/Reins-Landscape-Checkpoint.md); the [v2 checkpoint](Reins-v2-Alley-Checkpoint.md) owns gameplay acceptance. Refine the representative horse/rider/arena and natural planted turns/braking, then build fresh 0.5 platform artifacts and measure actual phone timing, visual comfort, lifecycle behavior and sustained performance. Preserve free/original asset provenance and historical evidence. Do not expand the roster before this quality gate. M1N follows R2 acceptance.
+**Next concrete work.** Review the actual moving alley and current stable/gear captures in [the latest art checkpoint](../Art/Reins-Fiber-Shading-Checkpoint.md); the [v2 checkpoint](Reins-v2-Alley-Checkpoint.md) owns gameplay acceptance. Refine the representative horse/rider/arena and natural planted turns/braking, then build fresh 0.5 platform artifacts and measure actual phone timing, visual comfort, lifecycle behavior and sustained performance. Preserve free/original asset provenance and historical evidence. Do not expand the roster before this quality gate. M1N follows R2 acceptance.
 
 **Companion documents.**
 

@@ -198,10 +198,18 @@ namespace BarrelRivals.Editor
             importer.npotScale=TextureImporterNPOTScale.None;
             importer.textureCompression=TextureImporterCompression.Uncompressed;importer.anisoLevel=4;importer.SaveAndReimport();
             string path=Root+(dense?"/Dense undercoat hair.mat":"/Dark strand hair.mat");var material=AssetDatabase.LoadAssetAtPath<Material>(path);
-            if(!material){material=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=dense?"Dense undercoat hair":"Dark strand hair"};AssetDatabase.CreateAsset(material,path);}
+            var shader=Shader.Find("Barrel Rivals/Horse Fiber");
+            if(!shader)throw new InvalidOperationException("The horse fiber shader is missing.");
+            if(!material){material=new Material(shader){name=dense?"Dense undercoat hair":"Dark strand hair"};AssetDatabase.CreateAsset(material,path);}
+            material.shader=shader;
             material.SetTexture("_BaseMap",AssetDatabase.LoadAssetAtPath<Texture2D>(texturePath));material.SetColor("_BaseColor",dense?Color.white:new Color(.38f,.32f,.28f,1));
             material.SetFloat("_AlphaClip",1);material.SetFloat("_Cutoff",.36f);material.SetFloat("_Cull",0);
-            material.SetFloat("_AlphaToMask",1);material.SetFloat("_Smoothness",.30f);material.SetFloat("_EnvironmentReflections",1);material.DisableKeyword("_ENVIRONMENTREFLECTIONS_OFF");material.SetFloat("_Metallic",0);
+            material.SetFloat("_AlphaToMask",1);material.DisableKeyword("_ALPHATOMASK_ON");
+            material.SetColor("_FiberTint",new Color(.80f,.80f,.78f));
+            material.SetFloat("_PrimaryStrength",dense?.035f:.060f);material.SetFloat("_SecondaryStrength",dense?.015f:.028f);
+            material.SetFloat("_PrimaryExponent",64);material.SetFloat("_SecondaryExponent",18);
+            material.SetFloat("_PrimaryShift",.08f);material.SetFloat("_SecondaryShift",-.16f);
+            material.SetFloat("_Scatter",dense?.18f:.28f);material.SetFloat("_RootShade",dense?.68f:.80f);
             material.EnableKeyword("_ALPHATEST_ON");material.SetOverrideTag("RenderType","TransparentCutout");material.renderQueue=2450;
             material.doubleSidedGI=true;EditorUtility.SetDirty(material);return material;
         }
