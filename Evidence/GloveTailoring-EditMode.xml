@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="4" result="Passed" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.8781299">
+  <test-suite type="TestSuite" id="1000" name="Barrel Rivals" fullname="Barrel Rivals" runstate="Runnable" testcasecount="142" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.878130" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1171" name="BarrelRivals.Editor.Tests.dll" fullname="/Users/devinmcgann/Documents/Codex/2026-09-16/fix-x20/outputs/Barrel-Rivals-M0/Library/ScriptAssemblies/BarrelRivals.Editor.Tests.dll" runstate="Runnable" testcasecount="142" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.867397" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="20181" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1172" name="BarrelRivals" fullname="BarrelRivals" runstate="Runnable" testcasecount="142" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.866523" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1173" name="Tests" fullname="BarrelRivals.Tests" runstate="Runnable" testcasecount="142" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.865905" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1014" name="GloveGeometryTests" fullname="BarrelRivals.Tests.GloveGeometryTests" classname="BarrelRivals.Tests.GloveGeometryTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:05Z" duration="0.458370" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1016" name="BothGripsPreserveWindingAndLeaveRoomForTheBraidedRein" fullname="BarrelRivals.Tests.GloveGeometryTests.BothGripsPreserveWindingAndLeaveRoomForTheBraidedRein" methodname="BothGripsPreserveWindingAndLeaveRoomForTheBraidedRein" classname="BarrelRivals.Tests.GloveGeometryTests" runstate="Runnable" seed="1253376144" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:05Z" duration="0.075145" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1015" name="OpenAndRidingGlovesHaveOneConnectedSurfaceAndOnlyAnOpenWrist" fullname="BarrelRivals.Tests.GloveGeometryTests.OpenAndRidingGlovesHaveOneConnectedSurfaceAndOnlyAnOpenWrist" methodname="OpenAndRidingGlovesHaveOneConnectedSurfaceAndOnlyAnOpenWrist" classname="BarrelRivals.Tests.GloveGeometryTests" runstate="Runnable" seed="1730042957" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:05Z" duration="0.362461" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1017" name="GloveTailoringTests" fullname="BarrelRivals.Tests.GloveTailoringTests" classname="BarrelRivals.Tests.GloveTailoringTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:07Z" duration="1.399456" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1019" name="SavedDyesUseOneOpaqueShaderAndPreserveTheSameThreadAndPhotographicMaps" fullname="BarrelRivals.Tests.GloveTailoringTests.SavedDyesUseOneOpaqueShaderAndPreserveTheSameThreadAndPhotographicMaps" methodname="SavedDyesUseOneOpaqueShaderAndPreserveTheSameThreadAndPhotographicMaps" classname="BarrelRivals.Tests.GloveTailoringTests" runstate="Runnable" seed="1014844003" result="Passed" start-time="2026-09-21 10:17:05Z" end-time="2026-09-21 10:17:06Z" duration="0.071527" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1018" name="TailoringKeepsTheConnectedShellAndGripApertureAndMirrorsAllDetails" fullname="BarrelRivals.Tests.GloveTailoringTests.TailoringKeepsTheConnectedShellAndGripApertureAndMirrorsAllDetails" methodname="TailoringKeepsTheConnectedShellAndGripApertureAndMirrorsAllDetails" classname="BarrelRivals.Tests.GloveTailoringTests" runstate="Runnable" seed="875431379" result="Passed" start-time="2026-09-21 10:17:06Z" end-time="2026-09-21 10:17:07Z" duration="1.325511" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/devinmcgann/Library/Application Support/Barrel Rivals/Barrel Rivals/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

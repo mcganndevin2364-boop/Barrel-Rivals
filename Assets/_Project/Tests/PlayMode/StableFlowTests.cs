@@ -109,8 +109,10 @@ namespace BarrelRivals.Tests
             Assert.AreEqual(2,gloves.Length);Assert.AreEqual(2,fixedParts.Length);
             foreach(var glove in gloves) {
                 Assert.AreEqual(1,glove.sharedMaterials.Length);
-                Assert.That(glove.GetComponent<MeshFilter>().sharedMesh.triangles.Length/3,Is.InRange(1000,1600),
-                    "The connected anatomical grip must stay within its local mesh budget.");
+                Assert.AreEqual("Barrel Rivals/Tailored Leather",glove.sharedMaterial.shader.name);
+                Assert.Greater(glove.GetComponent<MeshFilter>().sharedMesh.colors.Count(c=>c.a==1),150,"Persisted thread must survive native mesh saving.");
+                Assert.That(glove.GetComponent<MeshFilter>().sharedMesh.triangles.Length/3,Is.InRange(1408,4500),
+                    "The anatomical grip plus sewn construction must stay within its local mesh budget.");
             }
             var fixedMaterial=fixedParts[0].sharedMaterial;
             var albedo=fixedMaterial.GetTexture("_BaseMap") as Texture2D;

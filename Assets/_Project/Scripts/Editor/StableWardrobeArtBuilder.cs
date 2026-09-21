@@ -44,7 +44,9 @@ namespace BarrelRivals.Editor
             foreach(var item in StableCatalog.Gear)if(item.Slot==StableSlot.Gloves)
             {
                 var material=result.Find(p=>p.gearId==item.Id).material;
-                material.SetFloat("_BumpScale",.18f);material.SetFloat("_Smoothness",.40f);
+                material.shader=Shader.Find("Barrel Rivals/Tailored Leather");
+                material.SetFloat("_BumpScale",.07f);material.SetFloat("_Smoothness",.30f);
+                material.SetColor("_ThreadColor",new Color(.52f,.36f,.18f));
                 material.SetFloat("_Cull",2);EditorUtility.SetDirty(material);
             }
             foreach(var item in StableCatalog.Gear)
@@ -72,7 +74,7 @@ namespace BarrelRivals.Editor
             // racing poses. No separate tube fingers or floating seam geometry.
             denim.Loft(new[]{new Vector3(.13f,-.55f,-.08f),new Vector3(.045f,.13f,-.02f),new Vector3(0,.47f,0)},
                 new[]{new Vector2(.225f,.18f),new Vector2(.17f,.12f),new Vector2(.12f,.071f)},24,true);
-            var renderer=Part(root,"Inspect glove shell",Save("Open western glove",ReinsGloveBuilder.Inspection()),glove);
+            var renderer=Part(root,"Inspect glove shell",Save("Open western glove",GloveTailoringBuilder.Finish(ReinsGloveBuilder.Inspection())),glove);
             renderer.transform.localPosition=new Vector3(0,.60f,0);
             renderer.transform.localRotation=Quaternion.Euler(-90,180,0);
             renderer.transform.localScale=Vector3.one*4f;

@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [shared glove construction checkpoint](../Art/Reins-Glove-Tailoring-Checkpoint.md) adds fitted leather panels, ribs, a stitched cuff and fixed-color thread to both actual riding hands and Rider Gear, including all six item thumbnails. One opaque material per glove retains the existing renderer/slot count and shared maps. Source anatomy, rein clearance and equipment behavior remain intact. Geometry increases; photographic quality, finger articulation, LODs and phone qualification remain open.
+
 The [saved MyStable showcase checkpoint](../Art/Reins-Stable-Showcase-Checkpoint.md) adds rig-following stowed reins, closer framing from actual visible geometry, warmer fill light and clearer equipment views. It preserves the existing one-horse/twenty-style/five-slot catalog and equip/save flow. The production horse remains distinct from the development replacement; photographic quality, native/device qualification, progression and multiplayer remain unfinished.
 
 The [character finish checkpoint](../Art/Reins-Character-Finish-Checkpoint.md) adds directional coat lighting to the development horse and an original western hat to both the candidate and saved racing rider. The coat preserves imported geometry/skin; the hat retains first-person shadow visibility. This is a visible art increment, not photographic, native or phone acceptance. The replacement horse is still development-only; existing MyStable/catalog/progression scope is unchanged.

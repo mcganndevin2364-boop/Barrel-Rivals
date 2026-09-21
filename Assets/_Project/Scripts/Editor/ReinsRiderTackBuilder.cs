@@ -103,7 +103,7 @@ namespace BarrelRivals.Editor
             var sideLabel=side<0?"Left":"Right";
             // One connected hand-derived shell replaces the disconnected palm,
             // finger tubes and thumb pieces. Right-hand mirroring preserves winding.
-            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",ReinsGloveBuilder.Riding(side)),new[]{glove});
+            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",GloveTailoringBuilder.Finish(ReinsGloveBuilder.Riding(side),side>0)),new[]{glove});
             // Fixed sleeve/thread colors must not inherit glove dyes. Two constant swatches
             // share one opaque material; the open inspection glove remains a separate build.
             MeshObject(hand,"Sleeve and glove stitching",SaveMesh(sideLabel+" sleeve and stitching",JoinHandSurfaces(clothing.Mesh(),stitching.Mesh(),true)),new[]{fixedParts});

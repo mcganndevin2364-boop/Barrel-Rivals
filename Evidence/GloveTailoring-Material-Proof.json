@@ -1,0 +1,6 @@
+{
+    "dyes": 6,
+    "maximumLeatherDelta": 0.3721504509449005,
+    "maximumThreadDelta": 0.0,
+    "scope": "Linear Unity camera render probe using saved materials. Not phone qualification."
+}

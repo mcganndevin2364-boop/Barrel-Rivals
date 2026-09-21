@@ -1,0 +1,6 @@
+{
+  "test": "BarrelRivals.Tests.ReinsAlleyCaptureTests.CaptureActualV2AlleyReleaseAndFirstSteeringWhenRequested",
+  "result": "Passed",
+  "endTime": "2026-09-21 10:04:46Z",
+  "originalRunContext": "This actual alley capture passed in the first mixed PlayMode run; its separate initial material probe failed. After explicit URP initialization, the final seven focused integration/material/rider tests pass in GloveTailoring-PlayMode.xml. No art mesh/shader changes followed this movie capture; later changes fix item-photography initialization and test capture setup."
+}

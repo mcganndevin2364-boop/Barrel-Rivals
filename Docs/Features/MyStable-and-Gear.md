@@ -1,5 +1,7 @@
 # MyStable and Gear — reference-driven source increment
 
+The [shared glove construction checkpoint](../Art/Reins-Glove-Tailoring-Checkpoint.md) adds fitted leather panels, ribs, a stitched cuff and fixed-color thread to both actual riding hands and Rider Gear, including all six item thumbnails. One opaque material per glove retains the existing renderer/slot count and shared maps. Source anatomy, rein clearance and equipment behavior remain intact. Geometry increases; photographic quality, finger articulation, LODs and phone qualification remain open.
+
 Latest art-only revision: [mane crown/coverage checkpoint](../Art/Reins-Mane-Flow-Checkpoint.md). The same horse has fuller fitted hair in stable/racing/ghost; current captures and 135 Editor / 32 Play Mode checks use ManeFlow-*. Existing 20 cosmetics and feature contracts remain unchanged. Reference-quality art and progression are still unfinished.
 
 

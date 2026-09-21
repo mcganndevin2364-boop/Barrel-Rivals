@@ -64,7 +64,11 @@ namespace BarrelRivals.Editor
             var fill=new GameObject("Item fill").AddComponent<Light>();fill.transform.SetParent(stage.transform,false);fill.type=LightType.Point;fill.intensity=6;fill.color=new Color(.82f,.88f,1);fill.range=radius*8;fill.cullingMask=1<<31;fill.transform.position=center+new Vector3(-.4f,.5f,1)*radius*2;
             var target=new RenderTexture(256,192,24);var image=new Texture2D(256,192,TextureFormat.RGB24,false);var active=RenderTexture.active;
             try {
-                camera.targetTexture=target;camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,256,192),0,0);image.Apply();
+                // Explicit Camera.Render in batch mode initializes URP lazily. Prime an
+                // empty frame before the product so the first newly used shader cannot
+                // be captured with a stale built-in/fallback subshader selection.
+                camera.targetTexture=target;camera.cullingMask=0;camera.Render();
+                camera.cullingMask=1<<31;camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,256,192),0,0);image.Apply();
                 File.WriteAllBytes(Root+"/"+id+".png",image.EncodeToPNG());
             }
             finally {camera.targetTexture=null;RenderTexture.active=active;Object.DestroyImmediate(image);Object.DestroyImmediate(target);Object.DestroyImmediate(stage);}
