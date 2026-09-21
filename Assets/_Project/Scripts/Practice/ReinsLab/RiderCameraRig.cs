@@ -8,7 +8,7 @@ namespace BarrelRivals.Practice
     {
         public const string ReducedMotionPreference = "BarrelRivals.Reins.ReducedMotion.v1";
         [SerializeField] private ReinsHorsePresentation presentation;
-        [SerializeField, Range(0, 12)] private float downwardPitch = 5;
+        [SerializeField, Range(0, 25)] private float downwardPitch = 5;
         [SerializeField, Range(55, 80)] private float fieldOfView = 65;
         [SerializeField, Range(0, 6)] private float speedFieldOfView = 4;
         [SerializeField] private LayerMask obstructionMask = ~0;

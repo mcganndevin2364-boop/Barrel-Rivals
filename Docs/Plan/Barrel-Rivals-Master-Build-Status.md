@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [full-course horse integration review](../Art/Reins-Horse-Race-Integration.md) connects the newer rig to the real arena, accepted speed/reins, stabilized camera, saved gear and independent ghost in an excluded development scene. Nine focused tests pass, including the preserved 33.86-second result and all 20 styles from MyStable; a continuous actual Unity ride is retained. Normal player scenes and phone builds remain unchanged. Natural turning/framing, reference-quality art, rendering budgets and device acceptance remain open.
+
 The [worked arena footing checkpoint](../Art/Reins-Worked-Footing-Checkpoint.md) adds original hoof/scuff relief, broad drag tracks, varied photographic sampling and manifest-driven wetness to the actual racing surface. All seven ground meshes and seventeen photo sources are unchanged. Eight focused live checks pass, including the preserved 33.86-second canonical run and MyStable/Gear flow. One new data texture and extra shader work need phone profiling; photographic quality and full-game acceptance remain open.
 
 The [shared mane foundation checkpoint](../Art/Reins-Mane-Foundation-Checkpoint.md) replaces overlapping dense strips with a continuous fitted crest and swept outer locks across racing, MyStable, the roster portrait and the personal ghost. Original atlases and all forelock/tail vertex channels are preserved. Hair is 2,827 vertices / 3,424 triangles in two slots; the full racing character is 83,634 triangles / 26 slots. Actual moving/gear checks are scoped evidence; photographic quality, natural actions, LODs and current-source phone qualification remain open.
@@ -40,9 +42,9 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 |---|---|---|
 | 8 | Horse Data Model & Breeds | One starter horse displayed in the 3D stable; four bounded Reins trait parameters unchanged; distinct ten-horse roster, selection and bond pending |
 | 9 | Horse Stats & Leveling | Bounded Reins effective movement traits tested; leveling, ownership and trusted progression pending |
-| 10 | Horse Animation State Machine | 19-bone horse Idle/Walk/Gallop studies plus CC0-derived skinned rider with saddle/wrist/boot alignment and ghost integration tested; separate 39-bone replacement now has a fitted rider/bridle/reins in an isolated Unity benchmark, with four additional authored gaits, a speed blend, corrected moving capture and flat-floor hoof correction; source fidelity, natural motion and cost targets remain open; authored planted turns/braking/Wrap and device acceptance pending |
+| 10 | Horse Animation State Machine | Existing player horse/rider remains; newer explicit 39-bone horse now runs the actual full course with five gaits, fitted tack/rider, accepted reins and independent ghost in an excluded development scene. Nine focused integration/regression tests pass; natural turns/braking/Wrap, source fidelity, rendering budget, player promotion and phone acceptance remain open |
 | 11 | Horse Physics & Movement Controller | Reins fixed-step three-barrel steering with bounded launch acceleration and swept barrel/alley contacts; production hull, rig and online authority pending |
-| 12 | Horse Gait System | Original Idle/Walk/Gallop studies now verified moving in actual rendered frames; bone culling corrected, skinned hair and camera/hand phase connected. Seated rider follows actual gait/tack; new replacement study has five speed-blended gaits, independent hoof-plane/contact checks and flat-floor correction in the development scene, but is not integrated; natural foot planting, turns/braking, authored rider actions, hoof audio and device acceptance pending |
+| 12 | Horse Gait System | Five authored candidate gaits now follow accepted speed through the complete real course; sampled flat-floor correction and rider connections checked. Normal player rig unchanged; world stance locking, natural turn/brake/contact/Wrap actions, hoof audio and device acceptance pending |
 | 13 | Horse Visual Customization (Colors/Markings) | Development-only directional coat and saved racing western hat checked; twenty local styles preview/equip with persisted race bindings; connected glove anatomy shared by six styles, shared horse fiber shading and saved-material checks pass; coat/marking customization and trusted ownership pending |
 | 14 | Horse Aging & Career System | Not built |
 | 15 | Horse Injury & Recovery System | Not built |
@@ -63,7 +65,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 23 | Bodycam Camera Controller | First person throughout, with bodycam ahead of the new rider torso and connected sleeves/reins; reduced-motion tests pass, phone framing/comfort acceptance pending |
+| 23 | Bodycam Camera Controller | First person throughout; candidate full-course camera retains both grip centers, resets on retry and supports reduced motion. Active barrel visibility during tight circles, natural rider look, phone framing and comfort remain open |
 | 24 | Post-Processing Shader Pipeline | Persistent URP reference materials and warm presentation source integrated; scene save/reopen passed; full effects/device validation pending |
 | 25 | Lens Effects (Fisheye, Chromatic, Flare) | Not integrated into a racing scene |
 | 26 | Motion Effects (Blur, Speed Lines) | Not integrated into a racing scene |
@@ -98,7 +100,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 | # | Section | Current implementation status |
 |---|---|---|
 | 42 | Currency System (Coins, Diamonds, Trophies) | Temporary local coins/trophies; persistence/ledger absent |
-| 43 | Gear & Equipment System | Saved MyStable now has rig-following stowed reins, closer subject framing and verified collection visibility; five cosmetic slots (saddle/pad/reins/headstall/gloves), 20 free local styles, validation, real item thumbnails, 3D inspection, explicit equip and cosmetic-v2 persistence; desktop migration/equip checks passed; competitive modifiers/reservations/consumables pending |
+| 43 | Gear & Equipment System | Reference-driven MyStable with rig-following stowed reins, five cosmetic slots and 20 free local styles, real thumbnails/inspection and isolated cosmetic-v2 persistence. All styles now bind to the full-course candidate via actual stable equip flow; candidate showroom integration, trusted ownership and competitive equipment systems remain pending |
 | 44 | Loot Crate & Reward System | Not built |
 | 45 | Trophy Road & Arena Unlocks | Tier constants only; progression path not built |
 | 46 | Daily Missions & Season Pass | Not built |
@@ -133,7 +135,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 
 **iPhone preparation.** Xcode 15.2 built and signed development apps on the existing Ventura Mac. The signed IPA was installed on the connected iPhone 17 Pro running iOS 26.6.2 through standard USB installation; Xcode’s developer image lacks this phone variant. The user resolved development-certificate trust and confirmed 0.2.0 opens and feels good. Versions 0.3.0 and 0.4.0 were subsequently built, signed, installed and version-queried. The user has now played the second/Reins mode and prefers it; they want substantially better graphics and more forgiving arcade feel. This confirms mode use and product preference, not a measured launch-latency, sustained-performance or complete lifecycle acceptance pass. [iPhone setup guide](../../README-iPhone.md).
 
-**Next concrete work.** Review the actual moving alley and current stable/gear captures in [the latest art checkpoint](../Art/Reins-Glove-Anatomy-Checkpoint.md); the [v2 checkpoint](Reins-v2-Alley-Checkpoint.md) owns gameplay acceptance. Preserve and install/review the verified 0.5 artifacts when the target phone is available. Refine the separate fitted horse study before runtime replacement, while retaining the existing moving game benchmark. Measure actual timing, visual comfort, lifecycle behavior and sustained performance; natural planted turns/braking and full reference quality remain open. Preserve free/original asset provenance and historical evidence. Do not expand the roster before this quality gate. M1N follows R2 acceptance.
+**Next concrete work.** Use the [full-course candidate review](../Art/Reins-Horse-Race-Integration.md) to improve natural turn/brake/Wrap motion and barrel visibility; connect a matching candidate MyStable with fitted animated stowed reins and new thumbnails. Reduce geometry/material cost and add LODs before promoting the shared character into player scenes. Preserve both existing 0.5 artifacts, then produce a distinct qualified build and inspect physical timing, comfort, lifecycle and sustained performance on phones. Free/original provenance and all master requirements remain in force. M1N follows R2 acceptance.
 
 **Companion documents.**
 

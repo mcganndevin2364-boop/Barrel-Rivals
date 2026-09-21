@@ -8,6 +8,7 @@ namespace BarrelRivals.Practice
     public sealed class HeroHorseAttachments : MonoBehaviour
     {
         public HorseRigBindings horse;
+        public ReinsHorsePresentation source;
         public ReinsRiderBodyPresentation rider;
         public Transform leftHand, rightHand, leftGrip, rightGrip, leftBit, rightBit;
         public MeshFilter leftRein, rightRein;
@@ -20,6 +21,7 @@ namespace BarrelRivals.Practice
         public void PoseRig()
         {
             if(!horse || !rider)return;
+            if(source){leftPull=source.LeftRein;rightPull=source.RightRein;}
             PoseHand(leftHand,leftRest,leftPull,-1);
             PoseHand(rightHand,rightRest,rightPull,1);
             rider.RenderAtSpeed(reviewSpeed);

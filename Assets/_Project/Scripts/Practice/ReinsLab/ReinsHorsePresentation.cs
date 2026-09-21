@@ -30,6 +30,8 @@ namespace BarrelRivals.Practice
         [SerializeField] private Transform torsoBone;
         [SerializeField] private Vector3 torsoBindLocal;
         [SerializeField] private Vector3 fallbackSeat = new Vector3(0, 2.45f, -.55f);
+        [SerializeField] private HorseRigBindings explicitRig;
+        [SerializeField] private Vector3 neutralEyeInModel;
         private HorsePresentationFrame previous, current;
         private bool initialized, hasSample, resetAnimator;
         private float alpha = 1;
@@ -45,11 +47,12 @@ namespace BarrelRivals.Practice
         public Quaternion RenderRotation { get; private set; } = Quaternion.identity;
         public Vector3 SeatOffset => seatOffset;
         /// <summary>Actual skeletal compression in the rider's local axes; never moves the Core root.</summary>
-        public Vector3 TorsoMotion => torsoBone && torsoBone.parent
+        public Vector3 TorsoMotion => explicitRig ? Quaternion.Inverse(RenderRotation) *
+            (explicitRig.FollowSupportPoint(neutralEyeInModel)-explicitRig.ModelSpace.TransformPoint(neutralEyeInModel)) : torsoBone && torsoBone.parent
             ? Quaternion.Inverse(RenderRotation) * torsoBone.parent.TransformVector(torsoBone.localPosition-torsoBindLocal)
             : Vector3.zero;
         /// <summary>Mean pose of the authored Idle/Walk/Gallop blend, excluding repeated stride bob.</summary>
-        public Vector3 StableTorsoMotion => !torsoBone ? Vector3.zero : Vector3.up *
+        public Vector3 StableTorsoMotion => explicitRig || !torsoBone ? Vector3.zero : Vector3.up *
             (Speed<=1.5f ? Mathf.Lerp(0,-.110f,Mathf.Clamp01(Speed/1.5f))
                 : Mathf.Lerp(-.110f,-.120f,Mathf.InverseLerp(1.5f,8,Speed)));
         public float Speed => current.Speed;
@@ -57,6 +60,7 @@ namespace BarrelRivals.Practice
         public float LeftRein => current.LeftRein;
         public float RightRein => current.RightRein;
         public bool HasSample => hasSample;
+        public int Tick => current.Tick;
         /// <summary>The cycle actually being rendered by the rig, shared by camera, tack and secondary art.</summary>
         public float GaitPhaseRadians
         {
@@ -74,10 +78,19 @@ namespace BarrelRivals.Practice
         public void Configure(Transform model, Transform seat = null, Animator animator = null)
         {
             modelRoot = model; riderSeat = seat; characterAnimator = animator;
+            explicitRig = null;
             torsoBone = null;
             if(model) foreach(var bone in model.GetComponentsInChildren<Transform>(true))
                 if(bone.name=="Bone") {torsoBone=bone;torsoBindLocal=bone.localPosition;break;}
             initialized = false;
+        }
+
+        /// <summary>Explicit-rig integration keeps the same interpolation/Core boundary.
+        /// Its gait driver owns Animator parameters; the camera follows measured support.</summary>
+        public void ConfigureRig(Transform model, HorseRigBindings rig, Vector3 neutralEye)
+        {
+            Configure(model,null,rig.Animator);
+            explicitRig=rig;neutralEyeInModel=neutralEye;
         }
 
         public void Initialize()
@@ -86,7 +99,8 @@ namespace BarrelRivals.Practice
             initialized = true;
             if (!modelRoot) modelRoot = transform.Find("Articulated horse");
             // Capture the authored seat in bind pose. Animated head/neck bones must not shake the camera.
-            seatOffset = riderSeat ? transform.InverseTransformPoint(riderSeat.position) : fallbackSeat;
+            seatOffset = explicitRig ? transform.InverseTransformPoint(explicitRig.ModelSpace.TransformPoint(neutralEyeInModel))
+                : riderSeat ? transform.InverseTransformPoint(riderSeat.position) : fallbackSeat;
             if (modelRoot && modelRoot != transform && modelRoot.IsChildOf(transform)
                 && modelRoot.GetComponentsInChildren<Collider>(true).Length == 0 && !interpolationRoot)
             {
@@ -150,6 +164,7 @@ namespace BarrelRivals.Practice
                 for (int layer = 0; layer < characterAnimator.layerCount; layer++) characterAnimator.Play(0, layer, 0);
                 resetAnimator = false;
             }
+            if(explicitRig)return;
             // Optional controller parameters are cached once, so unconfigured imported rigs remain valid.
             if ((parameterMask & 1) != 0) characterAnimator.SetFloat(SpeedId, current.Speed);
             // Above the full-gallop threshold, match its authored 8m/s stance travel.

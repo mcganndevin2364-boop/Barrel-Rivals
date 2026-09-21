@@ -11,3 +11,5 @@ The mirror supplied geometry and UVs but no rig, animation or textures. Do not a
 See [the supplied source license](Source/BlendSwap-13903-license.html) and [exact hashes/provenance](PROVENANCE.json). The latest surface candidate includes original procedural materials and fitted eyes; it is now used in an isolated Unity development scene and has not replaced the player/stable/ghost horse.
 
 The later groom candidate adds original fitted mane/forelock/tail geometry and five hair-only helper bones. It reuses two original project atlases unchanged; see [natural atlas provenance](../../Docs/Art/Original-natural-hair-provenance.md) and [separated atlas provenance](../../Docs/Art/Original-separated-hair-provenance.md). The attributed horse body, eyes and base walk remain unchanged.
+
+The same credited candidate now also runs in a separate full-course development review with the real Reins controller and personal ghost. Its geometry, source clips and licensing are unchanged; normal racing/MyStable player content has not been replaced. See [the integration checkpoint](../../Docs/Art/Reins-Horse-Race-Integration.md).
