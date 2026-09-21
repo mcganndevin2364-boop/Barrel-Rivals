@@ -52,6 +52,7 @@ namespace BarrelRivals.Editor
                 bool headPart=!name.Contains("casualsuit") && !name.Contains("boots");
                 renderer.shadowCastingMode=firstPerson && headPart?ShadowCastingMode.ShadowsOnly:ShadowCastingMode.On;
             }
+            WesternHatBuilder.Apply(skins,model);
             var nodes=model.GetComponentsInChildren<Transform>(true);
             var horn=nodes.Single(t=>t.name=="Saddle horn anchor");var saddle=horn.parent;
             var hornPosition=model.InverseTransformPoint(horn.position);

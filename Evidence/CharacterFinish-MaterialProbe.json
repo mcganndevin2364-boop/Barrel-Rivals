@@ -1,0 +1,6 @@
+{
+    "directionDelta": 2.3333332538604736,
+    "disabledDelta": 0.0,
+    "effectDelta": 4.0,
+    "units": "Mean RGB byte difference over128x128 rendered pixels"
+}

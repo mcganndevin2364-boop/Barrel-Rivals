@@ -60,6 +60,7 @@ namespace BarrelRivals.Editor
             var walk=AssetDatabase.LoadAllAssetsAtPath(ModelPath).OfType<AnimationClip>().Single(c=>!c.name.StartsWith("__preview__"));
 
             Materials(body,eyes,groom);
+            HeroHorseCoatBuilder.Apply(body,model.transform);
             HeroHorseTackFitter.Build(bindings);
             HeroHorseRiderBuilder.Build(bindings);
             var controller=AssetDatabase.LoadAssetAtPath<AnimatorController>(Root+"/HorseBenchmark.controller");
@@ -119,8 +120,9 @@ namespace BarrelRivals.Editor
         static void Materials(SkinnedMeshRenderer body,SkinnedMeshRenderer eyes,SkinnedMeshRenderer groom)
         {
             var surface=Shader.Find("Barrel Rivals/Horse Surface");if(!surface)throw new InvalidOperationException("Horse surface shader missing");
-            var coat=Material("Bay coat",surface);coat.SetColor("_Tint",Color.white);coat.SetFloat("_CoatSmoothness",.28f);coat.SetFloat("_BareSmoothness",.48f);coat.SetFloat("_Reflectance",.022f);coat.SetFloat("_MicroNormal",.025f);
+            var coat=Material("Bay coat",surface);coat.SetColor("_Tint",Color.white);coat.SetFloat("_CoatSmoothness",.42f);coat.SetFloat("_BareSmoothness",.48f);coat.SetFloat("_Reflectance",.026f);coat.SetFloat("_MicroNormal",.02f);coat.SetVector("_MicroScale",new Vector4(400,100,0,0));coat.SetFloat("_CoatSheen",.65f);coat.SetFloat("_CoatVariation",.055f);
             var eye=Material("Dark eyes",surface);eye.SetColor("_Tint",Color.white);eye.SetFloat("_CoatSmoothness",.90f);eye.SetFloat("_BareSmoothness",.90f);eye.SetFloat("_MicroNormal",0);eye.SetFloat("_Reflectance",.03f);
+            eye.SetFloat("_CoatSheen",0);eye.SetFloat("_CoatVariation",0);
             body.sharedMaterial=coat;eyes.sharedMaterial=eye;
             var fiber=Shader.Find("Barrel Rivals/Horse Fiber");var hairMaterials=new Material[2];
             for(int i=0;i<2;i++)

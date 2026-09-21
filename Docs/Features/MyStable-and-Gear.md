@@ -70,3 +70,7 @@ The [glove source checkpoint](../Art/Reins-Glove-Anatomy-Checkpoint.md) shares C
 ## Offline replacement candidate
 
 The [fitted horse groom study](../Art/Reins-Horse-Groom-Study.md) now includes eyes, bay coat, mane, forelock and tail in editable offline source. It does not yet replace the stable or racing horse and adds no new equipment/progression functionality. The next integration uses explicit bone/renderer bindings, reviewed URP materials and refitted tack/rider/camera in a separate Unity benchmark; preserve the current 20-style catalog, preview/equip/cancel and save behavior.
+
+## Current coat/hat art inspection
+
+The [character finish checkpoint](../Art/Reins-Character-Finish-Checkpoint.md) improves the candidate horse coat and fixed racing hat. Its candidate-in-barn image is an unsaved neutral fit, not a MyStable replacement or new inventory selection. The one-horse/twenty-style/five-slot feature contract above remains unchanged; photo-level materials, broader apparel and earned progression still require implementation.

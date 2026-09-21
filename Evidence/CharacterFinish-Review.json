@@ -1,0 +1,11 @@
+{
+    "maximumTangentNormalDot": 0.000012471310583350714,
+    "bodyVertices": 23024,
+    "hatTriangles": 1200,
+    "hatVertices": 842,
+    "characterTriangles": 93076,
+    "characterSlots": 25,
+    "characterRenderers": 20,
+    "originalGeometryColorSkinAndUVPreserved": true,
+    "scope": "Actual Unity material/geometry review. Stable is an unsaved neutral substitution. Not photographic or phone acceptance."
+}

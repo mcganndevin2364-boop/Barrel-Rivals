@@ -1,5 +1,7 @@
 # Continue Barrel Rivals from this checkpoint
 
+The [character finish checkpoint](Docs/Art/Reins-Character-Finish-Checkpoint.md) adds directional coat lighting to the development horse and an original western hat to both the candidate and saved racing rider. The coat preserves imported geometry/skin; the hat retains first-person shadow visibility. This is a visible art increment, not photographic, native or phone acceptance. The replacement horse is still development-only; existing MyStable/catalog/progression scope is unchanged.
+
 The [candidate locomotion checkpoint](Docs/Art/Reins-Horse-Locomotion-Study.md) adds original Idle/Trot/Gallop/Sprint actions, a five-gait speed blend, connected rider lean and measured flat-floor hoof correction to the isolated Unity horse. The corrected capture path refreshes skin matrices per render; older candidate movies cannot establish frame-by-frame deformation. The higher riding camera clears clothing while preserving grip framing. This remains development-only: race/stable/ghost adoption, natural turns/braking/Wrap, visual detail, LOD budgets and phone qualification are unfinished. Read this checkpoint before using earlier moving-review claims.
 
 Continue the existing Barrel-Rivals repository on `codex/m1-skill-loop`. Read [the handoff](Barrel-Rivals-AI-Handoff.md), [current v2 evidence](Docs/Plan/Reins-v2-Alley-Checkpoint.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), approved 0.5 plan and AGENTS.md before changing code.

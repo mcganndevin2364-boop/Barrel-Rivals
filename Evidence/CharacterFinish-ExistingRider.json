@@ -1,0 +1,611 @@
+{
+    "clothingDeformationMetres": 0.15935873985290527,
+    "minimumBootSoleBelowAnkle": -0.08542216569185257,
+    "maximumSoleClearanceMetres": 0.0035783052444458008,
+    "maximumReachErrorMetres": 7.058810638227442e-7,
+    "poseSamples": 48,
+    "player": [
+        {
+            "name": "Body",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 768,
+            "slots": 1
+        },
+        {
+            "name": "Neck",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Head",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 768,
+            "slots": 1
+        },
+        {
+            "name": "Muzzle",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 768,
+            "slots": 1
+        },
+        {
+            "name": "Ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 832,
+            "slots": 1
+        },
+        {
+            "name": "Saddle",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 12,
+            "slots": 1
+        },
+        {
+            "name": "Sculpted chestnut body",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 280,
+            "slots": 1
+        },
+        {
+            "name": "Arched neck",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 160,
+            "slots": 1
+        },
+        {
+            "name": "Neck mane",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Equine head",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 160,
+            "slots": 1
+        },
+        {
+            "name": "Velvet muzzle",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Forehead blaze",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Tapered ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Inner ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Eye",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Nostril",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cheek strap",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Tapered ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Inner ear",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Eye",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Nostril",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cheek strap",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Noseband",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Rein",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Rein",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Upper leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Knee",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cannon bone",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Fetlock",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Hoof",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Upper leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Knee",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cannon bone",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Fetlock",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Hoof",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Upper leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Knee",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cannon bone",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Fetlock",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Hoof",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Upper leg",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Knee",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cannon bone",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Fetlock",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Hoof",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Saddle blanket",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Western saddle seat",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Cantle",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Saddle horn",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Horn cap",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "Saddle fender",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Stirrup",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 12,
+            "slots": 1
+        },
+        {
+            "name": "Saddle fender",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Stirrup",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 12,
+            "slots": 1
+        },
+        {
+            "name": "Tail dock",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 80,
+            "slots": 1
+        },
+        {
+            "name": "Flowing tail",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 520,
+            "slots": 1
+        },
+        {
+            "name": "HorseEyeL",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 960,
+            "slots": 1
+        },
+        {
+            "name": "HorseEyeR",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 960,
+            "slots": 1
+        },
+        {
+            "name": "Fitted leather headstall",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 976,
+            "slots": 1
+        },
+        {
+            "name": "Bit rings and buckles",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1248,
+            "slots": 1
+        },
+        {
+            "name": "Headstall stitching",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1280,
+            "slots": 1
+        },
+        {
+            "name": "Woven saddle pad",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 1424,
+            "slots": 1
+        },
+        {
+            "name": "Woven blanket stripes",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 2672,
+            "slots": 1
+        },
+        {
+            "name": "Contoured western leather",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 6272,
+            "slots": 1
+        },
+        {
+            "name": "Saddle hardware",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 992,
+            "slots": 1
+        },
+        {
+            "name": "HorseBody",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 29564,
+            "slots": 1
+        },
+        {
+            "name": "HorseHairA",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 3920,
+            "slots": 1
+        },
+        {
+            "name": "HorseHairB",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 1756,
+            "slots": 1
+        },
+        {
+            "name": "Glove shell",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1408,
+            "slots": 1
+        },
+        {
+            "name": "Sleeve and glove stitching",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 432,
+            "slots": 1
+        },
+        {
+            "name": "Glove shell",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1408,
+            "slots": 1
+        },
+        {
+            "name": "Sleeve and glove stitching",
+            "shadowMode": "On",
+            "active": false,
+            "triangles": 432,
+            "slots": 1
+        },
+        {
+            "name": "Left braided rein",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1152,
+            "slots": 3
+        },
+        {
+            "name": "Right braided rein",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 1152,
+            "slots": 3
+        },
+        {
+            "name": "Horse strand hair",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 3232,
+            "slots": 2
+        },
+        {
+            "name": "Original cowboy hat",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 1200,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 8944,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.low-poly",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 172,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.male_casualsuit03",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 4800,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.ponytail01",
+            "shadowMode": "ShadowsOnly",
+            "active": true,
+            "triangles": 5352,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.toigo_ankle_boots_male",
+            "shadowMode": "On",
+            "active": true,
+            "triangles": 4120,
+            "slots": 1
+        }
+    ]
+}

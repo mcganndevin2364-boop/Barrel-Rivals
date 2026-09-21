@@ -37,6 +37,7 @@ namespace BarrelRivals.Editor
                 if(!shared)throw new InvalidOperationException("Missing existing rider material: "+material);
                 skin.sharedMaterial=shared;skin.quality=SkinQuality.Bone4;skin.updateWhenOffscreen=true;skin.shadowCastingMode=ShadowCastingMode.On;
             }
+            WesternHatBuilder.Apply(skins,model);
             var tack=Child(model,"Fitted riding hands and reins");
             Transform Hand(int side)
             {

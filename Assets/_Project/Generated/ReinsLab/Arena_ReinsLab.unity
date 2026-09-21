@@ -33063,6 +33063,10 @@ PrefabInstance:
       value: -0.31576452
       objectReference: {fileID: 0}
     - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: cbcc567be2e7247f887dc4e574162529, type: 2}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
       propertyPath: m_Quality
       value: 4
       objectReference: {fileID: 0}
@@ -33071,13 +33075,33 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.00019420288
+      objectReference: {fileID: 0}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.01497977
+      objectReference: {fileID: 0}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.0020350001
+      objectReference: {fileID: 0}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.0022064003
+      objectReference: {fileID: 0}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.0005362686
+      objectReference: {fileID: 0}
+    - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
       propertyPath: m_UpdateWhenOffscreen
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -3789894157577044604, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b7844a512214c423f8d460d540545aa1, type: 2}
+      objectReference: {fileID: 2100000, guid: 21baa81ae417047d590dfee05420d370, type: 2}
     - target: {fileID: -3541483643812682485, guid: b63e857a5979547b1abbbdb389a28a7d, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.87108344

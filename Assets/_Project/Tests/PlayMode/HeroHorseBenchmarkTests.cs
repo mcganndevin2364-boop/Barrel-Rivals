@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using System.Linq;
 using BarrelRivals.Practice;
 using NUnit.Framework;
 using UnityEngine;
@@ -46,6 +47,36 @@ namespace BarrelRivals.Tests.PlayMode
             Assert.That(Vector3.Distance(playback.reviewCamera.transform.position,binding.ModelSpace.TransformPoint(playback.neutralRiderPosition)),Is.LessThan(1e-5f));
             var folder=System.Environment.GetEnvironmentVariable("BARREL_HORSE_BENCHMARK_OUTPUT");
             if(!string.IsNullOrEmpty(folder))File.WriteAllText(Path.Combine(folder,"playback.json"),JsonUtility.ToJson(new Result{sampleCount=36,rootVerticalTravelM=max-min},true)+"\n");
+        }
+        [UnityTest]
+        public IEnumerator SavedCoatPreservesImportedGeometrySkinAndOpaquePasses()
+        {
+#if UNITY_EDITOR
+            yield return EditorSceneManager.LoadSceneAsyncInPlayMode("Assets/_Project/Development/HeroHorse/HeroHorseBenchmark.unity",new LoadSceneParameters(LoadSceneMode.Single));
+            yield return null;
+            var body=Object.FindFirstObjectByType<HorseRigBindings>().Body;
+            var source=UnityEditor.AssetDatabase.LoadAssetAtPath<GameObject>("Assets/_Project/Development/HeroHorse/HeroHorse.fbx")
+                .GetComponentsInChildren<SkinnedMeshRenderer>().Single(s=>s.name=="HeroHorseBody").sharedMesh;
+            var mesh=body.sharedMesh;
+            Assert.That(mesh.vertices.SequenceEqual(source.vertices));Assert.That(mesh.normals.SequenceEqual(source.normals));
+            Assert.That(mesh.colors.SequenceEqual(source.colors));Assert.That(mesh.uv.SequenceEqual(source.uv));
+            Assert.That(mesh.triangles.SequenceEqual(source.triangles));Assert.That(mesh.boneWeights.SequenceEqual(source.boneWeights));Assert.That(mesh.bindposes.SequenceEqual(source.bindposes));
+            var tangents=mesh.tangents;var normals=mesh.normals;Assert.AreEqual(mesh.vertexCount,tangents.Length);
+            for(int i=0;i<tangents.Length;i++)
+            {
+                Assert.That(Mathf.Abs(((Vector3)tangents[i]).magnitude-1),Is.LessThan(.0001f));
+                Assert.That(Mathf.Abs(Vector3.Dot((Vector3)tangents[i],normals[i])),Is.LessThan(.0001f));
+            }
+            // Batch Play Mode can advance transforms without a graphics frame.
+            // Activate the current SRP before querying its selected SubShader tags/passes.
+            var camera=Camera.main;var previousTarget=camera.targetTexture;var target=RenderTexture.GetTemporary(64,64,24);
+            try{camera.targetTexture=target;camera.Render();}
+            finally{camera.targetTexture=previousTarget;RenderTexture.ReleaseTemporary(target);}
+            foreach(string pass in new[]{"SurfaceForward","ShadowCaster","DepthOnly","DepthNormals"})Assert.That(body.sharedMaterial.FindPass(pass),Is.GreaterThanOrEqualTo(0));
+            Assert.AreEqual("Opaque",body.sharedMaterial.GetTag("RenderType",false));
+#else
+            Assert.Ignore("The development scene is excluded from player builds.");yield break;
+#endif
         }
         [System.Serializable] class Result
         {

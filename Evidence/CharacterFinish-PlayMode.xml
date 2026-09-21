@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="10" result="Passed" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:06Z" duration="12.1633865">
+  <test-suite type="TestSuite" id="1071" name="Barrel Rivals" fullname="Barrel Rivals" runstate="Runnable" testcasecount="42" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:06Z" duration="12.163387" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1064" name="BarrelRivals.PlayMode.Tests.dll" fullname="/Users/devinmcgann/Documents/Codex/2026-09-16/fix-x20/outputs/Barrel-Rivals-M0/Library/ScriptAssemblies/BarrelRivals.PlayMode.Tests.dll" runstate="Runnable" testcasecount="42" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:06Z" duration="12.146199" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="18039" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1065" name="BarrelRivals" fullname="BarrelRivals" runstate="Runnable" testcasecount="42" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:06Z" duration="12.144864" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1066" name="Tests" fullname="BarrelRivals.Tests" runstate="Runnable" testcasecount="42" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:06Z" duration="12.143719" total="10" passed="10" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1067" name="PlayMode" fullname="BarrelRivals.Tests.PlayMode" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:02:03Z" duration="9.285869" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1057" name="HeroHorseAttachmentsTests" fullname="BarrelRivals.Tests.PlayMode.HeroHorseAttachmentsTests" classname="BarrelRivals.Tests.PlayMode.HeroHorseAttachmentsTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:01:57Z" duration="3.110574" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1058" name="LiveRigKeepsAttachmentsConnectedAndOwnsReinMeshes" fullname="BarrelRivals.Tests.PlayMode.HeroHorseAttachmentsTests.LiveRigKeepsAttachmentsConnectedAndOwnsReinMeshes" methodname="LiveRigKeepsAttachmentsConnectedAndOwnsReinMeshes" classname="BarrelRivals.Tests.PlayMode.HeroHorseAttachmentsTests" runstate="Runnable" seed="1784118640" result="Passed" start-time="2026-09-21 09:01:54Z" end-time="2026-09-21 09:01:57Z" duration="3.095210" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1059" name="HeroHorseBenchmarkTests" fullname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests" classname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-21 09:01:57Z" end-time="2026-09-21 09:02:01Z" duration="3.209091" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1061" name="SavedCoatPreservesImportedGeometrySkinAndOpaquePasses" fullname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests.SavedCoatPreservesImportedGeometrySkinAndOpaquePasses" methodname="SavedCoatPreservesImportedGeometrySkinAndOpaquePasses" classname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests" runstate="Runnable" seed="682842935" result="Passed" start-time="2026-09-21 09:01:57Z" end-time="2026-09-21 09:01:59Z" duration="1.664075" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1060" name="SavedRigAdvancesOffscreenAndCameraIncludesInheritedMotion" fullname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests.SavedRigAdvancesOffscreenAndCameraIncludesInheritedMotion" methodname="SavedRigAdvancesOffscreenAndCameraIncludesInheritedMotion" classname="BarrelRivals.Tests.PlayMode.HeroHorseBenchmarkTests" runstate="Runnable" seed="1410350326" result="Passed" start-time="2026-09-21 09:01:59Z" end-time="2026-09-21 09:02:01Z" duration="1.542413" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1062" name="HeroHorseLocomotionTests" fullname="BarrelRivals.Tests.PlayMode.HeroHorseLocomotionTests" classname="BarrelRivals.Tests.PlayMode.HeroHorseLocomotionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-09-21 09:02:01Z" end-time="2026-09-21 09:02:03Z" duration="2.963711" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1063" name="LiveSpeedBlendKeepsActorAndGripsConnected" fullname="BarrelRivals.Tests.PlayMode.HeroHorseLocomotionTests.LiveSpeedBlendKeepsActorAndGripsConnected" methodname="LiveSpeedBlendKeepsActorAndGripsConnected" classname="BarrelRivals.Tests.PlayMode.HeroHorseLocomotionTests" runstate="Runnable" seed="1009409687" result="Passed" start-time="2026-09-21 09:02:01Z" end-time="2026-09-21 09:02:03Z" duration="2.960460" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+          <test-suite type="TestFixture" id="1043" name="ReinsRiderBodyTests" fullname="BarrelRivals.Tests.ReinsRiderBodyTests" classname="BarrelRivals.Tests.ReinsRiderBodyTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-21 09:02:03Z" end-time="2026-09-21 09:02:06Z" duration="2.360299" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1046" name="GhostOwnsItsRiderPoseAndPonytailMaskWithoutHidingThePlayerHeadShadow" fullname="BarrelRivals.Tests.ReinsRiderBodyTests.GhostOwnsItsRiderPoseAndPonytailMaskWithoutHidingThePlayerHeadShadow" methodname="GhostOwnsItsRiderPoseAndPonytailMaskWithoutHidingThePlayerHeadShadow" classname="BarrelRivals.Tests.ReinsRiderBodyTests" runstate="Runnable" seed="1877241269" result="Passed" start-time="2026-09-21 09:02:03Z" end-time="2026-09-21 09:02:05Z" duration="1.743382" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1044" name="RiderDeformsAndKeepsSeatWristsAndFeetConnectedAcrossGaits" fullname="BarrelRivals.Tests.ReinsRiderBodyTests.RiderDeformsAndKeepsSeatWristsAndFeetConnectedAcrossGaits" methodname="RiderDeformsAndKeepsSeatWristsAndFeetConnectedAcrossGaits" classname="BarrelRivals.Tests.ReinsRiderBodyTests" runstate="Runnable" seed="1158051095" result="Passed" start-time="2026-09-21 09:02:05Z" end-time="2026-09-21 09:02:06Z" duration="0.441509" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1045" name="SavedWesternHatFollowsTheHeadAndRetainsBodycamShadows" fullname="BarrelRivals.Tests.ReinsRiderBodyTests.SavedWesternHatFollowsTheHeadAndRetainsBodycamShadows" methodname="SavedWesternHatFollowsTheHeadAndRetainsBodycamShadows" classname="BarrelRivals.Tests.ReinsRiderBodyTests" runstate="Runnable" seed="1164737173" result="Passed" start-time="2026-09-21 09:02:06Z" end-time="2026-09-21 09:02:06Z" duration="0.171787" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1047" name="ReinsRiderPresentationTests" fullname="BarrelRivals.Tests.ReinsRiderPresentationTests" classname="BarrelRivals.Tests.ReinsRiderPresentationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-21 09:02:06Z" end-time="2026-09-21 09:02:06Z" duration="0.482130" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1050" name="ImportedCharacterGhostKeepsItsSkinButCannotActivateEffectsOrInteraction" fullname="BarrelRivals.Tests.ReinsRiderPresentationTests.ImportedCharacterGhostKeepsItsSkinButCannotActivateEffectsOrInteraction" methodname="ImportedCharacterGhostKeepsItsSkinButCannotActivateEffectsOrInteraction" classname="BarrelRivals.Tests.ReinsRiderPresentationTests" runstate="Runnable" seed="934975763" result="Passed" start-time="2026-09-21 09:02:06Z" end-time="2026-09-21 09:02:06Z" duration="0.016222" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1049" name="ReducedMotionAndRepeatedPresentationCannotChangeAcceptedRunOrOwnedInput" fullname="BarrelRivals.Tests.ReinsRiderPresentationTests.ReducedMotionAndRepeatedPresentationCannotChangeAcceptedRunOrOwnedInput" methodname="ReducedMotionAndRepeatedPresentationCannotChangeAcceptedRunOrOwnedInput" classname="BarrelRivals.Tests.ReinsRiderPresentationTests" runstate="Runnable" seed="1922729793" result="Passed" start-time="2026-09-21 09:02:06Z" end-time="2026-09-21 09:02:06Z" duration="0.209574" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1048" name="RiderViewStaysWithTheHorseBeforeGoAndReturnsExactlyOnRetry" fullname="BarrelRivals.Tests.ReinsRiderPresentationTests.RiderViewStaysWithTheHorseBeforeGoAndReturnsExactlyOnRetry" methodname="RiderViewStaysWithTheHorseBeforeGoAndReturnsExactlyOnRetry" classname="BarrelRivals.Tests.ReinsRiderPresentationTests" runstate="Runnable" seed="1601863111" result="Passed" start-time="2026-09-21 09:02:06Z" end-time="2026-09-21 09:02:06Z" duration="0.106105" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: /Users/devinmcgann/Library/Application Support/Barrel Rivals/Barrel Rivals/TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

@@ -92,6 +92,42 @@ namespace BarrelRivals.Tests
             finally{Object.Destroy(baked);}
         }
 
+        [UnityTest] public IEnumerator SavedWesternHatFollowsTheHeadAndRetainsBodycamShadows()
+        {
+            yield return SceneManager.LoadSceneAsync(ReinsLabController.SceneName);yield return null;
+            var controller=Object.FindFirstObjectByType<ReinsLabController>();controller.enabled=false;
+            var horse=GameObject.Find("Horse proxy").transform;
+            var rider=horse.GetComponentInChildren<ReinsRiderBodyPresentation>();
+            rider.enabled=false;horse.GetComponentInChildren<Animator>().enabled=false;
+            var hat=rider.GetComponentsInChildren<SkinnedMeshRenderer>().Single(s=>s.name.Contains("hat"));
+            Assert.AreEqual("Original cattleman western hat",hat.sharedMesh.name);
+            Assert.AreEqual(ShadowCastingMode.ShadowsOnly,hat.shadowCastingMode);
+            Assert.AreEqual(1,hat.sharedMaterials.Length);
+            Assert.AreEqual("Barrel Rivals/Horse Surface",hat.sharedMaterial.shader.name);
+            // Batch Play Mode can advance transforms without a graphics frame.
+            // Activate the current SRP before querying its selected SubShader tags/passes.
+            var camera=Camera.main;var previousTarget=camera.targetTexture;var target=RenderTexture.GetTemporary(64,64,24);
+            try{camera.targetTexture=target;camera.Render();}
+            finally{camera.targetTexture=previousTarget;RenderTexture.ReleaseTemporary(target);}
+            Assert.AreEqual("Opaque",hat.sharedMaterial.GetTag("RenderType",false));
+            var weights=hat.sharedMesh.boneWeights;var points=hat.sharedMesh.vertices;
+            int headIndex=Array.FindIndex(hat.bones,b=>b.name=="head");Assert.That(headIndex,Is.GreaterThanOrEqualTo(0));
+            Assert.That(weights.All(w=>w.boneIndex0==headIndex && w.weight0==1),Is.True);
+            var head=hat.bones[headIndex];var rotation=head.localRotation;var baked=new Mesh();
+            try
+            {
+                foreach(float angle in new[]{-15f,0f,20f})
+                {
+                    head.localRotation=rotation*Quaternion.Euler(0,angle,0);hat.BakeMesh(baked,true);
+                    var matrix=head.localToWorldMatrix*hat.sharedMesh.bindposes[headIndex];var actual=baked.vertices;
+                    for(int i=0;i<points.Length;i++)
+                        Assert.That(Vector3.Distance(matrix.MultiplyPoint3x4(points[i]),hat.transform.TransformPoint(actual[i])),Is.LessThan(.0001f),"Saved hat must stay rigidly attached to the animated head.");
+                }
+            }
+            finally{head.localRotation=rotation;Object.Destroy(baked);}
+            LogAssert.NoUnexpectedReceived();
+        }
+
         [Serializable] private sealed class RenderRow
         {public string name,shadowMode;public bool active;public int triangles,slots;}
         [Serializable] private sealed class Proof

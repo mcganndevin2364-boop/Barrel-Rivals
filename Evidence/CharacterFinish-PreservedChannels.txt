@@ -1,0 +1,7 @@
+positions=True
+normals=True
+colors=True
+uv=True
+indices=True
+weights=True
+bindposes=True

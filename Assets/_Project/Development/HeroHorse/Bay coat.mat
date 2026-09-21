@@ -26,11 +26,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _BareSmoothness: 0.48
-    - _CoatSmoothness: 0.28
-    - _MicroNormal: 0.025
-    - _Reflectance: 0.022
+    - _CoatSheen: 0.65
+    - _CoatSmoothness: 0.42
+    - _CoatVariation: 0.055
+    - _MicroNormal: 0.02
+    - _Reflectance: 0.026
     m_Colors:
-    - _MicroScale: {r: 850, g: 260, b: 0, a: 0}
+    - _MicroScale: {r: 400, g: 100, b: 0, a: 0}
     - _Tint: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

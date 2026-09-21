@@ -1,0 +1,148 @@
+{
+  "recordedAt": "2026-09-21T09:04:03+00:00",
+  "sourceBaseline": "3acd1f0979b045d0033e094d9cadc75ea0b55a27",
+  "scope": "Directional coat in development character; original fixed western hat in candidate and saved racing scene. Not replacement-horse adoption, new wardrobe category or reference/phone acceptance.",
+  "priorEvidenceUnchanged": 655,
+  "focusedPlayMode": {
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 09:02:06Z"
+  },
+  "finish": {
+    "maximumTangentNormalDot": 1.2471310583350714e-05,
+    "bodyVertices": 23024,
+    "hatTriangles": 1200,
+    "hatVertices": 842,
+    "characterTriangles": 93076,
+    "characterSlots": 25,
+    "characterRenderers": 20,
+    "originalGeometryColorSkinAndUVPreserved": true,
+    "scope": "Actual Unity material/geometry review. Stable is an unsaved neutral substitution. Not photographic or phone acceptance."
+  },
+  "materialProbe": {
+    "directionDelta": 2.3333332538604736,
+    "disabledDelta": 0.0,
+    "effectDelta": 4.0,
+    "units": "Mean RGB byte difference over128x128 rendered pixels"
+  },
+  "savedHat": {
+    "maximumCandidateDifference": 2.196712811652901e-09,
+    "triangles": 1200,
+    "scope": "Saved racing-scene hat mesh/material only. No new native artifact or wardrobe slot."
+  },
+  "playerGeometry": {
+    "triangles": 79288,
+    "renderers": 21,
+    "slots": 26,
+    "lods": false
+  },
+  "motion": {
+    "gaits": [
+      {
+        "name": "Idle",
+        "seconds": 4.0,
+        "minimumHoofY": 0.0039997100830078125,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 5.169570158614079e-07
+      },
+      {
+        "name": "Walk",
+        "seconds": 0.9333332777023315,
+        "minimumHoofY": 0.003950774669647217,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 3.8857473327880143e-07
+      },
+      {
+        "name": "Trot",
+        "seconds": 0.5999999642372131,
+        "minimumHoofY": 0.0038071870803833008,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 4.860611966250872e-07
+      },
+      {
+        "name": "Gallop",
+        "seconds": 0.5999999642372131,
+        "minimumHoofY": 0.003512740135192871,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 4.6265645892162865e-07
+      },
+      {
+        "name": "Sprint",
+        "seconds": 0.4333333373069763,
+        "minimumHoofY": 0.002072930335998535,
+        "maximumLoopError": 0.0,
+        "maximumReachError": 5.306152388584451e-07
+      }
+    ],
+    "frames": 420,
+    "maximumRootStepAt30Hz": 0.016948163509368896,
+    "maximumReachError": 5.364418029785156e-07,
+    "minimumBlendHoofY": 0.003999531269073486,
+    "minimumBeforeGrounding": -0.0599316768348217,
+    "maximumGroundCorrection": 0.0639316737651825,
+    "blendGroundTargetMet": true,
+    "scope": "Actual Unity in-place gait and speed-blend study, static floor. 33 samples per clip, 420 controlled frames at 30 Hz. No production foot planting, full collision, Core connection, native or phone acceptance."
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 14,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      209,
+      210,
+      419
+    ],
+    "height": 600,
+    "width": 800
+  },
+  "correctedIssues": [
+    "Generic variable-influence mesh persistence changed packed source weights; coat builder restores exact imported four-weight layout. Reopened saved channels pass.",
+    "New shader checks ran before the batch SRP had rendered; an actual target render activates the proper shader before querying passes/tags.",
+    "Earlier periodic coat grain/crown pinching/inward stitches revised after actual visual inspection."
+  ],
+  "retainedSourceMotionTarget": {
+    "maximumErrorM": 0.000363931438,
+    "targetM": 0.0002,
+    "met": false,
+    "retested": true
+  },
+  "coreOrRulesChanged": false,
+  "savedRaceHatChanged": true,
+  "savedStableHorseChanged": false,
+  "newNativeBuild": false,
+  "newPhoneInstallation": false,
+  "lastVerifiedInstalledIPhone": "0.4.0/build4",
+  "open": [
+    "Reference-level horse mane/face/coat and rider/clothing/tack",
+    "Natural planted turns/braking/Wrap and authored rider actions",
+    "Geometry/material reduction and LODs",
+    "Retained source fidelity discrepancy",
+    "Explicit race/stable/ghost replacement-horse adoption and cosmetics",
+    "Actual phone comfort, memory, sustained performance and qualification",
+    "Progression, multiplayer and release across all53sections"
+  ],
+  "evidenceSha256": {
+    "CharacterFinish-Capture.json": "e73b696b7107837515a606392e881660b97e3ce162702d3d9a3049e2bdff8c53",
+    "CharacterFinish-Character.png": "d482bb18d9e724b85f911298e917d3f84fec1f7f9f3579f9391321091f891201",
+    "CharacterFinish-Coat-Control.png": "924ef91570681edba15d62a9ec0227ca86b0fcfbe8cc46b39347d40b3f56b874",
+    "CharacterFinish-Coat.png": "1d7707d4adf10d976eca36d8455fa945c0c5f3b14e1a1254f8348e053e04a399",
+    "CharacterFinish-ExistingRider.json": "024bbdf5118e735ea549dc096303290613c2b9ff43e6ca0f290e47499f752c16",
+    "CharacterFinish-Hat.png": "148b26e4469b4fe4c97a3eb97b14b6abf42a6cc038aabaf21f50f7a26455ae42",
+    "CharacterFinish-Locomotion.json": "dc0dd5e7bcb6a763fde623163602326b306add6aec53411ad4f857b6cbe055fd",
+    "CharacterFinish-MaterialProbe.json": "bdd31c9262c6356a051d2260b1fb164c44d3bf4b7a73157b5a98e49f8bb1ac53",
+    "CharacterFinish-Motion.mp4": "2c1334a4943f8e88ca1850546d6ca20416ae4f515aca5119f53b3bd947dc2ba4",
+    "CharacterFinish-PlayMode.xml": "92838aa483b3252c33f040c1bf78375dbdebc82081ff988f4e629824af24e953",
+    "CharacterFinish-PreservedChannels.txt": "8a362e4f5be90fa646733b7fb5174eef801b039c4340ed18e074812ca943d202",
+    "CharacterFinish-Review.json": "ac6cc9cb6e835184bed7fdb5644956e6955a6cdc7d30a2638a0a3dd8f014e6b8",
+    "CharacterFinish-Riding.png": "39c7a3d4011e80d1cc3ddbea071bfd8ae3674c3ee4c39572da60e65e3113eb65",
+    "CharacterFinish-SavedHat.json": "9f8c1158860cef282198b4ad21c259fd2620d086f19f5b6d8f399bfcd706c074",
+    "CharacterFinish-SavedRider.png": "0cfedf1603681a822f7bddebc8061fd9efb9916047d4cadf132aa464db8fd010",
+    "CharacterFinish-SourceReview.json": "02f320313a912b6d4ccac2c2da2b41f2e05f461011fa26294b3e43a0013bfb4c",
+    "CharacterFinish-Sprint.png": "72dc823b70b40fa69d2e819d52c09cedf5931a747bcb8a1a90b7765f1f78bacd",
+    "CharacterFinish-Stable-Inspection.png": "ab8c50313b960dfe172c61542dff5d90058ab0f5a137d4cf04386316e52cec92",
+    "CharacterFinish-Video.json": "46139c286f244187a9806bd1cdc86b72ae280ef5bab7a3d53e4397d0d46cbf2f"
+  }
+}
