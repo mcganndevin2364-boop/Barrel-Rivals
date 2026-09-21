@@ -63,11 +63,11 @@ namespace BarrelRivals.Tests
                 patchCenters.Add(center);
                 var material = renderer.sharedMaterial;
                 Assert.IsNotNull(material); Assert.IsNotNull(material.shader);
-                Assert.AreEqual("Universal Render Pipeline/Lit", material.shader.name);
+                Assert.AreEqual("Barrel Rivals/Worked Arena Footing", material.shader.name);
                 Assert.IsTrue(material.shader.isSupported);
-                Assert.IsTrue(material.IsKeywordEnabled("_NORMALMAP"), "A normal texture must actually participate in shading.");
-                Assert.IsTrue(material.IsKeywordEnabled("_METALLICSPECGLOSSMAP"), "The roughness-derived surface mask is not enabled.");
-                foreach (string slot in new[] { "_BaseMap", "_BumpMap", "_MetallicGlossMap" })
+                // This dedicated shader always samples the normal and roughness maps;
+                // actual directional/detail render checks live in WorkedFootingTests.
+                foreach (string slot in new[] { "_BaseMap", "_BumpMap", "_MetallicGlossMap", "_DetailAlbedoMap", "_TrackMap" })
                 {
                     var texture = material.GetTexture(slot);
                     Assert.IsNotNull(texture, "Saved footing lost " + slot + " on patch " + i);

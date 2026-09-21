@@ -1,5 +1,7 @@
 # Barrel Rivals
 
+The [worked arena footing checkpoint](Docs/Art/Reins-Worked-Footing-Checkpoint.md) adds original hoof/scuff relief, broad drag tracks, varied photographic sampling and manifest-driven wetness to the actual racing surface. All seven ground meshes and seventeen photo sources are unchanged. Eight focused live checks pass, including the preserved 33.86-second canonical run and MyStable/Gear flow. One new data texture and extra shader work need phone profiling; photographic quality and full-game acceptance remain open.
+
 The [shared mane foundation checkpoint](Docs/Art/Reins-Mane-Foundation-Checkpoint.md) replaces overlapping dense strips with a continuous fitted crest and swept outer locks across racing, MyStable, the roster portrait and the personal ghost. Original atlases and all forelock/tail vertex channels are preserved. Hair is 2,827 vertices / 3,424 triangles in two slots; the full racing character is 83,634 triangles / 26 slots. Actual moving/gear checks are scoped evidence; photographic quality, natural actions, LODs and current-source phone qualification remain open.
 
 An iOS/Android arcade barrel-racing game in development. Current source configures **0.5.0/build 5**, rules **reins-v2**: first-person moving-alley hold/release, rein steering and heartbeat cadence, three legal turns, final Drive and local best replay. Reins and MyStable are the player scenes. Classic remains preserved source/history.

@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [worked arena footing checkpoint](../Art/Reins-Worked-Footing-Checkpoint.md) adds original hoof/scuff relief, broad drag tracks, varied photographic sampling and manifest-driven wetness to the actual racing surface. All seven ground meshes and seventeen photo sources are unchanged. Eight focused live checks pass, including the preserved 33.86-second canonical run and MyStable/Gear flow. One new data texture and extra shader work need phone profiling; photographic quality and full-game acceptance remain open.
+
 The [shared mane foundation checkpoint](../Art/Reins-Mane-Foundation-Checkpoint.md) replaces overlapping dense strips with a continuous fitted crest and swept outer locks across racing, MyStable, the roster portrait and the personal ghost. Original atlases and all forelock/tail vertex channels are preserved. Hair is 2,827 vertices / 3,424 triangles in two slots; the full racing character is 83,634 triangles / 26 slots. Actual moving/gear checks are scoped evidence; photographic quality, natural actions, LODs and current-source phone qualification remain open.
 
 The [shared glove construction checkpoint](../Art/Reins-Glove-Tailoring-Checkpoint.md) adds fitted leather panels, ribs, a stitched cuff and fixed-color thread to both actual riding hands and Rider Gear, including all six item thumbnails. One opaque material per glove retains the existing renderer/slot count and shared maps. Source anatomy, rein clearance and equipment behavior remain intact. Geometry increases; photographic quality, finger articulation, LODs and phone qualification remain open.
@@ -51,7 +53,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 |---|---|---|
 | 16 | Arena Geometry & WPRA Standards | Standard pattern, ordered winding, full finish gate and shared finite alley-wall geometry tested; credited elevation backdrop and clear apron persist without gameplay colliders; final arena/hull acceptance pending |
 | 17 | Arena Lighting System | Photographic sky, brighter warm/fill light, working persisted HDR/ACES renderer and exposure pixel regression; final lighting and phone appearance/performance pending |
-| 18 | Arena Ground Surface (Dirt/Footing) | Photographic CC0 dirt albedo/normal/roughness with world UVs and six independently tintable patches; texture tiling/grazing-angle and mobile surface acceptance pending |
+| 18 | Arena Ground Surface (Dirt/Footing) | Photographic soil, original hoof/scuff relief, broad world drag tracks and profile-driven wetness share six rule regions; actual directional/seam/replay checks pass; natural soil/dust and mobile surface acceptance pending |
 | 19 | Arena Props (Barrels, Fences, Gates, Chutes) | Original modeled covered stands, roof trusses, fences, signs, fixtures, booth and detailed barrels; visible knock/penalty share one event; final art and animation pending |
 | 20 | Crowd System (Stands, Fans, Animation) | New original distant crowd-card strip with inspected alpha; oblique-angle/repetition review, animation and measured mobile costs pending |
 | 21 | Arena Themes & Variants | Tier names only; racing arenas not built |

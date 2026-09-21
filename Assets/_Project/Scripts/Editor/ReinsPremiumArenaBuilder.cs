@@ -39,6 +39,7 @@ namespace BarrelRivals.Editor
             lamp.EnableKeyword("_EMISSION");lamp.SetColor("_EmissionColor",new Color(1,.64f,.29f)*2.3f);EditorUtility.SetDirty(lamp);
             distant = Pbr("Mountain shale", "ArenaSoil_Albedo_2K.png", "ArenaSoil_NormalGL_2K.png", "ArenaSoil_Roughness_1K.jpg", null, new Color(.42f,.48f,.57f), 0);
             DrySurfaceFinish();
+            soil = ReinsFootingArtBuilder.Build(soil);
             foreach (string name in new[] { "Practice presentation", "Reins arena detail", "Premium rodeo arena" })
             { var old = GameObject.Find(name); if (old) Object.DestroyImmediate(old); }
             world = new GameObject("Premium rodeo arena").transform; batches.Clear();
@@ -399,7 +400,15 @@ namespace BarrelRivals.Editor
             var g=Group(material);var direction=(b-a).normalized;var cross=Vector3.Cross(direction,Vector3.up);if(cross.sqrMagnitude<.1f)cross=Vector3.Cross(direction,Vector3.right);cross.Normalize();var up=Vector3.Cross(direction,cross);float length=(b-a).magnitude;
             for(int i=0;i<sides;i++){float t=i*Mathf.PI*2/sides,u=(i+1)*Mathf.PI*2/sides;var c=(cross*Mathf.Cos(t)+up*Mathf.Sin(t))*radius;var d=(cross*Mathf.Cos(u)+up*Mathf.Sin(u))*radius;g.Quad(a+c,a+d,b+d,b+c,Vector2.zero,new Vector2(radius*Mathf.PI*2/sides,0),new Vector2(radius*Mathf.PI*2/sides,length),new Vector2(0,length));}
         }
-        private static void Flush(){foreach(var item in batches)MeshObject(world,"Arena mesh "+item.Key.name,SaveMesh("Arena "+item.Key.name,item.Value.Mesh()),item.Key);}
+        private static void Flush()
+        {
+            foreach(var item in batches)
+            {
+                // Keep the existing apron mesh identity when changing only its material.
+                string name=item.Key==soil?"Arena soil":item.Key.name;
+                MeshObject(world,"Arena mesh "+name,SaveMesh("Arena "+name,item.Value.Mesh()),item.Key);
+            }
+        }
         private static void MeshObject(Transform parent,string name,Mesh mesh,Material material,bool isStatic=true)
         {var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(parent,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<MeshRenderer>().sharedMaterial=material;go.isStatic=isStatic;}
         private static Mesh SaveMesh(string name,Mesh mesh)

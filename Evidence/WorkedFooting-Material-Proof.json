@@ -1,0 +1,8 @@
+{
+    "worldMeanChannelDelta": 0.002838134765625,
+    "worldMaximumChannelDelta": 1.0,
+    "meanReliefChange": 0.01351139321923256,
+    "meanWetChange": 0.03328739479184151,
+    "oppositelyLitReliefPixels": 15442,
+    "scope": "Actual saved material under controlled directional lights and split/transformed meshes. Not photographic quality, continuous displacement, or phone performance evidence."
+}

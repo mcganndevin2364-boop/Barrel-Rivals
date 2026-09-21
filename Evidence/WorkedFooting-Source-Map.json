@@ -1,0 +1,24 @@
+{
+  "pixels": [
+    1024,
+    1024,
+    4
+  ],
+  "min": [
+    55,
+    81,
+    61,
+    0
+  ],
+  "max": [
+    198,
+    176,
+    137,
+    166
+  ],
+  "clippedSlopePixels": 0,
+  "clippedHeightPixels": 0,
+  "encodedBytes": 1124526,
+  "sha256": "702dc5466feabddab6a0116e604cc6f8d5519a6a87f5191dc726fb3a449c4063",
+  "format": "Linear RG signed slopes +/-1.6, B height +/-40mm, A disturbed soil"
+}
