@@ -213,6 +213,7 @@ namespace BarrelRivals.Tests
         {
             tack.RenderImmediate(); controller.RefreshPresentation();
             var horse = GameObject.Find("Horse proxy").transform;
+            horse.GetComponentInChildren<ReinsRiderBodyPresentation>().RenderImmediate();
             Assert.Less(Vector3.Distance(horse.position, camera.transform.position), 4,
                 "Evidence must use the actual rider camera rather than a disconnected art-preview camera.");
             Assert.Greater(Vector3.Dot(camera.transform.up, Vector3.up), .95f);

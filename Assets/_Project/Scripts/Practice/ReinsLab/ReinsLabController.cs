@@ -146,7 +146,7 @@ namespace BarrelRivals.Practice
                     for(int i=0;i<materials.Length;i++)
                     {
                         var original=source[i];
-                        bool strandHair=renderer.name=="Horse strand hair";
+                        bool strandHair=renderer.name=="Horse strand hair" || renderer.name.Contains("ponytail01");
                         if(!strandHair){materials[i]=tint;continue;}
                         if(!original || !original.HasProperty("_BaseMap") || !original.GetTexture("_BaseMap") || !original.HasProperty("_Cutoff"))
                             throw new InvalidOperationException("Ghost strand hair requires its source alpha atlas and cutoff.");
@@ -190,7 +190,7 @@ namespace BarrelRivals.Practice
         {
             var pending=new List<MonoBehaviour>();
             foreach(var behaviour in ghost.GetComponentsInChildren<MonoBehaviour>(true))
-                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation) && !(behaviour is ReinsRiderTackPresentation) && !(behaviour is ReinsHairMotion))pending.Add(behaviour);
+                if(behaviour && !(behaviour is PracticeHorseVisual) && !(behaviour is ReinsHorsePresentation) && !(behaviour is ReinsRiderTackPresentation) && !(behaviour is ReinsHairMotion) && !(behaviour is ReinsRiderBodyPresentation))pending.Add(behaviour);
             while(pending.Count>0)
             {
                 bool removed=false;

@@ -52,7 +52,10 @@ namespace BarrelRivals.Tests
                 foreach (var material in skin.sharedMaterials)
                 {
                     AssertMaterial(material, skin.name);
-                    Assert.IsNotNull(material.mainTexture, "Imported horse material lost its source texture: " + material.name);
+                    // The original felt hat uses an authored solid material. All
+                    // imported horse and rider surfaces must retain their maps.
+                    if (!(skin.name == "Original cowboy hat" && skin.GetComponentInParent<ReinsRiderBodyPresentation>()))
+                        Assert.IsNotNull(material.mainTexture, "Imported character material lost its source texture: " + material.name);
                 }
             }
             animator.Update(0);
@@ -184,6 +187,8 @@ namespace BarrelRivals.Tests
         {
             controller.RefreshPresentation();
             var horse = GameObject.Find("Horse proxy").transform;
+            horse.GetComponentInChildren<ReinsRiderTackPresentation>().RenderImmediate();
+            horse.GetComponentInChildren<ReinsRiderBodyPresentation>().RenderImmediate();
             Assert.That(Vector3.Distance(horse.position, camera.transform.position), Is.LessThan(4),
                 "A gameplay screenshot must use the rider camera, not an art-preview camera.");
             Assert.Greater(Vector3.Dot(camera.transform.up, Vector3.up), .95f);

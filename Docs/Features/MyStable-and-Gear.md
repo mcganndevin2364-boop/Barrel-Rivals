@@ -58,3 +58,7 @@ This is another connected increment toward S05, S08, S13, S43 and S50; it does n
 ## Reproduction
 
 Use one Unity 6000.6.0f1 Editor at a time. Generate the race and stable together with `BarrelRivals.Editor.ReinsLabBuilder.Generate`; `BarrelRivals.Editor.StableBuilder.Generate` rebuilds only MyStable from the already saved race horse. Preserve historical Evidence image/JSON/XML bytes before full tests because older tests write their original filenames. Use distinct new evidence names for this reference increment, and restore older files afterward. Do not confuse the cosmetic profile's version 2 with a native release version or completion of `reins-v2`.
+
+## Shared tack after the seated rider integration
+
+The [rider source checkpoint](../Art/Reins-Rider-Body-Checkpoint.md) shortens the saddle fenders and makes the stirrup openings face forward beneath the boots. MyStable, rendered horse portrait and item thumbnails share this geometry; the showroom remains horse-only, matching the reference composition. Existing one-horse/20-style/five-slot preview/equip/persistence scope is unchanged. The new fixed racing rider does not implement additional shirt, hat or boot selection. Fresh stable/equip regression and screenshots are included in RiderBody-* evidence; native and photographic-quality acceptance remain pending.

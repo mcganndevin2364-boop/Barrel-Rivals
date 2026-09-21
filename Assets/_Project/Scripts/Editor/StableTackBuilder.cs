@@ -88,9 +88,9 @@ namespace BarrelRivals.Editor
             {
                 Vector3 Fender(float u,float v)
                 {
-                    float y=Mathf.Lerp(1.635f,1.025f,v),z=-.413f+.035f*v;
+                    float y=Mathf.Lerp(1.635f,1.50f,v),z=Mathf.Lerp(-.413f,-.215f,v);
                     float halfWidth=Mathf.Lerp(.083f,.035f,v)+.023f*Mathf.Sin(v*Mathf.PI);
-                    float x=side*(Mathf.Lerp(.31f,.425f,Mathf.SmoothStep(0,1,v/.35f))+.005f*Mathf.Sin(v*Mathf.PI));
+                    float x=side*(Mathf.Lerp(.31f,.50f,Mathf.SmoothStep(0,1,v/.55f))+.005f*Mathf.Sin(v*Mathf.PI));
                     return new Vector3(x,y,z-side*u*halfWidth);
                 }
                 leather.Panel(Fender,(u,v)=>Fender(u,v)+Vector3.left*(side*.015f),8,12);
@@ -99,10 +99,12 @@ namespace BarrelRivals.Editor
                 // Rounded stirrup sides and a flat lower tread leave a real opening for the boot.
                 var loop=Samples(33,t=>{
                     float angle=t*Mathf.PI*2;
-                    return new Vector3(side*.423f,Mathf.Max(.818f,.935f+.120f*Mathf.Cos(angle)),-.377f+.091f*Mathf.Sin(angle));
+                    // Opening faces forward so a boot can enter it. The old YZ hoop
+                    // faced sideways and hung well below the authored rider's reach.
+                    return new Vector3(side*.50f+.077f*Mathf.Sin(angle),Mathf.Max(1.278f,1.395f+.120f*Mathf.Cos(angle)),-.215f);
                 });
                 leather.Tube(loop,.016f,8);
-                fittings.Tube(Samples(8,t=>new Vector3(side*.423f,.817f,Mathf.Lerp(-.448f,-.306f,t))),.014f,8);
+                fittings.Tube(Samples(8,t=>new Vector3(side*.50f+Mathf.Lerp(-.071f,.071f,t),1.277f,-.215f)),.014f,8);
                 // Rigging D-ring and short latigo ties sit beside the skirt, not at the horse's spine.
                 var ringCenter=Skirt(side,.58f,.072f);
                 fittings.Tube(Samples(25,t=>ringCenter+new Vector3(0,Mathf.Cos(t*Mathf.PI*2)*.038f,Mathf.Sin(t*Mathf.PI*2)*.030f)),.0055f,8);
@@ -135,6 +137,7 @@ namespace BarrelRivals.Editor
         public static void MakeStablePose(Transform horse)
         {
             var model=horse.Find("Reference horse");
+            var rider=model.Find("Western rider");if(rider)Object.DestroyImmediate(rider.gameObject);
             var tack=horse.GetComponentInChildren<ReinsRiderTackPresentation>();if(tack)Object.DestroyImmediate(tack);
             foreach(var t in model.GetComponentsInChildren<Transform>(true))if(t.name=="Left rider grip" || t.name=="Right rider grip")t.gameObject.SetActive(false);
             var nodes=model.GetComponentsInChildren<Transform>(true);

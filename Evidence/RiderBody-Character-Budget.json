@@ -1,0 +1,14 @@
+{
+  "method": "Active saved-scene renderer submesh index counts in Play Mode, including shadows-only surfaces. Not a measured GPU draw count.",
+  "activeTriangles": 78030,
+  "activeMaterialSlots": 26,
+  "activeRenderers": 21,
+  "colorEligibleTriangles": 51676,
+  "nearestLodTriangleTarget": 60000,
+  "materialSlotTarget": 6,
+  "lowerLodsImplemented": false,
+  "devicePerformanceMeasured": false,
+  "riderOnlyTriangles": 23914,
+  "riderAuthoringBones": 53,
+  "ghostNote": "Cloned rider pose and ponytail alpha are preserved. Active ghost makes shadows-only head/saddle surfaces visible and adds three private alpha-mask materials plus the shared tint. This is not a captured two-player GPU budget."
+}

@@ -1,0 +1,31 @@
+{
+  "boundary": "Controlled silent Unity frames encoded and decoded with AVFoundation; not measured real-time phone performance.",
+  "videos": [
+    {
+      "video": "RiderBody-Motion.mp4",
+      "sha256": "376447888e94fafefbf065b071cd635299f4ca63785fd449467109da590f1e23",
+      "frameCount": 220,
+      "width": 1280,
+      "height": 360,
+      "fps": 25,
+      "durationSeconds": 8.8,
+      "decodedFrame": 60,
+      "rgbMeanAbsoluteError": 1.7533246527777777,
+      "threshold": 5,
+      "passed": true
+    },
+    {
+      "video": "RiderBody-Launch.mp4",
+      "sha256": "13f53b325d6974cb79d340bc47af175737bfeb67c9edd275897f8ca8af016cbc",
+      "frameCount": 161,
+      "width": 1280,
+      "height": 720,
+      "fps": 25,
+      "durationSeconds": 6.44,
+      "decodedFrame": 60,
+      "rgbMeanAbsoluteError": 2.575924117476852,
+      "threshold": 5,
+      "passed": true
+    }
+  ]
+}

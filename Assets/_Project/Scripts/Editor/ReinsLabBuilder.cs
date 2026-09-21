@@ -53,6 +53,7 @@ namespace BarrelRivals.Editor
             ReinsRiderTackBuilder.Build(horse);
             StableTackBuilder.Build(horse);
             ReinsHairBuilder.Build(horse);
+            ReinsRiderBodyBuilder.Build(horse);
             var canvas=new GameObject("Reins HUD",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
             canvas.GetComponent<Canvas>().renderMode=RenderMode.ScreenSpaceOverlay;
             var scaler=canvas.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(1280,720);scaler.matchWidthOrHeight=.5f;
