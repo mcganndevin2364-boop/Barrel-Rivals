@@ -197,7 +197,9 @@ namespace BarrelRivals.Practice
             if(ui.skillsPanel)ui.skillsPanel.SetActive(false);
             if(ui.horseOrbit)ui.horseOrbit.SetActive(next==0);
             if(ui.riderOrbit)ui.riderOrbit.SetActive(next==2);
-            horse.gameObject.SetActive(next!=2);
+            // The tack collection shows its real item renders; hide the full horse so
+            // a close showroom view cannot peek through gaps between collection panels.
+            horse.gameObject.SetActive(next==0);
             if(riderPreview)riderPreview.gameObject.SetActive(next==2);
             if(viewCamera) {
                 if(next==2) { viewCamera.transform.position=riderCameraPosition;viewCamera.transform.LookAt(riderCameraLookAt);viewCamera.fieldOfView=38; }

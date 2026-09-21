@@ -74,3 +74,7 @@ The [fitted horse groom study](../Art/Reins-Horse-Groom-Study.md) now includes e
 ## Current coat/hat art inspection
 
 The [character finish checkpoint](../Art/Reins-Character-Finish-Checkpoint.md) improves the candidate horse coat and fixed racing hat. Its candidate-in-barn image is an unsaved neutral fit, not a MyStable replacement or new inventory selection. The one-horse/twenty-style/five-slot feature contract above remains unchanged; photo-level materials, broader apparel and earned progression still require implementation.
+
+## Saved animated showroom update
+
+The [showcase checkpoint](../Art/Reins-Stable-Showcase-Checkpoint.md) improves the actual saved scene: closer horse framing, warm fill light, rig-following stowed reins and relocated view controls. Tack hides the full horse behind the collection while keeping real thumbnails, previews, explicit equip and return-to-equipped behavior. No new catalog items or progression are added. Private rein meshes reuse their buffers and are released on destruction; idle attachment and sampled clearance checks do not establish continuous collision or phone performance.

@@ -163,6 +163,7 @@ namespace BarrelRivals.Tests
             yield return null;Capture("StableReference-MyStable");
             Click("Riding traits");Assert.IsTrue(stable.IsSkillsOpen);Click("Close riding traits");Assert.IsFalse(stable.IsSkillsOpen);
             Click("Gear tab");yield return null;
+            Assert.IsFalse(horse.activeSelf,"The full horse must not peek through the equipment collection panels.");
             Assert.AreEqual(8,VisibleCards().Length);
             Click("Select saddle-rodeo-gold");yield return null;AssertReachable("Select saddle-rodeo-gold");
             Capture("StableReference-SaddlesPreview");Click("Equip selected");Capture("StableReference-SaddlesEquipped");

@@ -89,8 +89,8 @@ namespace BarrelRivals.Editor
                 Label(stats,"Value "+names[i],(values[i]/10).ToString(),new Vector2(1,1),new Vector2(-20,-122-i*40),new Vector2(54,17),10,false,TextAnchor.MiddleRight).color=Muted;
             }
             Label(stats,"Trait note","Cosmetic equipment does not change\nthese base ratings. No earned level yet.",new Vector2(0,1),new Vector2(20,-281),new Vector2(234,39),12).color=Muted;
-            Label(parent,"Stable instruction","DRAG COPPER TO LOOK AROUND",new Vector2(.5f,0),new Vector2(0,213),new Vector2(440,23),12,false,TextAnchor.MiddleCenter).color=Gold;
-            var reset=Button(parent,"Reset view","RESET VIEW",new Vector2(.5f,0),new Vector2(0,173),new Vector2(156,32),12,out _);
+            Label(parent,"Stable instruction","DRAG COPPER TO LOOK AROUND",new Vector2(0,0),new Vector2(24,146),new Vector2(236,34),12,false,TextAnchor.MiddleCenter).color=Gold;
+            var reset=Button(parent,"Reset view","RESET VIEW",new Vector2(0,0),new Vector2(24,104),new Vector2(236,32),12,out _);
             UnityEventTools.AddPersistentListener(reset.onClick,owner.ResetView);
             var appearance=Button(parent,"Appearance","APPEARANCE",new Vector2(0,0),new Vector2(343,94),new Vector2(179,47),15,out _);
             UnityEventTools.AddPersistentListener(appearance.onClick,owner.ShowAppearance);

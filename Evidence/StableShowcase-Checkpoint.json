@@ -1,0 +1,91 @@
+{
+  "recordedAt": "2026-09-21T09:40:46+00:00",
+  "baseline": "5ea8ac2944a8da5804fa408eab55c806c0ae7de7",
+  "scope": "Saved production MyStable rig-following stowed reins, closer actual-vertex framing, warmer fill and clean collection visibility. No new catalog/progression or replacement-horse adoption.",
+  "previousGoalTurn": "progress",
+  "priorEvidenceUnchanged": 675,
+  "focusedPlayMode": {
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 09:37:22Z"
+  },
+  "focusedEditMode": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 09:31:17Z"
+  },
+  "drape": {
+    "poses": 48,
+    "crossSectionSamples": 1824,
+    "maximumEndpointErrorM": 4.460403317807504e-07,
+    "minimumSampledSideGapM": 0.027932554483413696,
+    "vertexTravelM": 0.03901456668972969,
+    "scope": "Saved MyStable Idle samples and independent mesh lifetime. Cross-section clearance is not full continuous collision or device performance."
+  },
+  "showcase": {
+    "clip": "Armature|Idle",
+    "clipDurationSeconds": 2.0,
+    "frames": 120,
+    "characterTriangles": 51500,
+    "renderers": 13,
+    "materialSlots": 18,
+    "capturedWidth": 960,
+    "capturedHeight": 540,
+    "phoneFootage": false,
+    "scope": "Actual saved stable and gear with real UI. Idle sampled at 30 Hz for four seconds; encoded frame rate is not a measurement of runtime performance."
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 4,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      119
+    ],
+    "height": 540,
+    "width": 960
+  },
+  "lightCount": 3,
+  "newRuntimeColliders": 0,
+  "newPaidAssetsOrServices": false,
+  "coreOrRulesChanged": false,
+  "newNativeBuild": false,
+  "newPhoneInstallation": false,
+  "lastVerifiedInstalledIPhone": "0.4.0/build4",
+  "correctedIssues": [
+    "Static neutral reins did not follow the idle rig; points now use measured bone blends with explicit horn/bit endpoints.",
+    "Bounds-corner camera fitting was too distant; final fit uses actual visible vertices.",
+    "Full horse peeked through collection gaps; tack view hides it, return restores equipped appearance.",
+    "Triangle-count reporting tried to read non-readable meshes; now uses index-count metadata without changing import readability.",
+    "Final movie samples the 2s Idle clip at30Hz twice across4s, rather than slowing one cycle across4s."
+  ],
+  "limits": [
+    "Sampled cross-sections are not continuous rope/body collision.",
+    "Existing production horse remains below photographic reference; mane, facial expression, tack and natural motion need work.",
+    "Stable character alone is51,500tri/13renderers/18slots; noLODs or measured mobile costs.",
+    "Candidate replacement remains isolated; broader progression, multiplayer and release are still open."
+  ],
+  "evidenceSha256": {
+    "StableShowcase-Capture.json": "379ea0eb0c0e47110f16052dd29d4e46a53ab96085b173f138f7afe079595f20",
+    "StableShowcase-Drape.json": "3865c7f00c3734a9055cc74c74494b8e50223b8dbf926fe2038011d58744f24d",
+    "StableShowcase-EditMode.xml": "23feeaefa2fc98f2ff73baeff853546d4a5d947b8288e7cee96efb0825b29acd",
+    "StableShowcase-Flow-HeadstallPreview.png": "101668b8632de013aafe35d55ae08ebc83c9754a5bf515e0dfe4e230c6b82c3b",
+    "StableShowcase-Flow-MyStable.png": "5ebd32c87dbca9b0230080e0d22fc11bce0a0a4e4526c55926b9fa47e1a5d8d3",
+    "StableShowcase-Flow-RiderEquipped.png": "42605338b3c13a0430ce657980667876cc60f01647abcfce1d42644fb04872dd",
+    "StableShowcase-Flow-RiderPreview.png": "4cda33e99e1b8d786a4e83fdd0b457d88e88f8259f7d5deada9e575add7facd5",
+    "StableShowcase-Flow-RiderTablet.png": "92c3f9423480b13ce627150aedebfa7f3a4c40b8ece6f61e612ec75b6ab9f90a",
+    "StableShowcase-Flow-SaddlesEquipped.png": "2d5aad7cdb56287c75787d277d653af60a57857984793875f4145ad370aefdc0",
+    "StableShowcase-Flow-SaddlesPreview.png": "7e72a482fa20b2a841eac1ece76a872fb767bfd57e46257daa9ab1f418b43e2f",
+    "StableShowcase-Gloves.png": "cfa95877a12bb1947055c8abea1f2951856d8bde8a74b09bc9281a890984056a",
+    "StableShowcase-Motion.mp4": "1a10e15af1c734ece45909b98b9aa2b2dd0b70300249896e24cd9faa2388aa19",
+    "StableShowcase-MyStable.png": "681d65e5e85e4273abda964ef563cdbdcc4d26dff63a0018c8dbb33d9249317c",
+    "StableShowcase-PlayMode.xml": "f3fd233baf447ebe0cdd4954feedd49b51b8daf93594cac606eed4259c3b02bd",
+    "StableShowcase-Review.json": "ca27b5f5e58b4be120264fa8ff1bd6e3a6dbf40706c9f6aee7a813cca49ded04",
+    "StableShowcase-Saddles.png": "39a975b2e3513474803e3227352c8924d9ac3f617b9758168c5b13c0e35a92e3",
+    "StableShowcase-Tablet.png": "858ca9a3cc1eac1b9efc6914b70d720aa99ea26e03eec3a6a7997852376bab05",
+    "StableShowcase-Video.json": "edf4fea49f70a22dd1a20b3a96ace042d75137fdf7a7560fb879c7c007fbc1d2"
+  }
+}

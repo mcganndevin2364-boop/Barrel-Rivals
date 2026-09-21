@@ -60,12 +60,51 @@ namespace BarrelRivals.Editor
             // No floor platform: the hooves remain planted directly on the fine earth and loose straw.
             // Frame the whole horse between the roster and inspector, including ears and hooves.
             // The slightly forward three-quarter angle keeps its face and equipped tack readable.
-            camera.transform.position = new Vector3(3.65f, 2.35f, 5.25f);
-            camera.transform.LookAt(horse.position + new Vector3(0, 1.18f, .48f));
-            camera.fieldOfView = 43;
+            FrameHorse(camera, horse);
             camera.nearClipPlane = .08f;
             camera.farClipPlane = 45;
             AssetDatabase.SaveAssets();
+        }
+
+        private static void FrameHorse(Camera camera, Transform horse)
+        {
+            // Measure visible geometry instead of framing the import pivot. The subject sits
+            // inside the real central UI opening; both ears and hoof tips retain margin.
+            var bounds = new Bounds(); bool found = false; var points = new List<Vector3>();
+            foreach (var renderer in horse.GetComponentsInChildren<Renderer>())
+            {
+                if (!renderer.enabled || renderer.shadowCastingMode == ShadowCastingMode.ShadowsOnly) continue;
+                Mesh mesh = null; bool temporary = false;
+                if (renderer is SkinnedMeshRenderer skin) { mesh = new Mesh(); skin.BakeMesh(mesh, true); temporary = true; }
+                else { var filter = renderer.GetComponent<MeshFilter>(); if (filter) mesh = filter.sharedMesh; }
+                if (!mesh) continue;
+                foreach (var v in mesh.vertices)
+                {
+                    var point = renderer.transform.TransformPoint(v); points.Add(point);
+                    if (!found) { bounds = new Bounds(point, Vector3.zero); found = true; }
+                    else bounds.Encapsulate(point);
+                }
+                if (temporary) Object.DestroyImmediate(mesh);
+            }
+            if (!found) throw new InvalidOperationException("Cannot frame an empty stable horse.");
+            var direction = new Vector3(3.65f, 1.17f, 5.25f).normalized;
+            var rotation = Quaternion.LookRotation(-direction, Vector3.up);
+            var inverse = Quaternion.Inverse(rotation);
+            const float aspect = 1280f / 720f;
+            var opening = new Rect(.235f, .255f, .51f, .615f);
+            camera.fieldOfView = 38;
+            float tangent = Mathf.Tan(camera.fieldOfView * Mathf.Deg2Rad * .5f), distance = 0;
+            foreach (var point in points)
+            {
+                var p = inverse * (point - bounds.center);
+                distance = Mathf.Max(distance, Mathf.Abs(p.x) / (tangent * aspect * opening.width) - p.z,
+                    Mathf.Abs(p.y) / (tangent * opening.height) - p.z);
+            }
+            distance *= 1.03f;
+            var offset = new Vector3((opening.center.x - .5f) * 2 * distance * tangent * aspect,
+                (opening.center.y - .5f) * 2 * distance * tangent, distance);
+            camera.transform.SetPositionAndRotation(bounds.center - rotation * offset, rotation);
+            Debug.Log("STABLE_FRAME vertices="+points.Count+" bounds="+bounds+" distance="+distance);
         }
 
         private static void Architecture()
@@ -297,8 +336,8 @@ namespace BarrelRivals.Editor
             var fill = fillObject.GetComponent<Light>();
             if (!fill) fill = fillObject.AddComponent<Light>();
             fill.type = LightType.Point;
-            fill.color = new Color(.90f, .92f, 1);
-            fill.intensity = 12;
+            fill.color = new Color(1, .94f, .84f);
+            fill.intensity = 18;
             fill.range = 7.6f;
             fill.shadows = LightShadows.None;
             fill.transform.position = new Vector3(.95f, 2.9f, 2.25f);

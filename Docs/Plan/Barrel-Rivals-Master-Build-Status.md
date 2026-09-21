@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [saved MyStable showcase checkpoint](../Art/Reins-Stable-Showcase-Checkpoint.md) adds rig-following stowed reins, closer framing from actual visible geometry, warmer fill light and clearer equipment views. It preserves the existing one-horse/twenty-style/five-slot catalog and equip/save flow. The production horse remains distinct from the development replacement; photographic quality, native/device qualification, progression and multiplayer remain unfinished.
+
 The [character finish checkpoint](../Art/Reins-Character-Finish-Checkpoint.md) adds directional coat lighting to the development horse and an original western hat to both the candidate and saved racing rider. The coat preserves imported geometry/skin; the hat retains first-person shadow visibility. This is a visible art increment, not photographic, native or phone acceptance. The replacement horse is still development-only; existing MyStable/catalog/progression scope is unchanged.
 
 The [candidate locomotion checkpoint](../Art/Reins-Horse-Locomotion-Study.md) adds original Idle/Trot/Gallop/Sprint actions, a five-gait speed blend, connected rider lean and measured flat-floor hoof correction to the isolated Unity horse. The corrected capture path refreshes skin matrices per render; older candidate movies cannot establish frame-by-frame deformation. The higher riding camera clears clothing while preserving grip framing. This remains development-only: race/stable/ghost adoption, natural turns/braking/Wrap, visual detail, LOD budgets and phone qualification are unfinished. Read this checkpoint before using earlier moving-review claims.
@@ -90,7 +92,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 | # | Section | Current implementation status |
 |---|---|---|
 | 42 | Currency System (Coins, Diamonds, Trophies) | Temporary local coins/trophies; persistence/ledger absent |
-| 43 | Gear & Equipment System | Five cosmetic slots (saddle/pad/reins/headstall/gloves), 20 free local styles, validation, real item thumbnails, 3D inspection, explicit equip and cosmetic-v2 persistence; desktop migration/equip checks passed; competitive modifiers/reservations/consumables pending |
+| 43 | Gear & Equipment System | Saved MyStable now has rig-following stowed reins, closer subject framing and verified collection visibility; five cosmetic slots (saddle/pad/reins/headstall/gloves), 20 free local styles, validation, real item thumbnails, 3D inspection, explicit equip and cosmetic-v2 persistence; desktop migration/equip checks passed; competitive modifiers/reservations/consumables pending |
 | 44 | Loot Crate & Reward System | Not built |
 | 45 | Trophy Road & Arena Unlocks | Tier constants only; progression path not built |
 | 46 | Daily Missions & Season Pass | Not built |

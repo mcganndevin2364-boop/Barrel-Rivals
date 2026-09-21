@@ -148,7 +148,8 @@ namespace BarrelRivals.Editor
                 if(filter.name!="Left braided rein" && filter.name!="Right braided rein")continue;
                 int side=filter.name.StartsWith("Left")?-1:1;
                 var bit=nodes.Single(t=>t.name==(side<0?"Left bit anchor":"Right bit anchor"));
-                var start=model.InverseTransformPoint(horn.TransformPoint(new Vector3(side*.040f,0,0)));
+                var hornOffset=new Vector3(side*.029f,-.055f,-.012f);
+                var start=model.InverseTransformPoint(horn.TransformPoint(hornOffset));
                 var end=model.InverseTransformPoint(bit.position);
                 var cord=new Shape();var points=new Vector3[41];var clearance=new float[points.Length];
                 for(int i=0;i<points.Length;i++) {
@@ -168,12 +169,15 @@ namespace BarrelRivals.Editor
                         point.x=side*Mathf.Max(clearance[i],(side*points[i-1].x+side*points[i+1].x)*.5f);
                         points[i]=point;
                     }
+                var modelPoints=(Vector3[])points.Clone();
                 for(int i=0;i<points.Length;i++)
                     points[i]=filter.transform.InverseTransformPoint(model.TransformPoint(points[i]));
-                cord.Tube(points,.011f,12);filter.sharedMesh=Save(side<0?"Stowed left rein":"Stowed right rein",cord.Mesh());
+                cord.Tube(points,StableReinDrape.Radius,StableReinDrape.Sides);filter.sharedMesh=Save(side<0?"Stowed left rein":"Stowed right rein",cord.Mesh());
                 // Keep the palette's braid slot at index one in both scenes.
                 var mesh=Object.Instantiate(filter.sharedMesh);var triangles=mesh.triangles;mesh.subMeshCount=3;mesh.SetTriangles(Array.Empty<int>(),0);mesh.SetTriangles(triangles,1);mesh.SetTriangles(Array.Empty<int>(),2);
                 filter.sharedMesh=Save(side<0?"Stowed left rein slotted":"Stowed right rein slotted",mesh);
+                var body=model.GetComponentsInChildren<SkinnedMeshRenderer>(true).Single(r=>r.name.StartsWith("HorseBody",StringComparison.Ordinal));
+                StableReinDrapeBuilder.Configure(filter,model,body,horn,bit,hornOffset,modelPoints);
             }
         }
         private static StableAppearance.Palette Palette(string id,Material material)=>new StableAppearance.Palette{gearId=id,material=material};
