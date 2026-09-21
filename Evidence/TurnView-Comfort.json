@@ -1,0 +1,27 @@
+{
+    "scope": "Actual candidate course, projected real drum bounds and real HUD captures. Rectangle checks do not prove pixel occlusion or phone comfort.",
+    "maximumLook": 51.9999885559082,
+    "maximumLookSpeed": 110.00003814697266,
+    "maximumPitch": 17.5263614654541,
+    "maximumPitchSpeed": 40.0000114440918,
+    "finalTimeMs": 33860,
+    "views": [
+        {
+            "aspect": "16:9",
+            "activeSamples": 677,
+            "framedSamples": 677,
+            "oldFramedSamples": 63,
+            "middleSamples": 420,
+            "middleFramed": 420
+        },
+        {
+            "aspect": "4:3",
+            "activeSamples": 677,
+            "framedSamples": 677,
+            "oldFramedSamples": 70,
+            "middleSamples": 420,
+            "middleFramed": 420
+        }
+    ],
+    "misses": []
+}

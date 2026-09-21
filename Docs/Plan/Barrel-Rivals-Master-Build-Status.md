@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [rider turn-view checkpoint](../Art/Reins-Rider-Turn-View.md) adds a bounded, smooth glance toward nearby barrels in the candidate racing scene. Normal and reduced-motion reviews keep the whole drum above the controls throughout all 677 active-turn samples on wide/tablet layouts; nine focused checks preserve the full race and gear flow. Actual stages and a continuous ride are retained. The view remains development-only; reference-quality materials/animation, arbitrary-route phone comfort, budgets/LODs and full R2 remain open.
+
 The [matching horse/stable review](../Art/Reins-Horse-Stable-Integration.md) connects the explicit replacement to a saved warm MyStable, fitted animated resting reins, real candidate thumbnails and round-trip gear/race navigation. Nine focused tests pass, including equipment persistence and the unchanged full race; actual stable, tack, glove and idle evidence is retained. Both review scenes remain outside player builds. Coat/mane/tack detail, natural actions, turn framing, rendering budgets/LODs and phone qualification remain open.
 
 The [full-course horse integration review](../Art/Reins-Horse-Race-Integration.md) connects the newer rig to the real arena, accepted speed/reins, stabilized camera, saved gear and independent ghost in an excluded development scene. Nine focused tests pass, including the preserved 33.86-second result and all 20 styles from MyStable; a continuous actual Unity ride is retained. Normal player scenes and phone builds remain unchanged. Natural turning/framing, reference-quality art, rendering budgets and device acceptance remain open.
@@ -67,7 +69,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 
 | # | Section | Current implementation status |
 |---|---|---|
-| 23 | Bodycam Camera Controller | First person throughout; candidate full-course camera retains both grip centers, resets on retry and supports reduced motion. Active barrel visibility during tight circles, natural rider look, phone framing and comfort remain open |
+| 23 | Bodycam Camera Controller | First person throughout; bounded candidate course glance keeps actual barrel bounds clear throughout the canonical active turns in normal/reduced-motion wide/tablet views. Both grips remain in forward view; a riding hand stays visible during glances. Natural rider actions, arbitrary-route visibility and phone comfort remain open |
 | 24 | Post-Processing Shader Pipeline | Persistent URP reference materials and warm presentation source integrated; scene save/reopen passed; full effects/device validation pending |
 | 25 | Lens Effects (Fisheye, Chromatic, Flare) | Not integrated into a racing scene |
 | 26 | Motion Effects (Blur, Speed Lines) | Not integrated into a racing scene |

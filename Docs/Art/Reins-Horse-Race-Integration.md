@@ -1,5 +1,7 @@
 # Full-course horse integration review
 
+The later [rider turn-view checkpoint](Reins-Rider-Turn-View.md) addresses the measured canonical barrel-visibility gap while retaining these earlier results as history.
+
 The subsequent [matching stable review](Reins-Horse-Stable-Integration.md) now pairs this scene with the new horse in MyStable; the earlier results and limits below retain their own checkpoint.
 
 September 21, 2026. Continues `07ee684cbc455553cd470c6ad6f7ce3e47e899bb`. Source remains **0.5.0/build 5, reins-v2**. The replacement horse now runs through the real arena/controller in a separate saved development scene. It has not replaced the normal racing or MyStable character, and no mobile build or installation occurred.

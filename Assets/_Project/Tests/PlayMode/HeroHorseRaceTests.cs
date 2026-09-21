@@ -72,12 +72,17 @@ namespace BarrelRivals.Tests
                         new Vector3((float)controller.Run.X,0,(float)controller.Run.Z)));
                     report.maximumReachError=Mathf.Max(report.maximumReachError,tack.rider.MaximumReachError);
                     report.minimumHoofHeight=Mathf.Min(report.minimumHoofHeight,ground.MinimumAfter);
+                    int visibleGrips=0;
                     foreach(var grip in new[]{tack.leftGrip,tack.rightGrip})
                     {
                         var p=camera.WorldToViewportPoint(grip.position);
                         report.minimumGripX=Mathf.Min(report.minimumGripX,p.x);report.maximumGripX=Mathf.Max(report.maximumGripX,p.x);
                         report.minimumGripY=Mathf.Min(report.minimumGripY,p.y);report.minimumGripDepth=Mathf.Min(report.minimumGripDepth,p.z);
+                        if(p.x>.01f && p.x<.99f && p.y>.005f && p.y<.99f && p.z>camera.nearClipPlane)visibleGrips++;
+                        if(Mathf.Abs(rig.CourseLookYaw)<1)
+                            Assert.IsTrue(p.x>.01f && p.x<.99f && p.y>.005f && p.z>camera.nearClipPlane,"Forward view must retain both grips.");
                     }
+                    report.minimumVisibleGrips=Mathf.Min(report.minimumVisibleGrips,visibleGrips);
                     foreach(var clip in horse.Animator.GetCurrentAnimatorClipInfo(0))if(clip.weight>.15f)gaits.Add(clip.clip==walk?"Walk":clip.clip.name);
                     Assert.That(tack.leftPull,Is.EqualTo(presentation.LeftRein));Assert.That(tack.rightPull,Is.EqualTo(presentation.RightRein));
                     Assert.That(driver.targetSpeed,Is.EqualTo(presentation.Speed));
@@ -85,7 +90,7 @@ namespace BarrelRivals.Tests
                 void Capture(string name)
                 {
                     if(string.IsNullOrEmpty(output))return;
-                    var image=OverlayEvidenceCapture.Render(camera,canvas,1280,720);
+                    var image=OverlayEvidenceCapture.Render(camera,canvas,1280,720,()=>rig.RenderImmediate());
                     try{File.WriteAllBytes(Path.Combine(output,name+".png"),image.EncodeToPNG());}
                     finally{Object.DestroyImmediate(image);}
                 }
@@ -120,8 +125,9 @@ namespace BarrelRivals.Tests
                 Assert.That(controller.Run.KnockCount,Is.EqualTo(0));Assert.That(controller.Run.StylePoints,Is.EqualTo(300));
                 Assert.That(report.maximumActorError,Is.LessThan(1e-6));
                 Assert.That(report.maximumReachError,Is.LessThan(.01));Assert.That(report.minimumHoofHeight,Is.GreaterThan(-.002));
-                Assert.That(report.minimumGripX,Is.GreaterThan(.01));Assert.That(report.maximumGripX,Is.LessThan(.99));
-                Assert.That(report.minimumGripY,Is.GreaterThan(.005));Assert.That(report.minimumGripDepth,Is.GreaterThan(camera.nearClipPlane));
+                // A natural side glance may carry the outer hand off screen, while
+                // the inner riding hand and unchanged rein HUD remain available.
+                Assert.That(report.minimumVisibleGrips,Is.GreaterThanOrEqualTo(1));
                 Assert.That(gaits,Does.Contain("Walk"));Assert.That(gaits,Does.Contain("Sprint"));
                 Assert.That(captures,Does.Contain("Turn-1"));Assert.That(captures,Does.Contain("Turn-2"));Assert.That(captures,Does.Contain("Turn-3"));
                 report.finalTimeMs=controller.Run.FinalTimeMs;report.gaits=gaits.OrderBy(s=>s).ToArray();report.frames=frames.ToArray();
@@ -233,6 +239,7 @@ namespace BarrelRivals.Tests
             public string scope="Actual full-course development scene. No phone FPS, world stance-locking, photographic quality, or player adoption acceptance.";
             public string fingerprint;public long finalTimeMs;public string[] stages,gaits;public Frame[] frames;
             public float maximumActorError,maximumReachError,minimumHoofHeight=float.PositiveInfinity;
+            public int minimumVisibleGrips=2;
             public float minimumGripX=1,maximumGripX,minimumGripY=1,minimumGripDepth=float.PositiveInfinity;
         }
         [Serializable] sealed class Frame{public int tick;public string phase;public Vector3 camera;public float speed;public double x,z;}

@@ -1,5 +1,7 @@
 # Matching horse and stable review
 
+The later [rider turn-view checkpoint](Reins-Rider-Turn-View.md) addresses the measured canonical barrel-visibility gap while retaining these earlier results as history.
+
 September 21, 2026. Continues `bb7feaba91adaad8d0f8698fdf019d5c38aa7049`. The explicit 39-bone replacement now has a saved MyStable review paired with its existing full-course racing review. Both scenes remain development-only. Source stays **0.5.0/build 5, reins-v2**; no mobile build or installation occurred.
 
 ## Connected presentation

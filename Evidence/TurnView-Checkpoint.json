@@ -1,0 +1,141 @@
+{
+  "recordedAt": "2026-09-21T13:57:57+00:00",
+  "baseline": "ee30bac54d406063c460de490e8d9ffd29dacaf9",
+  "scope": "Bounded view-only rider glance and close-barrel pitch in the saved candidate scene, with horizontal framing across normal/reduced-motion wide/tablet views. Not player/phone acceptance.",
+  "focusedPlayMode": {
+    "passed": "9",
+    "failed": "0",
+    "skipped": "0",
+    "end-time": "2026-09-21 13:49:56Z"
+  },
+  "priorEvidenceUnchanged": 794,
+  "normalPlayerScenesChanged": false,
+  "coreOrRulesChanged": false,
+  "newNativeBuildOrInstall": false,
+  "sourceVersion": "0.5.0/build5/reins-v2",
+  "lastVerifiedInstalledIPhone": "0.4.0/build4",
+  "normal": {
+    "scope": "Actual candidate course, projected real drum bounds and real HUD captures. Rectangle checks do not prove pixel occlusion or phone comfort.",
+    "maximumLook": 51.9999885559082,
+    "maximumLookSpeed": 110.00003814697266,
+    "maximumPitch": 17.16606903076172,
+    "maximumPitchSpeed": 40.0000114440918,
+    "finalTimeMs": 33860,
+    "views": [
+      {
+        "aspect": "16:9",
+        "activeSamples": 677,
+        "framedSamples": 677,
+        "oldFramedSamples": 64,
+        "middleSamples": 420,
+        "middleFramed": 420
+      },
+      {
+        "aspect": "4:3",
+        "activeSamples": 677,
+        "framedSamples": 677,
+        "oldFramedSamples": 73,
+        "middleSamples": 420,
+        "middleFramed": 420
+      }
+    ],
+    "misses": []
+  },
+  "comfort": {
+    "scope": "Actual candidate course, projected real drum bounds and real HUD captures. Rectangle checks do not prove pixel occlusion or phone comfort.",
+    "maximumLook": 51.9999885559082,
+    "maximumLookSpeed": 110.00003814697266,
+    "maximumPitch": 17.5263614654541,
+    "maximumPitchSpeed": 40.0000114440918,
+    "finalTimeMs": 33860,
+    "views": [
+      {
+        "aspect": "16:9",
+        "activeSamples": 677,
+        "framedSamples": 677,
+        "oldFramedSamples": 63,
+        "middleSamples": 420,
+        "middleFramed": 420
+      },
+      {
+        "aspect": "4:3",
+        "activeSamples": 677,
+        "framedSamples": 677,
+        "oldFramedSamples": 70,
+        "middleSamples": 420,
+        "middleFramed": 420
+      }
+    ],
+    "misses": []
+  },
+  "finalTimeMs": 33860,
+  "fingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+  "minimumVisibleGrips": 1,
+  "maximumActorErrorM": 0.0,
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 37.92,
+    "fps": 25,
+    "framesDecoded": [
+      0,
+      947
+    ],
+    "height": 720,
+    "width": 1280
+  },
+  "sourceSha256": {
+    "Assets/_Project/Development/HeroHorse/HeroHorseRaceReview.unity": "63bb3f13f8d5076d632bce41da2cc35fc8699a6d5c7dd9812b86c7a7446e0953",
+    "Assets/_Project/Scripts/Editor/HeroHorseRaceBuilder.cs": "3630f55a66e1ba3e05afddfbe5cfdc009ca6292b0e69f7655bf07cbd59e8b6bf",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsLabController.cs": "c25a849b8acc5f872389e64b5eb9000581d79f03d5bf0549721ad6ff01f2312a",
+    "Assets/_Project/Scripts/Practice/ReinsLab/RiderCameraRig.cs": "58f24d0f094a1d7c8a7e11889324a2c7e96157c4d9aac9e2f5812c4a6e22fdd5",
+    "Assets/_Project/Tests/PlayMode/HeroHorseRaceTests.cs": "0539746805baa7cc41b29f9698dba7a4df63a4a2b23ae0a8493a9932e46c4592",
+    "Assets/_Project/Tests/PlayMode/RiderCourseLookTests.cs": "ba2f8f0edbd9ce443b4171efb1db68c769a0a760649e2bc8352f3da9565e4fab",
+    "Assets/_Project/Tests/PlayMode/RiderCourseLookTests.cs.meta": "2c3be6146cb9011ce6ca5ad5ff65dc9795e7ac8fd6685e8f19962567c24b749d"
+  },
+  "preservedSourceSha256": {
+    "Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity": "573d7c1d13ab056e4ba6382afe9be1a10e7aad0afa2485ea65e00c387ec52e65",
+    "Assets/_Project/Generated/ReinsLab/MyStable.unity": "4cdfe2a08466721e5902fadd3e5abb2fa4d98215b9a698234b9de8ea4fa195a1",
+    "ProjectSettings/EditorBuildSettings.asset": "2bc799f7d1aacd930795bd8d4fe05c22d59714960f74358f8eac2885b6a8a6d7",
+    "ProjectSettings/ProjectSettings.asset": "ee711e27c41e2b1e3ea513668a98a7ebec08aaf217bee3fe19231f544e7a2526",
+    "Assets/_Project/Development/HeroHorse/HeroHorse.fbx": "57ae8b09cf7b7d118ab361826ef389c23980944328275dd5d4f652347915b3a3",
+    "Assets/_Project/Development/HeroHorse/HorseBenchmark.controller": "41dfe6f44a0b45d67c81a15004c198435cf34876428d0070940d88bfd3b3046f",
+    "Assets/_Project/Development/HeroHorse/Stable/HeroHorseStableReview.unity": "3fffdbfc7e6feea2dae48e10505c1f8e9825c6c85efb7b94ce3c46465841cf94"
+  },
+  "evidenceSha256": {
+    "TurnView-Capture.json": "54435d0e08b51a9b946db145a96f46c9df003acc1cf6e29b9cf8d8e0e42c6ee3",
+    "TurnView-Comfort-Middle-1.png": "e1dfd1873af6fda08d08d91747d3f2f0fc80cfd68148d17e522e8ae8b5f700d8",
+    "TurnView-Comfort-Tablet-1.png": "e0953cc869f424301c7e94b4600dc1e0acc8d6c731342606cb0f9e63306d8b4b",
+    "TurnView-Comfort-Tablet-2.png": "d0d1b1354ead48fcfedcdbfcde4dd2e9b6a1fdda9ba981126dd66a7d54d967a0",
+    "TurnView-Comfort-Tablet-3.png": "94ef80bc8472c56ca880839f680bcf64c7805c5022f630741c27b641758391e5",
+    "TurnView-Comfort.json": "db6ba673cd91a27faff5c288cec03734e72e408a9937622bede9e2d8db967cec",
+    "TurnView-Drive.png": "f562e889af5e951fed926f1317101c56c82b4d58682a8bbe22daf02d436a72f4",
+    "TurnView-Entry-1.png": "b1b3b7cf5ad3cfe0f1cf472c2e637693cfecf174aabf8cd4d08017a05584e707",
+    "TurnView-Entry-2.png": "1dd6acd06bc9e646762c9952d184fadbd157d41fdfd5474f4c34db60f32379d3",
+    "TurnView-Entry-3.png": "c00849548fa2b863d35bfd50b18c68cbef0437778c388e549f3bf0e9b2cefac3",
+    "TurnView-Exit-1.png": "afa069f7575822b97a518ca4b2b9519783b2c8b5ddc29ca5eb025e51561d6ff9",
+    "TurnView-Exit-2.png": "3667683b521d1dffc6432c2afb81ac3e5937e2b7548b062abd7871c921395d74",
+    "TurnView-Exit-3.png": "f27835adffbb93bc71b76601688e074a3b5df283b65a7cf61249e893b6de66cb",
+    "TurnView-Full-Course.json": "d7822fe9a132bc13189594d7dbbf0252bd38d999c5939bbbb1bb6f785b9c582a",
+    "TurnView-Full-Course.mp4": "721c5dba4e8829a05122149efb4a81d7766a9a69a2f9bf7ce191094fdae60a40",
+    "TurnView-Middle-1.png": "7a05ac58882fcb72d9f189e14ff7ec08727e6b18e23c49aa838a213260e9d1d9",
+    "TurnView-Middle-2.png": "6f5cd0464f8ad76e060b9c8aecb19abd559f46ca3ca716e72eecc75f6ecf8a55",
+    "TurnView-Middle-3.png": "10b9c892f13eaeb3d535ef1a2918d386477c536931c7ddd109233a7bc9a35950",
+    "TurnView-Normal.json": "44e25f1a55734fe403c03eafccb82024e402ff15a83a181af6d222ef4fb99dac",
+    "TurnView-PlayMode.xml": "ca30689d9de8e891f31a2e7cecf7ab66bbd26e8c01e3c867e9e767df5abdbec1",
+    "TurnView-Ready.png": "e0bd071b6600921bc74c61e309b02021dfc29751596da49ef5fe73e625dff21e",
+    "TurnView-Tablet-1.png": "fc1c350d3f48504ccf949efcfd7ab51f38ad1d36e31a8fc0c2dd8438c1597537",
+    "TurnView-Tablet-2.png": "f9c7aee11a44ed5e37d716c223e98c8902ccb2e768cc215597ff43b2ff6a12b6",
+    "TurnView-Tablet-3.png": "529eabcd9911a62479c1916ff4b4f75a31662af5425a43938859d3bb05e8ed9a",
+    "TurnView-Video.json": "6f06185eca708d6ecfcb7bef773d8c618b1b71d09441b795f6bebc08439e1fe8"
+  },
+  "openGates": [
+    "Arbitrary-route pixel occlusion and actual phone gaze comfort",
+    "Reference-quality materials/anatomy/clothing/tack/arena",
+    "Natural turn/brake/canter/contact/Wrap and world stance locking",
+    "Retained source-fidelity target0.2mm versus recorded0.364mm",
+    "Character budgets and LODs",
+    "Fresh native/device qualification and player promotion",
+    "R2, all original53section requirements and multiplayer/progression/economy/release"
+  ]
+}

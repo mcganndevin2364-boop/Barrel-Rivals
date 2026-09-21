@@ -102,7 +102,7 @@ namespace BarrelRivals.Practice
             horsePresentation.Initialize();
             riderCamera=rideCamera.GetComponent<RiderCameraRig>();
             if(!riderCamera)riderCamera=rideCamera.gameObject.AddComponent<RiderCameraRig>();
-            riderCamera.Configure(horsePresentation,horse);
+            riderCamera.Configure(horsePresentation,horse,this);
             horse.GetComponentInChildren<ReinsHairMotion>()?.BindComfort(riderCamera);
             horse.GetComponent<StableAppearance>()?.Apply(StableSession.Store.Current);
             // The seated rider occludes the saddle in first person. Keep its shadows; the ghost

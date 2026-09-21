@@ -81,6 +81,8 @@ namespace BarrelRivals.Editor
             var view=new SerializedObject(cameraRig);
             view.FindProperty("downwardPitch").floatValue=25;
             view.FindProperty("fieldOfView").floatValue=72;
+            view.FindProperty("maximumCourseLook").floatValue=52;
+            view.FindProperty("preserveLandscapeFraming").boolValue=true;
             view.ApplyModifiedPropertiesWithoutUndo();
             var navigation=new SerializedObject(Object.FindFirstObjectByType<ReinsLabController>());
             navigation.FindProperty("developmentStableScene").stringValue=HeroHorseStableBuilder.ScenePath;
