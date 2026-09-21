@@ -1,0 +1,150 @@
+{
+  "baselineCommit": "72d7a63ead38c1ffc22c1603a7c55f2bdd71b657",
+  "configuredNextBuildIdentity": "0.5.0/build 5",
+  "rules": "reins-v2",
+  "sourceOnly": true,
+  "newDeviceInstall": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "fullR2Accepted": false,
+  "changeScope": "Connected CC0-derived glove anatomy in riding, MyStable inspection and six actual thumbnails; reduced inspection mesh/renderers, mirrored grip geometry, measured rein aperture and restrained shared leather finish. Existing rider/Core/input/contracts/verifier unchanged.",
+  "historicalEvidenceRestored": 515,
+  "tests": {
+    "EditMode": {
+      "result": "Passed",
+      "total": "140",
+      "passed": "140",
+      "failed": "0",
+      "skipped": "0"
+    },
+    "PlayMode": {
+      "result": "Passed",
+      "total": "37",
+      "passed": "37",
+      "failed": "0",
+      "skipped": "0"
+    }
+  },
+  "canonicalReplay": {
+    "contractVersion": 2,
+    "scope": "offline-consistency",
+    "accepted": true,
+    "authority": false,
+    "status": "Complete",
+    "rulesVersion": 2,
+    "ruleFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "frameCount": 1893,
+    "fixedStepMs": 20,
+    "manifestSha256": "a5e17d101145edf9a2293e7356cb75b8fdac774a9f0072f21ab1695777ec6b5e",
+    "replaySha256": "f068e9dece3fd549068ce100ef1ae05fd7c6ab76640ae83ab2f7df0bfa0d3f49",
+    "state": {
+      "tick": 1893,
+      "raceTimeMs": 33860,
+      "barrelIndex": 3,
+      "x": 0.3173989796553723,
+      "z": -0.047388634925340456,
+      "headingRadians": -3.077845111034062,
+      "speedMetresPerSecond": 0,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    },
+    "result": {
+      "raceTimeMs": 33860,
+      "finalTimeMs": 33860,
+      "knockCount": 0,
+      "stylePoints": 300,
+      "launchOutcome": "Perfect",
+      "launchReleaseErrorMs": 0
+    }
+  },
+  "motion": {
+    "unityVersion": "6000.6.0f1",
+    "graphicsDevice": "Intel(R) Iris(TM) Plus Graphics 640",
+    "description": "Actual Unity motion study, one player-loop frame per manually stepped sample with scaled time paused. Left: rider camera; right: diagnostic side camera with rider-only saddle visibility lifted for inspection. HUD omitted. Idle/walk are explicit rig samples; other segments replay accepted canonical v2 input. Two fixed-camera body-only silhouettes verify rendered lower-leg changes. Not phone performance or foot-planting acceptance.",
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 360,
+    "frameCount": 220,
+    "canonicalFinalTimeMs": 33860,
+    "capturedDriveLegRangeDegrees": 36.70969772338867,
+    "capturedDriveNeckRangeDegrees": 2.282820463180542,
+    "walkSilhouetteChangedPixels": 6281,
+    "devicePerformanceMeasured": false,
+    "footPlantingAccepted": false
+  },
+  "launch": {
+    "description": "Actual saved Reins v2 scene and rider camera: Ready, four-second moving alley, perfect release, first steering and cadence. Controlled 20ms simulation/animation with one player-loop yield per rendered sample, ungraded actual HUD. No audio track; scheduled-beep tests are separate and speaker/input alignment still needs phone playtest. Encoding rate is not measured device FPS.",
+    "framesPerSecond": 25,
+    "width": 1280,
+    "height": 720,
+    "frameCount": 161,
+    "rulesFingerprint": "759406550bc144d59973d0e26573d532614551bbe7a1b7bbacb2307a956bd274"
+  },
+  "rigProof": {
+    "clothingDeformationMetres": 0.15935873985290527,
+    "minimumBootSoleBelowAnkle": -0.08542216569185257,
+    "maximumSoleClearanceMetres": 0.0035783052444458008,
+    "maximumReachErrorMetres": 7.058810638227442e-07,
+    "poseSamples": 48
+  },
+  "characterBudget": {
+    "method": "Active saved-scene renderer submesh index counts in Play Mode, including shadows-only surfaces. Not a measured GPU draw count.",
+    "activeTriangles": 78614,
+    "activeMaterialSlots": 26,
+    "activeRenderers": 21,
+    "colorEligibleTriangles": 52260,
+    "nearestLodTriangleTarget": 60000,
+    "materialSlotTarget": 6,
+    "lowerLodsImplemented": false,
+    "devicePerformanceMeasured": false,
+    "riderOnlyTriangles": 23914,
+    "riderAuthoringBones": 53,
+    "ghostNote": "Cloned rider pose and ponytail alpha are preserved. Active ghost makes shadows-only head/saddle surfaces visible and adds three private alpha-mask materials plus the shared tint. This is not a captured two-player GPU budget."
+  },
+  "sourceHashes": {
+    "Assets/_Project/Art/Reins/Rider/WesternRider.fbx": "5564b14b8659f05fd9d4fdd65b8af160205c5e8c7346f9c77e160dc380851147",
+    "Assets/_Project/Art/Reins/Rider/Source-Provenance.json": "aba9334bb94f85c01b5f31158e4824962cc1b81d7c2ef7d82280312930f0e46b",
+    "Assets/_Project/Scripts/Editor/ReinsRiderBodyBuilder.cs": "b95df6a72b43cb41137627011f091ce7765300103398959c74b9d167c46272e4",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsRiderBodyPresentation.cs": "70ac3fec7166f3df3e6ec2a2f6e910e725122af2aa728cfc23214548f4b3bbb5",
+    "Assets/_Project/Scripts/Editor/StableTackBuilder.cs": "7651654333062bb1d202090224165ce6cfd796b3eada3c145cc43914cd8a448f",
+    "Assets/_Project/Scripts/Editor/ReinsLabBuilder.cs": "98205f2b49c05accabf49bca7fdeb645b498b84a539fdfbce6f6757fcf0ea34f",
+    "Assets/_Project/Scripts/Practice/ReinsLab/ReinsLabController.cs": "f61c45ac2eb032732e7523159331c54785c2aab088d8653fd5bbb3ffb44002cd",
+    "Assets/_Project/Tests/PlayMode/ReinsRiderBodyTests.cs": "3f65d00737b0753f6e1909c8d2587b34c0d4c1ad94b505d6e444b55696bf1d30",
+    "Assets/_Project/Tests/PlayMode/PremiumGraphicsTests.cs": "ef8e6663a3dcb9a5f266023a888378f4b195f931208e304ab36e7b6f38b98609",
+    "Assets/_Project/Tests/PlayMode/ReferenceGraphicsTests.cs": "58a8f10f213481aceef506ea469fc9d35827a2bd02638d809df7b5fcbff73c12",
+    "Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity": "912b6c09f742a208eb010f76095d5da547aaf6ceacd06c68144617950cb9bc13",
+    "Assets/_Project/Generated/ReinsLab/MyStable.unity": "b4ebabbf8e545e97e82ab2509f70939824daeca4f4e51cfaec840005ed0ebf66",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsRun.cs": "84855ae09802c7c5f0abc1f3f390e9d182550c654b2310ff9ba460cebb292a0a",
+    "Packages/com.barrelrivals.core/Runtime/Reins/ReinsAlley.cs": "29d98a310dcb1d12f80c87e31f44775fa5f827536e00077a7ecf99f2770e5030",
+    "Tools/Art/export_western_rider.py": "b29ae6d77e7370718ab18dedfca7a3420de2975551a063788434140124d8f1a2",
+    "Tools/Art/export_rider_gloves.py": "4b3df25f5f8c6e6a96fa69166be629d33ad9657bf9e6323e36e418bbd1de3530",
+    "Assets/_Project/Scripts/Editor/ReinsGloveBuilder.cs": "964fc549396d46c1bba49d67d29c3f8b610b151fabac285b17803f54ae2e95eb",
+    "Assets/_Project/Scripts/Editor/ReinsRiderTackBuilder.cs": "42ee1fe1281f6a594d416fd16721cf75095c17c168042f53af5f1d9f115e1949",
+    "Assets/_Project/Scripts/Editor/StableWardrobeArtBuilder.cs": "cfc233f8f642effeeda45ececbfc825246f3f9966e7ab4ffc132679f2033cb50",
+    "Assets/_Project/Tests/Editor/GloveGeometryTests.cs": "b10229f77e20b625d358ee99317a9553166405e189970ec9f1f30e77f9607a66",
+    "Assets/_Project/Tests/PlayMode/StableFlowTests.cs": "485ab7b5ec90069e2487019f1343cd4dc42995802e51773a9b57094145d9c6a9",
+    "Assets/_Project/Art/Reins/Gloves/Open riding glove.json": "eacf361e973e43efc2d0e33b6f06ca4d8075bc83603e24cf6f21af07344ee3a1",
+    "Assets/_Project/Art/Reins/Gloves/Closed riding glove.json": "9a418e6f373b705f410072eaef1b58d645a830a39c01bc9e8ca70ea696971016",
+    "Assets/_Project/Art/Reins/Gloves/Source-Provenance.json": "4b832e17a64f83819941d89c014781ad5339ead530e927c509a0c999cb3929c1"
+  },
+  "knownLimits": [
+    "Below photographic reference quality",
+    "Gloves use fixed baked poses; detailed sewn construction, folds and finger articulation remain open",
+    "78614 character triangles and 26 slots exceed 60000/six targets; no lower LODs",
+    "No new iOS/Android compilation or phone performance/comfort qualification",
+    "One fixed rider outfit and six existing glove styles; new categories, progression and multiplayer remain unfinished"
+  ],
+  "gloves": {
+    "inspectionTriangles": 2537,
+    "previousInspectionTriangles": 4192,
+    "inspectionRenderers": 2,
+    "previousInspectionRenderers": 3,
+    "closedTrianglesPerHand": 1408,
+    "previousClosedTrianglesPerHand": 1116,
+    "newTextureFiles": false,
+    "runtimeFingerSkinningAdded": false,
+    "sharedFreeStyles": 6,
+    "reinApertureCheck": "Both mirrored meshes tested along palm/finger directions at the authored rein anchor; not a complete dynamic collision proof"
+  }
+}

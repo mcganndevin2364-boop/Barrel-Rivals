@@ -62,3 +62,7 @@ Use one Unity 6000.6.0f1 Editor at a time. Generate the race and stable together
 ## Shared tack after the seated rider integration
 
 The [rider source checkpoint](../Art/Reins-Rider-Body-Checkpoint.md) shortens the saddle fenders and makes the stirrup openings face forward beneath the boots. MyStable, rendered horse portrait and item thumbnails share this geometry; the showroom remains horse-only, matching the reference composition. Existing one-horse/20-style/five-slot preview/equip/persistence scope is unchanged. The new fixed racing rider does not implement additional shirt, hat or boot selection. Fresh stable/equip regression and screenshots are included in RiderBody-* evidence; native and photographic-quality acceptance remain pending.
+
+## Connected glove inspection and riding poses
+
+The [glove source checkpoint](../Art/Reins-Glove-Anatomy-Checkpoint.md) shares CC0-derived palm/finger anatomy between the open inspector and closed riding hands. All six glove thumbnails are actual renders of the same inspectable geometry/materials. Softer leather finish replaces excessive speckled highlights; no new texture is imported. The inspection assembly drops from 4,192 triangles/three renderers to 2,537/two. Six-style preview/equip/cancel/persistence and race appearance isolation pass again, with current GloveAnatomy-* evidence. This does not add gear categories, ownership, bonuses or photographic-quality/device acceptance.

@@ -38,8 +38,8 @@ namespace BarrelRivals.Editor
             var rig = Child(model, "Rider tack");
             var left = BuildHand(rig, -1, glove, fixedHand);
             var right = BuildHand(rig, 1, glove, fixedHand);
-            var leftGrip = Child(left, "Closed left grip"); leftGrip.localPosition = new Vector3(.006f,-.023f,.137f);
-            var rightGrip = Child(right, "Closed right grip"); rightGrip.localPosition = new Vector3(-.006f,-.023f,.137f);
+            var leftGrip = Child(left, "Closed left grip"); leftGrip.localPosition = new Vector3(-.010f,-.031f,.075f);
+            var rightGrip = Child(right, "Closed right grip"); rightGrip.localPosition = new Vector3(.010f,-.031f,.075f);
             Transform leftBit, rightBit;
             BuildBridle(model, head, leather, silver, stitch, out leftBit, out rightBit);
             var reinMesh = SaveMesh("Braided rein", ReinsRiderTackPresentation.CreateReinTemplate());
@@ -89,31 +89,11 @@ namespace BarrelRivals.Editor
             var hand=Child(parent,side<0?"Left rider grip":"Right rider grip");
             hand.localPosition=new Vector3(side*.41f,1.84f,.28f);
             hand.localRotation=Quaternion.Euler(0,side*8,side*9);
-            var shell=new Surface();var suede=new Surface();var clothing=new Surface();var stitching=new Surface();
-            // A palm with narrower wrist, broad metacarpals and tapered knuckle plane, not a scaled primitive.
-            shell.Loft(new[]{new Vector3(0,0,-.035f),new Vector3(0,0,0),new Vector3(0,.005f,.045f),new Vector3(0,.006f,.09f),new Vector3(0,0,.121f)},
-                new[]{new Vector2(.037f,.027f),new Vector2(.042f,.032f),new Vector2(.054f,.035f),new Vector2(.053f,.036f),new Vector2(.045f,.029f)},18,true);
-            // Four differently sized flexed fingers wrap the rein; the thumb opposes from the inner side.
-            for(int finger=0;finger<4;finger++)
-            {
-                float x=(finger-1.5f)*.024f, length=finger==0?.043f:finger==3?.033f:.05f;
-                float radius=finger==3?.0105f:.012f;
-                var path=new[]{new Vector3(x,.003f,.108f),new Vector3(x,.013f,.125f),new Vector3(x,.008f,.14f+length*.4f),new Vector3(x,-.011f,.155f+length*.25f),new Vector3(x,-.037f,.15f),new Vector3(x,-.046f,.125f)};
-                shell.Tube(path,new[]{radius*1.06f,radius*1.05f,radius,radius*.95f,radius*.86f,radius*.62f},10,true);
-                // Raised stitched knuckle panels and seams stay shallow to avoid toy-like spheres.
-                var ridge=new[]{new Vector3(x-.008f,.024f,.124f),new Vector3(x,.027f,.131f),new Vector3(x+.008f,.024f,.124f)};
-                suede.Tube(ridge,.0024f,6,true);
-            }
-            float inner=-side;
-            shell.Tube(new[]{new Vector3(inner*.043f,-.006f,.031f),new Vector3(inner*.063f,-.006f,.061f),new Vector3(inner*.058f,-.019f,.09f),new Vector3(inner*.034f,-.024f,.118f),new Vector3(inner*.007f,-.021f,.132f)},
-                new[]{.024f,.021f,.019f,.017f,.011f},12,true);
-            // Saddle glove cuff, a fitted forearm sleeve and a low-contrast palm wear insert.
-            suede.Loft(new[]{new Vector3(0,0,-.051f),new Vector3(0,0,-.033f),new Vector3(0,0,-.014f)},
-                new[]{new Vector2(.043f,.032f),new Vector2(.046f,.034f),new Vector2(.041f,.031f)},18,true);
+            var clothing=new Surface();var stitching=new Surface();
+            // Retain the original fixed sleeve/seam fallback; the full rider hides
+            // it and supplies its own skinned shirt. Glove dyes remain independent.
             clothing.Loft(new[]{new Vector3(side*.10f,-.14f,-.38f),new Vector3(side*.063f,-.065f,-.23f),new Vector3(side*.023f,-.019f,-.10f),new Vector3(0,0,-.034f)},
                 new[]{new Vector2(.077f,.058f),new Vector2(.071f,.053f),new Vector2(.052f,.042f),new Vector2(.039f,.029f)},18,true);
-            suede.Loft(new[]{new Vector3(0,-.024f,.021f),new Vector3(0,-.026f,.05f),new Vector3(0,-.026f,.091f)},
-                new[]{new Vector2(.030f,.008f),new Vector2(.043f,.010f),new Vector2(.036f,.007f)},14,true);
             // Sparse actual thread stitches along the back/cuff, submillimetre radius.
             for(int edge=-1;edge<=1;edge+=2)for(int s=0;s<9;s++)
             {
@@ -121,9 +101,9 @@ namespace BarrelRivals.Editor
                 stitching.Tube(new[]{new Vector3(x,.022f,z),new Vector3(x,.023f,z+.0045f)},.0009f,4,true);
             }
             var sideLabel=side<0?"Left":"Right";
-            // Both leather surfaces already share the selected glove palette. Preserve their
-            // geometry/UVs in one renderer, independently bound beneath each moving hand.
-            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",JoinHandSurfaces(shell.Mesh(),suede.Mesh(),false)),new[]{glove});
+            // One connected hand-derived shell replaces the disconnected palm,
+            // finger tubes and thumb pieces. Right-hand mirroring preserves winding.
+            MeshObject(hand,"Glove shell",SaveMesh(sideLabel+" glove shell",ReinsGloveBuilder.Riding(side)),new[]{glove});
             // Fixed sleeve/thread colors must not inherit glove dyes. Two constant swatches
             // share one opaque material; the open inspection glove remains a separate build.
             MeshObject(hand,"Sleeve and glove stitching",SaveMesh(sideLabel+" sleeve and stitching",JoinHandSurfaces(clothing.Mesh(),stitching.Mesh(),true)),new[]{fixedParts});

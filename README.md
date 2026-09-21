@@ -18,7 +18,7 @@ Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests an
 
 Next: finish the representative moving horse/rider/arena benchmark, build fresh 0.5 native artifacts, and qualify real phone controls/audio/visuals/lifecycle plus sustained performance. M1N authenticated continuous-input authority follows R2 acceptance. Continue `codex/m1-skill-loop`; main is historical. Free/original assets only, with no new paid service or purchase.
 
-Latest art-only source: [seated rider and fitted tack](Docs/Art/Reins-Rider-Body-Checkpoint.md), with 138/138 Editor and 37/37 Play Mode checks. New actual race/stable/gear captures and moving studies use `RiderBody-*`; all 474 earlier evidence records remain unchanged. Character geometry/material budgets are exceeded and photographic quality remains unfinished. No new phone build or device acceptance.
+Latest art-only source: [connected glove anatomy](Docs/Art/Reins-Glove-Anatomy-Checkpoint.md), with 140/140 Editor and 37/37 Play Mode checks. New actual race/stable/gear captures and moving studies use `GloveAnatomy-*`; all 515 earlier evidence records remain unchanged. The glove inspection is smaller and its anatomy is connected, but whole-character budgets and photographic quality remain unfinished. A fresh 0.5 native artifact/device review is next; no new phone install is claimed.
 
 ## Development context
 

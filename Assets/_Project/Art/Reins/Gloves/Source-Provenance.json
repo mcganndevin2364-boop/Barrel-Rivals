@@ -1,0 +1,66 @@
+{
+  "source": "MPFB 2.0.17 CC0 base mesh and game_engine weights",
+  "macro": {
+    "gender": 0.15,
+    "age": 0.4,
+    "muscle": 0.6,
+    "weight": 0.46,
+    "proportions": 0.6,
+    "height": 0.5,
+    "cupsize": 0.5,
+    "firmness": 0.5,
+    "race": {
+      "asian": 0.33,
+      "caucasian": 0.33,
+      "african": 0.33
+    }
+  },
+  "units": "metres; x thumb, y dorsal, z fingers",
+  "shellThicknessMetres": 0.0015,
+  "vertices": {
+    "Open riding glove": 1208,
+    "Closed riding glove": 715
+  },
+  "wrist": [
+    0.40200015902519226,
+    -0.1575259119272232,
+    0.9160977005958557
+  ],
+  "forward": [
+    0.43234482407569885,
+    -0.7429313063621521,
+    -0.5110098719596863
+  ],
+  "across": [
+    -0.504862368106842,
+    -0.6690009832382202,
+    0.5454829335212708
+  ],
+  "dorsal": [
+    0.7471224665641785,
+    -0.022152915596961975,
+    0.6643171310424805
+  ],
+  "baselineCommit": "72d7a63ead38c1ffc22c1603a7c55f2bdd71b657",
+  "license": "CC0-1.0 for source assets/output; external MPFB program GPLv3 is not distributed",
+  "archiveSha256": "d08e726c798fdc4eefb02b06b6c4efe37d40b5439777e53cf96dce0e5073297d",
+  "archiveUrl": "https://codeload.github.com/makehumancommunity/mpfb2/zip/refs/tags/v2.0.17",
+  "blender": "4.5.13 LTS daeeeca98fb0",
+  "files": {
+    "Open riding glove.json": "eacf361e973e43efc2d0e33b6f06ca4d8075bc83603e24cf6f21af07344ee3a1",
+    "Closed riding glove.json": "9a418e6f373b705f410072eaef1b58d645a830a39c01bc9e8ca70ea696971016"
+  },
+  "poseDetails": "Open digits 6/10/5 degrees flexion; riding digits 45/65/25 degrees. Thumb base remains neutral and distal joints oppose a fixed tip target. Woven rein anchor (-.010,-.031,.075) in left glove metres; right mirrored.",
+  "referencePixelsUsed": false,
+  "newTextureFiles": false,
+  "Open riding glove": {
+    "sourceVertexCount": 1208,
+    "sourceTriangles": 2393,
+    "maximumSampledReductionErrorMetres": 0.0006809388287365437
+  },
+  "Closed riding glove": {
+    "sourceVertexCount": 715,
+    "sourceTriangles": 1408,
+    "maximumSampledReductionErrorMetres": 0.0007788144866935909
+  }
+}
