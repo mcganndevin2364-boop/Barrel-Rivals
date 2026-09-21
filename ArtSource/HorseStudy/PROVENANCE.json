@@ -1,0 +1,45 @@
+{
+  "asset": "Horse by b2przemo; Barrel Rivals fitted rig and walk study derivative",
+  "originalAuthor": "b2przemo",
+  "license": "CC-BY-3.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+  "authorListing": "https://blendswap.com/blend/13903",
+  "originalListingUrl": "http://www.blendswap.com/blends/view/76528",
+  "mirrorRepository": "https://github.com/nrz/ylikuutio",
+  "mirrorCommit": "adcb264480542b2a6ca16cedbd1afecc605cb2d6",
+  "mirrorPath": "res/objects/www.blendswap.com/76528_horse/",
+  "originalFbxSha256": "02f48f4354edc8623a941161e3072aa87ff274ebfc2375821ca82d5ff4db56ef",
+  "originalContents": {
+    "vertices": 326242,
+    "triangles": 652480,
+    "uvLayers": 1,
+    "rigs": 0,
+    "animations": 0,
+    "embeddedTextures": 0
+  },
+  "changes": [
+    "Scaled/oriented to metres, +Y forward, +Z up at 2.12m full height (not withers height).",
+    "Four reverse subdivision steps, gentle collapse to 39000 triangles, rebuilt smooth outward normals; preserved existing UVs.",
+    "Original fitted 34-bone skeleton, heat weights, continuous limb/trunk/coronet masks, four-influence sparsification and rigid soles.",
+    "Original in-place 32-frame walk at 30fps, 1.5m/s reference speed; independent pastern/hoof orientation, rotation IK, no stretch."
+  ],
+  "newAuthoring": "Original Barrel Rivals project work, September 20, 2026. Mesh derivatives remain CC-BY-3.0; retain b2przemo credit, source/license link and change notice.",
+  "blender": "4.5.13 LTS (daeeeca98fb0), Intel; factory startup and embedded auto-execution disabled",
+  "acceptance": "Offline art study only; not used in Unity scenes, mobile packages or equipped stable horse.",
+  "recordedAt": "2026-09-21T03:44:27+00:00",
+  "files": {
+    "Candidate/HeroHorse-RigStudy.fbx": "74a451843749e56c01c3d6cb55784ac7442c1f0583ce4be0f82cf21399f13efb",
+    "Candidate/HeroHorse-WalkStudy.blend": "7bc7c9e25e134da9c23d3648971381959efe1768a69eb7da97bf750aa4499556",
+    "Candidate/HeroHorse-WalkStudy.fbx": "c0125c84aee133c461cb13e8c556456d401c9dabc0799a6b288019d0ffea18db",
+    "Source/BlendSwap-13903-license.html": "058281332b91f8fba71850d077392a2b3e886e024560e5941dabeabc03495b91",
+    "Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89"
+  },
+  "reviewMovie": {
+    "path": "Evidence/HorseRigStudy-Walk.mp4",
+    "renderedFbxSha256": "ed78654bfdb53a7a933a39de214fb6f56c6916a943dfdd61aca2fb69a8d59d25",
+    "portableRebuildMeasurementsIdentical": true,
+    "scope": "Four repetitions per side/quarter view. 30fps offline frames, not measured gameplay performance.",
+    "portableRebuildCanonicalDataVerification": "Evidence/HorseRigStudy-Rebuild.json",
+    "canonicalDataSha256": "221111ab7612fbe63b5f006659ab2ed40bdeee1fd1799ee3b1a114fedfb2557c"
+  }
+}

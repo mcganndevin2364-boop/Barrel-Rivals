@@ -1,0 +1,5 @@
+{
+  "geometrySkinRigAndAnimationKeyDataIdentical": true,
+  "canonicalDataSha256": "221111ab7612fbe63b5f006659ab2ed40bdeee1fd1799ee3b1a114fedfb2557c",
+  "scope": "Canonical neutral vertex/topology/UV/corner-normal data, named weights, rest hierarchy/matrices, linear animation keys, armature skinning mode and object matrices; excludes file serialization metadata."
+}

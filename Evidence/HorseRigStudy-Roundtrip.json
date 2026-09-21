@@ -1,0 +1,6208 @@
+{
+  "stanceResidualTravelM": {
+    "ForeHoof.L": 5.150735378256499e-05,
+    "ForeHoof.R": 5.24163246153897e-05,
+    "HindHoof.L": 7.07864761352317e-05,
+    "HindHoof.R": 7.096529006955787e-05
+  },
+  "scope": "Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.",
+  "fbxSha256": "c0125c84aee133c461cb13e8c556456d401c9dabc0799a6b288019d0ffea18db",
+  "blender": "4.5.13 LTS",
+  "sampleCount": 257,
+  "vertices": 19502,
+  "triangles": 39000,
+  "bones": 34,
+  "maximumNeutralPositionErrorM": 5.962326667940943e-07,
+  "vertexMapping": "bijective nearest rest-position map; original order not assumed",
+  "maximumWeightDifference": 0,
+  "maximumUvCornerDifference": 0,
+  "maximumCornerNormalVectorDifference": 2.7314279645418166e-07,
+  "maximumInfluences": 4,
+  "minimumWeightSum": 0.9999999163410394,
+  "maximumSkinnedPositionErrorM": 1.7611130260775099e-06,
+  "minimumAnimatedHeightM": 0.0039015249349176884,
+  "maximumRigidSolePlaneErrorM": 4.544854164123535e-07,
+  "maximumBoneScaleError": 8.344650268554688e-07,
+  "loopEndpointErrorM": 0.0,
+  "objectRootStationary": true,
+  "frames": [
+    {
+      "frame": 1.0,
+      "maximumSkinnedPositionErrorM": 1.3902272257837467e-06
+    },
+    {
+      "frame": 1.125,
+      "maximumSkinnedPositionErrorM": 1.2840098406741163e-06
+    },
+    {
+      "frame": 1.25,
+      "maximumSkinnedPositionErrorM": 1.1294450814602897e-06
+    },
+    {
+      "frame": 1.375,
+      "maximumSkinnedPositionErrorM": 1.0970474022542476e-06
+    },
+    {
+      "frame": 1.5,
+      "maximumSkinnedPositionErrorM": 1.4570409803127404e-06
+    },
+    {
+      "frame": 1.625,
+      "maximumSkinnedPositionErrorM": 1.3348812899494078e-06
+    },
+    {
+      "frame": 1.75,
+      "maximumSkinnedPositionErrorM": 9.0799318286372e-07
+    },
+    {
+      "frame": 1.875,
+      "maximumSkinnedPositionErrorM": 9.831379657043726e-07
+    },
+    {
+      "frame": 2.0,
+      "maximumSkinnedPositionErrorM": 1.023851837089751e-06
+    },
+    {
+      "frame": 2.125,
+      "maximumSkinnedPositionErrorM": 1.0699822041715379e-06
+    },
+    {
+      "frame": 2.25,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 2.375,
+      "maximumSkinnedPositionErrorM": 1.2703621905529872e-06
+    },
+    {
+      "frame": 2.5,
+      "maximumSkinnedPositionErrorM": 1.3953884945294703e-06
+    },
+    {
+      "frame": 2.625,
+      "maximumSkinnedPositionErrorM": 1.195440972878714e-06
+    },
+    {
+      "frame": 2.75,
+      "maximumSkinnedPositionErrorM": 1.181616084977577e-06
+    },
+    {
+      "frame": 2.875,
+      "maximumSkinnedPositionErrorM": 1.2839233249906101e-06
+    },
+    {
+      "frame": 3.0,
+      "maximumSkinnedPositionErrorM": 1.5125963273021625e-06
+    },
+    {
+      "frame": 3.125,
+      "maximumSkinnedPositionErrorM": 1.2157009905422456e-06
+    },
+    {
+      "frame": 3.25,
+      "maximumSkinnedPositionErrorM": 1.3500156228474225e-06
+    },
+    {
+      "frame": 3.375,
+      "maximumSkinnedPositionErrorM": 1.5277869351848494e-06
+    },
+    {
+      "frame": 3.5,
+      "maximumSkinnedPositionErrorM": 1.7611130260775099e-06
+    },
+    {
+      "frame": 3.625,
+      "maximumSkinnedPositionErrorM": 1.2860832612204831e-06
+    },
+    {
+      "frame": 3.75,
+      "maximumSkinnedPositionErrorM": 1.3348812899494078e-06
+    },
+    {
+      "frame": 3.875,
+      "maximumSkinnedPositionErrorM": 1.3922023072154843e-06
+    },
+    {
+      "frame": 4.0,
+      "maximumSkinnedPositionErrorM": 1.3516593071472016e-06
+    },
+    {
+      "frame": 4.125,
+      "maximumSkinnedPositionErrorM": 9.311735311712255e-07
+    },
+    {
+      "frame": 4.25,
+      "maximumSkinnedPositionErrorM": 9.630772410673671e-07
+    },
+    {
+      "frame": 4.375,
+      "maximumSkinnedPositionErrorM": 9.315311899626977e-07
+    },
+    {
+      "frame": 4.5,
+      "maximumSkinnedPositionErrorM": 1.1980384897469776e-06
+    },
+    {
+      "frame": 4.625,
+      "maximumSkinnedPositionErrorM": 9.100770625991572e-07
+    },
+    {
+      "frame": 4.75,
+      "maximumSkinnedPositionErrorM": 8.119423569041828e-07
+    },
+    {
+      "frame": 4.875,
+      "maximumSkinnedPositionErrorM": 1.022441210807301e-06
+    },
+    {
+      "frame": 5.0,
+      "maximumSkinnedPositionErrorM": 1.032920295074291e-06
+    },
+    {
+      "frame": 5.125,
+      "maximumSkinnedPositionErrorM": 1.1921860050279065e-06
+    },
+    {
+      "frame": 5.25,
+      "maximumSkinnedPositionErrorM": 1.0679050319595262e-06
+    },
+    {
+      "frame": 5.375,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 5.5,
+      "maximumSkinnedPositionErrorM": 1.2478777762225945e-06
+    },
+    {
+      "frame": 5.625,
+      "maximumSkinnedPositionErrorM": 1.0410569757368648e-06
+    },
+    {
+      "frame": 5.75,
+      "maximumSkinnedPositionErrorM": 1.022983951770584e-06
+    },
+    {
+      "frame": 5.875,
+      "maximumSkinnedPositionErrorM": 9.220676702170749e-07
+    },
+    {
+      "frame": 6.0,
+      "maximumSkinnedPositionErrorM": 1.2908225244245841e-06
+    },
+    {
+      "frame": 6.125,
+      "maximumSkinnedPositionErrorM": 1.1329047993058339e-06
+    },
+    {
+      "frame": 6.25,
+      "maximumSkinnedPositionErrorM": 1.1824613466160372e-06
+    },
+    {
+      "frame": 6.375,
+      "maximumSkinnedPositionErrorM": 1.1294450814602897e-06
+    },
+    {
+      "frame": 6.5,
+      "maximumSkinnedPositionErrorM": 9.32126908992359e-07
+    },
+    {
+      "frame": 6.625,
+      "maximumSkinnedPositionErrorM": 9.63190814218251e-07
+    },
+    {
+      "frame": 6.75,
+      "maximumSkinnedPositionErrorM": 1.0185245855609537e-06
+    },
+    {
+      "frame": 6.875,
+      "maximumSkinnedPositionErrorM": 1.3631915862788446e-06
+    },
+    {
+      "frame": 7.0,
+      "maximumSkinnedPositionErrorM": 1.3344861145014875e-06
+    },
+    {
+      "frame": 7.125,
+      "maximumSkinnedPositionErrorM": 1.176436967398331e-06
+    },
+    {
+      "frame": 7.25,
+      "maximumSkinnedPositionErrorM": 1.1755873856600374e-06
+    },
+    {
+      "frame": 7.375,
+      "maximumSkinnedPositionErrorM": 9.639795734983636e-07
+    },
+    {
+      "frame": 7.5,
+      "maximumSkinnedPositionErrorM": 1.2171612979727797e-06
+    },
+    {
+      "frame": 7.625,
+      "maximumSkinnedPositionErrorM": 9.858443945631734e-07
+    },
+    {
+      "frame": 7.75,
+      "maximumSkinnedPositionErrorM": 1.228781229656306e-06
+    },
+    {
+      "frame": 7.875,
+      "maximumSkinnedPositionErrorM": 8.361928394151619e-07
+    },
+    {
+      "frame": 8.0,
+      "maximumSkinnedPositionErrorM": 9.639795734983636e-07
+    },
+    {
+      "frame": 8.125,
+      "maximumSkinnedPositionErrorM": 8.721954145585187e-07
+    },
+    {
+      "frame": 8.25,
+      "maximumSkinnedPositionErrorM": 1.2449382893464644e-06
+    },
+    {
+      "frame": 8.375,
+      "maximumSkinnedPositionErrorM": 1.3329878356671543e-06
+    },
+    {
+      "frame": 8.5,
+      "maximumSkinnedPositionErrorM": 1.1941923503400176e-06
+    },
+    {
+      "frame": 8.625,
+      "maximumSkinnedPositionErrorM": 1.3922023072154843e-06
+    },
+    {
+      "frame": 8.75,
+      "maximumSkinnedPositionErrorM": 1.2860832612204831e-06
+    },
+    {
+      "frame": 8.875,
+      "maximumSkinnedPositionErrorM": 9.639795734983636e-07
+    },
+    {
+      "frame": 9.0,
+      "maximumSkinnedPositionErrorM": 9.340306519334263e-07
+    },
+    {
+      "frame": 9.125,
+      "maximumSkinnedPositionErrorM": 1.1262027328484692e-06
+    },
+    {
+      "frame": 9.25,
+      "maximumSkinnedPositionErrorM": 1.2908225244245841e-06
+    },
+    {
+      "frame": 9.375,
+      "maximumSkinnedPositionErrorM": 1.0688402198866243e-06
+    },
+    {
+      "frame": 9.5,
+      "maximumSkinnedPositionErrorM": 9.332056833954994e-07
+    },
+    {
+      "frame": 9.625,
+      "maximumSkinnedPositionErrorM": 8.002353411029617e-07
+    },
+    {
+      "frame": 9.75,
+      "maximumSkinnedPositionErrorM": 9.353372547593608e-07
+    },
+    {
+      "frame": 9.875,
+      "maximumSkinnedPositionErrorM": 9.071674753613479e-07
+    },
+    {
+      "frame": 10.0,
+      "maximumSkinnedPositionErrorM": 9.142400472228474e-07
+    },
+    {
+      "frame": 10.125,
+      "maximumSkinnedPositionErrorM": 1.0168882909056265e-06
+    },
+    {
+      "frame": 10.25,
+      "maximumSkinnedPositionErrorM": 1.0255853339913301e-06
+    },
+    {
+      "frame": 10.375,
+      "maximumSkinnedPositionErrorM": 1.101577822737454e-06
+    },
+    {
+      "frame": 10.5,
+      "maximumSkinnedPositionErrorM": 1.1266155297562364e-06
+    },
+    {
+      "frame": 10.625,
+      "maximumSkinnedPositionErrorM": 1.0370639529355685e-06
+    },
+    {
+      "frame": 10.75,
+      "maximumSkinnedPositionErrorM": 1.101577822737454e-06
+    },
+    {
+      "frame": 10.875,
+      "maximumSkinnedPositionErrorM": 1.201115878757264e-06
+    },
+    {
+      "frame": 11.0,
+      "maximumSkinnedPositionErrorM": 1.1281665592832724e-06
+    },
+    {
+      "frame": 11.125,
+      "maximumSkinnedPositionErrorM": 1.2331104244367452e-06
+    },
+    {
+      "frame": 11.25,
+      "maximumSkinnedPositionErrorM": 1.3500156228474225e-06
+    },
+    {
+      "frame": 11.375,
+      "maximumSkinnedPositionErrorM": 1.6049041278165532e-06
+    },
+    {
+      "frame": 11.5,
+      "maximumSkinnedPositionErrorM": 1.10067037439876e-06
+    },
+    {
+      "frame": 11.625,
+      "maximumSkinnedPositionErrorM": 1.2694005135927e-06
+    },
+    {
+      "frame": 11.75,
+      "maximumSkinnedPositionErrorM": 8.031435640987183e-07
+    },
+    {
+      "frame": 11.875,
+      "maximumSkinnedPositionErrorM": 1.0281801223754883e-06
+    },
+    {
+      "frame": 12.0,
+      "maximumSkinnedPositionErrorM": 1.3328003660717513e-06
+    },
+    {
+      "frame": 12.125,
+      "maximumSkinnedPositionErrorM": 8.678567269271298e-07
+    },
+    {
+      "frame": 12.25,
+      "maximumSkinnedPositionErrorM": 1.2672996945184423e-06
+    },
+    {
+      "frame": 12.375,
+      "maximumSkinnedPositionErrorM": 1.0281801223754883e-06
+    },
+    {
+      "frame": 12.5,
+      "maximumSkinnedPositionErrorM": 1.3500156228474225e-06
+    },
+    {
+      "frame": 12.625,
+      "maximumSkinnedPositionErrorM": 9.902266810968285e-07
+    },
+    {
+      "frame": 12.75,
+      "maximumSkinnedPositionErrorM": 1.3621323660117923e-06
+    },
+    {
+      "frame": 12.875,
+      "maximumSkinnedPositionErrorM": 1.1980384897469776e-06
+    },
+    {
+      "frame": 13.0,
+      "maximumSkinnedPositionErrorM": 1.10067037439876e-06
+    },
+    {
+      "frame": 13.125,
+      "maximumSkinnedPositionErrorM": 1.4374021475305199e-06
+    },
+    {
+      "frame": 13.25,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 13.375,
+      "maximumSkinnedPositionErrorM": 1.3341325484361732e-06
+    },
+    {
+      "frame": 13.5,
+      "maximumSkinnedPositionErrorM": 9.644276133258245e-07
+    },
+    {
+      "frame": 13.625,
+      "maximumSkinnedPositionErrorM": 1.1944189282075968e-06
+    },
+    {
+      "frame": 13.75,
+      "maximumSkinnedPositionErrorM": 1.0414835287519963e-06
+    },
+    {
+      "frame": 13.875,
+      "maximumSkinnedPositionErrorM": 1.0293672403349774e-06
+    },
+    {
+      "frame": 14.0,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 14.125,
+      "maximumSkinnedPositionErrorM": 1.2925415830977727e-06
+    },
+    {
+      "frame": 14.25,
+      "maximumSkinnedPositionErrorM": 1.507965066593897e-06
+    },
+    {
+      "frame": 14.375,
+      "maximumSkinnedPositionErrorM": 1.3930792874816689e-06
+    },
+    {
+      "frame": 14.5,
+      "maximumSkinnedPositionErrorM": 1.460009684706165e-06
+    },
+    {
+      "frame": 14.625,
+      "maximumSkinnedPositionErrorM": 1.39148448852211e-06
+    },
+    {
+      "frame": 14.75,
+      "maximumSkinnedPositionErrorM": 9.855698408500757e-07
+    },
+    {
+      "frame": 14.875,
+      "maximumSkinnedPositionErrorM": 1.0168882909056265e-06
+    },
+    {
+      "frame": 15.0,
+      "maximumSkinnedPositionErrorM": 1.2925415830977727e-06
+    },
+    {
+      "frame": 15.125,
+      "maximumSkinnedPositionErrorM": 1.1246181657043053e-06
+    },
+    {
+      "frame": 15.25,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 15.375,
+      "maximumSkinnedPositionErrorM": 1.0279169373461627e-06
+    },
+    {
+      "frame": 15.5,
+      "maximumSkinnedPositionErrorM": 1.0154678875551326e-06
+    },
+    {
+      "frame": 15.625,
+      "maximumSkinnedPositionErrorM": 1.0188396117882803e-06
+    },
+    {
+      "frame": 15.75,
+      "maximumSkinnedPositionErrorM": 1.0154678875551326e-06
+    },
+    {
+      "frame": 15.875,
+      "maximumSkinnedPositionErrorM": 1.1026859283447266e-06
+    },
+    {
+      "frame": 16.0,
+      "maximumSkinnedPositionErrorM": 1.3621323660117923e-06
+    },
+    {
+      "frame": 16.125,
+      "maximumSkinnedPositionErrorM": 1.2860832612204831e-06
+    },
+    {
+      "frame": 16.25,
+      "maximumSkinnedPositionErrorM": 1.0664745104804751e-06
+    },
+    {
+      "frame": 16.375,
+      "maximumSkinnedPositionErrorM": 1.3539572591980686e-06
+    },
+    {
+      "frame": 16.5,
+      "maximumSkinnedPositionErrorM": 1.1294450814602897e-06
+    },
+    {
+      "frame": 16.625,
+      "maximumSkinnedPositionErrorM": 8.678567269271298e-07
+    },
+    {
+      "frame": 16.75,
+      "maximumSkinnedPositionErrorM": 1.0168882909056265e-06
+    },
+    {
+      "frame": 16.875,
+      "maximumSkinnedPositionErrorM": 1.1920928955078125e-06
+    },
+    {
+      "frame": 17.0,
+      "maximumSkinnedPositionErrorM": 1.195440972878714e-06
+    },
+    {
+      "frame": 17.125,
+      "maximumSkinnedPositionErrorM": 1.1294450814602897e-06
+    },
+    {
+      "frame": 17.25,
+      "maximumSkinnedPositionErrorM": 1.2694005135927e-06
+    },
+    {
+      "frame": 17.375,
+      "maximumSkinnedPositionErrorM": 1.0168882909056265e-06
+    },
+    {
+      "frame": 17.5,
+      "maximumSkinnedPositionErrorM": 1.0303374438080937e-06
+    },
+    {
+      "frame": 17.625,
+      "maximumSkinnedPositionErrorM": 1.3527267128665699e-06
+    },
+    {
+      "frame": 17.75,
+      "maximumSkinnedPositionErrorM": 1.3348812899494078e-06
+    },
+    {
+      "frame": 17.875,
+      "maximumSkinnedPositionErrorM": 1.3612356042358442e-06
+    },
+    {
+      "frame": 18.0,
+      "maximumSkinnedPositionErrorM": 1.0132789611816406e-06
+    },
+    {
+      "frame": 18.125,
+      "maximumSkinnedPositionErrorM": 9.310543305218744e-07
+    },
+    {
+      "frame": 18.25,
+      "maximumSkinnedPositionErrorM": 1.1026859283447266e-06
+    },
+    {
+      "frame": 18.375,
+      "maximumSkinnedPositionErrorM": 1.1246181657043053e-06
+    },
+    {
+      "frame": 18.5,
+      "maximumSkinnedPositionErrorM": 1.438251501895138e-06
+    },
+    {
+      "frame": 18.625,
+      "maximumSkinnedPositionErrorM": 1.2694005135927e-06
+    },
+    {
+      "frame": 18.75,
+      "maximumSkinnedPositionErrorM": 1.0212460210823338e-06
+    },
+    {
+      "frame": 18.875,
+      "maximumSkinnedPositionErrorM": 1.101577822737454e-06
+    },
+    {
+      "frame": 19.0,
+      "maximumSkinnedPositionErrorM": 1.5497207641601562e-06
+    },
+    {
+      "frame": 19.125,
+      "maximumSkinnedPositionErrorM": 1.456355107620766e-06
+    },
+    {
+      "frame": 19.25,
+      "maximumSkinnedPositionErrorM": 1.0663444527381216e-06
+    },
+    {
+      "frame": 19.375,
+      "maximumSkinnedPositionErrorM": 1.0212460210823338e-06
+    },
+    {
+      "frame": 19.5,
+      "maximumSkinnedPositionErrorM": 8.842764600558439e-07
+    },
+    {
+      "frame": 19.625,
+      "maximumSkinnedPositionErrorM": 1.0699822041715379e-06
+    },
+    {
+      "frame": 19.75,
+      "maximumSkinnedPositionErrorM": 1.2291426401134231e-06
+    },
+    {
+      "frame": 19.875,
+      "maximumSkinnedPositionErrorM": 1.2778559721482452e-06
+    },
+    {
+      "frame": 20.0,
+      "maximumSkinnedPositionErrorM": 9.849447906162823e-07
+    },
+    {
+      "frame": 20.125,
+      "maximumSkinnedPositionErrorM": 7.829261789993325e-07
+    },
+    {
+      "frame": 20.25,
+      "maximumSkinnedPositionErrorM": 9.811872132559074e-07
+    },
+    {
+      "frame": 20.375,
+      "maximumSkinnedPositionErrorM": 9.162704373011366e-07
+    },
+    {
+      "frame": 20.5,
+      "maximumSkinnedPositionErrorM": 1.228781229656306e-06
+    },
+    {
+      "frame": 20.625,
+      "maximumSkinnedPositionErrorM": 9.329602903562773e-07
+    },
+    {
+      "frame": 20.75,
+      "maximumSkinnedPositionErrorM": 9.727574479256873e-07
+    },
+    {
+      "frame": 20.875,
+      "maximumSkinnedPositionErrorM": 1.1924653335881885e-06
+    },
+    {
+      "frame": 21.0,
+      "maximumSkinnedPositionErrorM": 9.340306519334263e-07
+    },
+    {
+      "frame": 21.125,
+      "maximumSkinnedPositionErrorM": 8.450417112726427e-07
+    },
+    {
+      "frame": 21.25,
+      "maximumSkinnedPositionErrorM": 1.1026859283447266e-06
+    },
+    {
+      "frame": 21.375,
+      "maximumSkinnedPositionErrorM": 1.0209810170636047e-06
+    },
+    {
+      "frame": 21.5,
+      "maximumSkinnedPositionErrorM": 1.1270834647802985e-06
+    },
+    {
+      "frame": 21.625,
+      "maximumSkinnedPositionErrorM": 1.0116341400134843e-06
+    },
+    {
+      "frame": 21.75,
+      "maximumSkinnedPositionErrorM": 1.1774745871662162e-06
+    },
+    {
+      "frame": 21.875,
+      "maximumSkinnedPositionErrorM": 1.0688402198866243e-06
+    },
+    {
+      "frame": 22.0,
+      "maximumSkinnedPositionErrorM": 1.0276670536768506e-06
+    },
+    {
+      "frame": 22.125,
+      "maximumSkinnedPositionErrorM": 1.0354966661907383e-06
+    },
+    {
+      "frame": 22.25,
+      "maximumSkinnedPositionErrorM": 1.0295592574038892e-06
+    },
+    {
+      "frame": 22.375,
+      "maximumSkinnedPositionErrorM": 1.1774745871662162e-06
+    },
+    {
+      "frame": 22.5,
+      "maximumSkinnedPositionErrorM": 1.022441210807301e-06
+    },
+    {
+      "frame": 22.625,
+      "maximumSkinnedPositionErrorM": 9.848303079706966e-07
+    },
+    {
+      "frame": 22.75,
+      "maximumSkinnedPositionErrorM": 1.0185245855609537e-06
+    },
+    {
+      "frame": 22.875,
+      "maximumSkinnedPositionErrorM": 1.0688402198866243e-06
+    },
+    {
+      "frame": 23.0,
+      "maximumSkinnedPositionErrorM": 1.361663635179866e-06
+    },
+    {
+      "frame": 23.125,
+      "maximumSkinnedPositionErrorM": 1.1824613466160372e-06
+    },
+    {
+      "frame": 23.25,
+      "maximumSkinnedPositionErrorM": 1.0293672403349774e-06
+    },
+    {
+      "frame": 23.375,
+      "maximumSkinnedPositionErrorM": 1.0281801223754883e-06
+    },
+    {
+      "frame": 23.5,
+      "maximumSkinnedPositionErrorM": 1.442336952095502e-06
+    },
+    {
+      "frame": 23.625,
+      "maximumSkinnedPositionErrorM": 1.014264626064687e-06
+    },
+    {
+      "frame": 23.75,
+      "maximumSkinnedPositionErrorM": 1.0688402198866243e-06
+    },
+    {
+      "frame": 23.875,
+      "maximumSkinnedPositionErrorM": 1.1270834647802985e-06
+    },
+    {
+      "frame": 24.0,
+      "maximumSkinnedPositionErrorM": 9.340306519334263e-07
+    },
+    {
+      "frame": 24.125,
+      "maximumSkinnedPositionErrorM": 7.662515599804465e-07
+    },
+    {
+      "frame": 24.25,
+      "maximumSkinnedPositionErrorM": 1.3922023072154843e-06
+    },
+    {
+      "frame": 24.375,
+      "maximumSkinnedPositionErrorM": 1.1847125733766006e-06
+    },
+    {
+      "frame": 24.5,
+      "maximumSkinnedPositionErrorM": 1.1265061630183482e-06
+    },
+    {
+      "frame": 24.625,
+      "maximumSkinnedPositionErrorM": 1.1008784213117906e-06
+    },
+    {
+      "frame": 24.75,
+      "maximumSkinnedPositionErrorM": 1.022441210807301e-06
+    },
+    {
+      "frame": 24.875,
+      "maximumSkinnedPositionErrorM": 8.02183990344929e-07
+    },
+    {
+      "frame": 25.0,
+      "maximumSkinnedPositionErrorM": 8.493661880493164e-07
+    },
+    {
+      "frame": 25.125,
+      "maximumSkinnedPositionErrorM": 9.652457038100692e-07
+    },
+    {
+      "frame": 25.25,
+      "maximumSkinnedPositionErrorM": 1.1802057997556403e-06
+    },
+    {
+      "frame": 25.375,
+      "maximumSkinnedPositionErrorM": 1.26861311855464e-06
+    },
+    {
+      "frame": 25.5,
+      "maximumSkinnedPositionErrorM": 1.39148448852211e-06
+    },
+    {
+      "frame": 25.625,
+      "maximumSkinnedPositionErrorM": 1.0679050319595262e-06
+    },
+    {
+      "frame": 25.75,
+      "maximumSkinnedPositionErrorM": 1.0132789611816406e-06
+    },
+    {
+      "frame": 25.875,
+      "maximumSkinnedPositionErrorM": 9.353372547593608e-07
+    },
+    {
+      "frame": 26.0,
+      "maximumSkinnedPositionErrorM": 1.1026859283447266e-06
+    },
+    {
+      "frame": 26.125,
+      "maximumSkinnedPositionErrorM": 9.853093843048555e-07
+    },
+    {
+      "frame": 26.25,
+      "maximumSkinnedPositionErrorM": 8.134792324199225e-07
+    },
+    {
+      "frame": 26.375,
+      "maximumSkinnedPositionErrorM": 9.329602903562773e-07
+    },
+    {
+      "frame": 26.5,
+      "maximumSkinnedPositionErrorM": 1.0679050319595262e-06
+    },
+    {
+      "frame": 26.625,
+      "maximumSkinnedPositionErrorM": 1.551510763420083e-06
+    },
+    {
+      "frame": 26.75,
+      "maximumSkinnedPositionErrorM": 1.2840098406741163e-06
+    },
+    {
+      "frame": 26.875,
+      "maximumSkinnedPositionErrorM": 1.0281801223754883e-06
+    },
+    {
+      "frame": 27.0,
+      "maximumSkinnedPositionErrorM": 1.2936576467836858e-06
+    },
+    {
+      "frame": 27.125,
+      "maximumSkinnedPositionErrorM": 9.639795734983636e-07
+    },
+    {
+      "frame": 27.25,
+      "maximumSkinnedPositionErrorM": 1.10067037439876e-06
+    },
+    {
+      "frame": 27.375,
+      "maximumSkinnedPositionErrorM": 1.2865364169556415e-06
+    },
+    {
+      "frame": 27.5,
+      "maximumSkinnedPositionErrorM": 1.5545846281384001e-06
+    },
+    {
+      "frame": 27.625,
+      "maximumSkinnedPositionErrorM": 1.4570409803127404e-06
+    },
+    {
+      "frame": 27.75,
+      "maximumSkinnedPositionErrorM": 9.197700592267211e-07
+    },
+    {
+      "frame": 27.875,
+      "maximumSkinnedPositionErrorM": 1.0255853339913301e-06
+    },
+    {
+      "frame": 28.0,
+      "maximumSkinnedPositionErrorM": 1.2703621905529872e-06
+    },
+    {
+      "frame": 28.125,
+      "maximumSkinnedPositionErrorM": 1.1270834647802985e-06
+    },
+    {
+      "frame": 28.25,
+      "maximumSkinnedPositionErrorM": 1.3631915862788446e-06
+    },
+    {
+      "frame": 28.375,
+      "maximumSkinnedPositionErrorM": 1.2703621905529872e-06
+    },
+    {
+      "frame": 28.5,
+      "maximumSkinnedPositionErrorM": 1.3605013009510003e-06
+    },
+    {
+      "frame": 28.625,
+      "maximumSkinnedPositionErrorM": 1.1944189282075968e-06
+    },
+    {
+      "frame": 28.75,
+      "maximumSkinnedPositionErrorM": 1.1834937367893872e-06
+    },
+    {
+      "frame": 28.875,
+      "maximumSkinnedPositionErrorM": 1.101577822737454e-06
+    },
+    {
+      "frame": 29.0,
+      "maximumSkinnedPositionErrorM": 1.3516593071472016e-06
+    },
+    {
+      "frame": 29.125,
+      "maximumSkinnedPositionErrorM": 9.340306519334263e-07
+    },
+    {
+      "frame": 29.25,
+      "maximumSkinnedPositionErrorM": 9.667397762314067e-07
+    },
+    {
+      "frame": 29.375,
+      "maximumSkinnedPositionErrorM": 1.0457388270879164e-06
+    },
+    {
+      "frame": 29.5,
+      "maximumSkinnedPositionErrorM": 9.858443945631734e-07
+    },
+    {
+      "frame": 29.625,
+      "maximumSkinnedPositionErrorM": 1.195440972878714e-06
+    },
+    {
+      "frame": 29.75,
+      "maximumSkinnedPositionErrorM": 1.0323827837055433e-06
+    },
+    {
+      "frame": 29.875,
+      "maximumSkinnedPositionErrorM": 1.0154678875551326e-06
+    },
+    {
+      "frame": 30.0,
+      "maximumSkinnedPositionErrorM": 1.0293672403349774e-06
+    },
+    {
+      "frame": 30.125,
+      "maximumSkinnedPositionErrorM": 1.0498711162654217e-06
+    },
+    {
+      "frame": 30.25,
+      "maximumSkinnedPositionErrorM": 9.652457038100692e-07
+    },
+    {
+      "frame": 30.375,
+      "maximumSkinnedPositionErrorM": 1.1021068075933727e-06
+    },
+    {
+      "frame": 30.5,
+      "maximumSkinnedPositionErrorM": 1.0293672403349774e-06
+    },
+    {
+      "frame": 30.625,
+      "maximumSkinnedPositionErrorM": 1.1802057997556403e-06
+    },
+    {
+      "frame": 30.75,
+      "maximumSkinnedPositionErrorM": 1.0185245855609537e-06
+    },
+    {
+      "frame": 30.875,
+      "maximumSkinnedPositionErrorM": 1.3344861145014875e-06
+    },
+    {
+      "frame": 31.0,
+      "maximumSkinnedPositionErrorM": 1.2703621905529872e-06
+    },
+    {
+      "frame": 31.125,
+      "maximumSkinnedPositionErrorM": 1.2694005135927e-06
+    },
+    {
+      "frame": 31.25,
+      "maximumSkinnedPositionErrorM": 1.1281665592832724e-06
+    },
+    {
+      "frame": 31.375,
+      "maximumSkinnedPositionErrorM": 1.0683467053240747e-06
+    },
+    {
+      "frame": 31.5,
+      "maximumSkinnedPositionErrorM": 1.193582079395128e-06
+    },
+    {
+      "frame": 31.625,
+      "maximumSkinnedPositionErrorM": 8.659357035867288e-07
+    },
+    {
+      "frame": 31.75,
+      "maximumSkinnedPositionErrorM": 9.060346997102897e-07
+    },
+    {
+      "frame": 31.875,
+      "maximumSkinnedPositionErrorM": 1.0991564067808213e-06
+    },
+    {
+      "frame": 32.0,
+      "maximumSkinnedPositionErrorM": 1.1261965937592322e-06
+    },
+    {
+      "frame": 32.125,
+      "maximumSkinnedPositionErrorM": 1.4588686099159531e-06
+    },
+    {
+      "frame": 32.25,
+      "maximumSkinnedPositionErrorM": 1.2672996945184423e-06
+    },
+    {
+      "frame": 32.375,
+      "maximumSkinnedPositionErrorM": 1.0154678875551326e-06
+    },
+    {
+      "frame": 32.5,
+      "maximumSkinnedPositionErrorM": 8.461418019578559e-07
+    },
+    {
+      "frame": 32.625,
+      "maximumSkinnedPositionErrorM": 1.0185245855609537e-06
+    },
+    {
+      "frame": 32.75,
+      "maximumSkinnedPositionErrorM": 1.2703621905529872e-06
+    },
+    {
+      "frame": 32.875,
+      "maximumSkinnedPositionErrorM": 1.181616084977577e-06
+    },
+    {
+      "frame": 33.0,
+      "maximumSkinnedPositionErrorM": 1.3902272257837467e-06
+    }
+  ],
+  "feet": {
+    "ForeHoof.L": [
+      {
+        "frame": 1.0,
+        "minimumHeightM": 0.11504808068275452,
+        "centerY": -0.003311499021947384
+      },
+      {
+        "frame": 1.125,
+        "minimumHeightM": 0.11714567244052887,
+        "centerY": 0.012199357151985168
+      },
+      {
+        "frame": 1.25,
+        "minimumHeightM": 0.11956993490457535,
+        "centerY": 0.027591492980718613
+      },
+      {
+        "frame": 1.375,
+        "minimumHeightM": 0.12137516587972641,
+        "centerY": 0.04357384890317917
+      },
+      {
+        "frame": 1.5,
+        "minimumHeightM": 0.12351041287183762,
+        "centerY": 0.05943657085299492
+      },
+      {
+        "frame": 1.625,
+        "minimumHeightM": 0.12501226365566254,
+        "centerY": 0.07581613212823868
+      },
+      {
+        "frame": 1.75,
+        "minimumHeightM": 0.12684673070907593,
+        "centerY": 0.09208337962627411
+      },
+      {
+        "frame": 1.875,
+        "minimumHeightM": 0.12803691625595093,
+        "centerY": 0.1087861955165863
+      },
+      {
+        "frame": 2.0,
+        "minimumHeightM": 0.1295611411333084,
+        "centerY": 0.12539000809192657
+      },
+      {
+        "frame": 2.125,
+        "minimumHeightM": 0.13043323159217834,
+        "centerY": 0.14234250783920288
+      },
+      {
+        "frame": 2.25,
+        "minimumHeightM": 0.13163986802101135,
+        "centerY": 0.15921586751937866
+      },
+      {
+        "frame": 2.375,
+        "minimumHeightM": 0.13218797743320465,
+        "centerY": 0.17634478211402893
+      },
+      {
+        "frame": 2.5,
+        "minimumHeightM": 0.13307079672813416,
+        "centerY": 0.19341984391212463
+      },
+      {
+        "frame": 2.625,
+        "minimumHeightM": 0.133292093873024,
+        "centerY": 0.210652694106102
+      },
+      {
+        "frame": 2.75,
+        "minimumHeightM": 0.13384798169136047,
+        "centerY": 0.22786074876785278
+      },
+      {
+        "frame": 2.875,
+        "minimumHeightM": 0.1337399184703827,
+        "centerY": 0.24512606859207153
+      },
+      {
+        "frame": 3.0,
+        "minimumHeightM": 0.13396650552749634,
+        "centerY": 0.26239708065986633
+      },
+      {
+        "frame": 3.125,
+        "minimumHeightM": 0.13352903723716736,
+        "centerY": 0.2796250581741333
+      },
+      {
+        "frame": 3.25,
+        "minimumHeightM": 0.1334260255098343,
+        "centerY": 0.2968888282775879
+      },
+      {
+        "frame": 3.375,
+        "minimumHeightM": 0.1326608508825302,
+        "centerY": 0.31400978565216064
+      },
+      {
+        "frame": 3.5,
+        "minimumHeightM": 0.13222965598106384,
+        "centerY": 0.33119407296180725
+      },
+      {
+        "frame": 3.625,
+        "minimumHeightM": 0.13113999366760254,
+        "centerY": 0.34814009070396423
+      },
+      {
+        "frame": 3.75,
+        "minimumHeightM": 0.13038329780101776,
+        "centerY": 0.36517196893692017
+      },
+      {
+        "frame": 3.875,
+        "minimumHeightM": 0.1289742887020111,
+        "centerY": 0.38187626004219055
+      },
+      {
+        "frame": 4.0,
+        "minimumHeightM": 0.12789621949195862,
+        "centerY": 0.39868229627609253
+      },
+      {
+        "frame": 4.125,
+        "minimumHeightM": 0.126174658536911,
+        "centerY": 0.4150771498680115
+      },
+      {
+        "frame": 4.25,
+        "minimumHeightM": 0.12478198856115341,
+        "centerY": 0.4315826892852783
+      },
+      {
+        "frame": 4.375,
+        "minimumHeightM": 0.12275652587413788,
+        "centerY": 0.4476013481616974
+      },
+      {
+        "frame": 4.5,
+        "minimumHeightM": 0.1210566908121109,
+        "centerY": 0.4637325704097748
+      },
+      {
+        "frame": 4.625,
+        "minimumHeightM": 0.11873836070299149,
+        "centerY": 0.4793078303337097
+      },
+      {
+        "frame": 4.75,
+        "minimumHeightM": 0.11674097180366516,
+        "centerY": 0.4949909746646881
+      },
+      {
+        "frame": 4.875,
+        "minimumHeightM": 0.11414237320423126,
+        "centerY": 0.5100557208061218
+      },
+      {
+        "frame": 5.0,
+        "minimumHeightM": 0.11185971647500992,
+        "centerY": 0.5252170562744141
+      },
+      {
+        "frame": 5.125,
+        "minimumHeightM": 0.10899539291858673,
+        "centerY": 0.5397031307220459
+      },
+      {
+        "frame": 5.25,
+        "minimumHeightM": 0.1064411923289299,
+        "centerY": 0.5542693734169006
+      },
+      {
+        "frame": 5.375,
+        "minimumHeightM": 0.10332805663347244,
+        "centerY": 0.5681079626083374
+      },
+      {
+        "frame": 5.5,
+        "minimumHeightM": 0.10051858425140381,
+        "centerY": 0.5820070505142212
+      },
+      {
+        "frame": 5.625,
+        "minimumHeightM": 0.09717565029859543,
+        "centerY": 0.5951292514801025
+      },
+      {
+        "frame": 5.75,
+        "minimumHeightM": 0.09413119405508041,
+        "centerY": 0.6082886457443237
+      },
+      {
+        "frame": 5.875,
+        "minimumHeightM": 0.09057947248220444,
+        "centerY": 0.6206253170967102
+      },
+      {
+        "frame": 6.0,
+        "minimumHeightM": 0.08732187747955322,
+        "centerY": 0.6329736113548279
+      },
+      {
+        "frame": 6.125,
+        "minimumHeightM": 0.08358603715896606,
+        "centerY": 0.6444546580314636
+      },
+      {
+        "frame": 6.25,
+        "minimumHeightM": 0.08014065772294998,
+        "centerY": 0.6559209823608398
+      },
+      {
+        "frame": 6.375,
+        "minimumHeightM": 0.07624883204698563,
+        "centerY": 0.666475772857666
+      },
+      {
+        "frame": 6.5,
+        "minimumHeightM": 0.07264494895935059,
+        "centerY": 0.6769893765449524
+      },
+      {
+        "frame": 6.625,
+        "minimumHeightM": 0.06862957030534744,
+        "centerY": 0.686547577381134
+      },
+      {
+        "frame": 6.75,
+        "minimumHeightM": 0.06490050256252289,
+        "centerY": 0.6960379481315613
+      },
+      {
+        "frame": 6.875,
+        "minimumHeightM": 0.06079797446727753,
+        "centerY": 0.7045273184776306
+      },
+      {
+        "frame": 7.0,
+        "minimumHeightM": 0.05698110908269882,
+        "centerY": 0.7129249572753906
+      },
+      {
+        "frame": 7.125,
+        "minimumHeightM": 0.05283545330166817,
+        "centerY": 0.7202746272087097
+      },
+      {
+        "frame": 7.25,
+        "minimumHeightM": 0.048974789679050446,
+        "centerY": 0.7275102138519287
+      },
+      {
+        "frame": 7.375,
+        "minimumHeightM": 0.04483691602945328,
+        "centerY": 0.7336474657058716
+      },
+      {
+        "frame": 7.5,
+        "minimumHeightM": 0.04098345339298248,
+        "centerY": 0.7396524548530579
+      },
+      {
+        "frame": 7.625,
+        "minimumHeightM": 0.036916911602020264,
+        "centerY": 0.7445035576820374
+      },
+      {
+        "frame": 7.75,
+        "minimumHeightM": 0.033129993826150894,
+        "centerY": 0.749210000038147
+      },
+      {
+        "frame": 7.875,
+        "minimumHeightM": 0.02921375259757042,
+        "centerY": 0.7527005672454834
+      },
+      {
+        "frame": 8.0,
+        "minimumHeightM": 0.025564221665263176,
+        "centerY": 0.7560425400733948
+      },
+      {
+        "frame": 8.125,
+        "minimumHeightM": 0.02190328948199749,
+        "centerY": 0.7580950260162354
+      },
+      {
+        "frame": 8.25,
+        "minimumHeightM": 0.018479572609066963,
+        "centerY": 0.7600088715553284
+      },
+      {
+        "frame": 8.375,
+        "minimumHeightM": 0.015222347341477871,
+        "centerY": 0.7605189681053162
+      },
+      {
+        "frame": 8.5,
+        "minimumHeightM": 0.012142255902290344,
+        "centerY": 0.7609212398529053
+      },
+      {
+        "frame": 8.625,
+        "minimumHeightM": 0.009530034847557545,
+        "centerY": 0.758974015712738
+      },
+      {
+        "frame": 8.75,
+        "minimumHeightM": 0.006972015369683504,
+        "centerY": 0.7569881677627563
+      },
+      {
+        "frame": 8.875,
+        "minimumHeightM": 0.005467615090310574,
+        "centerY": 0.7521709203720093
+      },
+      {
+        "frame": 9.0,
+        "minimumHeightM": 0.0040002609603106976,
+        "centerY": 0.7473433017730713
+      },
+      {
+        "frame": 9.125,
+        "minimumHeightM": 0.0039047985337674618,
+        "centerY": 0.7411279082298279
+      },
+      {
+        "frame": 9.25,
+        "minimumHeightM": 0.004000351298600435,
+        "centerY": 0.7348436117172241
+      },
+      {
+        "frame": 9.375,
+        "minimumHeightM": 0.003924591466784477,
+        "centerY": 0.7286174297332764
+      },
+      {
+        "frame": 9.5,
+        "minimumHeightM": 0.00400011008605361,
+        "centerY": 0.7223436236381531
+      },
+      {
+        "frame": 9.625,
+        "minimumHeightM": 0.003937382251024246,
+        "centerY": 0.7161106467247009
+      },
+      {
+        "frame": 9.75,
+        "minimumHeightM": 0.003999993205070496,
+        "centerY": 0.7098436951637268
+      },
+      {
+        "frame": 9.875,
+        "minimumHeightM": 0.0039459397085011005,
+        "centerY": 0.7036058902740479
+      },
+      {
+        "frame": 10.0,
+        "minimumHeightM": 0.004000048153102398,
+        "centerY": 0.6973432898521423
+      },
+      {
+        "frame": 10.125,
+        "minimumHeightM": 0.0039524175226688385,
+        "centerY": 0.6911023259162903
+      },
+      {
+        "frame": 10.25,
+        "minimumHeightM": 0.004000161308795214,
+        "centerY": 0.6848434805870056
+      },
+      {
+        "frame": 10.375,
+        "minimumHeightM": 0.00395727576687932,
+        "centerY": 0.678600013256073
+      },
+      {
+        "frame": 10.5,
+        "minimumHeightM": 0.004000456538051367,
+        "centerY": 0.6723434329032898
+      },
+      {
+        "frame": 10.625,
+        "minimumHeightM": 0.003961173351854086,
+        "centerY": 0.6660977602005005
+      },
+      {
+        "frame": 10.75,
+        "minimumHeightM": 0.004000172019004822,
+        "centerY": 0.6598429083824158
+      },
+      {
+        "frame": 10.875,
+        "minimumHeightM": 0.003964221104979515,
+        "centerY": 0.6535961031913757
+      },
+      {
+        "frame": 11.0,
+        "minimumHeightM": 0.004000246059149504,
+        "centerY": 0.6473432779312134
+      },
+      {
+        "frame": 11.125,
+        "minimumHeightM": 0.003966826479882002,
+        "centerY": 0.6410952210426331
+      },
+      {
+        "frame": 11.25,
+        "minimumHeightM": 0.004000371787697077,
+        "centerY": 0.6348434686660767
+      },
+      {
+        "frame": 11.375,
+        "minimumHeightM": 0.003968822304159403,
+        "centerY": 0.6285946369171143
+      },
+      {
+        "frame": 11.5,
+        "minimumHeightM": 0.004000474698841572,
+        "centerY": 0.6223437786102295
+      },
+      {
+        "frame": 11.625,
+        "minimumHeightM": 0.003970528021454811,
+        "centerY": 0.6160936951637268
+      },
+      {
+        "frame": 11.75,
+        "minimumHeightM": 0.004000451415777206,
+        "centerY": 0.6098435521125793
+      },
+      {
+        "frame": 11.875,
+        "minimumHeightM": 0.003972066566348076,
+        "centerY": 0.6035931706428528
+      },
+      {
+        "frame": 12.0,
+        "minimumHeightM": 0.004000031389296055,
+        "centerY": 0.5973434448242188
+      },
+      {
+        "frame": 12.125,
+        "minimumHeightM": 0.003973143175244331,
+        "centerY": 0.5910924077033997
+      },
+      {
+        "frame": 12.25,
+        "minimumHeightM": 0.004000189248472452,
+        "centerY": 0.5848435759544373
+      },
+      {
+        "frame": 12.375,
+        "minimumHeightM": 0.003974117338657379,
+        "centerY": 0.57859206199646
+      },
+      {
+        "frame": 12.5,
+        "minimumHeightM": 0.003999779932200909,
+        "centerY": 0.5723433494567871
+      },
+      {
+        "frame": 12.625,
+        "minimumHeightM": 0.003974717576056719,
+        "centerY": 0.5660918354988098
+      },
+      {
+        "frame": 12.75,
+        "minimumHeightM": 0.00399995781481266,
+        "centerY": 0.5598432421684265
+      },
+      {
+        "frame": 12.875,
+        "minimumHeightM": 0.0039757792837917805,
+        "centerY": 0.5535915493965149
+      },
+      {
+        "frame": 13.0,
+        "minimumHeightM": 0.004000233020633459,
+        "centerY": 0.5473434329032898
+      },
+      {
+        "frame": 13.125,
+        "minimumHeightM": 0.003976656123995781,
+        "centerY": 0.5410913228988647
+      },
+      {
+        "frame": 13.25,
+        "minimumHeightM": 0.004000438377261162,
+        "centerY": 0.5348435044288635
+      },
+      {
+        "frame": 13.375,
+        "minimumHeightM": 0.003977224230766296,
+        "centerY": 0.5285911560058594
+      },
+      {
+        "frame": 13.5,
+        "minimumHeightM": 0.003999996930360794,
+        "centerY": 0.5223432779312134
+      },
+      {
+        "frame": 13.625,
+        "minimumHeightM": 0.00397771131247282,
+        "centerY": 0.5160910487174988
+      },
+      {
+        "frame": 13.75,
+        "minimumHeightM": 0.004000307526439428,
+        "centerY": 0.5098434090614319
+      },
+      {
+        "frame": 13.875,
+        "minimumHeightM": 0.003978128544986248,
+        "centerY": 0.503591001033783
+      },
+      {
+        "frame": 14.0,
+        "minimumHeightM": 0.0040001277811825275,
+        "centerY": 0.4973432719707489
+      },
+      {
+        "frame": 14.125,
+        "minimumHeightM": 0.003978727385401726,
+        "centerY": 0.49109095335006714
+      },
+      {
+        "frame": 14.25,
+        "minimumHeightM": 0.004000213462859392,
+        "centerY": 0.4848434031009674
+      },
+      {
+        "frame": 14.375,
+        "minimumHeightM": 0.003979135304689407,
+        "centerY": 0.47859081625938416
+      },
+      {
+        "frame": 14.5,
+        "minimumHeightM": 0.004000042099505663,
+        "centerY": 0.47234365344047546
+      },
+      {
+        "frame": 14.625,
+        "minimumHeightM": 0.003979119006544352,
+        "centerY": 0.4660908877849579
+      },
+      {
+        "frame": 14.75,
+        "minimumHeightM": 0.004000138025730848,
+        "centerY": 0.45984333753585815
+      },
+      {
+        "frame": 14.875,
+        "minimumHeightM": 0.003979709930717945,
+        "centerY": 0.4535904824733734
+      },
+      {
+        "frame": 15.0,
+        "minimumHeightM": 0.004000225104391575,
+        "centerY": 0.44734302163124084
+      },
+      {
+        "frame": 15.125,
+        "minimumHeightM": 0.003979784436523914,
+        "centerY": 0.44109049439430237
+      },
+      {
+        "frame": 15.25,
+        "minimumHeightM": 0.004000047687441111,
+        "centerY": 0.4348435401916504
+      },
+      {
+        "frame": 15.375,
+        "minimumHeightM": 0.003980076871812344,
+        "centerY": 0.4285903871059418
+      },
+      {
+        "frame": 15.5,
+        "minimumHeightM": 0.00399988004937768,
+        "centerY": 0.42234328389167786
+      },
+      {
+        "frame": 15.625,
+        "minimumHeightM": 0.003980359062552452,
+        "centerY": 0.4160902500152588
+      },
+      {
+        "frame": 15.75,
+        "minimumHeightM": 0.004000476095825434,
+        "centerY": 0.40984341502189636
+      },
+      {
+        "frame": 15.875,
+        "minimumHeightM": 0.003980283625423908,
+        "centerY": 0.4035903513431549
+      },
+      {
+        "frame": 16.0,
+        "minimumHeightM": 0.004000426270067692,
+        "centerY": 0.3973430097103119
+      },
+      {
+        "frame": 16.125,
+        "minimumHeightM": 0.003980529028922319,
+        "centerY": 0.3910903334617615
+      },
+      {
+        "frame": 16.25,
+        "minimumHeightM": 0.004000259563326836,
+        "centerY": 0.384843647480011
+      },
+      {
+        "frame": 16.375,
+        "minimumHeightM": 0.00398079352453351,
+        "centerY": 0.3785906434059143
+      },
+      {
+        "frame": 16.5,
+        "minimumHeightM": 0.004000064451247454,
+        "centerY": 0.37234362959861755
+      },
+      {
+        "frame": 16.625,
+        "minimumHeightM": 0.003981052897870541,
+        "centerY": 0.3660905659198761
+      },
+      {
+        "frame": 16.75,
+        "minimumHeightM": 0.004000362008810043,
+        "centerY": 0.35984352231025696
+      },
+      {
+        "frame": 16.875,
+        "minimumHeightM": 0.003981067333370447,
+        "centerY": 0.35359060764312744
+      },
+      {
+        "frame": 17.0,
+        "minimumHeightM": 0.004000492859631777,
+        "centerY": 0.347343385219574
+      },
+      {
+        "frame": 17.125,
+        "minimumHeightM": 0.003981170244514942,
+        "centerY": 0.34109053015708923
+      },
+      {
+        "frame": 17.25,
+        "minimumHeightM": 0.00400000112131238,
+        "centerY": 0.33484360575675964
+      },
+      {
+        "frame": 17.375,
+        "minimumHeightM": 0.003981295973062515,
+        "centerY": 0.3285903334617615
+      },
+      {
+        "frame": 17.5,
+        "minimumHeightM": 0.004000118933618069,
+        "centerY": 0.3223430812358856
+      },
+      {
+        "frame": 17.625,
+        "minimumHeightM": 0.003981714136898518,
+        "centerY": 0.31609049439430237
+      },
+      {
+        "frame": 17.75,
+        "minimumHeightM": 0.004000355955213308,
+        "centerY": 0.3098437488079071
+      },
+      {
+        "frame": 17.875,
+        "minimumHeightM": 0.003981637302786112,
+        "centerY": 0.30359065532684326
+      },
+      {
+        "frame": 18.0,
+        "minimumHeightM": 0.004000475630164146,
+        "centerY": 0.2973437011241913
+      },
+      {
+        "frame": 18.125,
+        "minimumHeightM": 0.003981597255915403,
+        "centerY": 0.291090726852417
+      },
+      {
+        "frame": 18.25,
+        "minimumHeightM": 0.0040002185851335526,
+        "centerY": 0.2848433554172516
+      },
+      {
+        "frame": 18.375,
+        "minimumHeightM": 0.003981790505349636,
+        "centerY": 0.278590589761734
+      },
+      {
+        "frame": 18.5,
+        "minimumHeightM": 0.0040000914596021175,
+        "centerY": 0.2723431885242462
+      },
+      {
+        "frame": 18.625,
+        "minimumHeightM": 0.003981744404882193,
+        "centerY": 0.26609089970588684
+      },
+      {
+        "frame": 18.75,
+        "minimumHeightM": 0.004000370390713215,
+        "centerY": 0.25984352827072144
+      },
+      {
+        "frame": 18.875,
+        "minimumHeightM": 0.003981729969382286,
+        "centerY": 0.2535911500453949
+      },
+      {
+        "frame": 19.0,
+        "minimumHeightM": 0.004000257700681686,
+        "centerY": 0.24734395742416382
+      },
+      {
+        "frame": 19.125,
+        "minimumHeightM": 0.0039816745556890965,
+        "centerY": 0.24109138548374176
+      },
+      {
+        "frame": 19.25,
+        "minimumHeightM": 0.004000464454293251,
+        "centerY": 0.23484356701374054
+      },
+      {
+        "frame": 19.375,
+        "minimumHeightM": 0.003981849644333124,
+        "centerY": 0.2285912036895752
+      },
+      {
+        "frame": 19.5,
+        "minimumHeightM": 0.004000252112746239,
+        "centerY": 0.22234347462654114
+      },
+      {
+        "frame": 19.625,
+        "minimumHeightM": 0.003981827292591333,
+        "centerY": 0.21609142422676086
+      },
+      {
+        "frame": 19.75,
+        "minimumHeightM": 0.0040000737644732,
+        "centerY": 0.2098434567451477
+      },
+      {
+        "frame": 19.875,
+        "minimumHeightM": 0.0039819469675421715,
+        "centerY": 0.20359157025814056
+      },
+      {
+        "frame": 20.0,
+        "minimumHeightM": 0.004000348038971424,
+        "centerY": 0.19734349846839905
+      },
+      {
+        "frame": 20.125,
+        "minimumHeightM": 0.003981960006058216,
+        "centerY": 0.19109196960926056
+      },
+      {
+        "frame": 20.25,
+        "minimumHeightM": 0.004000457935035229,
+        "centerY": 0.18484364449977875
+      },
+      {
+        "frame": 20.375,
+        "minimumHeightM": 0.003981844987720251,
+        "centerY": 0.1785920113325119
+      },
+      {
+        "frame": 20.5,
+        "minimumHeightM": 0.004000356886535883,
+        "centerY": 0.1723436415195465
+      },
+      {
+        "frame": 20.625,
+        "minimumHeightM": 0.003981884103268385,
+        "centerY": 0.16609208285808563
+      },
+      {
+        "frame": 20.75,
+        "minimumHeightM": 0.004000727087259293,
+        "centerY": 0.15984328091144562
+      },
+      {
+        "frame": 20.875,
+        "minimumHeightM": 0.00398192647844553,
+        "centerY": 0.15359221398830414
+      },
+      {
+        "frame": 21.0,
+        "minimumHeightM": 0.004000293556600809,
+        "centerY": 0.14734379947185516
+      },
+      {
+        "frame": 21.125,
+        "minimumHeightM": 0.003981573041528463,
+        "centerY": 0.14109277725219727
+      },
+      {
+        "frame": 21.25,
+        "minimumHeightM": 0.004000330343842506,
+        "centerY": 0.13484369218349457
+      },
+      {
+        "frame": 21.375,
+        "minimumHeightM": 0.003981494810432196,
+        "centerY": 0.12859280407428741
+      },
+      {
+        "frame": 21.5,
+        "minimumHeightM": 0.004000568762421608,
+        "centerY": 0.12234329432249069
+      },
+      {
+        "frame": 21.625,
+        "minimumHeightM": 0.003981832880526781,
+        "centerY": 0.116093210875988
+      },
+      {
+        "frame": 21.75,
+        "minimumHeightM": 0.004000444430857897,
+        "centerY": 0.10984360426664352
+      },
+      {
+        "frame": 21.875,
+        "minimumHeightM": 0.0039815157651901245,
+        "centerY": 0.10359363257884979
+      },
+      {
+        "frame": 22.0,
+        "minimumHeightM": 0.004000464919954538,
+        "centerY": 0.09734376519918442
+      },
+      {
+        "frame": 22.125,
+        "minimumHeightM": 0.003981362096965313,
+        "centerY": 0.09109378606081009
+      },
+      {
+        "frame": 22.25,
+        "minimumHeightM": 0.004000487271696329,
+        "centerY": 0.08484309911727905
+      },
+      {
+        "frame": 22.375,
+        "minimumHeightM": 0.003981025889515877,
+        "centerY": 0.07859419286251068
+      },
+      {
+        "frame": 22.5,
+        "minimumHeightM": 0.004000655375421047,
+        "centerY": 0.07234387844800949
+      },
+      {
+        "frame": 22.625,
+        "minimumHeightM": 0.003980830777436495,
+        "centerY": 0.06609448790550232
+      },
+      {
+        "frame": 22.75,
+        "minimumHeightM": 0.004000471439212561,
+        "centerY": 0.05984339118003845
+      },
+      {
+        "frame": 22.875,
+        "minimumHeightM": 0.003980299457907677,
+        "centerY": 0.053594719618558884
+      },
+      {
+        "frame": 23.0,
+        "minimumHeightM": 0.004000591579824686,
+        "centerY": 0.04734361916780472
+      },
+      {
+        "frame": 23.125,
+        "minimumHeightM": 0.003980176988989115,
+        "centerY": 0.04109494388103485
+      },
+      {
+        "frame": 23.25,
+        "minimumHeightM": 0.004000706132501364,
+        "centerY": 0.03484336659312248
+      },
+      {
+        "frame": 23.375,
+        "minimumHeightM": 0.003979896195232868,
+        "centerY": 0.028595363721251488
+      },
+      {
+        "frame": 23.5,
+        "minimumHeightM": 0.004000635351985693,
+        "centerY": 0.02234361320734024
+      },
+      {
+        "frame": 23.625,
+        "minimumHeightM": 0.003979441709816456,
+        "centerY": 0.01609572023153305
+      },
+      {
+        "frame": 23.75,
+        "minimumHeightM": 0.004000326618552208,
+        "centerY": 0.009843685664236546
+      },
+      {
+        "frame": 23.875,
+        "minimumHeightM": 0.003978892229497433,
+        "centerY": 0.0035960478708148003
+      },
+      {
+        "frame": 24.0,
+        "minimumHeightM": 0.004000445362180471,
+        "centerY": -0.0026562765706330538
+      },
+      {
+        "frame": 24.125,
+        "minimumHeightM": 0.003978300374001265,
+        "centerY": -0.00890379212796688
+      },
+      {
+        "frame": 24.25,
+        "minimumHeightM": 0.004000215791165829,
+        "centerY": -0.015156405046582222
+      },
+      {
+        "frame": 24.375,
+        "minimumHeightM": 0.003977895248681307,
+        "centerY": -0.02140386402606964
+      },
+      {
+        "frame": 24.5,
+        "minimumHeightM": 0.004000670742243528,
+        "centerY": -0.027656517922878265
+      },
+      {
+        "frame": 24.625,
+        "minimumHeightM": 0.0039770640432834625,
+        "centerY": -0.0339040532708168
+      },
+      {
+        "frame": 24.75,
+        "minimumHeightM": 0.004000290762633085,
+        "centerY": -0.04015660285949707
+      },
+      {
+        "frame": 24.875,
+        "minimumHeightM": 0.003976310137659311,
+        "centerY": -0.04640381038188934
+      },
+      {
+        "frame": 25.0,
+        "minimumHeightM": 0.004000728018581867,
+        "centerY": -0.05265643447637558
+      },
+      {
+        "frame": 25.125,
+        "minimumHeightM": 0.0039755841717123985,
+        "centerY": -0.058903392404317856
+      },
+      {
+        "frame": 25.25,
+        "minimumHeightM": 0.004000466782599688,
+        "centerY": -0.0651557669043541
+      },
+      {
+        "frame": 25.375,
+        "minimumHeightM": 0.003974454943090677,
+        "centerY": -0.0714033842086792
+      },
+      {
+        "frame": 25.5,
+        "minimumHeightM": 0.004000317305326462,
+        "centerY": -0.07765619456768036
+      },
+      {
+        "frame": 25.625,
+        "minimumHeightM": 0.003973560873419046,
+        "centerY": -0.08390370011329651
+      },
+      {
+        "frame": 25.75,
+        "minimumHeightM": 0.0040006148628890514,
+        "centerY": -0.09015598893165588
+      },
+      {
+        "frame": 25.875,
+        "minimumHeightM": 0.003972531761974096,
+        "centerY": -0.09640412032604218
+      },
+      {
+        "frame": 26.0,
+        "minimumHeightM": 0.004000785760581493,
+        "centerY": -0.10265625268220901
+      },
+      {
+        "frame": 26.125,
+        "minimumHeightM": 0.003971222788095474,
+        "centerY": -0.10890444368124008
+      },
+      {
+        "frame": 26.25,
+        "minimumHeightM": 0.004000425338745117,
+        "centerY": -0.1151561364531517
+      },
+      {
+        "frame": 26.375,
+        "minimumHeightM": 0.003969465848058462,
+        "centerY": -0.12140506505966187
+      },
+      {
+        "frame": 26.5,
+        "minimumHeightM": 0.0040007783100008965,
+        "centerY": -0.12765620648860931
+      },
+      {
+        "frame": 26.625,
+        "minimumHeightM": 0.0039675296284258366,
+        "centerY": -0.13390570878982544
+      },
+      {
+        "frame": 26.75,
+        "minimumHeightM": 0.004000650253146887,
+        "centerY": -0.14015613496303558
+      },
+      {
+        "frame": 26.875,
+        "minimumHeightM": 0.0039654020220041275,
+        "centerY": -0.14640653133392334
+      },
+      {
+        "frame": 27.0,
+        "minimumHeightM": 0.004000400193035603,
+        "centerY": -0.15265637636184692
+      },
+      {
+        "frame": 27.125,
+        "minimumHeightM": 0.003963002469390631,
+        "centerY": -0.15890741348266602
+      },
+      {
+        "frame": 27.25,
+        "minimumHeightM": 0.004000607877969742,
+        "centerY": -0.16515600681304932
+      },
+      {
+        "frame": 27.375,
+        "minimumHeightM": 0.003960460890084505,
+        "centerY": -0.17140910029411316
+      },
+      {
+        "frame": 27.5,
+        "minimumHeightM": 0.004000757820904255,
+        "centerY": -0.1776566207408905
+      },
+      {
+        "frame": 27.625,
+        "minimumHeightM": 0.003957414999604225,
+        "centerY": -0.18391096591949463
+      },
+      {
+        "frame": 27.75,
+        "minimumHeightM": 0.004000950139015913,
+        "centerY": -0.1901562511920929
+      },
+      {
+        "frame": 27.875,
+        "minimumHeightM": 0.003953315783292055,
+        "centerY": -0.19641272723674774
+      },
+      {
+        "frame": 28.0,
+        "minimumHeightM": 0.004000632558017969,
+        "centerY": -0.20265620946884155
+      },
+      {
+        "frame": 28.125,
+        "minimumHeightM": 0.003948376048356295,
+        "centerY": -0.20891544222831726
+      },
+      {
+        "frame": 28.25,
+        "minimumHeightM": 0.0040007526986300945,
+        "centerY": -0.21515583992004395
+      },
+      {
+        "frame": 28.375,
+        "minimumHeightM": 0.003941916394978762,
+        "centerY": -0.2214185744524002
+      },
+      {
+        "frame": 28.5,
+        "minimumHeightM": 0.004000563640147448,
+        "centerY": -0.22765597701072693
+      },
+      {
+        "frame": 28.625,
+        "minimumHeightM": 0.003933210391551256,
+        "centerY": -0.23392359912395477
+      },
+      {
+        "frame": 28.75,
+        "minimumHeightM": 0.004000721033662558,
+        "centerY": -0.24015623331069946
+      },
+      {
+        "frame": 28.875,
+        "minimumHeightM": 0.004728197120130062,
+        "centerY": -0.2458323836326599
+      },
+      {
+        "frame": 29.0,
+        "minimumHeightM": 0.005539658945053816,
+        "centerY": -0.2514868676662445
+      },
+      {
+        "frame": 29.125,
+        "minimumHeightM": 0.007821870967745781,
+        "centerY": -0.2544868588447571
+      },
+      {
+        "frame": 29.25,
+        "minimumHeightM": 0.010116810910403728,
+        "centerY": -0.25747573375701904
+      },
+      {
+        "frame": 29.375,
+        "minimumHeightM": 0.01307026669383049,
+        "centerY": -0.2577715814113617
+      },
+      {
+        "frame": 29.5,
+        "minimumHeightM": 0.016095560044050217,
+        "centerY": -0.2580205798149109
+      },
+      {
+        "frame": 29.625,
+        "minimumHeightM": 0.019453518092632294,
+        "centerY": -0.256608247756958
+      },
+      {
+        "frame": 29.75,
+        "minimumHeightM": 0.022947002202272415,
+        "centerY": -0.25512051582336426
+      },
+      {
+        "frame": 29.875,
+        "minimumHeightM": 0.02656552568078041,
+        "centerY": -0.2522568702697754
+      },
+      {
+        "frame": 30.0,
+        "minimumHeightM": 0.030364330857992172,
+        "centerY": -0.24930384755134583
+      },
+      {
+        "frame": 30.125,
+        "minimumHeightM": 0.034143172204494476,
+        "centerY": -0.24505308270454407
+      },
+      {
+        "frame": 30.25,
+        "minimumHeightM": 0.03813361003994942,
+        "centerY": -0.2407105267047882
+      },
+      {
+        "frame": 30.375,
+        "minimumHeightM": 0.04199497774243355,
+        "centerY": -0.23513908684253693
+      },
+      {
+        "frame": 30.5,
+        "minimumHeightM": 0.046090058982372284,
+        "centerY": -0.22948245704174042
+      },
+      {
+        "frame": 30.625,
+        "minimumHeightM": 0.049972645938396454,
+        "centerY": -0.2226569503545761
+      },
+      {
+        "frame": 30.75,
+        "minimumHeightM": 0.05410415306687355,
+        "centerY": -0.21576032042503357
+      },
+      {
+        "frame": 30.875,
+        "minimumHeightM": 0.05795435234904289,
+        "centerY": -0.20774969458580017
+      },
+      {
+        "frame": 31.0,
+        "minimumHeightM": 0.062065258622169495,
+        "centerY": -0.19968627393245697
+      },
+      {
+        "frame": 31.125,
+        "minimumHeightM": 0.06583849340677261,
+        "centerY": -0.19055843353271484
+      },
+      {
+        "frame": 31.25,
+        "minimumHeightM": 0.0698821097612381,
+        "centerY": -0.18139952421188354
+      },
+      {
+        "frame": 31.375,
+        "minimumHeightM": 0.07353955507278442,
+        "centerY": -0.17122451961040497
+      },
+      {
+        "frame": 31.5,
+        "minimumHeightM": 0.07747557014226913,
+        "centerY": -0.16104203462600708
+      },
+      {
+        "frame": 31.625,
+        "minimumHeightM": 0.08098281919956207,
+        "centerY": -0.14989013969898224
+      },
+      {
+        "frame": 31.75,
+        "minimumHeightM": 0.08477722108364105,
+        "centerY": -0.13875508308410645
+      },
+      {
+        "frame": 31.875,
+        "minimumHeightM": 0.08810432255268097,
+        "centerY": -0.12669691443443298
+      },
+      {
+        "frame": 32.0,
+        "minimumHeightM": 0.09172632545232773,
+        "centerY": -0.11467953026294708
+      },
+      {
+        "frame": 32.125,
+        "minimumHeightM": 0.09484760463237762,
+        "centerY": -0.10178607702255249
+      },
+      {
+        "frame": 32.25,
+        "minimumHeightM": 0.09827128797769547,
+        "centerY": -0.08895587176084518
+      },
+      {
+        "frame": 32.375,
+        "minimumHeightM": 0.1011635959148407,
+        "centerY": -0.0752992108464241
+      },
+      {
+        "frame": 32.5,
+        "minimumHeightM": 0.10436534136533737,
+        "centerY": -0.06172606348991394
+      },
+      {
+        "frame": 32.625,
+        "minimumHeightM": 0.10700942575931549,
+        "centerY": -0.0473782904446125
+      },
+      {
+        "frame": 32.75,
+        "minimumHeightM": 0.10996963083744049,
+        "centerY": -0.03313104063272476
+      },
+      {
+        "frame": 32.875,
+        "minimumHeightM": 0.11234776675701141,
+        "centerY": -0.018164971843361855
+      },
+      {
+        "frame": 33.0,
+        "minimumHeightM": 0.11504808068275452,
+        "centerY": -0.003311499021947384
+      }
+    ],
+    "ForeHoof.R": [
+      {
+        "frame": 1.0,
+        "minimumHeightM": 0.004000420682132244,
+        "centerY": 0.3473634421825409
+      },
+      {
+        "frame": 1.125,
+        "minimumHeightM": 0.003981191199272871,
+        "centerY": 0.3411104083061218
+      },
+      {
+        "frame": 1.25,
+        "minimumHeightM": 0.004000046756118536,
+        "centerY": 0.33486321568489075
+      },
+      {
+        "frame": 1.375,
+        "minimumHeightM": 0.003981246612966061,
+        "centerY": 0.3286101818084717
+      },
+      {
+        "frame": 1.5,
+        "minimumHeightM": 0.004000036511570215,
+        "centerY": 0.32236286997795105
+      },
+      {
+        "frame": 1.625,
+        "minimumHeightM": 0.003981354646384716,
+        "centerY": 0.31611010432243347
+      },
+      {
+        "frame": 1.75,
+        "minimumHeightM": 0.004000052344053984,
+        "centerY": 0.3098630905151367
+      },
+      {
+        "frame": 1.875,
+        "minimumHeightM": 0.003981420304626226,
+        "centerY": 0.3036101758480072
+      },
+      {
+        "frame": 2.0,
+        "minimumHeightM": 0.004000458400696516,
+        "centerY": 0.2973628342151642
+      },
+      {
+        "frame": 2.125,
+        "minimumHeightM": 0.003981422632932663,
+        "centerY": 0.2911098301410675
+      },
+      {
+        "frame": 2.25,
+        "minimumHeightM": 0.003999779000878334,
+        "centerY": 0.28486254811286926
+      },
+      {
+        "frame": 2.375,
+        "minimumHeightM": 0.003981445915997028,
+        "centerY": 0.2786100208759308
+      },
+      {
+        "frame": 2.5,
+        "minimumHeightM": 0.00399991637095809,
+        "centerY": 0.27236294746398926
+      },
+      {
+        "frame": 2.625,
+        "minimumHeightM": 0.003981474786996841,
+        "centerY": 0.2661103308200836
+      },
+      {
+        "frame": 2.75,
+        "minimumHeightM": 0.003999944776296616,
+        "centerY": 0.2598629891872406
+      },
+      {
+        "frame": 2.875,
+        "minimumHeightM": 0.0039814542979002,
+        "centerY": 0.2536102831363678
+      },
+      {
+        "frame": 3.0,
+        "minimumHeightM": 0.004000104498118162,
+        "centerY": 0.24736283719539642
+      },
+      {
+        "frame": 3.125,
+        "minimumHeightM": 0.003981520421802998,
+        "centerY": 0.24111048877239227
+      },
+      {
+        "frame": 3.25,
+        "minimumHeightM": 0.004000186920166016,
+        "centerY": 0.23486287891864777
+      },
+      {
+        "frame": 3.375,
+        "minimumHeightM": 0.0039816685020923615,
+        "centerY": 0.22861087322235107
+      },
+      {
+        "frame": 3.5,
+        "minimumHeightM": 0.004000162705779076,
+        "centerY": 0.2223629653453827
+      },
+      {
+        "frame": 3.625,
+        "minimumHeightM": 0.003981706686317921,
+        "centerY": 0.21611076593399048
+      },
+      {
+        "frame": 3.75,
+        "minimumHeightM": 0.004000136628746986,
+        "centerY": 0.20986279845237732
+      },
+      {
+        "frame": 3.875,
+        "minimumHeightM": 0.003981629852205515,
+        "centerY": 0.2036111056804657
+      },
+      {
+        "frame": 4.0,
+        "minimumHeightM": 0.004000095650553703,
+        "centerY": 0.19736313819885254
+      },
+      {
+        "frame": 4.125,
+        "minimumHeightM": 0.003981834277510643,
+        "centerY": 0.19111143052577972
+      },
+      {
+        "frame": 4.25,
+        "minimumHeightM": 0.0040003107860684395,
+        "centerY": 0.18486306071281433
+      },
+      {
+        "frame": 4.375,
+        "minimumHeightM": 0.003981747664511204,
+        "centerY": 0.17861118912696838
+      },
+      {
+        "frame": 4.5,
+        "minimumHeightM": 0.004000094719231129,
+        "centerY": 0.17236271500587463
+      },
+      {
+        "frame": 4.625,
+        "minimumHeightM": 0.0039816927164793015,
+        "centerY": 0.16611114144325256
+      },
+      {
+        "frame": 4.75,
+        "minimumHeightM": 0.004000274930149317,
+        "centerY": 0.15986256301403046
+      },
+      {
+        "frame": 4.875,
+        "minimumHeightM": 0.003981688525527716,
+        "centerY": 0.15361139178276062
+      },
+      {
+        "frame": 5.0,
+        "minimumHeightM": 0.004000192042440176,
+        "centerY": 0.14736264944076538
+      },
+      {
+        "frame": 5.125,
+        "minimumHeightM": 0.003981428220868111,
+        "centerY": 0.14111202955245972
+      },
+      {
+        "frame": 5.25,
+        "minimumHeightM": 0.0040001277811825275,
+        "centerY": 0.13486316800117493
+      },
+      {
+        "frame": 5.375,
+        "minimumHeightM": 0.003981474321335554,
+        "centerY": 0.12861259281635284
+      },
+      {
+        "frame": 5.5,
+        "minimumHeightM": 0.004000019747763872,
+        "centerY": 0.12236305326223373
+      },
+      {
+        "frame": 5.625,
+        "minimumHeightM": 0.0039813402108848095,
+        "centerY": 0.11611268669366837
+      },
+      {
+        "frame": 5.75,
+        "minimumHeightM": 0.004000174347311258,
+        "centerY": 0.10986285656690598
+      },
+      {
+        "frame": 5.875,
+        "minimumHeightM": 0.003981291316449642,
+        "centerY": 0.10361318290233612
+      },
+      {
+        "frame": 6.0,
+        "minimumHeightM": 0.004000146873295307,
+        "centerY": 0.09736327826976776
+      },
+      {
+        "frame": 6.125,
+        "minimumHeightM": 0.003980956971645355,
+        "centerY": 0.09111318737268448
+      },
+      {
+        "frame": 6.25,
+        "minimumHeightM": 0.004000470042228699,
+        "centerY": 0.08486276119947433
+      },
+      {
+        "frame": 6.375,
+        "minimumHeightM": 0.003980622626841068,
+        "centerY": 0.07861331850290298
+      },
+      {
+        "frame": 6.5,
+        "minimumHeightM": 0.004000093322247267,
+        "centerY": 0.07236248254776001
+      },
+      {
+        "frame": 6.625,
+        "minimumHeightM": 0.003980487585067749,
+        "centerY": 0.06611368060112
+      },
+      {
+        "frame": 6.75,
+        "minimumHeightM": 0.004000243730843067,
+        "centerY": 0.05986287444829941
+      },
+      {
+        "frame": 6.875,
+        "minimumHeightM": 0.003980211913585663,
+        "centerY": 0.05361428111791611
+      },
+      {
+        "frame": 7.0,
+        "minimumHeightM": 0.004000240936875343,
+        "centerY": 0.04736311361193657
+      },
+      {
+        "frame": 7.125,
+        "minimumHeightM": 0.003980225883424282,
+        "centerY": 0.041114289313554764
+      },
+      {
+        "frame": 7.25,
+        "minimumHeightM": 0.004000490996986628,
+        "centerY": 0.03486251458525658
+      },
+      {
+        "frame": 7.375,
+        "minimumHeightM": 0.0039794123731553555,
+        "centerY": 0.028614424169063568
+      },
+      {
+        "frame": 7.5,
+        "minimumHeightM": 0.004000406712293625,
+        "centerY": 0.022362923249602318
+      },
+      {
+        "frame": 7.625,
+        "minimumHeightM": 0.003979397471994162,
+        "centerY": 0.0161148514598608
+      },
+      {
+        "frame": 7.75,
+        "minimumHeightM": 0.0040005529299378395,
+        "centerY": 0.009862435981631279
+      },
+      {
+        "frame": 7.875,
+        "minimumHeightM": 0.003978762775659561,
+        "centerY": 0.0036148573271930218
+      },
+      {
+        "frame": 8.0,
+        "minimumHeightM": 0.0040004742331802845,
+        "centerY": -0.0026370403356850147
+      },
+      {
+        "frame": 8.125,
+        "minimumHeightM": 0.003978001419454813,
+        "centerY": -0.008884546346962452
+      },
+      {
+        "frame": 8.25,
+        "minimumHeightM": 0.003999993205070496,
+        "centerY": -0.015136894769966602
+      },
+      {
+        "frame": 8.375,
+        "minimumHeightM": 0.003977554850280285,
+        "centerY": -0.02138444595038891
+      },
+      {
+        "frame": 8.5,
+        "minimumHeightM": 0.004000590182840824,
+        "centerY": -0.027637213468551636
+      },
+      {
+        "frame": 8.625,
+        "minimumHeightM": 0.003976780921220779,
+        "centerY": -0.03388439863920212
+      },
+      {
+        "frame": 8.75,
+        "minimumHeightM": 0.003999984357506037,
+        "centerY": -0.04013681411743164
+      },
+      {
+        "frame": 8.875,
+        "minimumHeightM": 0.003975757863372564,
+        "centerY": -0.04638412594795227
+      },
+      {
+        "frame": 9.0,
+        "minimumHeightM": 0.004000011365860701,
+        "centerY": -0.05263682082295418
+      },
+      {
+        "frame": 9.125,
+        "minimumHeightM": 0.003974945284426212,
+        "centerY": -0.05888419225811958
+      },
+      {
+        "frame": 9.25,
+        "minimumHeightM": 0.003999924752861261,
+        "centerY": -0.06513693928718567
+      },
+      {
+        "frame": 9.375,
+        "minimumHeightM": 0.003973980434238911,
+        "centerY": -0.0713844820857048
+      },
+      {
+        "frame": 9.5,
+        "minimumHeightM": 0.004000263288617134,
+        "centerY": -0.07763717323541641
+      },
+      {
+        "frame": 9.625,
+        "minimumHeightM": 0.003973054699599743,
+        "centerY": -0.08388493210077286
+      },
+      {
+        "frame": 9.75,
+        "minimumHeightM": 0.0040001156739890575,
+        "centerY": -0.09013720601797104
+      },
+      {
+        "frame": 9.875,
+        "minimumHeightM": 0.003971922677010298,
+        "centerY": -0.09638477861881256
+      },
+      {
+        "frame": 10.0,
+        "minimumHeightM": 0.00400048540905118,
+        "centerY": -0.10263723880052567
+      },
+      {
+        "frame": 10.125,
+        "minimumHeightM": 0.003970836754888296,
+        "centerY": -0.10888542234897614
+      },
+      {
+        "frame": 10.25,
+        "minimumHeightM": 0.004000334069132805,
+        "centerY": -0.11513733118772507
+      },
+      {
+        "frame": 10.375,
+        "minimumHeightM": 0.003969036508351564,
+        "centerY": -0.12138613313436508
+      },
+      {
+        "frame": 10.5,
+        "minimumHeightM": 0.004000280052423477,
+        "centerY": -0.12763741612434387
+      },
+      {
+        "frame": 10.625,
+        "minimumHeightM": 0.00396736292168498,
+        "centerY": -0.13388685882091522
+      },
+      {
+        "frame": 10.75,
+        "minimumHeightM": 0.004000577609986067,
+        "centerY": -0.1401372104883194
+      },
+      {
+        "frame": 10.875,
+        "minimumHeightM": 0.003965282347053289,
+        "centerY": -0.14638763666152954
+      },
+      {
+        "frame": 11.0,
+        "minimumHeightM": 0.004000100772827864,
+        "centerY": -0.15263719856739044
+      },
+      {
+        "frame": 11.125,
+        "minimumHeightM": 0.003962857183068991,
+        "centerY": -0.15888841450214386
+      },
+      {
+        "frame": 11.25,
+        "minimumHeightM": 0.004000206012278795,
+        "centerY": -0.1651369035243988
+      },
+      {
+        "frame": 11.375,
+        "minimumHeightM": 0.003959913272410631,
+        "centerY": -0.17138971388339996
+      },
+      {
+        "frame": 11.5,
+        "minimumHeightM": 0.004000072367489338,
+        "centerY": -0.17763708531856537
+      },
+      {
+        "frame": 11.625,
+        "minimumHeightM": 0.003956920932978392,
+        "centerY": -0.18389174342155457
+      },
+      {
+        "frame": 11.75,
+        "minimumHeightM": 0.004000329878181219,
+        "centerY": -0.19013753533363342
+      },
+      {
+        "frame": 11.875,
+        "minimumHeightM": 0.003952941857278347,
+        "centerY": -0.19639387726783752
+      },
+      {
+        "frame": 12.0,
+        "minimumHeightM": 0.0040003228932619095,
+        "centerY": -0.20263724029064178
+      },
+      {
+        "frame": 12.125,
+        "minimumHeightM": 0.003948010969907045,
+        "centerY": -0.20889656245708466
+      },
+      {
+        "frame": 12.25,
+        "minimumHeightM": 0.0040003894828259945,
+        "centerY": -0.2151370495557785
+      },
+      {
+        "frame": 12.375,
+        "minimumHeightM": 0.003941542003303766,
+        "centerY": -0.22139990329742432
+      },
+      {
+        "frame": 12.5,
+        "minimumHeightM": 0.004000099841505289,
+        "centerY": -0.2276369333267212
+      },
+      {
+        "frame": 12.625,
+        "minimumHeightM": 0.003932792227715254,
+        "centerY": -0.23390460014343262
+      },
+      {
+        "frame": 12.75,
+        "minimumHeightM": 0.004000259097665548,
+        "centerY": -0.2401372194290161
+      },
+      {
+        "frame": 12.875,
+        "minimumHeightM": 0.004727690480649471,
+        "centerY": -0.24581339955329895
+      },
+      {
+        "frame": 13.0,
+        "minimumHeightM": 0.0055388775654137135,
+        "centerY": -0.25146785378456116
+      },
+      {
+        "frame": 13.125,
+        "minimumHeightM": 0.00782120879739523,
+        "centerY": -0.25446778535842896
+      },
+      {
+        "frame": 13.25,
+        "minimumHeightM": 0.010116239078342915,
+        "centerY": -0.2574566900730133
+      },
+      {
+        "frame": 13.375,
+        "minimumHeightM": 0.013069819658994675,
+        "centerY": -0.25775274634361267
+      },
+      {
+        "frame": 13.5,
+        "minimumHeightM": 0.016095256432890892,
+        "centerY": -0.2580016851425171
+      },
+      {
+        "frame": 13.625,
+        "minimumHeightM": 0.01945330761373043,
+        "centerY": -0.25658944249153137
+      },
+      {
+        "frame": 13.75,
+        "minimumHeightM": 0.02294679917395115,
+        "centerY": -0.2551018297672272
+      },
+      {
+        "frame": 13.875,
+        "minimumHeightM": 0.02656523324549198,
+        "centerY": -0.25223809480667114
+      },
+      {
+        "frame": 14.0,
+        "minimumHeightM": 0.03036380745470524,
+        "centerY": -0.24928498268127441
+      },
+      {
+        "frame": 14.125,
+        "minimumHeightM": 0.034142959862947464,
+        "centerY": -0.24503430724143982
+      },
+      {
+        "frame": 14.25,
+        "minimumHeightM": 0.03813352435827255,
+        "centerY": -0.24069181084632874
+      },
+      {
+        "frame": 14.375,
+        "minimumHeightM": 0.04199526086449623,
+        "centerY": -0.23512010276317596
+      },
+      {
+        "frame": 14.5,
+        "minimumHeightM": 0.04609033092856407,
+        "centerY": -0.22946390509605408
+      },
+      {
+        "frame": 14.625,
+        "minimumHeightM": 0.049972616136074066,
+        "centerY": -0.2226383537054062
+      },
+      {
+        "frame": 14.75,
+        "minimumHeightM": 0.05410386994481087,
+        "centerY": -0.21574203670024872
+      },
+      {
+        "frame": 14.875,
+        "minimumHeightM": 0.057954370975494385,
+        "centerY": -0.20773082971572876
+      },
+      {
+        "frame": 15.0,
+        "minimumHeightM": 0.06206502020359039,
+        "centerY": -0.19966723024845123
+      },
+      {
+        "frame": 15.125,
+        "minimumHeightM": 0.06583826243877411,
+        "centerY": -0.1905394196510315
+      },
+      {
+        "frame": 15.25,
+        "minimumHeightM": 0.06988184154033661,
+        "centerY": -0.18138058483600616
+      },
+      {
+        "frame": 15.375,
+        "minimumHeightM": 0.07353924214839935,
+        "centerY": -0.1712055206298828
+      },
+      {
+        "frame": 15.5,
+        "minimumHeightM": 0.07747521996498108,
+        "centerY": -0.16102276742458344
+      },
+      {
+        "frame": 15.625,
+        "minimumHeightM": 0.08098279684782028,
+        "centerY": -0.14987094700336456
+      },
+      {
+        "frame": 15.75,
+        "minimumHeightM": 0.08477690070867538,
+        "centerY": -0.13873611390590668
+      },
+      {
+        "frame": 15.875,
+        "minimumHeightM": 0.08810419589281082,
+        "centerY": -0.1266777515411377
+      },
+      {
+        "frame": 16.0,
+        "minimumHeightM": 0.09172601252794266,
+        "centerY": -0.11466001719236374
+      },
+      {
+        "frame": 16.125,
+        "minimumHeightM": 0.0948471650481224,
+        "centerY": -0.10176695138216019
+      },
+      {
+        "frame": 16.25,
+        "minimumHeightM": 0.09827101975679398,
+        "centerY": -0.08893714100122452
+      },
+      {
+        "frame": 16.375,
+        "minimumHeightM": 0.10116320848464966,
+        "centerY": -0.07528037577867508
+      },
+      {
+        "frame": 16.5,
+        "minimumHeightM": 0.10436540096998215,
+        "centerY": -0.06170671805739403
+      },
+      {
+        "frame": 16.625,
+        "minimumHeightM": 0.10700947046279907,
+        "centerY": -0.047359101474285126
+      },
+      {
+        "frame": 16.75,
+        "minimumHeightM": 0.10996948927640915,
+        "centerY": -0.03311191871762276
+      },
+      {
+        "frame": 16.875,
+        "minimumHeightM": 0.1123475432395935,
+        "centerY": -0.018145913258194923
+      },
+      {
+        "frame": 17.0,
+        "minimumHeightM": 0.11504767835140228,
+        "centerY": -0.0032923787366598845
+      },
+      {
+        "frame": 17.125,
+        "minimumHeightM": 0.11714567989110947,
+        "centerY": 0.012218854390084743
+      },
+      {
+        "frame": 17.25,
+        "minimumHeightM": 0.11956999450922012,
+        "centerY": 0.027610640972852707
+      },
+      {
+        "frame": 17.375,
+        "minimumHeightM": 0.12137497961521149,
+        "centerY": 0.04359274357557297
+      },
+      {
+        "frame": 17.5,
+        "minimumHeightM": 0.12351028621196747,
+        "centerY": 0.05945603922009468
+      },
+      {
+        "frame": 17.625,
+        "minimumHeightM": 0.1250120848417282,
+        "centerY": 0.07583574205636978
+      },
+      {
+        "frame": 17.75,
+        "minimumHeightM": 0.12684638798236847,
+        "centerY": 0.09210261702537537
+      },
+      {
+        "frame": 17.875,
+        "minimumHeightM": 0.1280370056629181,
+        "centerY": 0.1088055968284607
+      },
+      {
+        "frame": 18.0,
+        "minimumHeightM": 0.12956151366233826,
+        "centerY": 0.12540946900844574
+      },
+      {
+        "frame": 18.125,
+        "minimumHeightM": 0.13043326139450073,
+        "centerY": 0.1423618346452713
+      },
+      {
+        "frame": 18.25,
+        "minimumHeightM": 0.13163967430591583,
+        "centerY": 0.15923498570919037
+      },
+      {
+        "frame": 18.375,
+        "minimumHeightM": 0.13218796253204346,
+        "centerY": 0.17636390030384064
+      },
+      {
+        "frame": 18.5,
+        "minimumHeightM": 0.13307085633277893,
+        "centerY": 0.19343926012516022
+      },
+      {
+        "frame": 18.625,
+        "minimumHeightM": 0.133292093873024,
+        "centerY": 0.21067173779010773
+      },
+      {
+        "frame": 18.75,
+        "minimumHeightM": 0.13384774327278137,
+        "centerY": 0.22787967324256897
+      },
+      {
+        "frame": 18.875,
+        "minimumHeightM": 0.13373973965644836,
+        "centerY": 0.24514470994472504
+      },
+      {
+        "frame": 19.0,
+        "minimumHeightM": 0.13396640121936798,
+        "centerY": 0.2624162435531616
+      },
+      {
+        "frame": 19.125,
+        "minimumHeightM": 0.13352921605110168,
+        "centerY": 0.27964410185813904
+      },
+      {
+        "frame": 19.25,
+        "minimumHeightM": 0.13342636823654175,
+        "centerY": 0.29690808057785034
+      },
+      {
+        "frame": 19.375,
+        "minimumHeightM": 0.13266082108020782,
+        "centerY": 0.31402912735939026
+      },
+      {
+        "frame": 19.5,
+        "minimumHeightM": 0.1322297304868698,
+        "centerY": 0.33121374249458313
+      },
+      {
+        "frame": 19.625,
+        "minimumHeightM": 0.13113997876644135,
+        "centerY": 0.3481598496437073
+      },
+      {
+        "frame": 19.75,
+        "minimumHeightM": 0.1303832232952118,
+        "centerY": 0.36519140005111694
+      },
+      {
+        "frame": 19.875,
+        "minimumHeightM": 0.1289742887020111,
+        "centerY": 0.38189592957496643
+      },
+      {
+        "frame": 20.0,
+        "minimumHeightM": 0.1278962641954422,
+        "centerY": 0.3987017273902893
+      },
+      {
+        "frame": 20.125,
+        "minimumHeightM": 0.12617479264736176,
+        "centerY": 0.4150964617729187
+      },
+      {
+        "frame": 20.25,
+        "minimumHeightM": 0.1247820109128952,
+        "centerY": 0.4316021502017975
+      },
+      {
+        "frame": 20.375,
+        "minimumHeightM": 0.12275688350200653,
+        "centerY": 0.4476206600666046
+      },
+      {
+        "frame": 20.5,
+        "minimumHeightM": 0.12105650454759598,
+        "centerY": 0.46375182271003723
+      },
+      {
+        "frame": 20.625,
+        "minimumHeightM": 0.11873835325241089,
+        "centerY": 0.4793272018432617
+      },
+      {
+        "frame": 20.75,
+        "minimumHeightM": 0.11674097180366516,
+        "centerY": 0.49501070380210876
+      },
+      {
+        "frame": 20.875,
+        "minimumHeightM": 0.11414266377687454,
+        "centerY": 0.510075032711029
+      },
+      {
+        "frame": 21.0,
+        "minimumHeightM": 0.11185971647500992,
+        "centerY": 0.5252368450164795
+      },
+      {
+        "frame": 21.125,
+        "minimumHeightM": 0.10899539291858673,
+        "centerY": 0.5397222638130188
+      },
+      {
+        "frame": 21.25,
+        "minimumHeightM": 0.10644093155860901,
+        "centerY": 0.5542887449264526
+      },
+      {
+        "frame": 21.375,
+        "minimumHeightM": 0.10332776606082916,
+        "centerY": 0.5681276917457581
+      },
+      {
+        "frame": 21.5,
+        "minimumHeightM": 0.10051855444908142,
+        "centerY": 0.5820267200469971
+      },
+      {
+        "frame": 21.625,
+        "minimumHeightM": 0.09717574715614319,
+        "centerY": 0.5951489210128784
+      },
+      {
+        "frame": 21.75,
+        "minimumHeightM": 0.09413135051727295,
+        "centerY": 0.6083084344863892
+      },
+      {
+        "frame": 21.875,
+        "minimumHeightM": 0.09057960659265518,
+        "centerY": 0.6206452250480652
+      },
+      {
+        "frame": 22.0,
+        "minimumHeightM": 0.08732201159000397,
+        "centerY": 0.6329936981201172
+      },
+      {
+        "frame": 22.125,
+        "minimumHeightM": 0.0835864394903183,
+        "centerY": 0.6444746255874634
+      },
+      {
+        "frame": 22.25,
+        "minimumHeightM": 0.08014097809791565,
+        "centerY": 0.655940592288971
+      },
+      {
+        "frame": 22.375,
+        "minimumHeightM": 0.07624926418066025,
+        "centerY": 0.6664956212043762
+      },
+      {
+        "frame": 22.5,
+        "minimumHeightM": 0.0726449117064476,
+        "centerY": 0.6770089268684387
+      },
+      {
+        "frame": 22.625,
+        "minimumHeightM": 0.06862941384315491,
+        "centerY": 0.686566948890686
+      },
+      {
+        "frame": 22.75,
+        "minimumHeightM": 0.06490007042884827,
+        "centerY": 0.6960574984550476
+      },
+      {
+        "frame": 22.875,
+        "minimumHeightM": 0.06079791858792305,
+        "centerY": 0.7045469880104065
+      },
+      {
+        "frame": 23.0,
+        "minimumHeightM": 0.056980688124895096,
+        "centerY": 0.7129443287849426
+      },
+      {
+        "frame": 23.125,
+        "minimumHeightM": 0.05283533036708832,
+        "centerY": 0.7202943563461304
+      },
+      {
+        "frame": 23.25,
+        "minimumHeightM": 0.04897481948137283,
+        "centerY": 0.7275300621986389
+      },
+      {
+        "frame": 23.375,
+        "minimumHeightM": 0.04483678564429283,
+        "centerY": 0.7336670756340027
+      },
+      {
+        "frame": 23.5,
+        "minimumHeightM": 0.0409834049642086,
+        "centerY": 0.739672064781189
+      },
+      {
+        "frame": 23.625,
+        "minimumHeightM": 0.03691689297556877,
+        "centerY": 0.7445234060287476
+      },
+      {
+        "frame": 23.75,
+        "minimumHeightM": 0.03312946483492851,
+        "centerY": 0.7492296695709229
+      },
+      {
+        "frame": 23.875,
+        "minimumHeightM": 0.029213815927505493,
+        "centerY": 0.7527202367782593
+      },
+      {
+        "frame": 24.0,
+        "minimumHeightM": 0.02556416392326355,
+        "centerY": 0.7560625076293945
+      },
+      {
+        "frame": 24.125,
+        "minimumHeightM": 0.021903350949287415,
+        "centerY": 0.7581146359443665
+      },
+      {
+        "frame": 24.25,
+        "minimumHeightM": 0.01847926713526249,
+        "centerY": 0.7600282430648804
+      },
+      {
+        "frame": 24.375,
+        "minimumHeightM": 0.015222444199025631,
+        "centerY": 0.760538637638092
+      },
+      {
+        "frame": 24.5,
+        "minimumHeightM": 0.012142149731516838,
+        "centerY": 0.7609413266181946
+      },
+      {
+        "frame": 24.625,
+        "minimumHeightM": 0.009530040435492992,
+        "centerY": 0.7589938640594482
+      },
+      {
+        "frame": 24.75,
+        "minimumHeightM": 0.006971956696361303,
+        "centerY": 0.7570077180862427
+      },
+      {
+        "frame": 24.875,
+        "minimumHeightM": 0.0054672593250870705,
+        "centerY": 0.7521905899047852
+      },
+      {
+        "frame": 25.0,
+        "minimumHeightM": 0.003999939188361168,
+        "centerY": 0.7473631501197815
+      },
+      {
+        "frame": 25.125,
+        "minimumHeightM": 0.0039043875876814127,
+        "centerY": 0.7411478161811829
+      },
+      {
+        "frame": 25.25,
+        "minimumHeightM": 0.004000131972134113,
+        "centerY": 0.7348635792732239
+      },
+      {
+        "frame": 25.375,
+        "minimumHeightM": 0.003924693446606398,
+        "centerY": 0.7286370396614075
+      },
+      {
+        "frame": 25.5,
+        "minimumHeightM": 0.004000144079327583,
+        "centerY": 0.7223631143569946
+      },
+      {
+        "frame": 25.625,
+        "minimumHeightM": 0.003937121015042067,
+        "centerY": 0.7161300182342529
+      },
+      {
+        "frame": 25.75,
+        "minimumHeightM": 0.003999624866992235,
+        "centerY": 0.7098630666732788
+      },
+      {
+        "frame": 25.875,
+        "minimumHeightM": 0.003945633303374052,
+        "centerY": 0.7036254405975342
+      },
+      {
+        "frame": 26.0,
+        "minimumHeightM": 0.003999898675829172,
+        "centerY": 0.6973631381988525
+      },
+      {
+        "frame": 26.125,
+        "minimumHeightM": 0.003952422644942999,
+        "centerY": 0.6911221146583557
+      },
+      {
+        "frame": 26.25,
+        "minimumHeightM": 0.003999738022685051,
+        "centerY": 0.6848631501197815
+      },
+      {
+        "frame": 26.375,
+        "minimumHeightM": 0.003957172855734825,
+        "centerY": 0.6786192059516907
+      },
+      {
+        "frame": 26.5,
+        "minimumHeightM": 0.004000096116214991,
+        "centerY": 0.6723628640174866
+      },
+      {
+        "frame": 26.625,
+        "minimumHeightM": 0.003960913047194481,
+        "centerY": 0.6661174297332764
+      },
+      {
+        "frame": 26.75,
+        "minimumHeightM": 0.004000000189989805,
+        "centerY": 0.6598628163337708
+      },
+      {
+        "frame": 26.875,
+        "minimumHeightM": 0.00396386906504631,
+        "centerY": 0.6536157131195068
+      },
+      {
+        "frame": 27.0,
+        "minimumHeightM": 0.003999708686023951,
+        "centerY": 0.6473628282546997
+      },
+      {
+        "frame": 27.125,
+        "minimumHeightM": 0.003966307267546654,
+        "centerY": 0.6411147713661194
+      },
+      {
+        "frame": 27.25,
+        "minimumHeightM": 0.004000063054263592,
+        "centerY": 0.6348632574081421
+      },
+      {
+        "frame": 27.375,
+        "minimumHeightM": 0.003968542907387018,
+        "centerY": 0.628614068031311
+      },
+      {
+        "frame": 27.5,
+        "minimumHeightM": 0.004000346641987562,
+        "centerY": 0.6223634481430054
+      },
+      {
+        "frame": 27.625,
+        "minimumHeightM": 0.0039702849462628365,
+        "centerY": 0.6161136627197266
+      },
+      {
+        "frame": 27.75,
+        "minimumHeightM": 0.004000140819698572,
+        "centerY": 0.6098631024360657
+      },
+      {
+        "frame": 27.875,
+        "minimumHeightM": 0.003971807658672333,
+        "centerY": 0.6036128997802734
+      },
+      {
+        "frame": 28.0,
+        "minimumHeightM": 0.004000155255198479,
+        "centerY": 0.5973629355430603
+      },
+      {
+        "frame": 28.125,
+        "minimumHeightM": 0.003972822800278664,
+        "centerY": 0.5911118984222412
+      },
+      {
+        "frame": 28.25,
+        "minimumHeightM": 0.003999829292297363,
+        "centerY": 0.5848628282546997
+      },
+      {
+        "frame": 28.375,
+        "minimumHeightM": 0.00397409638389945,
+        "centerY": 0.5786112546920776
+      },
+      {
+        "frame": 28.5,
+        "minimumHeightM": 0.003999941051006317,
+        "centerY": 0.5723627805709839
+      },
+      {
+        "frame": 28.625,
+        "minimumHeightM": 0.003974522463977337,
+        "centerY": 0.5661113858222961
+      },
+      {
+        "frame": 28.75,
+        "minimumHeightM": 0.003999955020844936,
+        "centerY": 0.5598634481430054
+      },
+      {
+        "frame": 28.875,
+        "minimumHeightM": 0.0039756642654538155,
+        "centerY": 0.5536112785339355
+      },
+      {
+        "frame": 29.0,
+        "minimumHeightM": 0.003999987617135048,
+        "centerY": 0.5473629236221313
+      },
+      {
+        "frame": 29.125,
+        "minimumHeightM": 0.003976502921432257,
+        "centerY": 0.5411108732223511
+      },
+      {
+        "frame": 29.25,
+        "minimumHeightM": 0.004000155720859766,
+        "centerY": 0.5348629355430603
+      },
+      {
+        "frame": 29.375,
+        "minimumHeightM": 0.003977153450250626,
+        "centerY": 0.5286109447479248
+      },
+      {
+        "frame": 29.5,
+        "minimumHeightM": 0.0040000444278120995,
+        "centerY": 0.5223634839057922
+      },
+      {
+        "frame": 29.625,
+        "minimumHeightM": 0.003977765329182148,
+        "centerY": 0.5161107778549194
+      },
+      {
+        "frame": 29.75,
+        "minimumHeightM": 0.004000391811132431,
+        "centerY": 0.5098630785942078
+      },
+      {
+        "frame": 29.875,
+        "minimumHeightM": 0.003978007938712835,
+        "centerY": 0.5036104917526245
+      },
+      {
+        "frame": 30.0,
+        "minimumHeightM": 0.0039994437247514725,
+        "centerY": 0.4973628520965576
+      },
+      {
+        "frame": 30.125,
+        "minimumHeightM": 0.00397831667214632,
+        "centerY": 0.4911103844642639
+      },
+      {
+        "frame": 30.25,
+        "minimumHeightM": 0.004000075161457062,
+        "centerY": 0.4848631024360657
+      },
+      {
+        "frame": 30.375,
+        "minimumHeightM": 0.003978911321610212,
+        "centerY": 0.47861039638519287
+      },
+      {
+        "frame": 30.5,
+        "minimumHeightM": 0.004000174812972546,
+        "centerY": 0.472363144159317
+      },
+      {
+        "frame": 30.625,
+        "minimumHeightM": 0.003979249391704798,
+        "centerY": 0.4661104083061218
+      },
+      {
+        "frame": 30.75,
+        "minimumHeightM": 0.004000355023890734,
+        "centerY": 0.45986297726631165
+      },
+      {
+        "frame": 30.875,
+        "minimumHeightM": 0.003979554399847984,
+        "centerY": 0.4536103904247284
+      },
+      {
+        "frame": 31.0,
+        "minimumHeightM": 0.004000229295343161,
+        "centerY": 0.44736313819885254
+      },
+      {
+        "frame": 31.125,
+        "minimumHeightM": 0.003979778848588467,
+        "centerY": 0.4411104619503021
+      },
+      {
+        "frame": 31.25,
+        "minimumHeightM": 0.004000382032245398,
+        "centerY": 0.4348633587360382
+      },
+      {
+        "frame": 31.375,
+        "minimumHeightM": 0.003980111796408892,
+        "centerY": 0.428610235452652
+      },
+      {
+        "frame": 31.5,
+        "minimumHeightM": 0.003999959211796522,
+        "centerY": 0.42236295342445374
+      },
+      {
+        "frame": 31.625,
+        "minimumHeightM": 0.003979974426329136,
+        "centerY": 0.4161098897457123
+      },
+      {
+        "frame": 31.75,
+        "minimumHeightM": 0.003999992739409208,
+        "centerY": 0.4098629951477051
+      },
+      {
+        "frame": 31.875,
+        "minimumHeightM": 0.003980191890150309,
+        "centerY": 0.4036098122596741
+      },
+      {
+        "frame": 32.0,
+        "minimumHeightM": 0.0039999536238610744,
+        "centerY": 0.3973626494407654
+      },
+      {
+        "frame": 32.125,
+        "minimumHeightM": 0.003980351146310568,
+        "centerY": 0.39110973477363586
+      },
+      {
+        "frame": 32.25,
+        "minimumHeightM": 0.004000207409262657,
+        "centerY": 0.3848629891872406
+      },
+      {
+        "frame": 32.375,
+        "minimumHeightM": 0.003980792127549648,
+        "centerY": 0.378610223531723
+      },
+      {
+        "frame": 32.5,
+        "minimumHeightM": 0.004000095650553703,
+        "centerY": 0.37236320972442627
+      },
+      {
+        "frame": 32.625,
+        "minimumHeightM": 0.003980965353548527,
+        "centerY": 0.366110235452652
+      },
+      {
+        "frame": 32.75,
+        "minimumHeightM": 0.004000212997198105,
+        "centerY": 0.3598630726337433
+      },
+      {
+        "frame": 32.875,
+        "minimumHeightM": 0.003980922978371382,
+        "centerY": 0.35361024737358093
+      },
+      {
+        "frame": 33.0,
+        "minimumHeightM": 0.004000420682132244,
+        "centerY": 0.3473634421825409
+      }
+    ],
+    "HindHoof.L": [
+      {
+        "frame": 1.0,
+        "minimumHeightM": 0.004000742454081774,
+        "centerY": -0.3646077811717987
+      },
+      {
+        "frame": 1.125,
+        "minimumHeightM": 0.0039766510017216206,
+        "centerY": -0.3708632290363312
+      },
+      {
+        "frame": 1.25,
+        "minimumHeightM": 0.004000226967036724,
+        "centerY": -0.3771083354949951
+      },
+      {
+        "frame": 1.375,
+        "minimumHeightM": 0.003976714331656694,
+        "centerY": -0.38336363434791565
+      },
+      {
+        "frame": 1.5,
+        "minimumHeightM": 0.004000138491392136,
+        "centerY": -0.38960808515548706
+      },
+      {
+        "frame": 1.625,
+        "minimumHeightM": 0.003976826090365648,
+        "centerY": -0.39586371183395386
+      },
+      {
+        "frame": 1.75,
+        "minimumHeightM": 0.004000332206487656,
+        "centerY": -0.4021081030368805
+      },
+      {
+        "frame": 1.875,
+        "minimumHeightM": 0.0039773015305399895,
+        "centerY": -0.40836402773857117
+      },
+      {
+        "frame": 2.0,
+        "minimumHeightM": 0.004000368993729353,
+        "centerY": -0.4146082103252411
+      },
+      {
+        "frame": 2.125,
+        "minimumHeightM": 0.003977692220360041,
+        "centerY": -0.42086395621299744
+      },
+      {
+        "frame": 2.25,
+        "minimumHeightM": 0.0040006027556955814,
+        "centerY": -0.4271082282066345
+      },
+      {
+        "frame": 2.375,
+        "minimumHeightM": 0.00397794134914875,
+        "centerY": -0.4333641529083252
+      },
+      {
+        "frame": 2.5,
+        "minimumHeightM": 0.0040003592148423195,
+        "centerY": -0.43960827589035034
+      },
+      {
+        "frame": 2.625,
+        "minimumHeightM": 0.003977848216891289,
+        "centerY": -0.44586414098739624
+      },
+      {
+        "frame": 2.75,
+        "minimumHeightM": 0.0040001412853598595,
+        "centerY": -0.4521082937717438
+      },
+      {
+        "frame": 2.875,
+        "minimumHeightM": 0.003978192340582609,
+        "centerY": -0.4583643972873688
+      },
+      {
+        "frame": 3.0,
+        "minimumHeightM": 0.0040000989101827145,
+        "centerY": -0.4646083116531372
+      },
+      {
+        "frame": 3.125,
+        "minimumHeightM": 0.003978334832936525,
+        "centerY": -0.4708642065525055
+      },
+      {
+        "frame": 3.25,
+        "minimumHeightM": 0.0040002367459237576,
+        "centerY": -0.4771082401275635
+      },
+      {
+        "frame": 3.375,
+        "minimumHeightM": 0.00397854158654809,
+        "centerY": -0.4833642840385437
+      },
+      {
+        "frame": 3.5,
+        "minimumHeightM": 0.004000590182840824,
+        "centerY": -0.4896080791950226
+      },
+      {
+        "frame": 3.625,
+        "minimumHeightM": 0.003978754859417677,
+        "centerY": -0.49586400389671326
+      },
+      {
+        "frame": 3.75,
+        "minimumHeightM": 0.004000164568424225,
+        "centerY": -0.5021082162857056
+      },
+      {
+        "frame": 3.875,
+        "minimumHeightM": 0.003979022614657879,
+        "centerY": -0.5083641409873962
+      },
+      {
+        "frame": 4.0,
+        "minimumHeightM": 0.004000328481197357,
+        "centerY": -0.5146083235740662
+      },
+      {
+        "frame": 4.125,
+        "minimumHeightM": 0.003979385830461979,
+        "centerY": -0.5208638906478882
+      },
+      {
+        "frame": 4.25,
+        "minimumHeightM": 0.004000637214630842,
+        "centerY": -0.527108371257782
+      },
+      {
+        "frame": 4.375,
+        "minimumHeightM": 0.00397970387712121,
+        "centerY": -0.5333638191223145
+      },
+      {
+        "frame": 4.5,
+        "minimumHeightM": 0.004000241402536631,
+        "centerY": -0.5396080017089844
+      },
+      {
+        "frame": 4.625,
+        "minimumHeightM": 0.003979612607508898,
+        "centerY": -0.5458638668060303
+      },
+      {
+        "frame": 4.75,
+        "minimumHeightM": 0.00400029169395566,
+        "centerY": -0.5521081686019897
+      },
+      {
+        "frame": 4.875,
+        "minimumHeightM": 0.003979798872023821,
+        "centerY": -0.5583636164665222
+      },
+      {
+        "frame": 5.0,
+        "minimumHeightM": 0.004000325687229633,
+        "centerY": -0.564608097076416
+      },
+      {
+        "frame": 5.125,
+        "minimumHeightM": 0.003979642875492573,
+        "centerY": -0.5708634853363037
+      },
+      {
+        "frame": 5.25,
+        "minimumHeightM": 0.003999917767941952,
+        "centerY": -0.5771081447601318
+      },
+      {
+        "frame": 5.375,
+        "minimumHeightM": 0.003980057314038277,
+        "centerY": -0.5833632946014404
+      },
+      {
+        "frame": 5.5,
+        "minimumHeightM": 0.0040003834292292595,
+        "centerY": -0.5896083116531372
+      },
+      {
+        "frame": 5.625,
+        "minimumHeightM": 0.003980210982263088,
+        "centerY": -0.5958631634712219
+      },
+      {
+        "frame": 5.75,
+        "minimumHeightM": 0.004000433254987001,
+        "centerY": -0.6021084785461426
+      },
+      {
+        "frame": 5.875,
+        "minimumHeightM": 0.003980303183197975,
+        "centerY": -0.6083627939224243
+      },
+      {
+        "frame": 6.0,
+        "minimumHeightM": 0.004000058863312006,
+        "centerY": -0.6146082878112793
+      },
+      {
+        "frame": 6.125,
+        "minimumHeightM": 0.003980386070907116,
+        "centerY": -0.6208623647689819
+      },
+      {
+        "frame": 6.25,
+        "minimumHeightM": 0.0040003033354878426,
+        "centerY": -0.6271082162857056
+      },
+      {
+        "frame": 6.375,
+        "minimumHeightM": 0.0039805215783417225,
+        "centerY": -0.6333615779876709
+      },
+      {
+        "frame": 6.5,
+        "minimumHeightM": 0.0040002805180847645,
+        "centerY": -0.6396074891090393
+      },
+      {
+        "frame": 6.625,
+        "minimumHeightM": 0.003980494104325771,
+        "centerY": -0.6458612084388733
+      },
+      {
+        "frame": 6.75,
+        "minimumHeightM": 0.004000367596745491,
+        "centerY": -0.652108371257782
+      },
+      {
+        "frame": 6.875,
+        "minimumHeightM": 0.00398054625838995,
+        "centerY": -0.6583612561225891
+      },
+      {
+        "frame": 7.0,
+        "minimumHeightM": 0.004000094253569841,
+        "centerY": -0.6646082997322083
+      },
+      {
+        "frame": 7.125,
+        "minimumHeightM": 0.003980563022196293,
+        "centerY": -0.6708604693412781
+      },
+      {
+        "frame": 7.25,
+        "minimumHeightM": 0.004000096116214991,
+        "centerY": -0.6771076917648315
+      },
+      {
+        "frame": 7.375,
+        "minimumHeightM": 0.003980549052357674,
+        "centerY": -0.6833600401878357
+      },
+      {
+        "frame": 7.5,
+        "minimumHeightM": 0.004000260028988123,
+        "centerY": -0.6896083354949951
+      },
+      {
+        "frame": 7.625,
+        "minimumHeightM": 0.00398066733032465,
+        "centerY": -0.6958597898483276
+      },
+      {
+        "frame": 7.75,
+        "minimumHeightM": 0.004000329412519932,
+        "centerY": -0.7021080255508423
+      },
+      {
+        "frame": 7.875,
+        "minimumHeightM": 0.003980759531259537,
+        "centerY": -0.7083593010902405
+      },
+      {
+        "frame": 8.0,
+        "minimumHeightM": 0.004000257700681686,
+        "centerY": -0.7146084904670715
+      },
+      {
+        "frame": 8.125,
+        "minimumHeightM": 0.003980411682277918,
+        "centerY": -0.7208589911460876
+      },
+      {
+        "frame": 8.25,
+        "minimumHeightM": 0.004000007174909115,
+        "centerY": -0.7271085977554321
+      },
+      {
+        "frame": 8.375,
+        "minimumHeightM": 0.0039805639535188675,
+        "centerY": -0.7333584427833557
+      },
+      {
+        "frame": 8.5,
+        "minimumHeightM": 0.004000390414148569,
+        "centerY": -0.7396082878112793
+      },
+      {
+        "frame": 8.625,
+        "minimumHeightM": 0.003980401437729597,
+        "centerY": -0.7458580732345581
+      },
+      {
+        "frame": 8.75,
+        "minimumHeightM": 0.0040002972818911076,
+        "centerY": -0.7521079182624817
+      },
+      {
+        "frame": 8.875,
+        "minimumHeightM": 0.003980286885052919,
+        "centerY": -0.7583575248718262
+      },
+      {
+        "frame": 9.0,
+        "minimumHeightM": 0.004000247456133366,
+        "centerY": -0.7646083235740662
+      },
+      {
+        "frame": 9.125,
+        "minimumHeightM": 0.003980154637247324,
+        "centerY": -0.7708569169044495
+      },
+      {
+        "frame": 9.25,
+        "minimumHeightM": 0.0040001701563596725,
+        "centerY": -0.7771077752113342
+      },
+      {
+        "frame": 9.375,
+        "minimumHeightM": 0.003979935310781002,
+        "centerY": -0.7833563089370728
+      },
+      {
+        "frame": 9.5,
+        "minimumHeightM": 0.004000143613666296,
+        "centerY": -0.7896081805229187
+      },
+      {
+        "frame": 9.625,
+        "minimumHeightM": 0.003979662898927927,
+        "centerY": -0.795856237411499
+      },
+      {
+        "frame": 9.75,
+        "minimumHeightM": 0.004000095650553703,
+        "centerY": -0.8021081686019897
+      },
+      {
+        "frame": 9.875,
+        "minimumHeightM": 0.003979477100074291,
+        "centerY": -0.8083557486534119
+      },
+      {
+        "frame": 10.0,
+        "minimumHeightM": 0.004000362008810043,
+        "centerY": -0.8146085739135742
+      },
+      {
+        "frame": 10.125,
+        "minimumHeightM": 0.003979675006121397,
+        "centerY": -0.8208555579185486
+      },
+      {
+        "frame": 10.25,
+        "minimumHeightM": 0.004000378772616386,
+        "centerY": -0.8271082043647766
+      },
+      {
+        "frame": 10.375,
+        "minimumHeightM": 0.003979588393121958,
+        "centerY": -0.8333549499511719
+      },
+      {
+        "frame": 10.5,
+        "minimumHeightM": 0.004000346641987562,
+        "centerY": -0.8396077752113342
+      },
+      {
+        "frame": 10.625,
+        "minimumHeightM": 0.003979136236011982,
+        "centerY": -0.8458543419837952
+      },
+      {
+        "frame": 10.75,
+        "minimumHeightM": 0.0040002441965043545,
+        "centerY": -0.852107584476471
+      },
+      {
+        "frame": 10.875,
+        "minimumHeightM": 0.003978925757110119,
+        "centerY": -0.8583542704582214
+      },
+      {
+        "frame": 11.0,
+        "minimumHeightM": 0.004000193905085325,
+        "centerY": -0.8646081686019897
+      },
+      {
+        "frame": 11.125,
+        "minimumHeightM": 0.003978599328547716,
+        "centerY": -0.8708541393280029
+      },
+      {
+        "frame": 11.25,
+        "minimumHeightM": 0.004000484012067318,
+        "centerY": -0.8771076798439026
+      },
+      {
+        "frame": 11.375,
+        "minimumHeightM": 0.003978436812758446,
+        "centerY": -0.8833538293838501
+      },
+      {
+        "frame": 11.5,
+        "minimumHeightM": 0.004000496119260788,
+        "centerY": -0.8896076679229736
+      },
+      {
+        "frame": 11.625,
+        "minimumHeightM": 0.003978192340582609,
+        "centerY": -0.8958537578582764
+      },
+      {
+        "frame": 11.75,
+        "minimumHeightM": 0.0040003154426813126,
+        "centerY": -0.9021081924438477
+      },
+      {
+        "frame": 11.875,
+        "minimumHeightM": 0.003977703396230936,
+        "centerY": -0.9083540439605713
+      },
+      {
+        "frame": 12.0,
+        "minimumHeightM": 0.0040002986788749695,
+        "centerY": -0.9146081805229187
+      },
+      {
+        "frame": 12.125,
+        "minimumHeightM": 0.00397757813334465,
+        "centerY": -0.920853853225708
+      },
+      {
+        "frame": 12.25,
+        "minimumHeightM": 0.0040003093890845776,
+        "centerY": -0.9271079897880554
+      },
+      {
+        "frame": 12.375,
+        "minimumHeightM": 0.003977170679718256,
+        "centerY": -0.933353841304779
+      },
+      {
+        "frame": 12.5,
+        "minimumHeightM": 0.004000260028988123,
+        "centerY": -0.9396084547042847
+      },
+      {
+        "frame": 12.625,
+        "minimumHeightM": 0.003976836334913969,
+        "centerY": -0.9458537101745605
+      },
+      {
+        "frame": 12.75,
+        "minimumHeightM": 0.004000320099294186,
+        "centerY": -0.9521080851554871
+      },
+      {
+        "frame": 12.875,
+        "minimumHeightM": 0.003976747393608093,
+        "centerY": -0.9583538770675659
+      },
+      {
+        "frame": 13.0,
+        "minimumHeightM": 0.004000323358923197,
+        "centerY": -0.9646080732345581
+      },
+      {
+        "frame": 13.125,
+        "minimumHeightM": 0.003976546693593264,
+        "centerY": -0.9708539843559265
+      },
+      {
+        "frame": 13.25,
+        "minimumHeightM": 0.004000543616712093,
+        "centerY": -0.9771080017089844
+      },
+      {
+        "frame": 13.375,
+        "minimumHeightM": 0.0039760274812579155,
+        "centerY": -0.9833542108535767
+      },
+      {
+        "frame": 13.5,
+        "minimumHeightM": 0.0040001776069402695,
+        "centerY": -0.9896084666252136
+      },
+      {
+        "frame": 13.625,
+        "minimumHeightM": 0.003975455649197102,
+        "centerY": -0.9958544373512268
+      },
+      {
+        "frame": 13.75,
+        "minimumHeightM": 0.004000143148005009,
+        "centerY": -1.0021082162857056
+      },
+      {
+        "frame": 13.875,
+        "minimumHeightM": 0.003975241910666227,
+        "centerY": -1.0083544254302979
+      },
+      {
+        "frame": 14.0,
+        "minimumHeightM": 0.004000217653810978,
+        "centerY": -1.0146076679229736
+      },
+      {
+        "frame": 14.125,
+        "minimumHeightM": 0.003974967636168003,
+        "centerY": -1.0208545923233032
+      },
+      {
+        "frame": 14.25,
+        "minimumHeightM": 0.004000335931777954,
+        "centerY": -1.0271083116531372
+      },
+      {
+        "frame": 14.375,
+        "minimumHeightM": 0.003974572289735079,
+        "centerY": -1.0333555936813354
+      },
+      {
+        "frame": 14.5,
+        "minimumHeightM": 0.004000425338745117,
+        "centerY": -1.0396087169647217
+      },
+      {
+        "frame": 14.625,
+        "minimumHeightM": 0.003974095918238163,
+        "centerY": -1.0458558797836304
+      },
+      {
+        "frame": 14.75,
+        "minimumHeightM": 0.004000318702310324,
+        "centerY": -1.0521082878112793
+      },
+      {
+        "frame": 14.875,
+        "minimumHeightM": 0.003973714541643858,
+        "centerY": -1.0583559274673462
+      },
+      {
+        "frame": 15.0,
+        "minimumHeightM": 0.004000152461230755,
+        "centerY": -1.064608097076416
+      },
+      {
+        "frame": 15.125,
+        "minimumHeightM": 0.003973380662500858,
+        "centerY": -1.0708560943603516
+      },
+      {
+        "frame": 15.25,
+        "minimumHeightM": 0.00400016363710165,
+        "centerY": -1.0771079063415527
+      },
+      {
+        "frame": 15.375,
+        "minimumHeightM": 0.003972786478698254,
+        "centerY": -1.0833563804626465
+      },
+      {
+        "frame": 15.5,
+        "minimumHeightM": 0.004000087268650532,
+        "centerY": -1.0896079540252686
+      },
+      {
+        "frame": 15.625,
+        "minimumHeightM": 0.003972353879362345,
+        "centerY": -1.0958569049835205
+      },
+      {
+        "frame": 15.75,
+        "minimumHeightM": 0.004000072833150625,
+        "centerY": -1.1021078824996948
+      },
+      {
+        "frame": 15.875,
+        "minimumHeightM": 0.003971803933382034,
+        "centerY": -1.1083571910858154
+      },
+      {
+        "frame": 16.0,
+        "minimumHeightM": 0.004000119399279356,
+        "centerY": -1.1146074533462524
+      },
+      {
+        "frame": 16.125,
+        "minimumHeightM": 0.00397117855027318,
+        "centerY": -1.1208577156066895
+      },
+      {
+        "frame": 16.25,
+        "minimumHeightM": 0.004000352695584297,
+        "centerY": -1.1271083354949951
+      },
+      {
+        "frame": 16.375,
+        "minimumHeightM": 0.0039707995019853115,
+        "centerY": -1.1333588361740112
+      },
+      {
+        "frame": 16.5,
+        "minimumHeightM": 0.004000393208116293,
+        "centerY": -1.1396082639694214
+      },
+      {
+        "frame": 16.625,
+        "minimumHeightM": 0.0039703999646008015,
+        "centerY": -1.1458594799041748
+      },
+      {
+        "frame": 16.75,
+        "minimumHeightM": 0.004000629764050245,
+        "centerY": -1.1521083116531372
+      },
+      {
+        "frame": 16.875,
+        "minimumHeightM": 0.003969530574977398,
+        "centerY": -1.158360481262207
+      },
+      {
+        "frame": 17.0,
+        "minimumHeightM": 0.00400052685290575,
+        "centerY": -1.164608120918274
+      },
+      {
+        "frame": 17.125,
+        "minimumHeightM": 0.003968480974435806,
+        "centerY": -1.1708613634109497
+      },
+      {
+        "frame": 17.25,
+        "minimumHeightM": 0.004000295884907246,
+        "centerY": -1.177107810974121
+      },
+      {
+        "frame": 17.375,
+        "minimumHeightM": 0.003967916592955589,
+        "centerY": -1.1833622455596924
+      },
+      {
+        "frame": 17.5,
+        "minimumHeightM": 0.004000447224825621,
+        "centerY": -1.1896084547042847
+      },
+      {
+        "frame": 17.625,
+        "minimumHeightM": 0.003966727294027805,
+        "centerY": -1.1958632469177246
+      },
+      {
+        "frame": 17.75,
+        "minimumHeightM": 0.004000193439424038,
+        "centerY": -1.2021076679229736
+      },
+      {
+        "frame": 17.875,
+        "minimumHeightM": 0.003965502604842186,
+        "centerY": -1.2083642482757568
+      },
+      {
+        "frame": 18.0,
+        "minimumHeightM": 0.004000108223408461,
+        "centerY": -1.214608073234558
+      },
+      {
+        "frame": 18.125,
+        "minimumHeightM": 0.003963946830481291,
+        "centerY": -1.2208653688430786
+      },
+      {
+        "frame": 18.25,
+        "minimumHeightM": 0.004000168759375811,
+        "centerY": -1.2271077632904053
+      },
+      {
+        "frame": 18.375,
+        "minimumHeightM": 0.003962545655667782,
+        "centerY": -1.2333669662475586
+      },
+      {
+        "frame": 18.5,
+        "minimumHeightM": 0.004000290296971798,
+        "centerY": -1.2396084070205688
+      },
+      {
+        "frame": 18.625,
+        "minimumHeightM": 0.003960906527936459,
+        "centerY": -1.2458692789077759
+      },
+      {
+        "frame": 18.75,
+        "minimumHeightM": 0.004000560846179724,
+        "centerY": -1.252108097076416
+      },
+      {
+        "frame": 18.875,
+        "minimumHeightM": 0.003958440851420164,
+        "centerY": -1.2583714723587036
+      },
+      {
+        "frame": 19.0,
+        "minimumHeightM": 0.004000201355665922,
+        "centerY": -1.2646079063415527
+      },
+      {
+        "frame": 19.125,
+        "minimumHeightM": 0.003955624531954527,
+        "centerY": -1.2708741426467896
+      },
+      {
+        "frame": 19.25,
+        "minimumHeightM": 0.004000217653810978,
+        "centerY": -1.277108073234558
+      },
+      {
+        "frame": 19.375,
+        "minimumHeightM": 0.00395204545930028,
+        "centerY": -1.2833770513534546
+      },
+      {
+        "frame": 19.5,
+        "minimumHeightM": 0.004000368062406778,
+        "centerY": -1.2896078824996948
+      },
+      {
+        "frame": 19.625,
+        "minimumHeightM": 0.0039477115496993065,
+        "centerY": -1.2958813905715942
+      },
+      {
+        "frame": 19.75,
+        "minimumHeightM": 0.004000562243163586,
+        "centerY": -1.3021085262298584
+      },
+      {
+        "frame": 19.875,
+        "minimumHeightM": 0.003942033275961876,
+        "centerY": -1.3083875179290771
+      },
+      {
+        "frame": 20.0,
+        "minimumHeightM": 0.004000445362180471,
+        "centerY": -1.3146084547042847
+      },
+      {
+        "frame": 20.125,
+        "minimumHeightM": 0.003933551721274853,
+        "centerY": -1.3208948373794556
+      },
+      {
+        "frame": 20.25,
+        "minimumHeightM": 0.004000394139438868,
+        "centerY": -1.3271082639694214
+      },
+      {
+        "frame": 20.375,
+        "minimumHeightM": 0.0039214082062244415,
+        "centerY": -1.3334063291549683
+      },
+      {
+        "frame": 20.5,
+        "minimumHeightM": 0.004000190179795027,
+        "centerY": -1.339608073234558
+      },
+      {
+        "frame": 20.625,
+        "minimumHeightM": 0.0039015249349176884,
+        "centerY": -1.3459244966506958
+      },
+      {
+        "frame": 20.75,
+        "minimumHeightM": 0.004000148735940456,
+        "centerY": -1.3521078824996948
+      },
+      {
+        "frame": 20.875,
+        "minimumHeightM": 0.0046986970119178295,
+        "centerY": -1.3578221797943115
+      },
+      {
+        "frame": 21.0,
+        "minimumHeightM": 0.005539014935493469,
+        "centerY": -1.363438367843628
+      },
+      {
+        "frame": 21.125,
+        "minimumHeightM": 0.007821563631296158,
+        "centerY": -1.3664401769638062
+      },
+      {
+        "frame": 21.25,
+        "minimumHeightM": 0.010116379708051682,
+        "centerY": -1.3694281578063965
+      },
+      {
+        "frame": 21.375,
+        "minimumHeightM": 0.013048388063907623,
+        "centerY": -1.369760274887085
+      },
+      {
+        "frame": 21.5,
+        "minimumHeightM": 0.016094697639346123,
+        "centerY": -1.3699721097946167
+      },
+      {
+        "frame": 21.625,
+        "minimumHeightM": 0.019421899691224098,
+        "centerY": -1.3686208724975586
+      },
+      {
+        "frame": 21.75,
+        "minimumHeightM": 0.02294633910059929,
+        "centerY": -1.3670724630355835
+      },
+      {
+        "frame": 21.875,
+        "minimumHeightM": 0.026537001132965088,
+        "centerY": -1.3642781972885132
+      },
+      {
+        "frame": 22.0,
+        "minimumHeightM": 0.03036440722644329,
+        "centerY": -1.3612561225891113
+      },
+      {
+        "frame": 22.125,
+        "minimumHeightM": 0.03412016108632088,
+        "centerY": -1.35707688331604
+      },
+      {
+        "frame": 22.25,
+        "minimumHeightM": 0.03813331574201584,
+        "centerY": -1.3526626825332642
+      },
+      {
+        "frame": 22.375,
+        "minimumHeightM": 0.0419781468808651,
+        "centerY": -1.3471626043319702
+      },
+      {
+        "frame": 22.5,
+        "minimumHeightM": 0.046090271323919296,
+        "centerY": -1.3414350748062134
+      },
+      {
+        "frame": 22.625,
+        "minimumHeightM": 0.049960337579250336,
+        "centerY": -1.3346794843673706
+      },
+      {
+        "frame": 22.75,
+        "minimumHeightM": 0.05410359799861908,
+        "centerY": -1.327712893486023
+      },
+      {
+        "frame": 22.875,
+        "minimumHeightM": 0.05794540420174599,
+        "centerY": -1.3197704553604126
+      },
+      {
+        "frame": 23.0,
+        "minimumHeightM": 0.06206538528203964,
+        "centerY": -1.3116382360458374
+      },
+      {
+        "frame": 23.125,
+        "minimumHeightM": 0.06583187729120255,
+        "centerY": -1.3025776147842407
+      },
+      {
+        "frame": 23.25,
+        "minimumHeightM": 0.06988194584846497,
+        "centerY": -1.2933512926101685
+      },
+      {
+        "frame": 23.375,
+        "minimumHeightM": 0.07353390753269196,
+        "centerY": -1.2832423448562622
+      },
+      {
+        "frame": 23.5,
+        "minimumHeightM": 0.07747536897659302,
+        "centerY": -1.2729942798614502
+      },
+      {
+        "frame": 23.625,
+        "minimumHeightM": 0.08097779750823975,
+        "centerY": -1.2619059085845947
+      },
+      {
+        "frame": 23.75,
+        "minimumHeightM": 0.08477670699357986,
+        "centerY": -1.2507067918777466
+      },
+      {
+        "frame": 23.875,
+        "minimumHeightM": 0.08809853345155716,
+        "centerY": -1.2387099266052246
+      },
+      {
+        "frame": 24.0,
+        "minimumHeightM": 0.09172587841749191,
+        "centerY": -1.2266311645507812
+      },
+      {
+        "frame": 24.125,
+        "minimumHeightM": 0.09484044462442398,
+        "centerY": -1.2137961387634277
+      },
+      {
+        "frame": 24.25,
+        "minimumHeightM": 0.09827057272195816,
+        "centerY": -1.2009080648422241
+      },
+      {
+        "frame": 24.375,
+        "minimumHeightM": 0.10115476697683334,
+        "centerY": -1.1873055696487427
+      },
+      {
+        "frame": 24.5,
+        "minimumHeightM": 0.10436505824327469,
+        "centerY": -1.1736782789230347
+      },
+      {
+        "frame": 24.625,
+        "minimumHeightM": 0.10699820518493652,
+        "centerY": -1.1593793630599976
+      },
+      {
+        "frame": 24.75,
+        "minimumHeightM": 0.10996919870376587,
+        "centerY": -1.145082712173462
+      },
+      {
+        "frame": 24.875,
+        "minimumHeightM": 0.11233368515968323,
+        "centerY": -1.1301597356796265
+      },
+      {
+        "frame": 25.0,
+        "minimumHeightM": 0.11504745483398438,
+        "centerY": -1.1152633428573608
+      },
+      {
+        "frame": 25.125,
+        "minimumHeightM": 0.11712824553251266,
+        "centerY": -1.0997872352600098
+      },
+      {
+        "frame": 25.25,
+        "minimumHeightM": 0.11956951022148132,
+        "centerY": -1.0843600034713745
+      },
+      {
+        "frame": 25.375,
+        "minimumHeightM": 0.12135477364063263,
+        "centerY": -1.068403720855713
+      },
+      {
+        "frame": 25.5,
+        "minimumHeightM": 0.1235099509358406,
+        "centerY": -1.0525151491165161
+      },
+      {
+        "frame": 25.625,
+        "minimumHeightM": 0.12498906999826431,
+        "centerY": -1.0361509323120117
+      },
+      {
+        "frame": 25.75,
+        "minimumHeightM": 0.1268465369939804,
+        "centerY": -1.0198687314987183
+      },
+      {
+        "frame": 25.875,
+        "minimumHeightM": 0.12801185250282288,
+        "centerY": -1.003170132637024
+      },
+      {
+        "frame": 26.0,
+        "minimumHeightM": 0.12956100702285767,
+        "centerY": -0.9865617752075195
+      },
+      {
+        "frame": 26.125,
+        "minimumHeightM": 0.13040679693222046,
+        "centerY": -0.9696021676063538
+      },
+      {
+        "frame": 26.25,
+        "minimumHeightM": 0.13163945078849792,
+        "centerY": -0.9527356028556824
+      },
+      {
+        "frame": 26.375,
+        "minimumHeightM": 0.13216185569763184,
+        "centerY": -0.9355894327163696
+      },
+      {
+        "frame": 26.5,
+        "minimumHeightM": 0.13307081162929535,
+        "centerY": -0.9185320734977722
+      },
+      {
+        "frame": 26.625,
+        "minimumHeightM": 0.13326743245124817,
+        "centerY": -0.9012729525566101
+      },
+      {
+        "frame": 26.75,
+        "minimumHeightM": 0.13384771347045898,
+        "centerY": -0.8840916156768799
+      },
+      {
+        "frame": 26.875,
+        "minimumHeightM": 0.13371813297271729,
+        "centerY": -0.8667930960655212
+      },
+      {
+        "frame": 27.0,
+        "minimumHeightM": 0.13396643102169037,
+        "centerY": -0.8495544791221619
+      },
+      {
+        "frame": 27.125,
+        "minimumHeightM": 0.13351143896579742,
+        "centerY": -0.832290530204773
+      },
+      {
+        "frame": 27.25,
+        "minimumHeightM": 0.13342605531215668,
+        "centerY": -0.8150628805160522
+      },
+      {
+        "frame": 27.375,
+        "minimumHeightM": 0.1326482594013214,
+        "centerY": -0.7979065775871277
+      },
+      {
+        "frame": 27.5,
+        "minimumHeightM": 0.13222970068454742,
+        "centerY": -0.780757486820221
+      },
+      {
+        "frame": 27.625,
+        "minimumHeightM": 0.1311325579881668,
+        "centerY": -0.7637798190116882
+      },
+      {
+        "frame": 27.75,
+        "minimumHeightM": 0.13038299977779388,
+        "centerY": -0.7467795014381409
+      },
+      {
+        "frame": 27.875,
+        "minimumHeightM": 0.1289720982313156,
+        "centerY": -0.730051577091217
+      },
+      {
+        "frame": 28.0,
+        "minimumHeightM": 0.12789615988731384,
+        "centerY": -0.713269829750061
+      },
+      {
+        "frame": 28.125,
+        "minimumHeightM": 0.12617813050746918,
+        "centerY": -0.6968613862991333
+      },
+      {
+        "frame": 28.25,
+        "minimumHeightM": 0.12478158622980118,
+        "centerY": -0.6803692579269409
+      },
+      {
+        "frame": 28.375,
+        "minimumHeightM": 0.1227649450302124,
+        "centerY": -0.664348304271698
+      },
+      {
+        "frame": 28.5,
+        "minimumHeightM": 0.12105636298656464,
+        "centerY": -0.6482188701629639
+      },
+      {
+        "frame": 28.625,
+        "minimumHeightM": 0.11875128746032715,
+        "centerY": -0.6326540112495422
+      },
+      {
+        "frame": 28.75,
+        "minimumHeightM": 0.11674080789089203,
+        "centerY": -0.6169608235359192
+      },
+      {
+        "frame": 28.875,
+        "minimumHeightM": 0.11415977776050568,
+        "centerY": -0.601918637752533
+      },
+      {
+        "frame": 29.0,
+        "minimumHeightM": 0.1118597686290741,
+        "centerY": -0.5867345333099365
+      },
+      {
+        "frame": 29.125,
+        "minimumHeightM": 0.1090170294046402,
+        "centerY": -0.5722826719284058
+      },
+      {
+        "frame": 29.25,
+        "minimumHeightM": 0.10644107311964035,
+        "centerY": -0.5576823949813843
+      },
+      {
+        "frame": 29.375,
+        "minimumHeightM": 0.10335405170917511,
+        "centerY": -0.5438874363899231
+      },
+      {
+        "frame": 29.5,
+        "minimumHeightM": 0.10051894932985306,
+        "centerY": -0.5299442410469055
+      },
+      {
+        "frame": 29.625,
+        "minimumHeightM": 0.09720724076032639,
+        "centerY": -0.5168747901916504
+      },
+      {
+        "frame": 29.75,
+        "minimumHeightM": 0.09413136541843414,
+        "centerY": -0.5036630630493164
+      },
+      {
+        "frame": 29.875,
+        "minimumHeightM": 0.09061679244041443,
+        "centerY": -0.491385817527771
+      },
+      {
+        "frame": 30.0,
+        "minimumHeightM": 0.08732188493013382,
+        "centerY": -0.47897791862487793
+      },
+      {
+        "frame": 30.125,
+        "minimumHeightM": 0.08362998813390732,
+        "centerY": -0.4675619900226593
+      },
+      {
+        "frame": 30.25,
+        "minimumHeightM": 0.08014063537120819,
+        "centerY": -0.45603060722351074
+      },
+      {
+        "frame": 30.375,
+        "minimumHeightM": 0.07630038261413574,
+        "centerY": -0.44554558396339417
+      },
+      {
+        "frame": 30.5,
+        "minimumHeightM": 0.07264525443315506,
+        "centerY": -0.4349620044231415
+      },
+      {
+        "frame": 30.625,
+        "minimumHeightM": 0.06868939101696014,
+        "centerY": -0.42547789216041565
+      },
+      {
+        "frame": 30.75,
+        "minimumHeightM": 0.06489995121955872,
+        "centerY": -0.41591423749923706
+      },
+      {
+        "frame": 30.875,
+        "minimumHeightM": 0.06086692586541176,
+        "centerY": -0.4075004458427429
+      },
+      {
+        "frame": 31.0,
+        "minimumHeightM": 0.05698077380657196,
+        "centerY": -0.39902687072753906
+      },
+      {
+        "frame": 31.125,
+        "minimumHeightM": 0.0529140867292881,
+        "centerY": -0.3917551040649414
+      },
+      {
+        "frame": 31.25,
+        "minimumHeightM": 0.04897477850317955,
+        "centerY": -0.38444143533706665
+      },
+      {
+        "frame": 31.375,
+        "minimumHeightM": 0.04492579400539398,
+        "centerY": -0.3783828616142273
+      },
+      {
+        "frame": 31.5,
+        "minimumHeightM": 0.040983449667692184,
+        "centerY": -0.37229955196380615
+      },
+      {
+        "frame": 31.625,
+        "minimumHeightM": 0.0370136983692646,
+        "centerY": -0.36752602458000183
+      },
+      {
+        "frame": 31.75,
+        "minimumHeightM": 0.033130060881376266,
+        "centerY": -0.3627416789531708
+      },
+      {
+        "frame": 31.875,
+        "minimumHeightM": 0.02931409329175949,
+        "centerY": -0.35932475328445435
+      },
+      {
+        "frame": 32.0,
+        "minimumHeightM": 0.02556435950100422,
+        "centerY": -0.35590916872024536
+      },
+      {
+        "frame": 32.125,
+        "minimumHeightM": 0.021998995915055275,
+        "centerY": -0.35392120480537415
+      },
+      {
+        "frame": 32.25,
+        "minimumHeightM": 0.01847972720861435,
+        "centerY": -0.3519429862499237
+      },
+      {
+        "frame": 32.375,
+        "minimumHeightM": 0.01529704313725233,
+        "centerY": -0.35147958993911743
+      },
+      {
+        "frame": 32.5,
+        "minimumHeightM": 0.012142539024353027,
+        "centerY": -0.3510301411151886
+      },
+      {
+        "frame": 32.625,
+        "minimumHeightM": 0.009550360962748528,
+        "centerY": -0.3529892563819885
+      },
+      {
+        "frame": 32.75,
+        "minimumHeightM": 0.006971978582441807,
+        "centerY": -0.35496410727500916
+      },
+      {
+        "frame": 32.875,
+        "minimumHeightM": 0.005474714562296867,
+        "centerY": -0.359782874584198
+      },
+      {
+        "frame": 33.0,
+        "minimumHeightM": 0.004000742454081774,
+        "centerY": -0.3646077811717987
+      }
+    ],
+    "HindHoof.R": [
+      {
+        "frame": 1.0,
+        "minimumHeightM": 0.004000368993729353,
+        "centerY": -1.164713978767395
+      },
+      {
+        "frame": 1.125,
+        "minimumHeightM": 0.0039685931988060474,
+        "centerY": -1.1709672212600708
+      },
+      {
+        "frame": 1.25,
+        "minimumHeightM": 0.004000396467745304,
+        "centerY": -1.1772141456604004
+      },
+      {
+        "frame": 1.375,
+        "minimumHeightM": 0.0039678411558270454,
+        "centerY": -1.1834683418273926
+      },
+      {
+        "frame": 1.5,
+        "minimumHeightM": 0.004000107757747173,
+        "centerY": -1.1897140741348267
+      },
+      {
+        "frame": 1.625,
+        "minimumHeightM": 0.003966750577092171,
+        "centerY": -1.1959691047668457
+      },
+      {
+        "frame": 1.75,
+        "minimumHeightM": 0.004000273998826742,
+        "centerY": -1.2022138833999634
+      },
+      {
+        "frame": 1.875,
+        "minimumHeightM": 0.003965540789067745,
+        "centerY": -1.2084702253341675
+      },
+      {
+        "frame": 2.0,
+        "minimumHeightM": 0.004000211600214243,
+        "centerY": -1.2147139310836792
+      },
+      {
+        "frame": 2.125,
+        "minimumHeightM": 0.003964071162045002,
+        "centerY": -1.2209715843200684
+      },
+      {
+        "frame": 2.25,
+        "minimumHeightM": 0.004000473767518997,
+        "centerY": -1.2272135019302368
+      },
+      {
+        "frame": 2.375,
+        "minimumHeightM": 0.003962796647101641,
+        "centerY": -1.2334727048873901
+      },
+      {
+        "frame": 2.5,
+        "minimumHeightM": 0.00400066701695323,
+        "centerY": -1.2397135496139526
+      },
+      {
+        "frame": 2.625,
+        "minimumHeightM": 0.003961086273193359,
+        "centerY": -1.245975136756897
+      },
+      {
+        "frame": 2.75,
+        "minimumHeightM": 0.004000712186098099,
+        "centerY": -1.2522140741348267
+      },
+      {
+        "frame": 2.875,
+        "minimumHeightM": 0.0039584278129041195,
+        "centerY": -1.2584772109985352
+      },
+      {
+        "frame": 3.0,
+        "minimumHeightM": 0.004000184591859579,
+        "centerY": -1.2647138833999634
+      },
+      {
+        "frame": 3.125,
+        "minimumHeightM": 0.003955642227083445,
+        "centerY": -1.2709801197052002
+      },
+      {
+        "frame": 3.25,
+        "minimumHeightM": 0.004000197164714336,
+        "centerY": -1.2772138118743896
+      },
+      {
+        "frame": 3.375,
+        "minimumHeightM": 0.003952146507799625,
+        "centerY": -1.2834830284118652
+      },
+      {
+        "frame": 3.5,
+        "minimumHeightM": 0.004000287968665361,
+        "centerY": -1.2897135019302368
+      },
+      {
+        "frame": 3.625,
+        "minimumHeightM": 0.003947736695408821,
+        "centerY": -1.2959871292114258
+      },
+      {
+        "frame": 3.75,
+        "minimumHeightM": 0.004000408109277487,
+        "centerY": -1.3022143840789795
+      },
+      {
+        "frame": 3.875,
+        "minimumHeightM": 0.003941996023058891,
+        "centerY": -1.3084930181503296
+      },
+      {
+        "frame": 4.0,
+        "minimumHeightM": 0.004000511951744556,
+        "centerY": -1.3147140741348267
+      },
+      {
+        "frame": 4.125,
+        "minimumHeightM": 0.003933566622436047,
+        "centerY": -1.321000576019287
+      },
+      {
+        "frame": 4.25,
+        "minimumHeightM": 0.004000184126198292,
+        "centerY": -1.3272141218185425
+      },
+      {
+        "frame": 4.375,
+        "minimumHeightM": 0.003921319264918566,
+        "centerY": -1.3335118293762207
+      },
+      {
+        "frame": 4.5,
+        "minimumHeightM": 0.004000199493020773,
+        "centerY": -1.3397136926651
+      },
+      {
+        "frame": 4.625,
+        "minimumHeightM": 0.003901713527739048,
+        "centerY": -1.3460302352905273
+      },
+      {
+        "frame": 4.75,
+        "minimumHeightM": 0.004000373184680939,
+        "centerY": -1.3522138595581055
+      },
+      {
+        "frame": 4.875,
+        "minimumHeightM": 0.004698997363448143,
+        "centerY": -1.357927918434143
+      },
+      {
+        "frame": 5.0,
+        "minimumHeightM": 0.005539023783057928,
+        "centerY": -1.3635444641113281
+      },
+      {
+        "frame": 5.125,
+        "minimumHeightM": 0.00782160833477974,
+        "centerY": -1.3665460348129272
+      },
+      {
+        "frame": 5.25,
+        "minimumHeightM": 0.010116447694599628,
+        "centerY": -1.369533896446228
+      },
+      {
+        "frame": 5.375,
+        "minimumHeightM": 0.013048607856035233,
+        "centerY": -1.3698662519454956
+      },
+      {
+        "frame": 5.5,
+        "minimumHeightM": 0.0160951130092144,
+        "centerY": -1.3700789213180542
+      },
+      {
+        "frame": 5.625,
+        "minimumHeightM": 0.019422410055994987,
+        "centerY": -1.3687267303466797
+      },
+      {
+        "frame": 5.75,
+        "minimumHeightM": 0.022946622222661972,
+        "centerY": -1.3671780824661255
+      },
+      {
+        "frame": 5.875,
+        "minimumHeightM": 0.026537077501416206,
+        "centerY": -1.3643842935562134
+      },
+      {
+        "frame": 6.0,
+        "minimumHeightM": 0.03036412037909031,
+        "centerY": -1.361362099647522
+      },
+      {
+        "frame": 6.125,
+        "minimumHeightM": 0.03412020578980446,
+        "centerY": -1.3571829795837402
+      },
+      {
+        "frame": 6.25,
+        "minimumHeightM": 0.038133151829242706,
+        "centerY": -1.3527686595916748
+      },
+      {
+        "frame": 6.375,
+        "minimumHeightM": 0.04197811335325241,
+        "centerY": -1.3472682237625122
+      },
+      {
+        "frame": 6.5,
+        "minimumHeightM": 0.046090267598629,
+        "centerY": -1.3415406942367554
+      },
+      {
+        "frame": 6.625,
+        "minimumHeightM": 0.04996023327112198,
+        "centerY": -1.3347853422164917
+      },
+      {
+        "frame": 6.75,
+        "minimumHeightM": 0.05410366132855415,
+        "centerY": -1.3278186321258545
+      },
+      {
+        "frame": 6.875,
+        "minimumHeightM": 0.057945508509874344,
+        "centerY": -1.3198764324188232
+      },
+      {
+        "frame": 7.0,
+        "minimumHeightM": 0.062065403908491135,
+        "centerY": -1.3117440938949585
+      },
+      {
+        "frame": 7.125,
+        "minimumHeightM": 0.06583215296268463,
+        "centerY": -1.3026832342147827
+      },
+      {
+        "frame": 7.25,
+        "minimumHeightM": 0.06988202780485153,
+        "centerY": -1.2934571504592896
+      },
+      {
+        "frame": 7.375,
+        "minimumHeightM": 0.07353375852108002,
+        "centerY": -1.2833476066589355
+      },
+      {
+        "frame": 7.5,
+        "minimumHeightM": 0.07747533172369003,
+        "centerY": -1.2731000185012817
+      },
+      {
+        "frame": 7.625,
+        "minimumHeightM": 0.08097764849662781,
+        "centerY": -1.2620117664337158
+      },
+      {
+        "frame": 7.75,
+        "minimumHeightM": 0.08477663993835449,
+        "centerY": -1.2508128881454468
+      },
+      {
+        "frame": 7.875,
+        "minimumHeightM": 0.08809862285852432,
+        "centerY": -1.2388160228729248
+      },
+      {
+        "frame": 8.0,
+        "minimumHeightM": 0.0917259231209755,
+        "centerY": -1.226737141609192
+      },
+      {
+        "frame": 8.125,
+        "minimumHeightM": 0.09484056383371353,
+        "centerY": -1.2139021158218384
+      },
+      {
+        "frame": 8.25,
+        "minimumHeightM": 0.09827060997486115,
+        "centerY": -1.2010139226913452
+      },
+      {
+        "frame": 8.375,
+        "minimumHeightM": 0.10115456581115723,
+        "centerY": -1.1874111890792847
+      },
+      {
+        "frame": 8.5,
+        "minimumHeightM": 0.1043652594089508,
+        "centerY": -1.173783779144287
+      },
+      {
+        "frame": 8.625,
+        "minimumHeightM": 0.10699797421693802,
+        "centerY": -1.1594849824905396
+      },
+      {
+        "frame": 8.75,
+        "minimumHeightM": 0.10996875911951065,
+        "centerY": -1.1451884508132935
+      },
+      {
+        "frame": 8.875,
+        "minimumHeightM": 0.11233336478471756,
+        "centerY": -1.1302655935287476
+      },
+      {
+        "frame": 9.0,
+        "minimumHeightM": 0.11504726856946945,
+        "centerY": -1.115369200706482
+      },
+      {
+        "frame": 9.125,
+        "minimumHeightM": 0.11712808907032013,
+        "centerY": -1.0998927354812622
+      },
+      {
+        "frame": 9.25,
+        "minimumHeightM": 0.11956951022148132,
+        "centerY": -1.0844652652740479
+      },
+      {
+        "frame": 9.375,
+        "minimumHeightM": 0.12135479599237442,
+        "centerY": -1.0685091018676758
+      },
+      {
+        "frame": 9.5,
+        "minimumHeightM": 0.12351009994745255,
+        "centerY": -1.052620768547058
+      },
+      {
+        "frame": 9.625,
+        "minimumHeightM": 0.1249891072511673,
+        "centerY": -1.0362564325332642
+      },
+      {
+        "frame": 9.75,
+        "minimumHeightM": 0.12684635818004608,
+        "centerY": -1.0199742317199707
+      },
+      {
+        "frame": 9.875,
+        "minimumHeightM": 0.12801167368888855,
+        "centerY": -1.003275752067566
+      },
+      {
+        "frame": 10.0,
+        "minimumHeightM": 0.12956097722053528,
+        "centerY": -0.9866674542427063
+      },
+      {
+        "frame": 10.125,
+        "minimumHeightM": 0.1304066777229309,
+        "centerY": -0.969708263874054
+      },
+      {
+        "frame": 10.25,
+        "minimumHeightM": 0.13163912296295166,
+        "centerY": -0.9528417587280273
+      },
+      {
+        "frame": 10.375,
+        "minimumHeightM": 0.13216137886047363,
+        "centerY": -0.9356954097747803
+      },
+      {
+        "frame": 10.5,
+        "minimumHeightM": 0.13307063281536102,
+        "centerY": -0.9186380505561829
+      },
+      {
+        "frame": 10.625,
+        "minimumHeightM": 0.13326720893383026,
+        "centerY": -0.9013788104057312
+      },
+      {
+        "frame": 10.75,
+        "minimumHeightM": 0.13384750485420227,
+        "centerY": -0.8841973543167114
+      },
+      {
+        "frame": 10.875,
+        "minimumHeightM": 0.13371814787387848,
+        "centerY": -0.8668991327285767
+      },
+      {
+        "frame": 11.0,
+        "minimumHeightM": 0.13396646082401276,
+        "centerY": -0.8496605157852173
+      },
+      {
+        "frame": 11.125,
+        "minimumHeightM": 0.1335114985704422,
+        "centerY": -0.8323965072631836
+      },
+      {
+        "frame": 11.25,
+        "minimumHeightM": 0.1334262192249298,
+        "centerY": -0.8151683807373047
+      },
+      {
+        "frame": 11.375,
+        "minimumHeightM": 0.13264836370944977,
+        "centerY": -0.7980120182037354
+      },
+      {
+        "frame": 11.5,
+        "minimumHeightM": 0.13222992420196533,
+        "centerY": -0.7808632254600525
+      },
+      {
+        "frame": 11.625,
+        "minimumHeightM": 0.13113266229629517,
+        "centerY": -0.7638859152793884
+      },
+      {
+        "frame": 11.75,
+        "minimumHeightM": 0.13038316369056702,
+        "centerY": -0.7468854784965515
+      },
+      {
+        "frame": 11.875,
+        "minimumHeightM": 0.12897203862667084,
+        "centerY": -0.7301575541496277
+      },
+      {
+        "frame": 12.0,
+        "minimumHeightM": 0.12789589166641235,
+        "centerY": -0.7133753895759583
+      },
+      {
+        "frame": 12.125,
+        "minimumHeightM": 0.12617795169353485,
+        "centerY": -0.6969670057296753
+      },
+      {
+        "frame": 12.25,
+        "minimumHeightM": 0.12478145956993103,
+        "centerY": -0.680475115776062
+      },
+      {
+        "frame": 12.375,
+        "minimumHeightM": 0.12276488542556763,
+        "centerY": -0.6644539833068848
+      },
+      {
+        "frame": 12.5,
+        "minimumHeightM": 0.12105648964643478,
+        "centerY": -0.6483246088027954
+      },
+      {
+        "frame": 12.625,
+        "minimumHeightM": 0.11875138431787491,
+        "centerY": -0.6327598690986633
+      },
+      {
+        "frame": 12.75,
+        "minimumHeightM": 0.11674104630947113,
+        "centerY": -0.617066502571106
+      },
+      {
+        "frame": 12.875,
+        "minimumHeightM": 0.11415989696979523,
+        "centerY": -0.6020246744155884
+      },
+      {
+        "frame": 13.0,
+        "minimumHeightM": 0.11185964196920395,
+        "centerY": -0.5868405103683472
+      },
+      {
+        "frame": 13.125,
+        "minimumHeightM": 0.10901720821857452,
+        "centerY": -0.5723884701728821
+      },
+      {
+        "frame": 13.25,
+        "minimumHeightM": 0.10644152015447617,
+        "centerY": -0.557788074016571
+      },
+      {
+        "frame": 13.375,
+        "minimumHeightM": 0.10335433483123779,
+        "centerY": -0.5439931750297546
+      },
+      {
+        "frame": 13.5,
+        "minimumHeightM": 0.10051914304494858,
+        "centerY": -0.53005051612854
+      },
+      {
+        "frame": 13.625,
+        "minimumHeightM": 0.09720738232135773,
+        "centerY": -0.5169807076454163
+      },
+      {
+        "frame": 13.75,
+        "minimumHeightM": 0.09413125365972519,
+        "centerY": -0.5037692189216614
+      },
+      {
+        "frame": 13.875,
+        "minimumHeightM": 0.09061684459447861,
+        "centerY": -0.4914917051792145
+      },
+      {
+        "frame": 14.0,
+        "minimumHeightM": 0.08732195198535919,
+        "centerY": -0.4790835380554199
+      },
+      {
+        "frame": 14.125,
+        "minimumHeightM": 0.08363015204668045,
+        "centerY": -0.4676678478717804
+      },
+      {
+        "frame": 14.25,
+        "minimumHeightM": 0.08014088124036789,
+        "centerY": -0.4561362862586975
+      },
+      {
+        "frame": 14.375,
+        "minimumHeightM": 0.07630064338445663,
+        "centerY": -0.4456513822078705
+      },
+      {
+        "frame": 14.5,
+        "minimumHeightM": 0.07264526188373566,
+        "centerY": -0.4350680708885193
+      },
+      {
+        "frame": 14.625,
+        "minimumHeightM": 0.06868946552276611,
+        "centerY": -0.4255836606025696
+      },
+      {
+        "frame": 14.75,
+        "minimumHeightM": 0.06490027159452438,
+        "centerY": -0.41601964831352234
+      },
+      {
+        "frame": 14.875,
+        "minimumHeightM": 0.06086723133921623,
+        "centerY": -0.40760600566864014
+      },
+      {
+        "frame": 15.0,
+        "minimumHeightM": 0.0569816492497921,
+        "centerY": -0.3991320729255676
+      },
+      {
+        "frame": 15.125,
+        "minimumHeightM": 0.052914366126060486,
+        "centerY": -0.39186036586761475
+      },
+      {
+        "frame": 15.25,
+        "minimumHeightM": 0.04897470772266388,
+        "centerY": -0.38454732298851013
+      },
+      {
+        "frame": 15.375,
+        "minimumHeightM": 0.044925861060619354,
+        "centerY": -0.3784883916378021
+      },
+      {
+        "frame": 15.5,
+        "minimumHeightM": 0.040983881801366806,
+        "centerY": -0.3724047839641571
+      },
+      {
+        "frame": 15.625,
+        "minimumHeightM": 0.0370139516890049,
+        "centerY": -0.3676314651966095
+      },
+      {
+        "frame": 15.75,
+        "minimumHeightM": 0.0331299863755703,
+        "centerY": -0.3628476858139038
+      },
+      {
+        "frame": 15.875,
+        "minimumHeightM": 0.029314225539565086,
+        "centerY": -0.35943058133125305
+      },
+      {
+        "frame": 16.0,
+        "minimumHeightM": 0.025564584881067276,
+        "centerY": -0.35601484775543213
+      },
+      {
+        "frame": 16.125,
+        "minimumHeightM": 0.02199944667518139,
+        "centerY": -0.35402682423591614
+      },
+      {
+        "frame": 16.25,
+        "minimumHeightM": 0.01848023571074009,
+        "centerY": -0.3520486354827881
+      },
+      {
+        "frame": 16.375,
+        "minimumHeightM": 0.015297481790184975,
+        "centerY": -0.3515854477882385
+      },
+      {
+        "frame": 16.5,
+        "minimumHeightM": 0.012142769061028957,
+        "centerY": -0.35113584995269775
+      },
+      {
+        "frame": 16.625,
+        "minimumHeightM": 0.009550681337714195,
+        "centerY": -0.35309478640556335
+      },
+      {
+        "frame": 16.75,
+        "minimumHeightM": 0.006972522009164095,
+        "centerY": -0.355069637298584
+      },
+      {
+        "frame": 16.875,
+        "minimumHeightM": 0.005475215148180723,
+        "centerY": -0.35988855361938477
+      },
+      {
+        "frame": 17.0,
+        "minimumHeightM": 0.004000960849225521,
+        "centerY": -0.3647136986255646
+      },
+      {
+        "frame": 17.125,
+        "minimumHeightM": 0.003976766020059586,
+        "centerY": -0.37096890807151794
+      },
+      {
+        "frame": 17.25,
+        "minimumHeightM": 0.004000721499323845,
+        "centerY": -0.3772141933441162
+      },
+      {
+        "frame": 17.375,
+        "minimumHeightM": 0.003977091051638126,
+        "centerY": -0.38346928358078003
+      },
+      {
+        "frame": 17.5,
+        "minimumHeightM": 0.004000727087259293,
+        "centerY": -0.38971391320228577
+      },
+      {
+        "frame": 17.625,
+        "minimumHeightM": 0.003977262880653143,
+        "centerY": -0.39596953988075256
+      },
+      {
+        "frame": 17.75,
+        "minimumHeightM": 0.004000532906502485,
+        "centerY": -0.40221384167671204
+      },
+      {
+        "frame": 17.875,
+        "minimumHeightM": 0.003977530170232058,
+        "centerY": -0.40846964716911316
+      },
+      {
+        "frame": 18.0,
+        "minimumHeightM": 0.004000483080744743,
+        "centerY": -0.41471394896507263
+      },
+      {
+        "frame": 18.125,
+        "minimumHeightM": 0.003977853339165449,
+        "centerY": -0.4209696054458618
+      },
+      {
+        "frame": 18.25,
+        "minimumHeightM": 0.004000737331807613,
+        "centerY": -0.4272139072418213
+      },
+      {
+        "frame": 18.375,
+        "minimumHeightM": 0.003978002816438675,
+        "centerY": -0.43346965312957764
+      },
+      {
+        "frame": 18.5,
+        "minimumHeightM": 0.00400036433711648,
+        "centerY": -0.43971413373947144
+      },
+      {
+        "frame": 18.625,
+        "minimumHeightM": 0.003977994434535503,
+        "centerY": -0.44596967101097107
+      },
+      {
+        "frame": 18.75,
+        "minimumHeightM": 0.004000538494437933,
+        "centerY": -0.4522140622138977
+      },
+      {
+        "frame": 18.875,
+        "minimumHeightM": 0.003978363703936338,
+        "centerY": -0.45846986770629883
+      },
+      {
+        "frame": 19.0,
+        "minimumHeightM": 0.0040005845949053764,
+        "centerY": -0.46471384167671204
+      },
+      {
+        "frame": 19.125,
+        "minimumHeightM": 0.003978573251515627,
+        "centerY": -0.470970094203949
+      },
+      {
+        "frame": 19.25,
+        "minimumHeightM": 0.004000656306743622,
+        "centerY": -0.47721385955810547
+      },
+      {
+        "frame": 19.375,
+        "minimumHeightM": 0.003978869412094355,
+        "centerY": -0.48346978425979614
+      },
+      {
+        "frame": 19.5,
+        "minimumHeightM": 0.004000666551291943,
+        "centerY": -0.48971426486968994
+      },
+      {
+        "frame": 19.625,
+        "minimumHeightM": 0.003978968597948551,
+        "centerY": -0.4959699213504791
+      },
+      {
+        "frame": 19.75,
+        "minimumHeightM": 0.004000682383775711,
+        "centerY": -0.5022138357162476
+      },
+      {
+        "frame": 19.875,
+        "minimumHeightM": 0.003979232162237167,
+        "centerY": -0.5084697008132935
+      },
+      {
+        "frame": 20.0,
+        "minimumHeightM": 0.004000551998615265,
+        "centerY": -0.5147138833999634
+      },
+      {
+        "frame": 20.125,
+        "minimumHeightM": 0.003979254513978958,
+        "centerY": -0.5209699869155884
+      },
+      {
+        "frame": 20.25,
+        "minimumHeightM": 0.00400051474571228,
+        "centerY": -0.5272141695022583
+      },
+      {
+        "frame": 20.375,
+        "minimumHeightM": 0.0039796289056539536,
+        "centerY": -0.5334696173667908
+      },
+      {
+        "frame": 20.5,
+        "minimumHeightM": 0.004000376909971237,
+        "centerY": -0.5397140383720398
+      },
+      {
+        "frame": 20.625,
+        "minimumHeightM": 0.003979793284088373,
+        "centerY": -0.545969545841217
+      },
+      {
+        "frame": 20.75,
+        "minimumHeightM": 0.004000497981905937,
+        "centerY": -0.5522138476371765
+      },
+      {
+        "frame": 20.875,
+        "minimumHeightM": 0.003979839850217104,
+        "centerY": -0.558469295501709
+      },
+      {
+        "frame": 21.0,
+        "minimumHeightM": 0.004000406712293625,
+        "centerY": -0.5647138953208923
+      },
+      {
+        "frame": 21.125,
+        "minimumHeightM": 0.003979940433055162,
+        "centerY": -0.5709691643714905
+      },
+      {
+        "frame": 21.25,
+        "minimumHeightM": 0.004000337328761816,
+        "centerY": -0.5772135257720947
+      },
+      {
+        "frame": 21.375,
+        "minimumHeightM": 0.0039802175015211105,
+        "centerY": -0.5834689140319824
+      },
+      {
+        "frame": 21.5,
+        "minimumHeightM": 0.004000541288405657,
+        "centerY": -0.5897135138511658
+      },
+      {
+        "frame": 21.625,
+        "minimumHeightM": 0.0039803809486329556,
+        "centerY": -0.5959686040878296
+      },
+      {
+        "frame": 21.75,
+        "minimumHeightM": 0.004000330343842506,
+        "centerY": -0.602214515209198
+      },
+      {
+        "frame": 21.875,
+        "minimumHeightM": 0.003980268258601427,
+        "centerY": -0.6084684729576111
+      },
+      {
+        "frame": 22.0,
+        "minimumHeightM": 0.004000446293503046,
+        "centerY": -0.6147136688232422
+      },
+      {
+        "frame": 22.125,
+        "minimumHeightM": 0.003980476874858141,
+        "centerY": -0.6209677457809448
+      },
+      {
+        "frame": 22.25,
+        "minimumHeightM": 0.004000340588390827,
+        "centerY": -0.6272138953208923
+      },
+      {
+        "frame": 22.375,
+        "minimumHeightM": 0.003980586770921946,
+        "centerY": -0.6334675550460815
+      },
+      {
+        "frame": 22.5,
+        "minimumHeightM": 0.004000382963567972,
+        "centerY": -0.6397138833999634
+      },
+      {
+        "frame": 22.625,
+        "minimumHeightM": 0.003980511333793402,
+        "centerY": -0.6459672451019287
+      },
+      {
+        "frame": 22.75,
+        "minimumHeightM": 0.004000454675406218,
+        "centerY": -0.6522141098976135
+      },
+      {
+        "frame": 22.875,
+        "minimumHeightM": 0.0039805760607123375,
+        "centerY": -0.6584671139717102
+      },
+      {
+        "frame": 23.0,
+        "minimumHeightM": 0.0040002851746976376,
+        "centerY": -0.6647142767906189
+      },
+      {
+        "frame": 23.125,
+        "minimumHeightM": 0.003980590030550957,
+        "centerY": -0.6709664463996887
+      },
+      {
+        "frame": 23.25,
+        "minimumHeightM": 0.004000239074230194,
+        "centerY": -0.6772138476371765
+      },
+      {
+        "frame": 23.375,
+        "minimumHeightM": 0.003980765584856272,
+        "centerY": -0.6834660172462463
+      },
+      {
+        "frame": 23.5,
+        "minimumHeightM": 0.004000572487711906,
+        "centerY": -0.689714252948761
+      },
+      {
+        "frame": 23.625,
+        "minimumHeightM": 0.003980918787419796,
+        "centerY": -0.695965588092804
+      },
+      {
+        "frame": 23.75,
+        "minimumHeightM": 0.004000530112534761,
+        "centerY": -0.7022138237953186
+      },
+      {
+        "frame": 23.875,
+        "minimumHeightM": 0.0039808242581784725,
+        "centerY": -0.7084649205207825
+      },
+      {
+        "frame": 24.0,
+        "minimumHeightM": 0.004000323824584484,
+        "centerY": -0.7147138118743896
+      },
+      {
+        "frame": 24.125,
+        "minimumHeightM": 0.003980555571615696,
+        "centerY": -0.7209647297859192
+      },
+      {
+        "frame": 24.25,
+        "minimumHeightM": 0.0040004258044064045,
+        "centerY": -0.7272142767906189
+      },
+      {
+        "frame": 24.375,
+        "minimumHeightM": 0.003980791196227074,
+        "centerY": -0.7334641218185425
+      },
+      {
+        "frame": 24.5,
+        "minimumHeightM": 0.004000641405582428,
+        "centerY": -0.7397139072418213
+      },
+      {
+        "frame": 24.625,
+        "minimumHeightM": 0.00398043030872941,
+        "centerY": -0.7459635138511658
+      },
+      {
+        "frame": 24.75,
+        "minimumHeightM": 0.004000470507889986,
+        "centerY": -0.7522139549255371
+      },
+      {
+        "frame": 24.875,
+        "minimumHeightM": 0.003980487585067749,
+        "centerY": -0.7584630846977234
+      },
+      {
+        "frame": 25.0,
+        "minimumHeightM": 0.004000566434115171,
+        "centerY": -0.764713704586029
+      },
+      {
+        "frame": 25.125,
+        "minimumHeightM": 0.0039802901446819305,
+        "centerY": -0.7709627151489258
+      },
+      {
+        "frame": 25.25,
+        "minimumHeightM": 0.00400029681622982,
+        "centerY": -0.7772141098976135
+      },
+      {
+        "frame": 25.375,
+        "minimumHeightM": 0.003980256617069244,
+        "centerY": -0.7834622859954834
+      },
+      {
+        "frame": 25.5,
+        "minimumHeightM": 0.004000494722276926,
+        "centerY": -0.7897138595581055
+      },
+      {
+        "frame": 25.625,
+        "minimumHeightM": 0.003980108071118593,
+        "centerY": -0.7959617972373962
+      },
+      {
+        "frame": 25.75,
+        "minimumHeightM": 0.004000184591859579,
+        "centerY": -0.8022140264511108
+      },
+      {
+        "frame": 25.875,
+        "minimumHeightM": 0.003979736473411322,
+        "centerY": -0.8084614872932434
+      },
+      {
+        "frame": 26.0,
+        "minimumHeightM": 0.004000362940132618,
+        "centerY": -0.8147138357162476
+      },
+      {
+        "frame": 26.125,
+        "minimumHeightM": 0.0039797560311853886,
+        "centerY": -0.8209609389305115
+      },
+      {
+        "frame": 26.25,
+        "minimumHeightM": 0.004000553861260414,
+        "centerY": -0.8272138237953186
+      },
+      {
+        "frame": 26.375,
+        "minimumHeightM": 0.003979572094976902,
+        "centerY": -0.8334609270095825
+      },
+      {
+        "frame": 26.5,
+        "minimumHeightM": 0.004000191576778889,
+        "centerY": -0.8397141098976135
+      },
+      {
+        "frame": 26.625,
+        "minimumHeightM": 0.003978967200964689,
+        "centerY": -0.8459605574607849
+      },
+      {
+        "frame": 26.75,
+        "minimumHeightM": 0.004000142682343721,
+        "centerY": -0.8522132635116577
+      },
+      {
+        "frame": 26.875,
+        "minimumHeightM": 0.003979007247835398,
+        "centerY": -0.858460009098053
+      },
+      {
+        "frame": 27.0,
+        "minimumHeightM": 0.0040004621259868145,
+        "centerY": -0.8647137880325317
+      },
+      {
+        "frame": 27.125,
+        "minimumHeightM": 0.00397864356637001,
+        "centerY": -0.8709600567817688
+      },
+      {
+        "frame": 27.25,
+        "minimumHeightM": 0.004000354092568159,
+        "centerY": -0.8772138357162476
+      },
+      {
+        "frame": 27.375,
+        "minimumHeightM": 0.00397830456495285,
+        "centerY": -0.8834600448608398
+      },
+      {
+        "frame": 27.5,
+        "minimumHeightM": 0.004000446759164333,
+        "centerY": -0.8897140026092529
+      },
+      {
+        "frame": 27.625,
+        "minimumHeightM": 0.003978196997195482,
+        "centerY": -0.8959596157073975
+      },
+      {
+        "frame": 27.75,
+        "minimumHeightM": 0.004000632558017969,
+        "centerY": -0.9022138118743896
+      },
+      {
+        "frame": 27.875,
+        "minimumHeightM": 0.0039779446087777615,
+        "centerY": -0.9084596037864685
+      },
+      {
+        "frame": 28.0,
+        "minimumHeightM": 0.004000226501375437,
+        "centerY": -0.9147137403488159
+      },
+      {
+        "frame": 28.125,
+        "minimumHeightM": 0.003977632615715265,
+        "centerY": -0.9209595322608948
+      },
+      {
+        "frame": 28.25,
+        "minimumHeightM": 0.004000380635261536,
+        "centerY": -0.9272137880325317
+      },
+      {
+        "frame": 28.375,
+        "minimumHeightM": 0.003977165091782808,
+        "centerY": -0.9334594011306763
+      },
+      {
+        "frame": 28.5,
+        "minimumHeightM": 0.004000274930149317,
+        "centerY": -0.9397135972976685
+      },
+      {
+        "frame": 28.625,
+        "minimumHeightM": 0.003976949956268072,
+        "centerY": -0.9459592700004578
+      },
+      {
+        "frame": 28.75,
+        "minimumHeightM": 0.004000336397439241,
+        "centerY": -0.952213704586029
+      },
+      {
+        "frame": 28.875,
+        "minimumHeightM": 0.003976852633059025,
+        "centerY": -0.9584596157073975
+      },
+      {
+        "frame": 29.0,
+        "minimumHeightM": 0.00400053896009922,
+        "centerY": -0.9647141098976135
+      },
+      {
+        "frame": 29.125,
+        "minimumHeightM": 0.003976484760642052,
+        "centerY": -0.9709600806236267
+      },
+      {
+        "frame": 29.25,
+        "minimumHeightM": 0.004000410903245211,
+        "centerY": -0.9772140979766846
+      },
+      {
+        "frame": 29.375,
+        "minimumHeightM": 0.003976037725806236,
+        "centerY": -0.983460009098053
+      },
+      {
+        "frame": 29.5,
+        "minimumHeightM": 0.004000569228082895,
+        "centerY": -0.9897139072418213
+      },
+      {
+        "frame": 29.625,
+        "minimumHeightM": 0.003975657746195793,
+        "centerY": -0.9959601163864136
+      },
+      {
+        "frame": 29.75,
+        "minimumHeightM": 0.004000295419245958,
+        "centerY": -1.002213954925537
+      },
+      {
+        "frame": 29.875,
+        "minimumHeightM": 0.003975260071456432,
+        "centerY": -1.0084604024887085
+      },
+      {
+        "frame": 30.0,
+        "minimumHeightM": 0.004000506829470396,
+        "centerY": -1.0147134065628052
+      },
+      {
+        "frame": 30.125,
+        "minimumHeightM": 0.0039749457500875,
+        "centerY": -1.0209605693817139
+      },
+      {
+        "frame": 30.25,
+        "minimumHeightM": 0.004000477958470583,
+        "centerY": -1.0272141695022583
+      },
+      {
+        "frame": 30.375,
+        "minimumHeightM": 0.003974488936364651,
+        "centerY": -1.033461093902588
+      },
+      {
+        "frame": 30.5,
+        "minimumHeightM": 0.004000237677246332,
+        "centerY": -1.0397140979766846
+      },
+      {
+        "frame": 30.625,
+        "minimumHeightM": 0.003974188584834337,
+        "centerY": -1.0459614992141724
+      },
+      {
+        "frame": 30.75,
+        "minimumHeightM": 0.004000512417405844,
+        "centerY": -1.0522143840789795
+      },
+      {
+        "frame": 30.875,
+        "minimumHeightM": 0.003973848652094603,
+        "centerY": -1.0584617853164673
+      },
+      {
+        "frame": 31.0,
+        "minimumHeightM": 0.004000375512987375,
+        "centerY": -1.0647140741348267
+      },
+      {
+        "frame": 31.125,
+        "minimumHeightM": 0.003973481245338917,
+        "centerY": -1.0709620714187622
+      },
+      {
+        "frame": 31.25,
+        "minimumHeightM": 0.004000409971922636,
+        "centerY": -1.077214002609253
+      },
+      {
+        "frame": 31.375,
+        "minimumHeightM": 0.003973076585680246,
+        "centerY": -1.0834624767303467
+      },
+      {
+        "frame": 31.5,
+        "minimumHeightM": 0.004000271670520306,
+        "centerY": -1.0897139310836792
+      },
+      {
+        "frame": 31.625,
+        "minimumHeightM": 0.003972560632973909,
+        "centerY": -1.0959630012512207
+      },
+      {
+        "frame": 31.75,
+        "minimumHeightM": 0.004000154323875904,
+        "centerY": -1.102213978767395
+      },
+      {
+        "frame": 31.875,
+        "minimumHeightM": 0.003971816040575504,
+        "centerY": -1.1084634065628052
+      },
+      {
+        "frame": 32.0,
+        "minimumHeightM": 0.004000196699053049,
+        "centerY": -1.1147137880325317
+      },
+      {
+        "frame": 32.125,
+        "minimumHeightM": 0.003971187863498926,
+        "centerY": -1.1209638118743896
+      },
+      {
+        "frame": 32.25,
+        "minimumHeightM": 0.004000216722488403,
+        "centerY": -1.127213716506958
+      },
+      {
+        "frame": 32.375,
+        "minimumHeightM": 0.003970780875533819,
+        "centerY": -1.1334646940231323
+      },
+      {
+        "frame": 32.5,
+        "minimumHeightM": 0.004000429529696703,
+        "centerY": -1.1397138833999634
+      },
+      {
+        "frame": 32.625,
+        "minimumHeightM": 0.003970247693359852,
+        "centerY": -1.145965337753296
+      },
+      {
+        "frame": 32.75,
+        "minimumHeightM": 0.004000354092568159,
+        "centerY": -1.1522135734558105
+      },
+      {
+        "frame": 32.875,
+        "minimumHeightM": 0.00396949565038085,
+        "centerY": -1.158466100692749
+      },
+      {
+        "frame": 33.0,
+        "minimumHeightM": 0.004000368993729353,
+        "centerY": -1.164713978767395
+      }
+    ]
+  }
+}

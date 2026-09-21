@@ -1,0 +1,53 @@
+{
+  "scope": "Offline untextured 34-bone walk study. Not natural full-gait, Unity or phone acceptance.",
+  "sourceRigSha256": "74a451843749e56c01c3d6cb55784ac7442c1f0583ce4be0f82cf21399f13efb",
+  "fps": 30,
+  "frames": 32,
+  "durationSeconds": 1.0666666666666667,
+  "authoredSpeedMps": 1.5,
+  "dutyFraction": 0.62,
+  "swingClearanceM": 0.13,
+  "samples": 129,
+  "objectRootMotion": false,
+  "boneScaleAnimation": false,
+  "hoofOrientation": "Neutral world orientation held by independent hoof and pastern joints; no roll-over yet.",
+  "maximumReachClampingM": 0,
+  "maximumNonRootBoneTranslationM": 2.5463115409962923e-07,
+  "minimumBodyHeightM": 0.003999647684395313,
+  "maximumEdgeStretch": 3.0107271942422194,
+  "feet": {
+    "FL": {
+      "stanceResidualTravelM": 5.60283660799854e-07,
+      "minimumStanceHeightM": 0.00399988004937768,
+      "maximumStanceHeightM": 0.004000216722488403,
+      "maximumSolePlaneErrorM": 7.450580596923828e-08,
+      "maximumTargetErrorM": 5.077339719951397e-07,
+      "peakSwingHeightM": 0.1339665800333023
+    },
+    "FR": {
+      "stanceResidualTravelM": 7.241964339321783e-07,
+      "minimumStanceHeightM": 0.003999647684395313,
+      "maximumStanceHeightM": 0.004000072833150625,
+      "maximumSolePlaneErrorM": 1.043081283569336e-07,
+      "maximumTargetErrorM": 5.366559967459671e-07,
+      "peakSwingHeightM": 0.13396622240543365
+    },
+    "HL": {
+      "stanceResidualTravelM": 1.0609626769353397e-06,
+      "minimumStanceHeightM": 0.00399979529902339,
+      "maximumStanceHeightM": 0.004000158980488777,
+      "maximumSolePlaneErrorM": 5.960464477539063e-08,
+      "maximumTargetErrorM": 8.371180929900111e-07,
+      "peakSwingHeightM": 0.13396602869033813
+    },
+    "HR": {
+      "stanceResidualTravelM": 8.583068847878295e-07,
+      "minimumStanceHeightM": 0.003999877721071243,
+      "maximumStanceHeightM": 0.004000276792794466,
+      "maximumSolePlaneErrorM": 8.66129994392395e-08,
+      "maximumTargetErrorM": 5.152360652901569e-07,
+      "peakSwingHeightM": 0.13396620750427246
+    }
+  },
+  "fbxSha256": "c0125c84aee133c461cb13e8c556456d401c9dabc0799a6b288019d0ffea18db"
+}

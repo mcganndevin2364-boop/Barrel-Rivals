@@ -1,0 +1,632 @@
+{
+  "source": "Horse by b2przemo",
+  "license": "CC-BY-3.0",
+  "sourceStaticFbxSha256": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89",
+  "coordinates": "metres; +Y forward, +Z up, +X anatomical right",
+  "authoring": "Original fitted 34-bone hierarchy including one non-deforming Root; heat weights with continuous limb/trunk and coronet masks, continuous four-influence sparsification and rigid sole regions",
+  "blender": "4.5.13 LTS",
+  "bones": [
+    {
+      "name": "Root",
+      "head": [
+        0,
+        -0.35,
+        0
+      ],
+      "tail": [
+        0,
+        -0.35,
+        0.25
+      ],
+      "parent": null,
+      "deform": false
+    },
+    {
+      "name": "Pelvis",
+      "head": [
+        0,
+        -0.82,
+        1.38
+      ],
+      "tail": [
+        0,
+        -0.43,
+        1.38
+      ],
+      "parent": "Root",
+      "deform": true
+    },
+    {
+      "name": "Spine",
+      "head": [
+        0,
+        -0.43,
+        1.38
+      ],
+      "tail": [
+        0,
+        -0.02,
+        1.43
+      ],
+      "parent": "Pelvis",
+      "deform": true
+    },
+    {
+      "name": "Chest",
+      "head": [
+        0,
+        -0.02,
+        1.43
+      ],
+      "tail": [
+        0,
+        0.26,
+        1.47
+      ],
+      "parent": "Spine",
+      "deform": true
+    },
+    {
+      "name": "NeckLower",
+      "head": [
+        0,
+        0.26,
+        1.47
+      ],
+      "tail": [
+        0,
+        0.53,
+        1.72
+      ],
+      "parent": "Chest",
+      "deform": true
+    },
+    {
+      "name": "NeckUpper",
+      "head": [
+        0,
+        0.53,
+        1.72
+      ],
+      "tail": [
+        0,
+        0.87,
+        1.98
+      ],
+      "parent": "NeckLower",
+      "deform": true
+    },
+    {
+      "name": "Head",
+      "head": [
+        0,
+        0.87,
+        1.98
+      ],
+      "tail": [
+        0,
+        1.19,
+        1.58
+      ],
+      "parent": "NeckUpper",
+      "deform": true
+    },
+    {
+      "name": "Jaw",
+      "head": [
+        0,
+        0.86,
+        1.74
+      ],
+      "tail": [
+        0,
+        1.17,
+        1.51
+      ],
+      "parent": "Head",
+      "deform": true
+    },
+    {
+      "name": "Ear.L",
+      "head": [
+        -0.075,
+        0.905,
+        2.005
+      ],
+      "tail": [
+        -0.103,
+        0.997,
+        2.102
+      ],
+      "parent": "Head",
+      "deform": true
+    },
+    {
+      "name": "Ear.R",
+      "head": [
+        0.075,
+        0.905,
+        2.005
+      ],
+      "tail": [
+        0.103,
+        0.997,
+        2.102
+      ],
+      "parent": "Head",
+      "deform": true
+    },
+    {
+      "name": "TailBase",
+      "head": [
+        0,
+        -0.93,
+        1.46
+      ],
+      "tail": [
+        0,
+        -1.13,
+        1.29
+      ],
+      "parent": "Pelvis",
+      "deform": true
+    },
+    {
+      "name": "TailTip",
+      "head": [
+        0,
+        -1.13,
+        1.29
+      ],
+      "tail": [
+        0,
+        -1.18,
+        1.14
+      ],
+      "parent": "TailBase",
+      "deform": true
+    },
+    {
+      "name": "ForeShoulder.L",
+      "head": [
+        -0.075,
+        0.09,
+        1.45
+      ],
+      "tail": [
+        -0.16,
+        0.34,
+        1.2
+      ],
+      "parent": "Chest",
+      "deform": true
+    },
+    {
+      "name": "ForeUpper.L",
+      "head": [
+        -0.16,
+        0.34,
+        1.2
+      ],
+      "tail": [
+        -0.16,
+        0.21,
+        0.98
+      ],
+      "parent": "ForeShoulder.L",
+      "deform": true
+    },
+    {
+      "name": "Forearm.L",
+      "head": [
+        -0.16,
+        0.21,
+        0.98
+      ],
+      "tail": [
+        -0.16,
+        0.247,
+        0.625
+      ],
+      "parent": "ForeUpper.L",
+      "deform": true
+    },
+    {
+      "name": "ForeCannon.L",
+      "head": [
+        -0.16,
+        0.247,
+        0.625
+      ],
+      "tail": [
+        -0.16,
+        0.195,
+        0.21
+      ],
+      "parent": "Forearm.L",
+      "deform": true
+    },
+    {
+      "name": "ForePastern.L",
+      "head": [
+        -0.16,
+        0.195,
+        0.21
+      ],
+      "tail": [
+        -0.162,
+        0.237,
+        0.09
+      ],
+      "parent": "ForeCannon.L",
+      "deform": true
+    },
+    {
+      "name": "ForeHoof.L",
+      "head": [
+        -0.162,
+        0.237,
+        0.09
+      ],
+      "tail": [
+        -0.162,
+        0.316,
+        0.035
+      ],
+      "parent": "ForePastern.L",
+      "deform": true
+    },
+    {
+      "name": "HindThigh.L",
+      "head": [
+        -0.16,
+        -0.81,
+        1.38
+      ],
+      "tail": [
+        -0.17,
+        -0.68,
+        1.01
+      ],
+      "parent": "Pelvis",
+      "deform": true
+    },
+    {
+      "name": "HindShin.L",
+      "head": [
+        -0.17,
+        -0.68,
+        1.01
+      ],
+      "tail": [
+        -0.175,
+        -0.994,
+        0.625
+      ],
+      "parent": "HindThigh.L",
+      "deform": true
+    },
+    {
+      "name": "HindCannon.L",
+      "head": [
+        -0.175,
+        -0.994,
+        0.625
+      ],
+      "tail": [
+        -0.178,
+        -0.925,
+        0.21
+      ],
+      "parent": "HindShin.L",
+      "deform": true
+    },
+    {
+      "name": "HindPastern.L",
+      "head": [
+        -0.178,
+        -0.925,
+        0.21
+      ],
+      "tail": [
+        -0.178,
+        -0.876,
+        0.09
+      ],
+      "parent": "HindCannon.L",
+      "deform": true
+    },
+    {
+      "name": "HindHoof.L",
+      "head": [
+        -0.178,
+        -0.876,
+        0.09
+      ],
+      "tail": [
+        -0.178,
+        -0.79,
+        0.035
+      ],
+      "parent": "HindPastern.L",
+      "deform": true
+    },
+    {
+      "name": "ForeShoulder.R",
+      "head": [
+        0.075,
+        0.09,
+        1.45
+      ],
+      "tail": [
+        0.16,
+        0.34,
+        1.2
+      ],
+      "parent": "Chest",
+      "deform": true
+    },
+    {
+      "name": "ForeUpper.R",
+      "head": [
+        0.16,
+        0.34,
+        1.2
+      ],
+      "tail": [
+        0.16,
+        0.21,
+        0.98
+      ],
+      "parent": "ForeShoulder.R",
+      "deform": true
+    },
+    {
+      "name": "Forearm.R",
+      "head": [
+        0.16,
+        0.21,
+        0.98
+      ],
+      "tail": [
+        0.16,
+        0.247,
+        0.625
+      ],
+      "parent": "ForeUpper.R",
+      "deform": true
+    },
+    {
+      "name": "ForeCannon.R",
+      "head": [
+        0.16,
+        0.247,
+        0.625
+      ],
+      "tail": [
+        0.16,
+        0.195,
+        0.21
+      ],
+      "parent": "Forearm.R",
+      "deform": true
+    },
+    {
+      "name": "ForePastern.R",
+      "head": [
+        0.16,
+        0.195,
+        0.21
+      ],
+      "tail": [
+        0.162,
+        0.237,
+        0.09
+      ],
+      "parent": "ForeCannon.R",
+      "deform": true
+    },
+    {
+      "name": "ForeHoof.R",
+      "head": [
+        0.162,
+        0.237,
+        0.09
+      ],
+      "tail": [
+        0.162,
+        0.316,
+        0.035
+      ],
+      "parent": "ForePastern.R",
+      "deform": true
+    },
+    {
+      "name": "HindThigh.R",
+      "head": [
+        0.16,
+        -0.81,
+        1.38
+      ],
+      "tail": [
+        0.17,
+        -0.68,
+        1.01
+      ],
+      "parent": "Pelvis",
+      "deform": true
+    },
+    {
+      "name": "HindShin.R",
+      "head": [
+        0.17,
+        -0.68,
+        1.01
+      ],
+      "tail": [
+        0.175,
+        -0.994,
+        0.625
+      ],
+      "parent": "HindThigh.R",
+      "deform": true
+    },
+    {
+      "name": "HindCannon.R",
+      "head": [
+        0.175,
+        -0.994,
+        0.625
+      ],
+      "tail": [
+        0.178,
+        -0.925,
+        0.21
+      ],
+      "parent": "HindShin.R",
+      "deform": true
+    },
+    {
+      "name": "HindPastern.R",
+      "head": [
+        0.178,
+        -0.925,
+        0.21
+      ],
+      "tail": [
+        0.178,
+        -0.876,
+        0.09
+      ],
+      "parent": "HindCannon.R",
+      "deform": true
+    },
+    {
+      "name": "HindHoof.R",
+      "head": [
+        0.178,
+        -0.876,
+        0.09
+      ],
+      "tail": [
+        0.178,
+        -0.79,
+        0.035
+      ],
+      "parent": "HindPastern.R",
+      "deform": true
+    }
+  ],
+  "boneCount": 34,
+  "vertices": 19502,
+  "triangles": 39000,
+  "automaticWeightSeconds": 1.1942977905273438,
+  "prunedVertices": 908,
+  "rigidSoleVertices": 3322,
+  "unweightedVertices": 0,
+  "maximumInfluences": 4,
+  "maximumWeightSumError": 4.7497451305389404e-08,
+  "poses": {
+    "Neutral": {},
+    "ForeFold": {
+      "ForeShoulder.R": 10,
+      "ForeUpper.R": 12,
+      "Forearm.R": 28,
+      "ForeCannon.R": -62,
+      "ForePastern.R": 24,
+      "ForeHoof.R": -12
+    },
+    "HindFold": {
+      "HindThigh.R": 28,
+      "HindShin.R": -46,
+      "HindCannon.R": 38,
+      "HindPastern.R": -15,
+      "HindHoof.R": -8
+    },
+    "Reach": {
+      "ForeShoulder.R": -8,
+      "ForeUpper.R": 10,
+      "Forearm.R": 22,
+      "ForeCannon.R": -8,
+      "ForePastern.R": -3,
+      "ForeHoof.R": -10,
+      "HindThigh.R": -12,
+      "HindShin.R": 15,
+      "HindCannon.R": -8
+    },
+    "NeckLowered": {
+      "NeckLower": -10,
+      "NeckUpper": -12,
+      "Head": 6
+    },
+    "TurnLeft": {
+      "NeckLower": {
+        "z": 10
+      },
+      "NeckUpper": {
+        "z": 12
+      },
+      "Head": {
+        "z": 8
+      },
+      "Spine": {
+        "z": -3
+      },
+      "Chest": {
+        "z": -3
+      }
+    }
+  },
+  "deformationMeasurements": {
+    "Neutral": {
+      "minimumHeight": 6.102842962718569e-05,
+      "maximumDisplacement": 3.375038997204937e-07,
+      "maximumEdgeStretch": 1.0000681706400383,
+      "p99EdgeStretch": 1.0000064830329842,
+      "minimumEdgeLengthRatio": 0.999923970010773,
+      "objectMatrixUnchanged": true
+    },
+    "ForeFold": {
+      "minimumHeight": 8.987852197606117e-05,
+      "maximumDisplacement": 0.4320219004414403,
+      "maximumEdgeStretch": 2.7645688192731246,
+      "p99EdgeStretch": 1.2386271351808305,
+      "minimumEdgeLengthRatio": 0.14728217139233746,
+      "objectMatrixUnchanged": true
+    },
+    "HindFold": {
+      "minimumHeight": 6.102842962718569e-05,
+      "maximumDisplacement": 0.34368556133923717,
+      "maximumEdgeStretch": 2.8166519625642885,
+      "p99EdgeStretch": 1.1744337048896873,
+      "minimumEdgeLengthRatio": 0.20911544245220207,
+      "objectMatrixUnchanged": true
+    },
+    "Reach": {
+      "minimumHeight": -0.04552251100540161,
+      "maximumDisplacement": 0.25991294775334556,
+      "maximumEdgeStretch": 1.6225715802486267,
+      "p99EdgeStretch": 1.1528942283336456,
+      "minimumEdgeLengthRatio": 0.5296842055041564,
+      "objectMatrixUnchanged": true
+    },
+    "NeckLowered": {
+      "minimumHeight": 6.102842962718569e-05,
+      "maximumDisplacement": 0.2914864903907279,
+      "maximumEdgeStretch": 1.2308143446206294,
+      "p99EdgeStretch": 1.0573339509909385,
+      "minimumEdgeLengthRatio": 0.6987776110554661,
+      "objectMatrixUnchanged": true
+    },
+    "TurnLeft": {
+      "minimumHeight": 6.117735028965399e-05,
+      "maximumDisplacement": 0.22568436483844254,
+      "maximumEdgeStretch": 1.1893832397218556,
+      "p99EdgeStretch": 1.0491146679600403,
+      "minimumEdgeLengthRatio": 0.8162949389478108,
+      "objectMatrixUnchanged": true
+    }
+  },
+  "scope": "Isolated untextured deformation study; no gait/foot-plant/Unity/runtime or photographic acceptance",
+  "fbxSha256": "74a451843749e56c01c3d6cb55784ac7442c1f0583ce4be0f82cf21399f13efb"
+}
