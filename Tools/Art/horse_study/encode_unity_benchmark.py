@@ -20,7 +20,7 @@ for view in ('quarter', 'rider'):
         strip.elements.append('%03d.png' % (i % 28 + 1))
     strip.frame_final_duration = 112
     label = seq.strips.new_effect('Unity benchmark ' + view, type='TEXT', channel=2, frame_start=start, frame_end=start + 112)
-    label.text = 'UNITY HORSE / SADDLE BENCHMARK  |  ' + view.upper() + '\nControlled Unity capture - not a phone benchmark'
+    label.text = 'UNITY HORSE / RIDER FIT  |  ' + view.upper() + '\nControlled Unity capture - not a phone benchmark'
     label.font_size = 19
     label.location = (0.5, 0.91)
     label.color = (0.95, 0.93, 0.87, 1)
@@ -35,5 +35,5 @@ s.render.ffmpeg.constant_rate_factor = 'HIGH'
 s.render.ffmpeg.audio_codec = 'NONE'
 s.render.filepath = str(folder / 'HeroHorse-UnityBenchmark.mp4')
 bpy.ops.render.render(animation=True)
-(folder / 'video-spec.json').write_text(json.dumps({'frames': 224, 'fps': 30, 'width': 800, 'height': 600, 'views': ['quarter', 'rider'], 'scope': 'Controlled Unity capture, static floor, four repeated walk cycles per view. Not measured gameplay or phone performance.'}, indent=2) + '\n')
+(folder / 'video-spec.json').write_text(json.dumps({'frames': 224, 'fps': 30, 'width': 800, 'height': 600, 'views': ['quarter', 'rider'], 'scope': 'Controlled Unity horse/rider capture, static floor, four repeated walk cycles per view. Not measured gameplay or phone performance.'}, indent=2) + '\n')
 print('UNITY_BENCHMARK_VIDEO_ENCODED')

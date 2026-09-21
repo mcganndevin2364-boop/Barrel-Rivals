@@ -1,0 +1,75 @@
+{
+  "recordedAt": "2026-09-21T07:32:37+00:00",
+  "sourceBaseline": "2ab32355a0c1c14a9bf3e54e1d765cf34eabd945",
+  "previousGoalTurn": "progress",
+  "scope": "Explicit rider/tack integration into isolated development scene. Not runtime replacement, natural gait, photographic or phone acceptance.",
+  "priorEvidenceUnchanged": 624,
+  "poseSamples": 84,
+  "maximumReachErrorM": 3.8857473327880143e-07,
+  "maximumSeatErrorM": 1.1920928955078125e-07,
+  "maximumReinEndpointErrorM": 2.3888378564151935e-07,
+  "maximumBootTreadClearanceM": 3.5762786865234375e-07,
+  "geometry": {
+    "triangles": 92402,
+    "slots": 25,
+    "renderers": 20
+  },
+  "focusedPlayMode": {
+    "passed": 7,
+    "failed": 0,
+    "skipped": 0,
+    "endTime": "2026-09-21 07:27:34Z"
+  },
+  "initialLiveCameraFailure": "First-person switch retained inspection FOV43, clipping rein grips although manual FOV72 renders looked correct. Fixed by applying riderFieldOfView and restoring saved inspection pose/FOV on exit; final live framing/restore checks pass.",
+  "sourceMotionComparison": {
+    "samples": 7,
+    "maximumErrorM": 0.00036393143818713725,
+    "targetM": 0.00019999999494757503,
+    "targetMet": false,
+    "causeIsolated": false
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 7.467,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      111,
+      112,
+      223
+    ],
+    "height": 600,
+    "width": 800
+  },
+  "coreOrPlayerScenesChanged": false,
+  "newNativeBuild": false,
+  "newPhoneInstallation": false,
+  "projectConfiguredVersion": "0.5.0/build 5",
+  "lastVerifiedInstalledIPhone": "0.4.0/build 4",
+  "open": [
+    "Coat/groom/hat/clothing detail and reference quality",
+    "Natural remaining gaits, turns, braking and rider actions",
+    "Reduce92k/25-slot character and add LODs",
+    "Resolve animated source comparison difference",
+    "Actual race/stable/ghost adoption and shared cosmetics",
+    "Native/device play, comfort and sustained performance",
+    "Full progression/multiplayer/release"
+  ],
+  "evidenceSha256": {
+    "HorseRider-Attachments.json": "d36038a2682d01e53c9e9f5088717f097586f7d1c1114f76cbee2850738b0fdb",
+    "HorseRider-Build.json": "6dfcde63447d9cfb0f00e761864c651259980368c45149238ba4b06218f2cb19",
+    "HorseRider-Capture.json": "86b54d8e474a160ac617394caff4c7d52c0d92d2316759f17a6f737388f9a47d",
+    "HorseRider-ExistingRiderRegression.json": "d583b76d0ac2fa570f6dbf191e769ad8137ddb6d57b991e13c378938e9162433",
+    "HorseRider-Head.png": "4faf9786b32a82f07c76ee7c7d5f1ea463e50fe27bb566a0e84fe3f47f4a8981",
+    "HorseRider-Motion.mp4": "c35e4b89720c72a18fd68d1b7fe3a28a820432479cd98ae85584e3aef0453cf3",
+    "HorseRider-PlayMode.xml": "6fa05287ca32763ec3fa5d285dfc6983f17db935b3f8bc97114cf2426a6bf7df",
+    "HorseRider-Playback.json": "30bfb42a2eabb85398a0e33f844677c7fccc5ee6dc546988ea03407405a21074",
+    "HorseRider-Quarter.png": "021f1f563fcb7eef6f39cb1b9668af226dbf2a51aab8cb481a897b64ad4ef875",
+    "HorseRider-Review.json": "724c71fc35bcbfca717188055e75f380fda61fe6f8fd2c59a2b476dbfd6efa5c",
+    "HorseRider-Riding.png": "5b350dfd47444f0ce889dc4a64a324da64fcea3b099b0e477587b15a3957ac8f",
+    "HorseRider-Side.png": "58800dd7714185e8eb38bffb0b96dd09c43095080e97a66414e55c1a1d7d99c1",
+    "HorseRider-StableFit.png": "a9966cd278dd1a0fc8bce2fda4c7a227c2a58de074673290f9a64d8c62ba11c9",
+    "HorseRider-Video.json": "2d9bdcd223eafd2a7d5e2e806afa0e64d58ab948a1c4f8b26da054e4add707d6"
+  }
+}

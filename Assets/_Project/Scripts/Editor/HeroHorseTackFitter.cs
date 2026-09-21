@@ -59,6 +59,13 @@ namespace BarrelRivals.Editor
                     }
                     var horn=new GameObject("Fitted saddle horn").transform;horn.SetParent(saddle,false);
                     horn.localPosition=Fit(new Vector3(0,2.039f,-.115f+oldSkin.Bounds.center.z));
+                    // Preserve the original evaluated seat/ankle locations through the same surface fit.
+                    void Anchor(string name,Vector3 point)
+                    {var a=new GameObject(name).transform;a.SetParent(saddle,false);a.localPosition=Fit(point);}
+                    float oldHornZ=-.115f+oldSkin.Bounds.center.z;
+                    Anchor("Fitted rider pelvis",new Vector3(0,1.949f,oldHornZ-.33f));
+                    Anchor("Fitted left ankle",new Vector3(-.50f,1.38f,oldHornZ-.20f));
+                    Anchor("Fitted right ankle",new Vector3(.50f,1.38f,oldHornZ-.20f));
                     saddle.SetParent(target.SaddleSupport,true);
                     Debug.Log("HORSE_SADDLE_FITTED oldBounds="+oldSkin.Bounds+" newBounds="+newSkin.Bounds+" samples="+cache.Count);
                 }

@@ -97,6 +97,15 @@
     "sourceMotionTargetM": 0.0002,
     "sourceMotionTargetMet": false,
     "maximumAnimatedBodyErrorM": 0.0003639314,
-    "checkpoint": "Docs/Art/Reins-Horse-Unity-Benchmark.md"
+    "checkpoint": "Docs/Art/Reins-Horse-Unity-Benchmark.md",
+    "latestAttachments": {
+      "checkpoint": "Docs/Art/Reins-Horse-Rider-Fit.md",
+      "triangles": 92402,
+      "slots": 25,
+      "renderers": 20,
+      "poseSamples": 84,
+      "focusedPlayModeTestsPassed": 7,
+      "runtimeReplacement": false
+    }
   }
 }

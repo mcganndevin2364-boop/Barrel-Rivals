@@ -20,8 +20,11 @@ namespace BarrelRivals.Editor
             public Hit(Vector3 point,BoneWeight weight){Point=point;Weight=weight;}
         }
         public ReinsHorseSurface(Transform model)
+            : this(model.GetComponentsInChildren<SkinnedMeshRenderer>(true).Single(r=>r.name.StartsWith("HorseBody",StringComparison.Ordinal)),model) { }
+
+        // Explicit skin/space binding also supports the separate replacement rig.
+        public ReinsHorseSurface(SkinnedMeshRenderer body,Transform model)
         {
-            var body=model.GetComponentsInChildren<SkinnedMeshRenderer>(true).Single(r=>r.name.StartsWith("HorseBody",StringComparison.Ordinal));
             Bones=body.bones;weights=body.sharedMesh.boneWeights;
             var baked=new Mesh();
             try

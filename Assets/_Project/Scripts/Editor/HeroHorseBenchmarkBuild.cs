@@ -61,6 +61,7 @@ namespace BarrelRivals.Editor
 
             Materials(body,eyes,groom);
             HeroHorseTackFitter.Build(bindings);
+            HeroHorseRiderBuilder.Build(bindings);
             var controller=AssetDatabase.LoadAssetAtPath<AnimatorController>(Root+"/HorseBenchmark.controller");
             if(!controller)controller=AnimatorController.CreateAnimatorControllerAtPath(Root+"/HorseBenchmark.controller");
             var machine=controller.layers[0].stateMachine;
@@ -71,13 +72,14 @@ namespace BarrelRivals.Editor
             foreach(var s in skins){s.quality=SkinQuality.Bone4;s.updateWhenOffscreen=true;s.shadowCastingMode=ShadowCastingMode.On;}
             var camera=new GameObject("Horse review camera",typeof(Camera)).GetComponent<Camera>();
             camera.tag="MainCamera";camera.nearClipPlane=.04f;camera.farClipPlane=250;camera.fieldOfView=43;
-            camera.transform.position=new Vector3(3.1f,2.2f,3.7f);camera.transform.LookAt(new Vector3(0,1.13f,0));
+            camera.transform.position=new Vector3(3.8f,2.8f,4.3f);camera.transform.LookAt(new Vector3(0,1.45f,0));
             Lighting(camera);
             var ground=GameObject.CreatePrimitive(PrimitiveType.Plane);ground.name="Benchmark arena surface";
             Object.DestroyImmediate(ground.GetComponent<Collider>());ground.transform.localScale=new Vector3(6,1,6);
             var floorMesh=Object.Instantiate(ground.GetComponent<MeshFilter>().sharedMesh);floorMesh.uv=floorMesh.uv.Select(uv=>uv*20).ToArray();ground.GetComponent<MeshFilter>().sharedMesh=PersistentMeshAsset.Save(floorMesh,Root+"/Benchmark floor.asset");
             ground.GetComponent<Renderer>().sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>(ReinsPremiumArenaBuilder.Root+"/Materials/Arena soil.mat");
             var motion=horse.AddComponent<HeroHorseBenchmarkPlayback>();motion.horse=bindings;motion.reviewCamera=camera;
+            motion.neutralRiderPosition=model.transform.InverseTransformPoint(model.GetComponentsInChildren<Transform>().Single(t=>t.name=="Fitted saddle horn").position)+new Vector3(0,.40f,-.20f);
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(),ScenePath);
             File.WriteAllText(Path.Combine(Output,"build.json"),JsonUtility.ToJson(new BuildReport{bodyVertices=body.sharedMesh.vertexCount,horseTriangles=skins.Sum(s=>s.sharedMesh.triangles.Length/3),horseSlots=skins.Sum(s=>s.sharedMaterials.Length),bones=nodes.Count(t=>t.IsChildOf(bindings.MotionRoot)||t==bindings.MotionRoot),walkSeconds=walk.length},true));

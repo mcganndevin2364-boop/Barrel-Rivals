@@ -51,9 +51,13 @@ namespace BarrelRivals.Editor
             Require(Vector3.Distance(binding.FollowSupportPoint(new Vector3(0,2.2f,-.35f))-followed,delta)<.00002f,"Camera must inherit visual Root movement");
             binding.MotionRoot.position=rootBefore;
             var camera=Camera.main;var originalActor=binding.transform.position;
+            var attachments=binding.GetComponent<HeroHorseAttachments>();
+            var riderPoint=binding.GetComponent<HeroHorseBenchmarkPlayback>().neutralRiderPosition;
+            if(attachments){attachments.SetRiderView(false);attachments.RenderImmediate();}
             var walk=AssetDatabase.LoadAllAssetsAtPath(ModelPath).OfType<AnimationClip>().Single(c=>!c.name.StartsWith("__preview__"));
             foreach(var shader in new[]{binding.Body.sharedMaterial.shader,binding.Groom.sharedMaterial.shader})
                 Require(!ShaderUtil.GetShaderMessages(shader).Any(m=>m.severity.ToString()=="Error"),"Shader import errors: "+shader.name);
+            if(attachments){camera.transform.position=new Vector3(3.8f,2.8f,4.3f);camera.transform.LookAt(new Vector3(0,1.45f,0));}
             Capture(camera,Path.Combine(Output,"neutral.png"),960,720);
             camera.transform.position=new Vector3(1.7f,2.1f,2.5f);camera.transform.LookAt(new Vector3(0,1.82f,1.04f));camera.fieldOfView=31;
             Capture(camera,Path.Combine(Output,"head.png"),960,720);
@@ -64,10 +68,11 @@ namespace BarrelRivals.Editor
                 for(int frame=0;frame<28;frame++)
                 {
                     float time=frame/30f;walk.SampleAnimation(animator.gameObject,time);
+                    if(attachments){attachments.SetRiderView(view=="rider");attachments.RenderImmediate();}
                     if(view=="quarter")
-                    {camera.transform.position=new Vector3(3.1f,2.2f,3.7f);camera.transform.LookAt(new Vector3(0,1.13f,0));camera.fieldOfView=43;}
+                    {camera.transform.position=new Vector3(3.8f,2.8f,4.3f);camera.transform.LookAt(new Vector3(0,1.45f,0));camera.fieldOfView=43;}
                     else
-                    {camera.transform.position=binding.FollowSupportPoint(new Vector3(0,2.2f,-.35f));camera.transform.rotation=binding.ModelSpace.rotation*Quaternion.Euler(8,0,0);camera.fieldOfView=72;}
+                    {camera.transform.position=binding.FollowSupportPoint(riderPoint);camera.transform.rotation=binding.ModelSpace.rotation*Quaternion.Euler(8,0,0);camera.fieldOfView=72;}
                     Capture(camera,Path.Combine(folder,(frame+1).ToString("D3")+".png"),800,600);
                     Require(Vector3.Distance(binding.transform.position,originalActor)<1e-7f,"Visual sampling moved actor root");
                     frames.Add(new Frame{view=view,time=time,camera=camera.transform.position,root=binding.ModelSpace.InverseTransformPoint(binding.MotionRoot.position),head=binding.ModelSpace.InverseTransformPoint(binding.Head.position)});

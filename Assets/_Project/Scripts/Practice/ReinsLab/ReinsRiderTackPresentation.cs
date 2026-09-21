@@ -56,11 +56,12 @@ namespace BarrelRivals.Practice
             rightHand.localPosition = rightRest + new Vector3(-turn * .009f, right * .016f, -.082f * right - speed * .0006f)+seatMotion;
             leftHand.localRotation = Quaternion.Euler(-left * 5, -8, -9 - left * 3);
             rightHand.localRotation = Quaternion.Euler(-right * 5, 8, 9 + right * 3);
-            Deform(leftRein.transform, leftGrip.position, leftBit.position, left, -1, leftMesh, leftVertices, leftNormals, leftTangents);
-            Deform(rightRein.transform, rightGrip.position, rightBit.position, right, 1, rightMesh, rightVertices, rightNormals, rightTangents);
+            UpdateReinGeometry(leftRein.transform, leftGrip.position, leftBit.position, left, -1, leftMesh, leftVertices, leftNormals, leftTangents);
+            UpdateReinGeometry(rightRein.transform, rightGrip.position, rightBit.position, right, 1, rightMesh, rightVertices, rightNormals, rightTangents);
         }
 
-        private static void Deform(Transform space, Vector3 startWorld, Vector3 endWorld, float tension,
+        /// <summary>Shared geometry writer; caller owns all mesh and scratch buffers.</summary>
+        public static void UpdateReinGeometry(Transform space, Vector3 startWorld, Vector3 endWorld, float tension,
             int side, Mesh mesh, Vector3[] vertices, Vector3[] normals, Vector4[] tangents)
         {
             var start = space.InverseTransformPoint(startWorld); var end = space.InverseTransformPoint(endWorld);

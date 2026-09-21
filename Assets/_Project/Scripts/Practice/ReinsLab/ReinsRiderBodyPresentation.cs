@@ -38,7 +38,13 @@ namespace BarrelRivals.Practice
         private void LateUpdate()=>RenderImmediate();
         public void RenderImmediate()
         {
-            if(!source || !pelvis || !seat || !modelSpace || bones==null)return;
+            if(source)RenderAtSpeed(source.Speed);
+        }
+
+        /// <summary>Presentation adapter entry; no simulation state is needed to fit a development rig.</summary>
+        public void RenderAtSpeed(float speed)
+        {
+            if(!pelvis || !seat || !modelSpace || bones==null)return;
             for(int i=0;i<bones.Length;i++)
             {
                 bones[i].localPosition=restPositions[i];bones[i].localRotation=restRotations[i];
@@ -46,7 +52,7 @@ namespace BarrelRivals.Practice
             // Tack inherits the horse's actual animated torso. Match that seat before
             // bending the rider; world-space targets keep feet and cuffs connected.
             transform.position=seat.position-transform.TransformVector(pelvisInRoot);
-            float lean=Mathf.Lerp(8,19,Mathf.Clamp01(source.Speed/14));
+            float lean=Mathf.Lerp(8,19,Mathf.Clamp01(speed/14));
             pelvis.rotation=Quaternion.AngleAxis(lean,modelSpace.right)*pelvis.rotation;
             MaximumReachError=0;
             Solve(leftLeg);Solve(rightLeg);Solve(leftArm);Solve(rightArm);

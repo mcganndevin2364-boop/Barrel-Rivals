@@ -289,7 +289,7 @@ namespace BarrelRivals.Editor
         private static Mesh SaveMesh(string name,Mesh mesh)
         {mesh.name=name;return PersistentMeshAsset.Save(mesh,Root+"/"+name+".asset");}
 
-        private sealed class Surface
+        internal sealed class Surface
         {
             private readonly List<Vector3> vertices=new List<Vector3>();private readonly List<Vector2> uv=new List<Vector2>();private readonly List<int> triangles=new List<int>();
             public void Tube(Vector3[] points,float radius,int sides,bool cap)=>Tube(points,Array.ConvertAll(points,p=>radius),sides,cap);

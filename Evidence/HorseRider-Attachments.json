@@ -1,0 +1,533 @@
+{
+    "maximumReachErrorM": 3.8857473327880143e-7,
+    "maximumSeatErrorM": 1.1920928955078125e-7,
+    "maximumReinEndpointErrorM": 2.3888378564151935e-7,
+    "maximumBootTreadClearanceM": 3.5762786865234375e-7,
+    "samples": [
+        {
+            "seconds": 0.0,
+            "leftPull": 0.0,
+            "reachError": 2.0489096641540527e-7
+        },
+        {
+            "seconds": 0.0,
+            "leftPull": 0.5,
+            "reachError": 1.9082797564351495e-7
+        },
+        {
+            "seconds": 0.0,
+            "leftPull": 1.0,
+            "reachError": 1.9082797564351495e-7
+        },
+        {
+            "seconds": 0.03333333507180214,
+            "leftPull": 0.0,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.03333333507180214,
+            "leftPull": 0.5,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.03333333507180214,
+            "leftPull": 1.0,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.06666667014360428,
+            "leftPull": 0.0,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.06666667014360428,
+            "leftPull": 0.5,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.06666667014360428,
+            "leftPull": 1.0,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.10000000149011612,
+            "leftPull": 0.0,
+            "reachError": 3.828358785540331e-7
+        },
+        {
+            "seconds": 0.10000000149011612,
+            "leftPull": 0.5,
+            "reachError": 3.223614157832344e-7
+        },
+        {
+            "seconds": 0.10000000149011612,
+            "leftPull": 1.0,
+            "reachError": 3.223614157832344e-7
+        },
+        {
+            "seconds": 0.13333334028720856,
+            "leftPull": 0.0,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.13333334028720856,
+            "leftPull": 0.5,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.13333334028720856,
+            "leftPull": 1.0,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.1666666716337204,
+            "leftPull": 0.0,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.1666666716337204,
+            "leftPull": 0.5,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.1666666716337204,
+            "leftPull": 1.0,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.20000000298023224,
+            "leftPull": 0.0,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.20000000298023224,
+            "leftPull": 0.5,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.20000000298023224,
+            "leftPull": 1.0,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.23333333432674408,
+            "leftPull": 0.0,
+            "reachError": 3.424026147058612e-7
+        },
+        {
+            "seconds": 0.23333333432674408,
+            "leftPull": 0.5,
+            "reachError": 3.424026147058612e-7
+        },
+        {
+            "seconds": 0.23333333432674408,
+            "leftPull": 1.0,
+            "reachError": 3.424026147058612e-7
+        },
+        {
+            "seconds": 0.2666666805744171,
+            "leftPull": 0.0,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.2666666805744171,
+            "leftPull": 0.5,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.2666666805744171,
+            "leftPull": 1.0,
+            "reachError": 2.682209014892578e-7
+        },
+        {
+            "seconds": 0.30000001192092896,
+            "leftPull": 0.0,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.30000001192092896,
+            "leftPull": 0.5,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.30000001192092896,
+            "leftPull": 1.0,
+            "reachError": 2.995096224367444e-7
+        },
+        {
+            "seconds": 0.3333333432674408,
+            "leftPull": 0.0,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.3333333432674408,
+            "leftPull": 0.5,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.3333333432674408,
+            "leftPull": 1.0,
+            "reachError": 3.2098083124765253e-7
+        },
+        {
+            "seconds": 0.36666667461395264,
+            "leftPull": 0.0,
+            "reachError": 3.828358785540331e-7
+        },
+        {
+            "seconds": 0.36666667461395264,
+            "leftPull": 0.5,
+            "reachError": 3.223614157832344e-7
+        },
+        {
+            "seconds": 0.36666667461395264,
+            "leftPull": 1.0,
+            "reachError": 3.223614157832344e-7
+        },
+        {
+            "seconds": 0.4000000059604645,
+            "leftPull": 0.0,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.4000000059604645,
+            "leftPull": 0.5,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.4000000059604645,
+            "leftPull": 1.0,
+            "reachError": 1.6049041562382627e-7
+        },
+        {
+            "seconds": 0.4333333373069763,
+            "leftPull": 0.0,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.4333333373069763,
+            "leftPull": 0.5,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.4333333373069763,
+            "leftPull": 1.0,
+            "reachError": 3.8857473327880143e-7
+        },
+        {
+            "seconds": 0.46666666865348816,
+            "leftPull": 0.0,
+            "reachError": 2.0489096641540527e-7
+        },
+        {
+            "seconds": 0.46666666865348816,
+            "leftPull": 0.5,
+            "reachError": 1.9082797564351495e-7
+        },
+        {
+            "seconds": 0.46666666865348816,
+            "leftPull": 1.0,
+            "reachError": 1.9082797564351495e-7
+        },
+        {
+            "seconds": 0.5,
+            "leftPull": 0.0,
+            "reachError": 2.9502794518521114e-7
+        },
+        {
+            "seconds": 0.5,
+            "leftPull": 0.5,
+            "reachError": 2.9502794518521114e-7
+        },
+        {
+            "seconds": 0.5,
+            "leftPull": 1.0,
+            "reachError": 2.9502794518521114e-7
+        },
+        {
+            "seconds": 0.5333333611488342,
+            "leftPull": 0.0,
+            "reachError": 2.4755667027420714e-7
+        },
+        {
+            "seconds": 0.5333333611488342,
+            "leftPull": 0.5,
+            "reachError": 2.4755667027420714e-7
+        },
+        {
+            "seconds": 0.5333333611488342,
+            "leftPull": 1.0,
+            "reachError": 2.4755667027420714e-7
+        },
+        {
+            "seconds": 0.5666666626930237,
+            "leftPull": 0.0,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.5666666626930237,
+            "leftPull": 0.5,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.5666666626930237,
+            "leftPull": 1.0,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.6000000238418579,
+            "leftPull": 0.0,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.6000000238418579,
+            "leftPull": 0.5,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.6000000238418579,
+            "leftPull": 1.0,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.6333333253860474,
+            "leftPull": 0.0,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.6333333253860474,
+            "leftPull": 0.5,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.6333333253860474,
+            "leftPull": 1.0,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.6666666865348816,
+            "leftPull": 0.0,
+            "reachError": 3.1680303891334916e-7
+        },
+        {
+            "seconds": 0.6666666865348816,
+            "leftPull": 0.5,
+            "reachError": 3.1680303891334916e-7
+        },
+        {
+            "seconds": 0.6666666865348816,
+            "leftPull": 1.0,
+            "reachError": 3.1680303891334916e-7
+        },
+        {
+            "seconds": 0.699999988079071,
+            "leftPull": 0.0,
+            "reachError": 2.269677281674376e-7
+        },
+        {
+            "seconds": 0.699999988079071,
+            "leftPull": 0.5,
+            "reachError": 2.269677281674376e-7
+        },
+        {
+            "seconds": 0.699999988079071,
+            "leftPull": 1.0,
+            "reachError": 2.269677281674376e-7
+        },
+        {
+            "seconds": 0.7333333492279053,
+            "leftPull": 0.0,
+            "reachError": 2.811545414260763e-7
+        },
+        {
+            "seconds": 0.7333333492279053,
+            "leftPull": 0.5,
+            "reachError": 2.811545414260763e-7
+        },
+        {
+            "seconds": 0.7333333492279053,
+            "leftPull": 1.0,
+            "reachError": 2.811545414260763e-7
+        },
+        {
+            "seconds": 0.7666666507720947,
+            "leftPull": 0.0,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.7666666507720947,
+            "leftPull": 0.5,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.7666666507720947,
+            "leftPull": 1.0,
+            "reachError": 3.182017280778382e-7
+        },
+        {
+            "seconds": 0.800000011920929,
+            "leftPull": 0.0,
+            "reachError": 3.0613182389060967e-7
+        },
+        {
+            "seconds": 0.800000011920929,
+            "leftPull": 0.5,
+            "reachError": 2.6151431598009367e-7
+        },
+        {
+            "seconds": 0.800000011920929,
+            "leftPull": 1.0,
+            "reachError": 2.6151431598009367e-7
+        },
+        {
+            "seconds": 0.8333333134651184,
+            "leftPull": 0.0,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.8333333134651184,
+            "leftPull": 0.5,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.8333333134651184,
+            "leftPull": 1.0,
+            "reachError": 3.6010283110954333e-7
+        },
+        {
+            "seconds": 0.8666666746139526,
+            "leftPull": 0.0,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.8666666746139526,
+            "leftPull": 0.5,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.8666666746139526,
+            "leftPull": 1.0,
+            "reachError": 2.4027400513659813e-7
+        },
+        {
+            "seconds": 0.8999999761581421,
+            "leftPull": 0.0,
+            "reachError": 2.9502794518521114e-7
+        },
+        {
+            "seconds": 0.8999999761581421,
+            "leftPull": 0.5,
+            "reachError": 2.9502794518521114e-7
+        },
+        {
+            "seconds": 0.8999999761581421,
+            "leftPull": 1.0,
+            "reachError": 2.9502794518521114e-7
+        }
+    ],
+    "geometry": [
+        {
+            "name": "HeroHorseBody",
+            "triangles": 39000,
+            "slots": 1
+        },
+        {
+            "name": "HeroHorseEyes",
+            "triangles": 2880,
+            "slots": 1
+        },
+        {
+            "name": "HeroHorseGroom",
+            "triangles": 6624,
+            "slots": 2
+        },
+        {
+            "name": "Fitted leather headstall",
+            "triangles": 976,
+            "slots": 1
+        },
+        {
+            "name": "Bit rings and buckles",
+            "triangles": 1248,
+            "slots": 1
+        },
+        {
+            "name": "Headstall stitching",
+            "triangles": 1280,
+            "slots": 1
+        },
+        {
+            "name": "Woven saddle pad",
+            "triangles": 1424,
+            "slots": 1
+        },
+        {
+            "name": "Pad binding and cinch",
+            "triangles": 2672,
+            "slots": 1
+        },
+        {
+            "name": "Western saddle",
+            "triangles": 6272,
+            "slots": 1
+        },
+        {
+            "name": "Saddle hardware",
+            "triangles": 992,
+            "slots": 1
+        },
+        {
+            "name": "Original cowboy hat",
+            "triangles": 526,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin",
+            "triangles": 8944,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.low-poly",
+            "triangles": 172,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.male_casualsuit03",
+            "triangles": 4800,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.ponytail01",
+            "triangles": 5352,
+            "slots": 1
+        },
+        {
+            "name": "Rider skin.toigo_ankle_boots_male",
+            "triangles": 4120,
+            "slots": 1
+        },
+        {
+            "name": "Glove shell",
+            "triangles": 1408,
+            "slots": 1
+        },
+        {
+            "name": "Glove shell",
+            "triangles": 1408,
+            "slots": 1
+        },
+        {
+            "name": "Fitted left rein",
+            "triangles": 1152,
+            "slots": 3
+        },
+        {
+            "name": "Fitted right rein",
+            "triangles": 1152,
+            "slots": 3
+        }
+    ],
+    "totalTriangles": 92402,
+    "totalSlots": 25,
+    "scope": "84 sampled walk/pull combinations in isolated Unity scene. Endpoint alignment is not continuous collision or natural-motion acceptance; stable substitution is an unsaved neutral inspection only."
+}

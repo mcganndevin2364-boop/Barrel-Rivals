@@ -1,0 +1,9 @@
+{
+    "sampleCount": 36,
+    "rootVerticalTravelM": 0.015941768884658813,
+    "inheritedCameraMotion": true,
+    "hiddenBonesAdvance": true,
+    "actorRootStationary": true,
+    "reducedMotionFixedCamera": true,
+    "scope": "Unity Play Mode development benchmark, not measured phone performance or race integration."
+}
