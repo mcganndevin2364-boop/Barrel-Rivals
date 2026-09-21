@@ -66,7 +66,7 @@ namespace BarrelRivals.Editor
             AssetDatabase.SaveAssets();
         }
 
-        private static void FrameHorse(Camera camera, Transform horse)
+        public static void FrameHorse(Camera camera, Transform horse)
         {
             // Measure visible geometry instead of framing the import pivot. The subject sits
             // inside the real central UI opening; both ears and hoof tips retain margin.

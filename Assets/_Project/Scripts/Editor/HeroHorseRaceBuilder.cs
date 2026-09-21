@@ -82,6 +82,9 @@ namespace BarrelRivals.Editor
             view.FindProperty("downwardPitch").floatValue=25;
             view.FindProperty("fieldOfView").floatValue=72;
             view.ApplyModifiedPropertiesWithoutUndo();
+            var navigation=new SerializedObject(Object.FindFirstObjectByType<ReinsLabController>());
+            navigation.FindProperty("developmentStableScene").stringValue=HeroHorseStableBuilder.ScenePath;
+            navigation.ApplyModifiedPropertiesWithoutUndo();
             if(clone.GetComponentsInChildren<Collider>(true).Length!=0)throw new InvalidOperationException("Character art cannot introduce race colliders.");
             if(EditorBuildSettings.scenes.Any(s=>s.path==ScenePath))throw new InvalidOperationException("Development review must stay outside player build scenes.");
             EditorSceneManager.SaveScene(race,ScenePath);

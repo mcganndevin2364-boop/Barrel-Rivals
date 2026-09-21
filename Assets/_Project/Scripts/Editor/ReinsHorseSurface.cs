@@ -44,6 +44,11 @@ namespace BarrelRivals.Editor
         public Hit Side(float y,float z)=>Ray(new Vector3(2,y,z),Vector3.left);
         public Hit Ray(Vector3 origin,Vector3 direction)
         {
+            if(TryRay(origin,direction,out var hit))return hit;
+            throw new InvalidOperationException("Horse fitting ray missed body at "+origin+" toward "+direction);
+        }
+        public bool TryRay(Vector3 origin,Vector3 direction,out Hit hit)
+        {
             float nearest=float.PositiveInfinity,bestU=0,bestV=0;int face=-1;
             for(int i=0;i<triangles.Length;i+=3)
             {
@@ -54,7 +59,7 @@ namespace BarrelRivals.Editor
                 float t=Vector3.Dot(e2,q)*inverse;if(t<0 || t>=nearest)continue;
                 nearest=t;bestU=u;bestV=v;face=i;
             }
-            if(face<0)throw new InvalidOperationException("Horse fitting ray missed body at "+origin+" toward "+direction);
+            if(face<0){hit=default;return false;}
             var influence=new float[Bones.Length];
             Add(influence,weights[triangles[face]],1-bestU-bestV);Add(influence,weights[triangles[face+1]],bestU);Add(influence,weights[triangles[face+2]],bestV);
             int first=0,second=1;
@@ -63,7 +68,8 @@ namespace BarrelRivals.Editor
             for(int i=0;i<influence.Length;i++)if(i!=first && influence[i]>influence[second])second=i;
             float sum=influence[first]+influence[second];
             if(sum<=0)throw new InvalidOperationException("Horse skin has no valid influence at fitted point.");
-            return new Hit(origin+direction*nearest,new BoneWeight{boneIndex0=first,weight0=influence[first]/sum,boneIndex1=second,weight1=influence[second]/sum});
+            hit=new Hit(origin+direction*nearest,new BoneWeight{boneIndex0=first,weight0=influence[first]/sum,boneIndex1=second,weight1=influence[second]/sum});
+            return true;
         }
         static void Add(float[] output,BoneWeight weight,float amount)
         {output[weight.boneIndex0]+=weight.weight0*amount;output[weight.boneIndex1]+=weight.weight1*amount;output[weight.boneIndex2]+=weight.weight2*amount;output[weight.boneIndex3]+=weight.weight3*amount;}

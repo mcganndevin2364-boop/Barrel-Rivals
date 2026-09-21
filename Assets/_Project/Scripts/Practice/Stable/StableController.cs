@@ -39,6 +39,10 @@ namespace BarrelRivals.Practice
         [SerializeField] private StableAppearance appearance, riderAppearance;
         [SerializeField] private Camera viewCamera;
         [SerializeField] private ViewBindings ui;
+#if UNITY_EDITOR
+        // Excluded development scenes can be reviewed together without entering a mobile build list.
+        [SerializeField,HideInInspector] private string developmentRaceScene;
+#endif
         [SerializeField] private Vector3 riderCameraPosition = new Vector3(12.7f, 1.5f, 3.2f);
         [SerializeField] private Vector3 riderCameraLookAt = new Vector3(12, 1.05f, 0);
         private Vector3 stableCameraPosition;
@@ -185,7 +189,16 @@ namespace BarrelRivals.Practice
         public void ResetView()
         { horse.localRotation=initialHorseRotation; if(riderPreview)riderPreview.localRotation=initialRiderRotation; }
         public void Race()
-        { Apply(Store.Current); SceneManager.LoadScene(ReinsLabController.SceneName); }
+        {
+            Apply(Store.Current);
+#if UNITY_EDITOR
+            if(!string.IsNullOrEmpty(developmentRaceScene))
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(developmentRaceScene,new LoadSceneParameters(LoadSceneMode.Single));return;
+            }
+#endif
+            SceneManager.LoadScene(ReinsLabController.SceneName);
+        }
         private void Apply(StableProfile profile)
         { if(appearance)appearance.Apply(profile); if(riderAppearance)riderAppearance.Apply(profile); }
         private void SetNotice(string message) { if(ui.saveStatus)ui.saveStatus.text=message; }

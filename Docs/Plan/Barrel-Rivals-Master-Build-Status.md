@@ -1,5 +1,7 @@
 # Barrel Rivals — master build status
 
+The [matching horse/stable review](../Art/Reins-Horse-Stable-Integration.md) connects the explicit replacement to a saved warm MyStable, fitted animated resting reins, real candidate thumbnails and round-trip gear/race navigation. Nine focused tests pass, including equipment persistence and the unchanged full race; actual stable, tack, glove and idle evidence is retained. Both review scenes remain outside player builds. Coat/mane/tack detail, natural actions, turn framing, rendering budgets/LODs and phone qualification remain open.
+
 The [full-course horse integration review](../Art/Reins-Horse-Race-Integration.md) connects the newer rig to the real arena, accepted speed/reins, stabilized camera, saved gear and independent ghost in an excluded development scene. Nine focused tests pass, including the preserved 33.86-second result and all 20 styles from MyStable; a continuous actual Unity ride is retained. Normal player scenes and phone builds remain unchanged. Natural turning/framing, reference-quality art, rendering budgets and device acceptance remain open.
 
 The [worked arena footing checkpoint](../Art/Reins-Worked-Footing-Checkpoint.md) adds original hoof/scuff relief, broad drag tracks, varied photographic sampling and manifest-driven wetness to the actual racing surface. All seven ground meshes and seventeen photo sources are unchanged. Eight focused live checks pass, including the preserved 33.86-second canonical run and MyStable/Gear flow. One new data texture and extra shader work need phone profiling; photographic quality and full-game acceptance remain open.
@@ -42,7 +44,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 |---|---|---|
 | 8 | Horse Data Model & Breeds | One starter horse displayed in the 3D stable; four bounded Reins trait parameters unchanged; distinct ten-horse roster, selection and bond pending |
 | 9 | Horse Stats & Leveling | Bounded Reins effective movement traits tested; leveling, ownership and trusted progression pending |
-| 10 | Horse Animation State Machine | Existing player horse/rider remains; newer explicit 39-bone horse now runs the actual full course with five gaits, fitted tack/rider, accepted reins and independent ghost in an excluded development scene. Nine focused integration/regression tests pass; natural turns/braking/Wrap, source fidelity, rendering budget, player promotion and phone acceptance remain open |
+| 10 | Horse Animation State Machine | Existing player horse/rider remains; explicit 39-bone candidate connects full-course racing/ghost with a matching animated MyStable review and fitted resting reins. Nine focused stable/race/legacy checks pass; natural turns/braking/Wrap, source fidelity, rendering budget, player promotion and phone acceptance remain open |
 | 11 | Horse Physics & Movement Controller | Reins fixed-step three-barrel steering with bounded launch acceleration and swept barrel/alley contacts; production hull, rig and online authority pending |
 | 12 | Horse Gait System | Five authored candidate gaits now follow accepted speed through the complete real course; sampled flat-floor correction and rider connections checked. Normal player rig unchanged; world stance locking, natural turn/brake/contact/Wrap actions, hoof audio and device acceptance pending |
 | 13 | Horse Visual Customization (Colors/Markings) | Development-only directional coat and saved racing western hat checked; twenty local styles preview/equip with persisted race bindings; connected glove anatomy shared by six styles, shared horse fiber shading and saved-material checks pass; coat/marking customization and trusted ownership pending |
@@ -100,7 +102,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 | # | Section | Current implementation status |
 |---|---|---|
 | 42 | Currency System (Coins, Diamonds, Trophies) | Temporary local coins/trophies; persistence/ledger absent |
-| 43 | Gear & Equipment System | Reference-driven MyStable with rig-following stowed reins, five cosmetic slots and 20 free local styles, real thumbnails/inspection and isolated cosmetic-v2 persistence. All styles now bind to the full-course candidate via actual stable equip flow; candidate showroom integration, trusted ownership and competitive equipment systems remain pending |
+| 43 | Gear & Equipment System | Reference-driven MyStable with rig-following stowed reins, five cosmetic slots and 20 free local styles, real thumbnails/inspection and isolated cosmetic-v2 persistence. Matching candidate showroom and full-course reviews now share equipped gear, real candidate thumbnails and round-trip navigation; trusted ownership and competitive equipment systems remain pending |
 | 44 | Loot Crate & Reward System | Not built |
 | 45 | Trophy Road & Arena Unlocks | Tier constants only; progression path not built |
 | 46 | Daily Missions & Season Pass | Not built |
@@ -112,7 +114,7 @@ The [candidate rider/tack fit](../Art/Reins-Horse-Rider-Fit.md) adds the existin
 |---|---|---|
 | 48 | Adaptive Audio Engine | Three dedicated DSP-scheduled launch voices plus separate cadence and grade audio, lifecycle cleanup tested; final mix/hoof assets and physical latency pending |
 | 49 | Haptics & Feedback System | 0.3.0 optional short native iOS/Android feedback observes accepted outcomes; persisted toggle and no editor vibration; native bridges built; phone feel pending |
-| 50 | UI/UX Design System | Reins-only startup and pre-run settings plus reference-driven MyStable/Tack/Rider Gear inspection/equip; desktop checks passed; finished visual quality and phone ergonomics pending |
+| 50 | UI/UX Design System | Reins-only startup/settings and reference-directed MyStable/Tack/Rider Gear. Matching development horse review verifies framing, actual thumbnails and equip/navigation; finished visual quality, broader apparel and phone ergonomics pending |
 | 51 | Tutorial & Onboarding Flow | Not built |
 | 52 | Replay System & Highlights | Isolated Classic/v1/v2 recordings; explicit armed-launch state/fingerprint, v2 replay/save/reload and historical-byte preservation tested; authorized rivals, sharing/highlights pending |
 | 53 | Analytics & Telemetry | Not built |

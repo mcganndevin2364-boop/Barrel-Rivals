@@ -14,13 +14,13 @@ namespace BarrelRivals.Editor
     public static class StableThumbnailBuilder
     {
         public const string Root=StableTackBuilder.Root+"/Thumbnails";
-        public static void Generate(Transform horse,Transform rider)
+        public static void Generate(Transform horse,Transform rider,string outputRoot=Root)
         {
-            Directory.CreateDirectory(Root);
-            foreach(var item in StableCatalog.Gear)Render(item.Id,item.Slot==StableSlot.Gloves?rider:horse,item.Slot);
-            Render(StableCatalog.HorseId,horse,null);
+            Directory.CreateDirectory(outputRoot);
+            foreach(var item in StableCatalog.Gear)Render(item.Id,item.Slot==StableSlot.Gloves?rider:horse,item.Slot,outputRoot);
+            Render(StableCatalog.HorseId,horse,null,outputRoot);
             AssetDatabase.Refresh();
-            foreach(string file in Directory.GetFiles(Root,"*.png")) {
+            foreach(string file in Directory.GetFiles(outputRoot,"*.png")) {
                 var importer=(TextureImporter)AssetImporter.GetAtPath(file);
                 importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;importer.mipmapEnabled=false;
                 importer.alphaIsTransparency=true;importer.maxTextureSize=256;importer.textureCompression=TextureImporterCompression.Uncompressed;
@@ -28,11 +28,12 @@ namespace BarrelRivals.Editor
             }
             Debug.Log("BARREL_STABLE: rendered "+(StableCatalog.Gear.Count+1)+" catalog thumbnails from real equipped meshes.");
         }
-        private static void Render(string id,Transform source,StableSlot? slot)
+        private static void Render(string id,Transform source,StableSlot? slot,string outputRoot)
         {
             var stage=new GameObject("Temporary item photography");stage.transform.position=new Vector3(100,20,100);
             var clone=Object.Instantiate(source.gameObject,stage.transform);clone.name="Photographed item";
             clone.transform.localPosition=Vector3.zero;clone.transform.localRotation=Quaternion.identity;clone.SetActive(true);
+            foreach(var skin in clone.GetComponentsInChildren<SkinnedMeshRenderer>(true))skin.forceMatrixRecalculationPerRender=true;
             foreach(var t in clone.GetComponentsInChildren<Transform>(true))t.gameObject.layer=31;
             if(slot.HasValue){var profile=StableProfile.Starter();profile.TryEquip(slot.Value,id);clone.GetComponent<StableAppearance>().Apply(profile);}
             var renderers=clone.GetComponentsInChildren<Renderer>(true);Bounds bounds=default;bool first=true;
@@ -48,8 +49,23 @@ namespace BarrelRivals.Editor
             camera.GetUniversalAdditionalCameraData().renderPostProcessing=false;
             // A roster portrait should show the horse's face, rather than shrinking the entire body into the card.
             if(!slot.HasValue) {
-                var head=clone.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="Bone.002");
-                if(head)bounds=new Bounds(head.position+new Vector3(0,-.12f,0),new Vector3(1.30f,1.50f,1.30f));
+                var explicitRig=clone.GetComponentInChildren<HorseRigBindings>(true);
+                var head=explicitRig?explicitRig.Head:clone.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="Bone.002");
+                if(explicitRig)
+                {
+                    // The candidate Head role starts at the neck joint. Fit the actual
+                    // eyes so its portrait does not become a miniature full-body view.
+                    var baked=new Mesh();
+                    try
+                    {
+                        explicitRig.Eyes.BakeMesh(baked,true);
+                        var points=baked.vertices.Select(v=>explicitRig.Eyes.transform.TransformPoint(v)).ToArray();
+                        var centerOfEyes=points.Aggregate(Vector3.zero,(sum,p)=>sum+p)/points.Length;
+                        bounds=new Bounds(centerOfEyes+new Vector3(0,-.16f,0),new Vector3(.72f,.94f,.72f));
+                    }
+                    finally{Object.DestroyImmediate(baked);}
+                }
+                else if(head)bounds=new Bounds(head.position+new Vector3(0,-.12f,0),new Vector3(1.30f,1.50f,1.30f));
             }
             var center=bounds.center;float radius=Mathf.Max(bounds.extents.magnitude,.1f);
             Vector3 direction=slot==StableSlot.Gloves?new Vector3(.36f,.10f,1):new Vector3(1.2f,.65f,1.8f);
@@ -69,16 +85,16 @@ namespace BarrelRivals.Editor
                 // be captured with a stale built-in/fallback subshader selection.
                 camera.targetTexture=target;camera.cullingMask=0;camera.Render();
                 camera.cullingMask=1<<31;camera.Render();RenderTexture.active=target;image.ReadPixels(new Rect(0,0,256,192),0,0);image.Apply();
-                File.WriteAllBytes(Root+"/"+id+".png",image.EncodeToPNG());
+                File.WriteAllBytes(outputRoot+"/"+id+".png",image.EncodeToPNG());
             }
             finally {camera.targetTexture=null;RenderTexture.active=active;Object.DestroyImmediate(image);Object.DestroyImmediate(target);Object.DestroyImmediate(stage);}
         }
         private static bool Include(string name,StableSlot slot)
         {
             switch(slot) {
-                case StableSlot.Saddle:return name=="Contoured western leather" || name=="Saddle hardware";
-                case StableSlot.Pad:return name=="Woven saddle pad" || name=="Woven blanket stripes";
-                case StableSlot.Reins:return name=="Left braided rein" || name=="Right braided rein";
+                case StableSlot.Saddle:return name=="Contoured western leather" || name=="Western saddle" || name=="Saddle hardware";
+                case StableSlot.Pad:return name=="Woven saddle pad" || name=="Woven blanket stripes" || name=="Pad binding and cinch";
+                case StableSlot.Reins:return name=="Left braided rein" || name=="Right braided rein" || name=="Fitted left rein" || name=="Fitted right rein";
                 case StableSlot.Headstall:return name=="Fitted leather headstall" || name=="Bit rings and buckles" || name=="Headstall stitching";
                 case StableSlot.Gloves:return name=="Inspect glove shell" || name=="Inspect glove seams";
                 default:return false;

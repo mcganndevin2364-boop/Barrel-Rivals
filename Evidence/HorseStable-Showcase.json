@@ -1,0 +1,12 @@
+{
+    "clip": "Idle",
+    "clipDurationSeconds": 4.0,
+    "frames": 120,
+    "characterTriangles": 65288,
+    "renderers": 12,
+    "materialSlots": 17,
+    "capturedWidth": 960,
+    "capturedHeight": 540,
+    "phoneFootage": false,
+    "scope": "Actual saved stable and gear with real UI. Idle sampled at 30 Hz for four seconds; encoded frame rate is not a measurement of runtime performance."
+}

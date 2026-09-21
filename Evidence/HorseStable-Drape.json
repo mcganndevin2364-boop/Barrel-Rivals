@@ -1,0 +1,8 @@
+{
+    "poses": 48,
+    "crossSectionSamples": 1728,
+    "maximumEndpointErrorM": 2.811545414260763e-7,
+    "minimumSampledSideGapM": 0.02899010479450226,
+    "vertexTravelM": 0.004159027244895697,
+    "scope": "Saved MyStable Idle samples and independent mesh lifetime. Cross-section clearance is not full continuous collision or device performance."
+}

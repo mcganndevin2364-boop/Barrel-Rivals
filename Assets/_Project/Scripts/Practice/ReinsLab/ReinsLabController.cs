@@ -25,9 +25,22 @@ namespace BarrelRivals.Practice
         [SerializeField] private Button begin,retry,surfaceButton,soundButton,cameraButton,classicButton,ghostButton;
         [SerializeField] private Material ghostMaterial;
         [SerializeField] private Button stableButton;
+#if UNITY_EDITOR
+        [SerializeField,HideInInspector] private string developmentStableScene;
+#endif
         public bool CanOpenStable => run!=null && (run.Phase==ReinsPhase.Ready || Terminal(run.Phase));
         public void ConfigureStable(Button button) { stableButton=button; }
-        public void OpenStable() { if(CanOpenStable)SceneManager.LoadScene(StableController.SceneName); }
+        public void OpenStable()
+        {
+            if(!CanOpenStable)return;
+#if UNITY_EDITOR
+            if(!string.IsNullOrEmpty(developmentStableScene))
+            {
+                UnityEditor.SceneManagement.EditorSceneManager.LoadSceneInPlayMode(developmentStableScene,new LoadSceneParameters(LoadSceneMode.Single));return;
+            }
+#endif
+            SceneManager.LoadScene(StableController.SceneName);
+        }
         private readonly Dictionary<ReinsPad,int> owners=new Dictionary<ReinsPad,int>();
         private readonly List<ReinsInput> recorded=new List<ReinsInput>();
         private readonly Dictionary<ReinsSurface,ReinsLabRecord> sessionBests=new Dictionary<ReinsSurface,ReinsLabRecord>();
