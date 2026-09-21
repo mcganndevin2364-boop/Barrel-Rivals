@@ -54,3 +54,6 @@ Current source configures 0.5.0/build 5, rules reins-v2. Read Barrel-Rivals-AI-H
 <!-- REINS05_MOBILE_START -->
 Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. See Docs/Build/Reins-0.5-iPhone-Checkpoint.md. ExportIOS explicitly serializes Metal, and Unity may replace an export symlink; relocate the completed export outside Documents after Unity exits, verify its PBX hash, then compile. Fresh generated runtime preflight matched 3,485 canonical source/headers with zero numbered copies to quarantine. Keep raw signing/device logs private.
 <!-- REINS05_MOBILE_END -->
+
+<!-- REINS05_ANDROID -->
+The current 0.5 Android APK is compiled and verified; see Docs/Build/Reins-0.5-Android-Checkpoint.md. Both 0.5 packages remain uninstalled/unqualified on phones. Keep APK/IPA/signing data and raw logs out of Git. All 558 previous evidence records are unchanged. Fresh code/graphics work still needs actual moving visual review; a green artifact check is not photographic or device-performance acceptance.

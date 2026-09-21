@@ -1,3 +1,5 @@
+> Historical Classic/0.4 guidance. Current Reins-only 0.5 builds and evidence are linked from [README](README.md) and [the Reins guide](README-Reins.md). Do not use the 0.4 version arguments below to validate a new 0.5 artifact.
+
 # Barrel Rivals — first-barrel practice
 
 M1 continues development in this same recovered repository. The folder is still named `Barrel-Rivals-M0`; the active implementation branch is `codex/m1-skill-loop`. Original source folders remain preserved. The [AI handoff](Barrel-Rivals-AI-Handoff.md) and publication receipt identify the current branch/checkpoint. This document preserves Classic development history; the user has selected Reins as the main game.

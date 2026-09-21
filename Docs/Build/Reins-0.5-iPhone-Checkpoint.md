@@ -16,7 +16,7 @@ The fresh export contained **3,485 canonical runtime source/header files matchin
 
 The fresh **0.5.0/build 5 iPhone app compiled and signed successfully** with Xcode 15.2 using the previously selected Personal Team. Signature, valid exact-app development profile including the paired phone, ARM64 app/framework binaries, IPA integrity and every archived file were verified. [Signed artifact evidence](../../Evidence/Reins05-iOS-Artifact.json). The profile expires **2026-09-26T02:40:02+00:00**. Installation, physical launch and measured phone performance remain unverified; the last verified installed version is still 0.4.0/build 4.
 
-No new Android APK or named Android handset qualification is included. Existing Android evidence remains 0.4.0. The complete R2 visual/control/performance gate is still open. Source tests, controlled 25 fps capture and native compilation are distinct from measured phone FPS or photographic acceptance.
+The matching [0.5 Android APK](Reins-0.5-Android-Checkpoint.md) is now verified separately; named-handset installation and qualification remain pending. The complete R2 visual/control/performance gate is still open. Source tests, controlled 25 fps capture and native compilation are distinct from measured phone FPS or photographic acceptance.
 
 ## Reproduction and review
 

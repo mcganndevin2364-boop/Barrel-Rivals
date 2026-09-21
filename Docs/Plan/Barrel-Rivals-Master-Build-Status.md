@@ -17,7 +17,7 @@ Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Che
 | 3 | Game State Machine | Ready/Approach/Racing/Drive/finish/cancel/timeout v2 states tested; historical Classic state preserved; online reconnect pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
 | 5 | Save/Load & Cloud Sync | Classic/v1 race files preserved; isolated reins-v2 bests/replays and independent cosmetic-v2 persistence tested; phone restart/cloud sync pending |
-| 6 | iOS & Android Platform Layer | 0.5 iOS export/native compilation/signature/IPA verified; install and measured phone play pending; last verified phone install remains 0.4.0. Android 0.4 APK checks are historical; fresh Android 0.5 and handset qualification pending |
+| 6 | iOS & Android Platform Layer | 0.5 iOS export/native compilation/signature/IPA and Android version/signature/ARM64/16 KB alignment verified; both new installs/play/performance pending; last verified iPhone installation remains 0.4.0; named Android handset still needed |
 | 7 | Performance Budget & Quality Tiers | Targets proposed; device performance unmeasured |
 
 **CATEGORY B: HORSE SYSTEM (Sections 8–15)**
@@ -131,5 +131,5 @@ Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Che
 This snapshot incorporates historical M0/M1/0.4, current stable/graphics source and the implemented v2 alley rules/input boundary. Source checks do not replace native, device or photographic-quality acceptance. Multiplayer, trusted progression/economy and release qualification remain future work.
 
 <!-- REINS05_MOBILE_START -->
-Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. See [the mobile checkpoint](../Build/Reins-0.5-iPhone-Checkpoint.md). This advances S06 build verification; no section or R2 device gate is accepted.
+Fresh **0.5.0/build 5 iPhone and Android development packages are verified**. iPhone export/native compilation/signature/IPA integrity and Android version/signature/ARM64/16 KB alignment checks passed. Neither new package has been installed or playtested on a phone; the last verified installed iPhone app remains 0.4.0/build 4. See [iPhone evidence](../Build/Reins-0.5-iPhone-Checkpoint.md) and [Android evidence](../Build/Reins-0.5-Android-Checkpoint.md). This advances S06 artifact verification; no section or R2 device gate is accepted.
 <!-- REINS05_MOBILE_END -->

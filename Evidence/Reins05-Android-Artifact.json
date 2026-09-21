@@ -1,0 +1,269 @@
+{
+  "artifact": "Builds/Android/BarrelRivals-ReinsLab.apk",
+  "bytes": 88456278,
+  "sha256": "d4caa3836355202b2178e71034b54af9531aadd7caadead96d5946c01ce0912c",
+  "metadata": [
+    "package: name='com.barrelrivals.foundation' versionCode='5' versionName='0.5.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+    "sdkVersion:'26'",
+    "targetSdkVersion:'36'",
+    "native-code: 'arm64-v8a'"
+  ],
+  "signingVerification": [
+    "Verifies",
+    "Verified using v1 scheme (JAR signing): false",
+    "Verified using v2 scheme (APK Signature Scheme v2): true",
+    "Verified using v3 scheme (APK Signature Scheme v3): false",
+    "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+    "Verified using v4 scheme (APK Signature Scheme v4): false",
+    "Verified for SourceStamp: false",
+    "Number of signers: 1"
+  ],
+  "apk16KiBAlignmentCheck": "passed",
+  "nativeLibraries": [
+    {
+      "name": "lib/arm64-v8a/lib_burst_generated.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libc++_shared.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libgame.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libil2cpp.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libmain.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libswappywrapper.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libunity.so",
+      "loadSegmentAlignments": [
+        16384,
+        16384,
+        16384,
+        16384
+      ]
+    }
+  ],
+  "deviceInstalledOrRun": false,
+  "distribution": "local development APK; debug signing; not store-ready",
+  "sourceCommit": "523f6f44570d9998b4e55044edd124af7bb1bee8",
+  "version": "0.5.0",
+  "buildNumber": "5",
+  "rulesVersion": "reins-v2",
+  "unityVersion": "6000.6.0f1",
+  "unityBuildResult": "Succeeded",
+  "unityBuildErrors": 0,
+  "verifiedAt": "2026-09-21T02:57:45.592184+00:00",
+  "userFacingArtifact": "../BarrelRivals-Android-Reins-0.5.0.apk",
+  "archiveIntegrityVerified": true,
+  "androidHapticBridgeClassPresent": true,
+  "signerMatchesPreviousDevelopmentAPK": true,
+  "elfMachineAnd16KiBCongruence": [
+    {
+      "name": "lib/arm64-v8a/lib_burst_generated.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libc++_shared.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libgame.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libil2cpp.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libmain.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libswappywrapper.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    },
+    {
+      "name": "lib/arm64-v8a/libunity.so",
+      "machine": "AArch64",
+      "segments": [
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        },
+        {
+          "alignment": 16384,
+          "offsetAddressCongruent16KiB": true
+        }
+      ]
+    }
+  ],
+  "serializedSceneNameObservations": {
+    "Arena_ReinsLab": true,
+    "MyStable": true,
+    "Arena_Practice": false
+  },
+  "buildScenesFromCommittedBuilder": [
+    "Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity",
+    "Assets/_Project/Generated/ReinsLab/MyStable.unity"
+  ],
+  "nativeInstallationVerified": false,
+  "physicalLaunchVerified": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "limitation": "Debug-signed local development APK. No named Android handset, installation, graphics/input/audio run, sustained performance or store acceptance is claimed.",
+  "postBuildSettingsRestoration": {
+    "observedChange": "The Android Unity run serialized the inactive iOS graphics m_Automatic flag from 0 to 1. No other ProjectSettings bytes changed.",
+    "action": "Restored the exact tracked ProjectSettings after the successful Android build; the committed iPhone export still explicitly selects Metal.",
+    "androidSettingsChangedByRestoration": false,
+    "beforeRunSha256": "ee711e27c41e2b1e3ea513668a98a7ebec08aaf217bee3fe19231f544e7a2526",
+    "serializedAfterRunSha256": "62ec2f4b4e76e65cfdcce54ea9587c76a52b721ba8cf24446a02984fef025c80",
+    "restoredSha256": "ee711e27c41e2b1e3ea513668a98a7ebec08aaf217bee3fe19231f544e7a2526"
+  }
+}

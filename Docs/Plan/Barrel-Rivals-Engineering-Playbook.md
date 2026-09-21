@@ -620,3 +620,6 @@ This playbook changes design/acceptance contracts only; it does not provision a 
 <!-- REINS05_MOBILE_START -->
 S06 mobile increment: Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. The 0.5 player contains Reins/MyStable, ARM64 IL2CPP and explicit Metal. Fresh generated runtime files matched the installed engine; all prior source/evidence remains preserved. See [checkpoint](../Build/Reins-0.5-iPhone-Checkpoint.md). S07/S50 device performance and full R2 acceptance remain open.
 <!-- REINS05_MOBILE_END -->
+
+<!-- REINS05_ANDROID -->
+S06 artifact increment: Fresh **0.5.0/build 5 iPhone and Android development packages are verified**. iPhone export/native compilation/signature/IPA integrity and Android version/signature/ARM64/16 KB alignment checks passed. Neither new package has been installed or playtested on a phone; the last verified installed iPhone app remains 0.4.0/build 4. See [Android build verification](../Build/Reins-0.5-Android-Checkpoint.md). S07/S50 device and full R2 art acceptance remain open; runtime gameplay and existing tests are unchanged.

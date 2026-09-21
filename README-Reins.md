@@ -27,3 +27,6 @@ Use only one Unity Editor against this project. `Tools/run-reins.sh generate` re
 `Tools/ReinsServerCheck/run.sh build` compiles shared Core and the bounded loopback verifier. `serve` binds 127.0.0.1 only; `smoke` exercises contracts. `fingerprint` deliberately writes the six-source hash; generate a new fixture only for an intentional rules change, never to mask a regression. V1 fixtures/evidence are historical and must remain unchanged.
 
 Build configuration is not an APK/IPA or device acceptance. Native exports, caches, signing material and raw editor logs are excluded from Git. Read [the handoff](Barrel-Rivals-AI-Handoff.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md) and [approved 0.5 plan](Docs/Plan/Reins-Racing-0.5-Implementation.md) before further implementation.
+
+<!-- REINS05_ANDROID -->
+Fresh **0.5.0/build 5 iPhone and Android development packages are verified**. iPhone export/native compilation/signature/IPA integrity and Android version/signature/ARM64/16 KB alignment checks passed. Neither new package has been installed or playtested on a phone; the last verified installed iPhone app remains 0.4.0/build 4. See [the Android checkpoint](Docs/Build/Reins-0.5-Android-Checkpoint.md) for the current build/verification commands and [the iPhone checkpoint](Docs/Build/Reins-0.5-iPhone-Checkpoint.md).
