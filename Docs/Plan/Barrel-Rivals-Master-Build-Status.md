@@ -2,9 +2,9 @@
 
 Current source configures **0.5.0/build 5**, rules **reins-v2**: moving first-person alley, single-release launch, accessible rein/cadence tuning, shared alley walls, Reins-only startup and updated replay/verifier/save contracts. The warm MyStable/Tack/Rider Gear source includes one horse and 20 local cosmetics with real preview/equip behavior.
 
-Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last native/device artifact remains 0.4.0/build 4; no new native build or device install has been verified for this source. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
+Preserved v2 gameplay checkpoint: 135/135 Editor tests, 32/32 Play Mode tests and 78/78 local HTTP checks passed. [Current source evidence and limits](Reins-v2-Alley-Checkpoint.md). Last verified installed phone app remains 0.4.0/build 4; the current mobile update below records the new native build; no new device install is verified. Photographic graphics/animation, sustained device performance and full R2 acceptance remain open. Eight categories and all 53 section IDs remain in scope.
 
-Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Checkpoint.md). Racing, MyStable inspection and six real item thumbnails now share CC0-derived hand anatomy, a fitted rein grip, mirrored winding and a restrained leather finish. Inspection falls from 4,192 triangles/three renderers to 2,537/two; the full racing character increases by 584 triangles to 78,614/26 slots and still exceeds its budget. Fresh tests pass 140/140 Editor and 37/37 Play Mode, zero skipped. New evidence uses `GloveAnatomy-*`; all 515 prior records remain unchanged. Core/input/contracts/verifier and the [seated rider integration](../Art/Reins-Rider-Body-Checkpoint.md) remain intact. No new native build, device or photographic acceptance is claimed. The gloves still need detailed sewn construction, folds and articulation; wider horse/rider/arena and performance work remains.
+Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Checkpoint.md). Racing, MyStable inspection and six real item thumbnails now share CC0-derived hand anatomy, a fitted rein grip, mirrored winding and a restrained leather finish. Inspection falls from 4,192 triangles/three renderers to 2,537/two; the full racing character increases by 584 triangles to 78,614/26 slots and still exceeds its budget. Fresh tests pass 140/140 Editor and 37/37 Play Mode, zero skipped. New evidence uses `GloveAnatomy-*`; all 515 prior records remain unchanged. Core/input/contracts/verifier and the [seated rider integration](../Art/Reins-Rider-Body-Checkpoint.md) remain intact. That art-only checkpoint did not establish native, device or photographic acceptance; the mobile update below records subsequent build verification. The gloves still need detailed sewn construction, folds and articulation; wider horse/rider/arena and performance work remains.
 
 **How to read the list.** “Early code,” “helper” or “prototype” means a starting point exists but the section is not implemented and verified end to end. “Not built” means no implementation of the required system was found in the reviewed game project. All sections have a planning/engineering specification; none is release-ready.
 
@@ -17,7 +17,7 @@ Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Che
 | 3 | Game State Machine | Ready/Approach/Racing/Drive/finish/cancel/timeout v2 states tested; historical Classic state preserved; online reconnect pending |
 | 4 | Data Architecture (ScriptableObjects) | Data classes exist; authored assets/validation pending |
 | 5 | Save/Load & Cloud Sync | Classic/v1 race files preserved; isolated reins-v2 bests/replays and independent cosmetic-v2 persistence tested; phone restart/cloud sync pending |
-| 6 | iOS & Android Platform Layer | 0.4.0 iOS build/sign/install/version and Android APK signature/ARM64/16 KB checks verified; user played Reins and prefers it; measured iPhone qualification and Android handset test pending |
+| 6 | iOS & Android Platform Layer | 0.5 iOS export/native compilation/signature/IPA verified; install and measured phone play pending; last verified phone install remains 0.4.0. Android 0.4 APK checks are historical; fresh Android 0.5 and handset qualification pending |
 | 7 | Performance Budget & Quality Tiers | Targets proposed; device performance unmeasured |
 
 **CATEGORY B: HORSE SYSTEM (Sections 8–15)**
@@ -129,3 +129,7 @@ Latest art-only update: [connected glove anatomy](../Art/Reins-Glove-Anatomy-Che
 - [Technical review and evidence](Barrel-Rivals-Technical-Review.md)
 
 This snapshot incorporates historical M0/M1/0.4, current stable/graphics source and the implemented v2 alley rules/input boundary. Source checks do not replace native, device or photographic-quality acceptance. Multiplayer, trusted progression/economy and release qualification remain future work.
+
+<!-- REINS05_MOBILE_START -->
+Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. See [the mobile checkpoint](../Build/Reins-0.5-iPhone-Checkpoint.md). This advances S06 build verification; no section or R2 device gate is accepted.
+<!-- REINS05_MOBILE_END -->

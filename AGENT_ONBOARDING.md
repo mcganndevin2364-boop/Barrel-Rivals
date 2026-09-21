@@ -1,6 +1,6 @@
 # Continue Barrel Rivals
 
-Current source: **0.5.0/build 5 configured, rules v2**, Reins-only startup with MyStable. The last native/device app remains **0.4.0/build 4**. Start with [the v2 alley checkpoint](Docs/Plan/Reins-v2-Alley-Checkpoint.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 contract](Docs/Plan/Reins-Racing-0.5-Implementation.md) and [AI handoff](Barrel-Rivals-AI-Handoff.md).
+Current source: **0.5.0/build 5 configured, rules v2**, Reins-only startup with MyStable. The last verified installed phone app remains **0.4.0/build 4**. Start with [the v2 alley checkpoint](Docs/Plan/Reins-v2-Alley-Checkpoint.md), [master status](Docs/Plan/Barrel-Rivals-Master-Build-Status.md), [approved 0.5 contract](Docs/Plan/Reins-Racing-0.5-Implementation.md) and [AI handoff](Barrel-Rivals-AI-Handoff.md).
 
 The four-second moving first-person alley, one graded release, forgiving rein/cadence controls, deterministic rails and v2 replay/verifier/storage are source-tested. MyStable/Tack/Rider Gear follows the supplied warm barn, saddle-grid and glove reference with one horse and 20 real local cosmetics. The reference is a quality target; photographic art, natural full-rider animation, progression and device acceptance are unfinished.
 
@@ -8,4 +8,8 @@ Preserve all eight categories and 53 sections in the [engineering playbook](Docs
 
 Read the [current connected glove checkpoint](Docs/Art/Reins-Glove-Anatomy-Checkpoint.md) and [seated rider checkpoint](Docs/Art/Reins-Rider-Body-Checkpoint.md). New hands have one connected palm/finger/cuff surface, mirrored winding and a measured rein aperture, while existing six-style equip/save/ghost behavior remains intact. Fresh checks pass 140 Editor / 37 Play Mode; all 515 earlier evidence records remain unchanged. The inspection model is smaller, but the active racing character is 78,614 triangles/26 slots and still exceeds its 60k/six targets. Preserve CC0 provenance, Generic rider import, neutral-rig resets, saddle/wrist/boot alignment, head shadow visibility, private ghost masks and Core authority. Photographic character quality, natural movement and native/device qualification remain unresolved.
 
-Next work: refine and inspect the actual moving horse/rider/alley benchmark, build fresh 0.5 native artifacts, then qualify release/beep alignment, controls, lifecycle and 20-minute device performance. Do not call R2 complete or expand content before those gates. M1N shared continuous-input authority proof follows R2; multiplayer, trusted economy/progression, cloud persistence and store release remain planned.
+Next work: refine and inspect the actual moving horse/rider/alley benchmark, preserve the verified signed 0.5 iPhone artifact, build Android, then qualify release/beep alignment, controls, lifecycle and 20-minute device performance. Do not call R2 complete or expand content before those gates. M1N shared continuous-input authority proof follows R2; multiplayer, trusted economy/progression, cloud persistence and store release remain planned.
+
+<!-- REINS05_MOBILE_START -->
+Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. Read the [mobile checkpoint](Docs/Build/Reins-0.5-iPhone-Checkpoint.md) and [phone review](Docs/Build/Reins-0.5-Phone-Review.md).
+<!-- REINS05_MOBILE_END -->

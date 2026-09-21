@@ -25,3 +25,7 @@ Latest art-only source: [connected glove anatomy](Docs/Art/Reins-Glove-Anatomy-C
 Read [AGENTS.md](AGENTS.md) and the relevant engineering card before implementation. Preserve Unity metadata and the pinned package lockfile. Generated M0 assets have explicit ownership; future hand-authored production art belongs outside the generated directory.
 
 Earlier documents are retained in [Docs/Archive/Before-M0](Docs/Archive/Before-M0). Their old completion grades, Unity 2022.3 baseline, course dimensions and alternate section numbering do not describe this branch’s current implementation.
+
+<!-- REINS05_MOBILE_START -->
+Fresh 0.5 iOS export, native compilation, signing and IPA integrity are verified; installation/play/performance remain pending. The last verified installed phone app remains 0.4.0/build 4. See the [mobile checkpoint](Docs/Build/Reins-0.5-iPhone-Checkpoint.md).
+<!-- REINS05_MOBILE_END -->

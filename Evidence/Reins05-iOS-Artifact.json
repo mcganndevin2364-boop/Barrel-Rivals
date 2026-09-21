@@ -1,0 +1,45 @@
+{
+  "sourceCommit": "43741bd13cf58b6d022d4a37e9b64a88ef8f8820",
+  "version": "0.5.0",
+  "buildNumber": "5",
+  "bundleIdentifier": "com.barrelrivals.foundation",
+  "xcodeVersion": "15.2 (15C500b)",
+  "configuration": "ReleaseForRunning",
+  "stage": "signed-artifact-verified",
+  "nativeCompilationVerified": true,
+  "nativeBuildExitCode": 0,
+  "nativeBuildStartedAt": "2026-09-21T02:20:03.183124+00:00",
+  "nativeBuildEndedAt": "2026-09-21T02:34:00.789649+00:00",
+  "signedAppProduced": true,
+  "signatureValid": true,
+  "developmentProfile": true,
+  "profileIncludesPreviouslyPairedUserPhone": true,
+  "profileExpiresAt": "2026-09-26T02:40:02+00:00",
+  "projectSha256": "ccc6d73b53b1cd88a4767ed6c6c60039c9b694ac0a04230ce1af4fb192d78dca",
+  "binaries": {
+    "app": {
+      "architecture": "arm64",
+      "bytes": 86976,
+      "sha256": "453929b967ae6ea8478aa28055ae54a19c6ada025ccb4b9d8ed9b0dbd04c70c5"
+    },
+    "unityFramework": {
+      "architecture": "arm64",
+      "bytes": 128025040,
+      "sha256": "7415485866bc451d29ee2981d618703eb3f54318e365ab8b7f3b8f0491218e53"
+    }
+  },
+  "signedAppBytes": 215440447,
+  "ipa": {
+    "filename": "BarrelRivals-iPhone-Reins-0.5.0.ipa",
+    "bytes": 85570317,
+    "sha256": "dffa978be0603536852bac3515a010407a549662c61078dbac8cd5e024795e25",
+    "archiveIntegrityPassed": true,
+    "allArchivedFilesMatchSignedApp": true
+  },
+  "iPhoneInstallationVerified": false,
+  "physicalLaunchVerified": false,
+  "devicePerformanceMeasured": false,
+  "referenceQualityAccepted": false,
+  "updatedAt": "2026-09-21T02:34:58.440989+00:00",
+  "limitation": "Personal-device development artifact, not a store submission. Fresh 0.5 installation, physical play, audio/input and sustained performance remain unverified."
+}

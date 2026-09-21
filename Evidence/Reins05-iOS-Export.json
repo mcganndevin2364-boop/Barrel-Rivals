@@ -1,0 +1,233 @@
+{
+  "artifactType": "unsigned Xcode source project",
+  "path": "Builds/iOS/BarrelRivals-Practice",
+  "projectSha256": "ccc6d73b53b1cd88a4767ed6c6c60039c9b694ac0a04230ce1af4fb192d78dca",
+  "version": "0.5.0",
+  "buildNumber": "5",
+  "targets": [
+    "UnityFramework",
+    "Unity-iPhone Tests",
+    "GameAssembly",
+    "Unity-iPhone"
+  ],
+  "configurations": [
+    {
+      "owner": "Project",
+      "name": "Release",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "ARCHS": "arm64"
+      }
+    },
+    {
+      "owner": "Project",
+      "name": "ReleaseForProfiling",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "ARCHS": "arm64"
+      }
+    },
+    {
+      "owner": "Project",
+      "name": "ReleaseForRunning",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "ARCHS": "arm64"
+      }
+    },
+    {
+      "owner": "Project",
+      "name": "Debug",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "ARCHS": "arm64"
+      }
+    },
+    {
+      "owner": "UnityFramework",
+      "name": "Release",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.framework",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "UnityFramework",
+      "name": "ReleaseForProfiling",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.framework",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "UnityFramework",
+      "name": "ReleaseForRunning",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.framework",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "UnityFramework",
+      "name": "Debug",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.framework",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone Tests",
+      "name": "Release",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.${PRODUCT_NAME:rfc1034identifier}",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone Tests",
+      "name": "ReleaseForProfiling",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.${PRODUCT_NAME:rfc1034identifier}",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone Tests",
+      "name": "ReleaseForRunning",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.${PRODUCT_NAME:rfc1034identifier}",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone Tests",
+      "name": "Debug",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.unity3d.${PRODUCT_NAME:rfc1034identifier}",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "GameAssembly",
+      "name": "Release",
+      "settings": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "GameAssembly",
+      "name": "ReleaseForProfiling",
+      "settings": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "GameAssembly",
+      "name": "ReleaseForRunning",
+      "settings": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "GameAssembly",
+      "name": "Debug",
+      "settings": {
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "CODE_SIGN_STYLE": "Automatic",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone",
+      "name": "Release",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.barrelrivals.foundation",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone",
+      "name": "ReleaseForProfiling",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.barrelrivals.foundation",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone",
+      "name": "ReleaseForRunning",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.barrelrivals.foundation",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    },
+    {
+      "owner": "Unity-iPhone",
+      "name": "Debug",
+      "settings": {
+        "SDKROOT": "iphoneos",
+        "IPHONEOS_DEPLOYMENT_TARGET": "15.0",
+        "PRODUCT_BUNDLE_IDENTIFIER": "com.barrelrivals.foundation",
+        "TARGETED_DEVICE_FAMILY": "1,2"
+      }
+    }
+  ],
+  "il2cppProjectPresent": true,
+  "unityExportVerified": true,
+  "nativeCompilationVerified": false,
+  "signedAppProduced": false,
+  "iPhoneInstalledOrRun": false,
+  "limitation": "Requires Xcode native compilation, Apple signing and a physical-device run.",
+  "sourceCommit": "43741bd13cf58b6d022d4a37e9b64a88ef8f8820",
+  "unityVersion": "6000.6.0f1",
+  "unityBuildResult": "Succeeded",
+  "unityBuildErrors": 0,
+  "playerScenes": [
+    "Assets/_Project/Generated/ReinsLab/Arena_ReinsLab.unity",
+    "Assets/_Project/Generated/ReinsLab/MyStable.unity"
+  ],
+  "rulesVersion": "reins-v2",
+  "buildSettingsOverride": "ExportIOS explicitly selects Metal rather than Automatic; source method is committed, serialized ProjectSettings changed only m_Automatic 1 -> 0.",
+  "serializedProjectSettingsSha256": "ee711e27c41e2b1e3ea513668a98a7ebec08aaf217bee3fe19231f544e7a2526",
+  "nativeExportOutsideDocuments": true,
+  "relocation": "Unity replaced the initial export symlink. After Unity exited successfully, the new export was relocated intact to a task-owned temporary folder and its PBX hash verified; the default export path now aliases it.",
+  "runtimePreflight": {
+    "canonicalRuntimeSourceHeaderFilesMatched": 3485,
+    "numberedSourceCopiesQuarantined": 0,
+    "differingOrMissingCanonicalFiles": 0,
+    "sourceOrInstalledEngineModified": false
+  },
+  "updatedAt": "2026-09-21T02:20:04.284813+00:00"
+}
