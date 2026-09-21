@@ -1,0 +1,14 @@
+{
+  "sourceBlendSha256": "8e8c30a25f9946a889b07ff6b33f364764e4cd961e64f810f9a9f7ef790e1222",
+  "bodyVertexCount": 19502,
+  "eyeVertices": 1444,
+  "eyeTriangles": 2880,
+  "bodyGeometryRigAndAnimationChanged": false,
+  "materials": [
+    "OriginalBayCoat",
+    "OriginalHorseEyes"
+  ],
+  "bitmapTextures": 0,
+  "scope": "Offline original surface study; procedural Blender shaders require an explicit Unity material conversion before adoption.",
+  "fbxSha256": "c1af98c565623e1c5ef3a11b5b9f513da3cb9ccefb67df91ce4d03d1347b45d3"
+}

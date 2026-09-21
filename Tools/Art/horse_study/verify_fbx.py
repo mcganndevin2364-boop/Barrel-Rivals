@@ -1,6 +1,6 @@
 # Authoring notes
 # FBX import normally adds one Blender frame. Explicit anim_offset=0 below
-# aligns the exported 1..33 range; never mask a mismatch by relaxing tolerances.
+# aligns the exported cycle range; never mask a mismatch by relaxing tolerances.
 # Both directions cover all distinct UV corners at a potentially split seam.
 # Independent best rigid transform, rather than assuming the authored quaternion.
 
@@ -15,7 +15,9 @@ from pathlib import Path
 from mathutils import Vector
 from mathutils.kdtree import KDTree
 folder = Path(sys.argv[sys.argv.index('--') + 1])
-bpy.ops.wm.open_mainfile(filepath=str(folder / 'HeroHorse-WalkStudy.blend'), use_scripts=False)
+args = sys.argv[sys.argv.index('--') + 1:]
+stem = args[1] if len(args) > 1 else 'HeroHorse-WalkStudy'
+bpy.ops.wm.open_mainfile(filepath=str(folder / (stem + '.blend')), use_scripts=False)
 scene = bpy.context.scene
 scene.render.fps = 30
 arm = bpy.data.objects['HeroHorseRig']
@@ -79,9 +81,9 @@ for frame in frames:
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
 scene.render.fps = 30
-bpy.ops.import_scene.fbx(filepath=str(folder / 'HeroHorse-WalkStudy.fbx'), use_anim=True, anim_offset=0)
+bpy.ops.import_scene.fbx(filepath=str(folder / (stem + '.fbx')), use_anim=True, anim_offset=0)
 arm = next((o for o in bpy.data.objects if o.type == 'ARMATURE'))
-body = next((o for o in bpy.data.objects if o.type == 'MESH'))
+body = bpy.data.objects['HeroHorseBody']
 assert arm.animation_data and arm.animation_data.action
 print('IMPORTED_ACTION', arm.animation_data.action.name, list(arm.animation_data.action.frame_range))
 imported_bones = {b.name: b.parent.name if b.parent else None for b in arm.data.bones}
@@ -189,6 +191,6 @@ for (name, points) in foot_rows.items():
             positions.append(point['anchorY'] - point['restAnchorY'] + speed * duration * cycle)
     stance_residual[name] = max(positions) - min(positions)
 assert max(stance_residual.values()) < 0.0002, stance_residual
-report = {'stanceResidualTravelM': stance_residual, 'scope': 'Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.', 'fbxSha256': hashlib.sha256((folder / 'HeroHorse-WalkStudy.fbx').read_bytes()).hexdigest(), 'blender': bpy.app.version_string, 'sampleCount': len(frames), 'vertices': len(imported), 'triangles': original_triangles, 'bones': len(imported_bones), 'maximumNeutralPositionErrorM': max(distances), 'vertexMapping': 'bijective nearest rest-position map; original order not assumed', 'maximumWeightDifference': max_weight_error, 'maximumUvCornerDifference': max_uv_error, 'maximumCornerNormalVectorDifference': max_normal_error, 'maximumInfluences': max((len(w) for w in iw)), 'minimumWeightSum': min((sum(w.values()) for w in iw)), 'maximumSkinnedPositionErrorM': maximum_error, 'minimumAnimatedHeightM': minimum_height, 'maximumRigidShapeErrorM': rigidity_error, 'maximumFlatNormalVectorError': flat_normal_error, 'maximumHoofPitchDegrees': maximum_pitch, 'maximumBoneScaleError': bone_scale_error, 'loopEndpointErrorM': loop_error, 'objectRootStationary': True, 'frames': byframe, 'feet': foot_rows}
+report = {'stanceResidualTravelM': stance_residual, 'scope': 'Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.', 'fbxSha256': hashlib.sha256((folder / (stem + '.fbx')).read_bytes()).hexdigest(), 'blender': bpy.app.version_string, 'sampleCount': len(frames), 'vertices': len(imported), 'triangles': original_triangles, 'bones': len(imported_bones), 'maximumNeutralPositionErrorM': max(distances), 'vertexMapping': 'bijective nearest rest-position map; original order not assumed', 'maximumWeightDifference': max_weight_error, 'maximumUvCornerDifference': max_uv_error, 'maximumCornerNormalVectorDifference': max_normal_error, 'maximumInfluences': max((len(w) for w in iw)), 'minimumWeightSum': min((sum(w.values()) for w in iw)), 'maximumSkinnedPositionErrorM': maximum_error, 'minimumAnimatedHeightM': minimum_height, 'maximumRigidShapeErrorM': rigidity_error, 'maximumFlatNormalVectorError': flat_normal_error, 'maximumHoofPitchDegrees': maximum_pitch, 'maximumBoneScaleError': bone_scale_error, 'loopEndpointErrorM': loop_error, 'objectRootStationary': True, 'frames': byframe, 'feet': foot_rows}
 (folder / 'roundtrip-verification.json').write_text(json.dumps(report, indent=2) + '\n')
 print('ROUNDTRIP_VERIFIED', json.dumps({k: v for (k, v) in report.items() if k not in ('frames', 'feet')}))

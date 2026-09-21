@@ -1,0 +1,110 @@
+{
+  "scope": "Offline Cycles CPU surface review. Not gameplay or measured device frame rate.",
+  "blendSha256": "63be0de234eecbd5591a01ef258a9118249855906b00256b42a7f6d8d73f6d1b",
+  "stills": {
+    "samples": 20,
+    "size": [
+      900,
+      900
+    ],
+    "views": [
+      "head",
+      "side",
+      "body",
+      "head-neutral"
+    ]
+  },
+  "motion": {
+    "samplesPerFrame": 8,
+    "size": [
+      800,
+      600
+    ],
+    "framesPerCycle": 28,
+    "views": [
+      "quarter",
+      "rider"
+    ],
+    "cyclesRepeatedPerView": 4,
+    "fps": 30,
+    "frames": 224,
+    "audio": false,
+    "floor": "static diagnostic plane",
+    "nativeDecode": {
+      "audioTracks": 0,
+      "decoder": "macOS AVFoundation",
+      "durationSeconds": 7.467,
+      "fps": 30,
+      "framesDecoded": [
+        0,
+        111,
+        112,
+        223
+      ],
+      "height": 600,
+      "width": 800
+    }
+  },
+  "gpuAttempt": {
+    "completed": false,
+    "diagnosis": "Process sample showed EEVEE waiting in Metal shadow-buffer readback; explicitly terminated before the CPU replacement started."
+  },
+  "frameHashes": {
+    "frames-quarter/001.png": "0ce03b46961fb09a1fb6630557900b9b21dfb302c8553789f609f9695d285d33",
+    "frames-quarter/002.png": "a5a98a2e49d95750d1b813fd8ee02dd0ecf0fbc1b5cbf7cab11a4d544bc298fe",
+    "frames-quarter/003.png": "dd2f1b530d2c949825d939397a9d7855980f37ded35263edc3bc05df99b7ffb4",
+    "frames-quarter/004.png": "bbdf71cf8b2954b03c9111f630f51f20c3d1264beaadf2d6b54daa04876f5808",
+    "frames-quarter/005.png": "8f3a4d2b8a45e567262605c528c0f87bd869b86525fb7a067c2f7ca6fac02b8d",
+    "frames-quarter/006.png": "79e37513d19047ed5f1b74b41ecc966233a3f69d6a1ba1cbfb5bb3043432b771",
+    "frames-quarter/007.png": "c8f0a296e121757cc0e34153f41f89ff5666e7cb699786b8ace9a10a3cb20bf0",
+    "frames-quarter/008.png": "b90cf99154b96cbac909860ad2ef2ffec6d69af2f28716e8eb153f5018eadb41",
+    "frames-quarter/009.png": "cc595d6cf88721d3f59e3323101136cd4d6db099361e3404c0f9853bf3772f81",
+    "frames-quarter/010.png": "ec0d6461366b8b336cb117776fdf4edeab88d133c4fd18a5487c08f0e87fbf32",
+    "frames-quarter/011.png": "e966ba5c089e657ac9ca14ce7489713a0b5ddf7dac94b5f58adf0271ac655a00",
+    "frames-quarter/012.png": "41d915ef75c1bd359c85429feab3c64ac34644d81fc0686e38f69e1584072be9",
+    "frames-quarter/013.png": "d6b9ad3d45e11bb254d6b9125b5d9a44dfb96824b5b323290d03263b14c1a7eb",
+    "frames-quarter/014.png": "a42841f999a22f7001792e373554de0c6f2754a2cc9fbbe8d7d1693508b733a0",
+    "frames-quarter/015.png": "5ba6bd2c1e050efcd576fed1010bb87173e9a6b9f60be79239e260347c2d3a84",
+    "frames-quarter/016.png": "9c9570c273e038235910019189f02eddfc3bbd77a5fcc4986e8f9ce1f4c8b0bd",
+    "frames-quarter/017.png": "e8b640ab601823f9707a41c3516e0c76379321a8d62867ec6a9c1c00285931bb",
+    "frames-quarter/018.png": "1a7d514db62ec31b443f11989372898034f992d50c525f22e9d98643d6c3fda9",
+    "frames-quarter/019.png": "a6fb33e0ee88962dba658768695a9674157ec3a8190152df174e74fa744b135f",
+    "frames-quarter/020.png": "dd755acbba4b9be24bf5c36286d5a7bf1aaf647fdee4b753875a2389977b358e",
+    "frames-quarter/021.png": "d425f6451b6f0c9341b8eea92801e0930ae07b300c7a079464aec13bd3df4de9",
+    "frames-quarter/022.png": "a586fa1fdc0affb66ebd10e3448f690e879e6b3091f5f9e3f181309b859b8154",
+    "frames-quarter/023.png": "859170701d385813f22841802bad644858a6c6e1131c270be1311457cbd0168b",
+    "frames-quarter/024.png": "27deb9a5224a4a09440c8bce8fa884683eb812d7124ce079d1342b6aa828a1e3",
+    "frames-quarter/025.png": "41a8df4bea2a23fa00107dabb75f96c3584c0e6ecc89c9ecd7540e14c2cc8ad0",
+    "frames-quarter/026.png": "2d3d989ba4f54b15914459a1f062ebd24d87f2562adf38a0ff0d540360f0292c",
+    "frames-quarter/027.png": "a7ff2c4c7e2a11eda11d51eddf2cd680615b45a826441afb3ccc52bca14db330",
+    "frames-quarter/028.png": "7473058aeb0516b5001d2dbd175f6e26d1f9612ed8c4b951049a0e09d0dbfd10",
+    "frames-rider/001.png": "ef40f5d06ac6af3f232b0008c8b5293e50db2d0e8956c3c1a93fd183eefb187d",
+    "frames-rider/002.png": "a78282eccb57d80cb83fb9fddf6ea15fb57d7e2be45612715a73465452777aea",
+    "frames-rider/003.png": "7178009c03f9c11d633c84aed83ad192fe75681f59f1be94b175714aa1d0f082",
+    "frames-rider/004.png": "c45f3f0bcc20376c6e616c22bd9d6c312f13391e64016e19f3b1a63eddb24001",
+    "frames-rider/005.png": "f48367772de1ede97df65b7ff5aab4f914bf8d55c4e606b106b513ae318f273e",
+    "frames-rider/006.png": "6cd6f886022f93c872aef3d7f9fe92f1af8dd089bdc7a61ffeafcc2a91d0b7f3",
+    "frames-rider/007.png": "af6276660857d3fe9d738ac3adfa9b66b4a6a2280e9d6784ac6f53ee3ce27fe9",
+    "frames-rider/008.png": "20c0fd0cf951a7414f6cd4390b35486ea8d94cd0e718dcec4f2e1051ee1d719f",
+    "frames-rider/009.png": "2a5460d2723d81dcf0b09959fbcce541dd2b27bb5b5a579e8e21a0900f2086c8",
+    "frames-rider/010.png": "e80d5eccef4724115b381393d412ecfe838d9801a0ba24bb0b70d45f50fd0749",
+    "frames-rider/011.png": "c1b07c736645cbb7aaea79928456ecfc3abc434087672a15aca741d43a653083",
+    "frames-rider/012.png": "7cdc368787b0db1eb26b8f61e4c9d453982f3e8fda349c04ae331b8ad8dea1ec",
+    "frames-rider/013.png": "88196cabd471e3a8d346ff36f6133f3c837e07cbb4891b672de484b8fb8facd1",
+    "frames-rider/014.png": "a251fdbb84fefd39ea4791e1e98ee52c8eda14761f3a3f51c888006a4a12ed1b",
+    "frames-rider/015.png": "6edd9dc79f28e90a459c3cc12e02808633f35581540400f61ae1a14b218792e2",
+    "frames-rider/016.png": "707071fbaef4d49c7a6beef9167d71fe3ac7bc363c5cb88fe1c7cde961cd5ffc",
+    "frames-rider/017.png": "9c925178108e500674b94775bb3b4d45f314b78b9828e519a9c6a6e7960fcb6e",
+    "frames-rider/018.png": "6abc29a75dac608e9315e4640e89262680bc8233083780549f9d30ba8223737f",
+    "frames-rider/019.png": "f78458201d699298c5f9e3dcb1e055fde90dca01a8a0aebc2f616e825c0bdfb8",
+    "frames-rider/020.png": "733895712cb4d413ef9ef95129b3b1d8c8bdea1df2842842c2088d9140907ea6",
+    "frames-rider/021.png": "5f39aac20807b7c3f34d653b25481c8e4810114e387d07919b3f702d022b77e2",
+    "frames-rider/022.png": "fd72c5451034f0ac44bed9912b37b30f98fcbb122d49bc17e0a9d625eaf3406b",
+    "frames-rider/023.png": "fd7646850126ff9df53bd010125f7761b3b871aa9549a4e45cd7ecd242fef4af",
+    "frames-rider/024.png": "f4f0ac30cbfc7bd92e8ffc964f9a55d2d6ad551853d9668707ebe80b9d42ff72",
+    "frames-rider/025.png": "b222a85ec92e9830f03c6817aa1ba99e1204c3432b0f3c60d89c2f12d276a6d5",
+    "frames-rider/026.png": "1a94ec25f3b504b3282420519be23222622ef1abf8102e4052eee6562728d67c",
+    "frames-rider/027.png": "389cdbeab11af21296b96683a1ebc63e109ab0d8f5a2f9059c0e752eb2e413d7",
+    "frames-rider/028.png": "d01361200441d08b76d513414e3c6abeb6827b751fabf42958d15d6bb3a59eaf"
+  }
+}

@@ -22,18 +22,21 @@
     "Four reverse subdivision steps, gentle collapse to 39000 triangles, rebuilt smooth outward normals; preserved existing UVs.",
     "Original fitted 34-bone skeleton, heat weights, continuous limb/trunk/coronet masks, four-influence sparsification and rigid soles.",
     "Original in-place 32-frame walk at 30fps, 1.5m/s reference speed; independent pastern/hoof orientation, rotation IK, no stretch.",
-    "Motion refinement: twenty connected-edge diffusion passes on upper-body skin weights, 28-frame walk, 75mm foot lift, 87mm mean root lowering, measured toe-pivot roll, folded swing and restrained torso/head weight-transfer accents. No mesh/UV/rig hierarchy changes."
+    "Motion refinement: twenty connected-edge diffusion passes on upper-body skin weights, 28-frame walk, 75mm foot lift, 87mm mean root lowering, measured toe-pivot roll, folded swing and restrained torso/head weight-transfer accents. No mesh/UV/rig hierarchy changes.",
+    "Original fitted closed eye globes with dark brown iris/horizontal pupil colors and single Head skin; original bay coat vertex reflectance, bare-surface mask and procedural grain/roughness. Body geometry, UVs, normals, weights, rig and walk unchanged. No bitmap asset added."
   ],
   "newAuthoring": "Original Barrel Rivals project work, September 20\u201321, 2026. Derivatives retain CC-BY-3.0; carry b2przemo credit, source/license link and modification notice.",
   "blender": "4.5.13 LTS (daeeeca98fb0), Intel; factory startup and embedded auto-execution disabled",
   "acceptance": "Offline art study only; not used in Unity scenes, mobile packages or equipped stable horse.",
-  "recordedAt": "2026-09-21T04:20:01+00:00",
+  "recordedAt": "2026-09-21T04:47:15+00:00",
   "files": {
     "Candidate/HeroHorse-RigStudy.fbx": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
     "Candidate/HeroHorse-WalkStudy.blend": "8e8c30a25f9946a889b07ff6b33f364764e4cd961e64f810f9a9f7ef790e1222",
     "Candidate/HeroHorse-WalkStudy.fbx": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443",
     "Source/BlendSwap-13903-license.html": "058281332b91f8fba71850d077392a2b3e886e024560e5941dabeabc03495b91",
-    "Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89"
+    "Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89",
+    "Candidate/HeroHorse-SurfaceStudy.blend": "63be0de234eecbd5591a01ef258a9118249855906b00256b42a7f6d8d73f6d1b",
+    "Candidate/HeroHorse-SurfaceStudy.fbx": "c1af98c565623e1c5ef3a11b5b9f513da3cb9ccefb67df91ce4d03d1347b45d3"
   },
   "reviewMovie": {
     "path": "Evidence/HorseMotion-Walk.mp4",
@@ -42,5 +45,16 @@
     "canonicalDataSha256": "581316aada7bfac63072bb5ce92b91a3f65a173a6f0b35a32d75922b55e5711c",
     "scope": "Four cycles each from side, quarter and rider views with a scrolling ground reference. Offline30fps, not measured gameplay performance."
   },
-  "previousCheckpoint": "55a68fbff16caecc958bcb22acd6d6e0fef09ac5"
+  "previousCheckpoint": "c930c2a7aa4476cf74f33770d3a1439a7deab1f2",
+  "surfaceStudy": {
+    "bodyTriangles": 39000,
+    "eyeTriangles": 2880,
+    "totalTriangles": 41880,
+    "materialSlots": 2,
+    "bitmapTextures": 0,
+    "unityIntegrated": false,
+    "shaderGraphsTransferThroughFbx": false,
+    "reviewMovie": "Evidence/HorseSurface-Motion.mp4",
+    "canonicalDataSha256": "628ca8cf0c3129229b53fb892f4dbce520ae43908aee9678f55db55199dc32dd"
+  }
 }

@@ -1,0 +1,31 @@
+{
+  "eyeComponents": 2,
+  "closedOutwardNondegenerateGlobes": true,
+  "sampleCount": 113,
+  "maximumHeadAttachmentErrorM": 3.372570961045109e-07,
+  "loopEndpointErrorM": 0.0,
+  "eyeVertices": 1444,
+  "eyeTriangles": 2880,
+  "bodyTriangles": 39000,
+  "totalTriangles": 41880,
+  "materialSlots": 2,
+  "bodyColorMin": [
+    0.019999999552965164,
+    0.013000000268220901,
+    0.009320000186562538
+  ],
+  "bodyColorMax": [
+    0.2336415797472,
+    0.08055128157138824,
+    0.027580197900533676
+  ],
+  "scope": "Offline topology, finite reflectance and head attachment checks. Not a physiological, Unity material, photographic or phone performance acceptance.",
+  "fbx": {
+    "linearVertexColorMaximumError": 0,
+    "maximumNeutralPositionErrorM": 4.3039599972871656e-07,
+    "eyeMaximumAnimatedPositionErrorM": 1.288153458484182e-06,
+    "eyeHeadWeightsPreserved": true,
+    "sampleCount": 113,
+    "shaderGraphsTransferred": false
+  }
+}

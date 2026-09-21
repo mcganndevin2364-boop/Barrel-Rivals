@@ -17,14 +17,16 @@ let track = videos[0]
 let size = try await track.load(.naturalSize)
 let rate = try await track.load(.nominalFrameRate)
 let duration = try await asset.load(.duration)
-precondition(size.width == 960 && size.height == 720)
+precondition(size.width == CGFloat(spec["width"] as! Int) && size.height == CGFloat(spec["height"] as! Int))
 precondition(abs(duration.seconds - Double(frameCount) / Double(fps)) < 0.001)
 precondition(abs(rate - Float(fps)) < 0.01)
 let generator = AVAssetImageGenerator(asset: asset)
 generator.requestedTimeToleranceBefore = .zero
 generator.requestedTimeToleranceAfter = .zero
-let indices = [0, frameCount / 3 - 1, frameCount / 3,
-               frameCount * 2 / 3 - 1, frameCount * 2 / 3, frameCount - 1]
+let views = spec["views"] as! [String]
+precondition(!views.isEmpty && frameCount % views.count == 0)
+let length = frameCount / views.count
+let indices = views.indices.flatMap { [$0 * length, ($0 + 1) * length - 1] }
 for index in indices {
     let frame = try await generator.image(at: CMTime(value: Int64(index), timescale: Int32(fps)))
     precondition(abs(frame.actualTime.seconds - Double(index) / Double(fps)) < 0.0001)

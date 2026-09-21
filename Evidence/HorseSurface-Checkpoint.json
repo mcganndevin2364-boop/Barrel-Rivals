@@ -1,0 +1,129 @@
+{
+  "recordedAt": "2026-09-21T05:00:55+00:00",
+  "sourceBaseline": "c930c2a7aa4476cf74f33770d3a1439a7deab1f2",
+  "scope": "Offline eye/coat study, not a Unity or mobile replacement",
+  "priorEvidenceUnchanged": 581,
+  "photographicAccepted": false,
+  "r2Accepted": false,
+  "unityOrNativeRebuilt": false,
+  "phoneInstalled": false,
+  "roundtrip": {
+    "stanceResidualTravelM": {
+      "ForeHoof.L": 3.054440021521554e-05,
+      "ForeHoof.R": 3.1137466430575245e-05,
+      "HindHoof.L": 1.161098480217948e-05,
+      "HindHoof.R": 1.1020898818880909e-05
+    },
+    "scope": "Independent FBX roundtrip, including half-step times between authored keys. Offline geometry proof, not Unity, biomechanical or device acceptance.",
+    "fbxSha256": "c1af98c565623e1c5ef3a11b5b9f513da3cb9ccefb67df91ce4d03d1347b45d3",
+    "blender": "4.5.13 LTS",
+    "sampleCount": 225,
+    "vertices": 19502,
+    "triangles": 39000,
+    "bones": 34,
+    "maximumNeutralPositionErrorM": 5.962326667940943e-07,
+    "vertexMapping": "bijective nearest rest-position map; original order not assumed",
+    "maximumWeightDifference": 0,
+    "maximumUvCornerDifference": 0,
+    "maximumCornerNormalVectorDifference": 2.7314279645418166e-07,
+    "maximumInfluences": 4,
+    "minimumWeightSum": 0.9999998733401299,
+    "maximumSkinnedPositionErrorM": 1.7737389725880348e-06,
+    "minimumAnimatedHeightM": 0.003906525205820799,
+    "maximumRigidShapeErrorM": 1.4318302419269457e-06,
+    "maximumFlatNormalVectorError": 1.4068039811873622e-06,
+    "maximumHoofPitchDegrees": {
+      "ForeHoof.L": 17.992302182152052,
+      "ForeHoof.R": 17.9923132381987,
+      "HindHoof.L": 17.9923132381987,
+      "HindHoof.R": 17.99229112609883
+    },
+    "maximumBoneScaleError": 7.748603820800781e-07,
+    "loopEndpointErrorM": 0.0,
+    "objectRootStationary": true
+  },
+  "surface": {
+    "eyeComponents": 2,
+    "closedOutwardNondegenerateGlobes": true,
+    "sampleCount": 113,
+    "maximumHeadAttachmentErrorM": 3.372570961045109e-07,
+    "loopEndpointErrorM": 0.0,
+    "eyeVertices": 1444,
+    "eyeTriangles": 2880,
+    "bodyTriangles": 39000,
+    "totalTriangles": 41880,
+    "materialSlots": 2,
+    "bodyColorMin": [
+      0.019999999552965164,
+      0.013000000268220901,
+      0.009320000186562538
+    ],
+    "bodyColorMax": [
+      0.2336415797472,
+      0.08055128157138824,
+      0.027580197900533676
+    ],
+    "scope": "Offline topology, finite reflectance and head attachment checks. Not a physiological, Unity material, photographic or phone performance acceptance.",
+    "fbx": {
+      "linearVertexColorMaximumError": 0,
+      "maximumNeutralPositionErrorM": 4.3039599972871656e-07,
+      "eyeMaximumAnimatedPositionErrorM": 1.288153458484182e-06,
+      "eyeHeadWeightsPreserved": true,
+      "sampleCount": 113,
+      "shaderGraphsTransferred": false
+    }
+  },
+  "surfaceRebuild": {
+    "surfaceDataAndShaderGraphsIdentical": true,
+    "canonicalDataSha256": "628ca8cf0c3129229b53fb892f4dbce520ae43908aee9678f55db55199dc32dd",
+    "scope": "Neutral body/eye mesh, vertex colors, skin and material assignment; shader node types, authored properties, input defaults and links. Body rig/animation checked separately. Not render or Unity acceptance."
+  },
+  "bodyPreservation": {
+    "geometrySkinRigAndAnimationKeyDataIdentical": true,
+    "canonicalDataSha256": "581316aada7bfac63072bb5ce92b91a3f65a173a6f0b35a32d75922b55e5711c",
+    "scope": "Canonical neutral vertex/topology/UV/corner-normal data, named weights, rest hierarchy/matrices, linear animation keys, armature skinning mode and object matrices; excludes file serialization metadata."
+  },
+  "video": {
+    "audioTracks": 0,
+    "decoder": "macOS AVFoundation",
+    "durationSeconds": 7.467,
+    "fps": 30,
+    "framesDecoded": [
+      0,
+      111,
+      112,
+      223
+    ],
+    "height": 600,
+    "width": 800
+  },
+  "currentCharacterCountsUnchanged": true,
+  "assetHashes": {
+    "ArtSource/HorseStudy/PROVENANCE.json": "e22ffa4d4aacd788dd2a59c21a4faabb360fb5d1d454260f5ca9b6cb3e20925a",
+    "ArtSource/HorseStudy/ATTRIBUTION.md": "bc7474debc700d81314477584ea365c5343194fd5df48cd3a05ed601e2936443",
+    "ArtSource/HorseStudy/README.md": "7d64878d577c16be0542cecde1345953fea09a1e6b0d4a54760e1010808ed1f8",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-RigStudy.fbx": "f2935a33c3e4e090a0236bff060957dd969e5d4c0bb01e96f113efc6742652f3",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-WalkStudy.blend": "8e8c30a25f9946a889b07ff6b33f364764e4cd961e64f810f9a9f7ef790e1222",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-WalkStudy.fbx": "a0147a325220dcf1201cab64ebb2153dc950f0f299fc848ffb2e4d90f1511443",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-SurfaceStudy.blend": "63be0de234eecbd5591a01ef258a9118249855906b00256b42a7f6d8d73f6d1b",
+    "ArtSource/HorseStudy/Candidate/HeroHorse-SurfaceStudy.fbx": "c1af98c565623e1c5ef3a11b5b9f513da3cb9ccefb67df91ce4d03d1347b45d3",
+    "ArtSource/HorseStudy/Source/StaticHorse39k.fbx": "3f4cd2e4a77dfa6a340602489037dcc8da7f3a82c441d9fdeb7d2847f4142e89",
+    "ArtSource/HorseStudy/Source/BlendSwap-13903-license.html": "058281332b91f8fba71850d077392a2b3e886e024560e5941dabeabc03495b91"
+  },
+  "toolHashes": {
+    "Tools/Art/horse_study/verify_video.swift": "6399b6c58aa760fce76d57273cf931c661136e29057b93484c3f44ffa557481b",
+    "Tools/Art/horse_study/render_walk.py": "8e2839fdf6e95f9648cd67d472cc4eea13d13a3a8bf1cff00c53f524950b9ad9",
+    "Tools/Art/horse_study/review_poses.py": "e7f73f95c8d485c843f9cd1f25d98927590710b123577a74cfeea61e473a3f4b",
+    "Tools/Art/horse_study/encode_surface.py": "9f74d71db6849a422a82f944d45dd8334747a51ee3a5d001f256f1c674db16bc",
+    "Tools/Art/horse_study/refine_weights.py": "f200b070cc5bf6afafe7e27ccc2df17fdfef8a66f6ca026cce3aa1587168a6ec",
+    "Tools/Art/horse_study/author_surface.py": "55e1701b57fb63730a2772f2df5b9046daf7139a38b149ba5c70b475a91711d8",
+    "Tools/Art/horse_study/compare_rebuild.py": "2817ef87282f0803ad993610802c396092d2a0a120435303406af4c6039a45bd",
+    "Tools/Art/horse_study/compare_surface.py": "69e8074df5020e7770300ef2c2797a3dc81bc08df8bd413e45d34e5f3ee68d45",
+    "Tools/Art/horse_study/verify_surface.py": "c4bc0367a23094a1d9c3ed10017ebc1377889354fbdb00e1b93298d69db89790",
+    "Tools/Art/horse_study/render_surface.py": "a43a26d5d0182a1c14dc5b8c9f56bd92f30d1682fceed0c821f0dd39b45b2ab0",
+    "Tools/Art/horse_study/fit_rig.py": "358517aca81e96a5b56afce31ff0fc39df15e75531c90069843997b0d58d11d5",
+    "Tools/Art/horse_study/verify_fbx.py": "a49f387adadb74206dfe4260efb45340f626d03f07a677a94434a0ebbb1bc64a",
+    "Tools/Art/horse_study/author_walk.py": "6284ea261d29966585a2768d92ebf1cb1de5302bb1171c6bdf743bcc9457e341",
+    "Tools/Art/horse_study/encode_review.py": "132e57a77112b088e1f85d2775dbfd1f79c39e4aa1e1a3342b547fe10d34b5e5"
+  }
+}
